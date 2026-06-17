@@ -1,0 +1,20 @@
+# Web UI
+streamlit>=1.32.0,<2.0.0
+
+# Sarvam AI speech-to-text API
+sarvamai>=0.1.28
+
+# Environment configuration
+python-dotenv>=1.0.0
+
+# Google Gemini API
+google-genai>=1.0.0
+
+# Audio preprocessing (requires ffmpeg installed on the system PATH)
+ffmpeg-python>=0.2.0
+
+# Speaker diarization
+pyannote.audio>=3.3.0
+
+# Audio I/O for diarization and preprocessing pipelines
+soundfile>=0.12.1

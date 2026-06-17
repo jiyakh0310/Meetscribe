@@ -1,0 +1,35 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Streamlit cache
+.streamlit/
+
+# Audio files
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.mp4
+
+# Generated outputs
+outputs/
+temp/
+uploads/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
