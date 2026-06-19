@@ -16,8 +16,9 @@ reportlab>=4.0.0
 # Google Gemini API
 google-genai>=1.0.0
 
-# Audio preprocessing (requires ffmpeg installed on the system PATH)
+# Audio preprocessing
 ffmpeg-python>=0.2.0
+imageio-ffmpeg>=0.5.1
 
 # Speaker diarization
 pyannote.audio>=3.3.0

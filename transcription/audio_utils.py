@@ -19,12 +19,20 @@ class AudioProcessingError(Exception):
     """Raised when audio preprocessing fails."""
 
 
-def _ensure_ffmpeg_available() -> None:
-    if shutil.which("ffmpeg") is None:
-        raise AudioProcessingError(
-            "ffmpeg is not installed or not on PATH. "
-            "Install ffmpeg to convert audio files."
-        )
+def _ffmpeg_command() -> str:
+    try:
+        import imageio_ffmpeg
+
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        system_ffmpeg = shutil.which("ffmpeg")
+        if system_ffmpeg:
+            return system_ffmpeg
+
+    raise AudioProcessingError(
+        "FFmpeg is unavailable. Streamlit Cloud should install it from "
+        "requirements.txt and packages.txt. Reboot the app after deployment."
+    )
 
 
 def _validate_extension(filename: str) -> str:
@@ -81,7 +89,7 @@ def _materialize_source(
 
 
 def _convert_to_wav(input_path: Path) -> Path:
-    _ensure_ffmpeg_available()
+    ffmpeg_cmd = _ffmpeg_command()
 
     output_file = tempfile.NamedTemporaryFile(delete=False, suffix=".wav")
     output_file.close()
@@ -98,7 +106,7 @@ def _convert_to_wav(input_path: Path) -> Path:
             )
             .overwrite_output()
             .run(
-                cmd="ffmpeg",
+                cmd=ffmpeg_cmd,
                 capture_stdout=True,
                 capture_stderr=True,
             )
@@ -116,7 +124,8 @@ def _convert_to_wav(input_path: Path) -> Path:
     except OSError as exc:
         output_path.unlink(missing_ok=True)
         raise AudioProcessingError(
-            "Audio conversion failed. Verify ffmpeg is installed and accessible."
+            "Audio conversion failed because the bundled FFmpeg executable could "
+            "not be started."
         ) from exc
     except Exception as exc:
         output_path.unlink(missing_ok=True)
@@ -143,7 +152,7 @@ def preprocess_uploaded_audio(
 
     Accepts a file path, bytes, or file-like upload (e.g. Streamlit UploadedFile).
     MP3, MP4, M4A, AAC, and WAV inputs are converted to WAV via ffmpeg-python
-    and the system ffmpeg binary.
+    and the cloud-compatible FFmpeg binary provided by imageio-ffmpeg.
 
     The caller is responsible for deleting returned temporary files when done.
     """
