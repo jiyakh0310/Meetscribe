@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+from hashlib import sha256
 from pathlib import Path
 from typing import Protocol
 
@@ -40,6 +41,9 @@ DEFAULT_DECISIONS_PROMPT_PATH = (
 )
 DEFAULT_KEY_DISCUSSION_POINTS_PROMPT_PATH = (
     PROJECT_ROOT / "prompts" / "extraction" / "key_discussion_points.md"
+)
+DEFAULT_FULL_ANALYSIS_PROMPT_PATH = (
+    PROJECT_ROOT / "prompts" / "summarization" / "full_meeting_analysis.md"
 )
 
 SPEAKER_HEADER_PATTERN = re.compile(
@@ -88,7 +92,9 @@ class LLMSummarizer(BaseSummarizer):
         decisions_prompt_path: str | Path = DEFAULT_DECISIONS_PROMPT_PATH,
         key_discussion_points_prompt_path: str
         | Path = DEFAULT_KEY_DISCUSSION_POINTS_PROMPT_PATH,
+        full_analysis_prompt_path: str | Path = DEFAULT_FULL_ANALYSIS_PROMPT_PATH,
         system_prompt: str | None = None,
+        enable_cache: bool = True,
     ) -> None:
         self._llm_client = llm_client
         self._cleanup_prompt_path = Path(cleanup_prompt_path)
@@ -98,7 +104,10 @@ class LLMSummarizer(BaseSummarizer):
         self._key_discussion_points_prompt_path = Path(
             key_discussion_points_prompt_path
         )
+        self._full_analysis_prompt_path = Path(full_analysis_prompt_path)
         self._system_prompt = system_prompt
+        self._enable_cache = enable_cache
+        self._analysis_cache: dict[str, MeetingAnalysisResult] = {}
 
     def cleanup_transcript(
         self,
@@ -213,31 +222,29 @@ class LLMSummarizer(BaseSummarizer):
         return result
 
     def analyze_meeting(self, transcript_text: str) -> MeetingAnalysisResult:
-        cleanup_result = self.cleanup_transcript(
-            TranscriptCleanupInput(transcript_text=transcript_text)
-        )
-        cleaned_transcript = cleanup_result.cleaned_transcript
+        transcript_text = transcript_text.strip()
+        if not transcript_text:
+            raise TranscriptCleanupError("Meeting analysis input is empty.")
 
-        summary = self.generate_meeting_summary(
-            MeetingSummaryInput(transcript_text=cleaned_transcript)
+        cache_key = self._analysis_cache_key(transcript_text)
+        if self._enable_cache and cache_key in self._analysis_cache:
+            return self._analysis_cache[cache_key]
+
+        prompt = self._build_full_analysis_prompt(transcript_text)
+        response = self._llm_client.generate(
+            prompt,
+            system_prompt=self._system_prompt,
         )
-        key_discussion_points = self.extract_key_discussion_points(
-            KeyDiscussionPointInput(transcript_text=cleaned_transcript)
-        )
-        decisions = self.extract_decisions(
-            DecisionInput(transcript_text=cleaned_transcript)
-        )
-        action_items = self.extract_action_items(
-            ActionItemInput(transcript_text=cleaned_transcript)
+        payload = self._extract_full_analysis_payload(response)
+        analysis = self._parse_full_analysis_payload(
+            payload,
+            original_transcript=transcript_text,
         )
 
-        return MeetingAnalysisResult(
-            cleaned_transcript=cleaned_transcript,
-            summary=summary,
-            key_discussion_points=key_discussion_points.key_discussion_points,
-            decisions=decisions.decisions,
-            action_items=action_items.action_items,
-        )
+        if self._enable_cache:
+            self._analysis_cache[cache_key] = analysis
+
+        return analysis
 
     def _normalize_cleanup_input(
         self,
@@ -302,6 +309,10 @@ class LLMSummarizer(BaseSummarizer):
 
     def _build_key_discussion_points_prompt(self, transcript_text: str) -> str:
         template = self._key_discussion_points_prompt_path.read_text(encoding="utf-8")
+        return template.replace("{transcript}", transcript_text)
+
+    def _build_full_analysis_prompt(self, transcript_text: str) -> str:
+        template = self._full_analysis_prompt_path.read_text(encoding="utf-8")
         return template.replace("{transcript}", transcript_text)
 
     def _extract_cleaned_transcript(self, response: str) -> str:
@@ -408,6 +419,85 @@ class LLMSummarizer(BaseSummarizer):
 
         return payload
 
+    def _extract_full_analysis_payload(self, response: str) -> dict[str, object]:
+        text = response.strip()
+        if not text:
+            raise MeetingSummaryError("LLM returned an empty analysis response.")
+
+        text = self._strip_code_fence(text)
+        try:
+            payload = json.loads(text)
+        except json.JSONDecodeError as exc:
+            raise MeetingSummaryError(
+                "LLM full analysis response was not valid JSON."
+            ) from exc
+
+        if not isinstance(payload, dict):
+            raise MeetingSummaryError(
+                "LLM full analysis response must be a JSON object."
+            )
+
+        return payload
+
+    def _parse_full_analysis_payload(
+        self,
+        payload: dict[str, object],
+        *,
+        original_transcript: str,
+    ) -> MeetingAnalysisResult:
+        cleaned_transcript = str(payload.get("cleaned_transcript", "")).strip()
+        self._validate_cleaned_transcript(
+            original_transcript=original_transcript,
+            cleaned_transcript=cleaned_transcript,
+        )
+
+        raw_summary = payload.get("summary")
+        if not isinstance(raw_summary, dict):
+            raise MeetingSummaryError(
+                "Full analysis response must include a summary object."
+            )
+
+        raw_topics = payload.get("topics_discussed")
+        if raw_topics is None:
+            raw_topics = raw_summary.get("topics_discussed", [])
+        if not isinstance(raw_topics, list):
+            raise MeetingSummaryError("topics_discussed must be a list.")
+
+        summary = MeetingSummary(
+            title=str(raw_summary.get("title", "")).strip(),
+            short_summary=str(raw_summary.get("short_summary", "")).strip(),
+            detailed_summary=str(raw_summary.get("detailed_summary", "")).strip(),
+            topics_discussed=[
+                str(topic).strip()
+                for topic in raw_topics
+                if str(topic).strip()
+            ],
+        )
+        self._validate_meeting_summary(summary)
+
+        key_discussion_points = self._parse_key_discussion_points_payload(
+            {"key_discussion_points": payload.get("key_discussion_points", [])}
+        )
+        self._validate_key_discussion_point_result(key_discussion_points)
+
+        decisions = self._parse_decisions_payload(
+            {"decisions": payload.get("decisions", [])}
+        )
+        self._validate_decision_result(decisions)
+
+        action_items = self._parse_action_items_payload(
+            {"action_items": payload.get("action_items", [])}
+        )
+        self._validate_action_item_result(action_items)
+
+        return MeetingAnalysisResult(
+            cleaned_transcript=cleaned_transcript,
+            summary=summary,
+            key_discussion_points=key_discussion_points.key_discussion_points,
+            decisions=decisions.decisions,
+            action_items=action_items.action_items,
+        )
+
     def _parse_action_items_payload(
         self,
         payload: dict[str, object],
@@ -459,7 +549,7 @@ class LLMSummarizer(BaseSummarizer):
                     decision=str(raw_decision.get("decision", "")).strip(),
                     owner=self._optional_string(raw_decision.get("owner")),
                     timestamp=self._optional_string(raw_decision.get("timestamp")),
-                    confidence=str(raw_decision.get("confidence", "")).strip(),
+                    confidence=str(raw_decision.get("confidence", "")).strip().lower(),
                 )
             )
 
@@ -606,3 +696,8 @@ class LLMSummarizer(BaseSummarizer):
             for line in transcript_text.splitlines()
             if SPEAKER_HEADER_PATTERN.match(line)
         ]
+
+    def _analysis_cache_key(self, transcript_text: str) -> str:
+        prompt_version = self._full_analysis_prompt_path.read_text(encoding="utf-8")
+        raw_key = f"{prompt_version}\n\n{self._system_prompt or ''}\n\n{transcript_text}"
+        return sha256(raw_key.encode("utf-8")).hexdigest()

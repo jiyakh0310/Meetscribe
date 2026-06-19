@@ -7,6 +7,12 @@ sarvamai>=0.1.28
 # Environment configuration
 python-dotenv>=1.0.0
 
+# DOCX export
+python-docx>=1.1.0
+
+# PDF export
+reportlab>=4.0.0
+
 # Google Gemini API
 google-genai>=1.0.0
 
