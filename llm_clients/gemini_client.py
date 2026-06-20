@@ -2,13 +2,8 @@
 
 from __future__ import annotations
 
-import os
-from pathlib import Path
+from config.settings import SettingsError, get_settings
 
-from dotenv import load_dotenv
-
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-ENV_FILE = PROJECT_ROOT / ".env"
 DEFAULT_MODEL = "gemini-2.5-flash"
 
 
@@ -26,14 +21,14 @@ class GeminiClient:
         model: str = DEFAULT_MODEL,
         temperature: float = 0.2,
     ) -> None:
-        load_dotenv(ENV_FILE, override=False)
-        self._api_key = api_key or os.getenv("GEMINI_API_KEY", "").strip()
+        self._api_key = api_key or self._load_api_key()
         self._model = model
         self._temperature = temperature
 
         if not self._api_key:
             raise GeminiClientError(
-                "Missing GEMINI_API_KEY. Define it in .env or pass api_key."
+                "Missing GEMINI_API_KEY. Define it in Streamlit secrets, "
+                "environment variables, .env, or pass api_key."
             )
 
         try:
@@ -45,6 +40,14 @@ class GeminiClient:
             ) from exc
 
         self._client = genai.Client(api_key=self._api_key)
+
+    def _load_api_key(self) -> str:
+        try:
+            settings = get_settings()
+        except SettingsError as exc:
+            raise GeminiClientError(str(exc)) from exc
+
+        return settings.gemini_api_key or ""
 
     def generate(self, prompt: str, *, system_prompt: str | None = None) -> str:
         try:

@@ -1421,6 +1421,8 @@ def process_upload(uploaded_file: object) -> None:
         progress.empty()
         log_stage("Error", "Pipeline error.", error=str(exc))
         st.error(str(exc))
+        if isinstance(exc, TranscriptionError):
+            st.code(str(exc), language=None)
         st.exception(exc)
     except Exception as exc:
         progress.empty()

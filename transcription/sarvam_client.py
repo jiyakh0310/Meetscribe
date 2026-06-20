@@ -29,6 +29,67 @@ class TranscriptionError(Exception):
     """Raised when Sarvam speech-to-text processing fails."""
 
 
+def _mask_key(value: str) -> str:
+    return f"{value[:6]}..." if value else "missing"
+
+
+def _json_safe(value: Any) -> str:
+    if value is None:
+        return "None"
+    if isinstance(value, str):
+        return value
+    try:
+        return json.dumps(value, ensure_ascii=False, indent=2)
+    except TypeError:
+        return str(value)
+
+
+def _api_error_details(exc: ApiError) -> dict[str, Any]:
+    response = getattr(exc, "response", None)
+    response_body = getattr(exc, "body", None)
+
+    if response_body is None and response is not None:
+        try:
+            response_body = response.json()
+        except Exception:
+            response_body = getattr(response, "text", None)
+
+    return {
+        "status_code": getattr(exc, "status_code", None),
+        "message": str(exc),
+        "body": response_body,
+        "headers": getattr(exc, "headers", None),
+        "response_text": getattr(response, "text", None)
+        if response is not None
+        else None,
+    }
+
+
+def _format_api_error(prefix: str, exc: ApiError) -> str:
+    details = _api_error_details(exc)
+    return (
+        f"{prefix}\n"
+        f"HTTP status: {details.get('status_code')}\n"
+        f"Error message: {details.get('message')}\n"
+        f"Response body: {_json_safe(details.get('body'))}\n"
+        f"Sarvam error payload: {_json_safe(details)}"
+    )
+
+
+def _log_api_error(context: str, audio_name: str, exc: ApiError) -> None:
+    details = _api_error_details(exc)
+    logger.error(
+        "%s for '%s': status_code=%s error_message=%s response_body=%s "
+        "sarvam_error_payload=%s",
+        context,
+        audio_name,
+        details.get("status_code"),
+        details.get("message"),
+        _json_safe(details.get("body")),
+        _json_safe(details),
+    )
+
+
 @dataclass(frozen=True, slots=True)
 class TranscriptionSegment:
     """One speaker-attributed transcript segment."""
@@ -175,6 +236,10 @@ class SarvamTranscriptionClient:
 
     def __init__(self, settings: Settings | None = None) -> None:
         self._settings = settings or get_settings()
+        logger.info(
+            "Initializing SarvamAI client with SARVAM_API_KEY=%s",
+            _mask_key(self._settings.sarvam_api_key),
+        )
         self._client = SarvamAI(
             api_subscription_key=self._settings.sarvam_api_key,
         )
@@ -220,15 +285,9 @@ class SarvamTranscriptionClient:
                     language_code=DEFAULT_LANGUAGE,
                 )
         except ApiError as exc:
-            logger.error(
-                "Sarvam real-time API error for '%s' (status=%s)",
-                audio_path.name,
-                exc.status_code,
-            )
+            _log_api_error("Sarvam real-time API error", audio_path.name, exc)
             raise TranscriptionError(
-                "Real-time transcription failed. "
-                f"HTTP status: {exc.status_code}. "
-                "Verify your API key and audio format."
+                _format_api_error("Real-time transcription failed.", exc)
             ) from exc
         except OSError as exc:
             logger.error("Failed to read audio file '%s'", audio_path.name)
@@ -278,6 +337,17 @@ class SarvamTranscriptionClient:
             if num_speakers is not None:
                 create_job_kwargs["num_speakers"] = num_speakers
 
+            logger.info(
+                "Sarvam batch request for '%s': model=%s mode=%s "
+                "language_code=%s with_diarization=%s num_speakers=%s",
+                audio_path.name,
+                create_job_kwargs.get("model"),
+                create_job_kwargs.get("mode"),
+                create_job_kwargs.get("language_code"),
+                create_job_kwargs.get("with_diarization"),
+                create_job_kwargs.get("num_speakers"),
+            )
+
             job = self._client.speech_to_text_job.create_job(
                 **create_job_kwargs,
             )
@@ -293,15 +363,9 @@ class SarvamTranscriptionClient:
                 "Batch transcription timed out. Try a shorter recording."
             ) from exc
         except ApiError as exc:
-            logger.error(
-                "Sarvam batch API error for '%s' (status=%s)",
-                audio_path.name,
-                exc.status_code,
-            )
+            _log_api_error("Sarvam batch API error", audio_path.name, exc)
             raise TranscriptionError(
-                "Batch transcription failed. "
-                f"HTTP status: {exc.status_code}. "
-                "Verify your API key and audio file."
+                _format_api_error("Batch transcription failed.", exc)
             ) from exc
         except RuntimeError as exc:
             logger.error("Batch transcription runtime error for '%s'", audio_path.name)
