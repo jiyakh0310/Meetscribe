@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import re
 from dataclasses import replace
+from typing import TYPE_CHECKING
 
-from transcription.sarvam_client import TranscriptionResult, TranscriptionSegment
+if TYPE_CHECKING:
+    from transcription.sarvam_client import TranscriptionResult, TranscriptionSegment
 
 
 SpeakerMapping = dict[str, str]

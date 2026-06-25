@@ -20,6 +20,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from config.settings import SettingsError
+from agentic.workflow import run_meeting_analysis_workflow
 from exports.docx_exporter import export_to_docx, export_transcript_to_docx
 from exports.pdf_exporter import export_to_pdf, export_transcript_to_pdf
 from llm_clients.gemini_client import GeminiClient, GeminiClientError
@@ -35,11 +36,17 @@ from summarization.llm_summarizer import (
 from transcription.audio_utils import AudioProcessingError, preprocess_uploaded_audio
 from transcription.speaker_mapping import (
     SpeakerMapping,
-    apply_mapping_to_result,
-    default_mapping_for_result,
     display_speaker_label,
-    has_participant_names,
-    named_mapping_for_result,
+)
+from transcription.speaker_resolution import (
+    apply_speaker_resolution,
+    detect_speaker_labels,
+    resolve_speakers,
+    update_mapping,
+)
+from transcription.transcript_editing import (
+    apply_transcript_edits,
+    speaker_mapping_from_segments,
 )
 from transcription.transcript_file_utils import (
     TranscriptFileError,
@@ -78,6 +85,7 @@ def initialize_session_state() -> None:
     st.session_state.setdefault("analysis_result", None)
     st.session_state.setdefault("analysis_error", "")
     st.session_state.setdefault("analysis_cache", {})
+    st.session_state.setdefault("meeting_metadata", {})
     st.session_state.setdefault("success_metrics", None)
     st.session_state.setdefault("docx_export_path", "")
     st.session_state.setdefault("docx_export_error", "")
@@ -92,8 +100,11 @@ def initialize_session_state() -> None:
     st.session_state.setdefault("audio_upload_version", 0)
     st.session_state.setdefault("transcript_upload_version", 0)
     st.session_state.setdefault("speaker_mapping", {})
+    st.session_state.setdefault("saved_speaker_mapping", {})
     st.session_state.setdefault("speaker_names_available", False)
     st.session_state.setdefault("speaker_review_required", False)
+    st.session_state.setdefault("transcript_review_required", False)
+    st.session_state.setdefault("edited_transcript_text", "")
 
 
 def log_stage(stage: str, message: str, **details: Any) -> None:
@@ -1420,6 +1431,42 @@ def current_speaker_mapping() -> SpeakerMapping:
     return mapping if isinstance(mapping, dict) else {}
 
 
+def saved_speaker_mapping() -> SpeakerMapping:
+    mapping = st.session_state.get("saved_speaker_mapping", {})
+    return mapping if isinstance(mapping, dict) else {}
+
+
+def store_speaker_mapping(mapping: SpeakerMapping) -> None:
+    st.session_state.speaker_mapping = dict(mapping)
+    st.session_state.saved_speaker_mapping = {
+        **saved_speaker_mapping(),
+        **dict(mapping),
+    }
+
+
+def source_meeting_metadata(
+    result: TranscriptionResult | None,
+    *,
+    source_file: str = "",
+) -> dict[str, Any]:
+    metadata: dict[str, Any] = {"source_file": source_file}
+    if result is None:
+        return metadata
+
+    if result.language_code:
+        metadata["language_code"] = result.language_code
+        metadata["transcript_language"] = result.language_code
+
+    end_times = [
+        segment.end_time_seconds
+        for segment in result.segments
+        if segment.end_time_seconds is not None
+    ]
+    if end_times:
+        metadata["duration_seconds"] = max(end_times)
+    return metadata
+
+
 def speaker_label(
     segment: TranscriptionSegment,
     mapping: SpeakerMapping | None = None,
@@ -1782,10 +1829,20 @@ def run_meeting_analysis(
                 active_index=3,
                 started_at=started_at,
                 note="Organizing the transcript into notes, decisions, and follow-up tasks.",
-            )
+        )
         update_elapsed(elapsed_placeholder, started_at)
-        log_stage("Meeting analysis", "Calling analyze_meeting() with single Gemini request.")
-        analysis = summarizer.analyze_meeting(transcript_text)
+        log_stage("Meeting analysis", "Calling Python meeting workflow.")
+        meeting_metadata = {
+            **st.session_state.get("meeting_metadata", {}),
+            "source_file": st.session_state.get("uploaded_filename", ""),
+        }
+        analysis = run_meeting_analysis_workflow(
+            transcript_text,
+            summarizer=summarizer,
+            speaker_mapping=current_speaker_mapping(),
+            meeting_metadata=meeting_metadata,
+        )
+        st.session_state.meeting_metadata = meeting_metadata
 
         analysis_progress.progress(90, text="Preparing Exports")
         if status_placeholder is not None and started_at is not None:
@@ -1979,12 +2036,15 @@ def reset_speaker_mapping_state() -> None:
     st.session_state.speaker_mapping = {}
     st.session_state.speaker_names_available = False
     st.session_state.speaker_review_required = False
+    st.session_state.transcript_review_required = False
+    st.session_state.edited_transcript_text = ""
 
 
 def clear_current_report() -> None:
     st.session_state.transcript_text = ""
     st.session_state.transcript_result = None
     st.session_state.uploaded_filename = ""
+    st.session_state.meeting_metadata = {}
     reset_speaker_mapping_state()
     reset_report_state()
 
@@ -1992,28 +2052,27 @@ def clear_current_report() -> None:
 def render_speaker_review(result: TranscriptionResult) -> None:
     if not st.session_state.get("speaker_review_required", False):
         return
-    if not result.segments:
+
+    labels = list(current_speaker_mapping()) or detect_speaker_labels(result)
+    if not labels:
         return
 
-    mapping = current_speaker_mapping() or default_mapping_for_result(result)
-    if not mapping:
-        return
-
+    mapping = current_speaker_mapping() or {label: label for label in labels}
     with st.container(border=True):
         st.markdown("#### Review speaker names")
         st.caption("Rename speakers before generating the meeting analysis.")
         with st.form("speaker_name_review_form"):
-            updated_mapping: SpeakerMapping = {}
-            for index, label in enumerate(mapping):
+            submitted_values: SpeakerMapping = {}
+            for index, label in enumerate(labels):
                 value = st.text_input(
                     label,
                     value=mapping.get(label, label),
                     key=f"speaker_name_{index}",
                 )
-                updated_mapping[label] = value.strip() or label
+                submitted_values[label] = value
 
             submitted = st.form_submit_button(
-                "Generate Meeting Analysis",
+                "Save Speaker Mapping",
                 type="primary",
                 use_container_width=True,
             )
@@ -2021,31 +2080,106 @@ def render_speaker_review(result: TranscriptionResult) -> None:
     if not submitted:
         return
 
-    st.session_state.speaker_mapping = updated_mapping
-    mapped_result = apply_mapping_to_result(result, updated_mapping)
+    updated_mapping = update_mapping(labels, submitted_values)
+    store_speaker_mapping(updated_mapping)
+    mapped_result = apply_speaker_resolution(result, updated_mapping)
     transcript_text = format_transcript(mapped_result, {})
     st.session_state.transcript_result = mapped_result
     st.session_state.transcript_text = transcript_text
+    st.session_state.meeting_metadata = source_meeting_metadata(
+        mapped_result,
+        source_file=st.session_state.get("uploaded_filename", ""),
+    )
     st.session_state.speaker_review_required = False
+    st.session_state.transcript_review_required = True
+    st.session_state.edited_transcript_text = transcript_text
     st.session_state.analysis_result = None
     st.session_state.analysis_error = ""
     st.session_state.success_metrics = None
     reset_export_state()
     log_stage(
         "Speaker mapping",
-        "Stored reviewed speaker names.",
+        "Stored manual speaker mappings.",
         speaker_count=len(updated_mapping),
+        mapping=updated_mapping,
     )
+    st.rerun()
+
+
+def render_editable_transcript_review(result: TranscriptionResult) -> None:
+    if st.session_state.get("speaker_review_required", False):
+        return
+    if not st.session_state.get("transcript_review_required", False):
+        return
+
+    transcript_text = (
+        st.session_state.get("edited_transcript_text")
+        or st.session_state.get("transcript_text", "")
+    )
+    if not transcript_text:
+        return
+
+    with st.container(border=True):
+        st.markdown("#### Review transcript")
+        st.caption("Correct the transcript before generating the meeting analysis.")
+        edited_text = st.text_area(
+            "Resolved transcript",
+            value=transcript_text,
+            height=360,
+            key="editable_transcript_text_area",
+            label_visibility="collapsed",
+        )
+        continue_clicked = st.button(
+            "Continue to Analysis",
+            type="primary",
+            use_container_width=True,
+            key="continue_to_analysis",
+        )
+
+    if not continue_clicked:
+        return
 
     started_at = time.perf_counter()
+    edited_text = edited_text.strip()
+    if not edited_text:
+        st.warning("Transcript cannot be empty.")
+        return
+
+    previous_text = st.session_state.get("transcript_text", "")
+    edited_result = apply_transcript_edits(result, edited_text)
+    edited_mapping = speaker_mapping_from_segments(edited_result)
+    if edited_mapping:
+        st.session_state.speaker_mapping = edited_mapping
+    st.session_state.transcript_result = edited_result
+    st.session_state.transcript_text = edited_text
+    st.session_state.edited_transcript_text = edited_text
+    st.session_state.transcript_review_required = False
+    st.session_state.analysis_result = None
+    st.session_state.analysis_error = ""
+    st.session_state.success_metrics = None
+    st.session_state.meeting_metadata = source_meeting_metadata(
+        edited_result,
+        source_file=st.session_state.get("uploaded_filename", ""),
+    )
+    reset_export_state()
+
+    log_stage(
+        "Transcript editing",
+        "Transcript confirmed for analysis.",
+        edited=edited_text != previous_text,
+        previous_chars=len(previous_text),
+        edited_chars=len(edited_text),
+        segment_count=len(edited_result.segments),
+    )
+
     analysis = run_meeting_analysis(
-        transcript_text,
+        edited_text,
         started_at=started_at,
         estimate_note="Generating summary, discussion points, decisions, and action items.",
     )
     if analysis is not None:
         store_success_metrics(
-            result=mapped_result,
+            result=edited_result,
             analysis=analysis,
             started_at=started_at,
         )
@@ -2131,30 +2265,48 @@ def process_upload(uploaded_file: object) -> None:
             started_at=started_at,
             note="Organizing the transcript by speaker.",
         )
-        transcript_text = format_transcript(result)
+        resolution = resolve_speakers(
+            result,
+            previous_mapping=saved_speaker_mapping(),
+        )
+        speaker_mapping = resolution.mapping
+        session_result = (
+            result
+            if resolution.review_required
+            else apply_speaker_resolution(result, speaker_mapping)
+        )
+        transcript_text = format_transcript(session_result, speaker_mapping)
         if not transcript_text.strip():
             raise ValueError("Formatted transcript is empty.")
 
-        speaker_mapping = named_mapping_for_result(result)
-        speaker_names_available = has_participant_names(result)
-        if speaker_names_available:
-            speaker_mapping = speaker_mapping or default_mapping_for_result(result)
-        else:
-            speaker_mapping = default_mapping_for_result(result)
-
-        st.session_state.transcript_result = result
+        st.session_state.transcript_result = session_result
         st.session_state.transcript_text = transcript_text
         st.session_state.uploaded_filename = getattr(uploaded_file, "name", "")
-        st.session_state.speaker_mapping = speaker_mapping
-        st.session_state.speaker_names_available = speaker_names_available
-        st.session_state.speaker_review_required = bool(
-            result.segments and not speaker_names_available
+        st.session_state.meeting_metadata = source_meeting_metadata(
+            session_result,
+            source_file=st.session_state.uploaded_filename,
+        )
+        if resolution.review_required:
+            st.session_state.speaker_mapping = speaker_mapping
+        else:
+            store_speaker_mapping(speaker_mapping)
+        st.session_state.speaker_names_available = resolution.names_available
+        st.session_state.speaker_review_required = resolution.review_required
+        st.session_state.transcript_review_required = not resolution.review_required
+        st.session_state.edited_transcript_text = transcript_text
+        log_stage(
+            "Speaker mapping",
+            "Resolved speakers for audio transcript.",
+            detected=resolution.detected_speakers,
+            automatic=resolution.names_available,
+            reused=resolution.reused_labels,
+            review_required=resolution.review_required,
         )
         log_stage(
             "Session state update",
             "Stored transcript in session state.",
             transcript_chars=len(transcript_text),
-            segment_count=len(result.segments),
+            segment_count=len(session_result.segments),
             speaker_review_required=st.session_state.speaker_review_required,
         )
 
@@ -2169,26 +2321,15 @@ def process_upload(uploaded_file: object) -> None:
             st.toast("Transcript is ready for speaker review")
             return
 
-        progress.progress(65, text="Generating Meeting Notes")
+        progress.progress(100, text="Review Transcript")
         render_stage_status(
             status_placeholder,
-            active_index=3,
+            active_index=2,
             started_at=started_at,
-            note=estimate_note,
+            note="Review the resolved transcript before generating meeting notes.",
         )
-        analysis = run_meeting_analysis(
-            transcript_text,
-            progress=progress,
-            status_placeholder=status_placeholder,
-            started_at=started_at,
-            estimate_note=estimate_note,
-        )
-        if analysis is not None:
-            store_success_metrics(
-                result=result,
-                analysis=analysis,
-                started_at=started_at,
-            )
+        st.toast("Transcript is ready for review")
+        return
     except (AudioProcessingError, SettingsError, TranscriptionError) as exc:
         progress.empty()
         log_stage("Error", "Pipeline error.", error=str(exc))
@@ -2244,48 +2385,71 @@ def process_transcript_upload(transcript_file: object) -> None:
             filename=getattr(transcript_file, "name", None),
         )
         result = validate_transcription_result(extracted.result)
-        speaker_mapping = named_mapping_for_result(result)
-        speaker_names_available = has_participant_names(result)
-        if not speaker_mapping:
-            speaker_mapping = default_mapping_for_result(result)
-        transcript_text = format_transcript(result, speaker_mapping) if result.segments else result.transcript.strip()
+        resolution = resolve_speakers(
+            result,
+            previous_mapping=saved_speaker_mapping(),
+        )
+        speaker_mapping = resolution.mapping
+        session_result = (
+            result
+            if resolution.review_required
+            else apply_speaker_resolution(result, speaker_mapping)
+        )
+        transcript_text = format_transcript(session_result, speaker_mapping)
         if not transcript_text.strip():
             raise TranscriptFileError("No transcript text was found in the uploaded file.")
 
-        st.session_state.transcript_result = result
+        st.session_state.transcript_result = session_result
         st.session_state.transcript_text = transcript_text
         st.session_state.uploaded_filename = getattr(transcript_file, "name", "")
-        st.session_state.speaker_mapping = speaker_mapping
-        st.session_state.speaker_names_available = speaker_names_available
-        st.session_state.speaker_review_required = False
+        st.session_state.meeting_metadata = source_meeting_metadata(
+            session_result,
+            source_file=st.session_state.uploaded_filename,
+        )
+        if resolution.review_required:
+            st.session_state.speaker_mapping = speaker_mapping
+        else:
+            store_speaker_mapping(speaker_mapping)
+        st.session_state.speaker_names_available = resolution.names_available
+        st.session_state.speaker_review_required = resolution.review_required
+        st.session_state.transcript_review_required = not resolution.review_required
+        st.session_state.edited_transcript_text = transcript_text
+        log_stage(
+            "Speaker mapping",
+            "Resolved speakers for uploaded transcript.",
+            detected=resolution.detected_speakers,
+            automatic=resolution.names_available,
+            reused=resolution.reused_labels,
+            review_required=resolution.review_required,
+        )
         log_stage(
             "Session state update",
             "Stored uploaded transcript in session state.",
             transcript_chars=len(transcript_text),
-            segment_count=len(result.segments),
-            speaker_names_available=speaker_names_available,
+            segment_count=len(session_result.segments),
+            speaker_names_available=resolution.names_available,
         )
 
-        progress.progress(55, text="Generating Meeting Notes")
+        if st.session_state.speaker_review_required:
+            progress.progress(100, text="Review Speakers")
+            render_stage_status(
+                status_placeholder,
+                active_index=2,
+                started_at=started_at,
+                note="Review speaker names before generating meeting notes.",
+            )
+            st.toast("Transcript is ready for speaker review")
+            return
+
+        progress.progress(100, text="Review Transcript")
         render_stage_status(
             status_placeholder,
-            active_index=3,
+            active_index=2,
             started_at=started_at,
-            note="Generating structured notes from the uploaded transcript.",
+            note="Review the resolved transcript before generating meeting notes.",
         )
-        analysis = run_meeting_analysis(
-            transcript_text,
-            progress=progress,
-            status_placeholder=status_placeholder,
-            started_at=started_at,
-            estimate_note="Generating summary, discussion points, decisions, and action items.",
-        )
-        if analysis is not None:
-            store_success_metrics(
-                result=result,
-                analysis=analysis,
-                started_at=started_at,
-            )
+        st.toast("Transcript is ready for review")
+        return
     except TranscriptFileError as exc:
         progress.empty()
         log_stage("Transcript upload", "Transcript validation failed.", error=str(exc))
@@ -2446,6 +2610,7 @@ def main() -> None:
         render_analysis_error()
         render_success_metrics()
         render_speaker_review(result)
+        render_editable_transcript_review(result)
 
         # Export above tabs
         if analysis is not None:
