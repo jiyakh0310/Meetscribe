@@ -10,6 +10,7 @@ from typing import BinaryIO
 
 from docx import Document
 
+from transcription.speaker_mapping import extract_named_speaker_segments
 from transcription.sarvam_client import TranscriptionResult, TranscriptionSegment
 
 
@@ -70,7 +71,9 @@ def build_transcription_result_from_text(text: str, *, source_filename: str = ""
     """Create a TranscriptionResult compatible with the existing UI/export flow."""
 
     normalized_text = _normalize_text(text)
-    segments = _parse_speaker_segments(normalized_text)
+    segments = extract_named_speaker_segments(normalized_text)
+    if not segments:
+        segments = _parse_speaker_segments(normalized_text)
     return TranscriptionResult(
         transcript=normalized_text,
         language_code=None,
