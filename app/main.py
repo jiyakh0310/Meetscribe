@@ -1,4 +1,4 @@
-"""Streamlit UI for MeetScribe audio transcription."""
+"""Streamlit UI for MeetScribe audio transcription — refined UI."""
 
 from __future__ import annotations
 
@@ -33,6 +33,10 @@ from summarization.llm_summarizer import (
     TranscriptCleanupError,
 )
 from transcription.audio_utils import AudioProcessingError, preprocess_uploaded_audio
+from transcription.transcript_file_utils import (
+    TranscriptFileError,
+    extract_uploaded_transcript,
+)
 from transcription.sarvam_client import (
     TranscriptionError,
     TranscriptionResult,
@@ -41,14 +45,15 @@ from transcription.sarvam_client import (
 )
 
 SUPPORTED_FILE_TYPES = ("wav", "mp3", "m4a", "aac", "mp4")
+SUPPORTED_TRANSCRIPT_TYPES = ("pdf", "docx", "txt")
 logger = logging.getLogger(__name__)
 
 PROCESSING_STAGES = [
-    "Processing Audio...",
-    "Transcribing with Sarvam...",
-    "Analyzing with Gemini...",
-    "Generating Minutes of Meeting...",
-    "Finalizing Report...",
+    "Step 1: Uploading Recording",
+    "Step 2: Preparing Audio",
+    "Step 3: Identifying Speakers",
+    "Step 4: Generating Meeting Notes",
+    "Step 5: Preparing Exports",
 ]
 
 
@@ -76,6 +81,8 @@ def initialize_session_state() -> None:
     st.session_state.setdefault("transcript_pdf_export_error", "")
     st.session_state.setdefault("processing_logs", [])
     st.session_state.setdefault("last_logged_upload", "")
+    st.session_state.setdefault("audio_upload_version", 0)
+    st.session_state.setdefault("transcript_upload_version", 0)
 
 
 def log_stage(stage: str, message: str, **details: Any) -> None:
@@ -102,456 +109,1065 @@ def inject_processing_styles() -> None:
     st.markdown(
         """
         <style>
-          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
           :root {
-            --ms-bg: #0B1020;
-            --ms-card: rgba(17, 24, 39, 0.86);
-            --ms-card-solid: #111827;
-            --ms-border: rgba(148, 163, 184, 0.18);
-            --ms-accent: #4F46E5;
-            --ms-success: #22C55E;
-            --ms-text: #F8FAFC;
-            --ms-muted: #94A3B8;
-            --ms-soft: rgba(79, 70, 229, 0.12);
+            --bg:        #050505;
+            --bg2:       #0A0A0A;
+            --bg3:       #111111;
+            --card:      #121212;
+            --card2:     #171717;
+            --card3:     #1C1C1C;
+            --border:    rgba(255,255,255,0.07);
+            --border2:   rgba(255,255,255,0.12);
+            --border-p:  rgba(109,93,246,0.40);
+            --ink:       #F0F0F0;
+            --ink2:      #A0A0A0;
+            --muted:     #5A5A5A;
+            --p:         #6D5DF6;
+            --p2:        #7C6CFF;
+            --p3:        #8A7BFF;
+            --pg:        rgba(109,93,246,0.10);
+            --pglow:     rgba(109,93,246,0.18);
+            --emerald:   #10B981;
+            --eg:        rgba(16,185,129,0.10);
+            --amber:     #F59E0B;
+            --ag:        rgba(245,158,11,0.10);
+            --violet:    #8B5CF6;
+            --vg:        rgba(139,92,246,0.10);
+            --red:       #EF4444;
+            --blue:      #3B82F6;
+            --pink:      #EC4899;
+            --pnkg:      rgba(236,72,153,0.10);
           }
 
-          html, body, [data-testid="stAppViewContainer"] {
-            background:
-              radial-gradient(circle at 12% 8%, rgba(79, 70, 229, 0.22), transparent 34%),
-              radial-gradient(circle at 88% 0%, rgba(34, 197, 94, 0.10), transparent 26%),
-              linear-gradient(180deg, #0B1020 0%, #080C18 100%);
-            color: var(--ms-text);
-            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+          @keyframes fadein { from{opacity:0;transform:translateY(5px)} to{opacity:1;transform:none} }
+          @keyframes pulse  { 0%,100%{opacity:.4} 50%{opacity:1} }
+          @keyframes shimmer {
+            0%  { background-position: -400% 0 }
+            100%{ background-position:  400% 0 }
           }
 
-          [data-testid="stHeader"] {
-            background: rgba(11, 16, 32, 0);
+          *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+
+          html,body,[data-testid="stAppViewContainer"],[data-testid="stApp"] {
+            background: var(--bg) !important;
+            color: var(--ink);
+            font-family: Inter, system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden !important;
           }
+
+          [data-testid="stHeader"]     { background: transparent !important; }
+          [data-testid="stDecoration"] { display: none !important; }
+          [data-testid="stToolbar"]    { display: none !important; }
 
           .block-container {
-            max-width: 1440px;
-            padding-top: 2.4rem;
-            padding-bottom: 4rem;
-            padding-left: clamp(1rem, 3vw, 2.75rem);
-            padding-right: clamp(1rem, 3vw, 2.75rem);
+            max-width: 860px !important;
+            margin: 0 auto !important;
+            padding-top: 0 !important;
+            padding-bottom: 7rem !important;
+            padding-left:  clamp(1rem, 3vw, 2rem) !important;
+            padding-right: clamp(1rem, 3vw, 2rem) !important;
           }
 
-          h1, h2, h3, h4, h5, h6, p, label, span, div {
-            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-          }
+          h1,h2,h3,h4,h5,h6 { color: var(--ink); letter-spacing: -0.02em; }
+          p,li,label,[data-testid="stMarkdownContainer"] { color: var(--ink2); }
 
-          h1, h2, h3, h4 {
-            color: var(--ms-text);
-            letter-spacing: 0;
-          }
-
-          p, li, label, [data-testid="stMarkdownContainer"] {
-            color: #CBD5E1;
-          }
-
-          .ms-hero {
-            border: 1px solid var(--ms-border);
-            border-radius: 24px;
-            background:
-              linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(17, 24, 39, 0.68)),
-              linear-gradient(135deg, rgba(79, 70, 229, 0.20), rgba(34, 197, 94, 0.06));
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-            padding: clamp(1.75rem, 4vw, 3.4rem);
-            margin-bottom: 1.6rem;
-            backdrop-filter: blur(18px);
-          }
-
-          .ms-badge {
-            display: inline-flex;
+          /* ══ NAVBAR ══════════════════════════════ */
+          .ms-navbar {
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            border: 1px solid rgba(79, 70, 229, 0.38);
-            border-radius: 999px;
-            background: rgba(79, 70, 229, 0.12);
-            color: #C7D2FE;
-            font-size: 0.78rem;
-            font-weight: 700;
-            padding: 0.35rem 0.72rem;
-            margin-bottom: 1rem;
+            justify-content: flex-start;
+            padding: 0.85rem 0 0.85rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 0;
+          }
+
+          .ms-navbar-brand {
+            display: flex; align-items: center; gap: 0.45rem;
+          }
+
+          .ms-waveicon {
+            display: flex; align-items: flex-end; gap: 2px; height: 15px;
+          }
+          .ms-waveicon span {
+            display: block; width: 3px; border-radius: 2px;
+            background: var(--p2);
+          }
+          .ms-waveicon span:nth-child(1) { height: 6px; }
+          .ms-waveicon span:nth-child(2) { height: 12px; }
+          .ms-waveicon span:nth-child(3) { height: 15px; }
+          .ms-waveicon span:nth-child(4) { height: 9px; }
+          .ms-waveicon span:nth-child(5) { height: 15px; }
+          .ms-waveicon span:nth-child(6) { height: 8px; }
+
+          .ms-navbar-name {
+            color: var(--ink); font-size: 0.87rem; font-weight: 700;
+            letter-spacing: -0.01em;
+          }
+
+          /* ══ HERO ════════════════════════════════ */
+          .ms-hero {
+            text-align: center;
+            padding: 1.15rem 1rem 1.25rem;
+            animation: fadein 0.4s ease both;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
 
           .ms-hero h1 {
-            color: var(--ms-text);
-            font-size: clamp(2.45rem, 7vw, 5.2rem);
-            font-weight: 800;
-            line-height: 0.95;
-            margin: 0;
-          }
-
-          .ms-hero h2 {
-            color: #C7D2FE;
-            font-size: clamp(1.15rem, 2.6vw, 1.7rem);
-            font-weight: 700;
-            margin: 0.9rem 0 0.65rem;
-          }
-
-          .ms-hero p {
-            color: #CBD5E1;
-            font-size: clamp(1rem, 2vw, 1.15rem);
-            line-height: 1.65;
-            max-width: 760px;
-            margin: 0;
-          }
-
-          .ms-panel,
-          .ms-output-card,
-          .ms-export-card,
-          div[data-testid="stVerticalBlockBorderWrapper"] {
-            border: 1px solid var(--ms-border) !important;
-            border-radius: 20px !important;
-            background: var(--ms-card) !important;
-            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
-            backdrop-filter: blur(16px);
-          }
-
-          .ms-panel,
-          .ms-output-card,
-          .ms-export-card {
-            padding: clamp(1.15rem, 2vw, 1.55rem);
-            margin: 1.15rem 0;
-          }
-
-          .ms-section-title {
-            color: var(--ms-text);
-            font-size: 1.12rem;
-            font-weight: 800;
-            margin: 0 0 0.25rem;
-          }
-
-          .ms-section-copy {
-            color: var(--ms-muted);
-            font-size: 0.92rem;
-            margin: 0 0 1.15rem;
-          }
-
-          .ms-metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 0.9rem;
-            margin: 1.15rem 0;
-          }
-
-          .ms-stat-card {
-            border: 1px solid var(--ms-border);
-            border-radius: 20px;
-            background: linear-gradient(180deg, rgba(17, 24, 39, 0.92), rgba(15, 23, 42, 0.72));
-            padding: 1.15rem;
-            transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
-          }
-
-          .ms-stat-card:hover,
-          .ms-item-card:hover,
-          .ms-output-card:hover {
-            border-color: rgba(129, 140, 248, 0.42);
-            transform: translateY(-1px);
-          }
-
-          .ms-stat-card span {
-            color: var(--ms-muted);
-            display: block;
-            font-size: 0.78rem;
-            font-weight: 700;
+            font-size: clamp(2.4rem, 7vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -0.045em;
+            line-height: 1.0;
+            color: var(--ink);
             margin-bottom: 0.45rem;
+            text-align: center;
+            width: 100%;
           }
 
-          .ms-stat-card strong {
-            color: var(--ms-text);
-            display: block;
-            font-size: 1.45rem;
-            font-weight: 800;
-            line-height: 1.1;
+          .ms-hero-sub {
+            color: var(--ink2); font-size: 0.98rem; font-weight: 400;
+            line-height: 1.5; max-width: 520px;
+            margin: 0 auto 1.0rem;
+            width: 100%; text-align: center;
           }
 
-          .ms-stat-card small {
-            color: var(--ms-success);
-            display: block;
-            font-size: 0.78rem;
-            margin-top: 0.45rem;
+          .ms-pill-row {
+            display: flex; flex-wrap: wrap;
+            justify-content: center; align-items: center;
+            gap: 0.42rem; width: 100%;
           }
 
-          .ms-card-title {
-            color: var(--ms-text);
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin: 0 0 0.55rem;
+          .ms-pill {
+            display: inline-flex; align-items: center; gap: 0.38rem;
+            border: 1px solid var(--border2); border-radius: 999px;
+            background: var(--card); color: var(--ink2);
+            font-size: 0.77rem; font-weight: 500; padding: 0.35rem 0.85rem;
+            transition: border-color 180ms, color 180ms, box-shadow 180ms;
+            cursor: default;
+          }
+          .ms-pill:hover {
+            border-color: var(--border-p); color: var(--ink);
+            box-shadow: 0 0 12px var(--pglow);
+          }
+          .ms-pill-icon { font-size: 0.80rem; }
+
+          /* ══ UPLOAD PANEL ════════════════════════ */
+          .ms-upload-card {
+            border: 1px solid var(--border); border-radius: 16px;
+            background: var(--card); padding: 1.4rem 1.4rem 1.4rem;
+            margin-bottom: 1.0rem;
+            animation: fadein 0.35s ease both;
           }
 
-          .ms-card-label {
-            color: #A5B4FC;
-            font-size: 0.78rem;
-            font-weight: 800;
-            margin: 0 0 0.4rem;
-            text-transform: uppercase;
+          .ms-upload-title-row {
+            display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.2rem;
           }
 
-          .ms-card-body {
-            color: #DDE6F3;
-            line-height: 1.65;
-            margin: 0;
+          .ms-upload-icon-badge {
+            width: 26px; height: 26px; border-radius: 7px;
+            background: var(--pg); border: 1px solid var(--border-p);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.78rem; color: var(--p2); flex-shrink: 0;
           }
 
-          .ms-chip-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
+          .ms-upload-title {
+            color: var(--ink); font-size: 0.95rem; font-weight: 700;
+            letter-spacing: -0.01em;
           }
 
-          .ms-chip {
-            border: 1px solid rgba(79, 70, 229, 0.28);
-            border-radius: 999px;
-            background: rgba(79, 70, 229, 0.14);
-            color: #C7D2FE;
-            font-size: 0.82rem;
-            font-weight: 600;
-            padding: 0.35rem 0.65rem;
+          .ms-upload-desc {
+            color: var(--muted); font-size: 0.78rem; margin: 0 0 0.85rem;
           }
 
-          .ms-item-card {
-            border: 1px solid var(--ms-border);
-            border-radius: 20px;
-            background: rgba(15, 23, 42, 0.72);
-            padding: 1.15rem;
-            margin: 0 0 0.95rem;
-            transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+          /* sub-card headers inside upload */
+          .ms-sub-label { color: var(--ink); font-size: 0.84rem; font-weight: 600; margin-bottom: 0.15rem; }
+          /* FIX #3: Add breathing room between formats text and upload box */
+          .ms-sub-fmt   { color: var(--muted); font-size: 0.73rem; margin-bottom: 1.1rem; }
+
+          div[data-testid="column"] div[data-testid="stVerticalBlockBorderWrapper"] {
+            min-height: 238px;
+            overflow: hidden !important;
+            border-radius: 16px !important;
           }
 
-          .ms-item-card h4 {
-            color: var(--ms-text);
-            font-size: 1rem;
-            font-weight: 800;
-            margin: 0 0 0.55rem;
+          div[data-testid="column"] div[data-testid="stVerticalBlockBorderWrapper"] > div {
+            height: 100%;
           }
 
-          .ms-item-card p {
-            color: #DDE6F3;
-            line-height: 1.55;
-            margin: 0 0 0.7rem;
-          }
-
-          .ms-meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-          }
-
-          .ms-meta {
-            border: 1px solid rgba(148, 163, 184, 0.18);
-            border-radius: 999px;
-            color: #CBD5E1;
-            background: rgba(148, 163, 184, 0.08);
-            font-size: 0.78rem;
-            font-weight: 600;
-            padding: 0.28rem 0.55rem;
-          }
-
-          .ms-empty {
-            border: 1px dashed rgba(148, 163, 184, 0.3);
-            border-radius: 16px;
-            color: var(--ms-muted);
-            padding: 1rem;
-            background: rgba(15, 23, 42, 0.45);
-          }
-
-          .ms-upload-ready {
-            border: 1px solid rgba(34, 197, 94, 0.24);
-            border-radius: 14px;
-            background: rgba(34, 197, 94, 0.08);
-            color: #DCFCE7;
-            font-size: 0.9rem;
-            font-weight: 700;
-            padding: 0.7rem 0.85rem;
-            margin: 0.8rem 0 1rem;
-          }
-
-          .ms-upload-ready span {
-            color: #86EFAC;
-            font-weight: 600;
+          /* ══ UNIFIED UPLOAD ZONE ══ */
+          .ms-upload-outer {
+            position: relative;
+            width: 100%;
           }
 
           div[data-testid="stFileUploader"] {
-            border: 1px dashed rgba(148, 163, 184, 0.38);
-            border-radius: 18px;
-            background: rgba(15, 23, 42, 0.62);
-            padding: 0.85rem;
+            width: 100% !important;
+            margin-top: 0 !important;
           }
-
-          div[data-testid="stFileUploader"] label,
-          div[data-testid="stFileUploader"] small {
-            color: #CBD5E1 !important;
+          div[data-testid="stFileUploader"] > div {
+            width: 100% !important;
           }
-
-          .stButton > button,
-          .stDownloadButton > button {
-            border: 1px solid rgba(79, 70, 229, 0.45);
-            border-radius: 14px;
-            background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
-            color: #FFFFFF;
-            font-weight: 800;
-            min-height: 2.85rem;
-            box-shadow: 0 14px 34px rgba(79, 70, 229, 0.25);
-            transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+          div[data-testid="stFileUploader"] section {
+            position: relative;
+            min-height: 142px !important;
+            width: 100% !important;
+            border: 1.5px dashed var(--border-p) !important;
+            border-radius: 12px !important;
+            background:
+              linear-gradient(135deg, rgba(109,93,246,0.055), rgba(255,255,255,0.012)),
+              var(--bg2) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 1.35rem 1rem !important;
+            overflow: hidden !important;
+            cursor: pointer !important;
+            transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease !important;
           }
-
-          .stButton > button:hover,
-          .stDownloadButton > button:hover {
-            border-color: rgba(129, 140, 248, 0.8);
-            color: #FFFFFF;
-            transform: translateY(-1px);
-            box-shadow: 0 18px 42px rgba(79, 70, 229, 0.32);
+          div[data-testid="stFileUploader"] section:hover {
+            border-color: var(--p2) !important;
+            background:
+              linear-gradient(135deg, rgba(109,93,246,0.11), rgba(255,255,255,0.018)),
+              var(--bg2) !important;
+            box-shadow: 0 0 0 1px rgba(109,93,246,0.10), 0 12px 28px rgba(0,0,0,0.16) !important;
           }
-
-          button[kind="secondary"] {
-            background: rgba(15, 23, 42, 0.72) !important;
-            color: #F8FAFC !important;
+          div[data-testid="stFileUploader"] section button {
+            position: static !important;
+            opacity: 1 !important;
+            border: 1px solid rgba(109,93,246,0.28) !important;
+            border-radius: 999px !important;
+            background: rgba(109,93,246,0.10) !important;
+            color: var(--p2) !important;
             box-shadow: none !important;
+            font-family: Inter, sans-serif !important;
+            font-size: 0.74rem !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            transition: border-color 160ms ease, background 160ms ease, color 160ms ease !important;
+          }
+          div[data-testid="stFileUploader"] section button:hover {
+            border-color: rgba(109,93,246,0.48) !important;
+            background: rgba(109,93,246,0.16) !important;
+            color: var(--ink) !important;
+          }
+          div[data-testid="stFileUploader"] section [data-testid="stFileUploaderDropzoneInstructions"] {
+            align-items: center !important;
+            text-align: center !important;
+            gap: 0.28rem !important;
+          }
+          div[data-testid="stFileUploader"] section [data-testid="stFileUploaderDropzoneInstructions"] ~ div:not([data-testid="stFileUploaderDropzoneInstructions"]) {
+            display: none !important;
+          }
+          div[data-testid="stFileUploader"] section svg {
+            color: var(--p2) !important;
+            opacity: 0.9 !important;
+          }
+
+          /* ── file card + delete button row ── */
+          /* FIX #1 & #2: Perfect alignment of file card and delete button */
+          div[data-testid="stHorizontalBlock"]:has(button[data-testid="stBaseButton-secondary"]) {
+            display: flex !important;
+            align-items: center !important;
+            flex-wrap: nowrap !important;
+            gap: 0.5rem !important;
+            margin-top: 0.55rem !important;
+            width: 100% !important;
+          }
+          div[data-testid="stHorizontalBlock"]:has(button[data-testid="stBaseButton-secondary"]) [data-testid="stVerticalBlock"] {
+            gap: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: stretch !important;
+          }
+          div[data-testid="stHorizontalBlock"]:has(button[data-testid="stBaseButton-secondary"]) .ms-file-card {
+            margin-top: 0 !important;
+            height: 100% !important;
+            transform: translateY(-3px) !important;
+          }
+          div[data-testid="stHorizontalBlock"]:has(button[data-testid="stBaseButton-secondary"]) > div[data-testid="column"] {
+            min-width: 0 !important;
+            padding: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+          }
+          div[data-testid="stHorizontalBlock"]:has(button[data-testid="stBaseButton-secondary"]) > div[data-testid="column"]:has(button[data-testid="stBaseButton-secondary"]) {
+            flex: 0 0 50px !important;
+            width: 50px !important;
+            min-width: 50px !important;
+          }
+          div[data-testid="stHorizontalBlock"]:has(button[data-testid="stBaseButton-secondary"]) > div[data-testid="column"]:not(:has(button[data-testid="stBaseButton-secondary"])) {
+            flex: 1 1 auto !important;
+          }
+          /* Ensure the stButton wrapper inside the delete column stretches */
+          div[data-testid="stHorizontalBlock"]:has(button[data-testid="stBaseButton-secondary"]) > div[data-testid="column"]:has(button[data-testid="stBaseButton-secondary"]) .stButton {
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+          }
+          div[data-testid="stHorizontalBlock"]:has(button[data-testid="stBaseButton-secondary"]) > div[data-testid="column"]:has(button[data-testid="stBaseButton-secondary"]) .stButton > button {
+            height: 100% !important;
+            min-height: 48px !important;
+            flex: 1 !important;
+            transform: translateY(3px) !important;
+          }
+
+          .ms-file-card {
+            display: flex; align-items: center; gap: 0.65rem;
+            border: 1px solid rgba(109,93,246,0.22); border-radius: 10px;
+            background: rgba(109,93,246,0.06);
+            padding: 0 0.80rem;
+            width: 100%; max-width: 100%; box-sizing: border-box;
+            height: 44px; min-height: 44px; max-height: 44px; overflow: hidden;
+          }
+          .ms-file-icon {
+            width: 26px; height: 26px; border-radius: 6px; flex-shrink: 0;
+            background: var(--pg); border: 1px solid var(--border-p);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--p2);
+          }
+          .ms-file-info { flex: 1; min-width: 0; }
+          .ms-file-name {
+            color: var(--ink); font-size: 0.82rem; font-weight: 600;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+          }
+          .ms-file-size { color: var(--muted); font-size: 0.70rem; }
+
+          .ms-or-wrap {
+            min-height: 238px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+          }
+          .ms-or-wrap::before {
+            content: "";
+            position: absolute;
+            top: 0.35rem;
+            bottom: 0.35rem;
+            width: 1px;
+            background: linear-gradient(
+              180deg,
+              transparent, 
+              rgba(255,255,255,0.14),
+              transparent
+            );
+          }
+          .ms-or-divider {
+            display: flex; align-items: center; justify-content: center;
+            color: var(--ink2); font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 0.04em;
+            width: 34px; height: 34px; border-radius: 50%;
+            border: 1px solid var(--border2); background: var(--card2);
+            margin: 0 auto; position: relative; z-index: 1;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+          }
+
+          /* Override Streamlit file uploader appearance globally */
+          div[data-testid="stFileUploader"] label,
+          div[data-testid="stFileUploader"] small,
+          div[data-testid="stFileUploader"] p { color: var(--ink2) !important; }
+          div[data-testid="stFileUploader"] small {
+            display: none !important;
+          }
+          [data-testid="stFileUploaderFile"],
+          [data-testid="stFileUploaderFileName"],
+          [data-testid="stFileUploaderDeleteBtn"],
+          [data-testid="stFileUploaderFileData"],
+          [data-testid="stFileUploaderFileStatus"],
+          [data-testid="stFileUploaderUploadedFile"],
+          div[data-testid="stFileUploader"] section [data-testid="stFileUploaderFile"],
+          div[data-testid="stFileUploader"] section [data-testid="stFileUploaderFileName"],
+          div[data-testid="stFileUploader"] section [data-testid="stFileUploaderDeleteBtn"],
+          div[data-testid="stFileUploader"] section [data-testid="stFileUploaderFileData"],
+          div[data-testid="stFileUploader"] section [data-testid="stFileUploaderFileStatus"],
+          div[data-testid="stFileUploader"] section [data-testid="stFileUploaderUploadedFile"],
+          div[data-testid="stFileUploader"] section + div,
+          div[data-testid="stFileUploader"] section ~ div,
+          div[data-testid="stFileUploader"] ul,
+          div[data-testid="stFileUploader"] li {
+            display: none !important;
+          }
+
+          /* Panels */
+          div[data-testid="stVerticalBlockBorderWrapper"] {
+            border: 1px solid var(--border) !important;
+            border-radius: 16px !important;
+            background: var(--card) !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            transition: border-color 200ms;
+          }
+          div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+            border-color: var(--border2) !important;
+          }
+
+          /* ══ BUTTONS ══════════════════════════════ */
+          /* FIX #4: Reduce glow, improve text contrast on Generate button */
+          .stButton > button[data-testid="stBaseButton-primary"] {
+            border: 1px solid var(--p) !important;
+            border-radius: 12px !important;
+            background: linear-gradient(135deg, #5B4EE8 0%, var(--p) 40%, var(--p2) 100%) !important;
+            color: #FFFFFF !important;
+            font-family: Inter, sans-serif !important;
+            font-weight: 700 !important; font-size: 0.96rem !important;
+            min-height: 3.1rem !important;
+            box-shadow: 0 2px 8px rgba(109,93,246,0.20), 0 1px 0 rgba(255,255,255,0.10) inset !important;
+            transition: transform 160ms, box-shadow 160ms, opacity 160ms !important;
+            letter-spacing: 0.01em !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.40) !important;
+          }
+          .stButton > button[data-testid="stBaseButton-primary"]:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 16px rgba(109,93,246,0.28), 0 1px 0 rgba(255,255,255,0.10) inset !important;
+          }
+          .stButton > button[data-testid="stBaseButton-primary"]:active { transform: none !important; }
+          .stButton > button[data-testid="stBaseButton-primary"]:disabled {
+            opacity: 0.45 !important;
+            transform: none !important;
+          }
+          /* Ensure text inside primary button is white and visible */
+          .stButton > button[data-testid="stBaseButton-primary"] p,
+          .stButton > button[data-testid="stBaseButton-primary"] span {
+            color: #FFFFFF !important;
+            font-weight: 700 !important;
+          }
+
+          /* FIX #1 & #2: Delete button — red destructive styling, same height as file card */
+          .stButton > button[data-testid="stBaseButton-secondary"] {
+            width: 100% !important;
+            min-width: 44px !important;
+            height: 44px !important;
+            min-height: 44px !important;
+            max-height: 44px !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: 1.5px solid rgba(239,68,68,0.35) !important;
+            border-radius: 10px !important;
+            background: rgba(127,29,29,0.22) !important;
+            color: #ef4444 !important;
+            font-family: Inter, sans-serif !important;
+            font-size: 1.05rem !important;
+            font-weight: 700 !important;
+            line-height: 1 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: none !important;
+            transition: color 160ms ease, border-color 160ms ease, background 160ms ease !important;
+          }
+          .stButton > button[data-testid="stBaseButton-secondary"]:hover {
+            color: #ef4444 !important;
+            border-color: #ef4444 !important;
+            background: rgba(239,68,68,0.12) !important;
+            box-shadow: 0 4px 14px rgba(127,29,29,0.28) !important;
+          }
+          .stButton > button[data-testid="stBaseButton-secondary"] p,
+          .stButton > button[data-testid="stBaseButton-secondary"] span {
+            color: #ef4444 !important;
+            line-height: 1 !important;
+            margin: 0 !important;
+          }
+          /* Hide emoji text and replace with SVG trash icon via background */
+          .stButton > button[data-testid="stBaseButton-secondary"] p {
+            font-size: 0 !important;
+            line-height: 0 !important;
+            width: 16px !important;
+            height: 16px !important;
+            background-color: #ef4444 !important;
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 6 5 6 21 6'/%3E%3Cpath d='M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6'/%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3Cpath d='M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2'/%3E%3C/svg%3E") !important;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 6 5 6 21 6'/%3E%3Cpath d='M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6'/%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3Cpath d='M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2'/%3E%3C/svg%3E") !important;
+            -webkit-mask-size: contain !important;
+            mask-size: contain !important;
+            -webkit-mask-repeat: no-repeat !important;
+            mask-repeat: no-repeat !important;
+            -webkit-mask-position: center !important;
+            mask-position: center !important;
+            display: block !important;
+          }
+          .stButton > button[data-testid="stBaseButton-secondary"]:hover p {
+            background-color: #ef4444 !important;
+          }
+
+
+          /* ══ PROCESSING ════════════════════════════ */
+          .ms-proc-wrap { margin: 1.5rem 0; animation: fadein 0.3s ease both; }
+
+          .ms-proc-top {
+            display: flex; align-items: center;
+            justify-content: space-between; margin-bottom: 0.75rem;
+          }
+
+          /* FIX #6: Processing title — no icon placeholder */
+          .ms-proc-title {
+            display: flex; align-items: center;
+            font-size: 0.92rem; font-weight: 700; color: var(--ink);
+          }
+
+          .ms-elapsed-col { text-align: right; }
+          .ms-elapsed-label {
+            display: block; color: var(--muted);
+            font-size: 0.60rem; font-weight: 700;
+            letter-spacing: 0.10em; text-transform: uppercase;
+          }
+          .ms-elapsed-value {
+            display: block; color: var(--ink);
+            font-size: 1.20rem; font-weight: 800; letter-spacing: -0.03em;
+          }
+
+          .ms-bar-track {
+            height: 3px; border-radius: 999px;
+            background: rgba(255,255,255,0.05);
+            margin-bottom: 1.4rem; overflow: hidden;
+          }
+          .ms-bar-fill {
+            height: 100%; border-radius: 999px;
+            background: linear-gradient(90deg, var(--p), var(--p2), var(--p3), var(--p2), var(--p));
+            background-size: 300% auto;
+            animation: shimmer 2s linear infinite;
+          }
+
+          .ms-steps {
+            display: grid; grid-template-columns: repeat(5, 1fr);
+            position: relative;
+          }
+          .ms-steps::before {
+            content: ""; position: absolute;
+            top: 14px; left: 10%; right: 10%;
+            height: 1px; background: var(--border);
+          }
+
+          .ms-step {
+            display: flex; flex-direction: column;
+            align-items: center; gap: 0.42rem; position: relative; z-index: 1;
+          }
+
+          .ms-step-circle {
+            width: 28px; height: 28px; border-radius: 50%;
+            border: 1.5px solid rgba(255,255,255,0.10);
+            background: var(--bg3);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.70rem; font-weight: 700; color: var(--muted);
+            transition: all 200ms;
+          }
+          .ms-step.done .ms-step-circle {
+            border-color: var(--p); background: var(--pg); color: var(--p2);
+          }
+          .ms-step.active .ms-step-circle {
+            border-color: var(--p2); background: var(--p); color: #fff;
+            box-shadow: 0 0 0 4px rgba(109,93,246,0.16);
+          }
+
+          .ms-step-label {
+            color: var(--muted); font-size: 0.67rem; font-weight: 500;
+            text-align: center; line-height: 1.3;
+          }
+          .ms-step.done  .ms-step-label { color: var(--ink2); }
+          .ms-step.active .ms-step-label { color: var(--ink); font-weight: 600; }
+
+          /* ══ METRICS ═══════════════════════════════ */
+          .ms-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0,1fr));
+            gap: 0.85rem; margin: 1.1rem 0 0.65rem;
+          }
+
+          /* FIX #5: Stat cards — no icon placeholder, adjusted padding */
+          .ms-stat-card {
+            border: 1px solid var(--border); border-radius: 14px;
+            background: var(--card2); padding: 1.05rem 1.05rem 1.0rem;
+            transition: border-color 200ms, transform 220ms, box-shadow 220ms;
+          }
+          .ms-stat-card:hover {
+            border-color: var(--border2); transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+          }
+
+          /* Remove icon wrap — kept in HTML for color accent only, hidden via display:none */
+          .ms-stat-icon-wrap { display: none !important; }
+
+          .ms-stat-label {
+            display: block; color: var(--muted);
+            font-size: 0.68rem; font-weight: 600;
+            letter-spacing: 0.04em; margin-bottom: 0.2rem;
+          }
+          .ms-stat-value {
+            display: block; color: var(--ink);
+            font-size: 1.65rem; font-weight: 800;
+            letter-spacing: -0.04em; line-height: 1.0;
+          }
+          .ms-stat-sub {
+            display: block; font-size: 0.64rem; font-weight: 700;
+            letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.38rem;
+          }
+          .ms-stat-card.c-purple  .ms-stat-sub { color: var(--p2); }
+          .ms-stat-card.c-emerald .ms-stat-sub { color: var(--emerald); }
+          .ms-stat-card.c-amber   .ms-stat-sub { color: var(--amber); }
+          .ms-stat-card.c-violet  .ms-stat-sub { color: var(--violet); }
+
+          /* ══ SECURITY NOTE ═════════════════════════ */
+          .ms-security {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.4rem; color: var(--muted); font-size: 0.74rem;
+            margin: 0.4rem 0 1.2rem;
+          }
+
+          /* ══ EXPORT ════════════════════════════════ */
+          .ms-export-wrap { margin: 1.15rem 0 0.9rem; }
+
+          .ms-export-hdr {
+            display: flex; align-items: center; gap: 0.50rem; margin-bottom: 0.12rem;
+          }
+          .ms-export-hdr-icon {
+            width: 26px; height: 26px; border-radius: 8px;
+            background: var(--pg); border: 1px solid var(--border-p);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.78rem; color: var(--p2);
+          }
+          .ms-export-hdr-title { color: var(--ink); font-size: 0.95rem; font-weight: 700; }
+          .ms-export-sub { color: var(--muted); font-size: 0.78rem; margin: 0.10rem 0 0.9rem; }
+
+          .stDownloadButton > button {
+            min-height: 3.9rem !important;
+            border: 1px solid rgba(255,255,255,0.11) !important;
+            border-radius: 14px !important;
+            background:
+              linear-gradient(135deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
+              var(--card) !important;
+            color: var(--ink) !important;
+            font-family: Inter, sans-serif !important;
+            text-align: left !important;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.18) !important;
+            transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease !important;
+          }
+          .stDownloadButton > button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(20,184,166,0.42) !important;
+            background:
+              linear-gradient(135deg, rgba(20,184,166,0.10), rgba(34,211,238,0.04)),
+              var(--card) !important;
+            box-shadow: 0 14px 32px rgba(0,0,0,0.24), 0 0 0 1px rgba(20,184,166,0.08) !important;
+          }
+          .stDownloadButton > button p {
+            color: var(--ink) !important;
+            font-weight: 700 !important;
+            font-size: 0.86rem !important;
+          }
+
+          /* ══ TABS ══════════════════════════════════ */
+          .ms-tabs-wrap {
+            border: 1px solid var(--border); border-radius: 14px;
+            background: var(--card); overflow: hidden; margin-bottom: 1.5rem;
           }
 
           .stTabs [data-baseweb="tab-list"] {
-            gap: 0.45rem;
-            border-bottom: 0;
-            overflow-x: visible;
-            flex-wrap: wrap;
-            padding-bottom: 1rem;
-            margin-bottom: 1rem;
+            gap: 0; border-bottom: 1px solid var(--border);
+            padding: 0; margin: 0 0 0.55rem; background: transparent;
           }
-
           .stTabs [data-baseweb="tab"] {
-            border: 1px solid var(--ms-border);
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.7);
-            color: #CBD5E1;
-            font-weight: 800;
-            padding: 0.45rem 0.9rem;
-            white-space: nowrap;
+            border: none; border-bottom: 2px solid transparent;
+            border-radius: 0; background: transparent;
+            color: var(--muted); font-family: Inter, sans-serif;
+            font-weight: 500; font-size: 0.82rem;
+            padding: 0.70rem 1.05rem; white-space: nowrap;
+            transition: color 150ms;
           }
-
+          .stTabs [data-baseweb="tab"]:hover { color: var(--ink2); }
           .stTabs [aria-selected="true"] {
-            background: rgba(79, 70, 229, 0.24);
-            border-color: rgba(129, 140, 248, 0.62);
-            color: #FFFFFF;
+            color: var(--ink) !important; font-weight: 600 !important;
+            background: transparent !important;
           }
-
-          .stTabs [data-baseweb="tab-panel"] {
-            border-top: 1px solid rgba(148, 163, 184, 0.14);
-            padding-top: 1.25rem;
-          }
-
           .stTabs [data-baseweb="tab-highlight"] {
-            display: none;
+            background: var(--p2) !important; height: 2px !important;
           }
+          .stTabs [data-baseweb="tab-panel"] {
+            padding: 0 !important;
+            margin: 0 !important;
+         }
+
+          .stTabs [data-baseweb="tab-panel"] [data-testid="stVerticalBlock"] {
+            gap: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+
+          /* FIX #4: Kill the huge empty space above tab content */
+          .stTabs [data-baseweb="tab-panel"] > div,
+          .stTabs [data-baseweb="tab-panel"] > div > div,
+          .stTabs [data-baseweb="tab-panel"] [data-testid="stVerticalBlock"] > div,
+          .stTabs [data-baseweb="tab-panel"] [data-testid="stMarkdownContainer"] {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+          }
+          /* Target the element directly wrapping ms-tab-scroll */
+          .stTabs [data-baseweb="tab-panel"] [data-testid="stMarkdownContainer"]:has(.ms-tab-scroll) {
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+          /* Remove any gap/margin Streamlit injects above first child of tab panel */
+          .stTabs [data-baseweb="tab-panel"] [data-testid="stVerticalBlock"] > [data-testid="element-container"]:first-child,
+          .stTabs [data-baseweb="tab-panel"] [data-testid="stVerticalBlock"] > div:first-child {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+          }
+
+          /* per-tab accent colours */
+          .stTabs [data-baseweb="tab-list"] button:nth-of-type(1)[aria-selected="true"] { border-bottom-color: var(--p2) !important; color: var(--p2) !important; }
+          .stTabs [data-baseweb="tab-list"] button:nth-of-type(2)[aria-selected="true"] { border-bottom-color: #60A5FA !important; color: #60A5FA !important; }
+          .stTabs [data-baseweb="tab-list"] button:nth-of-type(3)[aria-selected="true"] { border-bottom-color: #34D399 !important; color: #34D399 !important; }
+          .stTabs [data-baseweb="tab-list"] button:nth-of-type(4)[aria-selected="true"] { border-bottom-color: #FCD34D !important; color: #FCD34D !important; }
+          .stTabs [data-baseweb="tab-list"] button:nth-of-type(5)[aria-selected="true"] { border-bottom-color: #F472B6 !important; color: #F472B6 !important; }
+          .stTabs [data-baseweb="tab-list"] button:nth-of-type(1):hover { color: var(--p2) !important; }
+          .stTabs [data-baseweb="tab-list"] button:nth-of-type(2):hover { color: #60A5FA !important; }
+          .stTabs [data-baseweb="tab-list"] button:nth-of-type(3):hover { color: #34D399 !important; }
+          .stTabs [data-baseweb="tab-list"] button:nth-of-type(4):hover { color: #FCD34D !important; }
+          .stTabs [data-baseweb="tab-list"] button:nth-of-type(5):hover { color: #F472B6 !important; }
+
+          .stTabs [data-baseweb="tab"] { border-bottom: 2px solid transparent !important; }
+
+          /* ══ SCROLLABLE CONTENT ══════════════════════ */
+          .ms-tab-scroll {
+            height: 440px;
+            overflow-y: auto;
+            padding: 0 !important;
+            margin-top: 0 !important;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(109,93,246,0.30) transparent;
+          }
+          .ms-tab-scroll::-webkit-scrollbar { width: 5px; }
+          .ms-tab-scroll::-webkit-scrollbar-track { background: transparent; }
+          .ms-tab-scroll::-webkit-scrollbar-thumb {
+            background: rgba(109,93,246,0.25); border-radius: 999px;
+          }
+          .ms-tab-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(109,93,246,0.45);
+          }
+
+          /* per-tab scroll accent */
+          .ms-tab-scroll.accent-blue {
+            scrollbar-color: rgba(59,130,246,0.30) transparent;
+          }
+          .ms-tab-scroll.accent-green {
+            scrollbar-color: rgba(16,185,129,0.30) transparent;
+          }
+          .ms-tab-scroll.accent-amber {
+            scrollbar-color: rgba(245,158,11,0.30) transparent;
+          }
+          .ms-tab-scroll.accent-pink {
+            scrollbar-color: rgba(236,72,153,0.30) transparent;
+          }
+
+          /* ══ TRANSCRIPT ════════════════════════════ */
+          .ms-transcript-scroll {
+            height: 480px; overflow-y: auto; margin-top: 0;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(109,93,246,0.30) transparent;
+          }
+          .ms-transcript-scroll::-webkit-scrollbar { width: 5px; }
+          .ms-transcript-scroll::-webkit-scrollbar-track { background: transparent; }
+          .ms-transcript-scroll::-webkit-scrollbar-thumb {
+            background: rgba(109,93,246,0.25); border-radius: 999px;
+          }
+          .ms-transcript-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(109,93,246,0.45);
+          }
+
+          .ms-tr-row {
+            display: grid; grid-template-columns: 116px 1fr;
+            border-bottom: 1px solid var(--border);
+            transition: background 130ms;
+          }
+          .ms-tr-row:last-child { border-bottom: none; }
+          .ms-tr-row:hover { background: rgba(109,93,246,0.04); }
+
+          .ms-tr-left {
+            padding: 0.80rem 0.70rem 0.80rem 0.90rem;
+            border-right: 1px solid var(--border);
+            display: flex; flex-direction: column; gap: 0.22rem;
+          }
+
+          .ms-speaker-badge {
+            display: inline-block; border-radius: 4px;
+            font-size: 0.62rem; font-weight: 700;
+            letter-spacing: 0.06em; text-transform: uppercase;
+            padding: 0.15rem 0.40rem;
+          }
+          .ms-speaker-badge.s1 { background: rgba(109,93,246,0.14); color: var(--p2); }
+          .ms-speaker-badge.s2 { background: rgba(16,185,129,0.12); color: #34D399; }
+          .ms-speaker-badge.s3 { background: rgba(59,130,246,0.12);  color: #60A5FA; }
+          .ms-speaker-badge.s4 { background: rgba(245,158,11,0.12);  color: #FCD34D; }
+
+          .ms-tr-timestamp {
+            color: var(--muted); font-size: 0.65rem;
+            font-variant-numeric: tabular-nums; font-weight: 500;
+          }
+
+          .ms-tr-right {
+            padding: 0.80rem 0.90rem;
+            display: flex; align-items: center;
+          }
+          .ms-tr-text { color: var(--ink2); font-size: 0.87rem; line-height: 1.55; }
+
+          /* ══ CONTENT CARDS ═════════════════════════ */
+          /* Summary (blue) */
+          .ms-output-card {
+            border: 1px solid rgba(59,130,246,0.18); border-radius: 12px;
+            background: rgba(59,130,246,0.04); padding: 1.1rem 1.15rem;
+            margin: 0 0 1.1rem; transition: border-color 180ms;
+          }
+          .ms-output-card:first-child,
+          .ms-item-card:first-child,
+          .ms-empty:first-child {
+            margin-top: 0 !important;
+          }
+          .ms-output-card:hover { border-color: rgba(59,130,246,0.32); }
+
+          .ms-card-label {
+            color: #60A5FA; font-size: 0.63rem; font-weight: 700;
+            letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 0.22rem;
+          }
+          .ms-card-title {
+            color: var(--ink); font-size: 1.05rem; font-weight: 700;
+            margin: 0 0 0.65rem; letter-spacing: -0.015em;
+          }
+          .ms-card-body {
+            color: var(--ink2); font-size: 0.89rem; line-height: 1.68;
+          }
+
+          .ms-chip-row { display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.7rem; }
+          .ms-chip {
+            border: 1px solid rgba(59,130,246,0.22); border-radius: 999px;
+            background: rgba(59,130,246,0.08); color: #93C5FD;
+            font-size: 0.73rem; font-weight: 500; padding: 0.22rem 0.55rem;
+          }
+
+          /* Discussion (green) */
+          .ms-item-card {
+            border: 1px solid var(--border); border-radius: 11px;
+            background: var(--card); padding: 0.85rem 0.95rem;
+            margin: 0 0 1.1rem;
+            transition: border-color 180ms, transform 180ms;
+          }
+          .ms-item-card:hover { transform: translateY(-2px); }
+
+          .ms-item-card.discussion {
+            border-color: rgba(16,185,129,0.18);
+            background: rgba(16,185,129,0.04);
+          }
+          .ms-item-card.discussion:hover { border-color: rgba(16,185,129,0.32); }
+          .ms-item-card.discussion h4 { color: #34D399; }
+
+          .ms-item-card.decision {
+            border-color: rgba(245,158,11,0.18);
+            background: rgba(245,158,11,0.04);
+          }
+          .ms-item-card.decision:hover { border-color: rgba(245,158,11,0.32); }
+          .ms-item-card.decision h4 { color: #FCD34D; }
+
+          .ms-item-card.action {
+            border-color: rgba(236,72,153,0.18);
+            background: rgba(236,72,153,0.04);
+          }
+          .ms-item-card.action:hover { border-color: rgba(236,72,153,0.32); }
+          .ms-item-card.action h4 { color: #F472B6; }
+
+          .ms-item-card h4 {
+            font-size: 0.62rem; font-weight: 700;
+            letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 0.30rem;
+          }
+          .ms-item-card p {
+            color: var(--ink2); font-size: 0.88rem; line-height: 1.60; margin-bottom: 0.50rem;
+          }
+          .ms-meta-row { display:flex;flex-wrap:wrap;gap:0.32rem; }
+
+          /* per-card meta pill colors */
+          .ms-meta {
+            border: 1px solid var(--border); border-radius: 999px;
+            color: var(--muted); background: var(--card2);
+            font-size: 0.66rem; font-weight: 500; padding: 0.16rem 0.44rem;
+          }
+          .ms-item-card.discussion .ms-meta { border-color: rgba(16,185,129,0.15); color: #6EE7B7; background: rgba(16,185,129,0.06); }
+          .ms-item-card.decision .ms-meta   { border-color: rgba(245,158,11,0.15); color: #FDE68A; background: rgba(245,158,11,0.06); }
+          .ms-item-card.action .ms-meta     { border-color: rgba(236,72,153,0.15); color: #FBCFE8; background: rgba(236,72,153,0.06); }
+
+          /* ══ MISC ═══════════════════════════════════ */
+          .ms-empty {
+            border: 1px dashed var(--border2); border-radius: 11px;
+            background: var(--card2); color: var(--muted);
+            font-size: 0.85rem; padding: 2rem 1.5rem; text-align: center;
+          }
+
+          .ms-section-header { display:flex;align-items:center;gap:0.5rem;margin-bottom:0.10rem; }
+          .ms-section-icon   { color: var(--p2); font-size: 0.95rem; }
+          .ms-section-title  {
+            color: var(--ink); font-size: 0.95rem; font-weight: 700;
+            margin: 0; letter-spacing: -0.015em;
+          }
+          .ms-section-copy   { color: var(--muted); font-size: 0.80rem; margin: 0.10rem 0 1.1rem; }
 
           .stTextArea textarea {
-            border: 1px solid var(--ms-border);
-            border-radius: 16px;
-            background: rgba(15, 23, 42, 0.78);
-            color: var(--ms-text);
+            border: 1px solid var(--border) !important; border-radius: 10px !important;
+            background: var(--card2) !important; color: var(--ink2) !important;
+            font-size: 0.87rem !important; height: 480px !important;
+          }
+          .stTextArea textarea:focus {
+            border-color: var(--border-p) !important;
+            box-shadow: 0 0 0 3px rgba(109,93,246,0.08) !important;
           }
 
           div[data-testid="stAlert"] {
-            border-radius: 16px;
-            background: rgba(15, 23, 42, 0.72);
-            color: var(--ms-text);
+            border-radius: 10px !important; border: 1px solid var(--border) !important;
+            background: var(--card2) !important; color: var(--ink) !important;
+          }
+          div[data-testid="stInfoAlert"] {
+            background: var(--pg) !important; border-color: var(--border-p) !important;
           }
 
-          .ms-processing-card {
-            border: 1px solid #d0d5dd;
-            border-radius: 20px;
-            padding: 1rem;
-            background: var(--ms-card);
-            margin: 0.75rem 0;
-            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
-            backdrop-filter: blur(16px);
+          div[data-testid="stProgressBar"] > div {
+            background: rgba(255,255,255,0.05) !important; border-radius:999px !important;
           }
-          .ms-processing-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            align-items: flex-start;
-            border-bottom: 1px solid var(--ms-border);
-            padding-bottom: 0.75rem;
-            margin-bottom: 0.75rem;
+          div[data-testid="stProgressBar"] > div > div {
+            background: linear-gradient(90deg, var(--p), var(--p2)) !important;
+            border-radius: 999px !important;
           }
-          .ms-processing-header h3 {
-            margin: 0.1rem 0 0;
-            font-size: 1.05rem;
-            line-height: 1.35;
+
+          [data-testid="stExpander"] {
+            border: 1px solid var(--border) !important;
+            border-radius: 10px !important; background: var(--card) !important;
           }
-          .ms-eyebrow {
-            color: #A5B4FC;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0;
-            margin: 0;
-            text-transform: uppercase;
+          [data-testid="stCaptionContainer"] { color: var(--muted) !important; font-size:0.74rem !important; }
+
+          hr { border-color: var(--border) !important; }
+
+          .ms-footer {
+            text-align: center; color: var(--muted); font-size: 0.70rem;
+            padding: 1.75rem 0 0.5rem; border-top: 1px solid var(--border); margin-top: 2rem;
           }
-          .ms-elapsed {
-            color: var(--ms-muted);
-            font-size: 0.78rem;
-            min-width: 5.5rem;
-            text-align: right;
+
+          ::-webkit-scrollbar { width: 4px; height: 4px; }
+          ::-webkit-scrollbar-track { background: transparent; }
+          ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.09); border-radius:999px; }
+          ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.16); }
+
+          /* ══ COPY BUTTON ROW ══════════════════════ */
+          .ms-copy-row {
+            display: flex; align-items: center; gap: 0.5rem;
+            padding: 0.55rem 0 0.65rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 0;
           }
-          .ms-elapsed strong {
-            color: var(--ms-text);
-            font-size: 0.95rem;
+
+          /* ══ RESPONSIVE ═════════════════════════════ */
+          @media (max-width: 860px) {
+            .block-container { max-width:100% !important; }
+            .ms-metrics-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+            .ms-steps { grid-template-columns: repeat(3,1fr); }
+            .ms-steps > .ms-step:nth-child(n+4) { display:none; }
+            .ms-or-wrap {
+              min-height: 48px;
+              margin: 0.1rem 0;
+            }
+            .ms-or-wrap::before {
+              left: 0.75rem;
+              right: 0.75rem;
+              top: 50%;
+              bottom: auto;
+              width: auto;
+              height: 1px;
+              background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
+            }
+            div[data-testid="column"] div[data-testid="stVerticalBlockBorderWrapper"] {
+              min-height: auto;
+            }
           }
-          .ms-note {
-            color: #CBD5E1;
-            margin: 0 0 0.75rem;
-            font-size: 0.9rem;
-          }
-          .ms-stage-list {
-            margin: 0;
-            padding-left: 1.15rem;
-          }
-          .ms-stage-list li {
-            margin: 0.35rem 0;
-            color: var(--ms-text);
-          }
-          .ms-stage-list span {
-            color: var(--ms-muted);
-            float: right;
-            font-size: 0.85rem;
-          }
-          @media (max-width: 900px) {
+          @media (min-width: 769px) and (max-width: 1024px) {
+            .block-container {
+              padding-left: 1.1rem !important;
+              padding-right: 1.1rem !important;
+            }
+            div[data-testid="stFileUploader"] section {
+              min-height: 132px !important;
+            }
             .ms-metrics-grid {
               grid-template-columns: repeat(2, minmax(0, 1fr));
             }
           }
-
-          @media (max-width: 640px) {
+          @media (max-width: 768px) {
             .block-container {
-              padding-left: 1rem;
-              padding-right: 1rem;
-              padding-top: 1.2rem;
+              max-width: 100% !important;
+              padding-left: 0.9rem !important;
+              padding-right: 0.9rem !important;
             }
-            .ms-hero,
-            .ms-panel,
-            .ms-output-card,
-            .ms-export-card {
-              border-radius: 18px;
-              padding: 1rem;
+            div[data-testid="stHorizontalBlock"]:not(:has(button[data-testid="stBaseButton-secondary"])) {
+              flex-direction: column !important;
+              gap: 0.8rem !important;
+            }
+            div[data-testid="stHorizontalBlock"]:not(:has(button[data-testid="stBaseButton-secondary"])) > div[data-testid="column"] {
+              width: 100% !important;
+              min-width: 0 !important;
+              flex: 1 1 auto !important;
+            }
+            div[data-testid="stHorizontalBlock"]:has(button[data-testid="stBaseButton-secondary"]) {
+              flex-direction: row !important;
+              align-items: center !important;
+              gap: 0.5rem !important;
+            }
+            div[data-testid="stHorizontalBlock"]:has(button[data-testid="stBaseButton-secondary"]) > div[data-testid="column"]:has(button[data-testid="stBaseButton-secondary"]) {
+              flex: 0 0 50px !important;
+              width: 50px !important;
+              min-width: 50px !important;
+            }
+            div[data-testid="stFileUploader"] section {
+              min-height: 128px !important;
+              padding: 1.15rem 0.85rem !important;
+            }
+            .ms-or-wrap {
+              min-height: 42px;
+              margin: 0;
             }
             .ms-metrics-grid {
-              grid-template-columns: 1fr;
+              grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-            .ms-processing-header {
-              display: block;
+            .stDownloadButton > button {
+              min-height: 3.5rem !important;
             }
-            .ms-elapsed {
-              margin-top: 0.75rem;
-              text-align: left;
+          }
+          @media (max-width: 640px) {
+            .block-container { padding-left:0.85rem !important; padding-right:0.85rem !important; }
+            .ms-hero { padding: 0.95rem 0.5rem 1.0rem; }
+            .ms-hero h1 { font-size: 2.4rem; }
+            .ms-metrics-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap:0.55rem; }
+            .ms-tr-row { grid-template-columns: 96px 1fr; }
+            .ms-transcript-scroll { height: 360px; }
+            .stTabs [data-baseweb="tab-list"] {
+              overflow-x: auto;
+              scrollbar-width: none;
             }
-            .ms-stage-list span {
-              float: none;
-              display: block;
-              margin-top: 0.15rem;
+            .stTabs [data-baseweb="tab-list"]::-webkit-scrollbar { display: none; }
+            .stTabs [data-baseweb="tab"] {
+              padding: 0.65rem 0.85rem;
+              font-size: 0.78rem;
+            }
+            .ms-file-card {
+              padding: 0 0.65rem;
+            }
+            .ms-file-icon {
+              width: 24px;
+              height: 24px;
+            }
+          }
+          @media (max-width: 420px) {
+            .ms-metrics-grid { grid-template-columns: 1fr; }
+            .ms-pill-row { flex-direction: column; align-items: center; }
+            .ms-hero h1 { font-size: 2.2rem; }
+            .ms-file-name { font-size: 0.76rem; }
+            .ms-file-size { font-size: 0.66rem; }
+            .stTabs [data-baseweb="tab"] {
+              padding: 0.6rem 0.75rem;
+              font-size: 0.74rem;
             }
           }
         </style>
@@ -560,7 +1176,6 @@ def inject_processing_styles() -> None:
     )
 
 
-@st.cache_resource(show_spinner=False)
 def get_gemini_client() -> GeminiClient:
     return GeminiClient()
 
@@ -599,7 +1214,7 @@ def estimated_duration_message(uploaded_file: object) -> str:
 
     return (
         f"Estimated duration: {estimate}. Larger files and long meetings may take "
-        "longer while Sarvam transcribes and Gemini prepares the minutes."
+        "longer while your meeting report is prepared."
     )
 
 
@@ -611,32 +1226,48 @@ def render_stage_status(
     note: str = "",
 ) -> None:
     elapsed = format_elapsed(time.perf_counter() - started_at)
-    heading_index = min(active_index, len(PROCESSING_STAGES) - 1)
-    rows = []
-    for index, stage in enumerate(PROCESSING_STAGES):
-        if active_index >= len(PROCESSING_STAGES) or index < active_index:
-            status = "Done"
-        elif index == active_index:
-            status = "In progress"
-        else:
-            status = "Waiting"
-        rows.append(f"<li><strong>{stage}</strong> <span>{status}</span></li>")
 
-    note_html = f"<p class='ms-note'>{html.escape(note)}</p>" if note else ""
+    step_labels = [
+        "Uploading",
+        "Preparing Audio / File",
+        "Identifying Speakers",
+        "Generating Notes",
+        "Exporting",
+    ]
+    steps_html = ""
+    for i, label in enumerate(step_labels):
+        if active_index >= len(PROCESSING_STAGES) or i < active_index:
+            cls = "done"; circle = "&#10003;"
+        elif i == active_index:
+            cls = "active"; circle = str(i + 1)
+        else:
+            cls = "waiting"; circle = str(i + 1)
+        steps_html += f"""<div class="ms-step {cls}">
+            <div class="ms-step-circle">{circle}</div>
+            <div class="ms-step-label">{label}</div>
+          </div>"""
+
+    pct  = int((active_index / len(PROCESSING_STAGES)) * 100)
+    note_html = f"<p style='color:var(--muted);font-size:.82rem;margin-top:.75rem;text-align:center'>{html.escape(note)}</p>" if note else ""
+
+    # FIX #6: Removed empty ms-proc-icon div — title is now clean text only
     placeholder.markdown(
         f"""
-        <div class="ms-processing-card">
-          <div class="ms-processing-header">
-            <div>
-              <p class="ms-eyebrow">MeetScribe is preparing your meeting</p>
-              <h3>{PROCESSING_STAGES[heading_index]}</h3>
+        <div class="ms-proc-wrap">
+          <div class="ms-proc-top">
+            <div class="ms-proc-title">
+              Preparing Your Report
             </div>
-            <div class="ms-elapsed">Elapsed<br><strong>{elapsed}</strong></div>
+            <div class="ms-elapsed-col">
+              <span class="ms-elapsed-label">Elapsed</span>
+              <span class="ms-elapsed-value">{elapsed}</span>
+            </div>
           </div>
+          <div class="ms-bar-track">
+            <div class="ms-bar-fill" style="width:{pct}%"></div>
+          </div>
+          <div class="ms-steps">{steps_html}</div>
           {note_html}
-          <ol class="ms-stage-list">
-            {''.join(rows)}
-          </ol>
         </div>
         """,
         unsafe_allow_html=True,
@@ -679,6 +1310,7 @@ def store_success_metrics(
     st.session_state.success_metrics = {
         "Duration": audio_duration_from_result(result),
         "Speakers": str(speakers_detected(result)),
+        "Discussion Points": str(len(analysis.key_discussion_points) if analysis else 0),
         "Decisions": str(len(analysis.decisions) if analysis else 0),
         "Action Items": str(len(analysis.action_items) if analysis else 0),
         "Processing Time": format_elapsed(time.perf_counter() - started_at),
@@ -690,59 +1322,62 @@ def render_success_metrics() -> None:
     if not metrics:
         return
 
+    dp  = html.escape(metrics.get("Discussion Points", "0"))
+    dec = html.escape(metrics.get("Decisions", "0"))
+    act = html.escape(metrics.get("Action Items", "0"))
+    # FIX #5: Removed ms-stat-icon-wrap divs — cards now show only label, value, subtitle
     st.markdown(
         f"""
         <div class="ms-metrics-grid">
-          <div class="ms-stat-card">
-            <span>Speakers Detected</span>
-            <strong>{html.escape(metrics.get("Speakers", "N/A"))}</strong>
-            <small>Speaker diarization</small>
+          <div class="ms-stat-card c-purple">
+            <span class="ms-stat-label">Summary</span>
+            <strong class="ms-stat-value">Ready</strong>
+            <small class="ms-stat-sub">Meeting summary generated</small>
           </div>
-          <div class="ms-stat-card">
-            <span>Meeting Duration</span>
-            <strong>{html.escape(metrics.get("Duration", "N/A"))}</strong>
-            <small>Audio analyzed</small>
+          <div class="ms-stat-card c-emerald">
+            <span class="ms-stat-label">Discussion Points</span>
+            <strong class="ms-stat-value">{dp}</strong>
+            <small class="ms-stat-sub">Topics captured</small>
           </div>
-          <div class="ms-stat-card">
-            <span>Decisions Extracted</span>
-            <strong>{html.escape(metrics.get("Decisions", "0"))}</strong>
-            <small>Ready for review</small>
+          <div class="ms-stat-card c-amber">
+            <span class="ms-stat-label">Decisions</span>
+            <strong class="ms-stat-value">{dec}</strong>
+            <small class="ms-stat-sub">Decisions identified</small>
           </div>
-          <div class="ms-stat-card">
-            <span>Action Items Generated</span>
-            <strong>{html.escape(metrics.get("Action Items", "0"))}</strong>
-            <small>Next steps captured</small>
+          <div class="ms-stat-card c-violet">
+            <span class="ms-stat-label">Action Items</span>
+            <strong class="ms-stat-value">{act}</strong>
+            <small class="ms-stat-sub">Follow-up tasks</small>
           </div>
         </div>
+        <div class="ms-security">Your data is secure and never stored.</div>
         """,
         unsafe_allow_html=True,
     )
-    st.caption(f"Processed in {metrics.get('Processing Time', 'N/A')}.")
 
 
 def render_hero() -> None:
+    # FIX #7: Updated hero description to reflect both audio and transcript upload capabilities
     st.markdown(
         """
-        <section class="ms-hero">
-          <div class="ms-badge">AI meeting intelligence</div>
+        <div class="ms-navbar">
+          <div class="ms-navbar-brand">
+            <div class="ms-waveicon">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <span class="ms-navbar-name">MeetScribe</span>
+          </div>
+        </div>
+        <div class="ms-hero">
           <h1>MeetScribe</h1>
-          <h2>AI-Powered Minutes of Meeting Generator</h2>
-          <p>
-            Transform meeting recordings into structured summaries, decisions,
-            and action items in minutes.
-          </p>
-        </section>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-def render_panel_header(title: str, copy: str) -> None:
-    st.markdown(
-        f"""
-        <div>
-          <p class="ms-section-title">{html.escape(title)}</p>
-          <p class="ms-section-copy">{html.escape(copy)}</p>
+          <p class="ms-hero-sub">Upload meeting recordings or transcripts and instantly generate structured reports, summaries, decisions, and action items.</p>
+          <div class="ms-pill-row">
+            <span class="ms-pill">Audio Upload</span>
+            <span class="ms-pill">Transcript Upload</span>
+            <span class="ms-pill">Meeting Summary</span>
+            <span class="ms-pill">Action Items</span>
+            <span class="ms-pill">Export Ready</span>
+          </div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -776,6 +1411,8 @@ def speaker_label(segment: TranscriptionSegment) -> str:
     try:
         return f"Speaker {int(segment.speaker_id) + 1}"
     except ValueError:
+        if segment.speaker_id.lower().startswith("speaker"):
+            return segment.speaker_id
         return f"Speaker {segment.speaker_id}"
 
 
@@ -809,28 +1446,37 @@ def render_transcript(result: TranscriptionResult) -> None:
     )
 
     if result.segments:
+        seen: dict[str, str] = {}
+        colour_cycle = ["s1", "s2", "s3", "s4"]
+        rows_html = ""
         for segment in result.segments:
+            label = speaker_label(segment)
+            if label not in seen:
+                seen[label] = colour_cycle[len(seen) % len(colour_cycle)]
+            cls = seen[label]
             start_time = format_timestamp(segment.start_time_seconds)
-            end_time = format_timestamp(segment.end_time_seconds)
+            end_time   = format_timestamp(segment.end_time_seconds)
+            rows_html += f"""
+            <div class="ms-tr-row">
+              <div class="ms-tr-left">
+                <span class="ms-speaker-badge {cls}">{html.escape(label)}</span>
+                <span class="ms-tr-timestamp">{html.escape(start_time)} &ndash; {html.escape(end_time)}</span>
+              </div>
+              <div class="ms-tr-right">
+                <span class="ms-tr-text">{html.escape(segment.transcript)}</span>
+              </div>
+            </div>"""
 
-            st.markdown(
-                f"""
-                <div class="ms-item-card">
-                  <h4>📝 {html.escape(speaker_label(segment))}</h4>
-                  <p>{html.escape(segment.transcript)}</p>
-                  <div class="ms-meta-row">
-                    <span class="ms-meta">{html.escape(start_time)} - {html.escape(end_time)}</span>
-                  </div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+        st.markdown(
+            f"""<div class="ms-transcript-scroll">{rows_html}</div>""",
+            unsafe_allow_html=True,
+        )
         return
 
     st.text_area(
         "Transcript",
         value=result.transcript,
-        height=260,
+        height=480,
         label_visibility="collapsed",
     )
 
@@ -871,12 +1517,12 @@ def render_key_points_tab(analysis: MeetingAnalysisResult) -> None:
         timestamp = item.timestamp or "--:--"
         st.markdown(
             f"""
-            <div class="ms-item-card">
-              <h4>💡 Discussion Point</h4>
+            <div class="ms-item-card discussion">
+              <h4>Discussion Point</h4>
               <p>{html.escape(item.point)}</p>
               <div class="ms-meta-row">
-                <span class="ms-meta">Timestamp: {html.escape(timestamp)}</span>
-                <span class="ms-meta">Speaker(s): {html.escape(speakers or "N/A")}</span>
+                <span class="ms-meta">Time: {html.escape(timestamp)}</span>
+                <span class="ms-meta">Speakers: {html.escape(speakers or "N/A")}</span>
               </div>
             </div>
             """,
@@ -894,13 +1540,13 @@ def render_decisions_tab(analysis: MeetingAnalysisResult) -> None:
         timestamp = item.timestamp or "--:--"
         st.markdown(
             f"""
-            <div class="ms-item-card">
-              <h4>✅ Decision</h4>
+            <div class="ms-item-card decision">
+              <h4>Decision</h4>
               <p>{html.escape(item.decision)}</p>
               <div class="ms-meta-row">
-                <span class="ms-meta">Confidence Level: {html.escape(item.confidence)}</span>
+                <span class="ms-meta">Confidence: {html.escape(item.confidence)}</span>
                 <span class="ms-meta">Owner: {html.escape(owner)}</span>
-                <span class="ms-meta">Timestamp: {html.escape(timestamp)}</span>
+                <span class="ms-meta">Time: {html.escape(timestamp)}</span>
               </div>
             </div>
             """,
@@ -919,14 +1565,14 @@ def render_action_items_tab(analysis: MeetingAnalysisResult) -> None:
         timestamp = item.timestamp or "--:--"
         st.markdown(
             f"""
-            <div class="ms-item-card">
-              <h4>📌 Task</h4>
+            <div class="ms-item-card action">
+              <h4>Task</h4>
               <p>{html.escape(item.task)}</p>
               <div class="ms-meta-row">
                 <span class="ms-meta">Owner: {html.escape(owner)}</span>
-                <span class="ms-meta">Due Date: {html.escape(due_date)}</span>
+                <span class="ms-meta">Due: {html.escape(due_date)}</span>
                 <span class="ms-meta">Status: {html.escape(item.status)}</span>
-                <span class="ms-meta">Timestamp: {html.escape(timestamp)}</span>
+                <span class="ms-meta">Time: {html.escape(timestamp)}</span>
               </div>
             </div>
             """,
@@ -987,75 +1633,63 @@ def render_download_button(
 
 
 def render_export_card(analysis: MeetingAnalysisResult) -> None:
-    with st.container(border=True):
-        render_panel_header(
-            "Export Center",
-            "Download polished MoM documents or the full transcript report.",
+    st.markdown(
+        """
+        <div class="ms-export-wrap">
+          <div class="ms-export-hdr">
+            <div class="ms-export-hdr-icon">&#8659;</div>
+            <span class="ms-export-hdr-title">Export Center</span>
+          </div>
+          <p class="ms-export-sub">Download polished MoM documents or the full transcript report.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    try:
+        mom_pdf_path        = prepared_export_path("pdf_export_path",              export_to_pdf,             analysis)
+        mom_docx_path       = prepared_export_path("docx_export_path",             export_to_docx,            analysis)
+        transcript_pdf_path = prepared_export_path("transcript_pdf_export_path",   export_transcript_to_pdf,  analysis)
+        transcript_docx_path= prepared_export_path("transcript_docx_export_path",  export_transcript_to_docx, analysis)
+    except Exception as exc:
+        log_stage("Export", "Could not prepare export documents.", error=str(exc), traceback=traceback.format_exc())
+        st.error("Downloads could not be prepared. Please try again.")
+        return
+
+    top_left, top_right = st.columns(2)
+    with top_left:
+        render_download_button(
+            label="&#128196;  Download MoM (.pdf)   →",
+            export_path=mom_pdf_path,
+            mime="application/pdf",
+            key="download_mom_pdf",
+            success_message="Download started",
         )
-        try:
-            mom_pdf_path = prepared_export_path("pdf_export_path", export_to_pdf, analysis)
-            mom_docx_path = prepared_export_path("docx_export_path", export_to_docx, analysis)
-            transcript_pdf_path = prepared_export_path(
-                "transcript_pdf_export_path",
-                export_transcript_to_pdf,
-                analysis,
-            )
-            transcript_docx_path = prepared_export_path(
-                "transcript_docx_export_path",
-                export_transcript_to_docx,
-                analysis,
-            )
-        except Exception as exc:
-            log_stage(
-                "Export",
-                "Could not prepare export documents.",
-                error=str(exc),
-                traceback=traceback.format_exc(),
-            )
-            st.error("Downloads could not be prepared. Please try again.")
-            return
+    with top_right:
+        render_download_button(
+            label="&#128196;  Download MoM (.docx)  →",
+            export_path=mom_docx_path,
+            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            key="download_mom_docx",
+            success_message="Download started",
+        )
 
-        top_left, top_right = st.columns(2)
-        with top_left:
-            render_download_button(
-                label="📄 Download MoM (.pdf)",
-                export_path=mom_pdf_path,
-                mime="application/pdf",
-                key="download_mom_pdf",
-                success_message="PDF downloaded successfully",
-            )
-        with top_right:
-            render_download_button(
-                label="📝 Download MoM (.docx)",
-                export_path=mom_docx_path,
-                mime=(
-                    "application/vnd.openxmlformats-officedocument."
-                    "wordprocessingml.document"
-                ),
-                key="download_mom_docx",
-                success_message="DOCX downloaded successfully",
-            )
-
-        bottom_left, bottom_right = st.columns(2)
-        with bottom_left:
-            render_download_button(
-                label="📑 Download Transcript (.pdf)",
-                export_path=transcript_pdf_path,
-                mime="application/pdf",
-                key="download_transcript_pdf",
-                success_message="PDF downloaded successfully",
-            )
-        with bottom_right:
-            render_download_button(
-                label="📋 Download Transcript (.docx)",
-                export_path=transcript_docx_path,
-                mime=(
-                    "application/vnd.openxmlformats-officedocument."
-                    "wordprocessingml.document"
-                ),
-                key="download_transcript_docx",
-                success_message="DOCX downloaded successfully",
-            )
+    bot_left, bot_right = st.columns(2)
+    with bot_left:
+        render_download_button(
+            label="&#128196;  Download Transcript (.pdf)   →",
+            export_path=transcript_pdf_path,
+            mime="application/pdf",
+            key="download_transcript_pdf",
+            success_message="Download started",
+        )
+    with bot_right:
+        render_download_button(
+            label="&#128196;  Download Transcript (.docx)  →",
+            export_path=transcript_docx_path,
+            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            key="download_transcript_docx",
+            success_message="Download started",
+        )
 
 
 def run_meeting_analysis(
@@ -1067,29 +1701,29 @@ def run_meeting_analysis(
     started_at: float | None = None,
     estimate_note: str = "",
 ) -> MeetingAnalysisResult | None:
-    analysis_progress = progress or st.progress(0, text="Analyzing with Gemini...")
+    analysis_progress = progress or st.progress(0, text="Generating Meeting Notes")
     cache_key = analysis_cache_key(transcript_text)
 
     try:
         cached_analysis = st.session_state.analysis_cache.get(cache_key)
         if cached_analysis is not None:
-            analysis_progress.progress(75, text="Analyzing with Gemini...")
-            if status_placeholder is not None and started_at is not None:
-                render_stage_status(
-                    status_placeholder,
-                    active_index=2,
-                    started_at=started_at,
-                    note="Preparing the meeting intelligence for this transcript.",
-                )
-            analysis_progress.progress(90, text="Generating Minutes of Meeting...")
+            analysis_progress.progress(75, text="Generating Meeting Notes")
             if status_placeholder is not None and started_at is not None:
                 render_stage_status(
                     status_placeholder,
                     active_index=3,
                     started_at=started_at,
-                    note="Structuring the transcript analysis into meeting minutes.",
+                    note="Preparing organized notes for this recording.",
                 )
-            analysis_progress.progress(100, text="Finalizing Report... complete")
+            analysis_progress.progress(90, text="Preparing Exports")
+            if status_placeholder is not None and started_at is not None:
+                render_stage_status(
+                    status_placeholder,
+                    active_index=4,
+                    started_at=started_at,
+                    note="Arranging the report into a clean meeting format.",
+                )
+            analysis_progress.progress(100, text="Preparing Exports")
             if status_placeholder is not None and started_at is not None:
                 render_stage_status(
                     status_placeholder,
@@ -1108,11 +1742,11 @@ def run_meeting_analysis(
             "Initializing Gemini analysis pipeline.",
             transcript_chars=len(transcript_text),
         )
-        analysis_progress.progress(70, text="Analyzing with Gemini...")
+        analysis_progress.progress(70, text="Generating Meeting Notes")
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
-                active_index=2,
+                active_index=3,
                 started_at=started_at,
                 note=estimate_note,
             )
@@ -1121,28 +1755,25 @@ def run_meeting_analysis(
         gemini_client = get_gemini_client()
         summarizer = LLMSummarizer(llm_client=gemini_client)
 
-        analysis_progress.progress(
-            75,
-            text="Analyzing with Gemini...",
-        )
-        if status_placeholder is not None and started_at is not None:
-            render_stage_status(
-                status_placeholder,
-                active_index=2,
-                started_at=started_at,
-                note="Gemini is cleaning the transcript and extracting summaries, decisions, and action items.",
-            )
-        update_elapsed(elapsed_placeholder, started_at)
-        log_stage("Meeting analysis", "Calling analyze_meeting() with single Gemini request.")
-        analysis = summarizer.analyze_meeting(transcript_text)
-
-        analysis_progress.progress(90, text="Generating Minutes of Meeting...")
+        analysis_progress.progress(75, text="Generating Meeting Notes")
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
                 active_index=3,
                 started_at=started_at,
-                note="Structuring the transcript analysis into meeting minutes.",
+                note="Organizing the transcript into notes, decisions, and follow-up tasks.",
+            )
+        update_elapsed(elapsed_placeholder, started_at)
+        log_stage("Meeting analysis", "Calling analyze_meeting() with single Gemini request.")
+        analysis = summarizer.analyze_meeting(transcript_text)
+
+        analysis_progress.progress(90, text="Preparing Exports")
+        if status_placeholder is not None and started_at is not None:
+            render_stage_status(
+                status_placeholder,
+                active_index=4,
+                started_at=started_at,
+                note="Arranging the report into a clean meeting format.",
             )
         update_elapsed(elapsed_placeholder, started_at)
         st.session_state.analysis_result = analysis
@@ -1156,17 +1787,17 @@ def run_meeting_analysis(
             action_items=len(analysis.action_items),
         )
 
-        analysis_progress.progress(96, text="Finalizing Report...")
+        analysis_progress.progress(96, text="Preparing Exports")
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
                 active_index=4,
                 started_at=started_at,
-                note="Preparing the transcript, meeting summary, exports, and report metrics.",
+                note="Preparing your report and download files.",
             )
         update_elapsed(elapsed_placeholder, started_at)
         time.sleep(0.2)
-        analysis_progress.progress(100, text="Finalizing Report... complete")
+        analysis_progress.progress(100, text="Preparing Exports")
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
@@ -1187,17 +1818,18 @@ def run_meeting_analysis(
         if progress is None:
             analysis_progress.empty()
         st.session_state.analysis_result = None
-        st.session_state.analysis_error = f"Meeting analysis failed: {exc}"
+        st.session_state.analysis_error = (
+            "We could not generate the meeting notes. Please try again."
+        )
         log_stage("Meeting analysis", "Analysis failed.", error=str(exc))
         st.error(st.session_state.analysis_error)
-        st.exception(exc)
         return None
     except Exception as exc:
         if progress is None:
             analysis_progress.empty()
         st.session_state.analysis_result = None
         st.session_state.analysis_error = (
-            f"Unexpected error while analyzing meeting: {exc}"
+            "Something went wrong while preparing your meeting notes. Please try again."
         )
         log_stage(
             "Meeting analysis",
@@ -1206,7 +1838,6 @@ def run_meeting_analysis(
             traceback=traceback.format_exc(),
         )
         st.error(st.session_state.analysis_error)
-        st.exception(exc)
         return None
 
 
@@ -1250,14 +1881,19 @@ def render_copy_button(transcript: str) -> None:
         <button
             id="copy-transcript"
             style="
-                border: 1px solid #d0d5dd;
-                border-radius: 6px;
-                background: #ffffff;
-                color: #101828;
+                border: 1px solid rgba(109,93,246,0.30);
+                border-radius: 8px;
+                background: rgba(109,93,246,0.10);
+                color: #A78BFA;
                 cursor: pointer;
-                font: 14px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-                padding: 0.45rem 0.75rem;
+                font: 600 12px Inter, system-ui, sans-serif;
+                padding: 0.38rem 0.75rem;
+                letter-spacing: 0.01em;
+                transition: border-color 160ms ease, background 160ms ease;
+                display: inline-flex; align-items: center; gap: 6px;
             "
+            onmouseover="this.style.borderColor='rgba(109,93,246,0.55)';this.style.background='rgba(109,93,246,0.18)';"
+            onmouseout="this.style.borderColor='rgba(109,93,246,0.30)';this.style.background='rgba(109,93,246,0.10)';"
             type="button"
         >
             Copy transcript
@@ -1265,9 +1901,9 @@ def render_copy_button(transcript: str) -> None:
         <span
             id="copy-status"
             style="
-                color: #667085;
-                font: 13px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-                margin-left: 0.65rem;
+                color: #A78BFA;
+                font: 12px Inter, system-ui, sans-serif;
+                margin-left: 0.6rem;
             "
         ></span>
         <script>
@@ -1278,7 +1914,7 @@ def render_copy_button(transcript: str) -> None:
             button.addEventListener("click", async () => {{
                 try {{
                     await navigator.clipboard.writeText(transcript);
-                    status.textContent = "Copied";
+                    status.textContent = "Copied!";
                 }} catch (error) {{
                     status.textContent = "Copy failed";
                 }}
@@ -1289,22 +1925,11 @@ def render_copy_button(transcript: str) -> None:
             }});
         </script>
         """,
-        height=44,
+        height=42,
     )
 
 
-def process_upload(uploaded_file: object) -> None:
-    prepared_path: Path | None = None
-    started_at = time.perf_counter()
-    estimate_note = estimated_duration_message(uploaded_file)
-    status_placeholder = st.empty()
-    render_stage_status(
-        status_placeholder,
-        active_index=0,
-        started_at=started_at,
-        note=estimate_note,
-    )
-    progress = st.progress(0, text="Processing Audio...")
+def reset_report_state() -> None:
     st.session_state.processing_logs = []
     st.session_state.analysis_result = None
     st.session_state.analysis_error = ""
@@ -1318,6 +1943,28 @@ def process_upload(uploaded_file: object) -> None:
     st.session_state.transcript_pdf_export_path = ""
     st.session_state.transcript_pdf_export_error = ""
 
+
+def clear_current_report() -> None:
+    st.session_state.transcript_text = ""
+    st.session_state.transcript_result = None
+    st.session_state.uploaded_filename = ""
+    reset_report_state()
+
+
+def process_upload(uploaded_file: object) -> None:
+    prepared_path: Path | None = None
+    started_at = time.perf_counter()
+    estimate_note = estimated_duration_message(uploaded_file)
+    status_placeholder = st.empty()
+    render_stage_status(
+        status_placeholder,
+        active_index=0,
+        started_at=started_at,
+        note=estimate_note,
+    )
+    progress = st.progress(0, text="Uploading Recording")
+    clear_current_report()
+
     try:
         log_stage(
             "File upload",
@@ -1327,12 +1974,12 @@ def process_upload(uploaded_file: object) -> None:
             type=getattr(uploaded_file, "type", ""),
         )
 
-        progress.progress(10, text="Processing Audio...")
+        progress.progress(10, text="Uploading Recording")
         render_stage_status(
             status_placeholder,
             active_index=0,
             started_at=started_at,
-            note="Preparing and converting the uploaded audio into a clean WAV file.",
+            note="Receiving your recording and getting it ready.",
         )
         prepared_path = preprocess_uploaded_audio(
             uploaded_file,
@@ -1345,12 +1992,12 @@ def process_upload(uploaded_file: object) -> None:
             size=prepared_path.stat().st_size if prepared_path.exists() else None,
         )
 
-        progress.progress(35, text="Transcribing with Sarvam...")
+        progress.progress(35, text="Preparing Audio")
         render_stage_status(
             status_placeholder,
             active_index=1,
             started_at=started_at,
-            note="Sarvam is transcribing the audio and detecting speaker turns.",
+            note="Preparing the recording for speaker identification.",
         )
         log_stage(
             "Sarvam API call",
@@ -1376,12 +2023,12 @@ def process_upload(uploaded_file: object) -> None:
             transcript_chars=len(result.transcript),
         )
 
-        progress.progress(60, text="Transcribing with Sarvam...")
+        progress.progress(60, text="Identifying Speakers")
         render_stage_status(
             status_placeholder,
-            active_index=1,
+            active_index=2,
             started_at=started_at,
-            note="Formatting the diarized transcript for meeting analysis.",
+            note="Organizing the transcript by speaker.",
         )
         transcript_text = format_transcript(result)
         if not transcript_text.strip():
@@ -1397,10 +2044,10 @@ def process_upload(uploaded_file: object) -> None:
             segment_count=len(result.segments),
         )
 
-        progress.progress(65, text="Analyzing with Gemini...")
+        progress.progress(65, text="Generating Meeting Notes")
         render_stage_status(
             status_placeholder,
-            active_index=2,
+            active_index=3,
             started_at=started_at,
             note=estimate_note,
         )
@@ -1420,10 +2067,9 @@ def process_upload(uploaded_file: object) -> None:
     except (AudioProcessingError, SettingsError, TranscriptionError) as exc:
         progress.empty()
         log_stage("Error", "Pipeline error.", error=str(exc))
-        st.error(str(exc))
-        if isinstance(exc, TranscriptionError):
-            st.code(str(exc), language=None)
-        st.exception(exc)
+        st.error(
+            "We could not prepare this recording. Please check the file and try again."
+        )
     except Exception as exc:
         progress.empty()
         log_stage(
@@ -1432,140 +2078,292 @@ def process_upload(uploaded_file: object) -> None:
             error=str(exc),
             traceback=traceback.format_exc(),
         )
-        st.error(f"Unexpected error while processing audio: {exc}")
-        st.exception(exc)
+        st.error("Something went wrong while preparing your report. Please try again.")
     finally:
         if prepared_path is not None:
             prepared_path.unlink(missing_ok=True)
             log_stage("Cleanup", "Deleted temporary WAV file.", path=str(prepared_path))
 
 
-def main() -> None:
-    st.set_page_config(
-        page_title="MeetScribe",
-        layout="wide",
+def process_transcript_upload(transcript_file: object) -> None:
+    started_at = time.perf_counter()
+    status_placeholder = st.empty()
+    estimate_note = "Reading your transcript and preparing the meeting report."
+    render_stage_status(
+        status_placeholder,
+        active_index=0,
+        started_at=started_at,
+        note=estimate_note,
     )
+    progress = st.progress(0, text="Uploading Transcript")
+    clear_current_report()
+
+    try:
+        log_stage(
+            "Transcript upload",
+            "Received uploaded transcript.",
+            filename=getattr(transcript_file, "name", ""),
+            size=getattr(transcript_file, "size", None),
+            type=getattr(transcript_file, "type", ""),
+        )
+
+        progress.progress(20, text="Preparing File")
+        render_stage_status(
+            status_placeholder,
+            active_index=1,
+            started_at=started_at,
+            note="Extracting text from the uploaded transcript.",
+        )
+        extracted = extract_uploaded_transcript(
+            transcript_file,
+            filename=getattr(transcript_file, "name", None),
+        )
+        result = validate_transcription_result(extracted.result)
+        transcript_text = format_transcript(result) if result.segments else result.transcript.strip()
+        if not transcript_text.strip():
+            raise TranscriptFileError("No transcript text was found in the uploaded file.")
+
+        st.session_state.transcript_result = result
+        st.session_state.transcript_text = transcript_text
+        st.session_state.uploaded_filename = getattr(transcript_file, "name", "")
+        log_stage(
+            "Session state update",
+            "Stored uploaded transcript in session state.",
+            transcript_chars=len(transcript_text),
+            segment_count=len(result.segments),
+        )
+
+        progress.progress(55, text="Generating Meeting Notes")
+        render_stage_status(
+            status_placeholder,
+            active_index=3,
+            started_at=started_at,
+            note="Generating structured notes from the uploaded transcript.",
+        )
+        analysis = run_meeting_analysis(
+            extracted.text,
+            progress=progress,
+            status_placeholder=status_placeholder,
+            started_at=started_at,
+            estimate_note="Generating summary, discussion points, decisions, and action items.",
+        )
+        if analysis is not None:
+            store_success_metrics(
+                result=result,
+                analysis=analysis,
+                started_at=started_at,
+            )
+    except TranscriptFileError as exc:
+        progress.empty()
+        log_stage("Transcript upload", "Transcript validation failed.", error=str(exc))
+        st.error(str(exc))
+    except SettingsError as exc:
+        progress.empty()
+        log_stage("Transcript upload", "Settings error.", error=str(exc))
+        st.error("Meeting notes could not be generated because the app is not configured correctly.")
+    except Exception as exc:
+        progress.empty()
+        log_stage(
+            "Transcript upload",
+            "Unexpected error while processing transcript.",
+            error=str(exc),
+            traceback=traceback.format_exc(),
+        )
+        st.error("Something went wrong while reading this transcript. Please try another file.")
+
+
+def main() -> None:
+    st.set_page_config(page_title="MeetScribe", layout="wide")
     initialize_session_state()
     inject_processing_styles()
 
     render_hero()
 
+    # ── UPLOAD PANEL ──────────────────────────────────────────────
     with st.container(border=True):
-        render_panel_header(
-            "Upload Meeting Audio",
-            "Add a WAV, MP3, M4A, AAC, or MP4 recording. MeetScribe will transcribe, analyze, and prepare a structured MoM.",
-        )
-        uploaded_file = st.file_uploader(
-            "Audio file",
-            type=SUPPORTED_FILE_TYPES,
-            accept_multiple_files=False,
+        st.markdown(
+            """
+            <div class="ms-upload-title-row">
+              <div class="ms-upload-icon-badge">&#9729;</div>
+              <span class="ms-upload-title">Upload Input</span>
+            </div>
+            <p class="ms-upload-desc">
+              Upload a meeting recording or a transcript to generate a structured meeting report.
+            </p>
+            """,
+            unsafe_allow_html=True,
         )
 
-        if uploaded_file is None:
-            st.info("Upload a meeting recording to begin.")
-        else:
-            file_size_mb = uploaded_file.size / (1024 * 1024)
-            upload_signature = f"{uploaded_file.name}:{uploaded_file.size}"
-            if st.session_state.last_logged_upload != upload_signature:
-                log_stage(
-                    "File upload",
-                    "File selected in UI.",
-                    filename=uploaded_file.name,
-                    size=uploaded_file.size,
+        left_col, mid_col, right_col = st.columns([1, 0.08, 1])
+
+        with left_col:
+            with st.container(border=True):
+                st.markdown(
+                    "<p class='ms-sub-label'>Upload Meeting Recording</p>"
+                    "<p class='ms-sub-fmt'>Supported formats: MP3, WAV, M4A, AAC, MP4</p>",
+                    unsafe_allow_html=True,
                 )
-                st.session_state.last_logged_upload = upload_signature
+                uploaded_file = st.file_uploader(
+                    "Drag and drop your audio file here, or click to browse",
+                    type=SUPPORTED_FILE_TYPES,
+                    accept_multiple_files=False,
+                    label_visibility="collapsed",
+                    key=f"audio_upload_{st.session_state.audio_upload_version}",
+                )
 
+                if uploaded_file is not None:
+                    file_size_mb = uploaded_file.size / (1024 * 1024)
+                    upload_signature = f"{uploaded_file.name}:{uploaded_file.size}"
+                    if st.session_state.last_logged_upload != upload_signature:
+                        log_stage("File upload", "File selected in UI.",
+                                  filename=uploaded_file.name, size=uploaded_file.size)
+                        st.session_state.last_logged_upload = upload_signature
+
+                    file_col, remove_col = st.columns([1, 0.16], gap="small", vertical_alignment="center")
+                    with file_col:
+                        st.markdown(
+                            f"""<div class="ms-file-card">
+                                    <div class="ms-file-icon">
+                                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                                    </div>
+                                  <div class="ms-file-info">
+                                    <div class="ms-file-name">{html.escape(uploaded_file.name)}</div>
+                                    <div class="ms-file-size">{file_size_mb:.2f} MB</div>
+                                  </div>
+                                </div>""",
+                            unsafe_allow_html=True,
+                        )
+                    with remove_col:
+                        if st.button("🗑", key="remove_audio_file", type="secondary", help="Remove file"):
+                            st.session_state.audio_upload_version += 1
+                            st.session_state.last_logged_upload = ""
+                            clear_current_report()
+                            st.rerun()
+
+        with mid_col:
             st.markdown(
-                f"""
-                <div class="ms-upload-ready">
-                  Selected {html.escape(uploaded_file.name)}
-                  <span>({file_size_mb:.2f} MB)</span>
-                </div>
-                """,
+                "<div class='ms-or-wrap'><span class='ms-or-divider'>OR</span></div>",
                 unsafe_allow_html=True,
             )
 
+        with right_col:
+            with st.container(border=True):
+                st.markdown(
+                    "<p class='ms-sub-label'>Upload Transcript</p>"
+                    "<p class='ms-sub-fmt'>Supported formats: PDF, DOCX, TXT</p>",
+                    unsafe_allow_html=True,
+                )
+                transcript_file = st.file_uploader(
+                    "Drag and drop your transcript here, or click to browse",
+                    type=list(SUPPORTED_TRANSCRIPT_TYPES),
+                    accept_multiple_files=False,
+                    label_visibility="collapsed",
+                    key=f"transcript_upload_{st.session_state.transcript_upload_version}",
+                )
+
+                if transcript_file is not None:
+                    tf_size_mb = transcript_file.size / (1024 * 1024)
+                    file_col, remove_col = st.columns([1, 0.16], gap="small", vertical_alignment="center")
+                    with file_col:
+                        st.markdown(
+                            f"""<div class="ms-file-card">
+                                    <div class="ms-file-icon">
+                                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                                    </div>
+                                  <div class="ms-file-info">
+                                    <div class="ms-file-name">{html.escape(transcript_file.name)}</div>
+                                    <div class="ms-file-size">{tf_size_mb:.2f} MB</div>
+                                  </div>
+                                </div>""",
+                            unsafe_allow_html=True,
+                        )
+                    with remove_col:
+                        if st.button("🗑", key="remove_transcript_file", type="secondary", help="Remove file"):
+                            st.session_state.transcript_upload_version += 1
+                            clear_current_report()
+                            st.rerun()
+
         process_clicked = st.button(
-            "Generate Minutes of Meeting",
+            "Generate Meeting Report",
             type="primary",
-            disabled=uploaded_file is None,
+            disabled=uploaded_file is None and transcript_file is None,
             use_container_width=True,
         )
 
-        if process_clicked and uploaded_file is not None:
-            process_upload(uploaded_file)
+        if process_clicked:
+            if transcript_file is not None:
+                process_transcript_upload(transcript_file)
+            elif uploaded_file is not None:
+                process_upload(uploaded_file)
 
+    # ── POST-PROCESSING RESULTS ───────────────────────────────────
     transcript_text = st.session_state.transcript_text
-    result = st.session_state.transcript_result
-    analysis = st.session_state.analysis_result
+    result          = st.session_state.transcript_result
+    analysis        = st.session_state.analysis_result
     log_stage(
-        "Transcript rendering",
-        "Checking transcript display conditions.",
+        "Transcript rendering", "Checking transcript display conditions.",
         has_transcript=bool(transcript_text),
         result_type=type(result).__name__ if result is not None else None,
         analysis_type=type(analysis).__name__ if analysis is not None else None,
     )
 
     if transcript_text and result is not None:
-        st.markdown("<br>", unsafe_allow_html=True)
-        render_panel_header(
-            "Analysis Workspace",
-            "Review the generated summary, discussion points, decisions, action items, and transcript.",
-        )
-        if st.session_state.uploaded_filename:
-            st.caption(f"Source: {st.session_state.uploaded_filename}")
+        st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
 
         render_analysis_error()
         render_success_metrics()
+
+        # Export above tabs
         if analysis is not None:
             render_export_card(analysis)
 
+        # Tabs
         (
+            transcript_tab,
             summary_tab,
             key_points_tab,
             decisions_tab,
             action_items_tab,
-            transcript_tab,
-        ) = st.tabs(
-            [
-                "📄 Summary",
-                "💡 Discussion Points",
-                "✅ Decisions",
-                "📌 Action Items",
-                "📝 Transcript",
-            ]
-        )
-
-        with summary_tab:
-            if analysis is None:
-                empty_card("Meeting analysis is not available yet.")
-            else:
-                render_summary_tab(analysis)
-
-        with key_points_tab:
-            if analysis is None:
-                empty_card("Meeting analysis is not available yet.")
-            else:
-                render_key_points_tab(analysis)
-
-        with decisions_tab:
-            if analysis is None:
-                empty_card("Meeting analysis is not available yet.")
-            else:
-                render_decisions_tab(analysis)
-
-        with action_items_tab:
-            if analysis is None:
-                empty_card("Meeting analysis is not available yet.")
-            else:
-                render_action_items_tab(analysis)
+        ) = st.tabs([
+            "Transcript",
+            "Summary",
+            "Discussion Points",
+            "Decisions",
+            "Action Items",
+        ])
 
         with transcript_tab:
             render_copy_button(transcript_text)
             render_transcript(result)
 
-    # Keep logs in session state for debugging, but do not show internal pipeline
-    # details in the premium user-facing interface.
+        with summary_tab:
+            if analysis is None:
+                empty_card("Meeting notes are not ready yet.")
+            else:
+                render_summary_tab(analysis)
+
+        with key_points_tab:
+            if analysis is None:
+                empty_card("Meeting notes are not ready yet.")
+            else:
+                render_key_points_tab(analysis)
+
+        with decisions_tab:
+            if analysis is None:
+                empty_card("Meeting notes are not ready yet.")
+            else:
+                render_decisions_tab(analysis)
+
+        with action_items_tab:
+            if analysis is None:
+                empty_card("Meeting notes are not ready yet.")
+            else:
+                render_action_items_tab(analysis)
+
+    st.markdown(
+        "<div class='ms-footer'>&#169; 2026 MeetScribe. All rights reserved.</div>",
+        unsafe_allow_html=True,
+    )
 
 
 if __name__ == "__main__":

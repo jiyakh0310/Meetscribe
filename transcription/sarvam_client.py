@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import tempfile
+import traceback
 import wave
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -348,17 +349,30 @@ class SarvamTranscriptionClient:
                 create_job_kwargs.get("num_speakers"),
             )
 
+            logger.info("Sarvam batch create_job starting for '%s'", audio_path.name)
             job = self._client.speech_to_text_job.create_job(
                 **create_job_kwargs,
             )
+            logger.info("Sarvam batch upload starting for '%s'", audio_path.name)
             job.upload_files(
                 file_paths=[str(audio_path)],
                 timeout=BATCH_UPLOAD_TIMEOUT_SECONDS,
             )
+            logger.info("Sarvam batch job start requested for '%s'", audio_path.name)
             job.start()
+            logger.info("Sarvam batch wait started for '%s'", audio_path.name)
             status = job.wait_until_complete(timeout=BATCH_POLL_TIMEOUT_SECONDS)
+            logger.info(
+                "Sarvam batch response received for '%s': job_state=%s",
+                audio_path.name,
+                getattr(status, "job_state", None),
+            )
         except TimeoutError as exc:
-            logger.error("Batch transcription timed out for '%s'", audio_path.name)
+            logger.error(
+                "Batch transcription timed out for '%s': traceback=%s",
+                audio_path.name,
+                traceback.format_exc(),
+            )
             raise TranscriptionError(
                 "Batch transcription timed out. Try a shorter recording."
             ) from exc
@@ -368,7 +382,12 @@ class SarvamTranscriptionClient:
                 _format_api_error("Batch transcription failed.", exc)
             ) from exc
         except RuntimeError as exc:
-            logger.error("Batch transcription runtime error for '%s'", audio_path.name)
+            logger.error(
+                "Batch transcription runtime error for '%s': error=%s traceback=%s",
+                audio_path.name,
+                exc,
+                traceback.format_exc(),
+            )
             raise TranscriptionError(
                 "Batch transcription failed during upload or download."
             ) from exc
@@ -392,7 +411,9 @@ class SarvamTranscriptionClient:
 
         with tempfile.TemporaryDirectory(prefix="meetscribe_sarvam_") as temp_dir:
             output_dir = Path(temp_dir)
+            logger.info("Sarvam batch output download starting for '%s'", audio_path.name)
             job.download_outputs(output_dir=str(output_dir))
+            logger.info("Sarvam batch output downloaded for '%s'", audio_path.name)
             result = _extract_result_from_batch_output(output_dir)
 
         logger.info(

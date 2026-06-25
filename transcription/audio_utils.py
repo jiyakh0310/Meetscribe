@@ -4,10 +4,13 @@ from __future__ import annotations
 
 import shutil
 import tempfile
+import logging
 from pathlib import Path
 from typing import BinaryIO
 
 import ffmpeg
+
+logger = logging.getLogger(__name__)
 
 SUPPORTED_EXTENSIONS: frozenset[str] = frozenset(
     {".aac", ".m4a", ".mp3", ".mp4", ".wav"}
@@ -23,10 +26,13 @@ def _ffmpeg_command() -> str:
     try:
         import imageio_ffmpeg
 
-        return imageio_ffmpeg.get_ffmpeg_exe()
+        ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
+        logger.info("Using imageio-ffmpeg binary: %s", ffmpeg_path)
+        return ffmpeg_path
     except Exception:
         system_ffmpeg = shutil.which("ffmpeg")
         if system_ffmpeg:
+            logger.info("Using system ffmpeg binary: %s", system_ffmpeg)
             return system_ffmpeg
 
     raise AudioProcessingError(
@@ -52,6 +58,11 @@ def _materialize_source(
     filename: str | None = None,
 ) -> tuple[Path, bool]:
     """Write uploads to disk when needed. Returns (path, is_temporary)."""
+    logger.info(
+        "preprocess_uploaded_audio source materialization started: source_type=%s filename=%r",
+        type(source).__name__,
+        filename,
+    )
     if isinstance(source, (str, Path)):
         path = Path(source)
         if not path.is_file():
@@ -59,6 +70,11 @@ def _materialize_source(
         if path.stat().st_size == 0:
             raise AudioProcessingError(f"Audio file is empty: {path}")
         _validate_extension(path.name)
+        logger.info(
+            "Using existing audio path: path=%s size=%s",
+            path,
+            path.stat().st_size,
+        )
         return path, False
 
     if isinstance(source, bytes):
@@ -81,7 +97,14 @@ def _materialize_source(
     try:
         temp_file.write(data)
         temp_file.close()
-        return Path(temp_file.name), True
+        temp_path = Path(temp_file.name)
+        logger.info(
+            "Uploaded audio stored in temporary file: filename=%r path=%s size=%s",
+            name,
+            temp_path,
+            temp_path.stat().st_size,
+        )
+        return temp_path, True
     except OSError as exc:
         temp_file.close()
         Path(temp_file.name).unlink(missing_ok=True)
@@ -96,6 +119,12 @@ def _convert_to_wav(input_path: Path) -> Path:
     output_path = Path(output_file.name)
 
     try:
+        logger.info(
+            "Starting ffmpeg WAV conversion: input=%s input_size=%s output=%s",
+            input_path,
+            input_path.stat().st_size if input_path.exists() else None,
+            output_path,
+        )
         input_stream = ffmpeg.input(str(input_path))
         (
             ffmpeg.output(
@@ -139,6 +168,11 @@ def _convert_to_wav(input_path: Path) -> Path:
             f"Conversion produced an empty WAV file for '{input_path.name}'."
         )
 
+    logger.info(
+        "Completed ffmpeg WAV conversion: output=%s output_size=%s",
+        output_path,
+        output_path.stat().st_size,
+    )
     return output_path
 
 
@@ -156,6 +190,11 @@ def preprocess_uploaded_audio(
 
     The caller is responsible for deleting returned temporary files when done.
     """
+    logger.info(
+        "preprocess_uploaded_audio entered: source_type=%s filename=%r",
+        type(source).__name__,
+        filename,
+    )
     input_path, input_is_temp = _materialize_source(source, filename=filename)
 
     try:
@@ -166,7 +205,15 @@ def preprocess_uploaded_audio(
                 f"Convertible formats: {', '.join(sorted(CONVERT_EXTENSIONS))}."
             )
 
-        return _convert_to_wav(input_path)
+        wav_path = _convert_to_wav(input_path)
+        logger.info(
+            "preprocess_uploaded_audio exiting: wav_path=%s wav_exists=%s wav_size=%s",
+            wav_path,
+            wav_path.exists(),
+            wav_path.stat().st_size if wav_path.exists() else None,
+        )
+        return wav_path
     finally:
         if input_is_temp:
+            logger.info("Deleting temporary source audio: path=%s", input_path)
             input_path.unlink(missing_ok=True)
