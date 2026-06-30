@@ -1,0 +1,60 @@
+sentence,speaker,timestamp,predicted_label,confidence_score
+That's great.,Speaker 1,,Discussion,0.652601
+What about speaker identification?,Speaker 1,,Information,0.60747
+Is the system able to separate participants correctly?,Speaker 1,,Information,0.481743
+"Yes, speaker diarization has been integrated.",Speaker 2,,Information,0.536326
+"For recordings with two or three speakers, the output is reasonably accurate.",Speaker 2,,Information,0.538416
+"However, in cases where participants interrupt each other frequently, a few speaker labels may be assigned incorrectly.",Speaker 2,,Information,0.504808
+I also noticed that background noise affects the quality slightly.,Speaker 3,,Discussion,0.674221
+Meetings recorded in a quiet environment produce much better results.,Speaker 3,,Information,0.648115
+Understood.,Speaker 1,,Discussion,0.466705
+Let's talk about the meeting summary generation module.,Speaker 1,,Information,0.598424
+How is it performing?,Speaker 1,,Information,0.528079
+The summarization module is generating concise summaries successfully.,Speaker 2,,Information,0.722287
+"It can identify key discussion points, major decisions, and action items from the transcript.",Speaker 2,,Information,0.664264
+We recently optimized the workflow so that a single request generates all structured outputs.,Speaker 2,,Information,0.381087
+The generated summaries are easy to read.,Speaker 3,,Information,0.614957
+I reviewed several outputs and most important information was captured correctly.,Speaker 3,,Information,0.737454
+"However, we may need additional testing to ensure consistency across different meeting types.",Speaker 3,,Information,0.366115
+That's a valid point.,Speaker 1,,Discussion,0.783521
+Have we started evaluating the quality of the generated meeting notes?,Speaker 1,,Information,0.814488
+We have started manual evaluation.,Speaker 3,,Information,0.729646
+"For each meeting recording, we compare the generated notes with the actual discussion and verify whether important decisions and action items were captured.",Speaker 3,,Information,0.80596
+We are also planning to use standard evaluation metrics for transcription quality.,Speaker 2,,Information,0.430825
+This will help us provide quantitative results instead of relying only on manual review.,Speaker 2,,Information,0.612922
+Excellent.,Speaker 1,,Discussion,0.653426
+What challenges are we currently facing?,Speaker 1,,Information,0.651566
+The biggest challenge is processing time for large recordings.,Speaker 2,,Discussion,0.622984
+Meetings longer than twenty minutes take significantly more time to analyze and summarize.,Speaker 2,,Information,0.724412
+Another challenge is handling mixed-language conversations.,Speaker 3,,Discussion,0.424932
+"Many meetings switch between English and Hindi, which sometimes affects transcription accuracy.",Speaker 3,,Discussion,0.519105
+Do we have a plan to address these issues?,Speaker 1,,Information,0.484429
+Yes.,Speaker 2,,Discussion,0.436823
+We are exploring optimization techniques to reduce processing time and improve the overall user experience.,Speaker 2,,Discussion,0.499572
+We are also testing recordings containing Hindi and Hinglish conversations.,Speaker 2,,Information,0.589436
+"Additionally, we are preparing a small evaluation dataset that can be used to benchmark performance across multiple meeting scenarios.",Speaker 3,,Information,0.802718
+Sounds good.,Speaker 1,,Decision,0.310811
+Let's discuss the user interface.,Speaker 1,,Discussion,0.304909
+What improvements have been made recently?,Speaker 1,,Information,0.760359
+The interface has been redesigned with a premium dashboard layout.,Speaker 2,,Information,0.621243
+"The upload workflow is more intuitive, and the export section has been simplified.",Speaker 2,,Information,0.624918
+Users can now download meeting reports directly in PDF and DOCX formats.,Speaker 2,,Information,0.659991
+We also improved responsiveness.,Speaker 3,,Discussion,0.509455
+"The interface works much better on laptops, tablets, and mobile devices compared to the previous version.",Speaker 3,,Discussion,0.516915
+Great progress.,Speaker 1,,Information,0.761331
+Are there any pending tasks for the next phase?,Speaker 1,,Information,0.443358
+Yes.,Speaker 2,,Discussion,0.436823
+"We still need to finalize the export templates, improve the transcript presentation, and optimize performance for large files.",Speaker 2,,Discussion,0.634581
+"From the research side, we need to complete evaluation experiments and document the results properly.",Speaker 3,,Information,0.614695
+Let's assign responsibilities.,Speaker 1,,Decision,0.337489
+Developer will focus on performance optimization and export improvements.,Speaker 1,,Discussion,0.427399
+Research Intern will work on evaluation and documentation.,Speaker 1,,Information,0.696301
+I will review progress and prepare the final presentation.,Speaker 1,,Information,0.410443
+Agreed.,Speaker 2,,Discussion,0.501868
+Agreed.,Speaker 3,,Discussion,0.501868
+Thank you everyone.,Speaker 1,,Information,0.532542
+Let's target completion of these tasks by next week.,Speaker 1,,Information,0.308379
+We'll conduct another review meeting after the evaluation phase is complete.,Speaker 1,,Information,0.496306
+Sounds good.,Speaker 2,,Decision,0.310811
+Thank you.,Speaker 3,,Information,0.326636
+Meeting adjourned.,Speaker 1,,Information,0.272417

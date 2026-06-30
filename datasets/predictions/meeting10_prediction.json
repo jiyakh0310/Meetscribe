@@ -1,0 +1,219 @@
+[
+  {
+    "sentence": "24 July 2026 Participants Aarav (Project Manager) Neha (ML Engineer) Rahul (Backend Developer) Priya (Frontend Developer) Ananya (QA Engineer)",
+    "speaker": "Date",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.726156
+  },
+  {
+    "sentence": "Good morning everyone.",
+    "speaker": "Aarav",
+    "timestamp": 32405,
+    "predicted_label": "Information",
+    "confidence_score": 0.90893
+  },
+  {
+    "sentence": "Morning.",
+    "speaker": "Priya",
+    "timestamp": 32412,
+    "predicted_label": "Information",
+    "confidence_score": 0.796412
+  },
+  {
+    "sentence": "Good morning.",
+    "speaker": "Rahul",
+    "timestamp": 32418,
+    "predicted_label": "Information",
+    "confidence_score": 0.883884
+  },
+  {
+    "sentence": "Today's goal is to finalize the feature list for Sprint 4.",
+    "speaker": "Aarav",
+    "timestamp": 32425,
+    "predicted_label": "Information",
+    "confidence_score": 0.494361
+  },
+  {
+    "sentence": "The meeting summarization model has reached 91% evaluation accuracy.",
+    "speaker": "Neha",
+    "timestamp": 32450,
+    "predicted_label": "Information",
+    "confidence_score": 0.919683
+  },
+  {
+    "sentence": "The export APIs are also ready.",
+    "speaker": "Rahul",
+    "timestamp": 32475,
+    "predicted_label": "Information",
+    "confidence_score": 0.464607
+  },
+  {
+    "sentence": "Are there any blockers before release?",
+    "speaker": "Aarav",
+    "timestamp": 32500,
+    "predicted_label": "Information",
+    "confidence_score": 0.415384
+  },
+  {
+    "sentence": "The PDF export layout still needs some polishing.",
+    "speaker": "Priya",
+    "timestamp": 32525,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.458114
+  },
+  {
+    "sentence": "QA also found two UI alignment issues.",
+    "speaker": "Ananya",
+    "timestamp": 32560,
+    "predicted_label": "Information",
+    "confidence_score": 0.702211
+  },
+  {
+    "sentence": "Can both be fixed by tomorrow?",
+    "speaker": "Aarav",
+    "timestamp": 32585,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.353073
+  },
+  {
+    "sentence": "Yes.",
+    "speaker": "Priya",
+    "timestamp": 32600,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.436823
+  },
+  {
+    "sentence": "Yes, I'll verify everything once the fixes are merged.",
+    "speaker": "Ananya",
+    "timestamp": 32615,
+    "predicted_label": "Information",
+    "confidence_score": 0.288298
+  },
+  {
+    "sentence": "I think transcript loading is still slightly slow.",
+    "speaker": "Rahul",
+    "timestamp": 32640,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.835609
+  },
+  {
+    "sentence": "Lazy loading should solve that.",
+    "speaker": "Neha",
+    "timestamp": 32665,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.505127
+  },
+  {
+    "sentence": "Okay, we'll implement lazy loading in this sprint.",
+    "speaker": "Aarav",
+    "timestamp": 32695,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.263261
+  },
+  {
+    "sentence": "Should dark mode remain in this release?",
+    "speaker": "Priya",
+    "timestamp": 32720,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.540039
+  },
+  {
+    "sentence": "I'd postpone it.",
+    "speaker": "Rahul",
+    "timestamp": 32745,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.398604
+  },
+  {
+    "sentence": "I agree.",
+    "speaker": "Neha",
+    "timestamp": 32770,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.544901
+  },
+  {
+    "sentence": "Then dark mode moves to Sprint 5.",
+    "speaker": "Aarav",
+    "timestamp": 32785,
+    "predicted_label": "Decision",
+    "confidence_score": 0.351452
+  },
+  {
+    "sentence": "Rahul will finish lazy loading.",
+    "speaker": "Aarav",
+    "timestamp": 32815,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.341657
+  },
+  {
+    "sentence": "Sure.",
+    "speaker": "Rahul",
+    "timestamp": 32832,
+    "predicted_label": "Decision",
+    "confidence_score": 0.364922
+  },
+  {
+    "sentence": "Priya will complete PDF improvements.",
+    "speaker": "Aarav",
+    "timestamp": 32845,
+    "predicted_label": "Information",
+    "confidence_score": 0.358721
+  },
+  {
+    "sentence": "Done.",
+    "speaker": "Priya",
+    "timestamp": 32862,
+    "predicted_label": "Decision",
+    "confidence_score": 0.256222
+  },
+  {
+    "sentence": "Ananya will complete regression testing.",
+    "speaker": "Aarav",
+    "timestamp": 32875,
+    "predicted_label": "Information",
+    "confidence_score": 0.344835
+  },
+  {
+    "sentence": "I'll finish it by tomorrow evening.",
+    "speaker": "Ananya",
+    "timestamp": 32892,
+    "predicted_label": "Action_Item",
+    "confidence_score": 0.291826
+  },
+  {
+    "sentence": "Let's summarize today's meeting.",
+    "speaker": "Aarav",
+    "timestamp": 32915,
+    "predicted_label": "Information",
+    "confidence_score": 0.765804
+  },
+  {
+    "sentence": "Feature list finalized.",
+    "speaker": "Aarav",
+    "timestamp": 32930,
+    "predicted_label": "Information",
+    "confidence_score": 0.55918
+  },
+  {
+    "sentence": "Dark mode postponed.",
+    "speaker": "Aarav",
+    "timestamp": 32940,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.329379
+  },
+  {
+    "sentence": "Performance optimization added to Sprint 4.",
+    "speaker": "Aarav",
+    "timestamp": 32950,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.364773
+  },
+  {
+    "sentence": "Meeting adjourned.",
+    "speaker": "Aarav",
+    "timestamp": 32965,
+    "predicted_label": "Information",
+    "confidence_score": 0.272417
+  }
+]

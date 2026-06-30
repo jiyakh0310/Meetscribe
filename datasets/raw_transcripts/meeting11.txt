@@ -1,0 +1,44 @@
+Participants
+
+Rohan (Client)
+Simran (Business Analyst)
+Kunal (Developer)
+Sneha (UI Designer)
+
+[11:00:08] Rohan: Good morning.
+
+[11:00:20] Simran: Thanks everyone for joining.
+
+[11:00:40] Rohan: We want users to receive meeting summaries automatically by email.
+
+[11:01:05] Kunal: That's technically possible.
+
+[11:01:25] Sneha: Should users be able to customize the email template?
+
+[11:01:50] Rohan: Yes, customization would be useful.
+
+[11:02:20] Simran: Should summaries also include action items?
+
+[11:02:45] Rohan: Definitely.
+
+[11:03:05] Kunal: We can also attach the transcript as a PDF.
+
+[11:03:30] Sneha: That would improve usability.
+
+[11:04:00] Simran: Do we need multilingual support?
+
+[11:04:20] Rohan: Not in Phase 1.
+
+[11:04:45] Simran: Okay, multilingual support will be moved to the next release.
+
+[11:05:15] Kunal: I'll implement automatic email delivery.
+
+[11:05:38] Sneha: I'll design the email template.
+
+[11:06:00] Simran: I'll prepare the requirement document.
+
+[11:06:35] Rohan: Perfect.
+
+[11:06:55] Simran: Today's decisions are finalized.
+
+[11:07:10] Simran: Meeting closed.

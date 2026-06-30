@@ -1,0 +1,185 @@
+[10:00:05] Aarav:
+Good morning, everyone.
+
+[10:00:10] Neha:
+Morning.
+
+[10:00:12] Rahul:
+Good morning.
+
+[10:00:15] Priya:
+Morning, everyone.
+
+[10:00:20] Ananya:
+Hi, everyone.
+
+[10:00:30] Aarav:
+Let's begin. Today's objective is to review the progress from last week's sprint and finalize the tasks for the upcoming release.
+
+[10:00:55] Rahul:
+From the backend side, the transcript upload API has been completed. We also fixed the authentication issue that users reported last week.
+
+[10:01:24] Aarav:
+That's great. Were all the reported bugs resolved?
+
+[10:01:35] Rahul:
+Almost all of them. Two edge cases related to large file uploads are still pending.
+
+[10:01:58] Aarav:
+Okay, we'll come back to those.
+
+[10:02:15] Neha:
+The meeting summarization model is performing better after the latest prompt optimization. Accuracy has improved during our internal evaluation.
+
+[10:02:47] Aarav:
+Did you test it on longer meeting transcripts?
+
+[10:02:58] Neha:
+Yes. Meetings up to thirty minutes are working well, but summaries become slightly inconsistent for recordings longer than an hour.
+
+[10:03:35] Priya:
+Would chunking the transcript help?
+
+[10:03:49] Neha:
+Yes, that's exactly what we're planning to test this week.
+
+[10:04:20] Aarav:
+Good suggestion.
+
+[10:04:30] Ananya:
+From the QA side, we've completed testing on Chrome and Edge browsers.
+
+[10:04:55] Aarav:
+Any issues?
+
+[10:05:02] Ananya:
+Nothing major. We noticed a small formatting issue in exported PDF reports.
+
+[10:05:28] Priya:
+I can fix that today.
+
+[10:05:40] Aarav:
+Perfect.
+
+[10:06:05] Priya:
+The dashboard redesign is almost complete. I added a cleaner transcript viewer and improved the navigation menu.
+
+[10:06:40] Rahul:
+I saw the latest build yesterday. It definitely feels much smoother.
+
+[10:07:05] Aarav:
+Can we deploy the UI changes before Friday?
+
+[10:07:20] Priya:
+Yes, provided no new bugs are found.
+
+[10:07:42] Ananya:
+I'll finish regression testing by Thursday evening.
+
+[10:08:15] Aarav:
+Excellent.
+
+[10:08:30] Rahul:
+I also think we should optimize transcript loading because larger meetings take several seconds to open.
+
+[10:08:58] Neha:
+That's true. We can implement lazy loading for transcript sections.
+
+[10:09:20] Priya:
+That should also improve scrolling performance.
+
+[10:09:45] Aarav:
+Let's include that in this sprint.
+
+[10:10:15] Aarav:
+Any updates regarding multilingual support?
+
+[10:10:35] Neha:
+We've started testing English-Hindi mixed conversations.
+
+[10:10:58] Rahul:
+Initial results look promising, although speaker separation still struggles when multiple people interrupt each other.
+
+[10:11:40] Ananya:
+I'll include those cases in the next testing cycle.
+
+[10:12:10] Aarav:
+Good.
+
+[10:12:25] Priya:
+Can we also add a dark mode option in the next release?
+
+[10:12:48] Rahul:
+I'd recommend postponing it until after the performance improvements.
+
+[10:13:15] Neha:
+I agree. Performance should be our priority.
+
+[10:13:35] Aarav:
+Alright. We'll move dark mode to the next sprint.
+
+[10:14:20] Aarav:
+Let's assign responsibilities.
+
+[10:14:35] Rahul:
+I'll optimize the transcript loading performance.
+
+[10:14:58] Priya:
+I'll fix the PDF formatting issue and complete the dashboard redesign.
+
+[10:15:28] Neha:
+I'll continue testing transcript chunking and multilingual summarization.
+
+[10:15:55] Ananya:
+I'll complete regression testing and prepare the QA report.
+
+[10:16:25] Aarav:
+Perfect.
+
+[10:16:40] Aarav:
+Let's target Friday evening for code freeze.
+
+[10:16:58] Rahul:
+That works for me.
+
+[10:17:08] Priya:
+Same here.
+
+[10:17:15] Neha:
+No issues from my side.
+
+[10:17:25] Ananya:
+Works for QA as well.
+
+[10:17:50] Aarav:
+Before we close, does anyone have any additional concerns?
+
+[10:18:10] Rahul:
+Nothing from my side.
+
+[10:18:18] Priya:
+All good.
+
+[10:18:25] Neha:
+No additional updates.
+
+[10:18:40] Ananya:
+Everything is covered.
+
+[10:19:05] Aarav:
+Great. Thanks, everyone. We'll meet again next Monday to review the sprint outcomes.
+
+[10:19:25] Rahul:
+Thank you.
+
+[10:19:30] Priya:
+Thanks, everyone.
+
+[10:19:36] Neha:
+See you next week.
+
+[10:19:45] Ananya:
+Bye.
+
+[10:19:55] Aarav:
+Meeting adjourned.

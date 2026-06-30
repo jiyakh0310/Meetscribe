@@ -15,13 +15,13 @@ from typing import Any
 
 import streamlit as st
 import streamlit.components.v1 as components
+import torch
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from config.settings import SettingsError
-from agentic.workflow import run_meeting_analysis_workflow
 from exports.docx_exporter import export_to_docx
 from exports.email_sender import (
     EmailDeliveryError,
@@ -30,15 +30,26 @@ from exports.email_sender import (
     send_report_email,
 )
 from exports.pdf_exporter import export_to_pdf
-from llm_clients.gemini_client import GeminiClient, GeminiClientError
-from summarization.base_summarizer import MeetingAnalysisResult
-from summarization.llm_summarizer import (
-    ActionItemExtractionError,
-    DecisionExtractionError,
-    KeyDiscussionPointExtractionError,
-    LLMSummarizer,
-    MeetingSummaryError,
-    TranscriptCleanupError,
+from ml_mom.clustering import ClusteringService
+from ml_mom.embeddings import EmbeddingService
+from ml_mom.feature_extraction import extract_sentence_features
+from ml_mom.mom_generator import (
+    PredictionRecord,
+    generate_minutes,
+)
+from ml_mom.predict_ann import (
+    load_label_mapping,
+    load_trained_model,
+    predict_labels,
+)
+from ml_mom.preprocessing import preprocess_transcript
+from ml_mom.transcript_parser import ParsedTranscript, parse_transcript
+from summarization.base_summarizer import (
+    ActionItem,
+    Decision,
+    KeyDiscussionPoint,
+    MeetingAnalysisResult,
+    MeetingSummary,
 )
 from transcription.audio_utils import AudioProcessingError, preprocess_uploaded_audio
 from transcription.speaker_mapping import (
@@ -73,10 +84,17 @@ MEETING_INFO_FIELDS = (
     ("meeting_title", "Meeting Title"),
     ("meeting_date", "Meeting Date"),
     ("meeting_time", "Meeting Time"),
-    ("organization", "Organization / Company"),
-    ("project_name", "Project Name"),
+    ("meeting_location", "Meeting Location / Venue"),
+    ("meeting_platform", "Meeting Platform / Source"),
     ("prepared_by", "Prepared By"),
     ("participants", "Participants"),
+)
+MEETING_PLATFORM_OPTIONS = (
+    "Google Meet",
+    "Microsoft Teams",
+    "Zoom",
+    "Offline Meeting",
+    "Other",
 )
 
 PROCESSING_STAGES = [
@@ -105,6 +123,9 @@ def initialize_session_state() -> None:
     st.session_state.setdefault("meeting_info", {})
     st.session_state.setdefault("meeting_info_initialized", False)
     st.session_state.setdefault("meeting_info_last_saved", {})
+    st.session_state.setdefault("meeting_details_required", False)
+    st.session_state.setdefault("meeting_participants", [])
+    st.session_state.setdefault("meeting_participants_manual", "")
     st.session_state.setdefault("show_email_form", False)
     st.session_state.setdefault("success_metrics", None)
     st.session_state.setdefault("docx_export_path", "")
@@ -1769,10 +1790,6 @@ def inject_processing_styles() -> None:
     )
 
 
-def get_gemini_client() -> GeminiClient:
-    return GeminiClient()
-
-
 def analysis_cache_key(transcript_text: str) -> str:
     return hashlib.sha256(transcript_text.strip().encode("utf-8")).hexdigest()
 
@@ -2221,6 +2238,35 @@ def default_meeting_title() -> str:
     return "Meeting Report"
 
 
+def parsed_transcript_for_meeting_details() -> ParsedTranscript | None:
+    transcript_text = st.session_state.get("transcript_text", "")
+    if not transcript_text.strip():
+        return None
+
+    # Integration point: reuse the ML transcript parser to infer participants
+    # from the exact transcript text that will later enter the ML MoM pipeline.
+    parsed = parse_transcript(transcript_text)
+    if not parsed.is_valid:
+        return parsed
+    return parsed
+
+
+def participant_names_from_parser() -> list[str]:
+    parsed = parsed_transcript_for_meeting_details()
+    if parsed is None or not parsed.is_valid:
+        return []
+
+    participants: list[str] = []
+    seen: set[str] = set()
+    for turn in parsed.turns:
+        speaker = (turn.speaker_normalized or turn.speaker_raw or "").strip()
+        if not speaker or speaker.lower() in seen:
+            continue
+        participants.append(speaker)
+        seen.add(speaker.lower())
+    return participants
+
+
 def participants_from_current_context(result: TranscriptionResult | None = None) -> list[str]:
     metadata = st.session_state.get("meeting_metadata", {})
     participant_list = metadata.get("participant_list")
@@ -2239,6 +2285,10 @@ def participants_from_current_context(result: TranscriptionResult | None = None)
             seen.add(participant.lower())
     if participants:
         return participants
+
+    parser_participants = participant_names_from_parser()
+    if parser_participants:
+        return parser_participants
 
     transcript_text = st.session_state.get("transcript_text", "")
     if transcript_text:
@@ -2264,8 +2314,8 @@ def initialize_meeting_info(result: TranscriptionResult | None = None) -> None:
         "meeting_title": current.get("meeting_title") or default_meeting_title(),
         "meeting_date": current.get("meeting_date") or time.strftime("%Y-%m-%d"),
         "meeting_time": current.get("meeting_time", ""),
-        "organization": current.get("organization", ""),
-        "project_name": current.get("project_name", ""),
+        "meeting_location": current.get("meeting_location", ""),
+        "meeting_platform": current.get("meeting_platform") or MEETING_PLATFORM_OPTIONS[0],
         "prepared_by": current.get("prepared_by") or "MeetScribe",
         "participants": current.get("participants") or ", ".join(participants),
         "duration": current.get("duration")
@@ -2274,6 +2324,8 @@ def initialize_meeting_info(result: TranscriptionResult | None = None) -> None:
         "source_file": current.get("source_file") or st.session_state.get("uploaded_filename", ""),
     }
     st.session_state.meeting_info = info
+    if not st.session_state.get("meeting_participants"):
+        st.session_state.meeting_participants = participants
     st.session_state.meeting_info_initialized = True
     st.session_state.meeting_info_last_saved = dict(info)
     log_stage(
@@ -2300,8 +2352,8 @@ def meeting_info_for_export() -> dict[str, str]:
         "Meeting Title": info.get("meeting_title", ""),
         "Date": info.get("meeting_date", ""),
         "Time": info.get("meeting_time", ""),
-        "Organization / Company": info.get("organization", ""),
-        "Project Name": info.get("project_name", ""),
+        "Meeting Location": info.get("meeting_location", ""),
+        "Meeting Platform": info.get("meeting_platform", ""),
         "Prepared By": info.get("prepared_by", ""),
         "Participants": participants,
         "Attendees": participants,
@@ -2310,58 +2362,139 @@ def meeting_info_for_export() -> dict[str, str]:
     }
 
 
+def render_participant_editor() -> tuple[list[str], bool]:
+    participants = [
+        str(item).strip()
+        for item in st.session_state.get("meeting_participants", [])
+        if str(item).strip()
+    ]
+    parser_detected = bool(participant_names_from_parser())
+    manual_mode = not participants
+
+    if manual_mode:
+        st.info(
+            "Speaker names could not be identified automatically. "
+            "Add participants manually before continuing."
+        )
+        manual_value = st.text_area(
+            "Participants",
+            value=st.session_state.get("meeting_participants_manual", ""),
+            placeholder="Enter one participant per line or separate names with commas.",
+            height=110,
+            key="meeting_participants_manual_input",
+        )
+        st.session_state.meeting_participants_manual = manual_value
+        manual_participants = [
+            item.strip()
+            for item in re.split(r"[\n,]+", manual_value)
+            if item.strip()
+        ]
+        return manual_participants, parser_detected
+
+    updated_participants: list[str] = []
+    st.markdown("<div class='ms-chip-row'>", unsafe_allow_html=True)
+    for index, participant in enumerate(participants):
+        name_col, remove_col = st.columns([0.88, 0.12], gap="small", vertical_alignment="center")
+        with name_col:
+            # Each participant is editable because parsed names can still need
+            # small human corrections before they appear in the final header.
+            updated_name = st.text_input(
+                f"Participant {index + 1}",
+                value=participant,
+                key=f"meeting_participant_{index}",
+            )
+        with remove_col:
+            remove_clicked = st.button(
+                "×",
+                key=f"remove_meeting_participant_{index}",
+                help=f"Remove {participant}",
+            )
+        if not remove_clicked and updated_name.strip():
+            updated_participants.append(updated_name.strip())
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    new_participant = st.text_input(
+        "Add Participant",
+        value="",
+        key="meeting_participant_add_input",
+        placeholder="Type a name and click Add",
+    )
+    if st.button("Add Participant", key="add_meeting_participant"):
+        if new_participant.strip():
+            updated_participants.append(new_participant.strip())
+        st.session_state.meeting_participants = updated_participants
+        st.rerun()
+
+    st.session_state.meeting_participants = updated_participants
+    return updated_participants, parser_detected
+
+
 def render_meeting_information_panel(result: TranscriptionResult | None = None) -> None:
     initialize_meeting_info(result)
     info = dict(st.session_state.get("meeting_info", {}))
-    st.markdown(
-        """
-        <div class="ms-premium-section">
-          <div class="ms-section-kicker">Meeting Details</div>
-          <h3 class="ms-section-heading">Meeting Information</h3>
-          <p class="ms-section-subcopy">Review the report header details before generating the final meeting documentation.</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    with st.container(border=True):
+        st.markdown(
+            """
+            <div class="ms-premium-section">
+              <div class="ms-section-kicker">Meeting Details</div>
+              <h3 class="ms-section-heading">Review Meeting Details</h3>
+              <p class="ms-section-subcopy">Confirm the header information before speaker and transcript review.</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-    col_left, col_right = st.columns(2)
-    with col_left:
-        meeting_title = st.text_input(
-            "Meeting Title",
-            value=info.get("meeting_title", ""),
-            key="meeting_info_title_input",
-        )
-        meeting_date = st.text_input(
-            "Meeting Date",
-            value=info.get("meeting_date", ""),
-            key="meeting_info_date_input",
-        )
-        meeting_time = st.text_input(
-            "Meeting Time (optional)",
-            value=info.get("meeting_time", ""),
-            key="meeting_info_time_input",
-        )
-        prepared_by = st.text_input(
-            "Prepared By",
-            value=info.get("prepared_by", ""),
-            key="meeting_info_prepared_by_input",
-        )
-    with col_right:
-        organization = st.text_input(
-            "Organization / Company (optional)",
-            value=info.get("organization", ""),
-            key="meeting_info_organization_input",
-        )
-        project_name = st.text_input(
-            "Project Name (optional)",
-            value=info.get("project_name", ""),
-            key="meeting_info_project_name_input",
-        )
-        participants = st.text_area(
-            "Participants",
-            value=info.get("participants", ""),
-            height=98,
-            key="meeting_info_participants_input",
+        col_left, col_right = st.columns(2)
+        with col_left:
+            meeting_title = st.text_input(
+                "Meeting Title",
+                value=info.get("meeting_title", ""),
+                key="meeting_info_title_input",
+            )
+            meeting_date = st.text_input(
+                "Meeting Date",
+                value=info.get("meeting_date", ""),
+                key="meeting_info_date_input",
+            )
+            meeting_time = st.text_input(
+                "Meeting Time",
+                value=info.get("meeting_time", ""),
+                key="meeting_info_time_input",
+            )
+        with col_right:
+            meeting_location = st.text_input(
+                "Meeting Location / Venue",
+                value=info.get("meeting_location", ""),
+                key="meeting_info_location_input",
+            )
+            current_platform = info.get("meeting_platform") or MEETING_PLATFORM_OPTIONS[0]
+            platform_index = (
+                MEETING_PLATFORM_OPTIONS.index(current_platform)
+                if current_platform in MEETING_PLATFORM_OPTIONS
+                else 0
+            )
+            meeting_platform = st.selectbox(
+                "Meeting Platform / Source",
+                options=MEETING_PLATFORM_OPTIONS,
+                index=platform_index,
+                key="meeting_info_platform_input",
+            )
+            prepared_by = st.text_input(
+                "Prepared By",
+                value=info.get("prepared_by", "MeetScribe"),
+                key="meeting_info_prepared_by_input",
+            )
+
+        st.markdown("<div class='ms-report-block-title'>Participants</div>", unsafe_allow_html=True)
+        participants, parser_detected = render_participant_editor()
+        if parser_detected:
+            st.caption("Participants were populated from parsed speaker names.")
+
+        save_clicked = st.button(
+            "Save & Continue",
+            type="primary",
+            use_container_width=True,
+            key="save_meeting_details_continue",
         )
 
     updated = {
@@ -2369,27 +2502,40 @@ def render_meeting_information_panel(result: TranscriptionResult | None = None) 
         "meeting_title": meeting_title.strip(),
         "meeting_date": meeting_date.strip(),
         "meeting_time": meeting_time.strip(),
-        "organization": organization.strip(),
-        "project_name": project_name.strip(),
-        "prepared_by": prepared_by.strip(),
-        "participants": participants.strip(),
+        "meeting_location": meeting_location.strip(),
+        "meeting_platform": meeting_platform.strip(),
+        "prepared_by": prepared_by.strip() or "MeetScribe",
+        "participants": ", ".join(participants),
         "source_file": st.session_state.get("uploaded_filename", ""),
     }
-    previous = dict(st.session_state.get("meeting_info_last_saved", {}))
     st.session_state.meeting_info = updated
+
+    if not save_clicked:
+        return
+
+    if not updated["participants"]:
+        st.warning("Please add at least one participant before continuing.")
+        return
+
+    previous = dict(st.session_state.get("meeting_info_last_saved", {}))
     changed_fields = [
         label
         for key, label in MEETING_INFO_FIELDS
         if str(previous.get(key, "")) != str(updated.get(key, ""))
     ]
-    if changed_fields:
-        st.session_state.meeting_info_last_saved = dict(updated)
-        reset_export_state()
-        log_stage(
-            "Meeting information",
-            "User edited meeting information.",
-            fields=", ".join(changed_fields),
-        )
+    st.session_state.meeting_info_last_saved = dict(updated)
+    st.session_state.meeting_details_required = False
+    st.session_state.transcript_review_required = not st.session_state.get(
+        "speaker_review_required", False
+    )
+    reset_export_state()
+    log_stage(
+        "Meeting information",
+        "Meeting details saved before review.",
+        fields=", ".join(changed_fields) or "none",
+        participants=updated["participants"],
+    )
+    st.rerun()
 
 
 def speaker_label(
@@ -2570,6 +2716,109 @@ def render_action_items_tab(analysis: MeetingAnalysisResult) -> None:
             """,
             unsafe_allow_html=True,
         )
+
+
+def render_additional_information_tab(analysis: MeetingAnalysisResult) -> None:
+    additional_items = [
+        topic
+        for topic in analysis.summary.topics_discussed
+        if str(topic).startswith("Info: ")
+    ]
+    if not additional_items:
+        empty_card("No additional information was extracted.")
+        return
+
+    for item in additional_items:
+        st.markdown(
+            f"""
+            <div class="ms-item-card discussion">
+              <h4>Additional Information</h4>
+              <p>{html.escape(str(item).replace("Info: ", "", 1))}</p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
+def render_generated_mom_header() -> None:
+    info = meeting_info_for_export()
+    participants = info.get("Participants") or "-"
+    header_rows = {
+        "Meeting Title": info.get("Meeting Title") or "Meeting Report",
+        "Meeting Date": info.get("Date") or "-",
+        "Meeting Time": info.get("Time") or "-",
+        "Meeting Location": info.get("Meeting Location") or "-",
+        "Meeting Platform": info.get("Meeting Platform") or "-",
+        "Participants": participants,
+    }
+    rows_html = "".join(
+        f"""
+        <div class="ms-tr-row">
+          <div class="ms-tr-left"><span class="ms-speaker-badge s1">{html.escape(label)}</span></div>
+          <div class="ms-tr-right"><span class="ms-tr-text">{html.escape(value)}</span></div>
+        </div>
+        """
+        for label, value in header_rows.items()
+    )
+    st.markdown(
+        f"""
+        <div class="ms-output-card">
+          <p class="ms-card-label">Generated Minutes of Meeting</p>
+          <h3 class="ms-card-title">{html.escape(header_rows["Meeting Title"])}</h3>
+          <div class="ms-transcript-scroll" style="height:auto; max-height:320px;">{rows_html}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def meeting_minutes_to_analysis(
+    minutes: Any,
+    *,
+    transcript_text: str,
+    topic_labels: list[str],
+) -> MeetingAnalysisResult:
+    info = dict(st.session_state.get("meeting_info", {}))
+    title = info.get("meeting_title") or minutes.meeting_title or "Meeting Report"
+    executive_summary = [item for item in minutes.executive_summary if str(item).strip()]
+    summary_text = " ".join(executive_summary) if executive_summary else "No executive summary was generated."
+
+    # Export compatibility point: convert the rule-based MoM dataclass into the
+    # existing analysis contract consumed by current UI, PDF, DOCX, and email.
+    summary = MeetingSummary(
+        title=title,
+        short_summary=summary_text,
+        detailed_summary="\n".join(executive_summary) or summary_text,
+        topics_discussed=[
+            *[label for label in dict.fromkeys(topic_labels) if label],
+            *[f"Info: {item}" for item in minutes.additional_information],
+        ],
+    )
+    key_points = [
+        KeyDiscussionPoint(point=item, speakers=[], timestamp=None)
+        for item in minutes.discussion_points
+    ]
+    decisions = [
+        Decision(decision=item, owner=None, timestamp=None, confidence="ANN")
+        for item in minutes.key_decisions
+    ]
+    action_items = [
+        ActionItem(
+            task=item.task,
+            owner=None if item.owner == "-" else item.owner,
+            due_date=None if item.deadline == "-" else item.deadline,
+            timestamp=None,
+            status=item.status,
+        )
+        for item in minutes.action_items
+    ]
+    return MeetingAnalysisResult(
+        cleaned_transcript=transcript_text,
+        summary=summary,
+        key_discussion_points=key_points,
+        decisions=decisions,
+        action_items=action_items,
+    )
 
 
 def render_analysis_error() -> None:
@@ -2898,10 +3147,10 @@ def run_meeting_analysis(
 
         log_stage(
             "Meeting analysis",
-            "Initializing Gemini analysis pipeline.",
+            "Initializing ML Minutes of Meeting pipeline.",
             transcript_chars=len(transcript_text),
         )
-        analysis_progress.progress(70, text="Generating Meeting Notes")
+        analysis_progress.progress(62, text="Parsing Transcript")
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
@@ -2911,46 +3160,114 @@ def run_meeting_analysis(
             )
         update_elapsed(elapsed_placeholder, started_at)
 
-        gemini_client = get_gemini_client()
-        summarizer = LLMSummarizer(llm_client=gemini_client)
+        # ML integration point: use the existing parser module as the first
+        # production MoM boundary after the user has confirmed transcript edits.
+        parsed = parse_transcript(transcript_text)
+        if not parsed.is_valid:
+            st.session_state.analysis_error = (
+                parsed.validation_message or "Transcript could not be parsed."
+            )
+            st.warning(st.session_state.analysis_error)
+            log_stage("ML pipeline", "Parser validation failed.", error=st.session_state.analysis_error)
+            return None
 
-        analysis_progress.progress(75, text="Generating Meeting Notes")
+        analysis_progress.progress(68, text="Preprocessing Transcript")
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
                 active_index=3,
                 started_at=started_at,
-                note="Organizing the transcript into notes, decisions, and follow-up tasks.",
-        )
+                note="Cleaning reviewed transcript text for feature extraction.",
+            )
         update_elapsed(elapsed_placeholder, started_at)
-        log_stage("Meeting analysis", "Calling Python meeting workflow.")
+
+        preprocessed_turns = preprocess_transcript(parsed.turns)
+        sentence_features = extract_sentence_features(preprocessed_turns)
+        if not sentence_features:
+            st.session_state.analysis_error = "No transcript sentences were available for ML prediction."
+            st.warning(st.session_state.analysis_error)
+            log_stage("ML pipeline", "Feature extraction returned no sentences.")
+            return None
+
+        analysis_progress.progress(74, text="Generating Embeddings")
+        embedding_service = EmbeddingService()
+        embedding_result = embedding_service.generate_embeddings(sentence_features)
+        if embedding_result.error_message:
+            st.session_state.analysis_error = embedding_result.error_message
+            st.error(st.session_state.analysis_error)
+            log_stage("ML pipeline", "Embedding generation failed.", error=embedding_result.error_message)
+            return None
+        sentence_embeddings = embedding_result.embeddings
+
+        analysis_progress.progress(80, text="Clustering Topics")
+        # Clustering is retained in the production sequence for topic grouping
+        # and diagnostics even though the rule-based generator consumes ANN labels.
+        clustering_result = ClusteringService().cluster(sentence_embeddings)
+        topic_labels = [
+            cluster.topic_label
+            for cluster in clustering_result.clusters
+            if cluster.topic_label
+        ]
+        if clustering_result.error_message:
+            log_stage("ML pipeline", "Clustering returned warning.", error=clustering_result.error_message)
+
+        analysis_progress.progress(86, text="Classifying Sentences")
+        embedding_tensor = torch.tensor(
+            [embedding.embedding_vector for embedding in sentence_embeddings],
+            dtype=torch.float32,
+        )
+        id_to_label = load_label_mapping()
+        if id_to_label is None:
+            st.session_state.analysis_error = "Label mapping is unavailable for ANN prediction."
+            st.error(st.session_state.analysis_error)
+            log_stage("ML pipeline", "Label mapping unavailable.")
+            return None
+        model = load_trained_model(
+            embedding_dimension=embedding_tensor.size(1),
+            class_count=len(id_to_label),
+        )
+        if model is None:
+            st.session_state.analysis_error = "Trained ANN model is unavailable."
+            st.error(st.session_state.analysis_error)
+            log_stage("ML pipeline", "ANN model unavailable.")
+            return None
+
+        prediction_results = predict_labels(
+            model,
+            embedding_tensor,
+            sentence_features,
+            id_to_label,
+        )
+        prediction_records = [
+            PredictionRecord(
+                sentence=result.sentence,
+                speaker=result.speaker,
+                timestamp=result.timestamp,
+                predicted_label=result.predicted_label,
+                confidence_score=result.confidence_score,
+            )
+            for result in prediction_results
+        ]
+
+        analysis_progress.progress(90, text="Generating Minutes")
+        minutes = generate_minutes(prediction_records, warnings=clustering_result.warnings)
+        analysis = meeting_minutes_to_analysis(
+            minutes,
+            transcript_text=transcript_text,
+            topic_labels=topic_labels,
+        )
+
         meeting_metadata = {
             **st.session_state.get("meeting_metadata", {}),
             "source_file": st.session_state.get("uploaded_filename", ""),
+            "ml_cluster_count": len(clustering_result.clusters),
+            "ml_prediction_count": len(prediction_records),
         }
-        analysis = run_meeting_analysis_workflow(
-            transcript_text,
-            summarizer=summarizer,
-            speaker_mapping=current_speaker_mapping(),
-            meeting_metadata=meeting_metadata,
-        )
         st.session_state.meeting_metadata = meeting_metadata
-        initialize_meeting_info(st.session_state.get("transcript_result"))
-        current_info = dict(st.session_state.get("meeting_info", {}))
-        if not current_info.get("duration") and meeting_metadata.get("meeting_duration"):
-            current_info["duration"] = meeting_metadata["meeting_duration"]
-        if not current_info.get("participants") and meeting_metadata.get("participant_list"):
-            current_info["participants"] = ", ".join(
-                str(item).strip()
-                for item in meeting_metadata.get("participant_list", [])
-                if str(item).strip()
-            )
-        if current_info != st.session_state.get("meeting_info", {}):
-            st.session_state.meeting_info = current_info
         log_stage(
             "Meeting information",
-            "Merged metadata into meeting information.",
-            duration=st.session_state.get("meeting_info", {}).get("duration", ""),
+            "Attached ML metadata to meeting information.",
+            clusters=meeting_metadata["ml_cluster_count"],
             participants=st.session_state.get("meeting_info", {}).get("participants", ""),
         )
 
@@ -2968,7 +3285,7 @@ def run_meeting_analysis(
         st.session_state.analysis_cache[cache_key] = analysis
         log_stage(
             "Meeting analysis",
-            "Stored analysis in session state.",
+            "Stored ML analysis in session state.",
             key_points=len(analysis.key_discussion_points),
             decisions=len(analysis.decisions),
             action_items=len(analysis.action_items),
@@ -3002,23 +3319,6 @@ def run_meeting_analysis(
             )
         st.toast("Meeting report is ready")
         return analysis
-    except (
-        GeminiClientError,
-        TranscriptCleanupError,
-        MeetingSummaryError,
-        KeyDiscussionPointExtractionError,
-        DecisionExtractionError,
-        ActionItemExtractionError,
-    ) as exc:
-        if progress is None:
-            analysis_progress.empty()
-        st.session_state.analysis_result = None
-        st.session_state.analysis_error = (
-            "We could not generate the meeting notes. Please try again."
-        )
-        log_stage("Meeting analysis", "Analysis failed.", error=str(exc))
-        st.error(st.session_state.analysis_error)
-        return None
     except Exception as exc:
         if progress is None:
             analysis_progress.empty()
@@ -3168,11 +3468,16 @@ def clear_current_report() -> None:
     st.session_state.meeting_info = {}
     st.session_state.meeting_info_initialized = False
     st.session_state.meeting_info_last_saved = {}
+    st.session_state.meeting_details_required = False
+    st.session_state.meeting_participants = []
+    st.session_state.meeting_participants_manual = ""
     reset_speaker_mapping_state()
     reset_report_state()
 
 
 def render_speaker_review(result: TranscriptionResult) -> None:
+    if st.session_state.get("meeting_details_required", False):
+        return
     if not st.session_state.get("speaker_review_required", False):
         return
 
@@ -3234,6 +3539,14 @@ def render_speaker_review(result: TranscriptionResult) -> None:
     )
     st.session_state.meeting_info_initialized = False
     initialize_meeting_info(mapped_result)
+    current_info = dict(st.session_state.get("meeting_info", {}))
+    mapped_participants = participants_from_current_context(mapped_result)
+    if mapped_participants:
+        # Speaker review is the canonical place where generic labels become
+        # human names, so keep the MoM header aligned with the saved mapping.
+        current_info["participants"] = ", ".join(mapped_participants)
+        st.session_state.meeting_participants = mapped_participants
+        st.session_state.meeting_info = current_info
     st.session_state.speaker_review_required = False
     st.session_state.transcript_review_required = True
     st.session_state.edited_transcript_text = transcript_text
@@ -3291,6 +3604,8 @@ def transcript_review_preview_html(transcript_text: str, query: str = "") -> str
 
 
 def render_editable_transcript_review(result: TranscriptionResult) -> None:
+    if st.session_state.get("meeting_details_required", False):
+        return
     if st.session_state.get("speaker_review_required", False):
         return
     if not st.session_state.get("transcript_review_required", False):
@@ -3330,7 +3645,6 @@ def render_editable_transcript_review(result: TranscriptionResult) -> None:
             key="editable_transcript_text_area",
             label_visibility="collapsed",
         )
-        render_meeting_information_panel(result)
         continue_clicked = st.button(
             "Generate Meeting Report",
             type="primary",
@@ -3501,8 +3815,10 @@ def process_upload(uploaded_file: object) -> None:
             store_speaker_mapping(speaker_mapping)
         st.session_state.speaker_names_available = resolution.names_available
         st.session_state.speaker_review_required = resolution.review_required
-        st.session_state.transcript_review_required = not resolution.review_required
+        st.session_state.meeting_details_required = True
+        st.session_state.transcript_review_required = False
         st.session_state.edited_transcript_text = transcript_text
+        initialize_meeting_info(session_result)
         log_stage(
             "Speaker mapping",
             "Resolved speakers for audio transcript.",
@@ -3519,25 +3835,14 @@ def process_upload(uploaded_file: object) -> None:
             speaker_review_required=st.session_state.speaker_review_required,
         )
 
-        if st.session_state.speaker_review_required:
-            progress.progress(100, text="Review Speakers")
-            render_stage_status(
-                status_placeholder,
-                active_index=2,
-                started_at=started_at,
-                note="Review speaker names before generating meeting notes.",
-            )
-            st.toast("Transcript is ready for speaker review")
-            return
-
-        progress.progress(100, text="Review Transcript")
+        progress.progress(100, text="Review Meeting Details")
         render_stage_status(
             status_placeholder,
             active_index=2,
             started_at=started_at,
-            note="Review the resolved transcript before generating meeting notes.",
+            note="Confirm meeting details before speaker and transcript review.",
         )
-        st.toast("Transcript is ready for review")
+        st.toast("Transcript is ready for meeting details")
         return
     except (AudioProcessingError, SettingsError, TranscriptionError) as exc:
         progress.empty()
@@ -3621,8 +3926,10 @@ def process_transcript_upload(transcript_file: object) -> None:
             store_speaker_mapping(speaker_mapping)
         st.session_state.speaker_names_available = resolution.names_available
         st.session_state.speaker_review_required = resolution.review_required
-        st.session_state.transcript_review_required = not resolution.review_required
+        st.session_state.meeting_details_required = True
+        st.session_state.transcript_review_required = False
         st.session_state.edited_transcript_text = transcript_text
+        initialize_meeting_info(session_result)
         log_stage(
             "Speaker mapping",
             "Resolved speakers for uploaded transcript.",
@@ -3639,25 +3946,14 @@ def process_transcript_upload(transcript_file: object) -> None:
             speaker_names_available=resolution.names_available,
         )
 
-        if st.session_state.speaker_review_required:
-            progress.progress(100, text="Review Speakers")
-            render_stage_status(
-                status_placeholder,
-                active_index=2,
-                started_at=started_at,
-                note="Review speaker names before generating meeting notes.",
-            )
-            st.toast("Transcript is ready for speaker review")
-            return
-
-        progress.progress(100, text="Review Transcript")
+        progress.progress(100, text="Review Meeting Details")
         render_stage_status(
             status_placeholder,
             active_index=2,
             started_at=started_at,
-            note="Review the resolved transcript before generating meeting notes.",
+            note="Confirm meeting details before speaker and transcript review.",
         )
-        st.toast("Transcript is ready for review")
+        st.toast("Transcript is ready for meeting details")
         return
     except TranscriptFileError as exc:
         progress.empty()
@@ -3825,6 +4121,8 @@ def main() -> None:
     if transcript_text and result is not None:
         st.markdown("<div style='height:0.75rem'></div>", unsafe_allow_html=True)
 
+        if st.session_state.get("meeting_details_required", False):
+            render_meeting_information_panel(result)
         render_speaker_review(result)
         render_editable_transcript_review(result)
 
@@ -3844,6 +4142,7 @@ def main() -> None:
             )
             render_analysis_error()
             render_success_metrics()
+            render_generated_mom_header()
 
             with st.container(border=True):
                 st.markdown("<div class='ms-report-block-title'>Summary</div>", unsafe_allow_html=True)
@@ -3860,6 +4159,10 @@ def main() -> None:
             with st.container(border=True):
                 st.markdown("<div class='ms-report-block-title'>Action Items</div>", unsafe_allow_html=True)
                 render_action_items_tab(analysis)
+
+            with st.container(border=True):
+                st.markdown("<div class='ms-report-block-title'>Additional Information</div>", unsafe_allow_html=True)
+                render_additional_information_tab(analysis)
 
             with st.container(border=True):
                 st.markdown("<div class='ms-report-block-title'>Transcript</div>", unsafe_allow_html=True)

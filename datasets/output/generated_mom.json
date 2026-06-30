@@ -1,0 +1,27 @@
+{
+  "meeting_title": "Meeting Title",
+  "meeting_date": "Meeting Date",
+  "participants": [
+    "Priya",
+    "Rahul"
+  ],
+  "prepared_by": "MeetScribe",
+  "executive_summary": [
+    "We approved the budget today.",
+    "I will prepare the report by Friday.",
+    "The customer feedback was positive.",
+    "Please review the proposal."
+  ],
+  "discussion_points": [
+    "Please review the proposal."
+  ],
+  "key_decisions": [],
+  "action_items": [],
+  "additional_information": [
+    "We approved the budget today.",
+    "I will prepare the report by Friday.",
+    "The customer feedback was positive."
+  ],
+  "next_meeting": [],
+  "warnings": []
+}

@@ -1,0 +1,415 @@
+[
+  {
+    "sentence": "That's great.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.652601
+  },
+  {
+    "sentence": "What about speaker identification?",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.60747
+  },
+  {
+    "sentence": "Is the system able to separate participants correctly?",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.481743
+  },
+  {
+    "sentence": "Yes, speaker diarization has been integrated.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.536326
+  },
+  {
+    "sentence": "For recordings with two or three speakers, the output is reasonably accurate.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.538416
+  },
+  {
+    "sentence": "However, in cases where participants interrupt each other frequently, a few speaker labels may be assigned incorrectly.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.504808
+  },
+  {
+    "sentence": "I also noticed that background noise affects the quality slightly.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.674221
+  },
+  {
+    "sentence": "Meetings recorded in a quiet environment produce much better results.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.648115
+  },
+  {
+    "sentence": "Understood.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.466705
+  },
+  {
+    "sentence": "Let's talk about the meeting summary generation module.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.598424
+  },
+  {
+    "sentence": "How is it performing?",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.528079
+  },
+  {
+    "sentence": "The summarization module is generating concise summaries successfully.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.722287
+  },
+  {
+    "sentence": "It can identify key discussion points, major decisions, and action items from the transcript.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.664264
+  },
+  {
+    "sentence": "We recently optimized the workflow so that a single request generates all structured outputs.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.381087
+  },
+  {
+    "sentence": "The generated summaries are easy to read.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.614957
+  },
+  {
+    "sentence": "I reviewed several outputs and most important information was captured correctly.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.737454
+  },
+  {
+    "sentence": "However, we may need additional testing to ensure consistency across different meeting types.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.366115
+  },
+  {
+    "sentence": "That's a valid point.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.783521
+  },
+  {
+    "sentence": "Have we started evaluating the quality of the generated meeting notes?",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.814488
+  },
+  {
+    "sentence": "We have started manual evaluation.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.729646
+  },
+  {
+    "sentence": "For each meeting recording, we compare the generated notes with the actual discussion and verify whether important decisions and action items were captured.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.80596
+  },
+  {
+    "sentence": "We are also planning to use standard evaluation metrics for transcription quality.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.430825
+  },
+  {
+    "sentence": "This will help us provide quantitative results instead of relying only on manual review.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.612922
+  },
+  {
+    "sentence": "Excellent.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.653426
+  },
+  {
+    "sentence": "What challenges are we currently facing?",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.651566
+  },
+  {
+    "sentence": "The biggest challenge is processing time for large recordings.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.622984
+  },
+  {
+    "sentence": "Meetings longer than twenty minutes take significantly more time to analyze and summarize.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.724412
+  },
+  {
+    "sentence": "Another challenge is handling mixed-language conversations.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.424932
+  },
+  {
+    "sentence": "Many meetings switch between English and Hindi, which sometimes affects transcription accuracy.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.519105
+  },
+  {
+    "sentence": "Do we have a plan to address these issues?",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.484429
+  },
+  {
+    "sentence": "Yes.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.436823
+  },
+  {
+    "sentence": "We are exploring optimization techniques to reduce processing time and improve the overall user experience.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.499572
+  },
+  {
+    "sentence": "We are also testing recordings containing Hindi and Hinglish conversations.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.589436
+  },
+  {
+    "sentence": "Additionally, we are preparing a small evaluation dataset that can be used to benchmark performance across multiple meeting scenarios.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.802718
+  },
+  {
+    "sentence": "Sounds good.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Decision",
+    "confidence_score": 0.310811
+  },
+  {
+    "sentence": "Let's discuss the user interface.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.304909
+  },
+  {
+    "sentence": "What improvements have been made recently?",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.760359
+  },
+  {
+    "sentence": "The interface has been redesigned with a premium dashboard layout.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.621243
+  },
+  {
+    "sentence": "The upload workflow is more intuitive, and the export section has been simplified.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.624918
+  },
+  {
+    "sentence": "Users can now download meeting reports directly in PDF and DOCX formats.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.659991
+  },
+  {
+    "sentence": "We also improved responsiveness.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.509455
+  },
+  {
+    "sentence": "The interface works much better on laptops, tablets, and mobile devices compared to the previous version.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.516915
+  },
+  {
+    "sentence": "Great progress.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.761331
+  },
+  {
+    "sentence": "Are there any pending tasks for the next phase?",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.443358
+  },
+  {
+    "sentence": "Yes.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.436823
+  },
+  {
+    "sentence": "We still need to finalize the export templates, improve the transcript presentation, and optimize performance for large files.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.634581
+  },
+  {
+    "sentence": "From the research side, we need to complete evaluation experiments and document the results properly.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.614695
+  },
+  {
+    "sentence": "Let's assign responsibilities.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Decision",
+    "confidence_score": 0.337489
+  },
+  {
+    "sentence": "Developer will focus on performance optimization and export improvements.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.427399
+  },
+  {
+    "sentence": "Research Intern will work on evaluation and documentation.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.696301
+  },
+  {
+    "sentence": "I will review progress and prepare the final presentation.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.410443
+  },
+  {
+    "sentence": "Agreed.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.501868
+  },
+  {
+    "sentence": "Agreed.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Discussion",
+    "confidence_score": 0.501868
+  },
+  {
+    "sentence": "Thank you everyone.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.532542
+  },
+  {
+    "sentence": "Let's target completion of these tasks by next week.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.308379
+  },
+  {
+    "sentence": "We'll conduct another review meeting after the evaluation phase is complete.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.496306
+  },
+  {
+    "sentence": "Sounds good.",
+    "speaker": "Speaker 2",
+    "timestamp": null,
+    "predicted_label": "Decision",
+    "confidence_score": 0.310811
+  },
+  {
+    "sentence": "Thank you.",
+    "speaker": "Speaker 3",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.326636
+  },
+  {
+    "sentence": "Meeting adjourned.",
+    "speaker": "Speaker 1",
+    "timestamp": null,
+    "predicted_label": "Information",
+    "confidence_score": 0.272417
+  }
+]

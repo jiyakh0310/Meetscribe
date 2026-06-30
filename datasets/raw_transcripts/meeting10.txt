@@ -1,0 +1,69 @@
+Date: 24 July 2026
+
+Participants
+
+Aarav (Project Manager)
+Neha (ML Engineer)
+Rahul (Backend Developer)
+Priya (Frontend Developer)
+Ananya (QA Engineer)
+
+[09:00:05] Aarav: Good morning everyone.
+
+[09:00:12] Priya: Morning.
+
+[09:00:18] Rahul: Good morning.
+
+[09:00:25] Aarav: Today's goal is to finalize the feature list for Sprint 4.
+
+[09:00:50] Neha: The meeting summarization model has reached 91% evaluation accuracy.
+
+[09:01:15] Rahul: The export APIs are also ready.
+
+[09:01:40] Aarav: Are there any blockers before release?
+
+[09:02:05] Priya: The PDF export layout still needs some polishing.
+
+[09:02:40] Ananya: QA also found two UI alignment issues.
+
+[09:03:05] Aarav: Can both be fixed by tomorrow?
+
+[09:03:20] Priya: Yes.
+
+[09:03:35] Ananya: Yes, I'll verify everything once the fixes are merged.
+
+[09:04:00] Rahul: I think transcript loading is still slightly slow.
+
+[09:04:25] Neha: Lazy loading should solve that.
+
+[09:04:55] Aarav: Okay, we'll implement lazy loading in this sprint.
+
+[09:05:20] Priya: Should dark mode remain in this release?
+
+[09:05:45] Rahul: I'd postpone it.
+
+[09:06:10] Neha: I agree.
+
+[09:06:25] Aarav: Then dark mode moves to Sprint 5.
+
+[09:06:55] Aarav: Rahul will finish lazy loading.
+
+[09:07:12] Rahul: Sure.
+
+[09:07:25] Aarav: Priya will complete PDF improvements.
+
+[09:07:42] Priya: Done.
+
+[09:07:55] Aarav: Ananya will complete regression testing.
+
+[09:08:12] Ananya: I'll finish it by tomorrow evening.
+
+[09:08:35] Aarav: Let's summarize today's meeting.
+
+[09:08:50] Aarav: Feature list finalized.
+
+[09:09:00] Aarav: Dark mode postponed.
+
+[09:09:10] Aarav: Performance optimization added to Sprint 4.
+
+[09:09:25] Aarav: Meeting adjourned.
