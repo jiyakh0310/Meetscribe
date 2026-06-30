@@ -1,0 +1,63 @@
+
+
+Speaker 1 (Project Manager): Good morning everyone. Let's begin today's project review meeting. The purpose of this meeting is to discuss the current progress of the MeetScribe project, identify any blockers, and finalize the tasks for the next development phase.
+
+Speaker 2 (Developer): Good morning. From the development side, the core transcription pipeline has been completed. We have integrated the speech-to-text service and tested it with multiple meeting recordings. The generated transcripts are being processed successfully.
+
+Speaker 3 (Research Intern): I have also reviewed the generated transcripts and compared them with the original recordings. The overall quality looks good, especially for clear audio files. We still need to evaluate performance on longer recordings and different accents.
+
+Speaker 1: That's great. What about speaker identification? Is the system able to separate participants correctly?
+
+Speaker 2: Yes, speaker diarization has been integrated. For recordings with two or three speakers, the output is reasonably accurate. However, in cases where participants interrupt each other frequently, a few speaker labels may be assigned incorrectly.
+
+Speaker 3: I also noticed that background noise affects the quality slightly. Meetings recorded in a quiet environment produce much better results.
+
+Speaker 1: Understood. Let's talk about the meeting summary generation module. How is it performing?
+
+Speaker 2: The summarization module is generating concise summaries successfully. It can identify key discussion points, major decisions, and action items from the transcript. We recently optimized the workflow so that a single request generates all structured outputs.
+
+Speaker 3: The generated summaries are easy to read. I reviewed several outputs and most important information was captured correctly. However, we may need additional testing to ensure consistency across different meeting types.
+
+Speaker 1: That's a valid point. Have we started evaluating the quality of the generated meeting notes?
+
+Speaker 3: We have started manual evaluation. For each meeting recording, we compare the generated notes with the actual discussion and verify whether important decisions and action items were captured.
+
+Speaker 2: We are also planning to use standard evaluation metrics for transcription quality. This will help us provide quantitative results instead of relying only on manual review.
+
+Speaker 1: Excellent. What challenges are we currently facing?
+
+Speaker 2: The biggest challenge is processing time for large recordings. Meetings longer than twenty minutes take significantly more time to analyze and summarize.
+
+Speaker 3: Another challenge is handling mixed-language conversations. Many meetings switch between English and Hindi, which sometimes affects transcription accuracy.
+
+Speaker 1: Do we have a plan to address these issues?
+
+Speaker 2: Yes. We are exploring optimization techniques to reduce processing time and improve the overall user experience. We are also testing recordings containing Hindi and Hinglish conversations.
+
+Speaker 3: Additionally, we are preparing a small evaluation dataset that can be used to benchmark performance across multiple meeting scenarios.
+
+Speaker 1: Sounds good. Let's discuss the user interface. What improvements have been made recently?
+
+Speaker 2: The interface has been redesigned with a premium dashboard layout. The upload workflow is more intuitive, and the export section has been simplified. Users can now download meeting reports directly in PDF and DOCX formats.
+
+Speaker 3: We also improved responsiveness. The interface works much better on laptops, tablets, and mobile devices compared to the previous version.
+
+Speaker 1: Great progress. Are there any pending tasks for the next phase?
+
+Speaker 2: Yes. We still need to finalize the export templates, improve the transcript presentation, and optimize performance for large files.
+
+Speaker 3: From the research side, we need to complete evaluation experiments and document the results properly.
+
+Speaker 1: Let's assign responsibilities. Developer will focus on performance optimization and export improvements. Research Intern will work on evaluation and documentation. I will review progress and prepare the final presentation.
+
+Speaker 2: Agreed.
+
+Speaker 3: Agreed.
+
+Speaker 1: Thank you everyone. Let's target completion of these tasks by next week. We'll conduct another review meeting after the evaluation phase is complete.
+
+Speaker 2: Sounds good.
+
+Speaker 3: Thank you.
+
+Speaker 1: Meeting adjourned.

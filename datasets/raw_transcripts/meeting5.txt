@@ -1,0 +1,51 @@
+[3:00 PM] Ananya:
+Let's discuss the AI meeting summarizer project.
+
+Vivek:
+I've collected around 200 meeting transcripts.
+
+Sana:
+Are they cleaned?
+
+Vivek:
+Not completely. Some still have filler words and timestamps.
+
+Rohit:
+Actually, I think we should keep some filler words. Real meetings aren't perfectly structured.
+
+Ananya:
+Exactly. It'll help the model generalize better.
+
+[3:06 PM] Sana:
+What about the output format?
+
+Rohit:
+I'm thinking:
+
+Summary
+Key Decisions
+Action Items
+Participants
+
+Ananya:
+Sounds good.
+
+Vivek:
+Should we fine-tune an existing model or use prompt engineering?
+
+Rohit:
+Initially prompt engineering.
+
+Sana:
+Then later fine-tuning if needed.
+
+[3:15 PM] Ananya:
+Dataset size?
+
+Vivek:
+Currently around 90,000 words.
+
+Ananya:
+Let's target at least 300 transcripts.
+
+Everyone: Agreed.

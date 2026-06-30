@@ -1,0 +1,31 @@
+Aditya: Morning everyone. Let's start with weekly updates.
+
+Sneha: Operations have been smooth except for delayed vendor payments.
+
+Aditya: Any reason?
+
+Sneha: Finance approvals took longer than expected.
+
+Aman: Product-wise, we've released the new dashboard. Users are responding positively.
+
+Ishita: Yes, although several users requested export-to-PDF functionality.
+
+Aditya: Is that technically feasible?
+
+Aman: Yes, probably within the next sprint.
+
+Sneha: Customer support tickets also decreased by around 18% this week.
+
+Aditya: That's encouraging.
+
+Ishita: Most remaining tickets are feature requests rather than bugs.
+
+Aditya: Excellent.
+
+Let's prioritize:
+
+Export to PDF.
+Mobile optimization.
+Analytics improvements.
+
+Meeting concluded after 28 minutes.

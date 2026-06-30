@@ -1,0 +1,7 @@
+{
+  "Discussion": 0,
+  "Decision": 1,
+  "Action_Item": 2,
+  "Summary": 3,
+  "Information": 4
+}

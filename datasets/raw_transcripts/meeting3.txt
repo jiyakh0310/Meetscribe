@@ -1,0 +1,63 @@
+[10:00 AM] Aarav:
+Good morning everyone. Thanks for joining. The main agenda today is to finalize the homepage features before we move into development.
+
+[10:01 AM] Priya:
+Morning. I shared the updated Figma design yesterday. Did everyone get a chance to review it?
+
+Rahul:
+Yeah, I checked it. Overall it looks clean. I just think the navigation bar is slightly crowded on smaller screens.
+
+Priya:
+That's fair. I can reduce the number of visible menu items and move the rest into a hamburger menu.
+
+[10:04 AM] Neha:
+From the backend side, we'll need to know which sections will pull dynamic data because that affects the APIs.
+
+Aarav:
+Good point. Rahul, which components are dynamic?
+
+Rahul:
+The trending games section, user statistics, and recently played games.
+
+Neha:
+Perfect. I'll expose APIs for those this week.
+
+[10:09 AM] Priya:
+What about the announcements banner? Should it rotate automatically?
+
+Aarav:
+Yes, but let's keep the timing around five seconds. Users should also be able to pause it manually.
+
+Rahul:
+Accessibility-wise, that's a good idea.
+
+[10:14 AM] Neha:
+One concern—if we fetch too much data on page load, performance might suffer.
+
+Rahul:
+We can lazy-load sections below the fold.
+
+Aarav:
+Let's go with that.
+
+[10:18 AM] Priya:
+Should we include dark mode in the first release?
+
+Rahul:
+Personally, I'd postpone it.
+
+Neha:
+Agreed. Better to stabilize the main features first.
+
+Aarav:
+Okay, dark mode moves to Phase 2.
+
+[10:25 AM] Aarav:
+Let's summarize.
+
+Homepage finalized.
+Dynamic APIs this week.
+Lazy loading for lower sections.
+Dark mode postponed.
+
+Meeting Ended: 10:32 AM
