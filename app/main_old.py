@@ -44,11 +44,11 @@ SUPPORTED_FILE_TYPES = ("wav", "mp3", "m4a", "aac", "mp4")
 logger = logging.getLogger(__name__)
 
 PROCESSING_STAGES = [
-    "Upload Recording",
-    "Preparing Audio",
-    "Identifying Speakers",
-    "Generating Meeting Notes",
-    "Preparing Exports",
+    "Step 1: Uploading Recording",
+    "Step 2: Preparing Audio",
+    "Step 3: Identifying Speakers",
+    "Step 4: Generating Meeting Notes",
+    "Step 5: Preparing Exports",
 ]
 
 
@@ -176,6 +176,13 @@ def inject_processing_styles() -> None:
             margin-bottom: 1rem;
           }
 
+          .ms-badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-top: 1.25rem;
+          }
+
           .ms-hero h1 {
             color: var(--ms-text);
             font-size: clamp(2.45rem, 7vw, 5.2rem);
@@ -250,6 +257,10 @@ def inject_processing_styles() -> None:
           .ms-output-card:hover {
             border-color: rgba(129, 140, 248, 0.42);
             transform: translateY(-1px);
+          }
+
+          .ms-stat-card.is-summary {
+            box-shadow: 0 0 42px rgba(79, 70, 229, 0.12);
           }
 
           .ms-stat-card span {
@@ -373,6 +384,13 @@ def inject_processing_styles() -> None:
           .ms-upload-ready span {
             color: #86EFAC;
             font-weight: 600;
+          }
+
+          .ms-format-line {
+            color: #A5B4FC;
+            font-size: 0.86rem;
+            font-weight: 800;
+            margin: -0.25rem 0 1rem;
           }
 
           div[data-testid="stFileUploader"] {
@@ -513,11 +531,17 @@ def inject_processing_styles() -> None:
           .ms-stage-list li {
             margin: 0.35rem 0;
             color: var(--ms-text);
+            list-style-position: outside;
           }
           .ms-stage-list span {
             color: var(--ms-muted);
             float: right;
             font-size: 0.85rem;
+          }
+
+          .ms-stage-list .is-done span {
+            color: var(--ms-success);
+            font-weight: 800;
           }
           @media (max-width: 900px) {
             .ms-metrics-grid {
@@ -552,380 +576,6 @@ def inject_processing_styles() -> None:
               float: none;
               display: block;
               margin-top: 0.15rem;
-            }
-          }
-
-          /* Premium SaaS redesign overrides */
-          :root {
-            --ms-bg: #020617;
-            --ms-bg-2: #04111D;
-            --ms-bg-3: #071827;
-            --ms-card: rgba(7, 24, 39, 0.72);
-            --ms-card-solid: #071827;
-            --ms-border: rgba(148, 163, 184, 0.18);
-            --ms-accent: #14B8A6;
-            --ms-accent-2: #22D3EE;
-            --ms-success: #14B8A6;
-            --ms-text: #F8FAFC;
-            --ms-muted: #94A3B8;
-          }
-
-          html, body, [data-testid="stAppViewContainer"] {
-            background:
-              radial-gradient(circle at 16% 4%, rgba(34, 211, 238, 0.12), transparent 30%),
-              radial-gradient(circle at 82% 12%, rgba(20, 184, 166, 0.10), transparent 32%),
-              linear-gradient(135deg, #020617 0%, #04111D 45%, #071827 100%);
-          }
-
-          .block-container {
-            max-width: 1400px;
-            padding-left: clamp(1rem, 2vw, 2rem);
-            padding-right: clamp(1rem, 2vw, 2rem);
-          }
-
-          .ms-hero {
-            display: grid;
-            grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
-            gap: clamp(1.5rem, 4vw, 3rem);
-            align-items: center;
-            border-radius: 28px;
-            background:
-              linear-gradient(140deg, rgba(7, 24, 39, 0.84), rgba(2, 6, 23, 0.74)),
-              radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.12), transparent 34%);
-            box-shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
-          }
-
-          .ms-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.7rem;
-            color: #CCFBF1;
-            font-size: 0.9rem;
-            font-weight: 800;
-            margin-bottom: 1.4rem;
-          }
-
-          .ms-logo-mark {
-            display: inline-grid;
-            place-items: center;
-            width: 2.35rem;
-            height: 2.35rem;
-            border-radius: 0.8rem;
-            background: linear-gradient(135deg, #14B8A6, #22D3EE);
-            color: #020617;
-            box-shadow: 0 14px 42px rgba(20, 184, 166, 0.22);
-          }
-
-          .ms-hero h1 {
-            font-size: clamp(3rem, 7vw, 5.9rem);
-            letter-spacing: -0.03em;
-          }
-
-          .ms-hero p {
-            max-width: 720px;
-            font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-          }
-
-          .ms-capability-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.85rem;
-            margin-top: 1.6rem;
-          }
-
-          .ms-cap-card,
-          .ms-export-tile {
-            border: 1px solid rgba(148, 163, 184, 0.16);
-            border-radius: 22px;
-            background: rgba(15, 23, 42, 0.52);
-            padding: 1rem;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
-            transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-          }
-
-          .ms-cap-card:hover,
-          .ms-export-tile:hover {
-            transform: translateY(-3px);
-            border-color: rgba(34, 211, 238, 0.42);
-            box-shadow: 0 18px 48px rgba(20, 184, 166, 0.12);
-          }
-
-          .ms-visual-card {
-            position: relative;
-            min-height: 360px;
-            border: 1px solid rgba(148, 163, 184, 0.18);
-            border-radius: 28px;
-            background:
-              radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.16), transparent 42%),
-              linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(2, 6, 23, 0.58));
-            overflow: hidden;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-          }
-
-          .ms-report-float {
-            position: absolute;
-            inset: 13% 11% auto 16%;
-            border: 1px solid rgba(34, 211, 238, 0.20);
-            border-radius: 24px;
-            background: rgba(248, 250, 252, 0.94);
-            color: #0F172A;
-            padding: 1.2rem;
-            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
-          }
-
-          .ms-report-line {
-            height: 0.5rem;
-            border-radius: 999px;
-            background: #CBD5E1;
-            margin: 0.65rem 0;
-          }
-
-          .ms-report-line.short { width: 56%; }
-          .ms-report-line.medium { width: 76%; }
-          .ms-report-line.accent { width: 42%; background: #14B8A6; }
-
-          .ms-waveform {
-            position: absolute;
-            left: 10%;
-            right: 10%;
-            bottom: 15%;
-            display: flex;
-            align-items: end;
-            gap: 0.45rem;
-            height: 78px;
-          }
-
-          .ms-waveform span {
-            flex: 1;
-            border-radius: 999px;
-            background: linear-gradient(180deg, #22D3EE, #14B8A6);
-            opacity: 0.85;
-          }
-
-          .ms-waveform span:nth-child(1) { height: 34%; }
-          .ms-waveform span:nth-child(2) { height: 70%; }
-          .ms-waveform span:nth-child(3) { height: 48%; }
-          .ms-waveform span:nth-child(4) { height: 88%; }
-          .ms-waveform span:nth-child(5) { height: 42%; }
-          .ms-waveform span:nth-child(6) { height: 76%; }
-          .ms-waveform span:nth-child(7) { height: 54%; }
-          .ms-waveform span:nth-child(8) { height: 92%; }
-          .ms-waveform span:nth-child(9) { height: 46%; }
-          .ms-waveform span:nth-child(10) { height: 68%; }
-
-          .ms-upload-shell {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(340px, 0.8fr);
-            gap: 1.25rem;
-            align-items: stretch;
-          }
-
-          .ms-upload-art {
-            border: 1px dashed rgba(34, 211, 238, 0.30);
-            border-radius: 24px;
-            background:
-              radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.13), transparent 42%),
-              rgba(2, 6, 23, 0.32);
-            min-height: 230px;
-            display: grid;
-            place-items: center;
-            color: #CCFBF1;
-            text-align: center;
-            padding: 1.2rem;
-          }
-
-          .ms-format-line {
-            color: #67E8F9;
-            font-size: 0.86rem;
-            font-weight: 800;
-            margin: -0.25rem 0 1rem;
-          }
-
-          div[data-testid="stFileUploader"] {
-            border-color: rgba(34, 211, 238, 0.30);
-            border-radius: 22px;
-          }
-
-          .ms-processing-card {
-            border-color: rgba(34, 211, 238, 0.18);
-            border-radius: 26px;
-            padding: 1.35rem;
-          }
-
-          .ms-stage-list {
-            display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: 0.75rem;
-            padding: 1rem 0 0;
-            border-top: 1px solid rgba(148, 163, 184, 0.13);
-            counter-reset: stage;
-          }
-
-          .ms-stage-list li {
-            list-style: none;
-            position: relative;
-            min-height: 74px;
-            border: 1px solid rgba(148, 163, 184, 0.15);
-            border-radius: 18px;
-            background: rgba(15, 23, 42, 0.46);
-            padding: 0.85rem;
-          }
-
-          .ms-stage-list li::before {
-            counter-increment: stage;
-            content: counter(stage);
-            display: inline-grid;
-            place-items: center;
-            width: 1.65rem;
-            height: 1.65rem;
-            border-radius: 999px;
-            margin-bottom: 0.55rem;
-            background: rgba(148, 163, 184, 0.16);
-            color: #CBD5E1;
-            font-weight: 800;
-          }
-
-          .ms-stage-list .is-done,
-          .ms-stage-list .is-active {
-            border-color: rgba(20, 184, 166, 0.42);
-          }
-
-          .ms-stage-list .is-done::before {
-            content: "✓";
-            background: #14B8A6;
-            color: #020617;
-          }
-
-          .ms-stage-list .is-active::before {
-            background: linear-gradient(135deg, #14B8A6, #22D3EE);
-            color: #020617;
-          }
-
-          .ms-stage-list span {
-            float: none;
-            display: block;
-            margin-top: 0.3rem;
-            color: #67E8F9;
-          }
-
-          .ms-stat-card.summary { border-color: rgba(20, 184, 166, 0.22); }
-          .ms-stat-card.discussion { border-color: rgba(16, 185, 129, 0.22); }
-          .ms-stat-card.decisions { border-color: rgba(245, 158, 11, 0.24); }
-          .ms-stat-card.actions { border-color: rgba(139, 92, 246, 0.24); }
-
-          .ms-transcript-table {
-            border: 1px solid rgba(148, 163, 184, 0.16);
-            border-radius: 22px;
-            overflow: hidden;
-            background: rgba(7, 24, 39, 0.58);
-          }
-
-          .ms-transcript-row,
-          .ms-transcript-head {
-            display: grid;
-            grid-template-columns: minmax(110px, 0.65fr) minmax(0, 2.8fr) minmax(100px, 0.7fr);
-            gap: 1rem;
-            align-items: start;
-            padding: 0.95rem 1rem;
-          }
-
-          .ms-transcript-head {
-            color: #94A3B8;
-            font-size: 0.78rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            background: rgba(15, 23, 42, 0.72);
-          }
-
-          .ms-transcript-row {
-            border-top: 1px solid rgba(148, 163, 184, 0.10);
-            transition: background 160ms ease;
-          }
-
-          .ms-transcript-row:hover {
-            background: rgba(20, 184, 166, 0.06);
-          }
-
-          .ms-speaker-badge {
-            display: inline-flex;
-            border-radius: 999px;
-            padding: 0.35rem 0.62rem;
-            font-weight: 800;
-            font-size: 0.78rem;
-            background: rgba(20, 184, 166, 0.14);
-            color: #99F6E4;
-          }
-
-          .ms-speaker-badge.speaker-2 { background: rgba(34, 211, 238, 0.14); color: #A5F3FC; }
-          .ms-speaker-badge.speaker-3 { background: rgba(139, 92, 246, 0.16); color: #DDD6FE; }
-
-          .ms-export-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.85rem;
-          }
-
-          .ms-export-tile .stDownloadButton > button {
-            min-height: 4.25rem;
-            background: rgba(15, 23, 42, 0.42);
-            box-shadow: none;
-            border-color: transparent;
-          }
-
-          .stButton > button,
-          .stDownloadButton > button {
-            background: linear-gradient(135deg, #14B8A6 0%, #22D3EE 100%);
-            color: #020617;
-            border-color: rgba(34, 211, 238, 0.36);
-          }
-
-          .stDownloadButton > button {
-            min-height: 4.25rem;
-            justify-content: center;
-          }
-
-          .stButton > button:hover,
-          .stDownloadButton > button:hover {
-            border-color: rgba(34, 211, 238, 0.68);
-            color: #020617;
-            box-shadow: 0 18px 46px rgba(20, 184, 166, 0.18);
-          }
-
-          .stTabs [data-baseweb="tab"] {
-            border-color: rgba(148, 163, 184, 0.14);
-            background: rgba(2, 6, 23, 0.38);
-          }
-
-          .stTabs [aria-selected="true"] {
-            background: rgba(20, 184, 166, 0.14);
-            border-color: rgba(34, 211, 238, 0.42);
-          }
-
-          .stTabs [data-baseweb="tab-panel"] {
-            border-top: 1px solid rgba(34, 211, 238, 0.15);
-            padding-top: 1.7rem;
-          }
-
-          @media (max-width: 980px) {
-            .ms-hero,
-            .ms-upload-shell {
-              grid-template-columns: 1fr;
-            }
-            .ms-stage-list {
-              grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-          }
-
-          @media (max-width: 640px) {
-            .ms-capability-grid,
-            .ms-export-grid,
-            .ms-stage-list,
-            .ms-transcript-row,
-            .ms-transcript-head {
-              grid-template-columns: 1fr;
-            }
-            .ms-visual-card {
-              min-height: 280px;
             }
           }
         </style>
@@ -989,7 +639,7 @@ def render_stage_status(
     rows = []
     for index, stage in enumerate(PROCESSING_STAGES):
         if active_index >= len(PROCESSING_STAGES) or index < active_index:
-            status = "Complete"
+            status = "✓ Complete"
             class_name = "is-done"
         elif index == active_index:
             status = "In progress"
@@ -1008,7 +658,7 @@ def render_stage_status(
         <div class="ms-processing-card">
           <div class="ms-processing-header">
             <div>
-              <p class="ms-eyebrow">Report progress</p>
+              <p class="ms-eyebrow">MeetScribe is preparing your report</p>
               <h3>{PROCESSING_STAGES[heading_index]}</h3>
             </div>
             <div class="ms-elapsed">Elapsed<br><strong>{elapsed}</strong></div>
@@ -1077,23 +727,23 @@ def render_success_metrics() -> None:
     )
     st.markdown(
         f"""
-        <div class="ms-metrics-grid">
-          <div class="ms-stat-card summary">
+        <div class="ms-metrics-grid" aria-label="Meeting overview">
+          <div class="ms-stat-card is-summary">
             <span>Summary</span>
             <strong>Ready</strong>
             <small>Meeting summary generated</small>
           </div>
-          <div class="ms-stat-card discussion">
+          <div class="ms-stat-card">
             <span>Discussion Points</span>
             <strong>{html.escape(metrics.get("Discussion Points", "0"))}</strong>
-            <small>Discussion topics</small>
+            <small>Topics captured</small>
           </div>
-          <div class="ms-stat-card decisions">
+          <div class="ms-stat-card">
             <span>Decisions</span>
             <strong>{html.escape(metrics.get("Decisions", "0"))}</strong>
             <small>Decisions identified</small>
           </div>
-          <div class="ms-stat-card actions">
+          <div class="ms-stat-card">
             <span>Action Items</span>
             <strong>{html.escape(metrics.get("Action Items", "0"))}</strong>
             <small>Follow-up tasks</small>
@@ -1109,35 +759,16 @@ def render_hero() -> None:
     st.markdown(
         """
         <section class="ms-hero">
-          <div>
-            <div class="ms-logo">
-              <span class="ms-logo-mark">M</span>
-              <span>MeetScribe</span>
-            </div>
-            <h1>MeetScribe</h1>
-            <p>
-              Turn meeting recordings into organized notes, decisions, and
-              action items in one polished workspace.
-            </p>
-            <div class="ms-capability-grid">
-              <div class="ms-cap-card">🎙 Speaker-wise Transcript</div>
-              <div class="ms-cap-card">📝 Meeting Summary</div>
-              <div class="ms-cap-card">✅ Action Items</div>
-              <div class="ms-cap-card">📄 Export Ready</div>
-            </div>
-          </div>
-          <div class="ms-visual-card" aria-hidden="true">
-            <div class="ms-report-float">
-              <strong>Meeting Report</strong>
-              <div class="ms-report-line accent"></div>
-              <div class="ms-report-line medium"></div>
-              <div class="ms-report-line"></div>
-              <div class="ms-report-line short"></div>
-            </div>
-            <div class="ms-waveform">
-              <span></span><span></span><span></span><span></span><span></span>
-              <span></span><span></span><span></span><span></span><span></span>
-            </div>
+          <h1>MeetScribe</h1>
+          <p>
+            Turn meeting recordings into organized notes, decisions, and action
+            items in one place.
+          </p>
+          <div class="ms-badge-row">
+            <span class="ms-badge">✓ Speaker-wise Transcript</span>
+            <span class="ms-badge">✓ Meeting Summary</span>
+            <span class="ms-badge">✓ Action Items</span>
+            <span class="ms-badge">✓ Export Ready</span>
           </div>
         </section>
         """,
@@ -1217,39 +848,22 @@ def render_transcript(result: TranscriptionResult) -> None:
     )
 
     if result.segments:
-        rows = []
         for segment in result.segments:
             start_time = format_timestamp(segment.start_time_seconds)
             end_time = format_timestamp(segment.end_time_seconds)
-            label = speaker_label(segment)
-            speaker_class = "speaker-1"
-            if label.endswith("2"):
-                speaker_class = "speaker-2"
-            elif label.endswith("3"):
-                speaker_class = "speaker-3"
-            rows.append(
-                f"""
-                <div class="ms-transcript-row">
-                  <div><span class="ms-speaker-badge {speaker_class}">{html.escape(label)}</span></div>
-                  <div>{html.escape(segment.transcript)}</div>
-                  <div>{html.escape(start_time)} - {html.escape(end_time)}</div>
-                </div>
-                """
-            )
 
-        st.markdown(
-            f"""
-            <div class="ms-transcript-table">
-              <div class="ms-transcript-head">
-                <div>Speaker</div>
-                <div>Message</div>
-                <div>Timestamp</div>
-              </div>
-              {''.join(rows)}
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+            st.markdown(
+                f"""
+                <div class="ms-item-card">
+                  <h4>📝 {html.escape(speaker_label(segment))}</h4>
+                  <p>{html.escape(segment.transcript)}</p>
+                  <div class="ms-meta-row">
+                    <span class="ms-meta">{html.escape(start_time)} - {html.escape(end_time)}</span>
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
         return
 
     st.text_area(
@@ -1297,7 +911,7 @@ def render_key_points_tab(analysis: MeetingAnalysisResult) -> None:
         st.markdown(
             f"""
             <div class="ms-item-card">
-              <h4>?? Discussion Point</h4>
+              <h4>💡 Discussion Point</h4>
               <p>{html.escape(item.point)}</p>
               <div class="ms-meta-row">
                 <span class="ms-meta">Timestamp: {html.escape(timestamp)}</span>
@@ -1320,7 +934,7 @@ def render_decisions_tab(analysis: MeetingAnalysisResult) -> None:
         st.markdown(
             f"""
             <div class="ms-item-card">
-              <h4>? Decision</h4>
+              <h4>✅ Decision</h4>
               <p>{html.escape(item.decision)}</p>
               <div class="ms-meta-row">
                 <span class="ms-meta">Confidence Level: {html.escape(item.confidence)}</span>
@@ -1345,7 +959,7 @@ def render_action_items_tab(analysis: MeetingAnalysisResult) -> None:
         st.markdown(
             f"""
             <div class="ms-item-card">
-              <h4>?? Task</h4>
+              <h4>📌 Task</h4>
               <p>{html.escape(item.task)}</p>
               <div class="ms-meta-row">
                 <span class="ms-meta">Owner: {html.escape(owner)}</span>
@@ -1415,7 +1029,7 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
     with st.container(border=True):
         render_panel_header(
             "Export Center",
-            "Download meeting reports and transcript files.",
+            "Download polished MoM documents or the full transcript report.",
         )
         try:
             mom_pdf_path = prepared_export_path("pdf_export_path", export_to_pdf, analysis)
@@ -1447,7 +1061,7 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
                 export_path=mom_pdf_path,
                 mime="application/pdf",
                 key="download_mom_pdf",
-                success_message="Download Started",
+                success_message="Download started",
             )
         with top_right:
             render_download_button(
@@ -1458,7 +1072,7 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
                     "wordprocessingml.document"
                 ),
                 key="download_mom_docx",
-                success_message="Download Started",
+                success_message="Download started",
             )
 
         bottom_left, bottom_right = st.columns(2)
@@ -1468,7 +1082,7 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
                 export_path=transcript_pdf_path,
                 mime="application/pdf",
                 key="download_transcript_pdf",
-                success_message="Download Started",
+                success_message="Download started",
             )
         with bottom_right:
             render_download_button(
@@ -1479,7 +1093,7 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
                     "wordprocessingml.document"
                 ),
                 key="download_transcript_docx",
-                success_message="Download Started",
+                success_message="Download started",
             )
 
 
@@ -1502,17 +1116,17 @@ def run_meeting_analysis(
             if status_placeholder is not None and started_at is not None:
                 render_stage_status(
                     status_placeholder,
-                    active_index=2,
+                    active_index=3,
                     started_at=started_at,
-                    note="Organizing your meeting notes.",
+                    note="Preparing organized notes for this recording.",
                 )
             analysis_progress.progress(90, text="Preparing Exports")
             if status_placeholder is not None and started_at is not None:
                 render_stage_status(
                     status_placeholder,
-                    active_index=3,
+                    active_index=4,
                     started_at=started_at,
-                    note="Formatting your report and transcript downloads.",
+                    note="Arranging the report into a clean meeting format.",
                 )
             analysis_progress.progress(100, text="Preparing Exports")
             if status_placeholder is not None and started_at is not None:
@@ -1520,7 +1134,7 @@ def run_meeting_analysis(
                     status_placeholder,
                     active_index=len(PROCESSING_STAGES),
                     started_at=started_at,
-                    note="Your report and downloads are ready.",
+                    note="Report metrics and downloads are ready.",
                 )
             st.session_state.analysis_result = cached_analysis
             st.session_state.analysis_error = ""
@@ -1537,7 +1151,7 @@ def run_meeting_analysis(
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
-                active_index=2,
+                active_index=3,
                 started_at=started_at,
                 note=estimate_note,
             )
@@ -1553,9 +1167,9 @@ def run_meeting_analysis(
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
-                active_index=2,
+                active_index=3,
                 started_at=started_at,
-                note="Organizing the transcript into notes, decisions, and action items.",
+                note="Organizing the transcript into notes, decisions, and follow-up tasks.",
             )
         update_elapsed(elapsed_placeholder, started_at)
         log_stage("Meeting analysis", "Calling analyze_meeting() with single Gemini request.")
@@ -1565,9 +1179,9 @@ def run_meeting_analysis(
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
-                active_index=3,
+                active_index=4,
                 started_at=started_at,
-                note="Formatting your report and transcript downloads.",
+                note="Arranging the report into a clean meeting format.",
             )
         update_elapsed(elapsed_placeholder, started_at)
         st.session_state.analysis_result = analysis
@@ -1587,7 +1201,7 @@ def run_meeting_analysis(
                 status_placeholder,
                 active_index=4,
                 started_at=started_at,
-                note="Preparing your report workspace.",
+                note="Preparing your report and download files.",
             )
         update_elapsed(elapsed_placeholder, started_at)
         time.sleep(0.2)
@@ -1597,7 +1211,7 @@ def run_meeting_analysis(
                 status_placeholder,
                 active_index=len(PROCESSING_STAGES),
                 started_at=started_at,
-                note="Your report and downloads are ready.",
+                note="Report metrics and downloads are ready.",
             )
         st.toast("Meeting report is ready")
         return analysis
@@ -1729,7 +1343,7 @@ def process_upload(uploaded_file: object) -> None:
         started_at=started_at,
         note=estimate_note,
     )
-    progress = st.progress(0, text="Upload Recording")
+    progress = st.progress(0, text="Uploading Recording")
     st.session_state.processing_logs = []
     st.session_state.analysis_result = None
     st.session_state.analysis_error = ""
@@ -1752,7 +1366,7 @@ def process_upload(uploaded_file: object) -> None:
             type=getattr(uploaded_file, "type", ""),
         )
 
-        progress.progress(10, text="Upload Recording")
+        progress.progress(10, text="Uploading Recording")
         render_stage_status(
             status_placeholder,
             active_index=0,
@@ -1874,66 +1488,50 @@ def main() -> None:
     render_hero()
 
     with st.container(border=True):
-        left_col, right_col = st.columns([1.05, 0.95], gap="large")
-        with right_col:
-            uploaded_file = st.file_uploader(
-                "Audio file",
-                type=SUPPORTED_FILE_TYPES,
-                accept_multiple_files=False,
-            )
+        render_panel_header(
+            "Upload Recording",
+            "Upload your meeting recording to generate a structured meeting report.",
+        )
+        st.markdown(
+            "<div class='ms-format-line'>MP3 • WAV • M4A • AAC • MP4</div>",
+            unsafe_allow_html=True,
+        )
+        uploaded_file = st.file_uploader(
+            "Audio file",
+            type=SUPPORTED_FILE_TYPES,
+            accept_multiple_files=False,
+        )
+
+        if uploaded_file is None:
+            st.info("Upload a meeting recording to begin.")
+        else:
+            file_size_mb = uploaded_file.size / (1024 * 1024)
+            upload_signature = f"{uploaded_file.name}:{uploaded_file.size}"
+            if st.session_state.last_logged_upload != upload_signature:
+                log_stage(
+                    "File upload",
+                    "File selected in UI.",
+                    filename=uploaded_file.name,
+                    size=uploaded_file.size,
+                )
+                st.session_state.last_logged_upload = upload_signature
+
             st.markdown(
-                """
-                <div class="ms-upload-art">
-                  <div>
-                    <div style="font-size:2.2rem; margin-bottom:0.5rem;">↥</div>
-                    <strong>Drop your recording here</strong>
-                    <p style="margin:0.45rem 0 0;">The workspace will prepare a polished meeting report.</p>
-                  </div>
+                f"""
+                <div class="ms-upload-ready">
+                  Selected {html.escape(uploaded_file.name)}
+                  <span>({file_size_mb:.2f} MB)</span>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
 
-        with left_col:
-            render_panel_header(
-                "Upload Recording",
-                "Upload your meeting recording to generate a structured meeting report.",
-            )
-            st.markdown(
-                "<div class='ms-format-line'>MP3 • WAV • M4A • AAC • MP4</div>",
-                unsafe_allow_html=True,
-            )
-
-            if uploaded_file is None:
-                st.info("Drop in a meeting recording to begin.")
-            else:
-                file_size_mb = uploaded_file.size / (1024 * 1024)
-                upload_signature = f"{uploaded_file.name}:{uploaded_file.size}"
-                if st.session_state.last_logged_upload != upload_signature:
-                    log_stage(
-                        "File upload",
-                        "File selected in UI.",
-                        filename=uploaded_file.name,
-                        size=uploaded_file.size,
-                    )
-                    st.session_state.last_logged_upload = upload_signature
-
-                st.markdown(
-                    f"""
-                    <div class="ms-upload-ready">
-                      Selected {html.escape(uploaded_file.name)}
-                      <span>({file_size_mb:.2f} MB)</span>
-                    </div>
-                    """,
-                    unsafe_allow_html=True,
-                )
-
-            process_clicked = st.button(
-                "Generate Meeting Report",
-                type="primary",
-                disabled=uploaded_file is None,
-                use_container_width=True,
-            )
+        process_clicked = st.button(
+            "Generate Meeting Report",
+            type="primary",
+            disabled=uploaded_file is None,
+            use_container_width=True,
+        )
 
         if process_clicked and uploaded_file is not None:
             process_upload(uploaded_file)
@@ -1953,7 +1551,7 @@ def main() -> None:
         st.markdown("<br>", unsafe_allow_html=True)
         render_panel_header(
             "Meeting Workspace",
-            "Review the transcript, summary, discussion highlights, decisions, and action items.",
+            "Review the transcript, summary, discussion points, decisions, and follow-up tasks.",
         )
         if st.session_state.uploaded_filename:
             st.caption(f"Source: {st.session_state.uploaded_filename}")

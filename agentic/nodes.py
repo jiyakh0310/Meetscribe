@@ -306,7 +306,7 @@ def _action_items_node_impl(state: AgenticMeetingState) -> StateUpdate:
             supported=bool(item_evidence.get("text")),
             has_timestamp=bool(item_evidence.get("timestamp")),
             validation_status="success",
-        )
+        ) 
         for item_evidence in evidence
     ]
     logger.info(

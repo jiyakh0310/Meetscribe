@@ -15,13 +15,13 @@ from typing import Any
 
 import streamlit as st
 import streamlit.components.v1 as components
-import torch
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from config.settings import SettingsError
+from agentic.workflow import run_meeting_analysis_workflow
 from exports.docx_exporter import export_to_docx
 from exports.email_sender import (
     EmailDeliveryError,
@@ -30,26 +30,15 @@ from exports.email_sender import (
     send_report_email,
 )
 from exports.pdf_exporter import export_to_pdf
-from ml_mom.clustering import ClusteringService
-from ml_mom.embeddings import EmbeddingService
-from ml_mom.feature_extraction import extract_sentence_features
-from ml_mom.mom_generator import (
-    PredictionRecord,
-    generate_minutes,
-)
-from ml_mom.predict_ann import (
-    load_label_mapping,
-    load_trained_model,
-    predict_labels,
-)
-from ml_mom.preprocessing import preprocess_transcript
-from ml_mom.transcript_parser import ParsedTranscript, parse_transcript
-from summarization.base_summarizer import (
-    ActionItem,
-    Decision,
-    KeyDiscussionPoint,
-    MeetingAnalysisResult,
-    MeetingSummary,
+from llm_clients.gemini_client import GeminiClient, GeminiClientError
+from summarization.base_summarizer import MeetingAnalysisResult
+from summarization.llm_summarizer import (
+    ActionItemExtractionError,
+    DecisionExtractionError,
+    KeyDiscussionPointExtractionError,
+    LLMSummarizer,
+    MeetingSummaryError,
+    TranscriptCleanupError,
 )
 from transcription.audio_utils import AudioProcessingError, preprocess_uploaded_audio
 from transcription.speaker_mapping import (
@@ -84,17 +73,10 @@ MEETING_INFO_FIELDS = (
     ("meeting_title", "Meeting Title"),
     ("meeting_date", "Meeting Date"),
     ("meeting_time", "Meeting Time"),
-    ("meeting_location", "Meeting Location / Venue"),
-    ("meeting_platform", "Meeting Platform / Source"),
+    ("organization", "Organization / Company"),
+    ("project_name", "Project Name"),
     ("prepared_by", "Prepared By"),
     ("participants", "Participants"),
-)
-MEETING_PLATFORM_OPTIONS = (
-    "Google Meet",
-    "Microsoft Teams",
-    "Zoom",
-    "Offline Meeting",
-    "Other",
 )
 
 PROCESSING_STAGES = [
@@ -123,9 +105,6 @@ def initialize_session_state() -> None:
     st.session_state.setdefault("meeting_info", {})
     st.session_state.setdefault("meeting_info_initialized", False)
     st.session_state.setdefault("meeting_info_last_saved", {})
-    st.session_state.setdefault("meeting_details_required", False)
-    st.session_state.setdefault("meeting_participants", [])
-    st.session_state.setdefault("meeting_participants_manual", "")
     st.session_state.setdefault("show_email_form", False)
     st.session_state.setdefault("success_metrics", None)
     st.session_state.setdefault("docx_export_path", "")
@@ -236,14 +215,25 @@ def inject_processing_styles() -> None:
             margin: 0 !important;
           }
           [data-testid="stSidebar"] > div:first-child {
-            padding-top: 0.35rem !important;
+            padding-top: 1.1rem !important;
+          }
+          [data-testid="stSidebarHeader"] {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            min-height: 0 !important;
+            height: 0 !important;
+            overflow: hidden !important;
+          }
+          [data-testid="stSidebarUserContent"],
+          [data-testid="stSidebarContent"] {
+            padding-top: 0 !important;
           }
           .ms-side-shell {
             display: flex;
             flex-direction: column;
             gap: 0.35rem;
             padding: 0 0.15rem 0.75rem;
-            transform: translateY(-0.15rem);
+            margin-top: -5px;
           }
           .ms-side-brand {
             display: flex;
@@ -380,7 +370,8 @@ def inject_processing_styles() -> None:
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 0.55rem;
+            justify-content: flex-start;
+            gap: 0.65rem;
             padding: 0;
             border: 0;
             border-radius: 0;
@@ -408,42 +399,39 @@ def inject_processing_styles() -> None:
             box-shadow: 0 8px 22px rgba(251,113,133,0.18);
           }
           .ms-workflow-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 999px;
-            background: var(--pink);
-            opacity: 0.85;
-            flex: 0 0 auto;
+            display: none;
           }
 
           /* ══ PANELS ══════════════════════════════════ */
           div[data-testid="stVerticalBlockBorderWrapper"] {
-            border: 1px solid #FAD4DC !important;
-            border-radius: var(--r-xl) !important;
-            background: var(--surface) !important;
-            box-shadow: 0 4px 16px rgba(251,113,133,0.06) !important;
+            border: 1.35px solid #F8C7D2 !important;
+            border-radius: 20px !important;
+            background: linear-gradient(180deg,#FFFFFF 0%,#FFFBFE 100%) !important;
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075) !important;
             backdrop-filter: none !important;
-            transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+            transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease, background 220ms ease;
           }
           div[data-testid="stVerticalBlockBorderWrapper"]:hover {
-            border-color: var(--pink) !important;
-            box-shadow: 0 10px 26px rgba(251,113,133,0.10) !important;
+            border-color: var(--pink-mid) !important;
+            box-shadow: 0 14px 34px rgba(251,113,133,0.12) !important;
+            transform: translateY(-1px);
           }
 
           /* ══ UPLOAD PANEL ═════════════════════════════ */
           .ms-upload-card {
-            border: 1px solid var(--border-soft);
-            border-radius: var(--r-xl);
+            border: 1.35px solid #F8C7D2;
+            border-radius: 20px;
             background: var(--surface);
             padding: 1.5rem 1.5rem 1.25rem;
             margin-bottom: 1rem;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
             animation: fadein 0.35s ease both;
-            transition: border-color 200ms, box-shadow 200ms;
+            transition: border-color 220ms, box-shadow 220ms, transform 220ms;
           }
           .ms-upload-card:hover {
             border-color: var(--pink-mid);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 14px 34px rgba(251,113,133,0.12);
+            transform: translateY(-1px);
           }
 
           .ms-dashboard-grid {
@@ -453,12 +441,18 @@ def inject_processing_styles() -> None:
             margin: 1rem 0 1.2rem;
           }
           .ms-dashboard-card {
-            border: 1px solid var(--border-soft);
-            border-radius: var(--r-xl);
-            background: var(--surface);
-            box-shadow: var(--shadow-sm);
-            padding: 1rem;
+            border: 1.35px solid #F8C7D2;
+            border-radius: 20px;
+            background: linear-gradient(180deg,#FFFFFF 0%,#FFFBFE 100%);
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
+            padding: 1.05rem;
             min-width: 0;
+            transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+          }
+          .ms-dashboard-card:hover {
+            border-color: var(--pink-mid);
+            box-shadow: 0 14px 34px rgba(251,113,133,0.12);
+            transform: translateY(-1px);
           }
           .ms-dashboard-head {
             display: flex;
@@ -525,12 +519,19 @@ def inject_processing_styles() -> None:
             gap: 0.6rem;
           }
           .ms-quick-stat {
-            border: 1px solid var(--border-soft);
-            border-radius: var(--r-lg);
+            border: 1.25px solid #F8C7D2;
+            border-radius: 16px;
             background: var(--warm-6);
             padding: 0.65rem 0.45rem;
             text-align: center;
             min-height: 72px;
+            box-shadow: 0 5px 14px rgba(251,113,133,0.055);
+            transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+          }
+          .ms-quick-stat:hover {
+            border-color: var(--pink-mid);
+            box-shadow: 0 9px 20px rgba(251,113,133,0.095);
+            transform: translateY(-1px);
           }
           .ms-quick-value {
             display: block;
@@ -572,12 +573,18 @@ def inject_processing_styles() -> None:
           }
 
           .ms-premium-section {
-            border: 1px solid var(--border-soft);
-            border-radius: var(--r-xl);
-            background: var(--surface);
-            box-shadow: var(--shadow-sm);
-            padding: 1rem;
+            border: 1.35px solid #F8C7D2;
+            border-radius: 20px;
+            background: linear-gradient(180deg,#FFFFFF 0%,#FFFBFE 100%);
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
+            padding: 1.05rem;
             margin: 0.9rem 0 1rem;
+            transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+          }
+          .ms-premium-section:hover {
+            border-color: var(--pink-mid);
+            box-shadow: 0 14px 34px rgba(251,113,133,0.12);
+            transform: translateY(-1px);
           }
           .ms-section-kicker {
             display: inline-flex;
@@ -600,24 +607,31 @@ def inject_processing_styles() -> None:
           .ms-section-subcopy {
             color: var(--warm-3) !important;
             font-size: 0.82rem;
-            line-height: 1.55;
-            margin: 0 0 0.95rem;
+            line-height: 1.5;
+            margin: 0 0 0.72rem;
           }
           .ms-speaker-row {
             display: grid;
-            grid-template-columns: 38px minmax(0,1fr);
-            gap: 0.75rem;
+            grid-template-columns: 34px minmax(0,1fr);
+            gap: 0.65rem;
             align-items: center;
-            padding: 0.65rem 0.7rem;
-            border: 1px solid var(--border-soft);
-            border-radius: var(--r-lg);
-            background: var(--warm-6);
-            margin-bottom: 0.55rem;
+            padding: 0.48rem 0.58rem;
+            border: 1.25px solid #F8C7D2;
+            border-radius: 14px;
+            background: #FFFBFE;
+            margin-bottom: 0.38rem;
+            box-shadow: 0 5px 14px rgba(251,113,133,0.055);
+            transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+          }
+          .ms-speaker-row:hover {
+            border-color: var(--pink-mid);
+            box-shadow: 0 9px 20px rgba(251,113,133,0.095);
+            transform: translateY(-1px);
           }
           .ms-speaker-avatar {
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
+            width: 34px;
+            height: 34px;
+            border-radius: 11px;
             background: var(--lav-soft);
             color: #6D28D9 !important;
             display: flex;
@@ -629,24 +643,24 @@ def inject_processing_styles() -> None:
           .ms-speaker-label {
             color: var(--warm) !important;
             font-weight: 800;
-            font-size: 0.84rem;
+            font-size: 0.8rem;
             line-height: 1.2;
           }
           .ms-speaker-badge-text {
             color: var(--warm-4) !important;
-            font-size: 0.68rem;
-            margin-top: 0.12rem;
+            font-size: 0.64rem;
+            margin-top: 0.08rem;
           }
           .ms-transcript-toolbar {
             position: sticky;
             top: 0;
             z-index: 4;
-            border: 1px solid var(--border-soft);
-            border-radius: var(--r-lg);
+            border: 1.25px solid #F8C7D2;
+            border-radius: 16px;
             background: rgba(255,255,255,0.96);
             padding: 0.75rem;
             margin-bottom: 0.8rem;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
           }
           .ms-conversation-preview {
             display: flex;
@@ -658,11 +672,17 @@ def inject_processing_styles() -> None:
             margin-bottom: 0.8rem;
           }
           .ms-convo-row {
-            border: 1px solid var(--border-soft);
-            border-radius: var(--r-lg);
-            background: var(--surface);
+            border: 1.25px solid #F8C7D2;
+            border-radius: 16px;
+            background: #FFFFFF;
             padding: 0.85rem 0.95rem;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
+            transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+          }
+          .ms-convo-row:hover {
+            border-color: var(--pink-mid);
+            box-shadow: 0 14px 34px rgba(251,113,133,0.12);
+            transform: translateY(-1px);
           }
           .ms-convo-head {
             display: flex;
@@ -694,10 +714,10 @@ def inject_processing_styles() -> None:
           }
           .ms-output-card,
           .ms-item-card {
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
           }
           .ms-output-card {
-            border-color: var(--pink-soft);
+            border-color: #F8C7D2;
             background: linear-gradient(180deg,#FFFFFF 0%,#FFF7F8 100%);
           }
           .ms-card-label::before,
@@ -712,11 +732,11 @@ def inject_processing_styles() -> None:
             vertical-align: 0.08rem;
           }
           .ms-export-wrap {
-            border: 1px solid var(--border-soft);
-            border-radius: var(--r-xl);
-            background: var(--surface);
-            padding: 1rem;
-            box-shadow: var(--shadow-sm);
+            border: 1.35px solid #F8C7D2;
+            border-radius: 20px;
+            background: linear-gradient(180deg,#FFFFFF 0%,#FFFBFE 100%);
+            padding: 1.05rem;
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
           }
           .ms-email-attachments {
             display: flex;
@@ -858,39 +878,55 @@ def inject_processing_styles() -> None:
           div[data-testid="stFileUploader"] li { display: none !important; }
 
           /* ══ FILE CARD ════════════════════════════════ */
-          /* Row containing file card + delete button; keep the Streamlit button but merge it visually */
+          /* Row: file card takes full width; delete button column is absolutely overlaid inside */
           div[data-testid="stHorizontalBlock"]:has(.ms-file-card) {
             display: flex !important;
             align-items: center !important;
             flex-wrap: nowrap !important;
-            gap: 0.75rem !important;
+            gap: 0 !important;
             margin-top: 0.75rem !important;
             width: 100% !important;
             position: relative !important;
           }
           div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
+            > div[data-testid="column"] [data-testid="stElementContainer"],
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
+            > div[data-testid="column"] [data-testid="stVerticalBlock"] {
+            margin: 0 !important;
+            padding: 0 !important;
+            gap: 0 !important;
+          }
+          /* Delete button column: absolutely positioned, right-aligned inside the card */
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
             > div[data-testid="column"]:has(button[data-testid="stBaseButton-secondary"]) {
-            flex: 0 0 48px !important;
-            width: 48px !important;
-            min-width: 48px !important;
             position: absolute !important;
-            right: 12px !important;
+            right: 14px !important;
             top: 50% !important;
             transform: translateY(-50%) !important;
+            width: 36px !important;
+            min-width: 36px !important;
+            flex: 0 0 36px !important;
             z-index: 3 !important;
           }
+          /* File card column: takes full width */
           div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
             > div[data-testid="column"]:not(:has(button[data-testid="stBaseButton-secondary"])) {
-            flex: 1 1 auto !important;
+            flex: 1 1 100% !important;
+            width: 100% !important;
           }
           div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
             > div[data-testid="column"]:has(button[data-testid="stBaseButton-secondary"])
-            .stButton { height: 100% !important; display: flex !important; flex-direction: column !important; }
+            .stButton {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
           div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
             > div[data-testid="column"]:has(button[data-testid="stBaseButton-secondary"])
             .stButton > button {
-            height: 34px !important; min-height: 34px !important;
-            flex: 0 0 34px !important; transform: none !important;
+            width: 36px !important; min-width: 36px !important;
+            height: 36px !important; min-height: 36px !important;
+            flex: 0 0 36px !important; transform: none !important;
           }
 
           .ms-file-card {
@@ -898,7 +934,7 @@ def inject_processing_styles() -> None:
             border: 1px solid #FAD4DC;
             border-radius: 12px;
             background: #FFF1F5;
-            padding: 0 4.25rem 0 1rem;
+            padding: 0 3.75rem 0 1rem;
             width: 100%; height: 52px;
             min-height: 52px; max-height: 52px; overflow: hidden;
           }
@@ -967,34 +1003,43 @@ def inject_processing_styles() -> None:
             color: #FFFFFF !important; font-weight: 700 !important;
           }
 
-          /* Uploaded-file delete button */
+          /* Uploaded-file delete button — circular X inside the card */
           div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            .stButton > button[data-testid="stBaseButton-secondary"] {
-            width: 34px !important; min-width: 34px !important;
-            height: 34px !important; min-height: 34px !important;
-            max-height: 34px !important; padding: 0 !important; margin: 0 !important;
-            border: 1px solid rgba(239,68,68,0.22) !important;
-            border-radius: 10px !important;
-            background: #FDE7EF !important;
-            color: var(--red) !important;
+            .stButton > button[data-testid="stBaseButton-secondary"],
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
+            .stButton > button[kind="secondary"] {
+            width: 36px !important; min-width: 36px !important;
+            height: 36px !important; min-height: 36px !important;
+            max-height: 36px !important; padding: 0 !important; margin: 0 !important;
+            border: 1.5px solid #FAD4DC !important;
+            border-radius: 50% !important;
+            background: #FFFFFF !important;
+            background-color: #FFFFFF !important;
+            color: var(--pink) !important;
             font-family: Inter, sans-serif !important;
-            font-size: 0.9rem !important; font-weight: 700 !important;
+            font-size: 0 !important; font-weight: 700 !important;
             display: flex !important; align-items: center !important;
             justify-content: center !important;
-            transition: background 150ms, border-color 150ms !important;
+            box-shadow: 0 1px 4px rgba(251,113,133,0.12) !important;
+            transition: background 150ms, border-color 150ms, box-shadow 150ms !important;
           }
           div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            .stButton > button[data-testid="stBaseButton-secondary"]:hover {
-            background: #FEE2E2 !important;
-            border-color: var(--red) !important;
-            box-shadow: 0 3px 10px rgba(239,68,68,0.18) !important;
+            .stButton > button[data-testid="stBaseButton-secondary"]:hover,
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
+            .stButton > button[kind="secondary"]:hover {
+            background: #FFF0F3 !important;
+            background-color: #FFF0F3 !important;
+            border-color: var(--pink) !important;
+            box-shadow: 0 3px 10px rgba(251,113,133,0.22) !important;
           }
           div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            .stButton > button[data-testid="stBaseButton-secondary"] p {
-            font-size: 0 !important; width: 15px !important; height: 15px !important;
-            background-color: var(--red) !important;
-            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 6 5 6 21 6'/%3E%3Cpath d='M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6'/%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3Cpath d='M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2'/%3E%3C/svg%3E") !important;
-            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 6 5 6 21 6'/%3E%3Cpath d='M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6'/%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3Cpath d='M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2'/%3E%3C/svg%3E") !important;
+            .stButton > button[data-testid="stBaseButton-secondary"] p,
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
+            .stButton > button[kind="secondary"] p {
+            font-size: 0 !important; width: 16px !important; height: 16px !important;
+            background-color: var(--pink) !important;
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E") !important;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E") !important;
             -webkit-mask-size: contain !important; mask-size: contain !important;
             -webkit-mask-repeat: no-repeat !important; mask-repeat: no-repeat !important;
             -webkit-mask-position: center !important; mask-position: center !important;
@@ -1046,6 +1091,23 @@ def inject_processing_styles() -> None:
             animation: shimmer 2s linear infinite;
           }
 
+          div[data-testid="stProgress"] > div {
+            background: #FFF1F5 !important;
+            border-radius: 999px !important;
+            overflow: hidden !important;
+            box-shadow: inset 0 0 0 1px #FAD4DC !important;
+          }
+          div[data-testid="stProgress"] div[role="progressbar"] {
+            background: linear-gradient(90deg, #FAD4DC 0%, #FB7185 50%, #FBCFE8 100%) !important;
+            border-radius: 999px !important;
+            transition: width 220ms ease, background 220ms ease !important;
+          }
+          div[data-testid="stProgress"] > div > div > div > div {
+            background: linear-gradient(90deg, #FAD4DC 0%, #FB7185 50%, #FBCFE8 100%) !important;
+            border-radius: 999px !important;
+            transition: width 220ms ease, background 220ms ease !important;
+          }
+
           .ms-steps {
             display: grid; grid-template-columns: repeat(5, 1fr);
             position: relative;
@@ -1091,13 +1153,14 @@ def inject_processing_styles() -> None:
           }
 
           .ms-stat-card {
-            border: 1px solid var(--border-soft); border-radius: var(--r-lg);
-            background: var(--surface); padding: 1.1rem 1.1rem 0.95rem;
-            box-shadow: var(--shadow-sm);
-            transition: border-color 200ms, transform 200ms, box-shadow 200ms;
+            border: 1.35px solid #F8C7D2; border-radius: 18px;
+            background: linear-gradient(180deg,#FFFFFF 0%,#FFFBFE 100%); padding: 1.1rem 1.1rem 0.95rem;
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
+            transition: border-color 220ms, transform 220ms, box-shadow 220ms;
           }
           .ms-stat-card:hover {
-            transform: translateY(-2px); box-shadow: var(--shadow-md);
+            transform: translateY(-2px); box-shadow: 0 14px 34px rgba(251,113,133,0.12);
+            border-color: var(--pink-mid);
           }
           .ms-stat-icon-wrap { display: none !important; }
           .ms-stat-label {
@@ -1168,12 +1231,27 @@ def inject_processing_styles() -> None:
             margin-top: 0.15rem !important;
           }
           .ms-export-section ~ div[data-testid="stHorizontalBlock"] > div[data-testid="column"] {
-            border: 1px solid var(--border-soft);
-            border-radius: var(--r-xl);
-            background: var(--surface);
-            padding: 0.35rem 0.35rem 0.5rem !important;
-            box-shadow: var(--shadow-sm);
-            transition: border-color 180ms, box-shadow 180ms, transform 180ms;
+            border: 1px solid #FAD4DC;
+            border-radius: 16px;
+            background: #FFFFFF;
+            padding: 0 !important;
+            box-shadow: 0 4px 16px rgba(251,113,133,0.06);
+            transition: border-color 180ms, box-shadow 180ms, transform 180ms, background 180ms;
+            min-height: 178px;
+            overflow: hidden;
+            position: relative;
+          }
+          .ms-export-section ~ div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:nth-child(1) {
+            border-color: #FAD4DC;
+            background: linear-gradient(180deg, #FFFFFF 0%, #FFF7FA 100%);
+          }
+          .ms-export-section ~ div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:nth-child(2) {
+            border-color: #DDD6FE;
+            background: linear-gradient(180deg, #FFFFFF 0%, #FAF7FF 100%);
+          }
+          .ms-export-section ~ div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:nth-child(3) {
+            border-color: #A7F3D0;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F0FDF4 100%);
           }
           .ms-export-section ~ div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:hover {
             border-color: var(--pink-mid);
@@ -1181,18 +1259,17 @@ def inject_processing_styles() -> None:
             transform: translateY(-2px);
           }
           .ms-export-option {
-            border: 1px solid #FAD4DC;
-            border-radius: 16px;
-            background: #FFFFFF;
-            padding: 1.2rem 1.15rem 0.9rem;
-            box-shadow: 0 4px 16px rgba(251,113,133,0.06);
-            transition: border-color 180ms, box-shadow 180ms, transform 180ms;
-            min-height: 128px;
+            border: 0;
+            border-radius: 16px 16px 0 0;
+            background: transparent;
+            padding: 1.15rem 1.15rem 0.35rem;
+            box-shadow: none;
+            min-height: 118px;
+            pointer-events: none;
           }
           .ms-export-option:hover {
-            border-color: var(--pink-mid);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
+            box-shadow: none;
+            transform: none;
           }
           .ms-export-option-icon {
             width: 40px; height: 40px; border-radius: 11px;
@@ -1221,17 +1298,24 @@ def inject_processing_styles() -> None:
             color: var(--warm-3) !important;
             font-size: 0.74rem; line-height: 1.45;
           }
-          .ms-export-actions .stDownloadButton,
-          .ms-export-actions .stButton { margin-top: 0.65rem; }
-          .ms-export-actions .stDownloadButton > button,
-          .ms-export-actions .stButton > button[data-testid="stBaseButton-secondary"] {
-            min-height: 2.65rem !important;
-            border-radius: var(--r-lg) !important;
-            font-size: 0.82rem !important;
+          .ms-export-section ~ div[data-testid="stHorizontalBlock"] > div[data-testid="column"] .stDownloadButton,
+          .ms-export-section ~ div[data-testid="stHorizontalBlock"] > div[data-testid="column"] .stButton {
+            position: absolute !important;
+            inset: 0 !important;
+            z-index: 4 !important;
+            margin: 0 !important;
+            padding: 0 !important;
           }
-          .ms-export-email-wrap .stButton > button {
-            min-height: 2.65rem !important;
+          .ms-export-section ~ div[data-testid="stHorizontalBlock"] > div[data-testid="column"] .stDownloadButton > button,
+          .ms-export-section ~ div[data-testid="stHorizontalBlock"] > div[data-testid="column"] .stButton > button {
+            min-height: 100% !important;
+            height: 100% !important;
+            border-radius: 16px !important;
+            font-size: 0.82rem !important;
             width: 100% !important;
+            justify-content: center !important;
+            opacity: 0 !important;
+            cursor: pointer !important;
           }
 
           .stDownloadButton > button {
@@ -1320,7 +1404,10 @@ def inject_processing_styles() -> None:
 
           /* ══ TRANSCRIPT VIEWER ════════════════════════ */
           .ms-transcript-scroll {
-            height: 480px; overflow-y: auto; margin-top: 0;
+            height: 560px; overflow-y: auto; margin-top: 0;
+            display: flex; flex-direction: column; gap: 0.7rem;
+            padding: 0.25rem 0.35rem 0.25rem 0;
+            scroll-behavior: smooth;
             scrollbar-width: thin; scrollbar-color: var(--warm-4) transparent;
           }
           .ms-transcript-scroll::-webkit-scrollbar { width: 4px; }
@@ -1330,17 +1417,26 @@ def inject_processing_styles() -> None:
           }
 
           .ms-tr-row {
-            display: grid; grid-template-columns: 116px 1fr;
-            border-bottom: 1px solid var(--border-soft);
-            transition: background 120ms;
+            display: grid; grid-template-columns: 128px minmax(0, 1fr);
+            border: 1.35px solid #F8C7D2;
+            border-radius: 18px;
+            background: #FFFFFF;
+            box-shadow: 0 8px 22px rgba(251,113,133,0.07);
+            overflow: visible;
+            transition: background 180ms, border-color 180ms, box-shadow 180ms, transform 180ms;
           }
-          .ms-tr-row:last-child { border-bottom: none; }
-          .ms-tr-row:hover { background: var(--pink-soft); }
+          .ms-tr-row:hover {
+            background: #FFF7FA;
+            border-color: var(--pink-mid);
+            box-shadow: 0 14px 30px rgba(251,113,133,0.12);
+            transform: translateY(-1px);
+          }
 
           .ms-tr-left {
             padding: 0.85rem 0.75rem 0.85rem 0.95rem;
             border-right: 1px solid var(--border-soft);
             display: flex; flex-direction: column; gap: 0.25rem;
+            min-width: 0;
           }
 
           .ms-speaker-badge {
@@ -1359,24 +1455,28 @@ def inject_processing_styles() -> None:
             font-size: 0.65rem; font-variant-numeric: tabular-nums; font-weight: 500;
           }
 
-          .ms-tr-right { padding: 0.85rem 0.95rem; display: flex; align-items: center; }
-          .ms-tr-text { color: var(--warm-2) !important; font-size: 0.88rem; line-height: 1.6; }
+          .ms-tr-right { padding: 0.9rem 1rem; display: block; min-width: 0; }
+          .ms-tr-text {
+            color: var(--warm-2) !important; font-size: 0.88rem; line-height: 1.6;
+            display: block; white-space: pre-wrap; overflow-wrap: anywhere; word-break: normal;
+          }
 
           /* ══ CONTENT CARDS ════════════════════════════ */
           /* Summary */
           .ms-output-card {
-            border: 1px solid #DDD6FE;
-            border-radius: var(--r-lg);
+            border: 1.35px solid #DDD6FE;
+            border-radius: 18px;
             background: #FAF7FF;
             border-left: 4px solid var(--lav);
-            padding: 1.2rem 1.25rem;
+            padding: 1.25rem 1.3rem;
             margin: 0 0 1.1rem;
-            box-shadow: 0 4px 16px rgba(167,139,250,0.07);
-            transition: border-color 180ms, box-shadow 180ms;
+            box-shadow: 0 8px 24px rgba(167,139,250,0.08);
+            transition: border-color 220ms, box-shadow 220ms, transform 220ms;
           }
           .ms-output-card:hover {
             border-color: var(--lav-mid);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 14px 34px rgba(167,139,250,0.13);
+            transform: translateY(-1px);
           }
           .ms-card-label {
             color: var(--lav) !important;
@@ -1398,12 +1498,13 @@ def inject_processing_styles() -> None:
 
           /* Discussion */
           .ms-item-card {
-            border: 1px solid var(--border); border-radius: var(--r-lg);
-            background: var(--surface); padding: 1rem 1.05rem;
+            border: 1.35px solid var(--border); border-radius: 18px;
+            background: var(--surface); padding: 1.05rem 1.1rem;
             margin: 0 0 1.0rem;
-            transition: border-color 180ms, transform 180ms, box-shadow 180ms;
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
+            transition: border-color 220ms, transform 220ms, box-shadow 220ms;
           }
-          .ms-item-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+          .ms-item-card:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(251,113,133,0.12); }
 
           .ms-item-card.discussion {
             border-color: #BBF7D0;
@@ -1460,11 +1561,17 @@ def inject_processing_styles() -> None:
             margin: 0.35rem 0 1.25rem;
           }
           .ms-report-block {
-            border: 1px solid var(--border-soft);
-            border-radius: var(--r-xl);
-            background: var(--surface);
-            padding: 1rem;
-            box-shadow: var(--shadow-sm);
+            border: 1.35px solid #F8C7D2;
+            border-radius: 20px;
+            background: linear-gradient(180deg,#FFFFFF 0%,#FFFBFE 100%);
+            padding: 1.05rem;
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
+            transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+          }
+          .ms-report-block:hover {
+            border-color: var(--pink-mid);
+            box-shadow: 0 14px 34px rgba(251,113,133,0.12);
+            transform: translateY(-1px);
           }
           .ms-report-block-title {
             color: var(--warm) !important;
@@ -1481,23 +1588,23 @@ def inject_processing_styles() -> None:
 
           /* ══ MISC ════════════════════════════════════ */
           .ms-empty {
-            border: 1.5px dashed var(--border);
-            border-radius: var(--r-xl);
+            border: 1.5px dashed #F8C7D2;
+            border-radius: 20px;
             background: var(--surface);
             color: var(--warm-3) !important;
             font-size: 0.84rem;
             padding: 2rem 1.5rem;
             text-align: center;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
           }
           .ms-empty-state {
-            border: 1px solid #FAD4DC;
-            border-radius: 16px;
+            border: 1.35px solid #F8C7D2;
+            border-radius: 20px;
             background: #FFFBFE;
             padding: 3rem 1.75rem;
             text-align: center;
             margin: 0.5rem 0 1.25rem;
-            box-shadow: 0 4px 16px rgba(251,113,133,0.06);
+            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
             display: flex;
             min-height: 260px;
             flex-direction: column;
@@ -1594,27 +1701,70 @@ def inject_processing_styles() -> None:
 
           /* Inputs */
           .stTextArea textarea {
-            border: 1px solid var(--border) !important;
-            border-radius: var(--r) !important;
-            background: var(--warm-6) !important;
+            min-height: 44px !important;
+            border: 1.35px solid #F8C7D2 !important;
+            border-radius: 14px !important;
+            background: #FFFBFE !important;
             color: var(--warm-2) !important;
-            font-size: 0.87rem !important;
-            transition: border-color 150ms !important;
+            font-size: 0.88rem !important;
+            line-height: 1.55 !important;
+            padding: 0.72rem 0.85rem !important;
+            box-shadow: 0 4px 14px rgba(251,113,133,0.05) !important;
+            transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease !important;
           }
           .stTextArea textarea:focus {
             border-color: var(--pink) !important;
-            box-shadow: 0 0 0 3px var(--pink-soft) !important;
+            background: #FFFFFF !important;
+            box-shadow: 0 0 0 3px var(--pink-soft), 0 8px 22px rgba(251,113,133,0.10) !important;
+            outline: none !important;
           }
 
           div[data-testid="stTextInput"] input {
-            border: 1px solid var(--border) !important;
-            border-radius: var(--r) !important;
-            background: var(--warm-6) !important;
+            min-height: 42px !important;
+            border: 1.35px solid #F8C7D2 !important;
+            border-radius: 14px !important;
+            background: #FFFBFE !important;
             color: var(--warm-2) !important;
+            font-size: 0.88rem !important;
+            padding: 0.55rem 0.8rem !important;
+            box-shadow: 0 4px 14px rgba(251,113,133,0.05) !important;
+            transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease !important;
           }
           div[data-testid="stTextInput"] input:focus {
             border-color: var(--pink) !important;
-            box-shadow: 0 0 0 3px var(--pink-soft) !important;
+            background: #FFFFFF !important;
+            box-shadow: 0 0 0 3px var(--pink-soft), 0 8px 22px rgba(251,113,133,0.10) !important;
+            outline: none !important;
+          }
+          div[data-testid="stTextInput"] input,
+          .stTextArea textarea {
+            font-family: Inter, system-ui, sans-serif !important;
+          }
+          div[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+            min-height: 42px !important;
+            border: 1.35px solid #F8C7D2 !important;
+            border-radius: 14px !important;
+            background: #FFFBFE !important;
+            box-shadow: 0 4px 14px rgba(251,113,133,0.05) !important;
+            transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease !important;
+          }
+          div[data-testid="stSelectbox"] [data-baseweb="select"] > div:focus-within {
+            border-color: var(--pink) !important;
+            background: #FFFFFF !important;
+            box-shadow: 0 0 0 3px var(--pink-soft), 0 8px 22px rgba(251,113,133,0.10) !important;
+          }
+          div[data-testid="stSelectbox"] [data-baseweb="select"] span {
+            color: var(--warm-2) !important;
+            font-family: Inter, system-ui, sans-serif !important;
+            font-size: 0.88rem !important;
+          }
+          div[data-testid="stTextInput"] label,
+          div[data-testid="stTextArea"] label,
+          div[data-testid="stSelectbox"] label {
+            color: var(--warm-2) !important;
+            font-size: 0.76rem !important;
+            font-weight: 750 !important;
+            letter-spacing: 0.01em !important;
           }
 
           div[data-testid="stAlert"] {
@@ -1628,11 +1778,13 @@ def inject_processing_styles() -> None:
           }
 
           div[data-testid="stProgressBar"] > div {
-            background: var(--warm-5) !important; border-radius: 999px !important;
+            background: #FFF1F5 !important; border-radius: 999px !important;
+            box-shadow: inset 0 0 0 1px #FAD4DC !important;
           }
           div[data-testid="stProgressBar"] > div > div {
-            background: var(--pink) !important;
+            background: linear-gradient(90deg, #FAD4DC 0%, #FB7185 50%, #FBCFE8 100%) !important;
             border-radius: 999px !important;
+            transition: width 220ms ease !important;
           }
 
           [data-testid="stExpander"] {
@@ -1693,43 +1845,6 @@ def inject_processing_styles() -> None:
             -webkit-mask-image: none !important;
             mask-image: none !important;
           }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            .stButton > button[data-testid="stBaseButton-secondary"] {
-            width: 34px !important;
-            min-width: 34px !important;
-            height: 34px !important;
-            min-height: 34px !important;
-            max-height: 34px !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            border: 1px solid rgba(239,68,68,0.22) !important;
-            border-radius: 10px !important;
-            background: #FDE7EF !important;
-            box-shadow: none !important;
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            .stButton > button[data-testid="stBaseButton-secondary"]:hover {
-            background: #FEE2E2 !important;
-            border-color: var(--red) !important;
-            box-shadow: 0 3px 10px rgba(239,68,68,0.18) !important;
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            .stButton > button[data-testid="stBaseButton-secondary"] p {
-            font-size: 0 !important;
-            width: 15px !important;
-            height: 15px !important;
-            background-color: var(--red) !important;
-            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 6 5 6 21 6'/%3E%3Cpath d='M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6'/%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3Cpath d='M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2'/%3E%3C/svg%3E") !important;
-            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 6 5 6 21 6'/%3E%3Cpath d='M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6'/%3E%3Cpath d='M10 11v6'/%3E%3Cpath d='M14 11v6'/%3E%3Cpath d='M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2'/%3E%3C/svg%3E") !important;
-            -webkit-mask-size: contain !important;
-            mask-size: contain !important;
-            -webkit-mask-repeat: no-repeat !important;
-            mask-repeat: no-repeat !important;
-            -webkit-mask-position: center !important;
-            mask-position: center !important;
-            display: block !important;
-          }
-
           ::-webkit-scrollbar { width: 4px; height: 4px; }
           ::-webkit-scrollbar-track { background: transparent; }
           ::-webkit-scrollbar-thumb { background: var(--warm-4); border-radius: 999px; }
@@ -1773,7 +1888,7 @@ def inject_processing_styles() -> None:
           @media (max-width: 640px) {
             .ms-hero h1 { font-size: 1.9rem !important; }
             .ms-metrics-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0.55rem; }
-            .ms-tr-row { grid-template-columns: 94px 1fr; }
+            .ms-tr-row { grid-template-columns: 104px minmax(0,1fr); }
             .ms-transcript-scroll { height: 340px; }
             .stTabs [data-baseweb="tab-list"] { overflow-x: auto; scrollbar-width: none; }
             .stTabs [data-baseweb="tab-list"]::-webkit-scrollbar { display: none; }
@@ -1788,6 +1903,10 @@ def inject_processing_styles() -> None:
         """,
         unsafe_allow_html=True,
     )
+
+
+def get_gemini_client() -> GeminiClient:
+    return GeminiClient()
 
 
 def analysis_cache_key(transcript_text: str) -> str:
@@ -2238,35 +2357,6 @@ def default_meeting_title() -> str:
     return "Meeting Report"
 
 
-def parsed_transcript_for_meeting_details() -> ParsedTranscript | None:
-    transcript_text = st.session_state.get("transcript_text", "")
-    if not transcript_text.strip():
-        return None
-
-    # Integration point: reuse the ML transcript parser to infer participants
-    # from the exact transcript text that will later enter the ML MoM pipeline.
-    parsed = parse_transcript(transcript_text)
-    if not parsed.is_valid:
-        return parsed
-    return parsed
-
-
-def participant_names_from_parser() -> list[str]:
-    parsed = parsed_transcript_for_meeting_details()
-    if parsed is None or not parsed.is_valid:
-        return []
-
-    participants: list[str] = []
-    seen: set[str] = set()
-    for turn in parsed.turns:
-        speaker = (turn.speaker_normalized or turn.speaker_raw or "").strip()
-        if not speaker or speaker.lower() in seen:
-            continue
-        participants.append(speaker)
-        seen.add(speaker.lower())
-    return participants
-
-
 def participants_from_current_context(result: TranscriptionResult | None = None) -> list[str]:
     metadata = st.session_state.get("meeting_metadata", {})
     participant_list = metadata.get("participant_list")
@@ -2286,10 +2376,6 @@ def participants_from_current_context(result: TranscriptionResult | None = None)
     if participants:
         return participants
 
-    parser_participants = participant_names_from_parser()
-    if parser_participants:
-        return parser_participants
-
     transcript_text = st.session_state.get("transcript_text", "")
     if transcript_text:
         for line in transcript_text.splitlines():
@@ -2303,6 +2389,58 @@ def participants_from_current_context(result: TranscriptionResult | None = None)
     return participants
 
 
+def extract_actual_participants_from_transcript(transcript_text: str) -> list[str]:
+    participants: list[str] = []
+    seen: set[str] = set()
+    speaker_patterns = (
+        re.compile(
+            r"^\s*(?:\[\s*\d{1,2}:\d{2}(?::\d{2})?\s*\]\s*)"
+            r"(?P<speaker>[^:\[\]\(\)\n]{1,80})\s*:",
+            re.IGNORECASE,
+        ),
+        re.compile(
+            r"^\s*(?:\d{1,2}:\d{2}(?::\d{2})?\s+)"
+            r"(?P<speaker>[^:\[\]\(\)\n]{1,80})\s*:",
+            re.IGNORECASE,
+        ),
+        re.compile(
+            r"^\s*(?P<speaker>[^:\[\]\(\)\n]{1,80})\s*"
+            r"(?:\[\s*\d{1,2}:\d{2}(?::\d{2})?\s*\]|\(\s*\d{1,2}:\d{2}(?::\d{2})?\s*\))\s*:?",
+            re.IGNORECASE,
+        ),
+        re.compile(r"^\s*(?P<speaker>[^:\[\]\(\)\n]{1,80})\s*:", re.IGNORECASE),
+    )
+
+    for raw_line in transcript_text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        speaker = ""
+        for pattern in speaker_patterns:
+            match = pattern.match(line)
+            if match:
+                speaker = match.group("speaker").strip()
+                break
+        if not speaker:
+            continue
+        speaker = re.sub(r"\s+", " ", speaker).strip(" -")
+        if not speaker or re.fullmatch(r"(?i)speaker\s+[A-Za-z0-9]+", speaker):
+            continue
+        key = speaker.casefold()
+        if key in seen:
+            continue
+        participants.append(speaker)
+        seen.add(key)
+    return participants
+
+
+def participant_value_is_empty_or_generic(value: str) -> bool:
+    names = [item.strip() for item in re.split(r"[\n,]+", value or "") if item.strip()]
+    if not names:
+        return True
+    return all(re.fullmatch(r"(?i)speaker\s+[A-Za-z0-9]+", name) for name in names)
+
+
 def initialize_meeting_info(result: TranscriptionResult | None = None) -> None:
     current = dict(st.session_state.get("meeting_info", {}))
     if st.session_state.get("meeting_info_initialized") and current:
@@ -2314,8 +2452,8 @@ def initialize_meeting_info(result: TranscriptionResult | None = None) -> None:
         "meeting_title": current.get("meeting_title") or default_meeting_title(),
         "meeting_date": current.get("meeting_date") or time.strftime("%Y-%m-%d"),
         "meeting_time": current.get("meeting_time", ""),
-        "meeting_location": current.get("meeting_location", ""),
-        "meeting_platform": current.get("meeting_platform") or MEETING_PLATFORM_OPTIONS[0],
+        "organization": current.get("organization", ""),
+        "project_name": current.get("project_name", ""),
         "prepared_by": current.get("prepared_by") or "MeetScribe",
         "participants": current.get("participants") or ", ".join(participants),
         "duration": current.get("duration")
@@ -2324,8 +2462,6 @@ def initialize_meeting_info(result: TranscriptionResult | None = None) -> None:
         "source_file": current.get("source_file") or st.session_state.get("uploaded_filename", ""),
     }
     st.session_state.meeting_info = info
-    if not st.session_state.get("meeting_participants"):
-        st.session_state.meeting_participants = participants
     st.session_state.meeting_info_initialized = True
     st.session_state.meeting_info_last_saved = dict(info)
     log_stage(
@@ -2341,7 +2477,12 @@ def initialize_meeting_info(result: TranscriptionResult | None = None) -> None:
 def meeting_info_for_export() -> dict[str, str]:
     info = dict(st.session_state.get("meeting_info", {}))
     metadata = st.session_state.get("meeting_metadata", {})
-    participants = info.get("participants") or ", ".join(participants_from_current_context())
+    participant_value = info.get("participants", "")
+    participants = (
+        participant_value if not participant_value_is_empty_or_generic(participant_value) else ""
+        or ", ".join(extract_actual_participants_from_transcript(st.session_state.get("transcript_text", "")))
+        or ", ".join(participants_from_current_context())
+    )
     duration = (
         info.get("duration")
         or metadata.get("meeting_duration")
@@ -2352,8 +2493,8 @@ def meeting_info_for_export() -> dict[str, str]:
         "Meeting Title": info.get("meeting_title", ""),
         "Date": info.get("meeting_date", ""),
         "Time": info.get("meeting_time", ""),
-        "Meeting Location": info.get("meeting_location", ""),
-        "Meeting Platform": info.get("meeting_platform", ""),
+        "Organization / Company": info.get("organization", ""),
+        "Project Name": info.get("project_name", ""),
         "Prepared By": info.get("prepared_by", ""),
         "Participants": participants,
         "Attendees": participants,
@@ -2362,139 +2503,58 @@ def meeting_info_for_export() -> dict[str, str]:
     }
 
 
-def render_participant_editor() -> tuple[list[str], bool]:
-    participants = [
-        str(item).strip()
-        for item in st.session_state.get("meeting_participants", [])
-        if str(item).strip()
-    ]
-    parser_detected = bool(participant_names_from_parser())
-    manual_mode = not participants
-
-    if manual_mode:
-        st.info(
-            "Speaker names could not be identified automatically. "
-            "Add participants manually before continuing."
-        )
-        manual_value = st.text_area(
-            "Participants",
-            value=st.session_state.get("meeting_participants_manual", ""),
-            placeholder="Enter one participant per line or separate names with commas.",
-            height=110,
-            key="meeting_participants_manual_input",
-        )
-        st.session_state.meeting_participants_manual = manual_value
-        manual_participants = [
-            item.strip()
-            for item in re.split(r"[\n,]+", manual_value)
-            if item.strip()
-        ]
-        return manual_participants, parser_detected
-
-    updated_participants: list[str] = []
-    st.markdown("<div class='ms-chip-row'>", unsafe_allow_html=True)
-    for index, participant in enumerate(participants):
-        name_col, remove_col = st.columns([0.88, 0.12], gap="small", vertical_alignment="center")
-        with name_col:
-            # Each participant is editable because parsed names can still need
-            # small human corrections before they appear in the final header.
-            updated_name = st.text_input(
-                f"Participant {index + 1}",
-                value=participant,
-                key=f"meeting_participant_{index}",
-            )
-        with remove_col:
-            remove_clicked = st.button(
-                "×",
-                key=f"remove_meeting_participant_{index}",
-                help=f"Remove {participant}",
-            )
-        if not remove_clicked and updated_name.strip():
-            updated_participants.append(updated_name.strip())
-    st.markdown("</div>", unsafe_allow_html=True)
-
-    new_participant = st.text_input(
-        "Add Participant",
-        value="",
-        key="meeting_participant_add_input",
-        placeholder="Type a name and click Add",
-    )
-    if st.button("Add Participant", key="add_meeting_participant"):
-        if new_participant.strip():
-            updated_participants.append(new_participant.strip())
-        st.session_state.meeting_participants = updated_participants
-        st.rerun()
-
-    st.session_state.meeting_participants = updated_participants
-    return updated_participants, parser_detected
-
-
 def render_meeting_information_panel(result: TranscriptionResult | None = None) -> None:
     initialize_meeting_info(result)
     info = dict(st.session_state.get("meeting_info", {}))
-    with st.container(border=True):
-        st.markdown(
-            """
-            <div class="ms-premium-section">
-              <div class="ms-section-kicker">Meeting Details</div>
-              <h3 class="ms-section-heading">Review Meeting Details</h3>
-              <p class="ms-section-subcopy">Confirm the header information before speaker and transcript review.</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
+    st.markdown(
+        """
+        <div class="ms-premium-section">
+          <div class="ms-section-kicker">Meeting Details</div>
+          <h3 class="ms-section-heading">Meeting Information</h3>
+          <p class="ms-section-subcopy">Review the report header details before generating the final meeting documentation.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    col_left, col_right = st.columns(2)
+    with col_left:
+        meeting_title = st.text_input(
+            "Meeting Title",
+            value=info.get("meeting_title", ""),
+            key="meeting_info_title_input",
         )
-
-        col_left, col_right = st.columns(2)
-        with col_left:
-            meeting_title = st.text_input(
-                "Meeting Title",
-                value=info.get("meeting_title", ""),
-                key="meeting_info_title_input",
-            )
-            meeting_date = st.text_input(
-                "Meeting Date",
-                value=info.get("meeting_date", ""),
-                key="meeting_info_date_input",
-            )
-            meeting_time = st.text_input(
-                "Meeting Time",
-                value=info.get("meeting_time", ""),
-                key="meeting_info_time_input",
-            )
-        with col_right:
-            meeting_location = st.text_input(
-                "Meeting Location / Venue",
-                value=info.get("meeting_location", ""),
-                key="meeting_info_location_input",
-            )
-            current_platform = info.get("meeting_platform") or MEETING_PLATFORM_OPTIONS[0]
-            platform_index = (
-                MEETING_PLATFORM_OPTIONS.index(current_platform)
-                if current_platform in MEETING_PLATFORM_OPTIONS
-                else 0
-            )
-            meeting_platform = st.selectbox(
-                "Meeting Platform / Source",
-                options=MEETING_PLATFORM_OPTIONS,
-                index=platform_index,
-                key="meeting_info_platform_input",
-            )
-            prepared_by = st.text_input(
-                "Prepared By",
-                value=info.get("prepared_by", "MeetScribe"),
-                key="meeting_info_prepared_by_input",
-            )
-
-        st.markdown("<div class='ms-report-block-title'>Participants</div>", unsafe_allow_html=True)
-        participants, parser_detected = render_participant_editor()
-        if parser_detected:
-            st.caption("Participants were populated from parsed speaker names.")
-
-        save_clicked = st.button(
-            "Save & Continue",
-            type="primary",
-            use_container_width=True,
-            key="save_meeting_details_continue",
+        meeting_date = st.text_input(
+            "Meeting Date",
+            value=info.get("meeting_date", ""),
+            key="meeting_info_date_input",
+        )
+        meeting_time = st.text_input(
+            "Meeting Time (optional)",
+            value=info.get("meeting_time", ""),
+            key="meeting_info_time_input",
+        )
+        prepared_by = st.text_input(
+            "Prepared By",
+            value=info.get("prepared_by", ""),
+            key="meeting_info_prepared_by_input",
+        )
+    with col_right:
+        organization = st.text_input(
+            "Organization / Company (optional)",
+            value=info.get("organization", ""),
+            key="meeting_info_organization_input",
+        )
+        project_name = st.text_input(
+            "Project Name (optional)",
+            value=info.get("project_name", ""),
+            key="meeting_info_project_name_input",
+        )
+        participants = st.text_area(
+            "Participants",
+            value=info.get("participants", ""),
+            height=98,
+            key="meeting_info_participants_input",
         )
 
     updated = {
@@ -2502,40 +2562,27 @@ def render_meeting_information_panel(result: TranscriptionResult | None = None) 
         "meeting_title": meeting_title.strip(),
         "meeting_date": meeting_date.strip(),
         "meeting_time": meeting_time.strip(),
-        "meeting_location": meeting_location.strip(),
-        "meeting_platform": meeting_platform.strip(),
-        "prepared_by": prepared_by.strip() or "MeetScribe",
-        "participants": ", ".join(participants),
+        "organization": organization.strip(),
+        "project_name": project_name.strip(),
+        "prepared_by": prepared_by.strip(),
+        "participants": participants.strip(),
         "source_file": st.session_state.get("uploaded_filename", ""),
     }
-    st.session_state.meeting_info = updated
-
-    if not save_clicked:
-        return
-
-    if not updated["participants"]:
-        st.warning("Please add at least one participant before continuing.")
-        return
-
     previous = dict(st.session_state.get("meeting_info_last_saved", {}))
+    st.session_state.meeting_info = updated
     changed_fields = [
         label
         for key, label in MEETING_INFO_FIELDS
         if str(previous.get(key, "")) != str(updated.get(key, ""))
     ]
-    st.session_state.meeting_info_last_saved = dict(updated)
-    st.session_state.meeting_details_required = False
-    st.session_state.transcript_review_required = not st.session_state.get(
-        "speaker_review_required", False
-    )
-    reset_export_state()
-    log_stage(
-        "Meeting information",
-        "Meeting details saved before review.",
-        fields=", ".join(changed_fields) or "none",
-        participants=updated["participants"],
-    )
-    st.rerun()
+    if changed_fields:
+        st.session_state.meeting_info_last_saved = dict(updated)
+        reset_export_state()
+        log_stage(
+            "Meeting information",
+            "User edited meeting information.",
+            fields=", ".join(changed_fields),
+        )
 
 
 def speaker_label(
@@ -2572,6 +2619,98 @@ def format_transcript(
     return "\n\n".join(format_segment(segment, mapping) for segment in result.segments)
 
 
+def transcript_turns_from_text(transcript_text: str) -> list[dict[str, str]]:
+    turns: list[dict[str, str]] = []
+    current_speaker = ""
+    current_timestamp = ""
+    current_lines: list[str] = []
+    header_patterns = (
+        re.compile(
+            r"^\s*\[\s*(?P<time>\d{1,2}:\d{2}(?::\d{2})?)\s*\]\s*(?P<speaker>[^:]+)\s*:\s*(?P<text>.*)$"
+        ),
+        re.compile(
+            r"^\s*(?P<time>\d{1,2}:\d{2}(?::\d{2})?)\s+(?P<speaker>[^:]+)\s*:\s*(?P<text>.*)$"
+        ),
+        re.compile(
+            r"^\s*(?P<speaker>[^:\[\]\(\)\n]+?)\s*(?:\[(?P<time>[^\]]+)\]|\((?P<time_paren>[^\)]+)\))\s*:?\s*(?P<text>.*)$"
+        ),
+        re.compile(r"^\s*(?P<speaker>[^:\[\]\(\)\n]+?)\s*:\s*(?P<text>.*)$"),
+    )
+
+    def flush() -> None:
+        nonlocal current_speaker, current_timestamp, current_lines
+        body = "\n".join(line.rstrip() for line in current_lines if line.strip()).strip()
+        if current_speaker and body:
+            turns.append(
+                {
+                    "speaker": current_speaker,
+                    "timestamp": current_timestamp or "--:--",
+                    "text": body,
+                }
+            )
+        current_speaker = ""
+        current_timestamp = ""
+        current_lines = []
+
+    for raw_line in transcript_text.splitlines():
+        line = raw_line.rstrip()
+        if not line.strip():
+            continue
+        matched_header = None
+        for pattern in header_patterns:
+            matched_header = pattern.match(line)
+            if matched_header:
+                break
+        if matched_header:
+            flush()
+            current_speaker = re.sub(r"\s+", " ", matched_header.group("speaker")).strip()
+            current_timestamp = (
+                matched_header.groupdict().get("time")
+                or matched_header.groupdict().get("time_paren")
+                or "--:--"
+            ).strip()
+            inline_text = (matched_header.groupdict().get("text") or "").strip()
+            if inline_text:
+                current_lines.append(inline_text)
+            continue
+        if current_speaker:
+            current_lines.append(line)
+        elif line.strip():
+            current_speaker = "Transcript"
+            current_timestamp = "--:--"
+            current_lines.append(line)
+    flush()
+    return turns
+
+
+def render_transcript_turn_cards(turns: list[dict[str, str]]) -> None:
+    seen: dict[str, str] = {}
+    colour_cycle = ["s1", "s2", "s3", "s4"]
+    rows_html = ""
+    for turn in turns:
+        label = turn.get("speaker", "").strip() or "Speaker"
+        if label not in seen:
+            seen[label] = colour_cycle[len(seen) % len(colour_cycle)]
+        cls = seen[label]
+        timestamp = turn.get("timestamp", "").strip() or "--:--"
+        text = turn.get("text", "").strip()
+        rows_html += f"""
+        <div class="ms-tr-row">
+          <div class="ms-tr-left">
+            <span class="ms-speaker-badge {cls}">{html.escape(label)}</span>
+            <span class="ms-tr-timestamp">{html.escape(timestamp)}</span>
+          </div>
+          <div class="ms-tr-right">
+            <span class="ms-tr-text">{html.escape(text)}</span>
+          </div>
+        </div>"""
+
+    st.markdown(
+        f"""<div class="ms-transcript-scroll">{rows_html}</div>""",
+        unsafe_allow_html=True,
+    )
+
+
 def render_transcript(
     result: TranscriptionResult,
     mapping: SpeakerMapping | None = None,
@@ -2584,31 +2723,23 @@ def render_transcript(
     )
 
     if result.segments:
-        seen: dict[str, str] = {}
-        colour_cycle = ["s1", "s2", "s3", "s4"]
-        rows_html = ""
-        for segment in result.segments:
-            label = speaker_label(segment, mapping)
-            if label not in seen:
-                seen[label] = colour_cycle[len(seen) % len(colour_cycle)]
-            cls = seen[label]
-            start_time = format_timestamp(segment.start_time_seconds)
-            end_time   = format_timestamp(segment.end_time_seconds)
-            rows_html += f"""
-            <div class="ms-tr-row">
-              <div class="ms-tr-left">
-                <span class="ms-speaker-badge {cls}">{html.escape(label)}</span>
-                <span class="ms-tr-timestamp">{html.escape(start_time)} &ndash; {html.escape(end_time)}</span>
-              </div>
-              <div class="ms-tr-right">
-                <span class="ms-tr-text">{html.escape(segment.transcript)}</span>
-              </div>
-            </div>"""
+        turns = [
+            {
+                "speaker": speaker_label(segment, mapping),
+                "timestamp": (
+                    f"{format_timestamp(segment.start_time_seconds)} - "
+                    f"{format_timestamp(segment.end_time_seconds)}"
+                ),
+                "text": segment.transcript,
+            }
+            for segment in result.segments
+        ]
+        render_transcript_turn_cards(turns)
+        return
 
-        st.markdown(
-            f"""<div class="ms-transcript-scroll">{rows_html}</div>""",
-            unsafe_allow_html=True,
-        )
+    parsed_turns = transcript_turns_from_text(result.transcript)
+    if parsed_turns:
+        render_transcript_turn_cards(parsed_turns)
         return
 
     st.text_area(
@@ -2716,109 +2847,6 @@ def render_action_items_tab(analysis: MeetingAnalysisResult) -> None:
             """,
             unsafe_allow_html=True,
         )
-
-
-def render_additional_information_tab(analysis: MeetingAnalysisResult) -> None:
-    additional_items = [
-        topic
-        for topic in analysis.summary.topics_discussed
-        if str(topic).startswith("Info: ")
-    ]
-    if not additional_items:
-        empty_card("No additional information was extracted.")
-        return
-
-    for item in additional_items:
-        st.markdown(
-            f"""
-            <div class="ms-item-card discussion">
-              <h4>Additional Information</h4>
-              <p>{html.escape(str(item).replace("Info: ", "", 1))}</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-
-def render_generated_mom_header() -> None:
-    info = meeting_info_for_export()
-    participants = info.get("Participants") or "-"
-    header_rows = {
-        "Meeting Title": info.get("Meeting Title") or "Meeting Report",
-        "Meeting Date": info.get("Date") or "-",
-        "Meeting Time": info.get("Time") or "-",
-        "Meeting Location": info.get("Meeting Location") or "-",
-        "Meeting Platform": info.get("Meeting Platform") or "-",
-        "Participants": participants,
-    }
-    rows_html = "".join(
-        f"""
-        <div class="ms-tr-row">
-          <div class="ms-tr-left"><span class="ms-speaker-badge s1">{html.escape(label)}</span></div>
-          <div class="ms-tr-right"><span class="ms-tr-text">{html.escape(value)}</span></div>
-        </div>
-        """
-        for label, value in header_rows.items()
-    )
-    st.markdown(
-        f"""
-        <div class="ms-output-card">
-          <p class="ms-card-label">Generated Minutes of Meeting</p>
-          <h3 class="ms-card-title">{html.escape(header_rows["Meeting Title"])}</h3>
-          <div class="ms-transcript-scroll" style="height:auto; max-height:320px;">{rows_html}</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-def meeting_minutes_to_analysis(
-    minutes: Any,
-    *,
-    transcript_text: str,
-    topic_labels: list[str],
-) -> MeetingAnalysisResult:
-    info = dict(st.session_state.get("meeting_info", {}))
-    title = info.get("meeting_title") or minutes.meeting_title or "Meeting Report"
-    executive_summary = [item for item in minutes.executive_summary if str(item).strip()]
-    summary_text = " ".join(executive_summary) if executive_summary else "No executive summary was generated."
-
-    # Export compatibility point: convert the rule-based MoM dataclass into the
-    # existing analysis contract consumed by current UI, PDF, DOCX, and email.
-    summary = MeetingSummary(
-        title=title,
-        short_summary=summary_text,
-        detailed_summary="\n".join(executive_summary) or summary_text,
-        topics_discussed=[
-            *[label for label in dict.fromkeys(topic_labels) if label],
-            *[f"Info: {item}" for item in minutes.additional_information],
-        ],
-    )
-    key_points = [
-        KeyDiscussionPoint(point=item, speakers=[], timestamp=None)
-        for item in minutes.discussion_points
-    ]
-    decisions = [
-        Decision(decision=item, owner=None, timestamp=None, confidence="ANN")
-        for item in minutes.key_decisions
-    ]
-    action_items = [
-        ActionItem(
-            task=item.task,
-            owner=None if item.owner == "-" else item.owner,
-            due_date=None if item.deadline == "-" else item.deadline,
-            timestamp=None,
-            status=item.status,
-        )
-        for item in minutes.action_items
-    ]
-    return MeetingAnalysisResult(
-        cleaned_transcript=transcript_text,
-        summary=summary,
-        key_discussion_points=key_points,
-        decisions=decisions,
-        action_items=action_items,
-    )
 
 
 def render_analysis_error() -> None:
@@ -3147,10 +3175,10 @@ def run_meeting_analysis(
 
         log_stage(
             "Meeting analysis",
-            "Initializing ML Minutes of Meeting pipeline.",
+            "Initializing Gemini analysis pipeline.",
             transcript_chars=len(transcript_text),
         )
-        analysis_progress.progress(62, text="Parsing Transcript")
+        analysis_progress.progress(70, text="Generating Meeting Notes")
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
@@ -3160,114 +3188,51 @@ def run_meeting_analysis(
             )
         update_elapsed(elapsed_placeholder, started_at)
 
-        # ML integration point: use the existing parser module as the first
-        # production MoM boundary after the user has confirmed transcript edits.
-        parsed = parse_transcript(transcript_text)
-        if not parsed.is_valid:
-            st.session_state.analysis_error = (
-                parsed.validation_message or "Transcript could not be parsed."
-            )
-            st.warning(st.session_state.analysis_error)
-            log_stage("ML pipeline", "Parser validation failed.", error=st.session_state.analysis_error)
-            return None
+        gemini_client = get_gemini_client()
+        summarizer = LLMSummarizer(llm_client=gemini_client)
 
-        analysis_progress.progress(68, text="Preprocessing Transcript")
+        analysis_progress.progress(75, text="Generating Meeting Notes")
         if status_placeholder is not None and started_at is not None:
             render_stage_status(
                 status_placeholder,
                 active_index=3,
                 started_at=started_at,
-                note="Cleaning reviewed transcript text for feature extraction.",
-            )
+                note="Organizing the transcript into notes, decisions, and follow-up tasks.",
+        )
         update_elapsed(elapsed_placeholder, started_at)
-
-        preprocessed_turns = preprocess_transcript(parsed.turns)
-        sentence_features = extract_sentence_features(preprocessed_turns)
-        if not sentence_features:
-            st.session_state.analysis_error = "No transcript sentences were available for ML prediction."
-            st.warning(st.session_state.analysis_error)
-            log_stage("ML pipeline", "Feature extraction returned no sentences.")
-            return None
-
-        analysis_progress.progress(74, text="Generating Embeddings")
-        embedding_service = EmbeddingService()
-        embedding_result = embedding_service.generate_embeddings(sentence_features)
-        if embedding_result.error_message:
-            st.session_state.analysis_error = embedding_result.error_message
-            st.error(st.session_state.analysis_error)
-            log_stage("ML pipeline", "Embedding generation failed.", error=embedding_result.error_message)
-            return None
-        sentence_embeddings = embedding_result.embeddings
-
-        analysis_progress.progress(80, text="Clustering Topics")
-        # Clustering is retained in the production sequence for topic grouping
-        # and diagnostics even though the rule-based generator consumes ANN labels.
-        clustering_result = ClusteringService().cluster(sentence_embeddings)
-        topic_labels = [
-            cluster.topic_label
-            for cluster in clustering_result.clusters
-            if cluster.topic_label
-        ]
-        if clustering_result.error_message:
-            log_stage("ML pipeline", "Clustering returned warning.", error=clustering_result.error_message)
-
-        analysis_progress.progress(86, text="Classifying Sentences")
-        embedding_tensor = torch.tensor(
-            [embedding.embedding_vector for embedding in sentence_embeddings],
-            dtype=torch.float32,
-        )
-        id_to_label = load_label_mapping()
-        if id_to_label is None:
-            st.session_state.analysis_error = "Label mapping is unavailable for ANN prediction."
-            st.error(st.session_state.analysis_error)
-            log_stage("ML pipeline", "Label mapping unavailable.")
-            return None
-        model = load_trained_model(
-            embedding_dimension=embedding_tensor.size(1),
-            class_count=len(id_to_label),
-        )
-        if model is None:
-            st.session_state.analysis_error = "Trained ANN model is unavailable."
-            st.error(st.session_state.analysis_error)
-            log_stage("ML pipeline", "ANN model unavailable.")
-            return None
-
-        prediction_results = predict_labels(
-            model,
-            embedding_tensor,
-            sentence_features,
-            id_to_label,
-        )
-        prediction_records = [
-            PredictionRecord(
-                sentence=result.sentence,
-                speaker=result.speaker,
-                timestamp=result.timestamp,
-                predicted_label=result.predicted_label,
-                confidence_score=result.confidence_score,
-            )
-            for result in prediction_results
-        ]
-
-        analysis_progress.progress(90, text="Generating Minutes")
-        minutes = generate_minutes(prediction_records, warnings=clustering_result.warnings)
-        analysis = meeting_minutes_to_analysis(
-            minutes,
-            transcript_text=transcript_text,
-            topic_labels=topic_labels,
-        )
-
+        log_stage("Meeting analysis", "Calling Python meeting workflow.")
         meeting_metadata = {
             **st.session_state.get("meeting_metadata", {}),
             "source_file": st.session_state.get("uploaded_filename", ""),
-            "ml_cluster_count": len(clustering_result.clusters),
-            "ml_prediction_count": len(prediction_records),
         }
+        analysis = run_meeting_analysis_workflow(
+            transcript_text,
+            summarizer=summarizer,
+            speaker_mapping=current_speaker_mapping(),
+            meeting_metadata=meeting_metadata,
+        )
         st.session_state.meeting_metadata = meeting_metadata
+        initialize_meeting_info(st.session_state.get("transcript_result"))
+        current_info = dict(st.session_state.get("meeting_info", {}))
+        if not current_info.get("duration") and meeting_metadata.get("meeting_duration"):
+            current_info["duration"] = meeting_metadata["meeting_duration"]
+        if participant_value_is_empty_or_generic(current_info.get("participants", "")):
+            transcript_participants = extract_actual_participants_from_transcript(transcript_text)
+            if transcript_participants:
+                current_info["participants"] = ", ".join(transcript_participants)
+            elif meeting_metadata.get("participant_list"):
+                current_info["participants"] = ", ".join(
+                    str(item).strip()
+                    for item in meeting_metadata.get("participant_list", [])
+                    if str(item).strip()
+                    and not re.fullmatch(r"(?i)speaker\s+[A-Za-z0-9]+", str(item).strip())
+                )
+        if current_info != st.session_state.get("meeting_info", {}):
+            st.session_state.meeting_info = current_info
         log_stage(
             "Meeting information",
-            "Attached ML metadata to meeting information.",
-            clusters=meeting_metadata["ml_cluster_count"],
+            "Merged metadata into meeting information.",
+            duration=st.session_state.get("meeting_info", {}).get("duration", ""),
             participants=st.session_state.get("meeting_info", {}).get("participants", ""),
         )
 
@@ -3285,7 +3250,7 @@ def run_meeting_analysis(
         st.session_state.analysis_cache[cache_key] = analysis
         log_stage(
             "Meeting analysis",
-            "Stored ML analysis in session state.",
+            "Stored analysis in session state.",
             key_points=len(analysis.key_discussion_points),
             decisions=len(analysis.decisions),
             action_items=len(analysis.action_items),
@@ -3319,6 +3284,23 @@ def run_meeting_analysis(
             )
         st.toast("Meeting report is ready")
         return analysis
+    except (
+        GeminiClientError,
+        TranscriptCleanupError,
+        MeetingSummaryError,
+        KeyDiscussionPointExtractionError,
+        DecisionExtractionError,
+        ActionItemExtractionError,
+    ) as exc:
+        if progress is None:
+            analysis_progress.empty()
+        st.session_state.analysis_result = None
+        st.session_state.analysis_error = (
+            "We could not generate the meeting notes. Please try again."
+        )
+        log_stage("Meeting analysis", "Analysis failed.", error=str(exc))
+        st.error(st.session_state.analysis_error)
+        return None
     except Exception as exc:
         if progress is None:
             analysis_progress.empty()
@@ -3468,16 +3450,11 @@ def clear_current_report() -> None:
     st.session_state.meeting_info = {}
     st.session_state.meeting_info_initialized = False
     st.session_state.meeting_info_last_saved = {}
-    st.session_state.meeting_details_required = False
-    st.session_state.meeting_participants = []
-    st.session_state.meeting_participants_manual = ""
     reset_speaker_mapping_state()
     reset_report_state()
 
 
 def render_speaker_review(result: TranscriptionResult) -> None:
-    if st.session_state.get("meeting_details_required", False):
-        return
     if not st.session_state.get("speaker_review_required", False):
         return
 
@@ -3539,14 +3516,6 @@ def render_speaker_review(result: TranscriptionResult) -> None:
     )
     st.session_state.meeting_info_initialized = False
     initialize_meeting_info(mapped_result)
-    current_info = dict(st.session_state.get("meeting_info", {}))
-    mapped_participants = participants_from_current_context(mapped_result)
-    if mapped_participants:
-        # Speaker review is the canonical place where generic labels become
-        # human names, so keep the MoM header aligned with the saved mapping.
-        current_info["participants"] = ", ".join(mapped_participants)
-        st.session_state.meeting_participants = mapped_participants
-        st.session_state.meeting_info = current_info
     st.session_state.speaker_review_required = False
     st.session_state.transcript_review_required = True
     st.session_state.edited_transcript_text = transcript_text
@@ -3604,8 +3573,6 @@ def transcript_review_preview_html(transcript_text: str, query: str = "") -> str
 
 
 def render_editable_transcript_review(result: TranscriptionResult) -> None:
-    if st.session_state.get("meeting_details_required", False):
-        return
     if st.session_state.get("speaker_review_required", False):
         return
     if not st.session_state.get("transcript_review_required", False):
@@ -3623,19 +3590,8 @@ def render_editable_transcript_review(result: TranscriptionResult) -> None:
             """
             <div class="ms-section-kicker">Transcript Review</div>
             <h3 class="ms-section-heading">Review Transcript</h3>
-            <p class="ms-section-subcopy">Search the conversation preview, then make any final edits in the transcript editor below.</p>
+            <p class="ms-section-subcopy">Make any final edits in the transcript editor below.</p>
             """,
-            unsafe_allow_html=True,
-        )
-        st.markdown("<div class='ms-transcript-toolbar'>", unsafe_allow_html=True)
-        transcript_search = st.text_input(
-            "Search transcript",
-            placeholder="Search speaker, timestamp, or phrase...",
-            key="transcript_review_search",
-        )
-        st.markdown("</div>", unsafe_allow_html=True)
-        st.markdown(
-            transcript_review_preview_html(transcript_text, transcript_search),
             unsafe_allow_html=True,
         )
         edited_text = st.text_area(
@@ -3645,6 +3601,7 @@ def render_editable_transcript_review(result: TranscriptionResult) -> None:
             key="editable_transcript_text_area",
             label_visibility="collapsed",
         )
+        render_meeting_information_panel(result)
         continue_clicked = st.button(
             "Generate Meeting Report",
             type="primary",
@@ -3815,10 +3772,8 @@ def process_upload(uploaded_file: object) -> None:
             store_speaker_mapping(speaker_mapping)
         st.session_state.speaker_names_available = resolution.names_available
         st.session_state.speaker_review_required = resolution.review_required
-        st.session_state.meeting_details_required = True
-        st.session_state.transcript_review_required = False
+        st.session_state.transcript_review_required = not resolution.review_required
         st.session_state.edited_transcript_text = transcript_text
-        initialize_meeting_info(session_result)
         log_stage(
             "Speaker mapping",
             "Resolved speakers for audio transcript.",
@@ -3835,14 +3790,25 @@ def process_upload(uploaded_file: object) -> None:
             speaker_review_required=st.session_state.speaker_review_required,
         )
 
-        progress.progress(100, text="Review Meeting Details")
+        if st.session_state.speaker_review_required:
+            progress.progress(100, text="Review Speakers")
+            render_stage_status(
+                status_placeholder,
+                active_index=2,
+                started_at=started_at,
+                note="Review speaker names before generating meeting notes.",
+            )
+            st.toast("Transcript is ready for speaker review")
+            return
+
+        progress.progress(100, text="Review Transcript")
         render_stage_status(
             status_placeholder,
             active_index=2,
             started_at=started_at,
-            note="Confirm meeting details before speaker and transcript review.",
+            note="Review the resolved transcript before generating meeting notes.",
         )
-        st.toast("Transcript is ready for meeting details")
+        st.toast("Transcript is ready for review")
         return
     except (AudioProcessingError, SettingsError, TranscriptionError) as exc:
         progress.empty()
@@ -3926,10 +3892,8 @@ def process_transcript_upload(transcript_file: object) -> None:
             store_speaker_mapping(speaker_mapping)
         st.session_state.speaker_names_available = resolution.names_available
         st.session_state.speaker_review_required = resolution.review_required
-        st.session_state.meeting_details_required = True
-        st.session_state.transcript_review_required = False
+        st.session_state.transcript_review_required = not resolution.review_required
         st.session_state.edited_transcript_text = transcript_text
-        initialize_meeting_info(session_result)
         log_stage(
             "Speaker mapping",
             "Resolved speakers for uploaded transcript.",
@@ -3946,14 +3910,25 @@ def process_transcript_upload(transcript_file: object) -> None:
             speaker_names_available=resolution.names_available,
         )
 
-        progress.progress(100, text="Review Meeting Details")
+        if st.session_state.speaker_review_required:
+            progress.progress(100, text="Review Speakers")
+            render_stage_status(
+                status_placeholder,
+                active_index=2,
+                started_at=started_at,
+                note="Review speaker names before generating meeting notes.",
+            )
+            st.toast("Transcript is ready for speaker review")
+            return
+
+        progress.progress(100, text="Review Transcript")
         render_stage_status(
             status_placeholder,
             active_index=2,
             started_at=started_at,
-            note="Confirm meeting details before speaker and transcript review.",
+            note="Review the resolved transcript before generating meeting notes.",
         )
-        st.toast("Transcript is ready for meeting details")
+        st.toast("Transcript is ready for review")
         return
     except TranscriptFileError as exc:
         progress.empty()
@@ -4037,7 +4012,7 @@ def main() -> None:
                             unsafe_allow_html=True,
                         )
                     with remove_col:
-                        if st.button("🗑", key="remove_audio_file", type="secondary", help="Remove file"):
+                        if st.button("✕", key="remove_audio_file", type="secondary", help="Remove file"):
                             st.session_state.audio_upload_version += 1
                             st.session_state.last_logged_upload = ""
                             clear_current_report()
@@ -4081,7 +4056,7 @@ def main() -> None:
                             unsafe_allow_html=True,
                         )
                     with remove_col:
-                        if st.button("🗑", key="remove_transcript_file", type="secondary", help="Remove file"):
+                        if st.button("✕", key="remove_transcript_file", type="secondary", help="Remove file"):
                             st.session_state.transcript_upload_version += 1
                             clear_current_report()
                             st.rerun()
@@ -4121,8 +4096,6 @@ def main() -> None:
     if transcript_text and result is not None:
         st.markdown("<div style='height:0.75rem'></div>", unsafe_allow_html=True)
 
-        if st.session_state.get("meeting_details_required", False):
-            render_meeting_information_panel(result)
         render_speaker_review(result)
         render_editable_transcript_review(result)
 
@@ -4142,7 +4115,6 @@ def main() -> None:
             )
             render_analysis_error()
             render_success_metrics()
-            render_generated_mom_header()
 
             with st.container(border=True):
                 st.markdown("<div class='ms-report-block-title'>Summary</div>", unsafe_allow_html=True)
@@ -4159,10 +4131,6 @@ def main() -> None:
             with st.container(border=True):
                 st.markdown("<div class='ms-report-block-title'>Action Items</div>", unsafe_allow_html=True)
                 render_action_items_tab(analysis)
-
-            with st.container(border=True):
-                st.markdown("<div class='ms-report-block-title'>Additional Information</div>", unsafe_allow_html=True)
-                render_additional_information_tab(analysis)
 
             with st.container(border=True):
                 st.markdown("<div class='ms-report-block-title'>Transcript</div>", unsafe_allow_html=True)
