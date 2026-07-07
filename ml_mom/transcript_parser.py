@@ -71,6 +71,28 @@ _TIMESTAMP_ONLY_RE = re.compile(rf"^\s*(?P<timestamp>{_TIMESTAMP_TOKEN_PATTERN})
 _GENERIC_SPEAKER_ONLY_RE = re.compile(r"^\s*(?P<speaker>Speaker\s+[A-Za-z0-9]+)\s*$")
 _DECORATIVE_SEPARATOR_RE = re.compile(r"^\s*[-_=*#~]{3,}\s*$")
 _SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\s+|\n+")
+_METADATA_LABELS = frozenset(
+    {
+        "agenda",
+        "attendees",
+        "date",
+        "duration",
+        "location",
+        "meeting",
+        "meeting date",
+        "meeting time",
+        "participants",
+        "platform",
+        "prepared by",
+        "project",
+        "source",
+        "subject",
+        "time",
+        "title",
+        "topic",
+        "venue",
+    }
+)
 
 
 @dataclass(slots=True)
@@ -206,6 +228,15 @@ def _parse_transcript_safely(transcript_text: str) -> ParsedTranscript:
         )
 
         if parsed_label is not None:
+            if is_metadata_label(parsed_label["speaker_raw"]):
+                # Uploaded transcripts often include header fields such as
+                # "Date:" before the first real speaker. Treating these as
+                # speakers pollutes participants and lets non-dialogue metadata
+                # flow into embeddings, predictions, and the final MoM.
+                pending_timestamp_raw = None
+                warnings.append("Ignored transcript metadata before speaker dialogue.")
+                continue
+
             if current_speaker_raw is not None:
                 _append_turn(
                     turns=turns,
@@ -385,9 +416,29 @@ def is_plausible_standalone_speaker(line: str) -> bool:
     candidate = _clean_speaker_label(line)
     if not candidate or len(candidate.split()) > 4:
         return False
+    if is_metadata_label(candidate):
+        return False
     if any(mark in candidate for mark in ".!?"):
         return False
     return bool(re.fullmatch(_SPEAKER_NAME_PATTERN, candidate))
+
+
+def is_metadata_label(speaker_raw: str | None) -> bool:
+    """Return whether a detected label is a transcript header field.
+
+    Args:
+        speaker_raw: Candidate speaker label captured by a speaker-detection
+            rule.
+
+    Returns:
+        ``True`` for common metadata labels such as ``Date`` or
+        ``Participants`` that should not become speaker turns.
+    """
+
+    if not speaker_raw:
+        return False
+    normalized = re.sub(r"\s+", " ", _clean_speaker_label(speaker_raw)).casefold()
+    return normalized in _METADATA_LABELS
 
 
 def normalize_speaker_label(speaker_raw: str) -> str:

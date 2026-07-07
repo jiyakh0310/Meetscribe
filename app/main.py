@@ -21,7 +21,6 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from config.settings import SettingsError
-from agentic.workflow import run_meeting_analysis_workflow
 from exports.docx_exporter import export_to_docx
 from exports.email_sender import (
     EmailDeliveryError,
@@ -30,15 +29,24 @@ from exports.email_sender import (
     send_report_email,
 )
 from exports.pdf_exporter import export_to_pdf
-from llm_clients.gemini_client import GeminiClient, GeminiClientError
-from summarization.base_summarizer import MeetingAnalysisResult
-from summarization.llm_summarizer import (
-    ActionItemExtractionError,
-    DecisionExtractionError,
-    KeyDiscussionPointExtractionError,
-    LLMSummarizer,
-    MeetingSummaryError,
-    TranscriptCleanupError,
+from ml_mom.clustering import ClusteringService
+from ml_mom.embeddings import EmbeddingService
+from ml_mom.feature_extraction import extract_sentence_features
+from ml_mom.mom_generator import MeetingMinutes, PredictionRecord, generate_minutes
+from ml_mom.predict_ann import (
+    PredictionResult,
+    load_label_mapping,
+    load_trained_model,
+    predict_labels,
+)
+from ml_mom.preprocessing import preprocess_transcript
+from ml_mom.transcript_parser import TranscriptTurn, parse_transcript
+from summarization.base_summarizer import (
+    ActionItem,
+    Decision,
+    KeyDiscussionPoint,
+    MeetingAnalysisResult,
+    MeetingSummary,
 )
 from transcription.audio_utils import AudioProcessingError, preprocess_uploaded_audio
 from transcription.speaker_mapping import (
@@ -1905,8 +1913,139 @@ def inject_processing_styles() -> None:
     )
 
 
-def get_gemini_client() -> GeminiClient:
-    return GeminiClient()
+def participants_from_transcript_turns(turns: list[TranscriptTurn]) -> list[str]:
+    """Return ordered, non-generic participant names from parsed transcript turns.
+
+    Args:
+        turns: Parsed speaker turns produced by ``ml_mom.transcript_parser``.
+
+    Returns:
+        Speaker names in transcript order, with duplicates and generic labels
+        such as ``Speaker 1`` removed.
+    """
+
+    # Manual meeting-info participants remain the source of truth; this helper
+    # only supplies ordered, non-generic names when the UI field is empty.
+    participants: list[str] = []
+    seen: set[str] = set()
+    for turn in turns:
+        speaker = (turn.speaker_normalized or turn.speaker_raw or "").strip()
+        if not speaker or re.fullmatch(r"(?i)speaker\s+[A-Za-z0-9]+", speaker):
+            continue
+        key = speaker.casefold()
+        if key in seen:
+            continue
+        participants.append(speaker)
+        seen.add(key)
+    return participants
+
+
+def prediction_records_from_results(
+    prediction_results: list[PredictionResult],
+) -> list[PredictionRecord]:
+    """Convert ANN prediction DTOs into rule-based MoM generator records.
+
+    Args:
+        prediction_results: Sentence-level predictions returned by
+            ``ml_mom.predict_ann.predict_labels``.
+
+    Returns:
+        Prediction records accepted by ``ml_mom.mom_generator.generate_minutes``.
+    """
+
+    # The predictor and rule-based MoM generator use separate DTOs. Keeping this
+    # conversion narrow avoids coupling production UI code to prediction internals.
+    records: list[PredictionRecord] = []
+    for result in prediction_results:
+        records.append(
+            PredictionRecord(
+                sentence=result.sentence,
+                speaker=result.speaker,
+                timestamp=result.timestamp,
+                predicted_label=result.predicted_label,
+                confidence_score=result.confidence_score,
+            )
+        )
+    return records
+
+
+def meeting_minutes_to_analysis_result(
+    transcript_text: str,
+    topic_labels: list[str],
+    minutes: MeetingMinutes,
+) -> MeetingAnalysisResult:
+    """Adapt rule-generated ML minutes to the stable frontend/export contract.
+
+    Args:
+        transcript_text: Reviewed transcript text used for generation.
+        topic_labels: Temporary cluster labels derived from sentence embeddings.
+        minutes: Rule-based MoM object produced from ANN predictions.
+
+    Returns:
+        ``MeetingAnalysisResult`` consumed by the existing UI, PDF exporter,
+        DOCX exporter, and email workflow.
+    """
+
+    # The frontend, PDF, DOCX, and email exporters already depend on
+    # MeetingAnalysisResult, so the ML pipeline is adapted back into that stable
+    # contract instead of changing downstream surfaces.
+    info = st.session_state.get("meeting_info", {})
+    title = (
+        str(info.get("meeting_title") or "").strip()
+        or str(minutes.meeting_title or "").strip()
+        or default_meeting_title()
+    )
+    summary_sentences = [item.strip() for item in minutes.executive_summary if item.strip()]
+    discussion_sentences = [item.strip() for item in minutes.discussion_points if item.strip()]
+    additional_sentences = [
+        item.strip() for item in minutes.additional_information if item.strip()
+    ]
+    summary_pool = summary_sentences or discussion_sentences[:3] or additional_sentences[:3]
+    short_summary = summary_pool[0] if summary_pool else "No summary sentences were identified."
+    detailed_summary = (
+        "\n".join(summary_pool)
+        if summary_pool
+        else "The transcript was processed, but the ML pipeline did not identify summary content."
+    )
+
+    topics = []
+    seen_topics: set[str] = set()
+    for topic in topic_labels + discussion_sentences[:5]:
+        topic = topic.strip()
+        if not topic or topic.casefold() in seen_topics:
+            continue
+        topics.append(topic)
+        seen_topics.add(topic.casefold())
+
+    return MeetingAnalysisResult(
+        cleaned_transcript=transcript_text,
+        summary=MeetingSummary(
+            title=title,
+            short_summary=short_summary,
+            detailed_summary=detailed_summary,
+            topics_discussed=topics,
+        ),
+        key_discussion_points=[
+            KeyDiscussionPoint(point=point, speakers=[], timestamp=None)
+            for point in discussion_sentences
+        ],
+        decisions=[
+            Decision(decision=decision, owner=None, timestamp=None, confidence="ML")
+            for decision in minutes.key_decisions
+            if decision.strip()
+        ],
+        action_items=[
+            ActionItem(
+                task=item.task,
+                owner=None if item.owner == "-" else item.owner,
+                due_date=None if item.deadline == "-" else item.deadline,
+                timestamp=None,
+                status=item.status,
+            )
+            for item in minutes.action_items
+            if item.task.strip()
+        ],
+    )
 
 
 def analysis_cache_key(transcript_text: str) -> str:
@@ -3173,9 +3312,17 @@ def run_meeting_analysis(
             update_elapsed(elapsed_placeholder, started_at)
             return cached_analysis
 
+        def stop_with_analysis_error(message: str) -> None:
+            if progress is None:
+                analysis_progress.empty()
+            st.session_state.analysis_result = None
+            st.session_state.analysis_error = message
+            log_stage("Meeting analysis", "ML analysis stopped.", error=message)
+            st.error(message)
+
         log_stage(
             "Meeting analysis",
-            "Initializing Gemini analysis pipeline.",
+            "Initializing ML meeting analysis pipeline.",
             transcript_chars=len(transcript_text),
         )
         analysis_progress.progress(70, text="Generating Meeting Notes")
@@ -3188,8 +3335,25 @@ def run_meeting_analysis(
             )
         update_elapsed(elapsed_placeholder, started_at)
 
-        gemini_client = get_gemini_client()
-        summarizer = LLMSummarizer(llm_client=gemini_client)
+        # Validation starts with the existing ML parser so unsupported transcript
+        # formats fail with a friendly message before embeddings or ANN inference.
+        parsed_transcript = parse_transcript(transcript_text)
+        if not parsed_transcript.is_valid:
+            stop_with_analysis_error(
+                parsed_transcript.validation_message
+                or "We could not identify speaker information in this transcript."
+            )
+            return None
+
+        # Preprocessing and feature extraction reuse the standalone ML modules;
+        # these keep transcript text safe for embedding without changing UI edits.
+        preprocessed_turns = preprocess_transcript(parsed_transcript.turns)
+        sentence_features = extract_sentence_features(preprocessed_turns)
+        if not sentence_features:
+            stop_with_analysis_error(
+                "No usable transcript sentences were found for meeting analysis."
+            )
+            return None
 
         analysis_progress.progress(75, text="Generating Meeting Notes")
         if status_placeholder is not None and started_at is not None:
@@ -3197,20 +3361,115 @@ def run_meeting_analysis(
                 status_placeholder,
                 active_index=3,
                 started_at=started_at,
-                note="Organizing the transcript into notes, decisions, and follow-up tasks.",
+                note="Embedding and classifying transcript sentences for meeting notes.",
         )
         update_elapsed(elapsed_placeholder, started_at)
-        log_stage("Meeting analysis", "Calling Python meeting workflow.")
+
+        # Embeddings are generated from reviewed transcript sentences, making the
+        # live report path use the same local representation as ANN training.
+        embedding_service = EmbeddingService()
+        embedding_result = embedding_service.generate_embeddings(sentence_features)
+        if embedding_result.error_message or not embedding_result.embeddings:
+            stop_with_analysis_error(
+                embedding_result.error_message
+                or "Sentence embeddings could not be generated for this transcript."
+            )
+            return None
+
+        # Clustering supplies topic context for the report, but it is not allowed
+        # to discard valid sentence predictions if a topic strategy falls back.
+        clustering_result = ClusteringService().cluster(embedding_result.embeddings)
+        if clustering_result.error_message:
+            log_stage(
+                "Meeting analysis",
+                "Clustering returned a non-fatal validation message.",
+                error=clustering_result.error_message,
+            )
+
+        try:
+            import torch
+
+            embedding_tensor = torch.tensor(
+                [embedding.embedding_vector for embedding in embedding_result.embeddings],
+                dtype=torch.float32,
+            )
+        except Exception as exc:
+            stop_with_analysis_error(
+                f"Sentence embeddings could not be prepared for ANN prediction: {exc}"
+            )
+            return None
+
+        # The trained ANN and label mapping are reused from datasets/models so
+        # production inference stays aligned with the annotation/training pipeline.
+        id_to_label = load_label_mapping()
+        if not id_to_label:
+            stop_with_analysis_error(
+                "The ML label mapping is missing or invalid. Please train the ANN model first."
+            )
+            return None
+
+        model = load_trained_model(
+            embedding_dimension=embedding_tensor.size(1),
+            class_count=len(id_to_label),
+        )
+        if model is None:
+            stop_with_analysis_error(
+                "The trained ANN model is missing or invalid. Please train the ANN model first."
+            )
+            return None
+
+        prediction_results = predict_labels(
+            model=model,
+            embedding_tensor=embedding_tensor,
+            sentence_features=sentence_features,
+            id_to_label=id_to_label,
+        )
+        if not prediction_results:
+            stop_with_analysis_error(
+                "The ANN model did not return any sentence predictions."
+            )
+            return None
+
+        # The rule-based generator consumes prediction records and avoids any LLM
+        # or agentic orchestration for Minutes of Meeting generation.
+        prediction_records = prediction_records_from_results(prediction_results)
+        minutes = generate_minutes(
+            prediction_records,
+            warnings=[
+                *(clustering_result.warnings or []),
+                *([clustering_result.error_message] if clustering_result.error_message else []),
+            ],
+        )
+        topic_labels = [
+            cluster.topic_label
+            for cluster in clustering_result.clusters
+            if cluster.topic_label.strip()
+        ]
+        analysis = meeting_minutes_to_analysis_result(
+            transcript_text=transcript_text,
+            topic_labels=topic_labels,
+            minutes=minutes,
+        )
+
+        log_stage(
+            "Meeting analysis",
+            "Completed ML meeting analysis pipeline.",
+            sentences=len(sentence_features),
+            embeddings=len(embedding_result.embeddings),
+            clusters=len(clustering_result.clusters),
+            predictions=len(prediction_results),
+        )
         meeting_metadata = {
             **st.session_state.get("meeting_metadata", {}),
             "source_file": st.session_state.get("uploaded_filename", ""),
+            "ml_pipeline": "parser_preprocessing_embeddings_clustering_ann_rules",
+            "ml_sentence_count": len(sentence_features),
+            "ml_cluster_count": len(clustering_result.clusters),
+            "ml_prediction_count": len(prediction_results),
         }
-        analysis = run_meeting_analysis_workflow(
-            transcript_text,
-            summarizer=summarizer,
-            speaker_mapping=current_speaker_mapping(),
-            meeting_metadata=meeting_metadata,
-        )
+        parsed_participants = participants_from_transcript_turns(parsed_transcript.turns)
+        if parsed_participants:
+            meeting_metadata["participant_list"] = parsed_participants
         st.session_state.meeting_metadata = meeting_metadata
         initialize_meeting_info(st.session_state.get("transcript_result"))
         current_info = dict(st.session_state.get("meeting_info", {}))
@@ -3284,23 +3543,6 @@ def run_meeting_analysis(
             )
         st.toast("Meeting report is ready")
         return analysis
-    except (
-        GeminiClientError,
-        TranscriptCleanupError,
-        MeetingSummaryError,
-        KeyDiscussionPointExtractionError,
-        DecisionExtractionError,
-        ActionItemExtractionError,
-    ) as exc:
-        if progress is None:
-            analysis_progress.empty()
-        st.session_state.analysis_result = None
-        st.session_state.analysis_error = (
-            "We could not generate the meeting notes. Please try again."
-        )
-        log_stage("Meeting analysis", "Analysis failed.", error=str(exc))
-        st.error(st.session_state.analysis_error)
-        return None
     except Exception as exc:
         if progress is None:
             analysis_progress.empty()
