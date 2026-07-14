@@ -50,10 +50,12 @@ _SPEAKER_NAME_PATTERN = (
     r"(?:Speaker\s+[A-Za-z0-9]+|[^\W\d_][\w ._'&-]{0,60})"
 )
 _TIMESTAMP_CORE_PATTERN = r"\d{1,2}:\d{2}(?::\d{2})?"
+_TIMESTAMP_RANGE_PATTERN = rf"{_TIMESTAMP_CORE_PATTERN}\s*-\s*{_TIMESTAMP_CORE_PATTERN}"
+_TIMESTAMP_VALUE_PATTERN = rf"(?:{_TIMESTAMP_RANGE_PATTERN}|{_TIMESTAMP_CORE_PATTERN})"
 _TIMESTAMP_TOKEN_PATTERN = (
-    rf"(?:\[\s*{_TIMESTAMP_CORE_PATTERN}\s*\]"
-    rf"|\(\s*{_TIMESTAMP_CORE_PATTERN}\s*\)"
-    rf"|{_TIMESTAMP_CORE_PATTERN})"
+    rf"(?:\[\s*{_TIMESTAMP_VALUE_PATTERN}\s*\]"
+    rf"|\(\s*{_TIMESTAMP_VALUE_PATTERN}\s*\)"
+    rf"|{_TIMESTAMP_VALUE_PATTERN})"
 )
 _COLON_SPEAKER_RE = re.compile(
     rf"^\s*(?P<speaker>{_SPEAKER_NAME_PATTERN})\s*:\s*(?P<inline_text>.*)$"
@@ -475,6 +477,8 @@ def timestamp_to_seconds(timestamp_raw: str | None) -> int | None:
         return None
 
     cleaned = _clean_timestamp(timestamp_raw).strip("[]() ")
+    if "-" in cleaned:
+        cleaned = cleaned.split("-", 1)[0].strip()
     parts = cleaned.split(":")
     if len(parts) not in {2, 3}:
         return None

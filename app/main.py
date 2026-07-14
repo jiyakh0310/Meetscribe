@@ -41,6 +41,7 @@ from ml_mom.predict_ann import (
 )
 from ml_mom.preprocessing import preprocess_transcript
 from ml_mom.transcript_parser import TranscriptTurn, parse_transcript
+from ml_ner.entity_extractor import EntityExtractionResult, extract_meeting_metadata
 from summarization.base_summarizer import (
     ActionItem,
     Decision,
@@ -2470,7 +2471,91 @@ def source_meeting_metadata(
     ]
     if end_times:
         metadata["duration_seconds"] = max(end_times)
+    metadata.update(ner_metadata_from_transcript(result.transcript))
     return metadata
+
+
+def ner_metadata_from_transcript(transcript_text: str) -> dict[str, Any]:
+    """Extract meeting metadata with BERT NER and safe fallback behavior.
+
+    Args:
+        transcript_text: Transcript text from audio or transcript upload.
+
+    Returns:
+        Metadata dictionary that can be merged into session state. If BERT NER
+        fails, the returned values fall back to existing participant extraction
+        evidence and never interrupt the upload or MoM generation flow.
+    """
+
+    if not transcript_text or not transcript_text.strip():
+        return {}
+
+    try:
+        extraction = extract_meeting_metadata(transcript_text)
+    except Exception as exc:  # pragma: no cover - defensive UI safety.
+        log_stage(
+            "BERT NER",
+            "NER metadata extraction failed; using existing fallback.",
+            error=str(exc),
+            traceback=traceback.format_exc(),
+        )
+        fallback_participants = extract_actual_participants_from_transcript(transcript_text)
+        return {
+            "participant_list": fallback_participants,
+            "ner_used_fallback": True,
+            "ner_error": str(exc),
+        }
+
+    metadata = extraction.to_metadata_dict()
+    if not metadata.get("participant_list"):
+        # BERT can fail to load offline or miss speaker-only names. Existing
+        # regex speaker extraction remains the non-blocking fallback so meeting
+        # information still pre-fills without affecting the ML MoM pipeline.
+        fallback_participants = extract_actual_participants_from_transcript(transcript_text)
+        if fallback_participants:
+            metadata["participant_list"] = fallback_participants
+            metadata["ner_used_fallback"] = bool(metadata.get("ner_used_fallback")) or True
+
+    log_ner_extraction(extraction, metadata)
+    return metadata
+
+
+def log_ner_extraction(
+    extraction: EntityExtractionResult,
+    metadata: dict[str, Any],
+) -> None:
+    """Log BERT NER metadata extraction details.
+
+    Args:
+        extraction: Structured NER extraction result.
+        metadata: Session metadata produced from the extraction.
+    """
+
+    detected_entities = [
+        {
+            "text": entity.text,
+            "type": entity.entity_group,
+            "confidence": entity.confidence,
+        }
+        for entity in extraction.entities
+    ]
+    log_stage(
+        "BERT NER",
+        "Completed metadata extraction.",
+        inference_time_seconds=round(extraction.inference_time_seconds, 4),
+        detected_participants=metadata.get("participant_list", []),
+        detected_entities=detected_entities,
+        participant_confidence=[
+            {
+                "name": participant.name,
+                "confidence": participant.confidence,
+                "sources": participant.sources,
+            }
+            for participant in extraction.participants
+        ],
+        fallback=metadata.get("ner_used_fallback", False),
+        error=metadata.get("ner_error", ""),
+    )
 
 
 def format_duration_for_report(seconds: Any) -> str:
@@ -2589,9 +2674,11 @@ def initialize_meeting_info(result: TranscriptionResult | None = None) -> None:
     participants = participants_from_current_context(result)
     info = {
         "meeting_title": current.get("meeting_title") or default_meeting_title(),
-        "meeting_date": current.get("meeting_date") or time.strftime("%Y-%m-%d"),
-        "meeting_time": current.get("meeting_time", ""),
-        "organization": current.get("organization", ""),
+        "meeting_date": current.get("meeting_date")
+        or metadata.get("meeting_date")
+        or time.strftime("%Y-%m-%d"),
+        "meeting_time": current.get("meeting_time") or metadata.get("meeting_time", ""),
+        "organization": current.get("organization") or metadata.get("organization", ""),
         "project_name": current.get("project_name", ""),
         "prepared_by": current.get("prepared_by") or "MeetScribe",
         "participants": current.get("participants") or ", ".join(participants),
@@ -2630,9 +2717,9 @@ def meeting_info_for_export() -> dict[str, str]:
     source_file = info.get("source_file") or st.session_state.get("uploaded_filename", "")
     return {
         "Meeting Title": info.get("meeting_title", ""),
-        "Date": info.get("meeting_date", ""),
-        "Time": info.get("meeting_time", ""),
-        "Organization / Company": info.get("organization", ""),
+        "Date": info.get("meeting_date") or metadata.get("meeting_date", ""),
+        "Time": info.get("meeting_time") or metadata.get("meeting_time", ""),
+        "Organization / Company": info.get("organization") or metadata.get("organization", ""),
         "Project Name": info.get("project_name", ""),
         "Prepared By": info.get("prepared_by", ""),
         "Participants": participants,
@@ -4013,8 +4100,9 @@ def process_upload(uploaded_file: object) -> None:
         else:
             store_speaker_mapping(speaker_mapping)
         st.session_state.speaker_names_available = resolution.names_available
-        st.session_state.speaker_review_required = resolution.review_required
-        st.session_state.transcript_review_required = not resolution.review_required
+        audio_speaker_review_required = bool(resolution.detected_speakers)
+        st.session_state.speaker_review_required = audio_speaker_review_required
+        st.session_state.transcript_review_required = not audio_speaker_review_required
         st.session_state.edited_transcript_text = transcript_text
         log_stage(
             "Speaker mapping",
@@ -4022,7 +4110,7 @@ def process_upload(uploaded_file: object) -> None:
             detected=resolution.detected_speakers,
             automatic=resolution.names_available,
             reused=resolution.reused_labels,
-            review_required=resolution.review_required,
+            review_required=st.session_state.speaker_review_required,
         )
         log_stage(
             "Session state update",
