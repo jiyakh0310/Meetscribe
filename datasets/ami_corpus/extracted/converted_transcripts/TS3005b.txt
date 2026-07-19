@@ -1,0 +1,693 @@
+[00:00:13] Speaker A: Good morning, again.
+[00:00:48] Speaker C: One question.
+[00:00:51] Speaker B: Yeah. Choose a number?
+[00:00:53] Speaker C: Send. Submit.
+[00:01:14] Speaker D: Yep yep yep yep.
+[00:01:18] Speaker C: Mm. Yeah.
+[00:01:18] Speaker A: All set? Good. Okay.
+[00:01:19] Speaker D: Mm-hmm.
+[00:01:26] Speaker A: Let's see what we can find here.
+[00:01:35] Speaker A: Okay. A very warm welcome again to everyone. Um here we are already at our uh functional design meeting. Um and this is what we are going to do. The opening, which we are doing now, um and the special note, I'm project manager but on the meetings I'm also the secretary, which means I will make uh minutes as I did of the previous meeting. And uh I also put these as fast as possible in the uh project folder, so you can see them and review what we have discussed. Um if I'm right, there are three presentations, I guess each one of you has prepared one? Good. And um we will also take a look at new project requirements, um if you haven't heard about them yet. And then of course we have to take a decision on the remote control functions and we have some more time, forty minutes. But I think we will need it. Um well I don't know who wants to go first with his presentation.
+[00:02:10] Speaker B: Yes.
+[00:02:31] Speaker C: I'll go first. Okay. I'll go first yeah.
+[00:02:32] Speaker D: Yeah.
+[00:02:33] Speaker B: Well.
+[00:02:33] Speaker A: You can go first, okay.
+[00:02:35] Speaker D: Well, shall I go first with the users?
+[00:02:38] Speaker B: Well everybody already has his presentation, so you can adjust it.
+[00:02:38] Speaker D: I think well okay no problem.
+[00:02:40] Speaker A: Is there an order? I haven't
+[00:02:41] Speaker D: Ja precies, ja precies, ja precies
+[00:02:42] Speaker C: So. Huh?
+[00:02:44] Speaker C: Okay, um
+[00:02:47] Speaker A: And one question, uh your name Denni, is it with a
+[00:02:50] Speaker D: E_I_E_.
+[00:02:51] Speaker A: I_E_ E_I_E_, okay. Thank you.
+[00:02:56] Speaker C: Okay, um I wanted to explain the working design of the remote control. It's possibly very handy if you want to uh design one of those. Um
+[00:03:06] Speaker C: well so it basically works uh as I uh uh r wrote down uh in this uh little uh summary. Uh when you press a button, uh that's when you do pr for example when you uh want to turn up the volume, um a little connection is made uh the the rubber uh button just presses on a
+[00:03:28] Speaker A: Sorry.
+[00:03:28] Speaker C: on a little print plate uh which uh makes uh uh a connection that uh
+[00:03:36] Speaker C: gives the chips, uh which is uh mounted beneath those uh that plastic of a rubber button. Uh senses that a connection has been made, and know and knows what button you pressed, becau uh for example the the volume up or volume down button. Um uh the the chip uh makes a Morse code uh like uh signal which uh then is si uh signalled to uh several transistors which makes uh which sends the signal to a little let. You know what a let is? Okay. And that makes uh the the infra-red lights signal which is sent to the television set. Uh which has a sensor in it to uh sense uh the signal of the infra-red.
+[00:04:08] Speaker B: Yeah.
+[00:04:24] Speaker C: That's basically uh how it works.
+[00:04:27] Speaker C: Um the findings uh uh that I found uh searching up some uh detailed information about the remote controls, are that uh they are very easy to produce, uh it is pis uh it's possible to uh make them in mass production because it is as eas it is as easy as uh printing a page, uh just uh fibreglass plate um is b uh is uh covered with uh some uh coatings and uh uh
+[00:04:57] Speaker C: and chips. Uh and the technology's already available, we don't have to find out how remote controls uh have to work or uh how that how uh to make some chips that are possible to uh to to transmit those uh signals.
+[00:05:14] Speaker C: Uh I made a little uh
+[00:05:16] Speaker C: uh
+[00:05:18] Speaker C: animation of about how a tran our uh remote controller works.
+[00:05:21] Speaker B: Oh right.
+[00:05:22] Speaker D: Animation.
+[00:05:26] Speaker C: we tel
+[00:05:27] Speaker B: There is something turning.
+[00:05:29] Speaker C: There.
+[00:05:29] Speaker A: Yeah, it's a little bug it's in the in the smart board.
+[00:05:32] Speaker C: Okay. Uh well the sub-component, I suppose that you understand what a sub-component is, is f in this example it's the button. Uh when it is pressed down, um, the switch is ter is uh is switched on, so with uh the wire is sent to the to the chip in uh co-operation with the battery of course, because to make uh a a signal possible you have to have some sort of uh
+[00:05:58] Speaker C: li uh a d ad uh electronic uh
+[00:06:02] Speaker D: Infrared light.
+[00:06:03] Speaker C: Yes, uh, okay. Um w after it's being composed by the chip uh the signal uh is transported uh to the infra-red bulb, and from there it signals a Morse code-like signal to the to the b to the bulb in uh in the television set.
+[00:06:23] Speaker C: Okay. S Uh I wrote down some personal preferences about uh the remote control. Of course it is very handy if the remote control is hand held, so you don't have to uh uh wind it up or something, or just is it's it's very light to uh to make uh to use it. Uh I personally uh pref prefer that uh it would be p uh come available in the various colours, and uh easy to use buttons. But I suppose that the one of the other team members uh uh thought of that uh too. And it is possible for several designs and um easy to use b uh sorry, easy to use buttons. Perhaps soft touch, uh touch screen uh buttons because uh the rubber buttons are always uh uh they uh slightly uh they can be slightly damaged, uh so the numbers on the buttons are not possible uh to read anymore. And uh well as I said uh before th uh we can uh make several designs. Okay, well, that's my contribution to this meeting, and uh
+[00:06:52] Speaker B: Yeah, I've got it there too.
+[00:07:20] Speaker B: Yeah.
+[00:07:24] Speaker D: To this meeting.
+[00:07:25] Speaker A: Okay, thank you.
+[00:07:25] Speaker C: two of these this meeting. So.
+[00:07:26] Speaker B: Shall I go uh next?
+[00:07:27] Speaker A: Yep.
+[00:07:28] Speaker B: 'Kay.
+[00:07:29] Speaker A: Please.
+[00:07:31] Speaker B: So.
+[00:07:36] Speaker D: Smoking.
+[00:07:40] Speaker B: Well uh, my name's, and I looked at uh technical functions design of the remote. Uh I did this by uh looking at examples of other remote controls, of how they uh they look, and information from the web that I found.
+[00:07:56] Speaker B: Um well what I found was that uh th the actual use of the remote control is to send messages to television set, how you uh d what you described uh just early. And this can be all sorts of medsa messages, turn it on, turn it off, uh change the channel, adjust volume, that kind of thing. Uh play video, teletext, but also t uh play C_D_ if you use it your C_D_ player the remote control will that one. There are some uh examples of remote controls. You can see they are very different. The one has got all the functions that you could possibly need and an lot of uh buttons etcetera. And the other is uh more user friendly, little with big buttons. And uh not n all the the the the stuff you can do with it, but uh the the essential stuff is there.
+[00:08:44] Speaker B: Um I guess you could better y you should look at a a user centred uh approach, because the customers have to use them and and if they don't think it's usable they won't uh buy it. A lot of buttons they may think from I don't need s as much as that.
+[00:09:04] Speaker B: Uh, well perf personal preferences is is uh a simple remote, with uh the basic functions that you can need that you could use. But uh keep in mind the new functions of T_V_ what we discussed earlier, split screen and uh is that a function that you should have? Because all the T_V_s will have them. Or because of only a few and isn't really necessary. And then uh make it I would make so that you can could uh use it on more than one appliance. If you have one that uh uh does with the vi the the video, it could also work with uh with the stereo, because play is play and stop stop and that sort of thing. The shu c you could reuse the buttons so that you don't have to have a lot of buttons for uh anything. And it should be a user friendly, clear buttons, and not too much.
+[00:09:52] Speaker B: And that is my presentation.
+[00:09:55] Speaker A: Okay, thank you.
+[00:09:56] Speaker C: Okay.
+[00:09:57] Speaker D: 'Kay.
+[00:10:00] Speaker D: Check.
+[00:10:11] Speaker B: You must still have it open.
+[00:10:14] Speaker D: Kijke
+[00:10:22] Speaker D: 'Kay, so. We're going to j discuss the functional requirements of the remote, that m that means that functions user n want to have on the remote control, or just
+[00:10:36] Speaker D: Yeah, and the users, actually. The methods I I prefer is we're going to look which section of the users we are going to focus a l on more.
+[00:10:48] Speaker D: Are the younger people going to buy the remote control or the elderly people? And then tho that section we're going to focus and adjust the remote more to that section than the whole user
+[00:11:00] Speaker D: section. Okay. Some data. Younger people, from sixteen to thir forty five um years are more interested in fj features like L_C_D_ screens, speech recognition e etcetera. And we possess about two third of the market from in that range of age. The elderly people, from forty five years to sixty five years are not that much interested in features, and we possess less than two third, that's two fifth, of the market share in that area.
+[00:11:36] Speaker D: Goed so.
+[00:11:39] Speaker C: Hmm.
+[00:11:40] Speaker D: 'Kay.
+[00:11:41] Speaker D: Findings. Fifty percent of the users lose their remote often. So we don't have to make it very small, like uh like a mobile phone or something, but some somewhat bi bigger than small, so you don't lose it that much anymore. Seventy five percent of the users also find it ugly, and fif seventy five of the users zap a lot, so the buttons sh should be that small, or shouldn't be that complex because we have to search for the buttons, which one are you going to use.
+[00:11:45] Speaker B: Yeah.
+[00:11:58] Speaker C: Mm.
+[00:12:10] Speaker D: Next.
+[00:12:12] Speaker D: Important issues about the remote. I think it would be better with a personal reference, but okay. Remote control has to have to have a low power usage, because s w
+[00:12:23] Speaker D: seventy five percent of the users only zap one time an hour, so the power usage is also one one time an hour, or so, with a high power usage we would
+[00:12:34] Speaker D: use a lot of but batteries.
+[00:12:38] Speaker D: The volume button and the channel buttons are the two most important buttons on the remote control, so those they those have to h be find very easily. And have to be somewhat like bigger
+[00:12:48] Speaker D: etcetera. It has also be have to find easily when the label is gone. My colleague also announced it that labels should be scratched off or would be s uh
+[00:12:54] Speaker C: Mm.
+[00:12:57] Speaker B: Hmm.
+[00:13:01] Speaker D: senden okay. So uh if that's k uh if that's the problem, you also have to find it easily
+[00:13:08] Speaker D: on the remote.
+[00:13:12] Speaker D: Buttons. Like what all colleagues said, have to have to be minimalized.
+[00:13:18] Speaker D: or should be covered, or in L_C_D_ screen. L_C_D_ screen is easy because we have the L_C_D_ screen, we have the various options. Put one option and then you have the all the buttons of that options, so the other options would be gone. And you don't see the buttons. So L_C_D_ screens should be easy,
+[00:13:34] Speaker D: but an L_C_D_ screen, the problem with the L_ sc L_C_D_ screen is that elderly people fr from forty five to for sixty five years don't use the L_C_D_ screen a lot. So we have to that keep that in mind that if you're going to implement L_C_D_ screen, you don't have to make it that hard to learn or to use.
+[00:13:52] Speaker C: Uh L_C_D_ screen as in uh touch screen?
+[00:13:55] Speaker D: Yeah, touch screen, yeah.
+[00:13:55] Speaker C: Okay.
+[00:13:57] Speaker D: The last but not least, younger people are more critical about the features. Because they use the remote control often more often, and are more technical than the ol older people. And the older people spend more money, and easily on a remote control. So we have to keep in mind to to focus not a lot not that much on the younger pep younger people, but also somewhat on the elderly people. And on my personal preferences, I don't have any mo more time to come with that, but like I said, L_C_D_ screen is easily to use because you have you can implement a lot of buttons in one remote with not that much buttons.
+[00:14:10] Speaker B: Mm.
+[00:14:12] Speaker C: 'Kay.
+[00:14:35] Speaker D: And it should be easy to use. Especially the volume buttons, the channel buttes buttons and the number buttons to zap through the channels.
+[00:14:44] Speaker D: And that is it.
+[00:14:46] Speaker C: Okay.
+[00:14:46] Speaker A: Okay, thank you.
+[00:14:46] Speaker B: Oh right.
+[00:14:50] Speaker A: Um, well thank you all, huh. I dunno uh did everyone receive an email with uh the new project requirements? No? Well,
+[00:14:57] Speaker B: No.
+[00:14:58] Speaker B: Res I did not. Perhaps the rest?
+[00:14:59] Speaker C: No.
+[00:15:01] Speaker A: then I think it's a good thing that I made a separate slide of them so you can
+[00:15:02] Speaker D: Ja,
+[00:15:06] Speaker A: all read them. Oh, well not in this presentation. Hmm.
+[00:15:11] Speaker A: Should be in there. Well, I can tell you them uh from my laptop. Um teletext does has become outdated since the popularity of the internet. So that's uh the first thing we I think we should pay less attention to uh teletext. Uh the remote control should only be used for the television, otherwise the project becomes more complex, which endangers the time to market, and of course would make it more costly, I think. Um our current customers are within the age group of forty plus, and new product should reach a new market with customers that are younger than forty, and you talked about that before. And uh a last point, but also very important, our corporate image should stay recognisable in our products, which means that our uh corporate colour and slogan must be implemented in the new design. So we have to keep that in mind. Um well uh according to our agenda it's then time to take a decision on the remote control functions.
+[00:15:19] Speaker B: Oh.
+[00:16:10] Speaker B: Mm.
+[00:16:10] Speaker A: So, who has any idea about what should be on it, and what shouldn't?
+[00:16:14] Speaker B: Well you said it should only uh work with one appliance? Or with one uh d che only the T_V_?
+[00:16:16] Speaker D: Be television.
+[00:16:21] Speaker A: Yeah. Only be used for television.
+[00:16:22] Speaker C: Yeah.
+[00:16:22] Speaker B: And the video also, or not uh?
+[00:16:24] Speaker D: Only the television.
+[00:16:24] Speaker A: Well it says only for television here, huh.
+[00:16:26] Speaker B: Oh. Alright. Okay.
+[00:16:27] Speaker A: Makes it a lot easier, huh?
+[00:16:29] Speaker B: Yeah.
+[00:16:30] Speaker C: Mm.
+[00:16:31] Speaker D: So yeah, then you can yeah.
+[00:16:33] Speaker D: Requirements, no? Functions.
+[00:16:36] Speaker A: Mm-hmm.
+[00:16:36] Speaker B: Then it should have uh on, off, and uh
+[00:16:37] Speaker C: Yeah for
+[00:16:39] Speaker D: Yeah, the basics then by a volume, channel, one till two zero numbers on it, oh teletext doesn't have to be? Um other functions. Yeah I had
+[00:16:39] Speaker C: Standby options, yeah?
+[00:16:44] Speaker C: Uh yeah.
+[00:16:45] Speaker B: Yeah. And per perhaps uh
+[00:16:48] Speaker B: No. Well uh uh yes yes s sh A button where you can uh change from one number to two numbers. Can you Don't know if that's got a name, but
+[00:16:55] Speaker C: Two s two two digits, oh okay.
+[00:16:56] Speaker D: Yeah, yeah.
+[00:16:58] Speaker C: Yeah I understand what you mean. Yeah.
+[00:16:59] Speaker D: I think it's I think it's easy to implement a button with a s s what which especially do that, because some T_V_s, if you press the t one and then the two, it be between five secs it make twelve, and that's that's not relaxed
+[00:17:08] Speaker C: It makes it twelve, yeah.
+[00:17:10] Speaker B: Yeah. S
+[00:17:10] Speaker C: Indeed. Okay.
+[00:17:14] Speaker C: Well, not really And and there are some models that don't uh accommodate that function. So d uh wh the Philip's television makes it possible in that indeed to uh press one and then two to make uh the uh tj to reach channel twelve. But uh all the television makes uh use of those button where you first press that button and then press two digits to uh to get
+[00:17:14] Speaker D: to user.
+[00:17:20] Speaker D: Yeah.
+[00:17:25] Speaker D: So that it easy and fast.
+[00:17:25] Speaker B: Yeah.
+[00:17:28] Speaker D: Yeah.
+[00:17:31] Speaker B: Yeah.
+[00:17:36] Speaker B: Yeah, so you should have that one on.
+[00:17:38] Speaker C: Uh yeah, think so.
+[00:17:39] Speaker D: Our main targets' age are? were? Forty five plus, or?
+[00:17:41] Speaker B: Mute misschien also.
+[00:17:43] Speaker C: Mm.
+[00:17:43] Speaker A: Uh well new product should reach a market with customers that are younger than forty, and now we have current customers uh of forty plus.
+[00:17:47] Speaker D: Forties, okay because because younger people as
+[00:17:53] Speaker D: Uh younger people have now, sixteen till to twenty five age, are f eighty one percent interested in L_C_D_ screen.
+[00:18:03] Speaker D: From twenty six to thirty five have sixty six percent, and thirty six to forty five, fifty five percent, so I think to um
+[00:18:12] Speaker D: Because on most recog remote controls um the print plate will be broken how much, two years. You have to press h very hard to go to the next channel. With the L_C_D_ screen it's easier because you only have to wipe the screen to uh for fingerprint, and then you can use it again.
+[00:18:18] Speaker C: Mm-hmm.
+[00:18:19] Speaker A: Mm-hmm.
+[00:18:23] Speaker C: Yeah, we we could yeah. But I think that uh that collides with our mission to make it very cheap. Because L_C_D_ screens are very expensive. A touch screen uh probably uh even more.
+[00:18:30] Speaker D: Yeah, okay.
+[00:18:32] Speaker D: Yeah but a you don't know
+[00:18:33] Speaker B: An
+[00:18:37] Speaker C: So, true, true. But uh
+[00:18:37] Speaker D: True.
+[00:18:42] Speaker C: Well um is it possible to make an L_C_D_ screen uh, how was the information?
+[00:18:49] Speaker D: Yeah, it only says that this perce percentage like L_C_D_ screen.
+[00:18:55] Speaker D: Because, yeah and it says that younger age between sixteen and forty five highly interesting features more critical. And if the only f
+[00:19:02] Speaker C: So perhaps we should we should focus on that L_C_D_ screen.
+[00:19:05] Speaker D: Yeah, because our target is sixteen to forty five.
+[00:19:08] Speaker B: But, do you
+[00:19:09] Speaker C: Yeah but uh will we not uh
+[00:19:13] Speaker C: exceed our uh our uh production uh
+[00:19:15] Speaker D: Yeah you don't know how much it costs. Yeah, you don't know how much it costs, the L_C_D_ screen.
+[00:19:18] Speaker C: Is it possible to find out, anyway? You know?
+[00:19:19] Speaker D: No, I don't have any costs here, I only have percentages.
+[00:19:24] Speaker B: But if you would do an L_C_D_ screen do we have don don't you have any buttons? Or because if it only directs at the T_V_, then you only have uh I don't know what you want to do with the L_C_D_ screen.
+[00:19:28] Speaker D: Yeah.
+[00:19:33] Speaker C: No, an L_C_D_ screen's just like uh like a drawn here. Um just uh displays several buttons, for example um if you wanted the minimal uh use b uh buttons, such as channel and volume, you just h uh displays four buttons on the screen and it's possible to p uh press them down, just like a touch screen.
+[00:19:39] Speaker B: Yeah?
+[00:19:49] Speaker B: Oh right, so you can
+[00:19:51] Speaker B: Oh, yeah alright. So you can adjust which buttons you want on that s screen.
+[00:19:55] Speaker D: Yeah, if you want to adjust, like for example, adjust the audio settings, you press audio on the touchscreen and you get the buttons for audio settings, so the other buttons are gone.
+[00:19:55] Speaker C: Yeah, we can make it possible to do that, yeah.
+[00:20:00] Speaker C: Yeah yeah.
+[00:20:01] Speaker B: Yeah alright, oh right.
+[00:20:03] Speaker B: Yeah.
+[00:20:04] Speaker C: Yeah, yeah.
+[00:20:05] Speaker A: So we're going for an L_C_D_ screen?
+[00:20:08] Speaker B: Yeah. Would be yeah.
+[00:20:08] Speaker D: I think it's the most easier thing, yeah.
+[00:20:09] Speaker C: That's my uh
+[00:20:10] Speaker A: And hoping that when we produce a lot it won't be too expensive.
+[00:20:13] Speaker D: No.
+[00:20:14] Speaker C: Yeah.
+[00:20:14] Speaker B: Well we had twelve fifty, I guess, for uh production? Yeah. I dunno how expensive an L_C_D_ screen is.
+[00:20:15] Speaker D: Yeah.
+[00:20:16] Speaker C: Twelve fifty.
+[00:20:18] Speaker C: Um.
+[00:20:22] Speaker B: Any guesses?
+[00:20:25] Speaker C: Well I suppose wi if the mar if our um
+[00:20:31] Speaker C: if the i if the young people are interested in L_C_D_ screens, we should make 'em. And if that is our d uh market share to uh and our goal to uh deliver those uh remote controls
+[00:20:34] Speaker D: Highly.
+[00:20:35] Speaker A: Mm-hmm.
+[00:20:35] Speaker B: Yeah. But
+[00:20:40] Speaker B: But he also said that we should not only focus on the younger people, but also on the older, and will they use it if it only has an L_C_D_ screen?
+[00:20:45] Speaker D: Yeah, but
+[00:20:47] Speaker D: Um, s forty six to forty five, thirty three percent, and sixty fifty six to sixty five twelve percent. But our our our what's it, project requirements are the new products should be reached for new markets, to customers that are younger than forty.
+[00:20:53] Speaker B: Oh, so still a little bit people
+[00:20:59] Speaker C: Yeah.
+[00:21:01] Speaker B: Yeah that's right. But you don't want to alienate the other uh
+[00:21:04] Speaker D: No, that not now, but, so
+[00:21:07] Speaker B: But if they also buy it then it's alright.
+[00:21:10] Speaker B: I guess.
+[00:21:10] Speaker D: Yeah, but market share fro for for forty years and younger is higher than that of sixty five and younger.
+[00:21:12] Speaker C: Yeah.
+[00:21:15] Speaker B: Yeah.
+[00:21:16] Speaker B: Alright.
+[00:21:17] Speaker A: Okay, so L_C_D_ it is?
+[00:21:18] Speaker B: An Yes.
+[00:21:20] Speaker C: Mm. It's treasure. I hope we uh h and let's hope to reach those uh those sales.
+[00:21:20] Speaker A: Okay.
+[00:21:21] Speaker A: And what else?
+[00:21:23] Speaker D: Yeah, i i if it Yeah, if it costs gets too much, too expensive, then yeah, we should be sticking to rubber buttons.
+[00:21:31] Speaker B: Yeah.
+[00:21:32] Speaker C: Yeah, can you um uh s I think that that they will send you some information about uh the cost of L_C_D_ uh screens.
+[00:21:38] Speaker D: N nothing, no costs at all.
+[00:21:38] Speaker B: Yeah.
+[00:21:40] Speaker B: But perhaps later, so uh
+[00:21:40] Speaker C: Uh so if you uh Yeah, so if you uh you receive an email about that, uh can you post it in the or shouldn't we post that in uh our projects mail uh folder.
+[00:21:46] Speaker D: Yeah, in
+[00:21:49] Speaker D: I think that should yeah I think we all get the costs of everything.
+[00:21:49] Speaker B: Yeah.
+[00:21:54] Speaker B: I don't
+[00:21:55] Speaker C: Because you are the the Marketing uh Expert.
+[00:21:57] Speaker D: Yeah, okay, I'll I'll post it.
+[00:21:58] Speaker C: I uh
+[00:21:59] Speaker B: Well perhaps we should have a backup plan that we would use buttons if it's uh too expensive.
+[00:22:01] Speaker C: Yeah sure, sure.
+[00:22:03] Speaker D: Yeah.
+[00:22:04] Speaker A: Yeah, okay. But for now it's L_C_D_. Okay.
+[00:22:05] Speaker D: Okay, L_C_D_, yeah. Then you have the seventy five percent of users find it r ugly.
+[00:22:06] Speaker B: Yeah.
+[00:22:11] Speaker B: The L_C_D_? Oh that's a bit of a problem.
+[00:22:11] Speaker D: Yeah, and eighty percent of the users would spend more money with a when a remote would look fancy.
+[00:22:16] Speaker B: Oh, that's a bit of a problem.
+[00:22:16] Speaker C: Mm.
+[00:22:19] Speaker D: Tha i l i it'll look fancy with L_C_D_ screen. Yeah.
+[00:22:20] Speaker C: It's looks fancy one yeah, of L_C_D_ screen.
+[00:22:21] Speaker B: Yeah, but they don't they don't like it. They think it's ugly. When it has an L_C_D_ screen.
+[00:22:22] Speaker A: Yeah.
+[00:22:25] Speaker D: Yeah, just a the plain remotes, not not specific L_C_D_ remotes.
+[00:22:29] Speaker B: Oh, alright, I thought that you said that.
+[00:22:31] Speaker D: So
+[00:22:31] Speaker A: Yeah, and maybe you can make something fancy out of an L_C_D_ remote, because it's new, as far as I know.
+[00:22:34] Speaker B: Yeah.
+[00:22:35] Speaker D: Mm-hmm.
+[00:22:36] Speaker C: Mm yeah.
+[00:22:37] Speaker D: Yeah, of course.
+[00:22:38] Speaker C: And then not yeah.
+[00:22:39] Speaker D: And then you have the other thing, that seventy five percent zap a lot, but that's not a f question with the L_C_D_ screen. Only thing you have to do is wipe the screen off once each time, to get all the fingerprints off it.
+[00:22:43] Speaker C: Um.
+[00:22:49] Speaker C: Yeah.
+[00:22:52] Speaker B: Yeah.
+[00:22:54] Speaker C: Mm. Okay?
+[00:22:56] Speaker A: Okay, what else does our remote need?
+[00:22:57] Speaker B: A mute button.
+[00:22:57] Speaker D: Um
+[00:23:00] Speaker A: Mute button.
+[00:23:01] Speaker D: Mm-hmm. The most important things on a f on an on an uh remote control are channel selection, volume con selection,
+[00:23:02] Speaker B: I think. And
+[00:23:10] Speaker C: Yeah.
+[00:23:10] Speaker D: and power s power usage.
+[00:23:12] Speaker B: Yeah.
+[00:23:13] Speaker D: And a teletext, but that is not of the question. Other things are
+[00:23:15] Speaker B: But
+[00:23:16] Speaker B: But shouldn't you put a button of for teletext on the for the people who want to use it?
+[00:23:19] Speaker D: Sorry?
+[00:23:22] Speaker D: Yeah, it could be.
+[00:23:23] Speaker B: Remembering we have got a big remote that you have to fill.
+[00:23:24] Speaker D: Yeah.
+[00:23:25] Speaker A: Mm-hmm. Yeah, and we could make an a a separate menu on the L_C_D_ uh screen for teletext.
+[00:23:29] Speaker D: Yeah, teletext.
+[00:23:30] Speaker C: Yeah.
+[00:23:31] Speaker B: Yeah.
+[00:23:32] Speaker C: And there's also a
+[00:23:32] Speaker D: And other other less important things are screen settings, audio settings, and channel settings, but
+[00:23:37] Speaker B: Yeah, they are less important, but I think they should be there, or not?
+[00:23:39] Speaker D: Less important. Yeah, should be there, but not press Yeah, sub-menu, yeah.
+[00:23:40] Speaker C: A sh but in a sub sub-menu or something like that. Uh I think it's also important to uh make it possible to um how do you call it in English, uh,
+[00:23:51] Speaker C: to not use batteries, and use ac uh bat uh batteries to uh to be yeah yeah sure. Indeed. So uh you can mount uh the the the uh
+[00:23:56] Speaker B: Like with a with a mouse, you have not, yeah.
+[00:23:56] Speaker A: Mm-hmm.
+[00:24:02] Speaker D: Yeah, in a breath it's
+[00:24:04] Speaker C: uh the remote control to um
+[00:24:05] Speaker A: Mm-hmm.
+[00:24:06] Speaker D: Charted.
+[00:24:06] Speaker B: We should think of the twelve fifty we have but
+[00:24:07] Speaker C: to refill the
+[00:24:08] Speaker D: Yeah, but we don't we don't have any costs now, so Yeah.
+[00:24:10] Speaker B: I don't know how much that's going to uh
+[00:24:11] Speaker C: Yeah. Okay, because i uh when you get an L_C_D_ screen, you run it on batteries, the batteries will be uh empty very soon, very fast.
+[00:24:15] Speaker B: Yeah.
+[00:24:16] Speaker D: Yeah e e power supply is one of the most important things.
+[00:24:18] Speaker B: You should Perhaps you should be able to to switch the control off. If you have an L_C_D_ screen that's burns all the time I dunno.
+[00:24:20] Speaker C: Yeah.
+[00:24:24] Speaker C: Yeah, yeah. Yeah.
+[00:24:26] Speaker B: You shouldn't on and off because that's ver extra, that you have t first you have to turn the remote on, and then you can uh I don't know.
+[00:24:32] Speaker A: Mm-hmm.
+[00:24:33] Speaker C: Uh
+[00:24:33] Speaker D: Yeah, I think it's it's not that easy because I don't think people will like it who who uh that you have to turn it on first and then use it, so I think it's better when th the T_V_ shuts down, the remote shuts down.
+[00:24:40] Speaker B: Nee that's that's uh yeah.
+[00:24:46] Speaker B: But then you can't
+[00:24:46] Speaker C: And go to standby mode when you don't use it, so that
+[00:24:48] Speaker D: Yeah.
+[00:24:48] Speaker B: Yeah.
+[00:24:49] Speaker B: Yeah yeah au automac matically, that it yeah.
+[00:24:51] Speaker C: Yeah, automatically. After two minutes or three minutes, something like that.
+[00:24:52] Speaker D: Yeah. After two minutes, yeah two three minutes, yeah.
+[00:24:54] Speaker B: Yeah.
+[00:24:55] Speaker A: Yeah. And maybe a low battery indicator? On the screen.
+[00:24:58] Speaker C: Yeah. Sure.
+[00:25:00] Speaker D: Yeah. And then b that uh before an hour when its get again gets empty. Then you have plenty of time to recharge it, of put it in a recharger. Charger.
+[00:25:06] Speaker C: Yeah.
+[00:25:09] Speaker C: Mm.
+[00:25:13] Speaker A: So we are going for the for the recharger.
+[00:25:15] Speaker C: Yeah.
+[00:25:15] Speaker D: Yeah, if it's.
+[00:25:15] Speaker A: Okay.
+[00:25:19] Speaker D: Uh.
+[00:25:21] Speaker B: If it's sensible.
+[00:25:22] Speaker D: Yeah, because when you're watching T_V_, you're zapping and you have to put it in a recharger, and I don't think it
+[00:25:25] Speaker B: Yeah.
+[00:25:28] Speaker B: Yeah, b when the batteries are low
+[00:25:28] Speaker C: No, when you when you're done with s uh w uh watching your television, you have to put it
+[00:25:31] Speaker D: Yeah, okay, but then we have to be sure that the the the the batteries go hours, six hours, five, six hours, then.
+[00:25:36] Speaker C: Yeah sure, of course.
+[00:25:36] Speaker B: But you'll also forget to put it in, because you throw it on the couch and you don't remember.
+[00:25:38] Speaker D: Yeah, then you have a problem.
+[00:25:38] Speaker C: Yeah, but
+[00:25:40] Speaker C: But you also forget to buy batteries, and then you can you can't use it, so I
+[00:25:42] Speaker B: Yeah. That's right.
+[00:25:44] Speaker B: Yeah.
+[00:25:44] Speaker D: Or we have to be sure that the batteries last couple of days when they're recharged.
+[00:25:48] Speaker C: Yeah.
+[00:25:50] Speaker D: So.
+[00:25:50] Speaker B: Well I think the batteries should should w should work a lot longer than a couple of days, or not? 'Cause
+[00:25:54] Speaker D: Yeah because you have b but you have L_C_D_ screen.
+[00:25:57] Speaker B: Yeah, that's right, but
+[00:25:57] Speaker D: High power usage.
+[00:25:58] Speaker C: High power user cell, i
+[00:26:01] Speaker C: uh it should be uh a standard move to to put your remote control in the charger when you're done watching television, that's also a a a great advantage because you can't lose it anymore. Because you are obliged to uh put it in the charger and not to uh leave it in a couch uh between some cushions.
+[00:26:06] Speaker D: Yes.
+[00:26:13] Speaker D: True.
+[00:26:15] Speaker D: Yeah. Yeah.
+[00:26:16] Speaker D: True.
+[00:26:19] Speaker B: Yeah.
+[00:26:22] Speaker B: Right.
+[00:26:22] Speaker C: Okay.
+[00:26:22] Speaker D: Yeah, you made a point there.
+[00:26:24] Speaker B: But then you also have to s have somewhere where you can put a remo recharger near your couch because otherwise you have to walk a long way when you twoft want to turn on the T_V_.
+[00:26:25] Speaker A: Yeah, also.
+[00:26:31] Speaker D: Yeah, otherwise all your yeah.
+[00:26:35] Speaker D: Just a small device. Plug it in, that's it. Yeah, like a like telephone charger or something.
+[00:26:36] Speaker C: Yeah it hasn't It doesn't have to be big.
+[00:26:36] Speaker B: Yeah. I think everything has it for and I guess.
+[00:26:40] Speaker C: Yeah just just a cable, or a even a a a a a charger where you can mount it on. Something like that, just u
+[00:26:41] Speaker D: Yeah.
+[00:26:44] Speaker D: Yeah.
+[00:26:47] Speaker B: Yeah.
+[00:26:48] Speaker C: Okay.
+[00:26:48] Speaker B: Alright.
+[00:26:49] Speaker A: Okay, well I've
+[00:26:49] Speaker D: It has to be easy to use also, or things. Uh market share, speaker re speech recognition.
+[00:26:52] Speaker A: Yeah, you have some more
+[00:26:54] Speaker A: points.
+[00:26:59] Speaker D: I think.
+[00:26:59] Speaker C: Functional designs uh for the elderly uh you could make it possible to enlarge the screen, so make it possible to not uh display uh a button at ten points uh, or
+[00:27:05] Speaker D: Also.
+[00:27:12] Speaker D: Well I think that this should be standard. Large button large buttons. Yeah? Okay.
+[00:27:15] Speaker C: Yeah but it is uh one of the functions you have to uh specify.
+[00:27:21] Speaker C: Because we can look at uh uh perhaps uh forty buttons at a screen, but the elderly only look at two buttons. Okay.
+[00:27:30] Speaker D: .
+[00:27:31] Speaker A: And you said something about speech recognition?
+[00:27:33] Speaker D: Yeah, it says also Yeah.
+[00:27:33] Speaker C: Speech recognition? Hello. Twelve Euro twelve Euro fifty.
+[00:27:35] Speaker B: Yeah, twelve fifty, twelve fifty.
+[00:27:36] Speaker D: Twelve. That's an also ninety one percent sixteen to twenty five, twenty six to thirty five years, seventy six percent, and thirty six to forty five, thirty five percent.
+[00:27:45] Speaker B: So it's pretty big.
+[00:27:46] Speaker C: Well, spread it by a big market.
+[00:27:47] Speaker D: But then I I I
+[00:27:49] Speaker A: Even bigger than for L_C_D_.
+[00:27:50] Speaker B: Yeah. W I know let's do a speech.
+[00:27:51] Speaker D: Yeah.
+[00:27:54] Speaker C: Well let's leave out all the remote controls and just put a microphone on top of the television to
+[00:27:57] Speaker B: Yeah. Yeah.
+[00:27:58] Speaker D: Yeah. Ninety. Twenty five.
+[00:28:01] Speaker B: You can clap or something.
+[00:28:01] Speaker C: Yeah Yeah.
+[00:28:02] Speaker D: channel.
+[00:28:03] Speaker C: Turn volume up.
+[00:28:04] Speaker B: Yeah.
+[00:28:05] Speaker C: Hey, that that's an idea.
+[00:28:07] Speaker B: Now you shouldn't say the wrong thing, I dunno.
+[00:28:10] Speaker D: Yeah.
+[00:28:10] Speaker C: Okay, well that should it has to be remote control, not
+[00:28:13] Speaker D: Yeah, twelve.
+[00:28:14] Speaker C: Yeah.
+[00:28:14] Speaker B: But they want to talk into the remo remote control, or something, or?
+[00:28:17] Speaker D: Yeah. Is this only would you would you pay more for speech recognition in a remote control. It's the only thing it says.
+[00:28:17] Speaker C: Sure why not why not
+[00:28:22] Speaker C: Yeah, mm.
+[00:28:24] Speaker B: Oh, but do we want to implement that, or?
+[00:28:27] Speaker D: I think an L_C_D_ screen should be suf sufficient.
+[00:28:31] Speaker C: Yeah.
+[00:28:32] Speaker A: But when you look at the percentages
+[00:28:34] Speaker D: Yeah, it says a lot, but
+[00:28:36] Speaker C: Perhaps the options should be uh
+[00:28:36] Speaker A: Speech recognition scores even higher, huh?
+[00:28:40] Speaker C: Why not?
+[00:28:41] Speaker A: Yeah, well, maybe because of the cost, but uh nobody knows uh how much uh it will cost uh.
+[00:28:41] Speaker C: Why not?
+[00:28:45] Speaker B: Yeah.
+[00:28:46] Speaker C: Let's hope uh to have some uh d
+[00:28:47] Speaker B: I know
+[00:28:47] Speaker D: No I think I think it's better to have L_ L_C_D_ screen, because in the area of tw thirty six to forty five, we have about thirty percent of the market share in in our hands, and fifty five of those people want L_C_D_ screen and thirty five want speech recognition. So I think it's better to keep it with L_C_D_ screen.
+[00:29:06] Speaker A: But would it be useful to imple implement both?
+[00:29:06] Speaker B: Mm.
+[00:29:09] Speaker A: On one remote? Or
+[00:29:09] Speaker D: Yeah, if the costs al allow it.
+[00:29:10] Speaker B: Well
+[00:29:11] Speaker A: Yeah, I dunno.
+[00:29:12] Speaker B: I don't know if that can be done with the cost of twelve fifty. With that uh
+[00:29:16] Speaker D: Nee.
+[00:29:17] Speaker D: If it should be done, if it could be done, I won't matter. Yeah.
+[00:29:19] Speaker B: Yeah, but how would you like to implement that, that you say volume up, and then it goes up, or?
+[00:29:19] Speaker C: We should do it. Yeah. Sure.
+[00:29:24] Speaker C: Yeah.
+[00:29:25] Speaker D: Yeah.
+[00:29:26] Speaker B: Uh.
+[00:29:27] Speaker C: Certain systems already exist, I think.
+[00:29:29] Speaker D: Mm-hmm.
+[00:29:29] Speaker B: Then you also have to have different languages if we go international. Then uh it's y it's yours to do a French and Dutch and English and
+[00:29:33] Speaker D: True.
+[00:29:34] Speaker C: True, yeah.
+[00:29:35] Speaker D: Yeah. True.
+[00:29:35] Speaker C: Yeah.
+[00:29:37] Speaker D: But that should also be with f should be also with L_C_D_ screen. Because then I think in Chinese is different written, volume is different written than um Swahili or something.
+[00:29:38] Speaker C: This should be uh accommodated with some software, uh, uh. Yeah.
+[00:29:42] Speaker B: Yeah, that's right.
+[00:29:45] Speaker B: Yeah.
+[00:29:46] Speaker C: Right.
+[00:29:47] Speaker C: Swahili. Swahili.
+[00:29:48] Speaker B: Yeah you can use icons for the
+[00:29:51] Speaker C: Yeah.
+[00:29:51] Speaker D: Ja, well possible.
+[00:29:51] Speaker B: a speaker and uh
+[00:29:52] Speaker C: Indeed.
+[00:29:54] Speaker B: But if that's better than language for the for the remote.
+[00:29:54] Speaker D: Yeah, yeah yeah yeah.
+[00:29:55] Speaker C: Yeah.
+[00:29:58] Speaker C: So we want to uh yeah it's international uh okay.
+[00:29:59] Speaker B: Then it's Yeah.
+[00:30:02] Speaker C: Okay.
+[00:30:03] Speaker D: 'Kay, what else?
+[00:30:04] Speaker A: So, no speech recognition? Or
+[00:30:07] Speaker B: Well, if it could be done, we
+[00:30:08] Speaker D: Yeah, we have to keep Yeah.
+[00:30:09] Speaker C: Y it should be done. If it could be done, should be done.
+[00:30:11] Speaker B: Yeah.
+[00:30:11] Speaker A: Yeah, and then we have different languages.
+[00:30:14] Speaker B: Yeah, that should be uh anything matters.
+[00:30:15] Speaker C: That's not so difficult at all, because I already use on several voice operated systems, and they are all possible to uh not all, but
+[00:30:17] Speaker A: Okay, just make a separate remote for each uh
+[00:30:25] Speaker B: Well, you sh you should to adjust the thing.
+[00:30:26] Speaker D: I think it's difficult.
+[00:30:28] Speaker D: Every language of dialects
+[00:30:30] Speaker B: Yeah.
+[00:30:31] Speaker D: I think it's very differen difficult.
+[00:30:32] Speaker B: And you have to speak the so that it can understand.
+[00:30:33] Speaker D: Yeah.
+[00:30:35] Speaker D: I think it can't be implemented, but maybe
+[00:30:40] Speaker B: You could use that n as an option, if you have money left, or something.
+[00:30:42] Speaker D: Yeah,'s an option, yes.
+[00:30:44] Speaker C: Yeah, sure, indeed.
+[00:30:45] Speaker D: Fifty Euro cents.
+[00:30:46] Speaker B: Yeah. Let's do speech.
+[00:30:48] Speaker C: For speech recognition.
+[00:30:48] Speaker D: Yeah.
+[00:30:51] Speaker A: Okay, so we only do this when we have enough money left. Okay. Well I've written down an an on or off button, volume selection, channel selection, uh the digits from one to zero, huh. Um or from zero to nine. Uh a digits button to switch uh between one and two digits, mute button, a separate menu for teletext, a battery indicator. Um we're going to use a docking station and uh probably L_C_D_ and if there's enough money, speech recognition. And uh the possibility to uh enlarge buttons or to have large buttons
+[00:30:54] Speaker B: Yeah.
+[00:31:25] Speaker B: Mm.
+[00:31:30] Speaker D: Mm, yes.
+[00:31:30] Speaker B: Yeah. I With uh teletext if it wasn't ver very important, it was but You also now have colours. I don't know if we should implement that. Yeah, when you press the red button, you go to page one hundred two, and when you press the
+[00:31:31] Speaker A: in general.
+[00:31:35] Speaker D: No, but
+[00:31:39] Speaker D: Curved?
+[00:31:45] Speaker C: Uh yeah.
+[00:31:46] Speaker B: I don't know if we should implement that, because it says that teletext not really important, but yeah, the shortcut, and you can't go to sport.
+[00:31:46] Speaker D: Um.
+[00:31:49] Speaker C: S Shortcuts. Uh.
+[00:31:52] Speaker D: I think we should we could that we could also implement a audio settings, screen settings and channel settings, but as sub-menus.
+[00:32:00] Speaker B: Yeah.
+[00:32:01] Speaker C: Mm.
+[00:32:01] Speaker D: D Mainly if you turn the uh remote control on, you have to u you have to see from one till zero, channel and volume. And if you want to use teletext screen or audio, then you can press it. It should be available but not
+[00:32:10] Speaker C: Sh Yeah, just just sub-menu. Yeah. Not directly uh available. Okay.
+[00:32:12] Speaker B: 'Cause it should be there.
+[00:32:14] Speaker D: not Yeah.
+[00:32:15] Speaker D: Yeah.
+[00:32:19] Speaker A: Okay, so not too much teletext support, but in a separate menu, and
+[00:32:23] Speaker D: Yeah.
+[00:32:23] Speaker C: Mm.
+[00:32:24] Speaker B: So actually it is there but it's just not r ready there.
+[00:32:25] Speaker D: Yeah, but s
+[00:32:27] Speaker C: Directly available. So does it confuse uh the user?
+[00:32:27] Speaker D: Yeah.
+[00:32:30] Speaker B: You'll have to search for it.
+[00:32:30] Speaker D: They'd have to be easy to use.
+[00:32:31] Speaker C: Uh. I'll search um.
+[00:32:34] Speaker C: If you want to use teletext, you can push the teletext button and then the options uh become available.
+[00:32:37] Speaker B: Yeah.
+[00:32:39] Speaker B: Yeah, that's a
+[00:32:42] Speaker D: The sign of it.
+[00:32:43] Speaker A: Okay, but no more buttons or functions, or?
+[00:32:46] Speaker D: Uh, no. What else can you do with a television?
+[00:32:46] Speaker B: I guess not.
+[00:32:46] Speaker C: No.
+[00:32:49] Speaker B: We've got anon
+[00:32:49] Speaker A: Aren't we forgetting something very important?
+[00:32:51] Speaker B: Have got got two examples here, but I don't think there's anything we're missing.
+[00:32:55] Speaker D: Uh play, pause, doesn't n need to be there.
+[00:32:58] Speaker B: Well, we don't have the video orders
+[00:32:59] Speaker D: Yes, so this is your presentation.
+[00:33:04] Speaker D: We could check the other remote controls with technical functions.
+[00:33:06] Speaker B: Yeah, you could look here all the the
+[00:33:09] Speaker D: Which ones were yours?
+[00:33:10] Speaker B: Uh th th th th I don't know, technical functions. They're a bit small, you can we should stretch them, because
+[00:33:12] Speaker D: Techni
+[00:33:18] Speaker A: Ping.
+[00:33:19] Speaker D: Ja ja ja ja ja. Technical functions. Yeah okay.
+[00:33:24] Speaker B: I guess we've got them all.
+[00:33:25] Speaker D: Uh I think I go to have volume, mute but I Yeah.
+[00:33:33] Speaker D: Very slow. Yeah, the zoom buttons.
+[00:33:36] Speaker B: And for a T_V_? Can you zoom in a T_V_?
+[00:33:37] Speaker D: Yeah, b wide screen, high screen, different things you have, yeah different uh Yeah.
+[00:33:41] Speaker B: Or that you can put 'em on uh on on wide and yeah. But that should also be a sub then, a sub uh menu thing.
+[00:33:47] Speaker C: Menu.
+[00:33:48] Speaker D: Yeah it should be available, but then in separate screen settings or something.
+[00:33:50] Speaker B: Yeah, so we should also implement se screen settings.
+[00:33:51] Speaker C: Mm.
+[00:33:54] Speaker D: Yeah, screen settings, audio settings, teletext settings you have.
+[00:33:55] Speaker B: Oh right.
+[00:33:57] Speaker B: Yeah.
+[00:33:58] Speaker D: Channel settings.
+[00:34:00] Speaker B: Yeah, so you can program the
+[00:34:01] Speaker D: So those four, and of course the main.
+[00:34:03] Speaker B: Yeah, so the first you see the main, and the other ones you can uh go to uh
+[00:34:05] Speaker D: Yeah. Yeah.
+[00:34:07] Speaker D: Like tap screens or something or, I dunno.
+[00:34:08] Speaker B: Yeah.
+[00:34:11] Speaker D: Something
+[00:34:11] Speaker B: I hope we can do this.
+[00:34:13] Speaker C: There are a lot of options depending uh on what kind of television you got. 'Cause if you don't got a wide screen television you don't need the uh the screen settings uh for uh
+[00:34:13] Speaker D: Yeah, if uh
+[00:34:19] Speaker D: No, you don't yu a no you then you don't no ni don't then you don't use it.
+[00:34:23] Speaker C: Yeah and if the television does not support such uh operations
+[00:34:27] Speaker D: Mm-hmm.
+[00:34:27] Speaker B: We don't have to use that top. Yeah.
+[00:34:29] Speaker D: Yeah. So you leave it alone. Yeah. Or it could be possible to have a a standard version of the remote, an expanded version.
+[00:34:30] Speaker C: Yeah.
+[00:34:32] Speaker C: Yeah.
+[00:34:37] Speaker B: Yeah.
+[00:34:39] Speaker B: And do we want them in different colours, or
+[00:34:40] Speaker D: Yeah.
+[00:34:43] Speaker B: And and the buttons, should they have colours?
+[00:34:43] Speaker D: Colours. Yeah.
+[00:34:45] Speaker C: Colours I think the main colour of the remote control is uh the colour of the L_C_D_ screen. I Because we don't want a lot a devi yeah a device self s g
+[00:34:46] Speaker B: Oh but we don't have any buttons.
+[00:34:50] Speaker B: Yeah.
+[00:34:50] Speaker A: Yeah.
+[00:34:50] Speaker D: Yeah, then defines itself.
+[00:34:52] Speaker D: Because uh how many percent? Eighty percent?
+[00:34:55] Speaker B: They think it's ugly, right?
+[00:34:57] Speaker D: Would spend more money if it looks fancy.
+[00:34:58] Speaker C: Okay, so use uh very uh lot of peo
+[00:35:02] Speaker B: Perhaps you can uh make adjustable fronts, like with the telephones. You can uh But I don't think that uh
+[00:35:04] Speaker C: Adjust with phones, yes
+[00:35:07] Speaker C: Okay. Twelve Euro fifty.
+[00:35:12] Speaker C: Well, make it available in different colours, you mean? Sure.
+[00:35:14] Speaker B: Yeah.
+[00:35:15] Speaker D: Yeah.
+[00:35:17] Speaker C: Red, white, blue, black.
+[00:35:20] Speaker D: Rasta colours.
+[00:35:21] Speaker A: And a see-through uh
+[00:35:21] Speaker C: Grey. Yeah sea view, yes, Simpson's versions and
+[00:35:22] Speaker B: Yeah.
+[00:35:22] Speaker D: Yeah, see through version. Yeah.
+[00:35:26] Speaker D: If you press a button, it turns green.
+[00:35:27] Speaker B: Yeah.
+[00:35:28] Speaker A: Okay, well that's the
+[00:35:29] Speaker C: Leave.
+[00:35:29] Speaker B: A disco version.
+[00:35:31] Speaker A: signal for las final five minutes. Um so I have uh the things I just read. Um then we have uh separate menus for teletext, screen settings, audio settings, and what else?
+[00:35:31] Speaker B: Five minutes?
+[00:35:43] Speaker C: Yeah.
+[00:35:44] Speaker D: Channel settings?
+[00:35:45] Speaker B: Oh yeah, right. So you can program the T_V_.
+[00:35:45] Speaker A: Channel settings.
+[00:35:47] Speaker D: Yeah.
+[00:35:47] Speaker A: Okay.
+[00:35:49] Speaker D: Mm.
+[00:35:50] Speaker B: Perhaps you should you'd throw them on on in one pile. So, options, and then you sub them. Otherwise you have all those teletext, perhaps teletext not, but
+[00:35:57] Speaker D: Yeah. Could be possible.
+[00:36:00] Speaker C: Mm.
+[00:36:01] Speaker D: Or like uh you have a menu button, you press Yeah, or otherwise you have a menu button, press menu then you have uh main uh menu search uh all the all the settings.
+[00:36:02] Speaker A: No, we said teletext also a separate menu.
+[00:36:04] Speaker B: Yeah, but I
+[00:36:07] Speaker B: Yeah.
+[00:36:11] Speaker B: Yeah. But
+[00:36:11] Speaker A: Okay, but we can work that out later, I guess. So we're having a a general menu with the most used functions, uh teletext, screen settings, audio settings, channel settings, and maybe there are options for the remote itself? Like uh large icons or small icons and
+[00:36:13] Speaker D: Yeah, no problem. Yep.
+[00:36:25] Speaker B: I don't know.
+[00:36:28] Speaker A: I don't know what else, but
+[00:36:28] Speaker D: Um, I think b because we don't have a lot of buttons on the one screen, I think the buttons Yeah, but but or like you have you only have channel button or volume button. Those buttons you can you can
+[00:36:29] Speaker C: No.
+[00:36:33] Speaker B: Or do we have any buttons? On the remote.
+[00:36:36] Speaker B: Which one?
+[00:36:40] Speaker B: But that's also in the L_C_D_, right?
+[00:36:40] Speaker A: Yeah, but on the L_C_D_, huh?
+[00:36:42] Speaker D: Yeah. Yeah, th
+[00:36:43] Speaker A: Right, yeah, okay.
+[00:36:43] Speaker B: So we don't have any normal buttons that uh No, alright.
+[00:36:45] Speaker D: No, no normal buttons, yeah. Maybe only the on and o on and off button. But I don't think
+[00:36:47] Speaker B: Yet on and off is p is perhaps you kno
+[00:36:48] Speaker A: But we don't need a special we don't need a special options menu for the remote itself.
+[00:36:49] Speaker C: Uh not button
+[00:36:53] Speaker D: Mm, no.
+[00:36:53] Speaker B: No, no.
+[00:36:54] Speaker A: Okay.
+[00:36:56] Speaker B: Oh well, you should be able to set which T_V_ you have.
+[00:37:00] Speaker B: If you have if you have uh
+[00:37:01] Speaker C: Yeah sure, of course you need uh a settings button, uh or a settings option for the remote control.
+[00:37:06] Speaker B: Yeah.
+[00:37:07] Speaker B: But isn't idea to use uh uh what you said, uh normal on and off button for the T_V_, that you don't have to use a
+[00:37:13] Speaker D: No no no, because we we discussed that you could charge it, otherwise is it it jumps to stand-by mode automatically.
+[00:37:21] Speaker B: Yeah but but not for the remote but for the T_V_, that you use
+[00:37:24] Speaker D: Yeah, but a T_V_ of course, th that's the I think that's a best thing is that to implement that one in the menu with the volume and channel. No.
+[00:37:31] Speaker B: But a not as normal button, in the L_C_D_, yeah.
+[00:37:33] Speaker A: Well maybe there should be a separate button apart from the L_C_D_, because you can't turn it on when the L_C_D_ is off. So how do you turn the thing on? There has to be a on button on the remote, huh?
+[00:37:41] Speaker B: No you just tap I think.
+[00:37:42] Speaker D: Yeah, you tap. Touch screen, yeah then it's turn turn off, turn on.
+[00:37:42] Speaker C: Just tap it.
+[00:37:43] Speaker A: Tap the thing. Okay. And then the television is on also, or just the remote? Sure.
+[00:37:48] Speaker D: No, just the remote. A television don't have to be on, that one you can press on, yeah stand-by, then press on remote, press on and then T_V_ should be available. Or not.
+[00:37:49] Speaker B: But
+[00:37:52] Speaker C: Yeah, it should be in standby mode, but
+[00:37:58] Speaker B: Yeah a yeah. I don't know whether it's handy to have a n a normal on button, a r just uh rubber uh for for T_V_, so you can turn it on and then you can choose the channel. Otherwise you I don't know whether or not that's
+[00:38:03] Speaker D: Separate.
+[00:38:12] Speaker C: A A A normal button on the remote control, or norm?
+[00:38:13] Speaker B: Yeah, yeah. To turn it on.
+[00:38:18] Speaker B: Of or you should put it in the L_C_D_ screen.
+[00:38:22] Speaker C: Yeah, because uh when you touch the L_C_D_ screen when it is in standby mode, it should pop on.
+[00:38:26] Speaker B: Yeah, I have, yeah.
+[00:38:29] Speaker A: Okay, well
+[00:38:29] Speaker C: Wh uh why would it be a a need to have a normal button?
+[00:38:32] Speaker B: Well I I guess if you use the L_C_D_ screen, you first have to search where is the on button, then you uh you you then turn it, and then the T_V_ goes on. But if you have a normal on button on the on the remote, then you do the on, and then you search the channel which you want.
+[00:38:47] Speaker D: Yeah, but I think the re the remote control, if you press tap the screen, it always should jump to the screen which has the volume button, channel button, and of course of also the on and off button.
+[00:38:55] Speaker C: Mm.
+[00:38:58] Speaker B: Oh right.
+[00:38:59] Speaker C: I think it looks a lot more fancy if you use uh if you don't have any buttons on the s on on remote control.
+[00:39:01] Speaker B: Yeah, I think so too. Otherwise y wet e k Yeah.
+[00:39:04] Speaker A: Yeah. So actually we're going to create a a button-less uh remote. No buttons at all. Okay, well that's might be a unique selling point, huh for a remote. Okay, well I guess we have to
+[00:39:04] Speaker D: Yeah.
+[00:39:07] Speaker B: Yeah.
+[00:39:11] Speaker D: Mm-hmm.
+[00:39:12] Speaker B: If we can afford it.
+[00:39:14] Speaker D: Yeah, if we can afford it. Yeah.
+[00:39:14] Speaker C: Oh, okay
+[00:39:15] Speaker A: postpone further discussion to uh our next meeting, because we're running out of time. Um for now, we're having a lunch break,
+[00:39:23] Speaker C: Oh.
+[00:39:24] Speaker A: and then there will be uh half an hour for the uh next share of individual work. I will uh write uh minutes, if I can create them out of this. And uh put them in the the project documents uh folder. And here are the individual actions for the for the other roles. And of course specific instructions will be sent to you again by your uh personal coach.
+[00:39:35] Speaker C: Mm.
+[00:39:46] Speaker B: Alright.
+[00:39:47] Speaker A: Luckily as we are. Okay, well thank you very much, for now, and uh have a nice lunch, huh?
+[00:39:50] Speaker D: Mm-hmm.
+[00:39:51] Speaker B: Lunch.
+[00:39:53] Speaker C: Okay. Food.
+[00:39:59] Speaker B: Should we put this back in our rooms, or uh?
+[00:40:02] Speaker C: Yeah, think so.
+[00:40:05] Speaker B: Yeah.

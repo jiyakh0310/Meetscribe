@@ -1,0 +1,496 @@
+[00:00:02] Speaker C: Excellent. So um I sent you the agenda, it was on the in the project documents. I don't know if you got a chance to just have a look at it. Anyway, it's the meeting's gonna follow more or less the same structure as last time, so we'll go round each of you in turn and you can give your presentations on what you've been up to. Um and at the end of that we need to discuss what you've come up with, so that we can make a decision on the key remote control concepts, so that's we need to know about the components' properties, materials, the user interface and any trends that the Marketing Expert has been watching.
+[00:00:51] Speaker A: Right.
+[00:00:51] Speaker C: Okay. Um, do you wanna start again? Let me we've got forty minutes.
+[00:00:53] Speaker A: Okay.
+[00:00:55] Speaker A: Right s so I haven't made a PowerPoint presentation, yeah, I I thought I'll use the whiteboard instead. Um mm, okay, so basically I'll start off by uh I thought I'll use the whiteboard because we have so many different options and what we can do is that we can start um uh rubbing off the options that we do not require and putting in the options that uh are m or highlighting or underlining them or something like that.
+[00:00:59] Speaker C: You haven't made a PowerPoint, okay.
+[00:01:03] Speaker C: Mm-hmm.
+[00:01:05] Speaker C: Let's hope the pen holds out.
+[00:01:26] Speaker C: Mm-hmm.
+[00:01:33] Speaker A: Okay, so uh I'll start again with a brief introduction to connect that anyway brief introduction to the insides of a remote control and uh then we can probably uh discuss the various components. Yeah.
+[00:01:37] Speaker C: Yeah.
+[00:01:52] Speaker A: Okay, so w what you see here is so this is the outside of the remote, right? If you open it, you have a circuit board here, right, and this is the chip that I was talking about last time. This basically sends information to a tr uh transistor here, which then uh sends the information to an L_E_D_ device here. If you flip the printed circuit board, and this is th the most important point here, uh everything else is kind of
+[00:01:59] Speaker C: Mm-hmm.
+[00:02:15] Speaker C: Mm-hmm.
+[00:02:24] Speaker A: Okay, so if you flip the circuit board, this is what it looks like. So you see for example a particular button attaches to a particular place on the P_C_B_ and uh on pressing this button I a circuit completes, the information goes to the chip, which is somewhere here and the chip that tra then translates the code into an infra infrared radiation, which goes goes out through there. So uh the important point that I read over the website was uh that the configurations of these printed circuit circuit boards uh are quite cheap to make, you can ge get them printed as you want to, so w we can have a configuration um irrespective of the cost, the way we want to have. Right? So that's the important point here, so these are the different options that we have.
+[00:02:34] Speaker C: Yeah.
+[00:03:03] Speaker C: Mm-hmm.
+[00:03:11] Speaker C: Mm-hmm.
+[00:03:18] Speaker A: Okay. So the batteries, I'll start with the battery, right?
+[00:03:23] Speaker C: Mm-hmm.
+[00:03:27] Speaker A: So they can be simple which is like uh the normal batteries in uh our uh the cells, yeah? Uh thes these are the kind different kind of batteries that the company makes, right? So.
+[00:03:37] Speaker C: Yeah.
+[00:03:46] Speaker A: And dynamos.
+[00:03:50] Speaker A: Um yeah, yeah. So uh I don't know if even if you want to consider this, but these are the different things that the company makes, so th they'll they'll since uh they'll come internally from the company, they'll be eas uh cheaper, uh all these options. So the third one is uh the kinetic energy ones.
+[00:03:51] Speaker B: Does that mean like a wind-up one?
+[00:03:54] Speaker B: A wind-up remote.
+[00:04:00] Speaker C: Okay.
+[00:04:06] Speaker C: Mm-hmm.
+[00:04:13] Speaker B: You could make the hand dynamo into an exercise bike, and then people could exercise whilst watching T_V_.
+[00:04:17] Speaker A: Yeah.
+[00:04:17] Speaker C: And charging their remote, yeah.
+[00:04:19] Speaker B: Yeah, and stop worrying about the whole R_S_I_ from the remote thing, 'cause that's just
+[00:04:22] Speaker A: Yeah, it's a good option. The the kinetic energy one is uh that e uh uh they are usually modern watches, since our hand keeps moving, it keeps the watch ticking. But I dunno i if it is a good idea for a remote control, because it'll just lie there for a long while sometimes. But as soon as you pick it up it moves and then again it uh re recharges or something. And the fourth option is the solar cells, which are also made by the company. Environment friendly. Okay um so I'll list things and then we can come back and discuss what what we think from uh everybody's perspective. There are different cases that can be provided. They can be basically the shape of the cases, they can be flat, they can be curved with uh one-sided
+[00:04:24] Speaker D: So what was what was this k ka
+[00:04:30] Speaker D: Okay.
+[00:04:31] Speaker C: Uh yeah.
+[00:04:34] Speaker C: Mm-hmm.
+[00:04:36] Speaker C: For a remote, 'cause you
+[00:04:37] Speaker C: Yeah.
+[00:04:39] Speaker D: Mm-hmm.
+[00:04:43] Speaker C: Yeah.
+[00:04:47] Speaker B: Yay.
+[00:04:56] Speaker C: Yeah.
+[00:05:09] Speaker C: Mm-hmm.
+[00:05:16] Speaker A: curved and one side flat, and they can be curved with on both the sides.
+[00:05:22] Speaker C: Mm-hmm.
+[00:05:24] Speaker A: These are the three options, right? Um
+[00:05:28] Speaker D: Um you mean this would be like the the overall shape of the remote control, yeah, mm-hmm.
+[00:05:33] Speaker A: Yeah, would it be flat on both the sides, would be curved from one side, or whatever uh there were different kind of supplements available, um like it can be in plastic, rubber, wood, or titanium, right? Wo wo wood.
+[00:05:34] Speaker D: Yeah, mm-hmm, mm-hmm.
+[00:05:37] Speaker D: Mm-hmm mm-hmm.
+[00:05:37] Speaker C: Mm-hmm.
+[00:05:45] Speaker C: Mm-hmm. Okay.
+[00:05:47] Speaker B: Did you say wool?
+[00:05:48] Speaker C: Wood, wood. A fluffy remote.
+[00:05:49] Speaker B: Wood. Oh right.
+[00:05:50] Speaker A: Yeah. Not wool.
+[00:05:51] Speaker B: .
+[00:05:52] Speaker B: Yeah, you'll understand why when we get to my presenta.
+[00:05:54] Speaker A: Oh really? Okay. Um the so uh we can use even um a certain titanium is also used uh in the company to make uh uh some space design equipment, so it's kind of um uh it'll be probably nicer to use, because it relates to the overall image of the company, but uh it cannot be used on a double curved surface. If we choose this, we cannot use titanium. For for these two we can use titanium, wood, rubber, or plastic. Yeah? Uh okay, the interface options now. So
+[00:05:57] Speaker C: Huh.
+[00:06:21] Speaker C: Mm.
+[00:06:27] Speaker C: Mm-hmm.
+[00:06:35] Speaker A: we can have push-buttons, like most remotes do and our company is an expert in making push-buttons.
+[00:06:44] Speaker A: Ooh. Uh we can have scroll wheels like the ones on um uh mouse pointers uh uh
+[00:06:47] Speaker B: Sony.
+[00:06:49] Speaker C: Mm-hmm.
+[00:06:50] Speaker B: Sony Ericsson mobile phones has it.
+[00:06:53] Speaker A: Yeah, yeah, something like that. So, and they have they can even have an an integrated uh push-button inside the scrolling thing. The scroll plus push. So this is something that has been recently developed by the company, um in the last decade, so not too recent. And L_C_D_s, we can have L_C_D_s. So these two are recent and and this is q quite old. The various electronic options are um
+[00:06:54] Speaker B: Mm.
+[00:07:00] Speaker C: Okay.
+[00:07:19] Speaker C: Mm-hmm.
+[00:07:28] Speaker A: uh so th this concerns firs first of all the the chips I I showed you at uh so there's there's a chip behind this one, right? The P_C_B_ is uh inexpensive, so we can put put in uh whatever we want, but the various integrated circuit options are, we have either a simple one
+[00:07:41] Speaker C: Mm-hmm.
+[00:07:48] Speaker A: or a regular
+[00:07:52] Speaker A: or advanced.
+[00:07:56] Speaker A: And uh the price goes up
+[00:07:59] Speaker C: Mm-hmm.
+[00:08:01] Speaker A: as we go down, obviously. Um okay, so the good thing about uh wh wh why why we would want to use advanced u why we might want to use advanced is that L_C_D_s can only come with the advanced chip. Um the we need regular or advanced for uh scroll wheels.
+[00:08:16] Speaker C: Mm-hmm.
+[00:08:27] Speaker A: Right? Um and the chip basically includes the infra infrared sender.
+[00:08:33] Speaker C: Mm-hmm.
+[00:08:34] Speaker A: Yeah. Uh besides this in electr under electronics uh also the company has started making a sample sender, which is did not explained what i what it was, but I'm guessing that uh so they have a sample sender and a sample speaker.
+[00:08:55] Speaker A: So I'm guessing that uh the sample speaker is probably something like um uh you know, as soon as you press a button, it it mm uh give gives you feedback, one five or whatever. Yeah, on. Um and uh I dunno whether sample sender sender has to do something with voice recognition or not, but anyway. So, these are the different options that we have.
+[00:09:07] Speaker C: Mm-hmm.
+[00:09:16] Speaker C: Mm-hmm.
+[00:09:20] Speaker A: Okay, so th that's that's basically now now uh I think that uh we can integrate um uh you know, uh the user interface uh and uh the marketing things in that, keep uh taking out things from this and uh underlining things that are important, yeah.
+[00:09:32] Speaker C: Yeah.
+[00:09:35] Speaker C: Mm-hmm.
+[00:09:37] Speaker C: Excellent. Do you wanna stay somewhere near the board, so that if we need to you can sit down, but just we might need you to leap up.
+[00:09:38] Speaker D: Okay.
+[00:09:41] Speaker A: Yeah, yeah, sure. Sure. Yeah.
+[00:09:46] Speaker D: Okay.
+[00:09:47] Speaker C: What are you, PowerPoint, or
+[00:09:49] Speaker D: Um I have some PowerPoint, yeah.
+[00:09:51] Speaker C: Okay.
+[00:09:51] Speaker A: Right.
+[00:09:54] Speaker D: Oh.
+[00:10:19] Speaker C: Do you think these pens can give you cancer of the hand? Some sort of radiation?
+[00:10:20] Speaker D: 'Kay.
+[00:10:24] Speaker B: No it's got its little camera in there, plug it in.
+[00:10:26] Speaker C: Yeah.
+[00:10:28] Speaker D: Okay.
+[00:10:29] Speaker B: 'S a
+[00:10:29] Speaker A: Yeah, it should should do it. Yeah.
+[00:10:33] Speaker C: Right, interface concept.
+[00:10:35] Speaker D: Okay. Um to be honest actually, I mentioned some some of the things which which could fit on the on the this talk um this time, I m I mentioned them already in the previous talk. So um yeah, this time um I might not have them on the slides but I I can just mention them aw again. Okay.
+[00:10:46] Speaker C: That's fine.
+[00:10:52] Speaker C: Mm-hmm.
+[00:10:57] Speaker D: So um I thought um I would also include the definition of user interface um so it's the aspects of a of of a computer system or programme which can be seen uh by the user um and and which uh the mechanisms that the user uses to control its operation and input data. So this would p includes things like shape and size and buttons and um voice recognition as well, and colour, and so on.
+[00:11:23] Speaker C: Mm-hmm.
+[00:11:25] Speaker D: Um um the method I employed this time was a again having a look to related products and mainly on the internet and then um analyse them uh from the point of view of user fen friendliness and also um whether their appearance was was pleasant. Um and then um this uh this um
+[00:11:55] Speaker D: this can help us to decide which features we want to incorporate in our product. So some findings um um.
+[00:11:59] Speaker C: Mm-hmm.
+[00:12:06] Speaker D: So in in the case of many user interfaces, they're just so full of buttons that it's actually uh hard to find the ones you you really um want to use and um and it's just confusing, it takes y know time to learn. Um okay, and I thought I would just quickly show some of them that I found.
+[00:12:30] Speaker D: Okay, some of them are here. Um well the picture is not very clear, but as you can see, there are actu oi, oh oh oh, sorry for that.
+[00:12:39] Speaker D: 'S go back.
+[00:12:42] Speaker A: That's nice one.
+[00:12:42] Speaker D: Ah, no, please.
+[00:12:47] Speaker D: Okay, so yeah, they're quite big and have many many buttons. Actually of the of all these I personally p prefer this one, because it's it's the smallest and and with with least uh with the smallest number of buttons as well. And I would say even the appearance of some of them is kind of not so nice. Um okay.
+[00:13:05] Speaker B: Ugly.
+[00:13:06] Speaker C: Mm.
+[00:13:12] Speaker D: So let's carry on with this. Um
+[00:13:20] Speaker D: So uh um o other findings um some new things um used, uh some of them were mentioned already by our Technical um Designer uh. Our own company has developed a new in user interface uh wait, no this is not the one.
+[00:13:39] Speaker D: Okay, there is a we can uh include voice recognition and um it allows i it's possible to record eighty different voice samples on it. Uh so uh this uh this one was already mentioned uh the L_C_ display.
+[00:13:49] Speaker A: Mm.
+[00:13:49] Speaker C: Mm-hmm.
+[00:13:54] Speaker C: It's yeah.
+[00:13:56] Speaker D: Um s another new development is a scroll button, which was also th also already mentioned. And uh our own manufacturing division ha has uh designed a new um
+[00:14:10] Speaker D: uh programmable speech uh
+[00:14:14] Speaker D: mm sorry uh speaker unit I guess it's it should be. Um and this means that um once uh uh it it it comes together with a voice recognition, but it's once once the mm um gadget uh recognises uh the voice of the speaker, there can be a um pre-programmed answer, for example, you can pick up the remote control and say something to it like hello and it says some hello and your name or whatever. So I mean this is also one of the n dev new developments which we might consider if we wanted to include.
+[00:14:17] Speaker C: Yeah.
+[00:14:39] Speaker C: Uh-huh, hi yeah.
+[00:14:42] Speaker A: Mm.
+[00:14:48] Speaker A: Uh sorry, uh can you go back for a second? Um uh are you sure wha what this means, a spinning wheel with the L_C_ display? Uh oh yeah are th
+[00:14:56] Speaker C: It's like the like you said, no? The scroll scroll wheel.
+[00:14:59] Speaker D: No no, the scroll button is a different thing. I I have a picture if you just a moment, I'll I'll show you. I wasn't completely sure myself, but I think it's just like um it's it's a wheel, it's like not separate buttons. Look, this one here. But I'm I'm not really sure whether whether you can really turn it round, it's like you press this or this or
+[00:14:59] Speaker B: Yeah, you can't
+[00:15:15] Speaker A: Oh okay, the iPod thing, yeah.
+[00:15:15] Speaker B: Oh, it's like the iPod.
+[00:15:20] Speaker B: G yeah, no, you can. It's like it's like where you you know how you have your your mouse, and y you go round and i it's kind of like that and you spin round and it yeah. It is
+[00:15:21] Speaker A: Uh it's the iPod uh kind of uh
+[00:15:25] Speaker C: Uh-huh.
+[00:15:27] Speaker A: Alright, right. Okay, okay.
+[00:15:31] Speaker A: So instead of going down you just spin yeah, yeah.
+[00:15:34] Speaker B: You just go round and it is a bit weird at first, but it's actually very like fast.
+[00:15:34] Speaker C: Mm-hmm.
+[00:15:38] Speaker A: Uh-huh.
+[00:15:39] Speaker C: Mm-hmm.
+[00:15:39] Speaker B: I like the the wheels that click on the side you you get 'em much slower, so it's quite good if you like searching quite a lot of stuff. Do you know, if you're lookin if you're th scrolling through the A_ to Z_ of your music and you're looking for something at T_, then it's a lot faster than the wheel, but you've got a lot less control over it.
+[00:15:45] Speaker A: Right.
+[00:15:45] Speaker C: Mm-hmm.
+[00:15:45] Speaker D: Uh-huh.
+[00:15:50] Speaker A: Mm-hmm.
+[00:15:54] Speaker C: Mm-hmm.
+[00:15:54] Speaker A: Right. So maybe I should include that here as well, L_C_D_s um plus spinning.
+[00:15:55] Speaker D: Mm.
+[00:15:57] Speaker C: Yeah.
+[00:15:58] Speaker D: Uh
+[00:16:02] Speaker C: Yeah.
+[00:16:04] Speaker D: Okay, and the personal preferences are pretty much the same as as as last time. It it has to be small, simple. Okay, we decided to include voice recognition, so to have the standard uh major buttons like on, off, um ch the channels and and then um volume and then the rest would be a menu on the screen.
+[00:16:08] Speaker C: Mm-hmm.
+[00:16:25] Speaker D: Um and I I also thought uh if we want to keep it small and nice um and actually I I quite like the idea of a scroll a scrolling button, I thought it could be for for voice like, I dunno, it mm like on a um i like it used to be on Walkmans or something. There is uh I think there is no reason why we couldn't use something like this for for the remote control.
+[00:16:48] Speaker A: Mm-hmm.
+[00:16:48] Speaker C: Mm-hmm.
+[00:16:50] Speaker D: So yeah, that's uh that's it.
+[00:16:52] Speaker C: Excellent. Okay, straight to trends, and then we can discuss it all at once.
+[00:16:56] Speaker A: Right.
+[00:17:05] Speaker B: Okay, I've put the copy of the presentation in um the yeah.
+[00:17:09] Speaker C: The project documents. Excellent. If you two could both do that as well, in case we need to refer to it.
+[00:17:13] Speaker A: Mm-hmm.
+[00:17:30] Speaker B: Cool.
+[00:17:37] Speaker C: Here it comes.
+[00:17:48] Speaker C: Okay.
+[00:17:50] Speaker B: Fabulous. Okay, cool. Um so what I did was to search the internet to come up with market trends and you know what users are gonna be wanting in the the near future. Okay.
+[00:18:01] Speaker C: Mm-hmm.
+[00:18:04] Speaker B: Right. Now, the first aspect is apparently twice as important as the second aspect, which is twice as important as the third a aspect. So, I mean the the easy to use thing is fairly low down on the which I think given the target group is what you would expect, really.
+[00:18:11] Speaker C: Okay.
+[00:18:16] Speaker A: Mm-hmm.
+[00:18:20] Speaker C: Mm-hmm.
+[00:18:21] Speaker B: Um, you know, people want something new, something technologically innovative and different, so the whole idea with the L_C_D_s and the spinning and the colours and the voice recognition is quite like, quite the thing to go for. And um, yeah it wants to look fancy, fancy look and feel. So
+[00:18:34] Speaker C: Mm-hmm.
+[00:18:34] Speaker A: Okay.
+[00:18:39] Speaker A: So um uh maybe uh as you're discussing things, is it okay if we just uh keep highlighting things here? Right. So mm uh so it yeah, so probably voice recognition is is kind of important, right? Um and an yeah. Okay, I I have a point about L_C_D_, I dunno if it is the right point to take it up. W uh L_C_D_s are basically for feedback, right, to the user who's pressing buttons, and the feedback can come through television itself, so do we need an L_C_D_ on the remote?
+[00:18:43] Speaker C: Yeah, yeah, sure. Yeah.
+[00:18:44] Speaker B: Yeah, yeah.
+[00:18:47] Speaker C: That's over on the interface, if if you could put
+[00:18:53] Speaker C: Yeah.
+[00:18:55] Speaker C: And maybe the L_C_D_ and spinning so that means we need an advanced thing.
+[00:19:05] Speaker C: Mm-hmm.
+[00:19:06] Speaker B: Mm.
+[00:19:12] Speaker B: Depends how fast your television runs, really, don't don't you think? I mean we've got one of those um Telewest boxes and you put the number in the remote and then you wait and then it goes to the T_V_ and then you wait, and then it comes, so i it actually takes quite a long time. And if you get the number in wrong, then it's a bit of a pain, so I think, you know, a screen on the remote would probably cut down your time on that. But like remotes do tend to get f thrown about a bit.
+[00:19:18] Speaker A: Mm.
+[00:19:25] Speaker C: Mm.
+[00:19:26] Speaker A: Right.
+[00:19:36] Speaker A: Right.
+[00:19:36] Speaker C: It it is also quite nice though to to have something here so you don't interrupt the picture on the screen, so if you're watching something
+[00:19:37] Speaker B: You know?
+[00:19:41] Speaker B: Yeah.
+[00:19:42] Speaker A: That's true, yeah, that's also
+[00:19:43] Speaker B: And i it would be like I mean if you could make it integrate with the T_V_ then it could come up with new information about what's on, and you could just see that on the remote rather than
+[00:19:50] Speaker C: Yeah. Rather than having to interrupt your viewing pleasure.
+[00:19:52] Speaker B: Yeah.
+[00:19:54] Speaker B: But um I think maybe a way to do it would be a similar way to how you have your mobile phone, you know, like you have the slidey ones and you have the flippy ones and then the screen's protected so it doesn't actually get scratched. So you can have like what looks like a normal remote control, you know or like a minimalist remote control. So you got your buttons one to nine, your on and off and your volume on that and then if you want to mess about with it, you flip it open and, yeah.
+[00:19:54] Speaker A: Right.
+[00:20:03] Speaker C: Mm.
+[00:20:04] Speaker A: Mm-hmm.
+[00:20:08] Speaker C: Yeah.
+[00:20:12] Speaker A: Mm right.
+[00:20:14] Speaker C: And then you can flip it open.
+[00:20:17] Speaker A: Okay.
+[00:20:19] Speaker A: So now we seem to have a consensus that L_C_D_s are definitely the way to go because of style and
+[00:20:22] Speaker C: Yeah, I think so.
+[00:20:24] Speaker B: Yeah, so that kind of decides your whole chip thing.
+[00:20:26] Speaker A: Right.
+[00:20:26] Speaker C: Yeah.
+[00:20:28] Speaker A: You you agree? Maarika, yeah? Yeah.
+[00:20:29] Speaker D: Yep, yeah.
+[00:20:31] Speaker C: Right.
+[00:20:32] Speaker A: So L_C_D_s, yeah, definitely. Go on.
+[00:20:32] Speaker B: Okay?
+[00:20:36] Speaker B: Cool. Okay, apparently, fruit and vegetables will be providing inspiration. Sorry, I discovered clip art. Um so these will be an important feature for clothes, shoes and furniture. So I mean, I'm taking this to mean, you know, curviness.
+[00:20:55] Speaker B: Do you know? 'Cause you don't tend to get flat vegetables. You know?
+[00:20:56] Speaker C: Yeah, and possibly even uneven, like not not symmet yeah.
+[00:20:57] Speaker A: Mm-hmm.
+[00:20:59] Speaker B: Yeah, bit of asymmetry and stuff. But that would be a good way to to get in the whole um R_S_I_ issue in there, because I mean if you think most people use the remote control with their right hand ha right hands so you wanna you curve it so that it's suitable for use with the right hand. Um yeah, I'm not quite sure about the relevance of material will be spongy. Um
+[00:21:08] Speaker C: Mm-hmm.
+[00:21:08] Speaker A: Right.
+[00:21:16] Speaker D: Mm-hmm.
+[00:21:17] Speaker C: Mm-hmm.
+[00:21:17] Speaker A: Mm.
+[00:21:23] Speaker C: Something a bit squishy and
+[00:21:25] Speaker B: Yeah, but I mean y you have to
+[00:21:26] Speaker A: Yeah, we we have we have rubber, but there is a problem that I forgot to discuss with the um with using
+[00:21:27] Speaker D: So it could be like a rubbery yeah, uh-huh.
+[00:21:39] Speaker B: Well I suppose you wouldn't get a remote uh an electric shock off your remote control if it was made of rubber.
+[00:21:43] Speaker C: Yeah, and it'd help if you drop it, it protects it as well.
+[00:21:47] Speaker B: Yeah, yeah.
+[00:21:48] Speaker C: To some degree.
+[00:21:49] Speaker A: So if if we use uh latex cases, they won't allow us to use solar cells, as an energy source that is the constraint, so um we could use titanium, wood or plastic uh or uh
+[00:21:57] Speaker C: Uh-huh.
+[00:22:06] Speaker C: Or if we want to use the the latex, then we have to go with one of the other um power things.
+[00:22:11] Speaker B: If it's made of rubber you could get the kinetic energy fairly easily there, you could just bounce it up and down.
+[00:22:12] Speaker A: Yeah, w energy source.
+[00:22:14] Speaker C: From from bouncing it. You can have it as like a little ball to bounce, that flips open.
+[00:22:16] Speaker A: Yeah, tap it on the desk, yeah.
+[00:22:20] Speaker B: Yeah. Um so yeah, um okay.
+[00:22:23] Speaker A: Mm.
+[00:22:26] Speaker A: So probably double curved surface is the way to go, yeah,.
+[00:22:29] Speaker B: Yeah, yeah.
+[00:22:30] Speaker C: Mm yeah.
+[00:22:31] Speaker A: Or or curved at one end and flat on the top, because I I'm not sure if it is flat on both both the sides, then ho how much easy would it be to reach for buttons, etcetera. Um
+[00:22:42] Speaker B: You have to have a certain element of flatness, I think. It it depends on the whole ergonomics of it, you know, it's like how you put your hands so y it's the least movement basically.
+[00:22:45] Speaker A: Yeah.
+[00:22:50] Speaker A: Yeah. Yeah, singe single side curved or double side curved does not say too much, does it? It uh
+[00:22:52] Speaker C: Uh-huh.
+[00:22:55] Speaker B: No, I d I don't think it makes a lot of difference. I I have one of those s slidey phones and I mean the back is essentially straight, but it's curvy, so. Besides, you have four sides to a thing, so I mean does curved one side mean one side is straight and, you know curved two sides means the whole thing is just a big curvy p thing?
+[00:23:04] Speaker C: Mm.
+[00:23:04] Speaker A: Mm.
+[00:23:06] Speaker A: Uh I think uh
+[00:23:06] Speaker C: Yeah, 'cause the
+[00:23:09] Speaker C: Yeah.
+[00:23:12] Speaker A: Right.
+[00:23:17] Speaker A: Right. Di now did it say anywhere in your research material about this sliding stuff uh because um according to the information that I have, I think uh the onl only options that we have with the case is are these three. Uh eith either we have uh a flat surfaced uh case or a curved surfaced case. It does not say anything about uh whether technically, you know, this this stuff is available at all.
+[00:23:17] Speaker C: Dunno.
+[00:23:30] Speaker B: Yeah.
+[00:23:35] Speaker C: Nothing to open them.
+[00:23:39] Speaker B: Yeah. Uh it's it's more about the protecting the L_C_D_, which I think is where it came from. But no, my research didn't tell me anything, which is why we have all the pictures, 'cause I had nothing better to do with my time. Okay, cool.
+[00:23:42] Speaker A: Right, yeah, yeah.
+[00:23:48] Speaker A: Right.
+[00:23:50] Speaker A: Okay.
+[00:23:51] Speaker C: Anything else? What've we got?
+[00:23:53] Speaker B: Uh combine style with a level of functionality, um beauty and practicality and a thing of beauty and p function.
+[00:24:01] Speaker A: Cool, thanks.
+[00:24:01] Speaker C: Okay, so.
+[00:24:02] Speaker B: Okay?
+[00:24:03] Speaker D: Thanks
+[00:24:05] Speaker C: Looking at what we've got, we we want an L_C_D_ display with a spinning wheel.
+[00:24:10] Speaker A: Yeah. Let's let's try to r rub off things and yeah, so um hand dynamos are definitely out, right?
+[00:24:13] Speaker C: Yeah, rub off some of those.
+[00:24:19] Speaker C: Yeah, it's not that's not streamlined and sexy, having a having a wind up.
+[00:24:19] Speaker A: You you got a wind dynamo, yeah.
+[00:24:20] Speaker D: Yeah uh-hum yeah.
+[00:24:24] Speaker A: Okay. Um kinetic energy does seem to have some kind of uh uh appeal, but uh
+[00:24:30] Speaker C: I think tha
+[00:24:33] Speaker B: It's about the practicality of it really, isn't it? You know? I mean if
+[00:24:33] Speaker A: it's
+[00:24:35] Speaker A: Yeah. As against a watch, which constantly keeps moving, this this thing will have to be tapped every time, which which might be very frustrating for the user.
+[00:24:43] Speaker C: Depends how much how much movement it really needs. Pr presumably if they're suggesting it, then we could use it. I'd I'd keep it on.
+[00:24:45] Speaker A: Kinetic energy it needs I don't have too much technical information on that, yeah, right. Okay, let's keep it option uh keep an option, yeah. Um the flat co completely flat case is definitely out, right? It has to be at least curved from one side, yeah.
+[00:24:59] Speaker C: We don't want that it's no it's not not vegetable.
+[00:24:59] Speaker D: Yeah it's yeah.
+[00:25:04] Speaker A: Um okay, we still have all all the options. Wood, do you think wood will be a good idea?
+[00:25:10] Speaker D: N wood is I can't n how do you uh I mean you can't keep it really small uh you can't make it like thin and
+[00:25:15] Speaker A: Mm.
+[00:25:18] Speaker A: Right.
+[00:25:19] Speaker D: The wood thing. Because you need to you n you need to put all the technology in, so I mean if the case you add the case and it it becomes a bit bulky wi mm-mm yeah.
+[00:25:19] Speaker B: I can't imagine a m wooden remote control.
+[00:25:19] Speaker C: Mm.
+[00:25:26] Speaker A: Yeah if if it is really thin if it is really thin it it's likely to break, it's it's much more uh
+[00:25:28] Speaker C: Mm.
+[00:25:31] Speaker D: Yeah, yeah.
+[00:25:33] Speaker D: Yeah.
+[00:25:33] Speaker C: Yeah, and given that we're we're looking at more spongy material preferences, I ha would think maybe rubber or plastic is more
+[00:25:39] Speaker D: U yeah wood is not really yeah.
+[00:25:41] Speaker B: Well it's not very cleanable either, do you know. It's it's not a practical I mean it's it's alright for a table, but for a remote control, you know.
+[00:25:41] Speaker A: Right.
+[00:25:43] Speaker C: Yeah.
+[00:25:43] Speaker D: Yeah.
+[00:25:43] Speaker A: That's true.
+[00:25:49] Speaker A: Yeah.
+[00:25:50] Speaker B: And splinters and stuff and
+[00:25:52] Speaker A: Yeah, okay wood is out.
+[00:25:53] Speaker C: Yeah.
+[00:25:55] Speaker B: It just m doesn't make any sense, I think is the thing with wood.
+[00:25:56] Speaker A: Right.
+[00:25:56] Speaker D: Yeah, yeah, in the case of remote control not really.
+[00:25:59] Speaker C: Yeah.
+[00:25:59] Speaker A: Okay, now for the really interesting stuff, the interface. Right, so uh the the push-buttons is is our expertise uh in the industry, but uh it seems to be out of trend, you know, nobody seems to be
+[00:26:04] Speaker C: Yeah.
+[00:26:14] Speaker B: You have to have some push-buttons, don't you?
+[00:26:15] Speaker D: Yeah, but you um I think for for the channel numb uh channel numbers you still need them, wouldn't you?
+[00:26:20] Speaker C: Mm-hmm.
+[00:26:20] Speaker B: G yeah, yeah.
+[00:26:21] Speaker A: Mm right.
+[00:26:21] Speaker D: Yeah, so for channel numbers but
+[00:26:23] Speaker A: Oh, if if we have L_C_D_ displays, that opens up a whole world, you know, if you have an L_C_D_ display, then mm you can select almost everything on the L_C_D_ display.
+[00:26:30] Speaker D: But I th yeah but I think the L_C_D_ display is kind of yeah, it's faster with a m yeah and w if we dis and when we s um discussed that we might like this flipping open thing, then I mean y you can use it as a normal remote control, but if you do want to use L_C_D_, then you flip it open, but it's it it's more time-consuming.
+[00:26:32] Speaker C: Just for fast
+[00:26:41] Speaker A: Right.
+[00:26:41] Speaker C: Yeah.
+[00:26:43] Speaker A: Okay.
+[00:26:43] Speaker C: Yeah.
+[00:26:47] Speaker B: Yeah. I think this is going back to the the graph at the beginning that I made, where, you know, the buttons that people use all the time, you want buttons for them and everything else menu-driven.
+[00:26:47] Speaker C: Yeah.
+[00:26:55] Speaker A: Mm right.
+[00:26:55] Speaker D: Yeah.
+[00:26:56] Speaker C: And it yeah L_ L_C_D_.
+[00:26:58] Speaker A: So uh in in the buttons we have for the channels also we have options. Do you do we enumerate everything from zero to nine? Or do we have just uh channel plus, channel minus, just to just to scroll?
+[00:27:08] Speaker D: No, no, I mean mm we we definitely need the the numbers, because it's uh otherwise people don't want to flip through all the channels. Um
+[00:27:12] Speaker A: The numbers.
+[00:27:13] Speaker B: Yeah.
+[00:27:16] Speaker B: Yeah.
+[00:27:16] Speaker C: Do we need them on as buttons or do we need them as L_C_D_?
+[00:27:16] Speaker A: Right.
+[00:27:18] Speaker A: Or on the L_C_D_ we can, you know
+[00:27:21] Speaker B: G yeah, I would think buttons, yeah.
+[00:27:21] Speaker D: Yeah, I would say buttons, because it's yeah.
+[00:27:24] Speaker C: Buttons.
+[00:27:25] Speaker A: Okay. So mm
+[00:27:25] Speaker B: It's it's the I think the thing is, so if someone just wants to turn on their T_V_ and put on a channel, then it should be easier to use than any other remote, and then if someone wants to, you know, change the contrast on their T_V_ and they should be able to do that and it should be accessible, but, you know, I mean most of the time I mean there's a limit to how much the biggest techno geek can spend fiddling with the T_V_, I think is the the the issue there.
+[00:27:26] Speaker D: I
+[00:27:29] Speaker C: Mm.
+[00:27:32] Speaker C: Yeah.
+[00:27:33] Speaker D: Yeah.
+[00:27:40] Speaker A: Alright.
+[00:27:43] Speaker D: Mm-hmm.
+[00:27:50] Speaker A: Right.
+[00:27:50] Speaker C: Yeah.
+[00:27:53] Speaker A: Okay, so buttons definitely in but oh shall we uh try to draw a prec um
+[00:28:00] Speaker C: I think that's what you guys are gonna do next, so if we put down the key um things that we want.
+[00:28:03] Speaker A: Uh okay.
+[00:28:05] Speaker A: Okay, okay, so the components. Right, so uh what about the the scrolling uh?
+[00:28:06] Speaker D: Yeah.
+[00:28:12] Speaker D: Yeah but n I I'm not completely um completely clear uh I yeah, about the spinning wheel. So I think it it doesn't make sense to have both like a scrolling and spinning thing, it's uh you can al include everything in the spinning if you yeah, yeah, in that case.
+[00:28:22] Speaker B: E either or
+[00:28:27] Speaker C: Just spinning and not scrolling, I would say.
+[00:28:27] Speaker B: G yeah.
+[00:28:28] Speaker B: I would say the s the s the spinning goes at a high speed to th to the scrolling wheel, so you have to decide whether you you know, you want to be going so fast or not. But I mean the the thing with this whole if y you're planning on making it out of rubber, on the basis that it's spongy, then I'm not sure how well a scrolling wheel would work.
+[00:28:32] Speaker C: Yeah.
+[00:28:44] Speaker C: Hmm.
+[00:28:46] Speaker A: Mm um
+[00:28:46] Speaker C: But if you've got a if if you've got a flipped thing, effectively it's something that's curved on one side and flat on the other side, but you folded it in half. Th that would be on one side, uh-huh.
+[00:28:48] Speaker D: Ah, but I mean you can
+[00:28:54] Speaker B: Yeah, but y your spinning wheel tends to go to one side.
+[00:28:59] Speaker A: I'm not sure it'll be a good idea to construct the whole thing out of rubber. Uh i it
+[00:29:02] Speaker C: No, I think it's just the casing rubber on the outside.
+[00:29:02] Speaker D: Yeah, I um I think so too, I mean the case would be yeah the case would be rubber and the the buttons,
+[00:29:05] Speaker B: You want an outside of rubber and then open it up and
+[00:29:07] Speaker A: Or or at the corners, edges, just the edges covered by rubber or something like that. Everything else in plastic or even titanium if we want to use it.
+[00:29:08] Speaker C: Yeah.
+[00:29:08] Speaker D: rubber buttons, but then
+[00:29:11] Speaker C: Yeah.
+[00:29:13] Speaker D: Yeah.
+[00:29:15] Speaker B: Or maybe like interchangeable cases.
+[00:29:17] Speaker A: Mm-hmm.
+[00:29:18] Speaker B: 'Cause I know like we're going back to iPods again n the whole spinning wheel, but I have like a you know, obviously my iPod's not made of rubber, but then I have a little rubber case that goes over the top of it and I can change the colour, theoretically, to match my outfit.
+[00:29:29] Speaker C: Mm.
+[00:29:29] Speaker A: Right, right.
+[00:29:32] Speaker A: Right, okay, so so that gives us a more trendy look as well. Um
+[00:29:39] Speaker B: Yeah, I think the spinning wheel is definitely very now.
+[00:29:42] Speaker A: Right. Yeah, and uh we're going more for the trends than for the usability anyway, right? So
+[00:29:42] Speaker C: Mm-hmm.
+[00:29:43] Speaker D: Mm-hmm.
+[00:29:45] Speaker C: That's right, that's what they're after.
+[00:29:47] Speaker B: Yeah.
+[00:29:50] Speaker A: I'll rub that out.
+[00:29:53] Speaker A: And uh colours can be provided with the case rather than
+[00:29:58] Speaker A: Um but we still need to te think about the colour of our remote as such, you know, just keep it black, or
+[00:29:58] Speaker C: Mm-hmm.
+[00:30:02] Speaker D: Yeah I think we um it was a a requirement that we use our um th the colours of our company, so would it be like yellow, grey and black or something, or
+[00:30:11] Speaker C: I guess.
+[00:30:11] Speaker B: That doesn't fit in with the whole vegetable theme though.
+[00:30:12] Speaker D: Yeah, does
+[00:30:14] Speaker C: Bananas.
+[00:30:14] Speaker D: Yeah. Banana's yellow, yeah, definitely.
+[00:30:16] Speaker B: Yeah, but I mean do you think we could incorporate the colours of the company into the buttons and then make the colour of the main remote the colour like vegetable colours, do you know? So you could have like I mean I suppose vegetable colours would be orange and green and some reds and um maybe purple and that and then you'd pick the buttons in company colours to to match with it.
+[00:30:26] Speaker C: Mm-hmm.
+[00:30:30] Speaker C: Green.
+[00:30:33] Speaker C: Yeah.
+[00:30:38] Speaker A: Mm.
+[00:30:40] Speaker A: Okay. Um okay, if you g go over to uh the integrated circuits. Uh since we're having L_C_D_s there there's no way that we're will be able to um what we do need to consider, however, is that the price is going up for the ever every such thing that we are considering, but since L_C_D_s seems to be uh a definite yes, so it seems to be one area where we would want to spend.
+[00:30:47] Speaker C: We need the advanced yeah.
+[00:30:57] Speaker C: Yeah.
+[00:31:00] Speaker C: Yeah.
+[00:31:05] Speaker A: So I'll rub off the other two.
+[00:31:06] Speaker C: Mm-hmm.
+[00:31:08] Speaker B: So are we discounting solar energy because rubber's gonna be used in there somewhere or
+[00:31:14] Speaker C: That was the
+[00:31:15] Speaker A: Oh is oh the constraint was uh yeah.
+[00:31:18] Speaker B: If solar panels with the rubber.
+[00:31:18] Speaker C: We can't have solar panels with rubber, so.
+[00:31:20] Speaker A: Yeah. So
+[00:31:22] Speaker B: Yeah, okay, so we lose that I think.
+[00:31:26] Speaker C: Shall we go for if we're going for rubber, we think uh on as our case, and then
+[00:31:31] Speaker D: Mm-hmm. And the buttons as well, I think. Yeah.
+[00:31:34] Speaker C: Yeah.
+[00:31:36] Speaker A: I think uh we'll have uh uh using the simple battery will be a safer option as compared to the kinetic energy one, I mean, a although it does seem uh interesting. But it does not hold any advantages as such for a yeah.
+[00:31:37] Speaker C: We've got five more minutes.
+[00:31:46] Speaker C: Mm-hmm.
+[00:31:49] Speaker C: Yeah.
+[00:31:50] Speaker B: Yeah.
+[00:31:51] Speaker C: Yeah, mm-hmm.
+[00:31:52] Speaker B: It's just a gimmick.
+[00:31:57] Speaker A: Okay. Uh okay, so r we understand this better now that uh the the speaker is for the feedback, right? It it says uh the things that you type in or something like that, so
+[00:32:04] Speaker C: Mm-hmm.
+[00:32:07] Speaker C: Yeah. I think if we can if we can include them at not too much extra cost, then I'd put them in, but if it's
+[00:32:12] Speaker A: Ye yeah, we we don't have too much information about it, um
+[00:32:16] Speaker C: Yeah.
+[00:32:16] Speaker D: Yeah, but it it I think it should be quite cheap because it's from our own company, yeah.
+[00:32:20] Speaker C: It's from the company, so
+[00:32:20] Speaker A: Yeah, okay, so so th this is in as well then, the sample speaker.
+[00:32:25] Speaker C: Yeah.
+[00:32:28] Speaker C: Okay. And the case is curved on one side, but then flat flat, so it's flipped into each other.
+[00:32:28] Speaker A: Right.
+[00:32:32] Speaker A: Flat on the top.
+[00:32:35] Speaker D: Mm-hmm.
+[00:32:35] Speaker A: Yeah.
+[00:32:40] Speaker A: Okay.
+[00:32:44] Speaker C: Can I pull the thing out the back of your computer?
+[00:32:46] Speaker B: Yeah, sure j
+[00:32:54] Speaker C: Just so we can
+[00:33:00] Speaker B: Sorry, do you want me to
+[00:33:01] Speaker C: Nothing, it's right, I'm just
+[00:33:07] Speaker C: There we go.
+[00:33:10] Speaker B: What does um I_C_S_ mean?
+[00:33:12] Speaker A: I_C_s? Uh integrated circuits.
+[00:33:15] Speaker B: Okay, cool. So it's advanced integrated circuits?
+[00:33:19] Speaker A: Yeah.
+[00:33:20] Speaker C: Uh oh now I've gone too far.
+[00:33:24] Speaker A: Uh um we we're definitely going in for voice recognition as well as L_C_D_s, mm.
+[00:33:29] Speaker D: Yeah.
+[00:33:29] Speaker C: Yeah.
+[00:33:35] Speaker C: We're on our way.
+[00:33:51] Speaker C: Okay. So we've basically worked out that we're going with a simple battery, the advanced chip and a curved on one side case which is folded in on itself, um made out of rubber and
+[00:34:01] Speaker A: Right.
+[00:34:06] Speaker A: Yep.
+[00:34:11] Speaker C: the buttons are also rubber. We're having push-buttons on the outside and then on the inside an L_C_D_ with spinning wheel, and we're incorporating voice recognition. That's our overall concept, and it's gonna look sort of vegetable, and be in bright vegetable colours.
+[00:34:23] Speaker D: Um
+[00:34:29] Speaker D: Uh-huh. So w w would with have the spinning wheel inside with the L_C_D_, or would it be on the outer
+[00:34:36] Speaker B: Imagine it would be inside. So um actually that could like really cut down your thing, so you've got your outside, which is like minimalist, and then you open it up and you've got a screen and a spinning wheel, which you can incorporate buttons into. Um so you've still not got like a lot of stuff in the
+[00:34:36] Speaker C: I think it's on the
+[00:34:38] Speaker D: Okay.
+[00:34:40] Speaker A: Mm.
+[00:34:46] Speaker D: Mm-hmm.
+[00:34:48] Speaker D: Yeah, okay.
+[00:34:52] Speaker D: Mm-hmm.
+[00:34:53] Speaker C: Mm-mm. Yeah.
+[00:34:58] Speaker C: On the
+[00:34:58] Speaker B: You've maybe got, you know like if you're modelling on iPod you've got five buttons and a wheel, and four of the buttons are in the wheel, and the other one's the little bit inside the wheel, yeah.
+[00:35:04] Speaker C: Mm-hmm.
+[00:35:09] Speaker C: In the centre, yeah, sure. Okay, so now we've got thirty minutes before our next meeting. In the meantime, the Industrial Designer over here is gonna work on the look and feel design, which I'll presume he'll work out what that means. Um the User Interface Designer will work on the user interface design and the Marketing Expert is going to work on product evaluation. And as well as that, the two designers are going to work together on our prototype following those instructions that we've just come up with using modelling clay and you will get extra instructions from your personal coach. Is that all okay? And anyone who hasn't put their their presentation in the project documents folder, it would be good just so in case we have to refer to it.
+[00:35:10] Speaker D: Mm yeah.
+[00:35:22] Speaker A: Mm-hmm.
+[00:35:48] Speaker D: Mm-hmm.
+[00:35:50] Speaker A: Cool.
+[00:35:53] Speaker D: Yeah.
+[00:35:57] Speaker A: Yeah, okay.
+[00:35:59] Speaker D: Mm-hmm.
+[00:36:05] Speaker B: Cool, I'm gonna go and sit on my own.
+[00:36:08] Speaker C: Y ah nobody wants to talk to you. Unplug yourself.
+[00:36:09] Speaker B: I know, I'm hated.
+[00:36:12] Speaker D: Hmm.
+[00:36:13] Speaker B: I've got a bit tangled up in all this.
+[00:36:16] Speaker D: So but shall I move away first or shall I stay here with we need to
+[00:36:19] Speaker C: I dunno, maybe I would car

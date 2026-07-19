@@ -1,0 +1,626 @@
+[00:00:02] Speaker A: Hmm
+[00:00:22] Speaker C: Yeah.
+[00:00:28] Speaker A: It's with cameras.
+[00:00:32] Speaker B: Hmm?
+[00:00:35] Speaker A: You look quite funny at the moment, Tim.
+[00:00:42] Speaker B: This isn't supposed to look like just
+[00:00:47] Speaker B: Ah, sod that. Okay, there.
+[00:00:49] Speaker A: Nice.
+[00:00:54] Speaker B: Group K_. Da.
+[00:00:58] Speaker B: Yeah.
+[00:01:05] Speaker B: Yeah, I guess. Whatever.
+[00:01:10] Speaker B: It's yeah, I never get this, so what's the point of if this is strapless if this strap's supposed to go behind m I obviously doing this wrong. Obviously failing this like whatev calling centre and tra
+[00:01:21] Speaker C: You you have this going behind your ears, the yeah. Yeah.
+[00:01:24] Speaker B: Like this and then yeah, you know what the shit has to do now.
+[00:01:26] Speaker D: Look's good.
+[00:01:35] Speaker D: Yeah.
+[00:01:37] Speaker B: Okay.
+[00:01:46] Speaker B: Yes, so um actually I just realise I don't have power, let me just switch on the other which is gonna run out.
+[00:01:57] Speaker B: Okay.
+[00:01:58] Speaker D: Okay.
+[00:02:03] Speaker B: So there's probably not much to talk about at the moment in terms of like talking about each other's stuff, I mean beyond what we've been talking about yesterday.
+[00:02:14] Speaker D: Yeah, that's true I think.
+[00:02:16] Speaker B: So what I've been thinking is maybe if we try to really make sense together of the X_M_L_ format to be sure that we can all produce the data that we are producing in a way or at least I mean I guess my data I'll probably load in from completely different way anyway because it's matrix, but all this stuff that goes with annotation, that we have it in the right format. Maybe if we just sort of pool what we know about the X_M_L_ format and try to make sense of it. I don't at all know how to go about this.
+[00:02:48] Speaker B: Um what I did just now is I downloaded
+[00:03:00] Speaker B: Um I downloaded some
+[00:03:04] Speaker B: files, some X_M_L_ files and I was thinking if we maybe just should go through some of them and like try to see if you understand the general structure and pool together what we think about the structure, what we think that things mean. And then talk about how the annotation for information density and stuff should maybe be structured in a similar way. Or but I don't r I don't really have an idea like what, other words, what we would do today in this meeting. I mean
+[00:03:07] Speaker D: Oh yeah.
+[00:03:28] Speaker D: Yeah.
+[00:03:28] Speaker C: Hmm.
+[00:03:36] Speaker D: Yeah, we haven't got that much to talk about, I don't think.
+[00:03:37] Speaker C: No. Just maybe talk about um how you would give me your data file. Yeah.
+[00:03:42] Speaker D: Yeah.
+[00:03:44] Speaker D: Yes, we can do that.
+[00:03:46] Speaker B: What's that part?
+[00:03:48] Speaker C: That's um the interface between having the topic segments and calculating the uh information importance of words.
+[00:03:53] Speaker B: Mm-hmm.
+[00:03:57] Speaker B: Mm-hmm.
+[00:03:58] Speaker C: Yeah. So I I would need separate files for each segment or just maybe have delimiters inbetween each segment.
+[00:04:03] Speaker D: Alright.
+[00:04:05] Speaker D: Yeah well, that that's the way it works. It's got delimiters in-between the mar the boundaries. But
+[00:04:08] Speaker C: Okay, yeah, and y then I can make files of that.
+[00:04:10] Speaker D: Yeah, if you're happy to do that, yeah. And you're saying you need a a label for each segment. But I mean the most I ca you don't need a one. Well, I could give you an I_D_, but it'd be quite difficult to actually give a topic a title.
+[00:04:11] Speaker C: Alright.
+[00:04:15] Speaker C: No, I don't kno know it, no.
+[00:04:19] Speaker C: Yeah, that's fine.
+[00:04:21] Speaker C: I just I just need a a title for the file, but doesn't matter what it is.
+[00:04:26] Speaker D: Right. Okay. Yeah, that's no problem.
+[00:04:32] Speaker B: Yes, so does anyone have a good idea where to start like which what so what is it we talk about getting in at the moment? We're basically just 'cause the two of you will merge your data together, right? In some way like i in the end it'll result in one annotation. So the only thing we're trying to tie in is just an additional annotation which is similar to
+[00:04:42] Speaker A: Mm yes.
+[00:04:53] Speaker B: the annotation about what what would it be s most similar to. Simply to the segmentation information or
+[00:04:59] Speaker A: Yes, perhaps yeah, but I mean they're all very very similar, all those X_M_L_ files. I had um a look at the um for example A_S_
+[00:05:04] Speaker B: Okay.
+[00:05:09] Speaker B: I'm not sure it Ah. See, that's what I was thinking. Not sure what software I have at the moment, which would be hello?
+[00:05:11] Speaker C: Mm.
+[00:05:12] Speaker A: Mm.
+[00:05:21] Speaker B: Um
+[00:05:26] Speaker B: Yeah.
+[00:05:28] Speaker B: Ah.
+[00:05:32] Speaker B: Does anyone know any good standards software displays X_M_L_, I'm not sure.
+[00:05:36] Speaker A: Take Mozilla.
+[00:05:38] Speaker B: Yeah, but I'm afraid I only have Firefox and Firefox doesn't have the nice X_M_L_ viewer anymore.
+[00:05:44] Speaker D: Hmm.
+[00:05:44] Speaker B: I think I don't have Mozilla.
+[00:05:48] Speaker B: .
+[00:05:50] Speaker B: No.
+[00:05:54] Speaker B: I can probably just Emacs them.
+[00:05:58] Speaker C: So uh we have then when we are mixing our um values together, is it um a value for each um expression, for each sentence or something?
+[00:06:10] Speaker A: Yeah, I think that would be m I mean uh for me it's quite difficult to say o on,
+[00:06:12] Speaker C: Yeah.
+[00:06:17] Speaker A: you know, w um what scope one annotation would have.
+[00:06:21] Speaker C: Mm-mm.
+[00:06:24] Speaker A: I think it would be certainly more than one word and
+[00:06:29] Speaker A: I think it would work best with utterances or segments.
+[00:06:32] Speaker C: Yeah.
+[00:06:35] Speaker C: Yeah, I would just end up with uh values for each word, so I wouldn't have um
+[00:06:35] Speaker A: Yep.
+[00:06:42] Speaker C: any boundaries for segments at all.
+[00:06:46] Speaker B: But
+[00:06:47] Speaker C: I just I just would have the words, and then how we um how long each expression would be, I don't know.
+[00:06:55] Speaker B: But going from from a word business, wouldn't it be easier to then go back and calculate for each utterance?
+[00:07:00] Speaker C: Yeah, but what is an utterance. Uh, yeah.
+[00:07:02] Speaker B: You know, wha wha each turn, so if we
+[00:07:04] Speaker A: I think just the segments as they're segmented in the for example in the point se point six five.
+[00:07:05] Speaker C: Okay.
+[00:07:07] Speaker B: Yeah.
+[00:07:09] Speaker C: So what we what we would fit in into the XML files, would it be uh um a value for each utterance? Or what you
+[00:07:18] Speaker A: I think so.
+[00:07:19] Speaker C: Okay.
+[00:07:24] Speaker A: And you would s probably still need um your values for the words, um perhaps for for um the keywords that are displayed
+[00:07:33] Speaker C: Mm-hmm.
+[00:07:35] Speaker A: when you click on something.
+[00:07:36] Speaker C: So then we would have to fit in more than just one where values um
+[00:07:39] Speaker D: Mm.
+[00:07:40] Speaker A: Yeah, but that's another representation then, I think, f for the importance measure.
+[00:07:44] Speaker B: So d
+[00:07:45] Speaker C: Yeah.
+[00:07:47] Speaker B: Does anyone does anyone know in which file the actual, like what's it called, the splitting into the utterances?
+[00:07:47] Speaker C: But um
+[00:07:48] Speaker A: Should yeah.
+[00:07:54] Speaker A: Um po
+[00:07:54] Speaker D: Um is it not segments? Or is it dialogue act dialogue acts?
+[00:07:56] Speaker B: Is is called is that
+[00:07:56] Speaker A: Yes.
+[00:07:58] Speaker A: No, it's not. It's um for example, there's uh B_D_B_O_O_ one C_ point six.
+[00:08:01] Speaker B: Is it
+[00:08:05] Speaker B: What does it end with? Does it with with SAX?
+[00:08:09] Speaker B: Does that look like it?
+[00:08:12] Speaker A: Uh I can't see anything very much, but yeah, that's that's it.
+[00:08:14] Speaker D: Yeah.
+[00:08:14] Speaker C: Mm uh-huh.
+[00:08:15] Speaker B: Okay.
+[00:08:16] Speaker D: I think that's it, yeah.
+[00:08:18] Speaker B: Be nice.
+[00:08:18] Speaker D: Yeah, they've all got an I_D_ for each utterance.
+[00:08:20] Speaker B: Let's actually just see if maybe K_ right.
+[00:08:25] Speaker B: Oh this is how much time you spend just getting the right software going.
+[00:08:34] Speaker B: Is that better to see? I guess yeah, white and black is better to see.
+[00:08:39] Speaker C: Yeah, it's better.
+[00:08:40] Speaker A: Can you use a bigger font?
+[00:08:41] Speaker B: So just see if I can view
+[00:08:57] Speaker B: Okay.
+[00:08:59] Speaker B: So
+[00:09:01] Speaker A: Okay, so here there's for um each segment um uh that's really all segments, I mean it's it can be words or topics or um anything I think.
+[00:09:04] Speaker B: This this
+[00:09:16] Speaker A: Um that's why th it's for example, time provenance dialogue act or time provenance segment or time provenance
+[00:09:25] Speaker D: Yeah, and it's got a different uh file for each speaker.
+[00:09:29] Speaker B: But what is this? I mean this doesn't contain any content. Like any text.
+[00:09:33] Speaker D: N no, it just points to the to the words.
+[00:09:33] Speaker A: No, but it yeah.
+[00:09:38] Speaker B: Oh wait, somebody s s somebody explain that slowly to me. So
+[00:09:43] Speaker A: Yeah, it p Oh, well some of them point to the words, other others point to the um dialogue acts. So that's kind of the global thing that ties together other things.
+[00:09:48] Speaker D: Yeah, yeah.
+[00:09:55] Speaker B: So what do all these things in this file have in common? What what are they?
+[00:09:59] Speaker A: Um
+[00:10:01] Speaker A: yeah, they have their NITE I_D_, the time
+[00:10:05] Speaker B: No but w like uh so they are they are segments in what sense? Wh what's definition of a segment then?
+[00:10:08] Speaker D: The I suppose so, the utterances. But also includes things like like
+[00:10:11] Speaker A: The segment is what is displayed in one line um by NITE.
+[00:10:14] Speaker B: Okay. And
+[00:10:19] Speaker B: and that's usually dialogue what what's difference i between provenance dialogue act and between segmenter? I don't
+[00:10:24] Speaker A: Yeah, it looks uh uh the segment thing looks in the into the words X_M_L_ file and the dialogue acts
+[00:10:32] Speaker A: um thing. Yeah, I think it's in a different
+[00:10:34] Speaker B: A dialogue act uh a dialogue act annotations of dialogue act. So is that just another representation of text?
+[00:10:38] Speaker A: Um
+[00:10:41] Speaker A: No, their their annotation of dialogue acts, and one um segment can have or one um of those word strings that are presented in one line can have several um dialogue acts annotated on it.
+[00:10:55] Speaker A: That's why
+[00:10:58] Speaker B: Just see, can we have this files somewhere. So the stuff that's
+[00:11:03] Speaker B: that's called segment here that do we know which file this is pulling from?
+[00:11:07] Speaker B: From yeah, it's it's c it from words X_M_L_, is that it's saying here?
+[00:11:08] Speaker A: Yeah, it's from words.
+[00:11:11] Speaker A: Yes.
+[00:11:12] Speaker B: Let me see if I have that words X_M_L_ file. So let's for example look at
+[00:11:17] Speaker A: That's just below.
+[00:11:20] Speaker C: So we n would need a value label for each of those segments that are not dialogue acts.
+[00:11:30] Speaker C: For all those that point to the actual words.
+[00:11:34] Speaker B: Okay, let me just try to get them all to a different screen.
+[00:11:41] Speaker B: Uh uh is that what we were
+[00:11:51] Speaker B: Sorry, I'm just I'm trying to arrange them, so that we have one above the other, so to make some sense of that.
+[00:12:08] Speaker B: So no. Here we had
+[00:12:10] Speaker A: But I think these segments are perhaps not exactly what we are looking at, because that's just o one tying all the others together.
+[00:12:19] Speaker A: And the information or r I mean we are going to create a file that looks more like um the words file.
+[00:12:26] Speaker A: I think.
+[00:12:28] Speaker B: Um I'm just trying to understand what this segments file is about. Like it's it's referencing here it's referencing to
+[00:12:38] Speaker B: To a certain position in the in the words file.
+[00:12:43] Speaker D: Yeah, think so.
+[00:12:48] Speaker B: So it's that non-vocal sound one here. That's the mic noise, okay.
+[00:12:54] Speaker B: But what's the does it always just oh no, it's it's referencing to several word structures. So this would be basically be a a sequence, right?
+[00:13:03] Speaker A: Yes.
+[00:13:04] Speaker B: So that's from W_ fifty two.
+[00:13:10] Speaker B: Are they not ordered or oh yeah, from W_ fifty two down to W_ what are we talking about? And yeah, w sorry.
+[00:13:11] Speaker A: Yeah, they are.
+[00:13:18] Speaker A: Um to discourse marker, DIS F_ marker fi point five.
+[00:13:25] Speaker A: Yeah, that's there no no, up up. Go up. Yeah, right.
+[00:13:25] Speaker C: Yeah, that's there. No, above.
+[00:13:29] Speaker C: Yeah.
+[00:13:31] Speaker B: Okay. So this so this is somebody saying it it doesn't.
+[00:13:37] Speaker B: Do we have any confirmation do we actually see from this file who's doing it, just out of interest?
+[00:13:37] Speaker C: Yeah.
+[00:13:42] Speaker A: Yeah, this is all the speaker D_.
+[00:13:46] Speaker A: You and the speaker D_.
+[00:13:46] Speaker B: Oh. Sorry, in speaker D_'s file. So this is where he'd like time stops. And then it only starts at a later time, because oh, you don't see when I'm pointing at screen, it's just for this. So then it starts here this time against speaker D_ because in-between there's somebody else.
+[00:14:02] Speaker A: Yes. Um you can see whether there's somebody else or not. You can see that in the w um W_ point um first it's W_ point um five uh fifty four and then it's seventy six, so there are um this number of utterances of other speakers in-between.
+[00:14:02] Speaker B: Okay.
+[00:14:15] Speaker B: Yeah. Okay.
+[00:14:18] Speaker B: Okay. So the the file with annotations for information density, what would that be like? Would that be like the segments file, giving a start word and end word, or or would that
+[00:14:32] Speaker B: How would that be to best tie in with the system?
+[00:14:36] Speaker A: Yeah, I think we would also need two of those.
+[00:14:40] Speaker B: Sorry?
+[00:14:41] Speaker A: Yeah, I think we would have to have the same structure, one that points to it, where we tie together, all our information. So we would perhaps have to make one that's similar.
+[00:14:50] Speaker B: Something like something like this or like where you give sort of a reference to a beginning and an end position.
+[00:14:57] Speaker A: Yes, and uh then another one that would perhaps give the actual probability value.
+[00:15:04] Speaker B: Well that would be in the same file, wouldn't it? It would just couldn't we have a like uh
+[00:15:07] Speaker A: Yeah, it could could probably be in the same file, I don't know.
+[00:15:11] Speaker B: I guess we could introduce a different um
+[00:15:13] Speaker A: But if you have several layers, then
+[00:15:17] Speaker A: you can't represent them on the same file.
+[00:15:21] Speaker B: We have for now if we just do something which for every
+[00:15:25] Speaker B: segment in here attaches actually can we not tie it to the segments file? Would that not be the way how they would want it to have to do as if we in the end, if we want to attach to each of those segments one number for now.
+[00:15:38] Speaker B: And those segments have uh do they have an I_D_? Yeah, I guess they do. So this is the I_D_ of a specific segment, right?
+[00:15:44] Speaker A: Yeah, in segment point one. Um there line below.
+[00:15:49] Speaker B: Yeah, so wouldn't it I mean the problem is they've me haven't looked at the exact inner workings of their of their engineered. But you'd think that the easiest way and the way that how it's intended to be would be just,
+[00:16:02] Speaker B: if we have here a link to the segment, a like an I_D_ for that segment, that we just create another file which links to the segment and then has an additional value which is the number.
+[00:16:15] Speaker C: So you mean an a an attribute. Yeah.
+[00:16:17] Speaker B: Yeah, yeah.
+[00:16:18] Speaker A: Yeah, that's what I meant actually, yeah.
+[00:16:20] Speaker B: Yeah, oh sorry, I I thought we were talking about having two files.
+[00:16:25] Speaker B: I was think yeah, I I think that I I understood wrong. I thought you were wanting to have two different X_M_L_ files, with one the reference and one just th just the number. And I was thinking that's probably what you meant, just um having like for each sort of of our segments having just the I_D_, which is referencing to these segments here and another attribute which is the the value.
+[00:16:47] Speaker A: Mm-hmm.
+[00:16:48] Speaker B: So this whole information we would then store in this Ah, no, that I don't have access to because I didn't download like there's this one meta information file where it describes the structure of all the files and describes which um which attributes they bring in. So we would add that to that file?
+[00:17:06] Speaker D: Mm.
+[00:17:06] Speaker B: Saying that sort of we bring in information density. And then we would create the file of that type, which we probably couldn't call it segment. I'm not sure. We probably might have to have a different word for it. I'm not sure if it there's any trouble with it repeating.
+[00:17:22] Speaker A: Um
+[00:17:22] Speaker C: Wouldn't it be easiest to just incorporate a new attribute in in this file?
+[00:17:28] Speaker B: In the existing segments file.
+[00:17:29] Speaker C: Yeah, I don't know, that's probably not very uh nice but would quite easy, wouldn't it?
+[00:17:36] Speaker B: Yeah, I reckon actually if we make a copy of it
+[00:17:38] Speaker A: But I I mean there's not all the information that is in in the c corpus in there in the segments file. I think that is just the um things that are loaded every time, but we have lazy loading, so it can load more than that. Perhaps we could just try to cope. Um, you know, to
+[00:17:38] Speaker C: Yeah.
+[00:18:00] Speaker A: make our file one of those lazy loaded. But I mean I've no real idea how that works.
+[00:18:06] Speaker B: What uh what are you saying about the w I th doesn't the lazy loading apply to everything? I mean that it sort of dynamically loads.
+[00:18:12] Speaker A: Yeah, but yes, but it has um, you know, a basic thing that it loads, I think. So for example every time it loads the segment things, it can't it can't not display words, I think.
+[00:18:28] Speaker B: You think it i it l it loads the whole of the segments file every time.
+[00:18:28] Speaker A: And it eras
+[00:18:32] Speaker A: I think so.
+[00:18:34] Speaker B: Okay.
+[00:18:34] Speaker A: That's how I understood it.
+[00:18:36] Speaker B: The segment at the moment is split up over
+[00:18:37] Speaker A: Because otherwise in the in the other things there is no information about what the participant name is and so on. So
+[00:18:46] Speaker A: in the segments file it's really the very basic that have to be displayed for any thing.
+[00:18:53] Speaker B: Hmm.
+[00:18:54] Speaker C: But they display the segments in or that the utterances i in their um
+[00:19:02] Speaker C: user interface as well, where the words are y um displayed.
+[00:19:07] Speaker A: ?
+[00:19:07] Speaker C: So so they have they have their utterances displayed in their interface. So that's they um access probably this file and then they display the words. So why shouldn't we be able to do that? Uh
+[00:19:21] Speaker B: No but I think it's too early to really like discuss that in detail, because we don't at all understand at the moment how the internal data structure like how the loading works. So maybe if we g if we go ahead, do you think it would be possible for you to do an like something like segments or maybe just a copy of segment which has an attribute for for each segment, um but it is like with a with a value with a density value.
+[00:19:47] Speaker A: Yeah, I thin I mean it wouldn't be difficult to um create a file of the p sh of that shape. I mean that would be no problem.
+[00:19:55] Speaker B: Would it be easier though, because all your methods are sort of not working with their whole time frame structure there. So would it be easy for you to to tie the things together. Like if you're doing it on on the word basis here with those words, that in the end you then tie it back in into the right segment here. I mean
+[00:20:10] Speaker B: you probably have to do a bit of
+[00:20:11] Speaker A: Um yeah, I I don't know how about you with your words, but um for my segments were the um F_ zero measurements and all those values I get from there. Um I always store the beg uh start and end time of everything I calculated there, so I would just have to pu put it uh yes.
+[00:20:20] Speaker B: Hmm.
+[00:20:30] Speaker B: You're doing it time-based at the moment. So this isn't directly having time references, but you can get the oh, it is actually here.
+[00:20:37] Speaker A: Yeah, it is.
+[00:20:40] Speaker B: Okay. So if you slice it up by time, you'd probably be able to just like attach like just some attribute of
+[00:20:51] Speaker B: info val just f to each of those segments.
+[00:20:57] Speaker A: Uh actu but actually my segments are not always the same as their segments, because and their segments, there are um Pause um pauses sometimes. A
+[00:21:07] Speaker B: Mm-hmm.
+[00:21:08] Speaker D: Yeah, can you not just leaves those lines blank?
+[00:21:11] Speaker A: Um yes, but uh yeah, I mean one segment of theirs is sometimes two segments of mine, that's just what I meant.
+[00:21:16] Speaker D: Oh alright. Okay.
+[00:21:21] Speaker B: 'Kay. Um I don't understand enough of what their data structure is. This probably would be a lot easier would I really understand how they are handling the data internally, 'cause then we c then I could say oh, it's easy to just tie it in if you just have it time-stamped that just reference by words and stuff.
+[00:21:36] Speaker B: But t at the moment
+[00:21:47] Speaker B: So you would you're doing i you're doing a word by word base.
+[00:21:50] Speaker C: Yeah, the problem is probably that um I extract all the words and then uh I don't um use an I_D_ or something for it, so it would be difficult to write it back to the right position.
+[00:21:54] Speaker B: Mm-hmm.
+[00:22:00] Speaker B: Okay.
+[00:22:04] Speaker B: But every word does does the word picking, like does it always have the same information value in your thing i does it depend on its position like
+[00:22:10] Speaker C: It depends on the position, I think. Yeah.
+[00:22:12] Speaker B: It be d depends on the position.
+[00:22:16] Speaker B: Hmm.
+[00:22:19] Speaker B: And you're doing this via some software that's like external software, so you can't
+[00:22:23] Speaker C: Yeah, I I could use another a different approach, though. It
+[00:22:27] Speaker B: So what if you if you if you get the results from that software and you go back over it then with that file sort of, you write an algorithm which which then goes back because they they're in the right order still and stuff, right? So that shouldn't be a problem. Oh but this is by speaker here which makes it slightly more difficult.
+[00:22:37] Speaker C: Mm yeah.
+[00:22:42] Speaker D: Hmm.
+[00:22:45] Speaker B: The problem is that actually NITE X_M_L_ probably provides a lot of the tools that we'd need to do that.
+[00:22:50] Speaker A: Yeah, but for example I made a file that contains just the um start times. It could contain end times and words for all speakers of all meetings. I mean that's just the same thing as I gave, yeah, as I gave to you. But um uh displaying also a start and end times of every word. So you could perhaps use it to match um it with your additional information you got, couldn't you?
+[00:22:51] Speaker C: Mm-hmm.
+[00:23:00] Speaker B: In in a temporal sequence.
+[00:23:15] Speaker D: Yeah, what did you use to make that file? Just in Perl? You didn't use an X_M_L_ parser?
+[00:23:17] Speaker A: Perl, a Perl script, yeah.
+[00:23:21] Speaker A: No, no.
+[00:23:22] Speaker D: Okay.
+[00:23:23] Speaker C: Um would you think it would make sense to just take um file files by speaker. It's it doesn't matter what input I give to um to Rainbow. So I just could g use the files as they are. I don't know if that's that would give an output.
+[00:23:40] Speaker B: But but would the information density algorithm still make any sense if you split them up, because I mean the whole I thought the whole thing is that you look at the frequency of a word in that specific how often a word inc occurs in a certain topic versus how often it occurs over the whole corpus and that from that it calculates.
+[00:23:40] Speaker D: Hmm.
+[00:23:44] Speaker C: I don't know.
+[00:23:45] Speaker A: Mm yeah.
+[00:23:56] Speaker C: No, it um I think it's not uh versus the whole corpus. It's um you have certain categories, and you measure which words um have the highest information for one category. So it's the categories across each other I think.
+[00:24:05] Speaker B: Mm-hmm.
+[00:24:17] Speaker A: But would you then not get the typical words for every speaker? If you
+[00:24:22] Speaker C: Um probably yeah. But yeah, it's it's s strange.
+[00:24:26] Speaker B: Yeah, I have a gut feeling it's not a good idea to split it.
+[00:24:27] Speaker A: Because it would then say how it find that it's that speaker.
+[00:24:30] Speaker B: Yeah. No, but I mean it can't be that difficult. If you if you already have you have in the right order all the words with a with a score to them, and you have a file which has each word and a time stamp. So those two tied together have each word and its time and
+[00:24:31] Speaker D: Hmm.
+[00:24:36] Speaker C: Yeah.
+[00:24:41] Speaker A: Yeah.
+[00:24:46] Speaker A: It's probability, yeah. Or or value, yeah.
+[00:24:46] Speaker B: and and and its proba and its value. Yeah.
+[00:24:50] Speaker C: Yeah, but what what the problem is, I don't know exactly. I think the information gain in Rainbow is ordered by the value of the information gain, not I am not sure if I can get the right order and the values.
+[00:25:07] Speaker C: That's the problem.
+[00:25:07] Speaker B: So they're they're at the moment so
+[00:25:09] Speaker C: But I um if the order stays the same, it's no problem at all to i just write back again. But if uh it's ordered by information gain, I don't know where the words come from, because it's it has a bag of words representation.
+[00:25:20] Speaker D: Hmm.
+[00:25:24] Speaker B: It appears to me that Rainbow was made for something quite different.
+[00:25:25] Speaker C: Uh yes. Is it is. It was made for text classification.
+[00:25:28] Speaker B: Hmm.
+[00:25:30] Speaker A: So, could you put the more information back in then?
+[00:25:34] Speaker C: Yeah, that's the problem.
+[00:25:34] Speaker B: I actually like um um i are you actually sure that Rainbow is doing a measure, like is returning a measure of what we are trying to measure, 'cause it it seems to me that it's just it sounds like something quite different in in d many aspects.
+[00:25:47] Speaker C: Yeah, um what it actually does is that you you put in some documents, and you have several documents per category.
+[00:25:53] Speaker B: Mm-hmm.
+[00:25:57] Speaker C: Um and you have several categories. And then it measures um which words are typical for a certain t category. And if you get a new document, it will um compare which words are in that new document. And if there are a lot of words that um are typical for one category, it will assign it to that category, and if it's typical for another one, it will assign it to that one.
+[00:25:59] Speaker B: And w
+[00:26:07] Speaker B: Yeah.
+[00:26:15] Speaker B: Yeah.
+[00:26:28] Speaker B: But where do you have the original category information from?
+[00:26:31] Speaker C: Yeah, it's because you have um y um you have um oth different files. If if this is your directory, you have um um a diagra um, a directory one, two and three. And this represents the category. Everything that's in there is in category one. A
+[00:26:39] Speaker B: Yeah.
+[00:26:46] Speaker B: Yeah.
+[00:26:50] Speaker B: So where do you where do you have them from at the moment the split up?
+[00:26:53] Speaker A: Yeah, but the topic isn't it? That's a topic information.
+[00:26:53] Speaker C: Yeah, just split it up somehow, yeah.
+[00:26:56] Speaker B: In i in the t in the topics, in the in the human topic s um so you've split them up by topic at the moment.
+[00:26:57] Speaker C: Yeah.
+[00:27:02] Speaker C: No, I've just um split them up uh somehow um by um there are several documents for
+[00:27:14] Speaker C: um each meeting, and I just put one in each category. So uh it's it's not very sensible at the moment, because I'm waiting for the um topic segments or I'm just yeah.
+[00:27:17] Speaker B: Yeah, but
+[00:27:26] Speaker B: Okay okay okay. 'Cause I was just thinking that doesn't make sense at all, but yeah, if you if that's just while you're waiting. Okay. Have you ever like looked into different ways of calculating, 'cause I was just thinking like I mean the for example the the infor um what's it called, the entropy calculation, is that she boxed it under the simple calculation that you could probably write the script in no time at all and
+[00:27:47] Speaker C: Yeah, yeah, probably. Yeah, maybe it's it's better if I write it myself, because otherwise it's too easy to just split things up into bins, and it it wouldn't be any work at all in terms of programming or something.
+[00:28:01] Speaker B: Yeah, but I'm also just like I think that probably the entropy value at the moment for a word is closer to what we're at the moment looking for. I can just like k k I can sit together with you for twenty minutes and just show you the entropy code that I wrote for my other project and it probably and we should work together because it's we used t we have to we'd use the same matrix as I'm using in my latent semantic analysis, you'd use to calculate entropy scores. And then we'd have um a score which actually which would be the same for the word in each position. So in that sense it's doing something a bit different, and like w basically the score that I'm talking about is a conditional entropy score which just checks how much information, the fact that there's one word tells you about what would be the next word. But that's a relatively good measure of whether that's a very specific word, in which case they are usually words which tell you quite a lot or a very general word which usually doesn't tell you quite a lot.
+[00:28:15] Speaker C: Alright.
+[00:28:23] Speaker C: Mm-hmm.
+[00:28:34] Speaker C: Mm-hmm.
+[00:28:46] Speaker A: Mm-hmm.
+[00:28:51] Speaker A: Yeah.
+[00:28:54] Speaker C: How does it calculate that actually?
+[00:28:57] Speaker B: Um it it's basically the it's the standard entropy formula. And you sort of you you
+[00:29:00] Speaker C: Okay.
+[00:29:02] Speaker A: So how sure or unsure you are about the what's following our b our context measures, yeah.
+[00:29:07] Speaker B: Yes, yes, it has. I mean, I think the official le sort of the official description of what it tells you is um how much that like the fact that a given word occurs tells you about what's the next word's gonna be. Which doesn't sound too exciting, but it it just works out in the way that words which are promiscuous and which occur with everything all over the place have very low a scores on that, and also usually end up being the words which are p
+[00:29:18] Speaker A: Yeah.
+[00:29:32] Speaker B: Least like expressive, and l contain less information.
+[00:29:36] Speaker D: Well like function words and stuff.
+[00:29:37] Speaker B: Yeah, function words or just very general nouns. Pr probably like what whatev for example the word computer in that context. You could imagine it to f like be in all in all the contexts.
+[00:29:43] Speaker D: Mm.
+[00:29:46] Speaker A: But do we have enough informa enough data for that it gives us sensible things? Because I mean the the words we're look really looking for appear not too often, and if they appear five times in the meeting and they have each time a different, you know, differ some different surrounded words, perhaps we have not enough data.
+[00:30:06] Speaker B: Yeah, so we would we w wouldn't do it by word, we would sorry, okay, um I was I was getting that w actually, sorry, I was getting that wrong, I was getting it from what I did my project. Now in this case, we would do it by per mee words per meeting.
+[00:30:21] Speaker B: So
+[00:30:23] Speaker C: Yeah, but that's the sa uh almost I think similar to what I'm doing, because words that are in every class, that are not very informative, but words that are only in one class are are very informative for that class.
+[00:30:23] Speaker A: I don't understand what you
+[00:30:31] Speaker B: Hmm.
+[00:30:37] Speaker B: Yes, it it's probably doing it's probably doing quite the same thing in the end, but I'm just saying like with that thing you would easily have an algorithm which at the moment provides you for each word with a score which we can use.
+[00:30:46] Speaker C: Oh okay.
+[00:30:48] Speaker C: Alright.
+[00:30:50] Speaker B: Um no um, I was I was I was describing the wrong thing. In this case we wouldn't be doing how much it tells you about another word. In this case we would be doing given that you know a word, how good is it at predicting from which um specific topic that was.
+[00:31:02] Speaker A: Yeah, okay.
+[00:31:04] Speaker B: So that would yeah, in that sense it's the same thing here.
+[00:31:05] Speaker C: Yeah, that's th yeah.
+[00:31:07] Speaker A: Mm-hmm.
+[00:31:08] Speaker A: But that would give the same value for one word every time I mean for for a specific word. Yeah, because then it would be quite easy to re-integrate it into such a
+[00:31:14] Speaker B: Yeah, yeah, for a specific
+[00:31:21] Speaker C: For a specific word per
+[00:31:21] Speaker B: Yeah.
+[00:31:24] Speaker B: The same word the word yesterday would be would have the same score all over the place.
+[00:31:24] Speaker C: per
+[00:31:30] Speaker C: All over the place. And in my case it would have I think it would have different uh values for each category. But in that category it would have the same value at each place.
+[00:31:38] Speaker B: Okay.
+[00:31:44] Speaker B: I c
+[00:31:44] Speaker C: Do you know what I mean?
+[00:31:45] Speaker A: Okay, but then it would also be possible to re-integrate it. It would be more dif I mean it would be a bit more work, but then
+[00:31:54] Speaker B: But but your category thing depends on that we not just have topic segments, but also that these topic segments we have them in categories.
+[00:31:54] Speaker C: Yeah.
+[00:32:03] Speaker B: You you do wouldn't you need several documents for each category? Or several segments for each category.
+[00:32:07] Speaker C: Um that would be best, but I I would have to look if that.
+[00:32:12] Speaker B: Do but will it word without that at all?
+[00:32:15] Speaker C: Um at least it works if there are several categories with each with one document each, but it um yeah.
+[00:32:16] Speaker B: 'Cause
+[00:32:24] Speaker B: Yeah, I mean s so in our case basically every
+[00:32:28] Speaker B: every s topic would be its own category.
+[00:32:32] Speaker B: And the question is does the algorithm still make any sense in that I don't understand the algorithm enough for that. But what I'm really like because the entropical um calculation is so simple, maybe we should look into making that score just as a preliminary score that we have. Like it it's a very it gives you like I've looked at the result, it gives you basically something in the end which vaguely tells you just whether a word is a very specific word
+[00:32:32] Speaker C: Yeah, that's the questio yeah, I don't know.
+[00:32:42] Speaker C: Mm-hmm.
+[00:32:48] Speaker C: Mm okay.
+[00:32:57] Speaker B: or a very general word.
+[00:32:58] Speaker A: Yes.
+[00:32:59] Speaker B: And
+[00:33:01] Speaker B: I like there is some hope that probably having just sentences where there's lots of very specific words, if you mark them as being more interesting than the words which are only very general words, that they would get us somewhere.
+[00:33:13] Speaker A: Um and what well, what score would a word get that just occurs once in all the corpus for example?
+[00:33:21] Speaker B: Probably one point zero is very high information value.
+[00:33:25] Speaker A: Even though there are all the other same topics where it doesn't occur?
+[00:33:31] Speaker B: Yeah, 'cause this would
+[00:33:34] Speaker B: Yeah, in in a sense I mean this is a bit like the what like document frequency over total frequency.
+[00:33:40] Speaker A: Mm-hmm.
+[00:33:40] Speaker B: Measure it sort of just going by
+[00:33:42] Speaker D: Hmm.
+[00:33:45] Speaker A: So would it be higher-scored than a word that um occurs
+[00:33:50] Speaker A: in
+[00:33:52] Speaker A: every um sequence of the same topic?
+[00:33:59] Speaker B: What do you mean every sequence of the same
+[00:34:00] Speaker A: Yeah, I mean um we have uh s uh our several topics. For example we have twenty topics, and um for one of these topics there are five occurrences, and we have one word that
+[00:34:07] Speaker B: Mm-hmm.
+[00:34:12] Speaker B: Within th within the topic, so like topic we had to when you say topic, you mean like just like from from a beginning to end point, like within one meeting there are several topics?
+[00:34:22] Speaker A: Yes, but across meetings um there will be the same topic several times.
+[00:34:28] Speaker B: But we don't have that information anywhere, do we?
+[00:34:31] Speaker A: Ah. It wasn okay. I thought that was what you were doing.
+[00:34:35] Speaker D: Well, um when it splits the topics up, it does do it on regular words that um that occur. But it doesn't tell you what they are, no.
+[00:34:42] Speaker A: Yeah, but
+[00:34:44] Speaker B: But but you you are segmenting.
+[00:34:45] Speaker A: Yeah, but you make also um segment similarity, I think that was I I thought that would
+[00:34:47] Speaker D: Hmm.
+[00:34:49] Speaker B: Well, I'm I'm doing one on segment similarity in the end, yeah. I'm doing like finding similar segments, basic latent semantic analysis. But
+[00:34:51] Speaker D: Yeah.
+[00:35:00] Speaker B: But like f for now, like your segmentation is just splitting a meeting up into different blocks ver
+[00:35:03] Speaker D: Yeah.
+[00:35:05] Speaker D: Yeah, you can't really get any other output.
+[00:35:05] Speaker A: And they they are not related then to other blocks of
+[00:35:10] Speaker B: Not not from what Colin is doing from what I no. It's only like I'm writing an algorithm that which then tries to also again based on word p occurrence patterns try to link together maybe different ones of those.
+[00:35:10] Speaker D: No. No.
+[00:35:11] Speaker A: Okay. I um
+[00:35:21] Speaker A: Oh, okay.
+[00:35:23] Speaker A: I misunderstood that then.
+[00:35:26] Speaker B: So
+[00:35:28] Speaker A: So yeah, how would it work? I mean what would
+[00:35:32] Speaker A: um the his information then be useful for in r Rainbow?
+[00:35:37] Speaker A: Um I thought the point about that was that we would put um into s um serial categories all the segments of the same topic across meetings.
+[00:35:49] Speaker C: Oh no, I li I th I thought something else that we d um we just split I need somewhere to split, and that um splitting at category boundaries um splitting at topic boundaries would a nice thing to do, rather than just splitting somewhere. So yeah, yeah.
+[00:35:49] Speaker B: So that yeah.
+[00:35:52] Speaker A: Okay.
+[00:36:04] Speaker D: Mm-hmm.
+[00:36:06] Speaker D: Yeah, it's supposed to split it into cu coherent topics with the similar information.
+[00:36:08] Speaker A: Yeah, but but then it does okay.
+[00:36:11] Speaker B: Yeah, I'm also a bit b like I'm not a hundred percent sure about Rainbow being the right thing, 'cause it seems that Rainbow does in its structure quite rely on having different examples of the same category sort of in in a way.
+[00:36:22] Speaker C: Yeah, but it I think it should work for just one document, because it it compares between the categories, and if you just have one document um it still can find out which words are informative for that category and which are not. So if you have just one document in each category, and there are a lot of um occurrences of the word the in each one, so this word will be not very informative across the categories. So it should work for one, but I'm not sure if how exactly it it um calculates everything. Uh I think it's not possible to look that up.
+[00:36:40] Speaker B: 'Kay.
+[00:36:51] Speaker A: Mm-hmm.
+[00:36:52] Speaker D: Hmm.
+[00:37:01] Speaker B: You know what, as a byproduct of my L_S_A_ I'll provide um a vocabulary like sort of a dictionary which for each word gives an entropy score entropy score, which just tells you of how much information the presence of a word tells you about which topic it is. Not which category, like I'm not I'm not lumping together separate topic segments into categories. But just like how much this word tells you about wh how likely that w the occurrence of that word makes it that it's a specific segment topic segment. Which is some measure already of how widespread this word is versus how specific f to a certain segment that is. And I'll just provide that, because that's just not much more work than just the usual thing. And then we can see how we can tie that in with the other stuff.
+[00:37:20] Speaker A: Mm.
+[00:37:32] Speaker A: Mm.
+[00:37:49] Speaker B: So if you um keep on working on Rainbow meanwhile and try to find a way how to tie your Rainbow stuff into
+[00:37:50] Speaker A: Yep.
+[00:37:58] Speaker B: some way that we can attach it to a certain time segment.
+[00:38:02] Speaker C: Yeah, maybe it's possible to have a list that it's o that is ordered by
+[00:38:09] Speaker C: Yeah, don't know.
+[00:38:11] Speaker B: I'm just thinking, wh if
+[00:38:14] Speaker B: It it used is each word completely unique, like sort of does it treat each word, each occurrence of word, as a completely unique event. Or does it, I mean, no, it it has to, I mean, basically the the form of the word is important, right? We can't just replace the word by an arbitrary string.
+[00:38:28] Speaker C: Mm-hmm.
+[00:38:31] Speaker B: Because it looks if the same word occurs again and stuff.
+[00:38:34] Speaker C: Um I don't know what you mean by that. It's uh
+[00:38:34] Speaker B: Yeah, it it has to work with a m yeah, well I think it's a stupid question, like it it it has to work on on on the word, like on
+[00:38:45] Speaker B: What I was thinking is whether if we replace the word by something uniquely id identifiable, then it wouldn't make a different which order it is. But that wouldn't work because it needs the word, because that's all it's working on. It's the word and that looks if that word occurs again and versus how often that word occurs in other context, right? So we can't attach some type of information to the word, just to the word string itself, like making an underscore, making the time or something, that wouldn't work.
+[00:38:48] Speaker C: Mm-hmm. Oh right.
+[00:38:58] Speaker C: Mm.
+[00:39:02] Speaker A: Yeah. Mm yeah.
+[00:39:05] Speaker C: Alright. Yeah, you you can use um
+[00:39:10] Speaker C: some kind of um truncation maybe if you attach a number to each word and say that it should omit the last part.
+[00:39:19] Speaker B: But would it have that in the untruncated version then, like would it s would the output be the untruncated version? It will probably um no, I don't think it would.
+[00:39:24] Speaker C: Uh probably not. No, no.
+[00:39:38] Speaker C: Yeah, maybe I should try something different and just programme it for myself.
+[00:39:44] Speaker C: Because um
+[00:39:46] Speaker B: Yeah, for now, I mean really just like
+[00:39:51] Speaker B: Yeah, I think if we work together on an on an entropy based score. It's let me see if I can demonstrate
+[00:39:53] Speaker C: Mm.
+[00:39:58] Speaker B: T I mean, let's just keep on talking meanwhile and I'll try to start that up.
+[00:40:04] Speaker B: It's it's it's really d it it's a very simple thing, but it it basically just
+[00:40:08] Speaker B: does something which tells you how specific a word is. In a sense it's in a it's it's basically just to to a high degree really telling you how r how rare a word is or how common a word is. But uh as as the first step that's probably for for a prototype for next week that's probably not a bad thing, I mean even if it's just that. Even if you just like if you have segments where where lots of rare words occur, highlighted in darker red than segments where all the very common words occur. That's just that's somewhere to start from.
+[00:40:19] Speaker C: Mm-hmm.
+[00:40:27] Speaker D: Hmm. Yeah.
+[00:40:39] Speaker B: And it's it's a bit more sophisticated than that, but then de facto it just ends up doing that mostly, from what I figured out.
+[00:40:49] Speaker B: Um
+[00:40:56] Speaker B: Actually I think I'm not gonna not gonna start that now, because that's probably gonna take too long.
+[00:41:03] Speaker B: So
+[00:41:05] Speaker B: if we get it on a word by word basis whatever you do it'll probably appear in a word by word basis, and what you have on a sort of segment but not quite segment base.
+[00:41:10] Speaker C: Mm-hmm.
+[00:41:15] Speaker A: Yes. Yeah, I mean I haven't really decided on uh how to really get the information out of this now, because um when I have for example um increased speaker overlap, that applies to several turns of course. But I could give um the information about, yeah, how how important this is to each of those segments.
+[00:41:42] Speaker B: 'Kay, what about the following model? I mean this is a very unscientific way of doing it in some sense, but what if we if we take time as the standard unit for now and sort of like make a massive one segment split super-array. Because everything you're doing can in one way or the other be ti tied down to actual time. So if we if we if for if for each one segment time slot we could attach a value, and then it would be easy to then go back when if we have the time marks here, and re-map that onto onto the length of a segment, you know what I mean? So if you have for each word say and we know that word starts at this segment and ends at that segment, and you have for like for some time period w the overlap and that period on the F_ ones and that period or something. So you also have a value which can be tied down to a time. And then we could just in m in Matlab or in something just create some massive super-array of
+[00:42:36] Speaker B: of things for each for each like sort of time sampling slot and and calculate a value for this, and once we have this array,
+[00:42:45] Speaker B: we can go with the script and sort of go for each segment to the starting and end times and say okay, this is from our time segment f here to this time segment there. So we take the some of those and divide them by by the number or something, create the average and put it in as the value for the segment. You know what I mean?
+[00:43:01] Speaker C: Yeah, but how can we get to know what makes sense as a a function for joining everything together? Might be difficult to find that out. Yeah.
+[00:43:09] Speaker B: Oh.
+[00:43:11] Speaker B: Tha that's that's a fiddling play in the end, but that problem we'll always have. Because we don't have a useful way of automatically evaluating um
+[00:43:22] Speaker B: We don't have a way of usefully evaluating automatically what's good and what's bad, so it's it's probably always gonna be a question of looking at it and saying okay, like running it with different different factor loadings and seeing okay, this way it works this well and this way it works that well.
+[00:43:28] Speaker D: Hmm.
+[00:43:39] Speaker A: Yeah, pros um but you proposed um we we should break that down to have um the smallest um smallest um unity um of time duration should be one word. I mean, that would be because that would be what naturally came out of her thing. And
+[00:43:54] Speaker D: Hmm.
+[00:43:56] Speaker C: Mm-hmm.
+[00:44:00] Speaker B: But it probably be more difficult for mapped t to map for you to map it on so for you sort of i
+[00:44:05] Speaker A: Yeah sure, but I could then if I if I have um the value for a segment, I would perhaps just give all the
+[00:44:13] Speaker A: important wor or mm yeah no.
+[00:44:17] Speaker C: You you could always find out how many words there are in an utterance, couldn't you?
+[00:44:22] Speaker A: Yes.
+[00:44:23] Speaker C: Yeah. So
+[00:44:23] Speaker B: Yeah, but so you say that inst like you basically say w having an array where each each cell is is one like is o is one word.. And then you would map your information onto individual words.
+[00:44:32] Speaker A: Mm-hmm.
+[00:44:37] Speaker A: Yeah, I would say that someone have to break it down, aye?
+[00:44:40] Speaker B: Hmm?
+[00:44:42] Speaker A: I would probably somehow have to break it down to to that level, yeah.
+[00:44:45] Speaker B: Would you be able to find out which word that is and
+[00:44:50] Speaker A: Yes, sure.
+[00:44:53] Speaker B: 'Kay, and and then we could have like some type of just point in the end where the one scores from the all the individual word cells get multiplied all with like for each utterance or whatever. You have get all multiplied with the same value all the ones that are within that utterance. That's sort of the combination of of the two scores.
+[00:45:11] Speaker A: Yeah, probably somehow it should work that way.
+[00:45:13] Speaker C: For example.
+[00:45:14] Speaker B: And then we'd have to go back again and then put that back into that segment mode here.
+[00:45:19] Speaker C: Mm.
+[00:45:20] Speaker B: So that we because in the end we don't want it on a per word basis, but probably on a per segment base.
+[00:45:26] Speaker A: Yeah, but then okay, but th at that moment it would be better for me to just make it on a per-segment basis right way, and let her adapt it also to the segment basis.
+[00:45:28] Speaker C: So but
+[00:45:32] Speaker D: Hmm.
+[00:45:33] Speaker C: Mm.
+[00:45:35] Speaker B: Oh, yeah yeah, actually that yeah, that's true, so that it's easier if you
+[00:45:36] Speaker C: Mm-hmm.
+[00:45:40] Speaker B: are able to yeah well, I think that's probably back where we started at this. But you said it wi but you said it's more complicated, because your segments aren't those segments exactly.
+[00:45:44] Speaker A: Yeah.
+[00:45:48] Speaker A: Yeah, I mean mine are only more, but they have the same start and end point. Sometimes they're two segments and one with a gap in-between, but um the have um th th they don't overlap.
+[00:45:58] Speaker D: Hmm.
+[00:46:01] Speaker B: Hmm. And their segments do overlap.
+[00:46:05] Speaker A: No no, they don't, but um
+[00:46:06] Speaker B: Uh the tho those do or those don't?
+[00:46:09] Speaker A: Um
+[00:46:11] Speaker A: they're I mean my segments overlap in the same way as theirs do. But sometimes I have um split one of the segments into two segments, but it's easy to match the start and end times to map it to their segments.
+[00:46:15] Speaker B: Mm-hmm.
+[00:46:23] Speaker B: Okay. So you could on their granularity you could on their granularity create a score like for each for each of their segments.
+[00:46:31] Speaker A: I uh hope so, yeah.
+[00:46:33] Speaker C: Mm.
+[00:46:36] Speaker B: Well I guess I mean for you, if you know for each word, if you find that out, then it has to be possible, because if we know sort of this is going from word to word or it this is going from time to time and then there has to be a way then for you say okay, this concerns these following words, and then just make make a simple mean over them.
+[00:46:40] Speaker C: Yeah, then we sh yeah.
+[00:46:55] Speaker B: I think an interesting thing is if we don't combine your two scores in the
+[00:47:02] Speaker B: in the X_M_L_ file you had, but if we do that in the software, then we can probably make ways of playing with it in the software and sort of l you know like adapting some sort of control, like playing around with look like it's playing with different weightings for that the utterance-based one versus the word-based one and sort of look at it dynamically. You know what I mean?
+[00:47:23] Speaker B: Like playing around, sort of figuring out what's the best way of combining them by playing around and looking at the results.
+[00:47:26] Speaker A: Mm-hmm, yeah.
+[00:47:29] Speaker C: We could even yeah, we could even have a look at our different measures, if they um
+[00:47:29] Speaker A: That would be quite difficult, but yeah.
+[00:47:37] Speaker C: come up with the same same kinds of yeah.
+[00:47:37] Speaker B: Yeah.
+[00:47:40] Speaker B: Yeah, we could probably like make a uh um graphic display initially, at least for our experimenting. We'd just place them in different ways and then see how they interact with each other.
+[00:47:50] Speaker A: Yeah, I mean that's what I'm already doing with my s uh separate
+[00:47:53] Speaker B: Okay. Yeah. So do you think y like both of you then can map something onto their segments, like just each of you provide one value, like double value or whatever, like one decimal value or whatever onto onto exactly their segments.
+[00:48:11] Speaker C: Uh I think if I can provide something for the words, as they are
+[00:48:17] Speaker C: It's stated from where to where the segments go. It should be uh should be possible.
+[00:48:21] Speaker B: It's stated both in
+[00:48:21] Speaker A: Yeah, it's tells you even which words it is.
+[00:48:23] Speaker C: Yeah, so it must should be possible. Yeah.
+[00:48:24] Speaker B: It's done both in terms of words and in terms of segments. It's a bit sad sort of that we do this before we've truly figured out how the NITE X_M_L_ thing works, because now we're doing it all by hand and like parsing and un-parsing that thing and it's it's all part of the framework. Uh
+[00:48:31] Speaker D: Hmm.
+[00:48:38] Speaker D: Yeah.
+[00:48:42] Speaker B: How much easier would it be if we truly understood this. So
+[00:48:44] Speaker D: Oh I'm sure it'd be quite straightforward, some of the tasks we have to do. But yet no one really understands them, the actual X_M_L_ parsing.
+[00:48:46] Speaker C: Mm-hmm.
+[00:48:54] Speaker B: 'Kay, I might just change my order of in which I do things and like forget my latent semantic analysis stuff until the weekend and try to really make sense of the
+[00:49:04] Speaker B: of the NITE data system now, so that maybe as soon as I've understood that we find ways of doing that in within the NITE framework already, so that we don't manually have to parse times and entire things together.
+[00:49:17] Speaker C: You mean by matching strings. Or what?
+[00:49:21] Speaker B: Well, at the moment what you would do like to to solve this problem is you would sort of like write some Perl script or something that gets this time value out of here and
+[00:49:28] Speaker C: Yeah, but what I've done is um a parser, an X_M_L_ parser where you can get the start times.
+[00:49:34] Speaker B: Okay.
+[00:49:35] Speaker C: So, yeah, that's quite easy, because it's it's an attribute and you just s say that you want the values of those attributes.
+[00:49:41] Speaker B: Mm-hmm. Mm-hmm. So provided that you get your words in the right order, do you think it is an easy task for you to it it's a f relatively feasible task for you to to get just a single value per segment?
+[00:49:52] Speaker C: I think that should be possible. I don't know how long it takes me. But
+[00:49:56] Speaker B: Okay. And you say you think you're able as well to map onto those segments.
+[00:50:01] Speaker A: Yep. Should be possible.
+[00:50:03] Speaker B: And if you're both able to map into those segments, then we should be able to get one file where we have like whatever two values, value A_ and value B_ both as attributes for
+[00:50:12] Speaker C: Mm.
+[00:50:14] Speaker B: for this.
+[00:50:17] Speaker B: And that we could load into a prototype and see what types of disp what ways of displaying this information are there.
+[00:50:24] Speaker A: Yep.
+[00:50:30] Speaker A: Yeah, I hope to have some value quite soon, but um I just worked um I mean I just calculated the values values for um the average F_ zeros and um they're what's c I mean I didn't have a look at the data yet, but um they vary quite widely even for the same speaker across meetings. So one speaker had um an average of about a hun one hundred um in one meeting and one hundred sixty in another meeting, that's really that's strange. I mean perhaps it's because of laughter or something, that's what I was thinking, but I didn't have
+[00:50:53] Speaker B: Hmm.
+[00:50:59] Speaker B: Mm-hmm.
+[00:51:04] Speaker B: Hmm.
+[00:51:04] Speaker D: Hmm.
+[00:51:12] Speaker B: There's probably also social interaction factors in that there's sometimes just a meeting like if people adapt their F_ zero to each other, then they're sometimes p
+[00:51:13] Speaker A: I'll probably look at it.
+[00:51:19] Speaker A: Yeah, that's what I read in one of those papers uh as well but
+[00:51:23] Speaker B: Yeah.
+[00:51:26] Speaker A: Yeah, but it could mess up things quite considerably.
+[00:51:29] Speaker B: Can you not do something like just like not measuring the F_ zero or the amplitude at all, but just like the variance of F_ zero within a certain time frame and like sort of like just have some part for its very low variance with more the same F_ zero and one where there's a lot of more variance. I don't well actually I don't know about that at all.
+[00:51:44] Speaker A: Yeah. But uh ar yeah. But all this is quite, you know, data-intensive. I when I um let the um just calculate the average F_ zero levels, it I think it needed more than half an hour, considerably more than what have half an hour f to delay it for our meetings, because um yeah, m I mean we have seventy five hours per, yeah, av average of six speakers, and they're measured every O_ point O_ one six seconds. And that gives us quite a lot of values.
+[00:51:50] Speaker B: Yeah. Sorry.
+[00:52:01] Speaker B: Mm.
+[00:52:04] Speaker B: Hmm.
+[00:52:17] Speaker B: .
+[00:52:22] Speaker B: Okay.
+[00:52:26] Speaker B: So at the moment you you just you measuring the F_ zeros relative to the average for the speaker or
+[00:52:33] Speaker A: Yeah, what I did at the moment is um I um, yeah, I got the F_ zero values from for each speaker for his headphone, and I only take those um the w uh that were recorded at the time where he was actually speaking. And for those I calculated um the average.
+[00:52:42] Speaker B: Mm-hmm.
+[00:52:51] Speaker B: Mm-hmm.
+[00:52:56] Speaker B: Mm-hmm. Ri so the average
+[00:52:58] Speaker A: Zero. So that gave me um now one value per speaker per meeting.
+[00:53:06] Speaker B: Okay.
+[00:53:09] Speaker B: Um so what you would be feeding in would be just like one value per speaker per meeting, so that oka that that's that's your average baseline, okay okay. No yeah, that that makes m yeah, that makes a lot more sense, yeah. So that would show you how much relative to how he sort of how he's performing generally in that meeting relative to that how he's in a specific segment. He or she.
+[00:53:14] Speaker A: No no, that's just the average. No, that i yeah.
+[00:53:30] Speaker A: Yes, I mean I r just uh needed to have this value now to relate um m how yeah.
+[00:53:35] Speaker B: Yeah. Yeah. And for you that would be quite easy to translate into those segments.
+[00:53:42] Speaker B: Yeah, guess I've asked this question fifteen times now. Sorry. Uh
+[00:53:42] Speaker A: Yeah, I think. Yeah.
+[00:53:44] Speaker C: Is laughter annotated at all?
+[00:53:48] Speaker A: Um amusement and so on is yeah.
+[00:53:48] Speaker C: Because you could take that on ours out maybe. If you take the laughter out and then calculate it.
+[00:53:52] Speaker A: Yeah. I I I mean it I actually have to look at the data what causes these um
+[00:53:55] Speaker C: Mm. Yeah.
+[00:53:57] Speaker B: Hmm.
+[00:53:58] Speaker A: Because it's quite funny to have a m male speaking at two hun two hundred um.
+[00:54:04] Speaker B: Oh they w they do exist.
+[00:54:06] Speaker A: Yeah, sure but
+[00:54:09] Speaker B: The Castrati corps of the International Computer Science institute. Oh well. I'm afraid I have to go soon. But not quite sure, I mean is there anything more we have to talk about anyway?
+[00:54:22] Speaker C: Not the moment. Maybe if we meet at the weekend.
+[00:54:28] Speaker B: Yeah. See, as soon as as soon as I'm halfway through my L_S_A_ like basically as soon as I have the the matrix built, if of the document by word stuff, it's very easy to then calculate for each word a score, and I can just give you those scores and you can do with them whatever you want.
+[00:54:28] Speaker C: Oh I don't know.
+[00:54:40] Speaker C: Yep.
+[00:54:45] Speaker C: So uh no, how about the the prototype. If we want to show him something on Monday, we definite have to work together. Some of us at least have to work together to get it running probably.
+[00:54:57] Speaker B: Yeah, I think Colin, Dave and me will actually work on on the Java stuff, and it and we'll just see whatever you whatever you supply us, we'll try to tie in and visualise in some way or another.
+[00:55:06] Speaker C: Alright.
+[00:55:09] Speaker B: Um I'll ask Jonathan if we can postpone the meeting to one o'clock. So that would give us a chance of meeting in for an hour before that to discuss the questions that we had.
+[00:55:15] Speaker D: Yeah, that sounds like an idea.
+[00:55:23] Speaker D: Yeah. Yeah, just send us an email and tell us what's happening.
+[00:55:26] Speaker B: Yeah, I haven't gotten like sort of my confirmation that w Wednesday is fine. I'm not sure if I'm supposed to expect a confirmation for my confirmation from him now or but I'll just email him again and s ask him if we can maybe make it one sorry, we said twelve and I'm asking if he can make one. This is a bit frustrating at the moment, this project, isn't it? It's so like difficult to to get to the point where you understand enough to really feel that. I don't know, I'm not feeling that I'm really working at the moment, I'm more just trying to make sense of everything. And it's a bit too far into the meeting for that, and into the project for that.
+[00:55:56] Speaker A: Mm-hmm.
+[00:56:00] Speaker A: Yeah, and I am at the moment fiddling around with my data and not quite seeing how I get to a sensible abstraction level, you know. From my very
+[00:56:08] Speaker B: Hmm.
+[00:56:12] Speaker B: I guess as soon as we have a framework in the w in the type of the prototype where like sort of each of us can tie in their stuff and see what it l how how it looks like and how it performs, you know. That probably makes it a lot easier then, but it's sort of it's a boot-strapping problem, like for the prototype we need some type of data, but to develop the data it would be a lot easier to to have the prototype.
+[00:56:30] Speaker A: Yeah.
+[00:56:31] Speaker C: .
+[00:56:32] Speaker B: Anyway, I gotta go.
+[00:56:32] Speaker A: Yeah. So I mean you will be happy with some data, even if it doesn't make much sense.
+[00:56:33] Speaker C: Yeah, me too.
+[00:56:34] Speaker C: ...
+[00:56:36] Speaker B: Hmm?
+[00:56:37] Speaker B: Yes, but if it's if it's in a form which is easy to read in at the moment, that would be fine. Sort of like if basically if we have something like this segments file, but for each of you like just have one attribute. I think it's really easy if we don't merge them before-hand, but if we let them if we combine them in the prototype or don't at the moment, because then we can easily d display them individually, c contrast them to each other and play around with how y to combine them.
+[00:56:56] Speaker A: Try uh try yeah. Mm-hmm.
+[00:57:02] Speaker C: Yeah, and also we don't have to recalculate if just one
+[00:57:05] Speaker B: Exactly, yeah. Yeah. And I mean computationally multiplying two integers or doubles or whatever shouldn't be the thing that slows us down.
+[00:57:12] Speaker A: Yeah, if it's already on segments base, that's not too much.
+[00:57:15] Speaker B: Yeah.
+[00:57:17] Speaker C: Okay.
+[00:57:18] Speaker B: Alright.
+[00:57:21] Speaker D: Right.

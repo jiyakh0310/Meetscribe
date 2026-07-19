@@ -1,0 +1,544 @@
+[00:00:00] Speaker B: I mean if you're ever, you know, late 'cause of that, it's not we'll find a way around it. And I've put you guys on Mondays at this time for my convenience, but it's not like it's important that
+[00:00:00] Speaker C: Yeah, it says
+[00:00:04] Speaker A: Yeah.
+[00:00:11] Speaker A: Yeah. Well uh I was expecting to get, yeah, though and I did did make it in time. But it just just 'cause all the leaves and things. Um the stra the trains weren't stopping at the stations. So they decided to put speed restrictions on
+[00:00:18] Speaker B: Really?
+[00:00:19] Speaker C: Is it sliding past?
+[00:00:20] Speaker B: I really? Great. I was th so what'd they have to do, back up?
+[00:00:21] Speaker A: Yep. Yeah. 'Cause apar apar apparently p uh I'm not sure. Um the and they're bussing people into station have particular problems on it 'cause it's on a 'cause it's on a hill or something. Um so I had so I had to bus people in from like stations either side. Yes, yes. But yeah, at l at least it was speed restrictions instead of like trains flying past into barriers and things. So
+[00:00:31] Speaker B: Ah.
+[00:00:37] Speaker B: Nasty.
+[00:00:43] Speaker C: Yes.
+[00:00:44] Speaker B: Yeah, yeah. Go i we're glad they'll look after that bit.
+[00:00:47] Speaker A: Oh, f yeah.
+[00:00:51] Speaker A: .
+[00:00:57] Speaker A: . Okay.
+[00:01:00] Speaker B: Uh I don't know. Do we wanna look at anything? It's not up yet.
+[00:01:02] Speaker C: Still fifty six percent completed. Skip it. 'Cause I'm just doing a b yeah, disk check or something.
+[00:01:06] Speaker B: I can
+[00:01:11] Speaker B: Oh I don't know what it's doing.
+[00:01:15] Speaker B: Oops, that fell off.
+[00:01:17] Speaker B: Doesn't like silk.
+[00:01:23] Speaker B: Stay.
+[00:01:29] Speaker B: And now we're gonna discover we've got no reason to meet, right. 'Cause everything's going swimmingly.
+[00:01:31] Speaker C: Yep.
+[00:01:34] Speaker C: Is everything going smooth?
+[00:01:35] Speaker A: Well, you know, apa pa apart from apart all apart from waiting for the get get Camtasia sorted out.
+[00:01:37] Speaker B: Oh.
+[00:01:44] Speaker B: 'Cause uh I haven't been I haven't read the Wikis in my email since I left. So um
+[00:01:49] Speaker A: Yeah, I haven't I haven't added anything to the Wiki recently. So uh 'Cause I've we've been been working on trying to get the X_M_L_ stuff working. So some the ba basically they only had to how the DOM works, um so I can do the next so I can ge generate D_D_F_ files. Huh? Um so so th yeah, so just just been reading through documentation, that's what I was doing the end of last week um just so I know how it all works and figuring out the best way to do things. Um but I'm at the moment I've I've been playing with the DOM stuff in Mozilla. Uh 'cause I 'cause uh ju just so at least I can see how it works with the H_T_M_L_ pages so I can generate um the X_ so I can generate X_H_T_M_L_ stuff and see how it all works there. Just 'cause to just see how things work in that um and
+[00:02:02] Speaker B: Oh yeah. Uh-huh.
+[00:02:11] Speaker B: Uh-huh.
+[00:02:29] Speaker B: Um the oh, well um I don't know the Mozilla stuff. So if it turns out that it's idiosyncratic in some way that teaches you funny habits, then it won't have been a good idea. So
+[00:02:38] Speaker A: It well, thing is that the A_ the A_ well the A_P_I_ is standardized by the W_ three C_. So the A_P_I_ is stan is standard between everything. Um
+[00:02:45] Speaker B: Yeah, yeah. Uh well y th there are certain companies um that I don't wanna name who don't always get it right. I c but m yeah, Mozilla. Yeah, it'll be alright. So okay. I believe you now, it's a good strategy.
+[00:02:50] Speaker A: Uh or
+[00:02:54] Speaker A: Yeah, yeah, yeah. It is. It it just has a couple of yeah, yeah. Um well yeah but if they will b but it doe does look like it does does that this is and things like that. So I was doing the is anyway. Um it's ju it's just that that's that's quite a quick way to just to get into how how works. Because I can just quickly generate quickly generate a web page and then just add and take yeah, add things to and take things away and don't see exactly what's going on at the time. So
+[00:03:06] Speaker B: Mm-hmm.
+[00:03:17] Speaker B: Uh wh why does it help that it's X_T_ H_T_M_L_ instead of just X_M_L_?
+[00:03:22] Speaker A: Oh well just 'cause X_H_T_M_L_ has a nice you know, you got browsers there, so you can actually see you can actually see directly what's what's going on.
+[00:03:27] Speaker B: Yeah, but most m most browsers, when when you uh put an X_M_L_ file up in it, it'll just apply some default style sheet to it anyway that shows you
+[00:03:36] Speaker A: Yeah, well I'll I'm using X_H_T_M_L_ uh to deter that's uh all all the web pages are X_H_T_M_L_. So it's X_M_L_ just with the H_T_M_L_ D_T_D_.
+[00:03:45] Speaker B: Okay, yeah.
+[00:03:45] Speaker A: Yeah. Ju ju ju just ba just 'cause we haven't uh we haven't f haven't quite finalised the um the G_D_F_ format. So just just well just
+[00:03:51] Speaker B: Okay, so all you're gonna have to do is swap in tag names later. Okay.
+[00:03:54] Speaker A: Yeah, yeah. So all have to do is just change it change that sort of thing so it's uh yeah. Yeah.
+[00:03:57] Speaker B: Ev everybody's got their different ways of doing these things. I'm sure that's fine. Like having to uh g it's
+[00:04:00] Speaker C: Hmm.
+[00:04:01] Speaker C: Mm. As long as it comes out in the end. That's
+[00:04:04] Speaker B: Yeah. No, I'm just try I'm trying to l think of the things that could go wrong. Um but since I haven't tried it this particular way, you know, um but yeah, that sounds good. So um i so you say we haven't finalised what the G_D_F_ looks like. Is that an implicit request for me to do something? Or
+[00:04:04] Speaker A: Yeah, yeah.
+[00:04:07] Speaker C: Mm.
+[00:04:11] Speaker A: Yeah. Yeah, but
+[00:04:22] Speaker A: Um that what what what what I'm doing the moment I'm looking through the s the uh stuff that Robin put on the Wiki to say what's, you know, what what we need in the in the t um in the output format for the for the task, you know. So what what you're what you're gonna do the analysis on. Um so I'm making sure that I can take get that information out of the G_D_F_ as it st state of the moment. And if I find something that you can't get out of it then I can add that to the add that to the G_D_F_ format. So
+[00:04:39] Speaker B: Uh-huh.
+[00:04:43] Speaker B: Yeah. As a well, I mean there's two two cases in here, right. There's things you can get straight off the original format, and then there's things you have to do some kind of post-processing of the original format. But it's not just a data format change, it's actually some kind of computational process to get the thing out of it as well, right? And it wasn't uh y I think it was a little bit um confused uh last time we spoke about um whether
+[00:05:00] Speaker A: Yeah, yeah.
+[00:05:08] Speaker B: U whether you consider G_D_F_ format to be um the thing that's just the straight-forward translations of what's in the original eye-tracking output, or whether like whether the post-processing utilities are a separate step. 'Cause I think you and I had separate different views on this, but I can't remember w who had which view at this point. So y are you working uh actively on this anal these analysis things or you just working on the translation? Uh so the data format translation.
+[00:05:26] Speaker A: Yeah, well the
+[00:05:34] Speaker A: Well I'm I'm I'm ju try I'm making sure that the G_D_F_ format we've got at the moment will d will output say well I've output old analysis that that Robin's looking for. Um so so I'm using that as a way to to get into ha ha using the DOM things as well. Um so yeah. So at the moment I'm looking at act actually the G_D_F_ format itself um and then to generate the G_D_F_ format I'm gonna be taking stuff out of the gest analyser um and then using a DOM parser to generate uh X_M_L_ output from the gest analyser.
+[00:05:59] Speaker B: Oh okay. So you haven't looked at what's in there and what isn't in there that you need to do some really intensive transform to do. Not yet, oh okay.
+[00:06:05] Speaker A: Uh no. No. But uh I'll when and out of the output of the gest analyser does does do some of the processing already, which is what I'll m plan to use that as the basis for it. 'Cause that already that already picks up like target regions, things like that. So you get so so it knows whether you're looking at a part or whether you're looking at target area or what or whatever. Um so yes, as long as it got that in it somewhere. So it's just a matter of pulling that out and put that into the um into the G_D_F_ stuff.
+[00:06:13] Speaker B: Yeah.
+[00:06:21] Speaker B: Uh-huh.
+[00:06:28] Speaker B: Okay. So this sounds like it's under control and you're happy and you guys are telling each other what you guys need to know. So I don't need to do anything, right. You're all fine. But there was a number of things that came before this, right, that it sounds like they're not under control yet. So so you know, the G_D_F_ stuff with so i Ellen's view on this is we go through everything in order. Like the priority is exactly the pipe-line order, right? So um Camtasia you mentioned. And I'm not sure what else, but we should check what other things were before this on the list of things to do.
+[00:06:36] Speaker C: Uh nope, don't think so. Um
+[00:06:51] Speaker A: Yep.
+[00:06:54] Speaker A: Yeah, um bu
+[00:07:00] Speaker A: Yeah, yeah. I um I think the o the only thing I've got left to do before the experiments can be run is get s is get the check Camtasia works. Um now I've got Camtasia running on machines and I think they're set up correctly. But I can't test it until we get the microphones working. Microphones.
+[00:07:06] Speaker C: Mm-hmm.
+[00:07:13] Speaker B: Until you get the oh, microphones.
+[00:07:15] Speaker A: 'Cause
+[00:07:16] Speaker C: Uh it's batteries we're waiting for. The they're they're due uh i I was told the beginning of this week.
+[00:07:18] Speaker B: Batteries.
+[00:07:22] Speaker B: Okay, uh are they really really strange batteries?
+[00:07:25] Speaker C: Um th they are quite strange. Mm uh uh it's w uh r um a Avril has ordered them from somewhere possibly. N no. They're probably one fifty each or something like that.
+[00:07:28] Speaker B: Have you tried Maplin?
+[00:07:34] Speaker B: Are they expensive?
+[00:07:39] Speaker B: 'Cause you know, like a wee bus journey over to Maplin might solve the problem if it's getting in the way.
+[00:07:45] Speaker C: Uh well hopefully. The they should've been here last week. But uh Caroline then phoned up to chase them and they they were s they were told to be here. Should be today.
+[00:07:54] Speaker B: So this isn't actually um ruining your schedule for anything, and that's why you're waiting.
+[00:07:59] Speaker C: Uh r b well we can still test whether Camtasia runs anyway. It's just the uh whether it's the microphones are picking up things correctly that we need to check.
+[00:08:08] Speaker B: Right, okay. It is i so it sounds like you're not actually worried about the fact that this is the m yeah. When you get worried, go to Maplin, okay. Phone them first to make sure that they're in there. Somebody around must have a uh probably Steve. Somebody in the techie group will have a Maplin catalogue. Fact, I'll see if I can um yeah, it's useful to know who's got a current one anyway. I don't seem to get them anymore. I guess I don't buy enough equipment.
+[00:08:13] Speaker C: Not yet, no. Right.
+[00:08:26] Speaker C: Mm right-o.
+[00:08:36] Speaker A: Ah. Well he must some these days anyway, isn't it. So so
+[00:08:40] Speaker B: Oh yeah. Of course. Duh.
+[00:08:44] Speaker B: So you can find out whether they have it. But you'd have to phone over to find out if they have it in stock down there. I actually live not that far from there. Um so
+[00:08:45] Speaker C: Virtual.
+[00:08:49] Speaker C: Yep.
+[00:08:55] Speaker B: it would be a half hour um diversion from my morning routine to pick up stuff. Uh w but then again, it's also very close to Haymarket, so it's even less of a diversion for you, probably. Except you don't know your way around.
+[00:09:01] Speaker C: Uh right. But what we're
+[00:09:06] Speaker A: Yeah. So we all got off easy.
+[00:09:11] Speaker A: Yeah. Ah well ca I can easy I can easy get to mapl uh to Maplin I know where it is off I used to live there. So I know I know where I used to live here. I'm a geek. I know where I know where Maplin is.
+[00:09:16] Speaker B: Ah yeah. Oh yeah, c yeah.
+[00:09:19] Speaker C: I I
+[00:09:22] Speaker B: Yeah. I just think well, you know, for the sake of three quid or however many quid it how many batteries does this thing take? Doesn't take a hundred.
+[00:09:28] Speaker C: Mm-hmm. It no, it's two batteries we need.
+[00:09:32] Speaker B: Yeah, then, you know, put your mind at rest.
+[00:09:36] Speaker B: 'Cause, you know, you wouldn't want it to be the morning you were supposed to be recording and then suddenly discover yeah. You know this.
+[00:09:39] Speaker C: Uh no no. No. Yes.
+[00:09:40] Speaker A: Yeah.
+[00:09:43] Speaker A: Well I suppose I could gi I could give you a call on the way in tomorrow and if th not bi it's not been in your in your f um pigeon hole, I can easy go off the train and early and just pick 'em up from there.
+[00:09:51] Speaker C: Fair fair enough if you want. Mm-hmm.
+[00:09:52] Speaker B: Uh check they got 'em first though. Their stocks are a bit funny down there.
+[00:09:55] Speaker A: Right, yeah. Well I'll make sure I make a I'll make sure of I got the f the phone number in my phone so I can call them.
+[00:10:00] Speaker B: 'Cause you know, it's not that attractive an area to walk through if you're not gonna get anything out of it.
+[00:10:03] Speaker A: All true. True. Um uh it's Dalry road, isn't it. Um
+[00:10:12] Speaker B: So of all the things that were on the Wiki do I need to pull up the Wiki? Ah, it is gonna let me log in.
+[00:10:21] Speaker C: It's still probably even that angle.
+[00:10:26] Speaker B: No, I do not wanna change my password.
+[00:10:36] Speaker B: Um
+[00:10:39] Speaker B: But you guys probably know off the top of your head, is there anything else that we we we were waiting on before you could run?
+[00:10:44] Speaker C: Can't remember the Wiki. D um
+[00:10:48] Speaker B: So all those tasks Craig had when it started.
+[00:10:48] Speaker C: The only thing that well the thing that's holding s me slightly up is um checking whether Joe's f finished that there i there is a working um model builder. But I'm not sure if it's the finished finished version yet. And the the ninth
+[00:11:04] Speaker B: Uh his last day was the thirty first of October.
+[00:11:08] Speaker C: Yeah, he still had n hours left. I wasn't sure uh if it was down to the number of hours or whether thirty first of October f uh certainly uh uh he right.
+[00:11:15] Speaker B: Uh yeah, no no. It's ours. Yeah, it's ours. Oh, so he's got ours left.He's behind-hand. But no, he was billing for he was billing by the hour. So I thought well, I mean obviously if he wants to finish off then you know. I b
+[00:11:20] Speaker C: I think he's had something like seven.
+[00:11:31] Speaker C: But uh n I've n ni Nijmegen has gone dead for all those last two weeks.
+[00:11:36] Speaker B: Oh well they're probably away then.
+[00:11:38] Speaker C: Well uh it w e e Ellen's away. N no, um but I think what they had was some big review.
+[00:11:38] Speaker B: Wasn't Ellen away? They're really at the same place.
+[00:11:46] Speaker B: Oh, yeah it could be it.
+[00:11:46] Speaker C: Uh a and so I haven't heard anything back from them. So uh the models for
+[00:11:52] Speaker B: Oh, you have no models at all. Oh, that's a pity.
+[00:11:57] Speaker B: Model buil builder, that's what I was calling the graphical model editor, right? So you use X_ fig to make the parts and then you this thing.
+[00:12:00] Speaker C: Yes, uh-huh. Well no. Well we don't need to um make the the parts are all the standard tangram ones I had before anyway. The X_ fig thing's only when we come to building airplanes and new peculiar shapes. Uh but for this experiment it's just the tangram type uh task.
+[00:12:09] Speaker B: Oh okay.
+[00:12:18] Speaker B: Yep.
+[00:12:19] Speaker B: Okay. Um I have something in my email about from Joe. Uh he wouldn't have sent it just to me, would he? Do you want me to check that? I'm not gonna project my email.
+[00:12:20] Speaker A: Yep.
+[00:12:29] Speaker C: Um yeah, if you got right.
+[00:12:34] Speaker A: I t I'd say you don't be.
+[00:12:34] Speaker C: How r f how recently that nothing I haven't i heard anything from Joe for a a week or so anyway. So
+[00:12:40] Speaker B: Okay, I think I mighta heard Thursday or something. I can't remember exactly when it was.
+[00:12:43] Speaker C: Yeah. That's that's newer than the
+[00:12:59] Speaker B: Uh
+[00:13:01] Speaker A: Mm.
+[00:13:03] Speaker C: It's the last thing was in sp response to the thing I was saying last week about the parallelogram being the wrong way around and uh w from the model builder to the actual yeah. Um that nothing has I haven't heard anything since from either sort of the Netherlands or from you.
+[00:13:14] Speaker A: Yeah, yeah. screen shots. Yeah, yeah.
+[00:13:24] Speaker B: Okay, so I've got something on the twenty eighth. That's Friday I think. Oh, he just wants to know how to get paid. Right. That suggests he's done done done. Anyway, he's in Edinburgh. So well I suppose he won't come by 'cause Craig's on his desk.
+[00:13:24] Speaker A: Oh.
+[00:13:26] Speaker A: Hmm.
+[00:13:30] Speaker C: Yep.
+[00:13:39] Speaker C: Oh, is he back? Oh is he? Oh no, right okay.
+[00:13:41] Speaker B: Yeah. So
+[00:13:43] Speaker A: Well I'm I'm using DICE machines. If he wants to pop in for five minutes, the the Windows machine is free for him at the moment.
+[00:13:49] Speaker B: Well, he's just not gonna try to le squat there, that's all.
+[00:13:55] Speaker B: Uh well I so the last thing I've got from him about work work was the nineteenth of October that said he uploaded some changes that you wanted. That's
+[00:14:05] Speaker B: Oh, so you didn't get that. It was me and him. But presumably the he put it on the Wiki. So
+[00:14:12] Speaker B: So he's just telling us 'cause he things we probably don't read Wikis.
+[00:14:17] Speaker B: And I'll just check.
+[00:14:19] Speaker C: Yeah, it was after it was after that that uh there was the thing about um w w why the parallelogram was the was a mirror image.
+[00:14:20] Speaker A: Yeah.
+[00:14:29] Speaker A: Yeah I mean I considering we get an email from uh the I think it got sent through saying that he'd updated the the whatever it was on the Wiki. So you do he'd he'd uploaded a ne a new zip file and overwritten the old one. So
+[00:14:39] Speaker C: Mm-hmm.
+[00:14:40] Speaker B: Yeah. Well I I haven't replied to him about yeah, I really don't have anything more more recent from him. S I haven't replied to him about um
+[00:14:53] Speaker B: you know, how to submit costs and stuff like that. So um but that suggests he's at at the end of things, but w we could just ask him. I mean maybe you guys would just wanna ask him directly you're done done, right? 'Cause um it's worth you guys knowing. And then of course any problems that remain you inherit. Uh right, you know, it's worth taking a look at what it does and making sure it does what you want, I guess. So th the problem is you want you wanted to construct some models in it for your experiment but you were hoping to get some from Marloes.
+[00:15:10] Speaker A: Yep.
+[00:15:13] Speaker C: .
+[00:15:20] Speaker C: Yes.
+[00:15:22] Speaker C: Yes, or at l least um she was meant to have have some idea of the level of complexity. 'Cause they d they d have actually run things and to uh get an idea of the sort of style and to check that they'd be alright. But all very quiet.
+[00:15:29] Speaker B: Ah yeah, yeah.
+[00:15:37] Speaker B: Right, have you you tried cold-calling her? That's what I do when I need things that
+[00:15:40] Speaker C: Yeah.
+[00:15:43] Speaker C: Uh no, it has just been email rather than uh f f the telephone type of uh request. But
+[00:15:50] Speaker B: Ach, try phone.
+[00:15:53] Speaker B: When i if you get 'em today, when are you gonna start running?
+[00:15:59] Speaker C: I'm down for a week. What's the seventh is a w a week today, I think. Next week.
+[00:16:05] Speaker B: Oh right. So you have to be you have to be ready by then.
+[00:16:08] Speaker C: Um well uh I haven't booked anybody in or anything. But uh that's when I'm hoping. We have been of course put back a bit by the eye tracker going down.
+[00:16:10] Speaker B: Yeah, or re change the schedule.
+[00:16:14] Speaker B: Right, okay.
+[00:16:20] Speaker B: Uh-huh, yeah. Makes sense.
+[00:16:23] Speaker B: Um subjects, you're gonna have d
+[00:16:24] Speaker A: Yep.
+[00:16:25] Speaker C: But uh we're we're needing we're certainly needing some data in the bag by the first of December, I think
+[00:16:31] Speaker B: Yeah. So s y y you don't have subjects lined up, but you don't expect any trouble getting them.
+[00:16:34] Speaker C: No.
+[00:16:36] Speaker C: Um hopefully not.
+[00:16:38] Speaker B: Mm-hmm.
+[00:16:40] Speaker C: The only other slight complication is um which will be b I think brought up at the meeting on Thursday for all the eye tracking users. Um uh the lab has been block-booked again.
+[00:16:51] Speaker B: Yeah.
+[00:16:56] Speaker B: By?
+[00:16:57] Speaker C: Jules from um Psychology.
+[00:17:01] Speaker B: Um I don't know this person. So they well, they need to be serious about it. Who who's their is that a staff member or a student? Okay. Um well, we kinda paid for the lab. So it depends, but I suppose talking to them sometimes solves these problems. Um you might it depends on what sort of staff member is it? Is it a
+[00:17:07] Speaker C: Have di
+[00:17:11] Speaker C: Yep.
+[00:17:27] Speaker C: Lecturer.
+[00:17:28] Speaker B: Right. Um I mean presumably he or she is not running subjects the entire
+[00:17:33] Speaker C: Well presumably not. But uh it's sort of quite solidly booked uh for f certainly w what six days from ten till five for two or three of those days.
+[00:17:36] Speaker B: Block book for how long?
+[00:17:44] Speaker B: Uh-huh.
+[00:17:48] Speaker B: Uh-huh. Um so uh um Ellen's still out of town, right? It's just uh y you could try calling this person and see how this works. Ellen might be more persuasive. Um it's just sometimes uh academic staff have a bit of a chip about um research staff. And since I don't know the person, I can't tell whether it's one of those or not.
+[00:18:11] Speaker C: Um I wouldn't I no I can probably at least email her and ask her uh if she's really needing it all that time.
+[00:18:19] Speaker B: Mm-hmm. Yeah, and then escalate, I guess. But uh, you know, or whether they can be put off for a little bit or something. So I have no idea how the booking system works. Well, you're discussing it on Thursday, right? At the moment, there's just a booking system. Yeah.
+[00:18:32] Speaker C: I i well yeah, at the m yep. When people just uh if they can log on to it can book it.
+[00:18:40] Speaker B: Yep. Well that's that's one to raise at the meeting. Um I v might talk to Ellen about that ahead of time 'cause uh they may have she and Martin may have had discussions about appropriate use of the lab.
+[00:18:42] Speaker C: Mm-hmm.
+[00:18:50] Speaker C: Uh i th in theory JAST is meant to have it every morning.
+[00:18:55] Speaker B: Oh really? Yeah, but I g don't you guys set up for isn't block-booking more appropriate? Because
+[00:19:03] Speaker B: I i isn't there set-up involved in changing around for somebody else?
+[00:19:07] Speaker C: Um but it uh there shouldn't be any changes in the physical connections or or anything. No.
+[00:19:15] Speaker B: No? Or in the software or anything? Okay.
+[00:19:20] Speaker B: So there's no cost associated with it being mornings or afternoons.
+[00:19:24] Speaker C: Uh no. that as long as p other people don't for some reason, I don't know, disconnect some bits of the equipment, there's no reason why they should. It's just the
+[00:19:33] Speaker B: Yeah. S so in the worst case um you may be able to make an argument if you actually need that week that you can collect in the mornings that week. Is this something that's known outside Ellen's head?
+[00:19:44] Speaker C: Uh yes, it's um it's on the p uh it's not on the booking system. It's on a web page that Frank created about the lab. Which I don't know if anybody actually knows is there. Mm-hmm.
+[00:19:46] Speaker B: It's on the w booking system.
+[00:19:53] Speaker B: Oh well. That's something.
+[00:19:57] Speaker B: Uh-huh. Well, most the time to to p yeah. So it sounds like you've got a lot of possible ways of getting what time you need. Of course try to be kind to other people. But you would anyway. So
+[00:19:59] Speaker A: Yeah.
+[00:20:08] Speaker C: Yep.
+[00:20:13] Speaker B: So those are the only things that are worrying you, Camtasia and lab access. And otherwise no sweat, you're happy.
+[00:20:23] Speaker C: Should should be. I've also got to get Camtasia we well, yes the m the model builder. I've got to get Camtasia working um as a sort of little multi-media thing to generate a video of how to mi sort of a an instructional video.
+[00:20:26] Speaker B: Oh and the model builders, yeah.
+[00:20:38] Speaker B: Oh yeah. H uh-huh.
+[00:20:41] Speaker A: Yeah.
+[00:20:41] Speaker B: These this is gonna take a little while.
+[00:20:44] Speaker C: It's what I'll have to do this week.
+[00:20:46] Speaker B: Mm-hmm.
+[00:20:46] Speaker A: Yeah. Well when the whole thing was if it was gonna run a trial that'll give you some some screen shots to work with. And then it'll just be a matter of adding new video f mouse movements or whatever. So
+[00:20:50] Speaker C: Hmm.
+[00:20:55] Speaker B: Yeah, but you were gonna try and figure out how to overlay something on top of the video that or no, you were just g really gonna run a video of the sep of the trial. Yeah, okay. That's that's much easier.
+[00:21:00] Speaker C: U
+[00:21:03] Speaker C: Yep, yeah.
+[00:21:08] Speaker B: So um with the model-builder, what do you need to do with it? Th the um which one you is gonna look at what it does so far and you'll just t try out do that. Yeah.
+[00:21:16] Speaker C: Uh I'll I'll do that. Yeah, and just yeah. Mm-hmm.
+[00:21:19] Speaker A: Uh have a look. If you th anything prob any problems with it um think there's a Wiki page up for that f for that piece of uh for yeah, for that thing. So if if you just put just put whatever recommendations, bugs on that page and I'll work through them read 'em as and when I can.
+[00:21:25] Speaker C: Mm.
+[00:21:29] Speaker C: Have a look at uh um hopef hopefully there's not a p a problem. But uh they said Marloes was uh also meant to be checking it and doing things and quiet.
+[00:21:31] Speaker B: Yeah.
+[00:21:33] Speaker A: Yeah.
+[00:21:40] Speaker B: Uh-huh. Um how many models were you relying on her for? So are you suddenly gonna be
+[00:21:40] Speaker A: Yeah, yeah. Um
+[00:21:45] Speaker C: Um I've I uh it hasn't been divided up in that sort of way. But
+[00:21:49] Speaker B: Well, what I'm trying to get at is is your start time gonna be delayed 'cause you don't have the models ready if she doesn't come through?
+[00:21:55] Speaker C: Um depends how quickly I manage to get a grip of it, how long it takes me to generate them or how I get on with the Camtasia.
+[00:22:04] Speaker B: Uh-huh. Yeah. Well
+[00:22:06] Speaker C: Mm-hmm. Un unsure of yet.
+[00:22:06] Speaker A: Yeah.
+[00:22:10] Speaker B: Um can you draft Craig in to build some if necessary?
+[00:22:13] Speaker A: And like these yeah, I mean I've used the software and there's not that hard I mean. Uh
+[00:22:18] Speaker C: It it shouldn't the there shouldn't be any great uh problems. Just checking that the they're of a suitable level of complexity or or of whatever. Yeah. Yeah. No quite quite right. Yeah. So yeah.
+[00:22:26] Speaker B: Yeah. Well you know me contingency planning and all this. I always worry about the worst.
+[00:22:27] Speaker A: Yeah.
+[00:22:32] Speaker A: If
+[00:22:36] Speaker A: Yeah. So well I can't imagine the building the building the mold is gonna be that hard. I mean I can easily just well however many thousands are on that uh Dutch web site you found. Just, you know, pick pick some of them, redo them in in the Ja in the J_C_D_ format. That's yeah. It's pretty mechanical. I can easily d easily do that. So but it's a matter of choosing which ones you need to do. Which I guess you have to do. Well yeah. Yeah well you need to you you and Marloes need to sort out, yeah.
+[00:22:56] Speaker C: Um yeah. well I was hoping for some feedback from yeah. Yeah, exactly.
+[00:23:04] Speaker B: You can um call a JAST telcon between you and Marloes. You know, i if it's not that see, you know, with the cold calling you can usually at least find out whether they're alive and get an an offer to to get something. But, you know, the next the next escalation is saying no we really need to talk about this. We're gonna talk about it, you know, Tuesday, at such such a time unless you
+[00:23:09] Speaker C: .
+[00:23:15] Speaker C: Yes.
+[00:23:25] Speaker C: Yep, mm book a time and I think so. Right. Well, I'll try and get ahold of her again today and see what
+[00:23:26] Speaker B: um
+[00:23:30] Speaker B: But presumably whatever it is they've been going through is now over.
+[00:23:33] Speaker C: I think it it was up till the end of October. So presumably today they're now free again. Or taking a week off to recover. Yes.
+[00:23:37] Speaker B: Mm-hmm. Yeah. I d
+[00:23:44] Speaker B: I'd just hate for that to c um to slow you up in collecting stuff, that's all.
+[00:23:48] Speaker C: Um well hopefully it it won't anyway. It's just if I then do it I hopefully will get the right models. That's that's the pro so uh uh it will be generated. It's whether the models are optimal or not that I think that's right.
+[00:23:55] Speaker B: Obvious yeah, uh okay, that's true. Well that sounds
+[00:24:00] Speaker B: That's quite a small thing she can do for you, I guess. You know. It's not like, you know, w sitting there brain deadly constructing, you know, some models that she needs to do. It's just to provide advice about this, which must take take less time.
+[00:24:07] Speaker C: Mm-hmm.
+[00:24:12] Speaker C: Yep.
+[00:24:17] Speaker B: Well, that all sounds fine. You guys worried about it? You worried about anything? We've mostly been talking about the experiment schedule. So.
+[00:24:23] Speaker A: Um I don't think don't think so. I mean uh so the the major thing I've gotta d got to do is get this Camtasia sorted out. So just waiting for the batteries for that. Um if Robin's not worried I'm not worried. Um
+[00:24:30] Speaker B: Mm.
+[00:24:32] Speaker C: Mm-hmm.
+[00:24:35] Speaker B: You're gonna run out of things to um f do that we haven't set you up for any time soon. The G_D_F_ sounds like it might take a wee while.
+[00:24:40] Speaker A: Um p
+[00:24:42] Speaker A: Yeah, yeah, 'cause I'll go gotta finalise that format and then once that's done, I've gotta start looking at the analysis side of it. And that's
+[00:24:46] Speaker C: Mm-hmm. Well so it was the whole all the dynamic region part of it that's uh
+[00:24:50] Speaker A: Yeah. Um
+[00:24:51] Speaker B: Yeah, but you don't need anything from me for that, 'cause that's already sorta speced. I mean again that's the pair of you.
+[00:24:56] Speaker A: Yeah, yeah. I think yeah. No, the the analysis I think the analysis will take a little while. I don't think it's gonna take that long to get its stuff sorted out. It's gonna be how to display it and all that sort of stuff. Uh whatever makes it easiest for you to do. Um but once w
+[00:25:04] Speaker C: Mm-hmm.
+[00:25:06] Speaker B: Yeah. It's just what I'm worrying it w worried about is him being in the lab all day long and you not being sure like what to do for the analysis on or something. 'Cause you're gonna be completely unavailable when you're recording? Or will there be times when you don't record all day.
+[00:25:19] Speaker C: Uh n um no. Uh well it depends how how many I can book in and get get running. Yeah. And before my brain melts it But w when when the experiment's running, yeah, it's I'll be in the lab. Uh I can't just go in, let them get start and then come back. It's uh so some people can, but
+[00:25:25] Speaker B: Uh-huh.
+[00:25:33] Speaker B: Yeah. 'Cause he might oh yeah, no no no, I understand that. It was it was more like oh, it was more like, you know, you so this week he's got, you know, the G_D_F_ stuff to do. Then next week you're planning on recording. And what happens if suddenly you're unavailable all of next week just when he runs out of work?
+[00:25:35] Speaker A: Hmm.
+[00:25:52] Speaker C: Uh th they'll certainly be time because I'm right next to the lab anyway, I'll come back just to check my email and things anyway, so uh yeah.
+[00:25:58] Speaker B: Yeah. So so we'll worry about it then.
+[00:25:59] Speaker A: Yeah, yeah. Um yeah, so I still gotta work on the gest analyzer and turn that into the t into a G_D_F_ outputter. Um and uh oh yeah, and I'll I can have a look at the model builder as well. Um 'cause one thing I'm thinking about is w we're looking at the the part building pa type stuff. Uh and it might worth seeing if we can add a little part builder thing into the um model builder. Um just just the ju I just gotta tidy tidy up some the code for generating the parts anyway, the J_C_T_ um parts from from S_V_G_s. Yeah.
+[00:26:06] Speaker B: Mm-hmm, yeah.
+[00:26:10] Speaker B: Yeah.
+[00:26:26] Speaker B: What I do don't know is we wanna bother with a part builder. I mean the idea was it wasn't worth the investment, right?
+[00:26:31] Speaker A: Yeah, yeah. But I'll wanna have a qui have a quick look and see see how easy it is to add this things to it. 'Cause um if if I can use it to generate um um the rotsym angle for example and the rotation symmetry stuff for it, which is what was causing the bugs uh before. Um so if I if I can use the model builder to automatically do that then that would sa that would save quite a bit of work and it'll d save a few bugs. So
+[00:26:31] Speaker C: Mm-hmm.
+[00:26:42] Speaker B: Yeah yeah yeah. Or Do y
+[00:26:44] Speaker C: Mm-hmm.
+[00:26:49] Speaker B: M yeah, but now now that the guy building these models know that they need to do the rotsym some stuff, do they have do you have trouble doing it? No, so
+[00:26:56] Speaker C: No.
+[00:26:57] Speaker A: No. It's uh it's just something you gotta remember once the part's been built. So um
+[00:26:59] Speaker C: Mm-hmm.
+[00:27:00] Speaker B: Yeah. Well g I mean um we might want to um severely cash limit the investment that you put into making a part builder, right? So how how many person days would it be worth, like if Craig discovered it could be done in X_ days
+[00:27:10] Speaker A: Yeah, yeah. Well I'm not not not pl not planning do much on that. It's just
+[00:27:11] Speaker C: Mm-hmm.
+[00:27:19] Speaker C: Uh I wouldn't bother more than one or two certainly.
+[00:27:22] Speaker B: Right, so there's your limit. Don't spend more than a day or two on it. Yeah uh 'cause it really isn't worth it. You you have to understand there's things about this project we've hidden from you so far that you'll have to learn about. So it's it's not like you're out of work.
+[00:27:25] Speaker A: Yeah. I mean I've I've already I've already got this yeah.
+[00:27:31] Speaker A: Yeah, other I saw saw saw saw something about map task like little further down my task list.
+[00:27:38] Speaker B: Oh really? Oh, that one'll just be a little add-on. That'll whatever it is, it'll be the same skills as you've learned for something else. Um and it'll just be I'm not even sure that's you 'cause I think somebody else is doing that actually. But um I'm thinking more of the fact that um at some point we should probably tell you about this N_X_T_ stuff. So
+[00:27:44] Speaker A: Right.
+[00:27:54] Speaker A: Right. Yeah, well that that's that's just X_M_L_ to X_M_L_ to X_M_L_, isn't it. Turning G_D_F_ and what other bits into N_X_T_.
+[00:27:54] Speaker C: Mm-hmm. W
+[00:27:58] Speaker B: Oh, yeah yeah yeah. But you know, there's X_M_L_ and X_M_L_ and, you know. It takes stand-off links and stuff and it's um some some people if they're not used to linguistic annotation c um uh it c take a little time to get their head around the way the do data data model works. And um, you know, there's stuff to learn there. So
+[00:28:03] Speaker A: Yeah, yeah.
+[00:28:14] Speaker A: Right, right. Um yeah 'cause that's the yeah, o other than you have from what I've heard about it is both X_M_L_. So the the programming side of it doesn't sound too hard. It's gonna be making sure that it fits what you expect out of the format. So um but no that's that's fine, I'll d I'll have try to find I'll I'll have plen plenty of uh plenty of questions for you once I once I get to the last stage, I'm sure.
+[00:28:25] Speaker B: Yeah, yeah. Yep.
+[00:28:28] Speaker B: So
+[00:28:34] Speaker B: Yeah. So just don't witter away, you know, weeks on fripperies when we've got the real me meat of this yet to come. We'll find we'll find plenty of really really crucial s things for you to do. So
+[00:28:40] Speaker C: Mm-hmm.
+[00:28:41] Speaker A: Yeah. Yeah.
+[00:28:44] Speaker C: I don't think you'll be twiddling your thumbs, no.
+[00:28:45] Speaker A: Yeah, we'll
+[00:28:47] Speaker A: Yeah. Well the we're gonna get Camtasia sorted out this week and then it's concentrate on the on the gest analyzer, the G_D_F_ stuff. Um and then yeah, once once we've done that it's whatever whatever you whate whatever you whatever you want me do once I done the once I've done the G_D_F_, I guess.
+[00:29:01] Speaker B: Okay. So uh I'll uh remind myself to look at what's next before the next time we get together.
+[00:29:07] Speaker A: Yep. Yeah, so I think the G_D_F_ will keep me busy for a little while yet. So um yeah, well that's yeah, certainly keep me busy until this time next week when we can start suggesting things that might might need to look at for the next stage, I guess.
+[00:29:19] Speaker B: Yeah. So you collect on Monday? That means you don't wanna meet, right?
+[00:29:26] Speaker C: Um well at twelve o'clock next Monday the lab is technically booked by Jules.
+[00:29:37] Speaker B: Oh, r right, it's actually next week. It's actually the week that you were planning on.
+[00:29:39] Speaker C: It
+[00:29:40] Speaker C: Uh it starts the uh on we this Wednesday and goes through to next Wednesday.
+[00:29:47] Speaker B: Oh okay.
+[00:29:50] Speaker B: Well, I don't know. Anyway um you'll tell me whether it we cancel this. Or whether I just talk to Craig. In which case we won't be up here 'cause we don't record twos.
+[00:29:53] Speaker C: Mm-hmm.
+[00:30:01] Speaker A: Yep. Okay.
+[00:30:03] Speaker C: Um what else? Uh Yeah. My then other complication is two weeks tomorrow I start my teaching
+[00:30:11] Speaker B: Oh yeah. That should be fun.
+[00:30:12] Speaker C: Mm-hmm. For I've got two weeks of that, fo four lectures and four labs.
+[00:30:14] Speaker B: Let's see, that's like the
+[00:30:18] Speaker A: Yeah.
+[00:30:18] Speaker B: That comes at an ideal time for you then.
+[00:30:20] Speaker C: Yes.
+[00:30:22] Speaker B: That's like the twentieth or something.
+[00:30:25] Speaker B: Uh I can't add. Monday is the
+[00:30:28] Speaker C: Uh what's tomorrow, is the f tomorrow the f first? So it will be the fifteenth for two weeks.
+[00:30:32] Speaker A: For the first, yeah. Yeah.
+[00:30:34] Speaker B: Yeah.
+[00:30:35] Speaker A: Hmm. Actually yeah, that reminds me, I wo wo I wo I won't be uh on Thursday I'm gonna be over in my induction day. So so
+[00:30:41] Speaker C: Oh you've got your uh induction, that's right.
+[00:30:44] Speaker B: Oh yeah, you have to promise to tell us how that is. 'Cause people do ask me.
+[00:30:48] Speaker A: Fair enough, fair enough. I mean uh I don't it's meant to be that in depth. It's
+[00:30:49] Speaker C: Uh yes. From a total waste of time to, you know.
+[00:30:52] Speaker B: Yeah, on a scale of one to seven.
+[00:30:54] Speaker A: Yes, yes. I mean I d I don't expect to be that in depth. I mean it's fifteen minutes on a variety of different topics. So it's just it's uh it is. Uh yes it is. I'm sure most of it I already know. It's like fire safety. Yeah. Health, safety, data protection. Usual sort of stuff you get everywhere. So
+[00:31:01] Speaker B: Yeah.
+[00:31:08] Speaker C: Mm-hmm. It's probably the university'll cover itself legally, I think, by doing this. Uh mm-hmm.
+[00:31:09] Speaker B: Yeah, you'd be surpri these things do
+[00:31:13] Speaker B: Well, if they were gonna do that then they'd force you to go to it. I would and I would know somebody who'd gone to know. You know. I'm pretty sure they didn't have induction in my day. So
+[00:31:13] Speaker A: Yeah. Yeah.
+[00:31:17] Speaker C: Uh no I suppose rather than being Nobody's bothered so far, is it. Uh well I don't remember being asked for an induction. So
+[00:31:21] Speaker A: Yeah.
+[00:31:27] Speaker B: Really? But you only started here
+[00:31:29] Speaker C: In April.
+[00:31:30] Speaker A: Mm.
+[00:31:31] Speaker B: They were supposed to, I'm sure.
+[00:31:33] Speaker A: Yeah, I mean I can remo
+[00:31:34] Speaker C: I got invited to a um a a a summer garden party for new staff members. But that was but that's all.
+[00:31:43] Speaker B: Oh well.
+[00:31:44] Speaker A: Yeah, I can remember when I start being a st when I was sta starting being a student. I mean ha we had the inductions were compulsory because um a lot of students were doing te were doing teaching. And you couldn't do the teaching unless you done the induction because you had to know about health and safety and fire safety before you could take a charge of yeah. 'Cause you were the responsible person in the in the class room. So
+[00:31:56] Speaker C: Hmm.
+[00:31:59] Speaker B: Oh yeah. Uh
+[00:32:05] Speaker A: So But uh yeah, I'm not sure I'm not sure why the why why I'm doing it now. But okay.. so see how it go. I'll I'll uh give you my report on Friday or something.
+[00:32:05] Speaker B: Yep.
+[00:32:09] Speaker C: Uh-uh.
+[00:32:13] Speaker B: Mm-hmm.
+[00:32:15] Speaker C: I have one N_X_T_ question which hopefully won't be well, it's not one. Just hopefully as part of the output it will be something like that. Is that correct? So you've got the gaze position of the first person, gaze position of the second, mouse position of the first, mouse position of the second and, I don't know, a common mouse action there or something. Does that t just in in sort of layers like that.
+[00:32:18] Speaker B: Okay.
+[00:32:37] Speaker B: Yeah.
+[00:32:40] Speaker B: Seems reasonable.
+[00:32:42] Speaker B: So um it'll be like in uh monitor. But yeah, they'll all be different tiers like that. And then there's the language stuff as well presumably.
+[00:32:48] Speaker C: Yeah.
+[00:32:50] Speaker C: Yep.
+[00:32:52] Speaker C: Yes, uh-huh. M that's that's just the the eye movement uh other sort of stuff, yeah.
+[00:32:54] Speaker B: Yeah, this is the easy stuff. Yeah. Well, eyes and mouse. Eyes and mice.
+[00:33:01] Speaker B: Uh-huh.
+[00:33:03] Speaker B: And that's enough for you, right? I mean that's just the way you want it. Course there are lot lots of things that can do that. But it's the language part that's the hard part. Yeah.
+[00:33:05] Speaker C: It ho hopefu uh hopefully that's yeah, I guess it's that's why I dre
+[00:33:11] Speaker C: As well. Yeah, mm-hmm. Yeah. So I was just yeah, I was just checking that uh I know the language part because they say L_P_ here but uh this would be the the the new part. New stuff.
+[00:33:18] Speaker B: Yeah, that's
+[00:33:21] Speaker B: That seems fine, yeah. Do you know what the um the sets of codes are? Well the whatev whatever whatever you're getting out of the JAST analyser. So
+[00:33:21] Speaker A: Yeah.
+[00:33:31] Speaker C: Uh yeah, whatever that is.
+[00:33:33] Speaker B: I mean blinks as well, right?
+[00:33:37] Speaker C: Um yes, I'm not sure whether we need to know exactly where they are, just how many there are in each tra um uh p I don't know. I suppose it could go in. Uh I mean I suppose it we're as well to have it if we can.
+[00:33:42] Speaker B: Oh so you don't want a pa uh part of this data?
+[00:33:46] Speaker B: Aye. But
+[00:33:49] Speaker B: I think you I think you should well, there's two views on this. Um if you do then the people formulating research questions will ask about them. But if you don't they'll probably ask about them anyway and then you'll have to add 'em after the fact. Uh so it's probably easier just to s shove 'em in. You can stick 'em in a different um track and uh and then load 'em or not load 'em as you please. 'Cause it's not well, I don't know. With is it is it part of so th these are mutually exclusive and exhaustive sets of codes against time, right? Isn't blink a part of this?
+[00:33:58] Speaker C: Right.
+[00:34:02] Speaker C: Well uh just say stick 'em in anyway. Yeah. Mm-hmm.
+[00:34:20] Speaker C: Mm-hmm. Um blink would uh uh at the moment just get lumped in with the sort of previous gaze.
+[00:34:30] Speaker B: Yeah. But but isn't that important? Because when they're blinking, basically it's like an a nil code. You c can't find out what they're doing otherwise. So it may actually be important to have the blinks registered in there because you may discover you need to take them into account to smooth some kind of analysis that you're doing. So it could be that if they only they hadn't had a blink just then, they would've been I don't know what.
+[00:34:31] Speaker C: Mm-hmm.
+[00:34:37] Speaker C: The way they're looking, mm-hmm.
+[00:34:44] Speaker C: Mm-hmm.
+[00:34:54] Speaker C: M uh yes, mm-hmm. Moving somewhere else, or is more likely to be uh
+[00:35:02] Speaker C: blinking at the same time as the other person was doing something, I think to mm-hmm. Yeah.
+[00:35:02] Speaker B: I'm thinking more
+[00:35:06] Speaker B: That you wanna know about. Oh, I hope n not to much relies on missing stuff 'cause people blink. I was thinking more like um, you know, the person looks a p a part and they've got a uh fixation before and after and there's blink in the middle. And, you know, there may be times when you wanna treat that as one thing, right.
+[00:35:26] Speaker C: Yes. Norman normally uh would be just, as I say, like add the blink time and duration to the previous fixation.
+[00:35:36] Speaker B: Oh right. Okay. So but in that case
+[00:35:40] Speaker C: 'Cause you're not absorbing any new information and that's what the critical sort of deciding factor is.
+[00:35:46] Speaker B: Right, uh-huh. In that case then um these tiers are already like blink corrected. And then you wouldn't have blinks as part of this. You'd want blinks as a separate tier if you're gonna have it in.
+[00:35:53] Speaker C: Yes, so that they'll include the
+[00:35:57] Speaker C: So i i yeah, would ha it would be as a separate tier where just to mark
+[00:36:03] Speaker B: Yeah. Yeah, so the key thing is he here is mutually exclusive and exhaustive. And um the second key thing is um it better be really clear to the people who are dealing with these codes um uh w yeah, whether any monkey business has been done around the blinks to correct for that. Um 'cause, you know, it wouldn't necessarily be obvious looking at that set of codes that
+[00:36:03] Speaker C: the actual position.
+[00:36:08] Speaker C: Mm-hmm.
+[00:36:16] Speaker C: What's included and what's n yeah. Mm-hmm.
+[00:36:28] Speaker C: Hmm. No, not certainly l not looking at codes, no.
+[00:36:32] Speaker B: Uh yeah, I suppose if you know about eye trackers then you'll just know. But
+[00:36:34] Speaker C: Mm-hmm. Know what to look for and what not to, yeah.
+[00:36:35] Speaker A: Huh.
+[00:36:37] Speaker A: Okay.
+[00:36:39] Speaker A: So so that mean you need the blink corrections part of the analysis then. Um
+[00:36:43] Speaker B: It I think you're just saying it comes out of the eye tracker already, right? They're already blink-corrected.
+[00:36:45] Speaker C: Uh i there are well they're already identified as blinks. Then it's uh i it is at th hmm at what stage. The software that I've used uh p pools uh the blinks, so will add it on. I'm not sure what the default
+[00:37:04] Speaker A: Right. So tha tha that's uh that's for the rest of the stuff that comes the eye tracker, isn't the analyzer software that comes the eye tracker.
+[00:37:07] Speaker C: Yes. Yeah, so I'm not su i certainly it's listed as a separate event in the stream. Blinks are a tag uh from the E_D_F_ and and that sort of thing. It's registered as a a detection. But
+[00:37:13] Speaker A: Right.
+[00:37:20] Speaker A: Right, okay. Well i i if if you want if you want the blinks mer merged into a fixation, it might worth making making a cr part of the requirement for the G_D_F_ stuff. So to remind me so to to just add that analysis to, yeah, to to it. So it's I mean it's easy enough to do, just che just checking the times th times of the events.
+[00:37:27] Speaker C: Mm. Mm-hmm.
+[00:37:31] Speaker B: Yeah.
+[00:37:32] Speaker C: Uh i y yeah. Uh I mean it it it won't because of the fixation it will be down to what we define as uh a gaze. So basically the time from when somebody starts looking at an object until they leave it. And so if they blinked a lot within that they're still looking at that object. So it's just the time in to the time out.
+[00:37:52] Speaker A: Right. Okay, okay.
+[00:37:52] Speaker B: Yeah. But what we need to know is like at what stage in the eye tracking stuff where it does that and whether that gets through so that um Craig gets it automatically in what he's translating or to G_D_F_. Whether he needs to redo the same analysis because something about the data path cuts off that analysis for the eye tracker. Or whether we even like it, right, and wanna do it some different way.
+[00:37:58] Speaker C: Mm-hmm.
+[00:38:02] Speaker C: Yep.
+[00:38:09] Speaker C: Mm-hmm.
+[00:38:13] Speaker C: Hmm. Some other way.
+[00:38:15] Speaker A: Yeah. Yeah 'cause I think the ASCII format as it stands does contain blink information um 'cause uh d d I'm sure I'm sure that's appeared in the in the documentation I've read through.
+[00:38:20] Speaker C: Yes.
+[00:38:22] Speaker C: Mm-hmm. Yep, there's a blink sort of event.
+[00:38:24] Speaker B: Yeah. But it could be these things are corrected for blinks in this way plus there's blink information. So, you know, it it treats it as a fixation around blinks and it also just happens to tell you where the blinks are. 'Cause as they were saying, they like to use blink rate as measures of cognitive difficulty or something. So
+[00:38:32] Speaker A: Possibly. Possibly, yeah.
+[00:38:41] Speaker C: Mm-hmm.
+[00:38:42] Speaker A: Right. Okay, okay. Um yeah, so might might worth us us having a look at that and just just seeing what dat is what data is already in the ASCII format and whether you want me to do any correction as part of the analysis. Um 'cause I've gotta do the analysis for the fixations on parts and things anyway. So yeah, I d I I I didn't think check for blinks during that. Isn't gonna be a shouldn't be a big problem.
+[00:38:51] Speaker C: Yep.
+[00:39:03] Speaker C: It should just be a matter of treating a b adding on the blink to the last fixation or something anyway.
+[00:39:08] Speaker A: Yeah. Yep. Um so we'll be
+[00:39:13] Speaker B: If they're not still fixating on it when they come back out of the blink, then
+[00:39:19] Speaker B: why is that is that the right thing to do analytically?
+[00:39:21] Speaker C: Uh well uh the the real reason is um as long as they've been blinking, even if they then open their eyes somewhere else, that's when they start absorbing the new information.
+[00:39:31] Speaker B: Oh right. Yeah, you said that.
+[00:39:35] Speaker C: It's basically like a just a long saccade. Mm it you kind of have visual suppression when you move and it's the same when you're blinking. You're not taking anything in. So
+[00:39:44] Speaker B: Well, but does um the duration of fixations count for anything? 'Cause it if you're just adding the length of the blink to the fixation, you're not treating it as a saccade.
+[00:39:50] Speaker C: Uh it it's yeah, that yes, um that's for the sort of gaze time measure. Uh it's not actually the fixations are still um independent. So the they w fixation duration isn't doesn't include the blink in the ASCII a output. It's only when we start looking at sort of the total gaze that um the total amount of time spent looking at one particular object, which includes all these sort of multiple fixations and any blinks and that sort of thing. Is it it's a a sort of composite uh viewing time.
+[00:40:01] Speaker B: Okay.
+[00:40:06] Speaker B: Wait.
+[00:40:17] Speaker B: Okay. I kinda get this. Yeah, yeah. Mm-hmm.
+[00:40:22] Speaker A: Right, mm-hmm.
+[00:40:24] Speaker B: So more complicated than I thought. I'd forgotten about the multiple fixations on an object. Yeah. Okay.
+[00:40:26] Speaker C: Uh yeah, I'm afraid uh mm-hmm.
+[00:40:31] Speaker A: And so are you looking for a final thing that just sort says between this time and this time you're looking at this object. Between this time this time you're not looking anything. And
+[00:40:37] Speaker C: Yep, yep.
+[00:40:38] Speaker C: Although we'll also still need a count of the fixations just so we can have you you've got measure fixation duration again just to s see if those they spend longer just f amount of more stable move uh eye fixation or not. Uh
+[00:40:52] Speaker A: Yeah, yeah. 'Cause I think I think at the moment the G_D_F_ format has fixations in it. Um so so I gue I guess that'd be part of the G_D_F_ to transformation would be turning fixations into gazes and whatever else. Okay, okay. Well tha tha don't don't uh worry about that just the moment. But
+[00:40:56] Speaker C: Mm-hmm.
+[00:40:59] Speaker C: Yep. To ye yeah, mm-hmm. Viewing times.
+[00:41:06] Speaker B: Well, it's not okay, I mean this is kinda what we were talking about before, this confusion about what's in the G_D_F_. I mean you might see it as the initial G_D_F_ is just whatever straight-forwardly translates without, you know, without transforms, with just the data format changing from the ASCII. And then there's a bunch of other things that get added that you might still want to be in um augmented G_D_F_ format, you know, like this blink and the gaze and whatever else. And then you translate to N_X_T_. So you might still wanna have everything in this one G_D_F_ file format that represents everything. And then the N_X_T_ thing is just a splitter. It's not doing any fancy analysis. So I see this as, you know, a bunch of little routines that take the the G_D_F_ without this information in it and add new information into th sub-script versions of the G_D_F_ file that contains these post-process analyses.
+[00:41:30] Speaker C: Mm-hmm.
+[00:41:45] Speaker C: Right, yeah.
+[00:41:58] Speaker C: Mm-hmm. Well that's partly why I brought this up now is it I'm not sure what point down the data path things sort of happen. But that's what I want out in the end.
+[00:42:08] Speaker A: Right.
+[00:42:09] Speaker B: Yeah.
+[00:42:11] Speaker A: Right. So so so w will you actually be doing much of the G_D_F_? Or is are you expecting do most the analysis on out of the N_X_T_ stuff then? So whe when you uh when you actually generate your results. Mm-hmm.
+[00:42:20] Speaker C: Um well the N_X_T_ stuff will have the more complete picture 'cause it will include combine all the linguistic stuff with all the movements and the actions. Um but there'll be I suppose just some purely eye movement stuff we could do. I s presumably with G_D_F_. Uh
+[00:42:30] Speaker B: Yeah.
+[00:42:33] Speaker A: Right.
+[00:42:43] Speaker A: Yeah. Uh yeah. C well yeah, you told that earlier 'cause you could do a quick ana you could do a quick analysis on the G_D_F_ stuff without having to before you hit before you do the dialogue analysis type stuff. So you can get some some results anyway, can't you. Okay. Yeah.
+[00:42:48] Speaker C: Mm-hmm.
+[00:42:53] Speaker C: Mm-hmm.
+[00:42:53] Speaker B: Yeah. I mean it to some extent it doesn't matter which data format it's in, N_X_T_ or G_D_F_. But it makes more sense for the converter between G_D_F_ and N_X_T_ not to add any data. All it does is do this this stupid data format conversion. And it it's just, you know, separating it out in the little steps. So, you know, there have to be these other scripts that add any um data transforms um not data format transform forms, but data transforms. Like this idea of um of putting together gazes from fixations. So y you know, i if we keep it simpler like that so that it's in little pieces, then it'll be just easier to understand w what the wh the whole thing does.
+[00:43:04] Speaker C: Mm-hmm.
+[00:43:31] Speaker C: Hmm.
+[00:43:35] Speaker A: Right. Okay, okay.
+[00:43:35] Speaker B: 'Cause you you c you know, i if suddenly you discover there's a problem with the G_D_F_ to N_X_T_ transform, you wanna know whether it's one of these little post-processes going wrong or whether it's just the thing that dumps it into the multiple files for the and G_D_F_ to N_X_T_ transform is c is pretty simple. So um, you know
+[00:43:35] Speaker C: Hmm. C
+[00:43:47] Speaker C: An
+[00:43:51] Speaker A: Right.
+[00:43:51] Speaker C: And uh yeah, that's also why I sent you the mm Saarbruecken software f that uh the stuff that takes the ASCII sort of format originally and then just uh sort of compresses it and things. Yeah, the German stuff. Uh because that little utility um does things like t well but you can tell it to what to do with blinks, whether just to lump them in or or not. Uh what the minimum fixation duration for a stable fixation would be, sort of you have if it picks up t fixations less than say fifty milliseconds, you can tell it just to again lump them all together, that's not a sort of reliable enough fixation. Uh you can put in these sort of of things. So that's uh that's a bit of software that's sent and that includes the source code and things as well.
+[00:44:02] Speaker A: Oh yeah yeah. The Germans don't yeah, yeah, yeah.
+[00:44:14] Speaker B: Oh yeah.
+[00:44:31] Speaker A: Fair enough, fair en
+[00:44:38] Speaker A: Yeah, so so they they we're allowed to do whatever without without source code. There's no c sort of restrictions on that. Fair enough, fair enough.
+[00:44:43] Speaker C: Mm-hmm.
+[00:44:43] Speaker B: So that's like all the analysis that you need to do to things. Are you just gonna copy what they do? Or Is it documented like why they did it they way they did it? Or is it just
+[00:44:53] Speaker C: Uh no, there's very little documentation as you might imagine for these sort of things. Yeah, so I g I uh yeah. That's that's why. So Mm-hmm.
+[00:45:00] Speaker B: Well it's good starting point, right. So it'd be interesting to see if you agree with the decisions that they made about how to do things.
+[00:45:07] Speaker A: Yeah, I suppose I can easy look through and start writing up some documentation on it. That'll gi that'll give us a starting point for us to sort to talk about it to look for what analysis we n actually need to do on it and things. Um yeah, easy. C yeah, create all the uh switches and whatever else you need to do. So um
+[00:45:08] Speaker C: Mm-hmm. Hmm.
+[00:45:12] Speaker C: Mm-hmm.
+[00:45:22] Speaker B: Mm.
+[00:45:23] Speaker C: Fine. Good.
+[00:45:26] Speaker A: Okay. Okay. Yeah. So we'll on once yeah. Well once I've had once I've had a bit of bit more look at this G_D_F_ stuff, then start looking through that. Start looking through that and make sure that works. 'Cause
+[00:45:32] Speaker C: Mm-hmm. 'Cause uh al also just filters it. There are a lot of um strange event tags that the eye link produces that are fairly meaningless, I think. And it can stri it strips out a lot of the junk uh as well. So it cleans it up. Mm-hmm. Uh-huh.
+[00:45:46] Speaker A: Yeah.
+[00:45:49] Speaker A: Yeah, yeah. I've l yeah I've no no noticed that the the the gest analyser knows quite a few things as well. So um but as
+[00:45:49] Speaker B: Ah.
+[00:45:54] Speaker B: Well b but we don't wanna build it into our data path. We just wanna learn from it, I think, right? Correct? Or no?
+[00:45:58] Speaker C: Right.
+[00:46:00] Speaker C: Uh b fine. Well um possibly.
+[00:46:03] Speaker A: Yeah. Well uh I use it that useful for generating this G_D_F_ stuff, I can easily incorporate whatever functions it takes from into gest analyser when I'm do doing the G_D_F_ stuff. So
+[00:46:11] Speaker B: Yeah. I'm just thinking, you know, like i so this takes the ASCII to to a d simplified ASCII. And simplified in with transforms in it ASCII and it's just it seems to be harder to maintain something that's got that in it if it'd be better to break things up into like steps. That you know, as part of the the and als Well why do I think this? I don't know, because it's somebody else's programme and then they're gonna give us the next version and that's gonna break our entire pipeline. You know. That's the main reason.
+[00:46:17] Speaker C: Yep. Mm-hmm.
+[00:46:21] Speaker C: Yeah.
+[00:46:33] Speaker C: The pr
+[00:46:40] Speaker C: Uh yeah. Uh-huh. Yeah, I see what you mean, uh-huh.
+[00:46:44] Speaker A: Yeah, yeah. I mean but what, yeah, say what what I'll what I'll plan to do with it then is take the is take to the software, find out what functions are useful for us in that, and then use those functions to generate the stuff that goes into the X_M_L_ file, the the G_F_ format.
+[00:46:55] Speaker B: Yeah. Uh yeah, I can imagine I can imagine that also requiring some discussion about whether what they do is what we actually wanna do. That should be interesting. Uh
+[00:46:56] Speaker C: Mm-hmm.
+[00:47:02] Speaker C: Six or
+[00:47:04] Speaker A: Yeah, yeah. So so the fir fir first part that'll be documenting what they've got and then discussing it with Robin. So uh yeah. So so I suppose pose that that way the
+[00:47:08] Speaker C: Mm-hmm. It's it's not quite s it so it's not gonna be quite grabbable 'cause it is it's written in Java.
+[00:47:09] Speaker B: Uh-huh.
+[00:47:11] Speaker B: Well, sounds good.
+[00:47:16] Speaker A: Right. But yeah, well I tr mo mostly, yeah. I'm sure I sure most the logic's gonna be gonna be the same. So um
+[00:47:21] Speaker C: Yeah, well yes, uh-huh, the actual uh
+[00:47:22] Speaker B: Yeah.
+[00:47:25] Speaker B: And if in doubt um don't filter stuff out, keep it in, right. 'Cause we always dump it to this other N_X_T_ track that we don't need to load necessarily. So um the idea is you just keep stuff unless
+[00:47:33] Speaker C: Mm-hmm.
+[00:47:34] Speaker A: Right. Yeah, fair enough.
+[00:47:38] Speaker C: Yeah. It's always better than making too much compression to start with and then being out of unable to go back or yeah. Lossiness.
+[00:47:45] Speaker A: Yeah, fair enough. Well so so it's so long as it's X_M_L_, N_X_T_ will handle it, won't it. 'Cause
+[00:47:45] Speaker B: Mm-hmm.
+[00:47:49] Speaker B: Oh yeah, and it's easy enough to dump stuff into an into separate track. W we gotta teach you about this at some point though. So um but still not quite sure when. It sounds like maybe in another week. So Jonathan made me promise not to um tell you about it when you first arrived 'cause you were gonna get overload about learning eye trackers and No. It's just too many things at once and it wasn't important that it be then.
+[00:47:53] Speaker A: Yep.
+[00:47:55] Speaker A: Fair enough.
+[00:48:00] Speaker A: Okay, okay.
+[00:48:05] Speaker C: Or or you leave very quickly. Uh-huh.
+[00:48:14] Speaker A: Yeah. Well I'm well I'm well g I've got the hang of all the stuff I've been going through. And it looks like l looks like I'm coming to end of the stuff the stuff list there already. So I'm gonna have start looking at that as the next stage. So
+[00:48:18] Speaker B: Yeah. So
+[00:48:22] Speaker B: Yeah. He's a cool customer. He's ready for it. Okay. I think we're done, right.
+[00:48:30] Speaker C: Yep. Well I'm I am.
+[00:48:31] Speaker A: Yep.
+[00:48:37] Speaker C: Oh dear. Uh my page is blank still.
+[00:48:43] Speaker B: Sorry? Oh yeah, I don't know. I do not really need to this just says look at the Wiki. Find out what's next. You could give give Craig more work to do. This one's mine. It
+[00:48:46] Speaker A: .
+[00:48:53] Speaker A: Well, I ma I ma I may be maybe I want to check out these batteries and things, won't I? So tomorrow. Well, that'll be something to do. well well will the will the will will do if the trains are tha as bad as today. So
+[00:48:54] Speaker C: I guess not.
+[00:48:59] Speaker B: Oh yeah, well that'll take forever.
+[00:49:02] Speaker B: That's that's really fun. Check your batteries.

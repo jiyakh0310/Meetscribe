@@ -1,0 +1,246 @@
+[00:00:42] Speaker B: Hmm.
+[00:01:12] Speaker A: Good morning everybody.
+[00:01:13] Speaker C: Good morning.
+[00:01:15] Speaker D: Good morning.
+[00:01:15] Speaker B: Good morning.
+[00:01:17] Speaker A: So, we are asked to
+[00:01:23] Speaker A: to make uh uh a new remote control for television.
+[00:01:32] Speaker A: And the characteristics of this new remote control should be original and
+[00:01:44] Speaker A: trendy and of course user user friendly.
+[00:01:49] Speaker A: So people can can use it without any
+[00:01:55] Speaker A: any problem.
+[00:02:02] Speaker A: .
+[00:02:14] Speaker A: I don't know.
+[00:02:18] Speaker C: Well, I think we should set the the points to to drive the project and uh
+[00:02:22] Speaker B: Mm.
+[00:02:23] Speaker B: B did you send us an email about this?
+[00:02:26] Speaker A: Uh, not yet, but if you want
+[00:02:29] Speaker B: Yeah, we we received an email about this uh d designs.
+[00:02:34] Speaker A: Do you want do you want me to send you a mail?
+[00:02:37] Speaker B: Ah it's Okay.
+[00:02:38] Speaker A: Or
+[00:02:41] Speaker D: Or you can put it in the shared folder.
+[00:02:44] Speaker B: Yeah, you see the email? You email. The v very no, no the first one. It's inside.
+[00:02:47] Speaker D: No, I didn't get it.
+[00:02:51] Speaker A: Uh
+[00:02:52] Speaker D: This one. No.
+[00:02:53] Speaker B: No, no. The third one.
+[00:02:57] Speaker B: Oh, you didn't get anything.
+[00:02:58] Speaker D: No,.
+[00:03:00] Speaker B: It's strange.
+[00:03:02] Speaker B: Mm. I got an email about the dis about the discussion. Yeah.
+[00:03:06] Speaker A: .
+[00:03:11] Speaker A: You get email,.
+[00:03:12] Speaker B: I dunno from who. From the account manager. You have received the same email, right? Yeah.
+[00:03:13] Speaker C: Yeah, from the account manager.
+[00:03:17] Speaker C: Yeah.
+[00:03:19] Speaker D: I think it's for your guys to how to design it all the aspects so you need that information.
+[00:03:24] Speaker B: Yeah.
+[00:03:25] Speaker C: Yeah, I think so.
+[00:03:26] Speaker B: Yeah, so each of us has a role to do.
+[00:03:28] Speaker D: Yeah I think assign your uh roles.
+[00:03:29] Speaker A: S
+[00:03:29] Speaker B: In each
+[00:03:31] Speaker A: For each for each one.
+[00:03:32] Speaker B: We already have our role.
+[00:03:33] Speaker D: For each person, yeah.
+[00:03:34] Speaker B: 'Kay, we can
+[00:03:36] Speaker A: So there are so we have three f yeah. We have functional design, conceptual design, and detail design.
+[00:03:36] Speaker B: So there are three kinds of designs, that's all.
+[00:03:41] Speaker B: Okay, alright.
+[00:03:44] Speaker A: So, who will be the the responsible for the functional design? Any any volunteer?
+[00:03:51] Speaker C: I think our uh responsibilities will be assigned when we in our mail we received from the account manager.
+[00:03:55] Speaker B: Yeah, yeah.
+[00:03:59] Speaker C: Uh
+[00:03:59] Speaker B: I'm doing the interface.
+[00:04:01] Speaker A: You are doing th
+[00:04:02] Speaker C: No, I'm doing the interface.
+[00:04:03] Speaker A: .
+[00:04:06] Speaker B: Are you using the you are doing the in
+[00:04:06] Speaker C: Yeah I I'm I'm
+[00:04:11] Speaker C: Well, maybe we have okay so I industrial design.
+[00:04:17] Speaker C: It was a little confusion about my uh but it's alright.
+[00:04:20] Speaker B: Ah
+[00:04:22] Speaker B: Okay.
+[00:04:22] Speaker A: Okay, I'll for industrial design.
+[00:04:24] Speaker C: Yeah.
+[00:04:26] Speaker A: Okay.
+[00:04:28] Speaker A: And and you
+[00:04:33] Speaker A: Norman?
+[00:04:34] Speaker B: Mm? Um working on i.
+[00:04:39] Speaker C: User.
+[00:04:39] Speaker B: User interface.
+[00:04:46] Speaker A: And
+[00:04:55] Speaker A: And
+[00:04:57] Speaker D: Uh, I'm into marketing. yeah nothing much in the project.
+[00:05:00] Speaker A: doing the marketing.
+[00:05:05] Speaker A: Nothing related here to the
+[00:05:07] Speaker D: Marketing in this design. A design is basically for industrial design and the user interface.
+[00:05:09] Speaker B: Yes.
+[00:05:18] Speaker B: You see the second mail?
+[00:05:22] Speaker B: Yeah, it's inside. Go down.
+[00:05:26] Speaker B: Appendix.
+[00:05:28] Speaker D: Yeah, this is.
+[00:05:28] Speaker B: See there's a role for everybody.
+[00:05:30] Speaker D: Yeah, that's right, first.
+[00:05:31] Speaker B: Even for the marketing.
+[00:05:32] Speaker D: us user define.
+[00:05:35] Speaker B: But look at your role, your marketing role.
+[00:05:35] Speaker A: Next.
+[00:05:42] Speaker D: There's a trend watching.
+[00:05:43] Speaker A: I don't know. I.
+[00:05:44] Speaker B: Yeah, that's your role.
+[00:05:46] Speaker C: Well, I think we can have a little discussion about what has to be done and what are your ideas about the
+[00:05:55] Speaker A: About the design or
+[00:05:57] Speaker A: Maybe we'll discuss this later, no?
+[00:06:02] Speaker C: Well, w we want to have a new re remote control for for T_V_ distribution I guess.
+[00:06:11] Speaker A: Mm-hmm.
+[00:06:11] Speaker C: So we have to plan how how it would be developed and uh
+[00:06:16] Speaker D: Yeah.
+[00:06:16] Speaker B: Mm.
+[00:06:19] Speaker C: how we can make it work.
+[00:06:21] Speaker B: Yes.
+[00:06:21] Speaker D: I mean working remotes we already have. This will be something different from the other remotes remote controls.
+[00:06:30] Speaker C: Yeah, I dunno I
+[00:06:30] Speaker A: What we we have to keep in mind the these characteristics. And of course it should not be very costly.
+[00:06:41] Speaker D: Yeah, that's right.
+[00:06:41] Speaker A: So
+[00:06:42] Speaker C: Yeah.
+[00:06:45] Speaker B: Mm-hmm.
+[00:06:47] Speaker C: Well I I think that Norman and I would think about um the technical points and um we should discuss it in the next meeting, or
+[00:07:01] Speaker B: Need to collect information.
+[00:07:02] Speaker C: Yeah.
+[00:07:05] Speaker A: About the about what?
+[00:07:07] Speaker B: Um.
+[00:07:10] Speaker B: I I'm part of design, perhaps.
+[00:07:14] Speaker B: Uh, what is most important in a
+[00:07:18] Speaker B: in a remote control?
+[00:07:20] Speaker B: What is the most important function aspect?
+[00:07:24] Speaker B: Uh.
+[00:07:26] Speaker A: You mean the external or
+[00:07:31] Speaker C: Well, you have to make it work. That's the that's the big thing.
+[00:07:33] Speaker A: Yeah of g of course.
+[00:07:33] Speaker B: That's alright.
+[00:07:37] Speaker B: Yeah, it should be easy to work with.
+[00:07:39] Speaker A: Yeah.
+[00:07:39] Speaker C: Yeah.
+[00:07:40] Speaker B: Yeah.
+[00:07:41] Speaker C: We can think about an interface with uh well
+[00:07:44] Speaker B: Uh. We maybe you can have a speech uh recognition interface. You just tell the television I want which channel. Or or you can say for example, um
+[00:07:54] Speaker A: You won't
+[00:07:58] Speaker B: I want uh to list all the programme tonight. Y you know, instead of uh remote control it's doing the some searching for you, so you don't have to look for the channel you want. Just say maybe I just want to press I wanna have a button for all the movies tonight.
+[00:08:17] Speaker B: Or a button for all the magazines, all the information documentary tonight. And then you list a few, and I will choose from the list. So instead of pressing the channel number, I am choosing the programmes directly. Yeah, that's one way of uh making it useful.
+[00:08:28] Speaker C: Yeah, yeah.
+[00:08:31] Speaker A: I I think if we include a lot of technology on the remote control it will be very costly.
+[00:08:35] Speaker B: No, because no, it's not very a lot. Th this information exists. For example you can get um
+[00:08:38] Speaker A: S
+[00:08:43] Speaker A: Like s uh you you you say we can use speech.
+[00:08:47] Speaker B: You can use uh well for example anything. The the idea of using speech to reduce the button, but uh and it's more natural. Yeah.
+[00:08:55] Speaker C: I
+[00:08:56] Speaker C: I think if you want t to choose uh from a list of programme or or something like that you you may have to to use uh w uh I dunno
+[00:08:59] Speaker D: I'm a okay.
+[00:08:59] Speaker B: Yeah. Yeah.
+[00:09:05] Speaker D: I mean the main uh function of remote control is to have something in the hand and we should be very careful about the size of the remote control. If we are going to add a speech interface, I'm not sure with trendy slim size of the remote control it would be able to put a speech recog if you want to put a speech recognition system f interface for that I think the T_V_ itself could have it.
+[00:09:09] Speaker A: In the hand.
+[00:09:12] Speaker A: Yeah.
+[00:09:13] Speaker C: Yeah.
+[00:09:13] Speaker B: Yeah.
+[00:09:15] Speaker B: Yeah.
+[00:09:19] Speaker B: Yes, possible.
+[00:09:27] Speaker B: Yeah. But
+[00:09:27] Speaker C: Yeah.
+[00:09:28] Speaker D: And I could talk to the T_V_ television itself. I need not have an
+[00:09:29] Speaker A: Except if if you are far from the T_V_.
+[00:09:32] Speaker B: Yeah.
+[00:09:32] Speaker D: I mean we have some or something, different technology but
+[00:09:33] Speaker A: This is it's
+[00:09:34] Speaker B: Yeah, yeah. But th the main idea I wanted to s I wanted to say is that um there should be a function, instead of choosing the ch T_V_ channel, there's a option you can choose, either T_V_ channels or or pr or the or the contain or the contents of the programme. So it's more powerful.
+[00:09:48] Speaker C: On the content.
+[00:09:49] Speaker D: Mm-hmm, yeah.
+[00:09:52] Speaker C: Yeah, yeah it's it's a good idea it's a good idea but I I think that technically it would be um a little bit uh uh more tricky to to achieve this than just to
+[00:09:52] Speaker A: Mm-hmm.
+[00:09:54] Speaker B: Yeah.
+[00:09:59] Speaker B: No.
+[00:10:03] Speaker B: No, because you see now all the T_V_ programmes are available on the webs. They they are they are they are available in X_M_L_ format or whatever the format. We don't care. We just say that this are some content. We just want to retrieve the content and then classi sort them by the types of programmes. Some of the websites they already provide this service, so we can just use the service available. Download it uh to the to this remote control. And then there's there are only six buttons for six categories, or sev seven. The most there are only seven buttons. So I just choose the category one and you reuse the same button, for example to to choose among the the sorted list the programme you want, so you don't have to choose among hundred channels, if you have hundred channels, you just have six buttons, seven buttons.
+[00:10:19] Speaker C: Yeah yeah.
+[00:10:29] Speaker A: Mm.
+[00:10:52] Speaker A: Yeah we should also optimise the the number of buttons.
+[00:10:55] Speaker B: Yeah, yeah.
+[00:10:55] Speaker C: Well I I I I think that j just by using navigation buttons and the user interface on the screen we are able to uh navigate uh through the
+[00:10:56] Speaker A: This is good idea.
+[00:11:01] Speaker B: Yeah.
+[00:11:06] Speaker B: Ah, yes. So.
+[00:11:07] Speaker C: Well channel programme or contents or in an easy way, so
+[00:11:09] Speaker B: Yeah.
+[00:11:11] Speaker B: Yeah, so you don't have to display here, just display on the T_V_ screen, right? Good idea.
+[00:11:14] Speaker C: Yeah in the dis display on the T_V_ screen and just uh with the with your remote control would just navigate through the f
+[00:11:17] Speaker B: Okay.
+[00:11:22] Speaker B: I think I think that will be revol revolutionary. Because all the T_V_ uh the the remote control have all numbers, lots of buttons and then you dunno what to choose in the end. Yeah. Alright.
+[00:11:34] Speaker C: Yeah, yeah. So
+[00:11:37] Speaker C: I think for for the technical points we have to to to check how to gather the data from programme or contents and all this stuff
+[00:11:50] Speaker B: Okay.
+[00:11:50] Speaker A: So we have five minutes to
+[00:11:52] Speaker B: Ah w w we have sometimes to use the white-board. Five minutes.
+[00:11:55] Speaker A: Ah you can y you can you can use it if you so, can we
+[00:11:58] Speaker D: And another interesting idea for this would be to have an light adaptation system depending upon the picture of
+[00:12:03] Speaker B: Okay.
+[00:12:05] Speaker B: Okay.
+[00:12:06] Speaker D: So, I mean, if you're watching a movie and suddenly there is a dark uh some dark scene, the lights adapt themself. The lighting in the room changes.
+[00:12:10] Speaker B: Yeah.
+[00:12:12] Speaker B: Yeah.
+[00:12:12] Speaker A: S
+[00:12:16] Speaker B: Yeah, but we are designing just remote control.
+[00:12:17] Speaker A: You it.
+[00:12:18] Speaker D: I mean, we have a option in the remote control. If we want to have that option, you press that button in the remote.
+[00:12:22] Speaker B: Okay.
+[00:12:22] Speaker C: Oh right so
+[00:12:24] Speaker B: Okay, do you want to have a conceptual remote control there, or you just want to put the function in? Go on, draw something.
+[00:12:28] Speaker A: Yeah. If if you you you can if you want you can use th the.
+[00:12:30] Speaker C: Please, Norman, draw uh
+[00:12:41] Speaker D: Oh, I'm afraid you forgot to put your lapel.
+[00:12:41] Speaker B: Mm.
+[00:12:43] Speaker B: Where is it?
+[00:12:44] Speaker A: Or before the before the the design that says.
+[00:12:44] Speaker D: The lapel.
+[00:12:45] Speaker B: Ah, okay.
+[00:12:49] Speaker B: Where where is it? Here.
+[00:12:50] Speaker D: Yeah, that one.
+[00:12:54] Speaker A: Norman.
+[00:12:54] Speaker D: Just plug it. Yeah, that's right.
+[00:12:55] Speaker B: Mm.
+[00:12:56] Speaker A: Be before before writing you can uh sit and that says what we what we said then after that you can you can use the. Yeah.
+[00:12:59] Speaker B: Mm.
+[00:13:04] Speaker B: Okay, alright. So so the most functional des mm the most important function is to ch choo buttons to choose the content. Right? We agree on that, right? Uh, uh first one is to uh buttons i or it could be anything with buttons. Uh to choose
+[00:13:15] Speaker C: Okay.
+[00:13:16] Speaker A: Okay.
+[00:13:27] Speaker A: Yeah.
+[00:13:33] Speaker B: uh content s or channels. So we have both. The user can choose w which one they want, right?
+[00:13:44] Speaker C: Yeah, by content or by channel, it's a good idea.
+[00:13:46] Speaker B: By content or by channel. Choose by contents or by channels. So
+[00:13:55] Speaker B: And then what did we say just now?
+[00:13:58] Speaker B: Other than this.
+[00:14:00] Speaker C: And uh we we have to find a way how to gather information about the contents.
+[00:14:00] Speaker A: Mm.
+[00:14:03] Speaker B: Okay, so technically how the problems that how to do it is to how to get the content.
+[00:14:13] Speaker C: Yeah.
+[00:14:14] Speaker B: Challenge.
+[00:14:15] Speaker C: I think i it's not very difficult to to browse by channel but it's a little bit tricky to browse by contents so
+[00:14:21] Speaker B: Okay. Content. Okay, so these we have to work it out. So this one of the problem. And uh
+[00:14:34] Speaker C: I think that's the the things to do and uh to uh
+[00:14:35] Speaker B: The main thing.
+[00:14:37] Speaker B: Okay. Alright.
+[00:14:39] Speaker C: reflect about it and uh
+[00:14:40] Speaker B: Alright, okay. So we are we'll discuss it we will get some information in the next meeting, so for now we get uh the funct this is the functional designer? That's the first aspect. Right.
+[00:14:41] Speaker C: discuss it in the next meeting.
+[00:14:55] Speaker B: We will get information and then we'll come back in.
+[00:15:00] Speaker C: Okay.
+[00:15:00] Speaker B: .
+[00:15:01] Speaker C: Thank you everybody.
+[00:15:03] Speaker B: Yeah, we'll come.
+[00:15:03] Speaker A: Okay. So maybe we'll meet in maybe five minutes?
+[00:15:10] Speaker A: And we'll discuss the other other aspects.
+[00:15:11] Speaker B: Alright.
+[00:15:12] Speaker B: Alright, okay.
+[00:15:15] Speaker C: Okay.
+[00:15:16] Speaker B: Thank you, mis
+[00:15:16] Speaker A: Okay. Well thank you all.

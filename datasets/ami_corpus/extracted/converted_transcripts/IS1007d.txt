@@ -1,0 +1,486 @@
+[00:00:48] Speaker A: So in last meeting we have discussed the conceptual design and we asked you to prepare a prototype for the
+[00:00:57] Speaker B: Okay.
+[00:00:58] Speaker A: for the remote control. So. So let's see the what
+[00:01:11] Speaker B: Yeah, so can you go out to the shared folder?
+[00:01:11] Speaker A: did you prepare.
+[00:01:16] Speaker B: Mm the shared folder.
+[00:01:16] Speaker A: Sh share folder for th your presentation?
+[00:01:18] Speaker B: Yes.
+[00:01:20] Speaker B: We have a presentation.
+[00:01:21] Speaker A: Because I have here
+[00:01:26] Speaker B: Uh
+[00:01:32] Speaker B: So I got the participant uh
+[00:01:35] Speaker B: three.
+[00:01:36] Speaker B: W uh.
+[00:01:39] Speaker B: Three.
+[00:01:41] Speaker B: It's the final design, yeah.
+[00:01:44] Speaker A: Okay just one.
+[00:01:49] Speaker B: S so so I discussed with Guillaume.
+[00:01:51] Speaker C: Mm.
+[00:01:53] Speaker C: Yeah.
+[00:01:53] Speaker B: Right. And uh so we have and we we are both agreed on some two versions of the prototypes, because we were no not decided whether we wanted to have an L_C_D_ or not because it's too expensive. So we come up with two versions. One with and one without L_C_D_s. Um but both comes with a charger and then detachable and uh or control module.
+[00:02:24] Speaker B: And detachable big buttons for all people um.
+[00:02:30] Speaker C: S okay so I'll show you the the two prototypes. Here we have the first one with the beautiful uh L_C_D_ um display. You you can s here. And you can uh just um browse into the the navigation menu by uh joystick joystick-like uh button. You can uh choose the direction and if you just push on it it's considered like a enter function.
+[00:02:31] Speaker B: So.
+[00:02:51] Speaker B: Mm.
+[00:02:59] Speaker B: Mm.
+[00:03:01] Speaker B: Mm-hmm.
+[00:03:02] Speaker C: You have on the mm on the side here the microphone for the for the speech recognition system here. And here the the switch that control if you want
+[00:03:13] Speaker A: Why you why you you put it in the the side?
+[00:03:18] Speaker C: Well I I I think uh it's the
+[00:03:21] Speaker A: It's not a good place maybe.
+[00:03:23] Speaker C: Yeah but
+[00:03:23] Speaker B: No i i it's the all around camer uh microphone isn't it. The the microphone picks up
+[00:03:30] Speaker C: Yeah.
+[00:03:30] Speaker B: the speeches from anywhere.
+[00:03:31] Speaker D: Is it an only a single mic or a microphone array?
+[00:03:34] Speaker C: Well so it's a microphone array. No it's just a single microphone, and you I I think uh we we put it here because I think when you when you are browsing your L_C_D_ you will be close to well it's better to to to place it here th than here, for instance. And here is a little switch that control if you want the the speaker uh recognition system to um to be on or off.
+[00:03:37] Speaker A: Oh it's very costly, microphone array.
+[00:03:37] Speaker D: Mm-hmm.
+[00:03:40] Speaker B: Yeah
+[00:03:50] Speaker D: Yeah.
+[00:03:50] Speaker B: Mm.
+[00:03:54] Speaker B: Yeah yeah.
+[00:03:55] Speaker D: Okay.
+[00:04:07] Speaker C: And uh so this remote control comes up with its charger.
+[00:04:12] Speaker A: How much does it cost this one?
+[00:04:14] Speaker C: Well this this prototype is um made for about uh well fi fi fifteen fifteen dollars fifteen dollars, but uh well it's not it's not uh yeah, but uh it's just a prototype and if we uh if we optimises the um the uh voila.
+[00:04:19] Speaker B: For the
+[00:04:21] Speaker B: Yeah.
+[00:04:22] Speaker A: Fifteen dollars?
+[00:04:24] Speaker A: Ah it's above it's above the budget.
+[00:04:35] Speaker D: The cost would be le reduced.
+[00:04:36] Speaker C: Yeah the and the the production costs we we can achieve uh about ten dollars.
+[00:04:37] Speaker B: Mm.
+[00:04:40] Speaker B: Hmm.
+[00:04:42] Speaker A: How many b battery is there?
+[00:04:45] Speaker C: How many, excuse me?
+[00:04:46] Speaker A: Battery.
+[00:04:47] Speaker C: Well uh f battery, we use uh about uh
+[00:04:51] Speaker B: Is it n the two A_A_s batteries in it. A_A_ rechargeable batteries.
+[00:04:54] Speaker C: Yeah.
+[00:04:56] Speaker C: Rechargeable of course, because we have the charger.
+[00:04:57] Speaker B: Yeah rechargeable batteries. We have the charger so it's no problem.
+[00:05:00] Speaker C: Yeah and you just
+[00:05:01] Speaker A: So one one battery?
+[00:05:04] Speaker C: On uh yeah one battery.
+[00:05:06] Speaker D: Is that two or one?
+[00:05:09] Speaker A: It's kinetic reserve.
+[00:05:10] Speaker B: Actually uh it's a flexible thing. You just n uh
+[00:05:15] Speaker D: Now what is the whole day rating for that?
+[00:05:18] Speaker C: The excuse me?
+[00:05:18] Speaker D: Whole day's rating.
+[00:05:20] Speaker D: What type of battery?
+[00:05:21] Speaker C: Oh yeah it's just a r uh simple battery a rechargeable uh if you uh like it's exist.
+[00:05:25] Speaker B: Yeah yeah.
+[00:05:27] Speaker D: Something like a two A_, A_ three size batteries? Mm-hmm.
+[00:05:29] Speaker C: Yeah.
+[00:05:31] Speaker B: Yeah.
+[00:05:32] Speaker C: So and if you want to charge the battery you just put the remote control like that to plug in the the charger and uh leave it uh alone, it's alright. Then the next time you pick it, oh
+[00:05:38] Speaker B: Yeah.
+[00:05:39] Speaker B: Yeah.
+[00:05:41] Speaker B: Mm.
+[00:05:44] Speaker B: At uh yeah. I forgot to tell you there is only a single button there, b this button yeah alright. This button is like the mouse is like a joystick, you can move in three hundred and sixty degrees of direction so you can make a turn and it the additi functions associated to all the actions you ma you have a click you have a double click
+[00:05:48] Speaker C: it works.
+[00:05:52] Speaker C: Yeah just explain the button uh Norman.
+[00:06:10] Speaker A: Mm.
+[00:06:10] Speaker B: all in a single button. You can move up, down, left, right, or you can do a swing. So a swing to the left, a swing to the right defines other functions. So even though it's a single button, but it is pretty s flexible because of the three hundred and sixty degree movement. Yeah. This is the version y that comes with L_C_D_. Here I present another version without the L_C_D_.
+[00:06:28] Speaker D: And the L_C_D_ is this one, on the remote?
+[00:06:30] Speaker C: Yep.
+[00:06:33] Speaker D: Yeah.
+[00:06:35] Speaker A: I think it's not a good idea because after maybe one or two months
+[00:06:40] Speaker B: Mm.
+[00:06:40] Speaker A: of function is
+[00:06:43] Speaker A: getting destroyed. If you
+[00:06:45] Speaker B: Uh okay this is new prototype uh.
+[00:06:46] Speaker C: Yeah it's
+[00:06:48] Speaker C: So we have the the second version also with the different uh button configuration. The second version is also simpler, we d uh we had just uh I have to put the microphone also. So basically th it's the same uh yeah. Basically it's the same uh things uh uh as uh I presented before. But here we have uh we have uh four buttons for navigation. Press one button uh acting as a a enter button. So um yeah according to what you said it's more robust to the user.
+[00:06:59] Speaker B: Yeah yeah.
+[00:07:05] Speaker D: Uh-huh and also the switch. Okay.
+[00:07:17] Speaker B: Mm.
+[00:07:26] Speaker D: Mm-hmm.
+[00:07:26] Speaker A: Mm-hmm.
+[00:07:27] Speaker C: And uh it's also cheaper to produce. We can produce uh such remote control for about uh four dollars.
+[00:07:35] Speaker A: No four dollars, it's good.
+[00:07:39] Speaker D: And I think you forgot a point here to have an button to find the charger, because that's a major that's a
+[00:07:44] Speaker B: Oh no th actually th we'll come to that point in our
+[00:07:46] Speaker C: Yeah it's it's it's embed in the uh speech recognition system.
+[00:07:49] Speaker B: Yeah.
+[00:07:51] Speaker D: Okay and if you disable speech recognition system then?
+[00:07:52] Speaker C: So
+[00:07:55] Speaker B: W w I'll I'll come to that point later on.
+[00:07:57] Speaker D: Mm hmm hmm hmm hmm hmm.
+[00:07:57] Speaker C: so Norman will explain to you.
+[00:07:59] Speaker A: And we will we will serve the charger with this?
+[00:08:00] Speaker D: Okay.
+[00:08:00] Speaker B: Yeah.
+[00:08:03] Speaker C: Yeah yeah of course mm.
+[00:08:04] Speaker B: Th they either these with the uh the the charger any in either versions you they they ha they use the same charger yeah.
+[00:08:04] Speaker A: With the remote control.
+[00:08:12] Speaker A: Okay so the price of the charger included in the
+[00:08:16] Speaker B: Uh it's a standard module so you should get it for a cheap price uh. It's that same charger that you can use for the hand-phone but uh again depends on the types. I think we have to investigate more on that, but
+[00:08:21] Speaker C: Thank thank you. And so mm-hmm.
+[00:08:23] Speaker A: Mm-hmm.
+[00:08:34] Speaker A: The price should be below twelve and a half Euro. Well that's so
+[00:08:36] Speaker B: Yeah.
+[00:08:38] Speaker B: Yeah but as the Marketing Manager says, people is willing to people are willing to pay more for good design.
+[00:08:46] Speaker D: Yeah people are willing to pay more, but the company is not willing to invest more at the moment.
+[00:08:46] Speaker A: We have we have just
+[00:08:50] Speaker B: Yeah.
+[00:08:51] Speaker A: The price of selling is twenty five Euros.
+[00:08:52] Speaker B: Yeah.
+[00:08:54] Speaker B: Mm-hmm.
+[00:08:55] Speaker A: And the price of
+[00:08:56] Speaker C: Alright please uh go on Norman with the special features.
+[00:08:57] Speaker A: production
+[00:08:59] Speaker D: Or uh
+[00:09:00] Speaker B: Yeah we'll we'll come up to that, the the the thing that makes this the controller cheap is that it is modular so you want more function you pay more. If you want less function i i if you want a reasonable price you pay for the functions that you add on to the system, so is uh modular.
+[00:09:18] Speaker A: That's for this basis function and if you want more you pay more.
+[00:09:22] Speaker B: Yeah yeah, for example the L_C_D_, you can take it you can put it put it back in, or you can use the other one, or the speech recogniser with the microphone yeah yeah. You want a microphone to put in the speech recogniser you don't wan you pay less for the system you see. So
+[00:09:23] Speaker D: Something like customised. Yeah.
+[00:09:25] Speaker A: Yeah.
+[00:09:36] Speaker A: Okay.
+[00:09:40] Speaker D: Mm hmm hmm hmm.
+[00:09:44] Speaker D: Hmm okay.
+[00:09:46] Speaker B: It's pretty flexible in the yeah price.
+[00:09:47] Speaker C: You also have the the the two other modules for the parental control
+[00:09:48] Speaker A: But
+[00:09:52] Speaker B: Uh yeah yeah you should present that.
+[00:09:53] Speaker D: And this is other one?
+[00:09:53] Speaker C: that that you ca you can add up to the to your remote control i i if you uh if you want to to have more more power on what you do, and uh which channel you want to choose and so on.
+[00:10:03] Speaker B: Yeah.
+[00:10:10] Speaker C: H here is just the the the module for the kids and th if the parents want to watch T_V_, up they come up with their modules, they just plug in it and they can have all the control they want here. We also have this module for uh old people with big buttons, clearly labelled, and it acts like the previous one, you just plug in and it works.
+[00:10:15] Speaker D: Mm hmm hmm hmm.
+[00:10:19] Speaker B: Yeah
+[00:10:22] Speaker B: Mm.
+[00:10:27] Speaker B: Hmm.
+[00:10:32] Speaker B: Yeah.
+[00:10:35] Speaker B: Yeah the i the idea the the conceptual idea is that
+[00:10:36] Speaker D: Mm-hmm.
+[00:10:43] Speaker B: simplicity and powerful. Simplicity meaning that we have few buttons, powerful is that all the controls with the one you saw we saw earlier in the meetings with lots of buttons n but here you only have few buttons but you retain the mm the same powerful functionalities. But in addition with simplicity.
+[00:11:06] Speaker B: So that's the best idea, the cond that that's our uh an innovation um uh i in this uh design here. Okay now we come to other important features that I did not tell you. The first one is the speech recogniser, again it's detachable or add-on. And then we also have security feature for example this here oop it's very robust, it doesn't break and the material, what's the material again? Titanium material.
+[00:11:17] Speaker A: Mm-hmm.
+[00:11:36] Speaker C: The titanium and so it's very uh
+[00:11:38] Speaker A: Titanium.
+[00:11:41] Speaker B: Again uh and the battery life is uh is an is an endurable one, again because this is A_A_ batteries you can choose the types of battery you want. Lithium-ion may be a good one, but you can replace it with cheaper one, again you pay for what you get, and then um y the other p points are robust and misplacement reminder. So when you finish watching your T_V_
+[00:11:49] Speaker D: Yeah that's fine.
+[00:12:04] Speaker B: and you the you t you turn off the T_V_,
+[00:12:08] Speaker B: uh and then there's this message coming out that uh please put that back to the charger, so so that's the or is it that's the reminder part. Yeah and um
+[00:12:13] Speaker D: Okay.
+[00:12:23] Speaker B: And it also use a programmable channel and vocabulary, so we didn't define the vocabulary so it's up to the user to define so sorry? And then uh because of the chil because children are using the device so we have also a a of T_V_ programmes by genre, and this can be used by the adult or by the children.
+[00:12:29] Speaker D: Mm hmm hmm hmm.
+[00:12:49] Speaker B: So instead of choosing the channel you are choosing the T_V_ contents of the night. So it's pretty powerful, and that's that's why the num buttons are reduced, because of this feature. Yeah. And and for the materials that is cheap to produce I think uh it's quite clear from yeah. And also like the and the fancy designs yeah. Maybe we can improve more on the design but uh this is the
+[00:13:15] Speaker A: What what's
+[00:13:16] Speaker A: Maybe yeah. What's the price to p to produce?
+[00:13:21] Speaker C: Well so the price to produce
+[00:13:23] Speaker C: For uh the simplest one, say we start from four dollars to produce such a device.
+[00:13:32] Speaker C: Uh it's about it
+[00:13:32] Speaker A: With with with the charge?
+[00:13:34] Speaker D: With the charger?
+[00:13:34] Speaker C: The without without the charger it's about uh well two dollars to produce uh the microphone and speech recognition systems.
+[00:13:36] Speaker B: Yeah.
+[00:13:36] Speaker A: Okay.
+[00:13:44] Speaker C: Two dollars for the uh for the add-on modules, and finally three dollars for the charger.
+[00:13:52] Speaker C: So if you uh sum up uh everything
+[00:13:54] Speaker B: Yeah.
+[00:13:55] Speaker A: We don't have charger.
+[00:13:55] Speaker C: wi with the L_C_D_, which costs two dollar, you have two plus four plus four plus two plus two.
+[00:14:04] Speaker D: I think we can use Excel.
+[00:14:05] Speaker C: It's about so the total cost if you if you want all the fuct functionalities will be about uh fifteen dollars.
+[00:14:08] Speaker A: We don't have all the options.
+[00:14:12] Speaker A: Charger we don't have charger here either.
+[00:14:15] Speaker B: Yeah.
+[00:14:19] Speaker A: No it's
+[00:14:20] Speaker C: But it's just if you want all functionalities.
+[00:14:22] Speaker A: it's below the the the budget.
+[00:14:24] Speaker B: Yeah.
+[00:14:25] Speaker C: Excuse me?
+[00:14:26] Speaker A: It's below the bu
+[00:14:28] Speaker A: the budget. We
+[00:14:29] Speaker D: Yeah it's a nice input but we have an
+[00:14:34] Speaker D: other inputs from the l public demands. I think we will just have a rough look and then we can make our statements, and we can finalise the product based on this discu
+[00:14:42] Speaker B: Yeah.
+[00:14:44] Speaker C: Yeah.
+[00:14:45] Speaker D: I think we can just go to my presentation then.
+[00:14:49] Speaker D: We can wind up.
+[00:14:53] Speaker D: Or we could uh come to some f uh final conclusions.
+[00:15:07] Speaker D: So the marketing made an evaluation criteria and these were some of the findings, and uh
+[00:15:16] Speaker D: in the market the people are not really interested with L_C_D_, without L_C_D_, with speech recognition interface, or without speech recognition interface, but most of the people what they are interested is first thing is, they want to have an fancy look and feel, it should be very fancy with colourful and uh very handy to hold. And the second thing is it should be much more technologically innovative.
+[00:15:40] Speaker B: Mm.
+[00:15:46] Speaker D: Of course in that we could put L_C_D_ or recognition to be more technologically innovative. And the third one is easy to use.
+[00:15:55] Speaker B: Mm.
+[00:15:55] Speaker C: Well I think that the technical in innovation is is in the product itself since we haven't yet a remote who are allowing to to choose interactively with the T_V_ screen uh uh with just four buttons.
+[00:16:12] Speaker D: Okay and if we go to the next slide, here you can find these are the latest fashion updates, and so this in Paris and Milan they have detected this trends that the this year it's going to be an year of fruit and vegetable, so people are really interested to see if they have an remote in the shape of the fruit or a vegetable, or whatever they like.
+[00:16:32] Speaker B: Spongy spongy.
+[00:16:37] Speaker B: Mm mm.
+[00:16:39] Speaker D: So I think it should be much more customised to make a different uh shapes. And the second thing is, and if the material, they really do not want it to be very hard, as in the case of very pl plastic or titanium, it should be somewhat spongy.
+[00:16:43] Speaker B: Mm mm.
+[00:16:58] Speaker C: Okay.
+[00:16:58] Speaker B: But the the problem is that uh is it robust to mishandling?
+[00:17:05] Speaker D: Um.
+[00:17:06] Speaker B: We have you should find a material that is robust at the same time spongy. Spongy.
+[00:17:11] Speaker C: A sponge.
+[00:17:11] Speaker D: Yeah so uh so finally we have these three criterias. One is fancy look, second is
+[00:17:24] Speaker D: innovative, and third is easy to use.
+[00:17:32] Speaker D: So these are the f uh three criteria on which we are going to build our remote. So and we have an evaluation criteria for each one of these, say that we have a seven point scale,
+[00:17:38] Speaker B: Mm-hmm.
+[00:17:39] Speaker C: Hmm.
+[00:17:49] Speaker D: from one to seven, and for each of the product you could just give me the scale according to this.
+[00:17:51] Speaker B: Mm-hmm.
+[00:17:57] Speaker B: Mm.
+[00:17:58] Speaker D: So now you have with L_C_D_ and without L_C_D_, so on this scale, if it is true,
+[00:18:01] Speaker B: Mm.
+[00:18:05] Speaker D: if it is if it has a fancy look you could just tell me one, or if it is false, it doesn't it looks uh it doesn't look much fancy, then you could just tell me seven. So
+[00:18:17] Speaker B: So so is the e evaluation depending on us or other users?
+[00:18:18] Speaker D: We can make our study on this and
+[00:18:26] Speaker D: No no we have you have designed two products now, one is with L_C_D_ and without L_C_D_.
+[00:18:29] Speaker A: Yeah.
+[00:18:30] Speaker C: Yeah.
+[00:18:30] Speaker B: Yeah.
+[00:18:32] Speaker B: But who will give the scoring uh we ourself or or a third party?
+[00:18:35] Speaker A: You.
+[00:18:35] Speaker D: According to you, no according to you designers, how will feel does it uh with L_C_D_ and without L_C_D_?
+[00:18:42] Speaker B: Mm.
+[00:18:45] Speaker D: Okay let us make this L_ and without L_C_D_.
+[00:18:51] Speaker D: On on this scale the L_C_D_ remote control. How do you look how does it look? D is it very fancy or doesn't look much fancy?
+[00:18:53] Speaker B: Mm.
+[00:18:55] Speaker B: Mm.
+[00:19:01] Speaker C: Well it doesn't look much fancy I'll I'll say three or four.
+[00:19:06] Speaker D: And you both agree for that?
+[00:19:08] Speaker A: And you?
+[00:19:09] Speaker B: I think we can improve on the design. Som someone um commented this is like a the stone age uh design. Um we have been focused all all this time on the on the technical aspect, functional aspect, but also the simplicity. As for the design maybe we c should hire a designer to help. Yeah.
+[00:19:12] Speaker C: Yeah. It's it it
+[00:19:25] Speaker C: Technical aspects.
+[00:19:30] Speaker A: Mm-hmm.
+[00:19:32] Speaker D: So I take three on with L_C_D_? So without L_C_D_ how would you rate it?
+[00:19:33] Speaker C: Yeah a three.
+[00:19:38] Speaker C: Uh four. I think it's it's uh more easy to make f fancy things when it's not complicated so
+[00:19:39] Speaker D: Four.
+[00:19:46] Speaker B: Yeah.
+[00:19:46] Speaker C: removing the L_C_D_ um gives us a li more liberty to to have a fancy look.
+[00:19:50] Speaker B: Yeah.
+[00:19:53] Speaker D: And in the sense of innovativeness, with L_C_D_.
+[00:19:58] Speaker C: Well it's it's the same for both so I will give a five, six.
+[00:20:03] Speaker B: Mm.
+[00:20:04] Speaker D: Five with L_C_D_ and
+[00:20:07] Speaker C: Well five also uh Norman please.
+[00:20:09] Speaker B: Yeah from the innovation aspect I feel that uh what is most innovative
+[00:20:10] Speaker A: Uh
+[00:20:18] Speaker B: of our prototype compared to the existing prototypes that we saw l in the last meeting
+[00:20:24] Speaker B: is that um the retrieval of T_V_ programmes by content, because uh that is really innovative, and for now and another innovation we have is simplicity and simplicity, few buttons, we've uh
+[00:20:44] Speaker C: With lot of functionalities.
+[00:20:45] Speaker B: A lot of functionalities. So that is uh that is uh for both th
+[00:20:47] Speaker D: So without L_C_D_?
+[00:20:51] Speaker B: Our gi I think that the our our product is uh has the best in all well this is a biased judgement because we designed them.
+[00:21:00] Speaker D: No no according to design aspect we want to know how would you feel the innovativeness?
+[00:21:03] Speaker B: Yeah.
+[00:21:05] Speaker B: Uh the innovation is v is very high I think.
+[00:21:07] Speaker D: With L_C_D_. And without L_C_D_?
+[00:21:07] Speaker A: For L_C_D_.
+[00:21:09] Speaker B: Both.
+[00:21:09] Speaker C: Mm for both it's the the same innovations.
+[00:21:10] Speaker B: For both.
+[00:21:12] Speaker B: It's the same innovation. So maybe I can put six to seven.
+[00:21:13] Speaker D: Okay.
+[00:21:16] Speaker C: six, let's go for six.
+[00:21:17] Speaker A: Without L_C_D_.
+[00:21:18] Speaker B: Both.
+[00:21:19] Speaker D: No actually uh to make it with L_C_D_ you make more efforts. So I there is high innovativeness included if you make it with L_C_D_ y then when it is without L_C_D_ there is not much innovativeness. So we can't go
+[00:21:29] Speaker C: Yeah.
+[00:21:29] Speaker B: Mm.
+[00:21:32] Speaker A: Uh no innovative yeah.
+[00:21:32] Speaker B: Uh uh uh there w there was a there was a issue here is that what are what is the display on the L_C_D_?
+[00:21:40] Speaker C: Talk about
+[00:21:41] Speaker B: We haven't really uh determined what are actually actually it's good to have a L_C_D_ but what are we gonna display on a L_C_D_?
+[00:21:43] Speaker D: I mean that what you are sayin that's what the design
+[00:21:51] Speaker D: No it's like this, I mean on the L_C_D_, according to what I understand from your model is, you have a joystick here, and you have L_C_D_, you just press your joystick, you get here a programme. Uh then
+[00:21:56] Speaker A: So let's remove it.
+[00:21:58] Speaker B: Yeah?
+[00:22:00] Speaker B: Yeah.
+[00:22:05] Speaker B: Yeah but
+[00:22:05] Speaker C: Yeah but you have the same programme on the T_V_ screen.
+[00:22:05] Speaker A: But
+[00:22:07] Speaker B: Yes exactly.
+[00:22:09] Speaker A: This is the problem.
+[00:22:10] Speaker D: No on the T_V_ you don't it doesn't display on the T_V_ now.
+[00:22:13] Speaker C: If you have the L_C_D_, but if n
+[00:22:13] Speaker D: L_C_D_? Then uh there is no meaning in having it on the T_V_. Or then again you have a channels, volume and all the stuff and what a
+[00:22:17] Speaker C: Yeah.
+[00:22:20] Speaker B: But you cannot display all on a L_C_D_.
+[00:22:24] Speaker D: I mean that depends upon your design, so
+[00:22:29] Speaker B: Anyway for for the users who who who opt for L_C_D_
+[00:22:34] Speaker D: I mean
+[00:22:34] Speaker B: we'll give them the give them the L_C_D_, we give what the customer uh wants, right.
+[00:22:40] Speaker C: Yeah.
+[00:22:40] Speaker D: So without L_C_D_ you want to put it fi the same level of innovativeness?
+[00:22:48] Speaker D: And which do you recommend e easy to use, with L_C_D_ or without L_C_D_?
+[00:22:57] Speaker C: Well I think both are really easy to use because there are few button buttons, and uh well t p the menu are clear, well-organised, so
+[00:23:02] Speaker B: Yeah.
+[00:23:07] Speaker B: Yeah.
+[00:23:08] Speaker B: Yeah.
+[00:23:10] Speaker C: Well with little knowing of the technology you can you can easily use the product so I will give a six for the easy to use.
+[00:23:17] Speaker B: Yeah I think sorry.
+[00:23:20] Speaker A: No it's just if I I see the
+[00:23:26] Speaker A: the f the rate I think it's better to do it without L_C_D_.
+[00:23:34] Speaker A: Because that's with L_C_D_ just will increase the price, and I thi i they have the same rate so without L_C_D_ it will be
+[00:23:34] Speaker D: Yeah.
+[00:23:39] Speaker B: Yeah.
+[00:23:40] Speaker D: Or we can just go back to the previous slide uh where we ha we have a few updates.
+[00:23:48] Speaker D: So I mean in the product design you could just amend it to make some few changes according to fruit and vegetable or a spongy touch without L_C_D_ and without speech recognition. Even then our product is going to be very good. Yeah.
+[00:23:52] Speaker B: Yeah. Yeah.
+[00:23:56] Speaker B: Yeah.
+[00:24:01] Speaker C: Yeah, it's cheaper to produce.
+[00:24:04] Speaker B: Mm. S
+[00:24:05] Speaker C: And uh if the the well if we have less technology we have more liberty to uh for the shape and uh things like that so
+[00:24:11] Speaker D: Yeah that's right.
+[00:24:13] Speaker B: Yeah. I have another thing to say about the easy to use aspect. I think the easy to use uh aspect is different for different people. For the young generation easy to use may be very complicated because uh they w they wants lot of controls with lots of buttons. For kids they want simply the s similarit for the old people they want simplicity, so that's why we have the parental module.
+[00:24:22] Speaker C: Yep.
+[00:24:23] Speaker A: Mm-hmm.
+[00:24:34] Speaker D: Yeah yeah that's right.
+[00:24:39] Speaker B: Uh we can ha have build a more complex design if if they want it, but but uh what I'm trying to say here is that the um we have different sets of buttons for different kinds of people. So in terms of easy to use I think it's very user customisable. User customisation is very important yeah. Yeah so
+[00:25:01] Speaker C: Yeah.
+[00:25:05] Speaker D: So without L_C_D_ I just take it five?
+[00:25:05] Speaker C: Six.
+[00:25:09] Speaker B: W uh
+[00:25:09] Speaker A: Mm-hmm.
+[00:25:09] Speaker D: Or you want it to be six?
+[00:25:11] Speaker C: Um six.
+[00:25:12] Speaker B: I think it's the same.
+[00:25:14] Speaker B: Yeah.
+[00:25:15] Speaker C: Yes as you say, with better uh yeah.
+[00:25:18] Speaker A: Without L_C_D_.
+[00:25:18] Speaker D: S s oh I think it's better to have this without L_C_D_.
+[00:25:24] Speaker C: And to improve the the look.
+[00:25:25] Speaker D: As our Programme Manager s Pro Project Manager says that without L_C_D_ it is going to reduce the cost also, and it's going to be much simpler to use.
+[00:25:26] Speaker B: Yeah.
+[00:25:30] Speaker A: Yeah.
+[00:25:31] Speaker B: Mm.
+[00:25:31] Speaker C: Yes and to give us more liberty to have a fancy look so
+[00:25:37] Speaker B: Yeah.
+[00:25:38] Speaker C: so let's go back to our laboratory and
+[00:25:41] Speaker B: To improve on the design.
+[00:25:43] Speaker D: So.
+[00:25:43] Speaker A: What a what what about the sys speech recognition?
+[00:25:46] Speaker B: Huh?
+[00:25:46] Speaker A: what about the integration of speech recognition?
+[00:25:49] Speaker B: The speech recogniser is a add-on module.
+[00:25:52] Speaker B: Right?
+[00:25:52] Speaker C: Yeah.
+[00:25:52] Speaker D: That's going to be an optional. If somebody wants to buy it they can have it, otherwise no.
+[00:25:54] Speaker B: Yeah.
+[00:25:57] Speaker A: Ah so it's optional with the okay.
+[00:25:58] Speaker D: It's an optional.
+[00:25:59] Speaker C: It's optional yeah, since well according to this study uh people more likes more to have a spongy uh remote control than
+[00:26:04] Speaker A: I think it will be I think i
+[00:26:08] Speaker D: Yeah.
+[00:26:09] Speaker A: I think it will be better if we have all these modules in the same remote control, because maybe parents will lose these uh
+[00:26:16] Speaker D: Yeah, but I mean if you have an add-ons, the kids may just uh hide the parental module and so that their parents can't use it.
+[00:26:23] Speaker A: Yeah. Or ma yeah. Or maybe parents they can for forget where they put it or, so mayb better if you have all this in the same
+[00:26:32] Speaker D: In the same set, yeah, and and individual buttons to make them work.
+[00:26:34] Speaker B: Oh.
+[00:26:37] Speaker B: The problem is if i we are bla if a customer wants a certain component, and doesn't want the parental control because it's a couple who do not have children when you sell the product in the market you could meet any kind of people, and not all people will need all the functionalities we propose to them. So we might lose the customer because of this. I don't know, what do you think uh?
+[00:26:37] Speaker A: Yeah.
+[00:27:00] Speaker A: So you mean that even if these modules will be will be functional uh will be optional.
+[00:27:05] Speaker B: Yes exa what do you think, I don't know. You are Marketing Manag.
+[00:27:08] Speaker A: Uh
+[00:27:08] Speaker D: I mean how to how to how to make a marketing survey that uh how many married couple or how many couples have a T_V_ or to the number or singles who have a television. So based on that I think
+[00:27:11] Speaker B: Yeah.
+[00:27:20] Speaker C: Yeah.
+[00:27:22] Speaker B: Yeah. But the the question is n does those modularity increase the production cost or decrease the production cost?
+[00:27:31] Speaker A: I think it inc increase.
+[00:27:32] Speaker C: Well it's about the same because if
+[00:27:35] Speaker C: Well you can if you had uh something li
+[00:27:37] Speaker A: I think it i increases.
+[00:27:39] Speaker C: Oh no, because if you if you add uh something well yeah maybe because it's three different pieces uh to to to build but
+[00:27:48] Speaker A: Hmm.
+[00:27:50] Speaker D: But you can make it on a single P_C_ with three different options.
+[00:27:54] Speaker C: Yeah yeah yeah it's I think it's cheaper if you if you already built the all the functionalities um on the same module, but uh
+[00:28:00] Speaker B: Mm.
+[00:28:05] Speaker B: Mm.
+[00:28:07] Speaker D: On the same P_C_B_ yeah yeah.
+[00:28:07] Speaker B: Yeah.
+[00:28:08] Speaker C: Yeah.
+[00:28:09] Speaker B: Well well the other aspect is that if in the when they have the ar existing product you you gonna maintain the the you're gonna keep the same customer, because the same customer will come back to buy other add-ons.
+[00:28:21] Speaker D: Yeah that's right. I mean you could just provide with an optional.
+[00:28:22] Speaker B: So so
+[00:28:25] Speaker B: Yeah i i so if don't don't buy now they can buy i in the future. So in in that way you're actually keeping the cus the same customer, attracting them to come back in again and again. We're not trying to follow the Microsoft and we don't want to the m
+[00:28:38] Speaker D: So it's something like a Microsoft product update. Updates and we sell it. We make updates and sell it.
+[00:28:40] Speaker A: And and we we we we we we don't want that.
+[00:28:50] Speaker B: Yeah well if the buyers can be up the th would be can be upgraded, it would be a good thing right? Yeah, it depends on the v production.
+[00:28:53] Speaker C: Yeah.
+[00:28:57] Speaker D: And uh what's the idea about uh the shape of the remote controls? Uh can they be made into a fruit and vegetable types?
+[00:29:02] Speaker C: Well so
+[00:29:05] Speaker C: Yeah yeah I think we are yeah but we are also the um well the components will have to change because uh we have to deal with the shape and um but I don't think it will uh increase the cost too much so
+[00:29:07] Speaker D: Do you require different types of P_C_B_s and
+[00:29:17] Speaker B: Mm.
+[00:29:21] Speaker D: Or uh it could be like this the P_C_B_ would be the same for all, but only the exterior uh shape is different o for all.
+[00:29:27] Speaker B: Mm.
+[00:29:29] Speaker C: Uh well but it's a bit complicated to if if if you need machines to different machines to um ah well
+[00:29:35] Speaker B: Yeah.
+[00:29:37] Speaker B: What we can change is to propose the customers with skins. For example the i the mobile phones nowaday, they sell different kinds of skin and then people just feel that oh I have a new skin and looks better.
+[00:29:45] Speaker D: Yeah, yeah that's right.
+[00:29:50] Speaker C: Yeah yeah we can have the same global shape and then uh add on skins and with with this uh tex spongy texture uh things like that.
+[00:29:52] Speaker B: Yeah.
+[00:29:54] Speaker B: Yeah.
+[00:29:55] Speaker D: Yeah that's right.
+[00:29:56] Speaker B: Yeah.
+[00:30:00] Speaker B: Yeah you can pl in what material would that be in uh?
+[00:30:04] Speaker D: I think you need to look into the material.
+[00:30:04] Speaker C: Sponge.
+[00:30:07] Speaker B: Yeah or furry like a pet dog kind of thing.
+[00:30:09] Speaker D: Yeah yeah.
+[00:30:15] Speaker C: Okay.
+[00:30:18] Speaker A: So
+[00:30:21] Speaker C: So we finished the prototype uh presentation if you have uh something else to say.
+[00:30:27] Speaker D: I think the Project Manager would be interested to look about the financial issues in making these models.
+[00:30:35] Speaker A: Project evaluation project satisfaction, for example.
+[00:30:43] Speaker A: I don't know, we have to ask these question. We have to give answers so
+[00:30:49] Speaker B: I suppose that you this criteria, is it?
+[00:30:51] Speaker A: Project evaluation.
+[00:30:57] Speaker B: Room for creativity. This room is a bit small, but but I think it's okay for us to work with.
+[00:31:07] Speaker D: I feel it's fine, we know we don't need uh I think it's okay.
+[00:31:09] Speaker B: Yeah mm.
+[00:31:12] Speaker C: That was good.
+[00:31:13] Speaker D: This is fine for making a presentat for project presentations.
+[00:31:14] Speaker B: Mm.
+[00:31:16] Speaker B: Yeah anyway we have the laboratory nearby to build our modules so it's okay. Good job good job.
+[00:31:17] Speaker C: Yeah.
+[00:31:24] Speaker A: Mm-hmm.
+[00:31:24] Speaker D: And the leadership was excellent.
+[00:31:26] Speaker A: Yeah I think so. He gave you the liberty to talk as you wants.
+[00:31:32] Speaker C: Fine yes uh.
+[00:31:35] Speaker D: Yeah that's right. Yeah that's right.
+[00:31:38] Speaker A: Uh the teamwork was very very good. I was really I am very satisfying to work with
+[00:31:41] Speaker C: Very democratic.
+[00:31:45] Speaker A: with you. Oh.
+[00:31:46] Speaker C: Thank you.
+[00:31:48] Speaker B: Thank you.
+[00:31:53] Speaker C: Alright.
+[00:31:54] Speaker B: Alright.
+[00:31:55] Speaker D: And new ideas found. Any new ideas to make these presentations more interactive and more interesting?
+[00:32:04] Speaker B: Mm.
+[00:32:04] Speaker C: Come up with new product.
+[00:32:06] Speaker D: I mean uh what type of product would you think could we make this more interesting?
+[00:32:06] Speaker A: Less fancy.
+[00:32:13] Speaker B: Mm we I I know something, we need more cakes, more biscuits on the table while we have meetings.
+[00:32:19] Speaker C: Yeah and also more well uh more seriously I think it's it's a good idea to have uh clear clear points whenever we do a meeting uh prior to the meeting to have uh well a list with the points who will be discussed or things like that, but
+[00:32:25] Speaker B: Mm.
+[00:32:43] Speaker C: I think it's alright. We achieved uh project goal I think.
+[00:32:48] Speaker D: Yeah that is within the budget.
+[00:32:48] Speaker A: De
+[00:32:50] Speaker C: It's w yes, more or less.
+[00:32:50] Speaker B: Mm.
+[00:32:51] Speaker D: And the evaluation was
+[00:32:52] Speaker A: Without without L_C_D_, without speech recognition, it will be simple.
+[00:32:55] Speaker D: Yeah that's right.
+[00:32:55] Speaker C: Yeah but
+[00:32:58] Speaker C: Alright.
+[00:32:59] Speaker D: And the next is celebration.
+[00:33:00] Speaker C: So.
+[00:33:02] Speaker D: So
+[00:33:02] Speaker C: So uh coffee machine. Okay.
+[00:33:04] Speaker B: Alright then, we finished?
+[00:33:04] Speaker A: Yeah free free coffee.
+[00:33:09] Speaker A: Yeah thank you for your work and
+[00:33:09] Speaker D: Yeah thank you, thank you very much.
+[00:33:09] Speaker B: Thank you very much.

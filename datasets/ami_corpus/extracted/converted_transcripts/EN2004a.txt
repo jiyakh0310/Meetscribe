@@ -1,0 +1,812 @@
+[00:00:00] Speaker B: If not more, yeah.
+[00:00:00] Speaker C: More.
+[00:00:01] Speaker D: Mm.
+[00:00:05] Speaker B: Okay.
+[00:00:08] Speaker B: Okay. So the three of you and let's see m um myself and Maarika, who's not here, and but I think so it it occasionally Melissa will all be doing checking of the transcriptions. So this is the second pass these transcriptions are receiving and that's pretty straight-forward. I think you all kn basically have an idea what's involved. Um but the extra step that we're asking you to do f in this case is to look at the silent regions and listen to them for each channel and um make sure that no back-channels were lost for example, um yeah, back-channels is what you n typically would find, although by and large these are gonna be silent. So
+[00:00:19] Speaker A: Mm-hmm.
+[00:00:30] Speaker D: Okay.
+[00:00:56] Speaker B: So you can um start s checking by y well you you know, you can order it in any way you like, but um start with the first channel and go through it entirely. Um I would recommend, I've found that it's easier when you're checking and you're trying to make sure the boundaries are right for a speech segment, I would recommend, like say this one, go down here to the uh trascription transcription tier and select that it so that uh when you play, you're certain that when it stops, you've caught the whole speech signal for that utterance and haven't lost any signal information. Um otherwise it it's liable to keep on running, and you might not notice where it where it finishes.
+[00:01:13] Speaker A: Mm-hmm.
+[00:01:37] Speaker A: Mm.
+[00:01:50] Speaker B: So it it takes a little time. But um Alternatively, I you you could just listen to the speech segments again and make sure everything is correct for those, and so you could just hit um
+[00:02:09] Speaker B: And then
+[00:02:13] Speaker B: Like that. And then go back and check the the silence regions. How it if if you wanna make your job a little more interesting, you can d do it in m different ways on a different day. It doesn't matter. As long as it gets done. So
+[00:02:15] Speaker D: Mm-hmm.
+[00:02:18] Speaker D: In between.
+[00:02:21] Speaker D: Yeah.
+[00:02:27] Speaker D: So we so are we checking what's actually been transcribed already as well as the silences? Yeah.
+[00:02:32] Speaker B: Yeah, yeah, you're doing so that's that's the role of the checker is to check what's said in the silent regions uh in the speech regions and then make sure nothing was lost in the silent regions. You're also um responsible for resolving any um uncertainties that were marked by the original transcriber. And and you know, of course there are gonna be m many situations where you like the first transcriber can't make any sense of it. And in that case, it will be up to you to use the at symbol. Um and that can be used uh to represent one um unintelligible word or multiple intelligible words, but just use one at symbol. Um yeah, mm-hmm, exactly. And so that um once you go through all the s um speech regions and all the um non-speech regions, an o you could make another step of doing a search using um going under the edit menu you can
+[00:02:36] Speaker D: Mm-hmm.
+[00:02:41] Speaker D: Oh okay.
+[00:02:49] Speaker A: Mm-hmm.
+[00:03:17] Speaker D: .
+[00:03:42] Speaker B: do a search for, yeah, find replace for open parentheses and that'll take you to any that it any that the first transcriber might have marked out. So there's one. And then you can just resolve those all one by one as as a different set of um changes altogether. And and likewise for the double question marks. Just once you've gone through um and resolved all the open parentheses, you can do the same for op uh double question marks. And um and like I said, if you if you can't make any sense of it, then just use the at symbol. If you can um, just give it, you know, give it your best guess in these cases. If
+[00:03:44] Speaker A: Find replace, yeah.
+[00:03:58] Speaker A: Uh-huh.
+[00:03:58] Speaker D: Oh, alright 'kay.
+[00:04:10] Speaker A: Oh yeah.
+[00:04:30] Speaker A: How much should you want um I had a few times where I thought well, it could be this, but if you're not entirely sure that it could be, 'cause it c it could be a combination of something else, like put the guess down or leave it as ambiguous in some way.
+[00:04:36] Speaker B: Mm-hmm.
+[00:04:42] Speaker B: Yeah.
+[00:04:46] Speaker B: Yeah, it's I would uh if you're v if you're quite certain, then I would go ahead and um type what you think it was said. If if you v think that n y there's maybe a th thirty percent chance you're wrong or or more
+[00:04:56] Speaker A: Right.
+[00:04:59] Speaker A: There's a chance they could be.
+[00:05:05] Speaker C: It's usually a context problem, because I think sometimes if it's not intelligible you either tend to because you really want it to fit the context, um you tend to take the closest actual word that would fit the context, or if it sometimes it sounds very clear as a word itself, but then wouldn't make sense at all, and then you m question, you know, second-guess whether it's really what you heard.
+[00:05:07] Speaker A: Yeah.
+[00:05:07] Speaker B: Yeah.
+[00:05:13] Speaker D: Mm yeah.
+[00:05:28] Speaker B: Right. So maybe a good idea would be to listen to each channel one by one, do listen to the silent and non-silent regions and make all those corrections, leave the unknowns, the um ambiguities, the uncertainties uncertainties until later. So go through all the channels and do that, and then um then you should have the context from all four speakers, and then go back and do those searches one by one for each channel. How would that be? Does that sound good?
+[00:05:51] Speaker D: Yeah.
+[00:05:52] Speaker A: Mm-hmm.
+[00:05:58] Speaker D: Yeah, it does tend to help. Yeah. Once you've been through the passage, you've worked out what they're talking about, you know. Yeah.
+[00:05:58] Speaker C: Mm.
+[00:05:58] Speaker A: Mm, that's what I've been doing so far.
+[00:06:00] Speaker B: Okay.
+[00:06:02] Speaker A: It took li it like the third time 'til I thought oh, you're saying F_ five. It just came out of nowhere.
+[00:06:03] Speaker B: You'll you'll know all too well what was said in this meeting by the time you
+[00:06:09] Speaker B: Yeah. Yeah, I think that would be really helpful. That would help us um, you know, nab a good number of those uncertainties.
+[00:06:10] Speaker C: Hmm.
+[00:06:19] Speaker A: But if there's a chance that it's equally likely that they could have said something or they could have said something like ice cream and I scream, then just choose one and leave it, right.
+[00:06:25] Speaker B: Mm.
+[00:06:27] Speaker B: Choose one, it c I mean y think of it from a speech recognition point of view again. And always this should be this should motivate you. Yeah. What is most robust for a speech recognition and and leave out anything So you're well geared towards this task. Um So I've gone through Sorry.
+[00:06:33] Speaker C: Be robust.
+[00:06:33] Speaker A: Mm-hmm.
+[00:06:39] Speaker A: We just started our speech recognition assignment just now.
+[00:06:47] Speaker C: That's always fun. I've done that too.
+[00:06:52] Speaker A: You're an S_L_P_ person.
+[00:06:55] Speaker C: Oh, never I I don't wanna interrupt it. Uh uh when I did my masters um I took uh S_P_ one and S_P_ two with Simon King.
+[00:06:56] Speaker B: Oh no no no. Go ahead, go ahead.
+[00:07:02] Speaker A: You survived S_P_ one and S_P_ two.
+[00:07:04] Speaker C: Yes. And actually I've done quite well in S_P_ one, I've done it a bit worse in S_P_ two because it was a l a lot more challenging.
+[00:07:12] Speaker A: We have two new teachers for S_P_ two.
+[00:07:14] Speaker C: Okay.
+[00:07:14] Speaker B: Too many.
+[00:07:15] Speaker A: And uh I'll ask you later on like if you still have your notes.
+[00:07:19] Speaker C: Yeah.
+[00:07:20] Speaker C: Right. Okay. Back to the topic.
+[00:07:25] Speaker B: Okay okay. So um this is one I've gone through. I've just done one channel. And there were lots of lots and lots and lots of things as you can see. 'Cause I've got square brackets around all the things that need to be changed. Um so this person didn't ha um th obviously didn't know about capitalisation. So just about every utterance needs to be capitalised and and needs the end punctuation.
+[00:07:36] Speaker D: Mm-hmm.
+[00:07:52] Speaker D: You know, when you get like um someone's talking and there's they sort of pause in the middle of a sentence that's long enough for it to put a break in, but they're actually sort of carrying on the sentence, do you have to capitalise each time you transcribe a bit if it's mid
+[00:07:59] Speaker B: Yeah.
+[00:08:04] Speaker B: Um, no no no. Whatever um makes sense to you. Um but no, it it can continue into the next segment and that's perfectly fine.
+[00:08:06] Speaker D: No no no no. Yeah.
+[00:08:09] Speaker D: Okay.
+[00:08:11] Speaker D: Yeah. Just okay. So it's put the hyphen and then
+[00:08:13] Speaker C: Yeah.
+[00:08:15] Speaker C: I think that's actually the only case where you don't or where you're not supposed to capitalise, right? So if it's quite clear that the sentence is being carried on, the p you know, the sentence from the previous segment is being carried on, then that's when you don't capitalise. Otherwise you do.
+[00:08:16] Speaker A: Mm the hyph
+[00:08:20] Speaker D: Right.
+[00:08:20] Speaker B: Um
+[00:08:30] Speaker D: Okay.
+[00:08:30] Speaker A: And you only use the hyphen I think when the sentence is definitely not continuing anywhere.
+[00:08:34] Speaker C: Yes.
+[00:08:34] Speaker D: Oh right, okay. I've done a few of those wrong then when someone comes to check it.
+[00:08:35] Speaker B: Yeah. Yeah.
+[00:08:36] Speaker A: As in like it's
+[00:08:37] Speaker B: I'll review some of these things um after I go through this a bit um just to re-cap. Th these are things that I've after checking um t everybody's work um, these are things that were commonly left out or, you know misc mis-transcribed, whatever. So I'll go over those t as an opportunity to use the white-board. Um um okay. So uh this person left out a lot of end punctuation and um here's a case where I think she was transcribing an out-breath um or possibly an in-breath uh t uh in and used the hash mark.
+[00:08:38] Speaker C: Yeah.
+[00:08:39] Speaker C: Yeah.
+[00:08:53] Speaker A: Mm-hmm.
+[00:08:54] Speaker D: Okay.
+[00:09:21] Speaker B: In any case, I didn't hear anything and and you shouldn't be transcribing in-breaths or out-breaths. That's n information we don't need.
+[00:09:27] Speaker D: Okay.
+[00:09:27] Speaker A: Right.
+[00:09:37] Speaker B: Oh, you know, this is the head-set mic and I heard something there. It was but it wa yeah, it was a bit of a yeah, it was creaky, so yeah f uh
+[00:09:38] Speaker A: It was the creaky voice.
+[00:09:43] Speaker A: Creaky voice. But it is c really connected to the word. Can we hear it again?
+[00:09:45] Speaker C: Yeah.
+[00:09:47] Speaker D: Yeah.
+[00:09:48] Speaker C: And you sometimes you don't know really whether it's a mic noise or that person is making that noise.
+[00:09:53] Speaker B: Yeah, well I didn't think it was im let's see, wait.
+[00:09:53] Speaker D: Yeah.
+[00:10:09] Speaker B: Yeah. S there's there's actually quite a bit more in there than than I heard before. This is so I w I heard a creaky voice, and it was audible of the level of the rest of the speech. So I would I would keep that. I think that's good. Oh, okay. I was adding that, that's what I was doing. That makes sense. Okay, there you go. Um so there's things like that. Um sh there's a missing false start here um that didn't get caught.
+[00:10:10] Speaker A: From the
+[00:10:13] Speaker A: from the
+[00:10:28] Speaker C: Yeah.
+[00:10:38] Speaker D: Okay.
+[00:10:44] Speaker B: So I added that in. Um so that that's something that's quite common in the transcriptions that I've looked at. Missed false starts, um missed m
+[00:10:49] Speaker C: Okay.
+[00:10:54] Speaker C: And how exact do we have to be there? Because um you know, some people tend to stutter more than others and then they would have a false start four or five times in a row. And how important is it to listen to it really until you've got the exact number of a things right? Yeah.
+[00:11:10] Speaker B: Try to get it right. I mean the it I think syllables should be accounted for for th
+[00:11:15] Speaker C: Yeah. Well, 'cause sometimes they go you know, like that, and then you're not really sure whether it's three times or four yeah.
+[00:11:18] Speaker B: Yeah, well don't let it drive you crazy, 'cause there is one speaker Melissa just played for me today and he stutters horribly. I mean I I I'd you know, it's unfortunate for him and for us 'cause it's really gonna be a nightmare to transcribe. So you will have to draw the line somewhere. But if you c if it's say four repeated um if the word is repeated four times, uh then that's not too hard to count. I haven't come across something that's been I haven't come across anything exceeding four, I don't think. Have you?
+[00:11:31] Speaker C: Yeah. Yeah.
+[00:11:31] Speaker D: Yeah. Yeah.
+[00:11:45] Speaker C: Mm-hmm.
+[00:11:52] Speaker C: Yeah. Well, it's not that the word is if the word were the whole word were being used four times, that wouldn't have been that difficult, but sometimes it's just a false start, which is really just maybe one or one and a half phones and then repeated and then you don't really know whether one is a long duration of one or whether it's actually two, and that kind of thing, so it's I think it was a word starting with D_ and the person was going or s you know.
+[00:11:58] Speaker B: Mm-hmm. Mm-hmm.
+[00:12:06] Speaker B: Uh-huh.
+[00:12:11] Speaker B: Yeah, yeah.
+[00:12:17] Speaker B: Yeah. Yeah. Make your best guess. Try to listen to it carefully enough, but not not so that you're obsessing over it for too long.
+[00:12:21] Speaker C: Yeah.
+[00:12:28] Speaker B: I would say.
+[00:12:29] Speaker A: And sometimes with the I would be thinking, are you anticipating a or you're you t trying to say the and you're just saying the the the the the.
+[00:12:36] Speaker C: Hmm.
+[00:12:38] Speaker B: Alright. Well there again, f uh think about robustness and speech uh recognition and it really doesn't matter. If it's a word fragment, who cares. It you're marking it as a fragment, and that's what's important.
+[00:12:43] Speaker C: Yeah.
+[00:12:44] Speaker A: Mm-hmm.
+[00:12:44] Speaker D: Yeah.
+[00:12:47] Speaker A: Yeah.
+[00:12:48] Speaker C: Well, speaking about
+[00:12:50] Speaker A: Yeah, yeah.
+[00:12:51] Speaker C: Speaking about robustness, if if somebody has an accent that you can only really understand what they're saying due to world knowledge yeah, it what they say, it doesn't really actually sound at all, you know, what it is, then do you transcribe more phonetically or do you put uh uh a star of after every single one word? Or
+[00:13:11] Speaker B: Well um I wouldn't de be using the star so liberally um for a non-native speaker.
+[00:13:17] Speaker C: Yeah, that's what I thought, that you're not supposed to do it, but um the one there's one I'm transcribing right now, you know, a whole batch of dialogues where uh all four participants are non-native, and there's especially one there that um I think he's Eastern European and I think that's the only reason I can understand what he's saying at all, because I'm Eastern European and uh but if we would just play it I think to a recognizer, then what he says, you know, the way he realises words, sounds nothing at all like it it should be.
+[00:13:49] Speaker B: Mm-hmm.
+[00:13:52] Speaker B: Well, right, right. Um I mean and and for that matter a lot of n native English speakers' realisations aren't going to be so true to um
+[00:13:57] Speaker C: Yeah.
+[00:13:59] Speaker C: Yeah.
+[00:14:02] Speaker A: I try to take consistency, if they always stress the wrong part of the word, then I think okay, I'll let that in, but if if it comes out and like one word is
+[00:14:06] Speaker C: Yeah.
+[00:14:08] Speaker B: Yeah, yeah.
+[00:14:11] Speaker C: No, it's less of a s it's less of a stress. It's really like uh his uh, I don't know, just the phonemes sounding differently.
+[00:14:20] Speaker B: Yeah. Well, I wouldn't bother to mark all of those instances though.
+[00:14:24] Speaker C: Well, you can't really, because it would be all of it.
+[00:14:26] Speaker B: No, I mean yeah, they're they're uh you're gonna find that for any speaker, they have a set way of of realising these things. And and it's just like Fiona was saying, um that the the word that stands out is something really uh aberrant. Like um I'm thinking of I I've used this example before, there's a guy who says project instead of product and uh it's something like project and it's probably just his his pronunciation of of.
+[00:14:54] Speaker C: Oh.
+[00:14:54] Speaker D: Oh.
+[00:14:54] Speaker A: Ah.
+[00:14:57] Speaker C: Yeah.
+[00:14:57] Speaker D: Mm.
+[00:15:00] Speaker C: Oh, I think I've transcribed him and I had project at all um evolution criteria.
+[00:15:02] Speaker B: Yeah. Well, it it they were clearly talking about a product. So so uh I m I marked that as a m uh mispronunciation or s or something to flag anyway.
+[00:15:08] Speaker C: Yeah.
+[00:15:10] Speaker C: Mm. Okay.
+[00:15:13] Speaker C: Yeah. And one guy who was saying evolution each time he meant evaluation, and it took me a whole dialogue Yeah, yeah.
+[00:15:17] Speaker B: Oh, evaluation. Yeah, I I've I remember that. That one I would I would flag, just like you did. It that's something definitely to mark up.
+[00:15:25] Speaker C: Yeah, but that's really something I would always transcribe it, you know, for lack of better knowledge or lack of context, and then at the end of the dialogue it dawned on me that he actually meant evaluation, and then I went back and replaced I replaced it in the whole transcription.
+[00:15:34] Speaker D: Yeah.
+[00:15:35] Speaker B: Mm yeah.
+[00:15:40] Speaker B: That's good. That's good.
+[00:15:41] Speaker A: Well, at the moment we have a lecturer that can I can never quite s tell if he's saying problem or programme. Programme problem. And it I can't actually say but when I'm listening to, I'm thinking And I can't tell.
+[00:15:49] Speaker C: Yeah.
+[00:15:51] Speaker C: Yeah.
+[00:15:55] Speaker B: Alright. Yeah, I kn I don't know what to s tell you about n um certain speakers. I it's just something we have to deal with.
+[00:15:56] Speaker C: Yeah.
+[00:16:04] Speaker C: Yeah, basically th I think just do your best and hope for the best.
+[00:16:07] Speaker A: Hope he's not involved with these actually. I hope he's not involved with this.
+[00:16:08] Speaker B: Yeah. Yeah.
+[00:16:11] Speaker D: Yeah.
+[00:16:12] Speaker B: Okay. So oop, I lost my lapel lapel mic.
+[00:16:16] Speaker A: That'll give some transcriber a headache.
+[00:16:18] Speaker B: Yeah. Wait.
+[00:16:19] Speaker C: Well, we have both head-set and lapel transcription. So it's not too bad.
+[00:16:23] Speaker B: Oops.
+[00:16:27] Speaker B: Least I won't be transcribing the What do I care?
+[00:16:34] Speaker C: Yeah, let's have Maarika transcribe that.
+[00:16:35] Speaker B: Okay, so um there've there've been lots of missed filled pauses. Everybody seems to miss those, some more than others. So just really keep an ear out for those. Um
+[00:16:49] Speaker A: It's easy to, 'cause you're so used to t t tuning them out, and you know it's easy when I go back over I normally g like go back to the beginning, do a quick pass of the main sections again and think ah yeah.
+[00:16:53] Speaker D: Mm.
+[00:16:53] Speaker B: Mm-hmm.
+[00:16:57] Speaker C: Mm-hmm.
+[00:17:00] Speaker B: Yeah. Yeah. I I'm not sure, I miss them plenty myself. But um this this second pass we should really try to catch all of them or at least most of th yeah.
+[00:17:09] Speaker C: Um sorry, I'm just seeing this with the T_V_, there is T_ underscore V_ underscore. I thought we're just supposed to use the underscore between letters? No?
+[00:17:10] Speaker A: Mm-hmm.
+[00:17:18] Speaker B: No, no. After.
+[00:17:19] Speaker A: That's what I thought the first day as well.
+[00:17:20] Speaker C: Okay, sorry, then I've done it wrong so far.
+[00:17:23] Speaker B: Okay. Yeah, it should be after every um acronym letter.
+[00:17:25] Speaker C: Okay.
+[00:17:27] Speaker D: You know, um you standardised all the the filled pauses, the uh and do we need to go through and change ones that people did differently. Like if I where I've written E_R_ for uh, change it all to U_ H_, that sort of thing?
+[00:17:38] Speaker B: Yeah, yeah. So at this point the um the only file that's been checked is Melissa one that Melissa did, and that was checked by me. Um so w we we're starting fresh with these and, you know, changes like that that were just announced we'll we'll be able to catch for these first passes. So yeah, y if you do see um something like um U_H_M_ for um, you you would change that to the regularised v version. Um and we just ch you know, this is arbitrary, but we had to choose something and not let it get too convoluted with um with choice.
+[00:17:47] Speaker D: Mm-hmm.
+[00:17:47] Speaker A: Mm-hmm.
+[00:17:52] Speaker A: Right.
+[00:17:56] Speaker D: Yeah.
+[00:17:58] Speaker D: Okay.
+[00:18:05] Speaker D: Yeah, just change it to um.
+[00:18:06] Speaker A: Mm-hmm.
+[00:18:08] Speaker D: Okay.
+[00:18:14] Speaker A: Yeah.
+[00:18:14] Speaker D: Yeah.
+[00:18:23] Speaker B: Here's
+[00:18:24] Speaker A: So if they pause, just where you've got it highlighted at the moment
+[00:18:28] Speaker B: Uh-huh.
+[00:18:29] Speaker A: That wor the hyphen.
+[00:18:31] Speaker B: Mm-hmm, there.
+[00:18:32] Speaker A: So I have to re-do the meetings from the minutes from the last meeting. Was she was that a like w r real definite I'm starting a new sentence here, 'cause I'd sometime if it sounds like he could carry on saying the whole sentence, I sometimes don't have a hyphen there. But is it a t any hesitation? Okay. Okay.
+[00:18:50] Speaker B: Um I
+[00:18:52] Speaker C: But it is a back-track.
+[00:18:53] Speaker D: Yeah.
+[00:18:53] Speaker B: Yeah, yeah. So it's not necessarily restarting the sentence, but just a restart of any type. A phrase.
+[00:18:54] Speaker D: We do the meeting. The minutes, yeah.
+[00:18:57] Speaker A: Right.
+[00:18:57] Speaker C: Yeah, I think of it in terms of, you know, not even maybe to well, if I th if you think of it in terms of a syntactic tree, it n doesn't have to go back all the way to the S_ node, but it just m it might go back to the last node or something like that. Yeah.
+[00:19:04] Speaker A: Yeah.
+[00:19:08] Speaker A: Yeah.
+[00:19:09] Speaker A: Just one to the next door, yeah. Oh goodness, who would know what that was uh if somebody that didn't know about linguistics were trying to transcribe S_ node. Yeah. Yeah. Yeah.
+[00:19:09] Speaker D: Mm-hmm.
+[00:19:11] Speaker B: Yeah. Thank you for that description, Beata.
+[00:19:20] Speaker C: Well it's just my way of of knowing if it w sorry, 'cause linguistics is all I've ever known.
+[00:19:28] Speaker B: Here's a uh so that answers your question about that answers your question about this one up here? Okay. Here's where I've I heard a another sound, another false start. Um or a stutter, I would say.
+[00:19:31] Speaker A: Sorry? Yes, yeah.
+[00:19:47] Speaker B: Let me see. Oh yeah.
+[00:19:53] Speaker B: I'm not seeing where this is.
+[00:19:57] Speaker A: You're three lines in.
+[00:19:59] Speaker B: Okay. Okay, okay.
+[00:20:03] Speaker B: Okay.
+[00:20:12] Speaker B: So, that kind of thing. And there was a vowel in there, but you noticed that she just used the and that's fine. The the letter D_.
+[00:20:12] Speaker D: Mm-hmm.
+[00:20:13] Speaker C: Mm-hmm.
+[00:20:18] Speaker A: What's the
+[00:20:18] Speaker D: Okay.
+[00:20:19] Speaker C: Yeah.
+[00:20:20] Speaker A: What's the C_? Is that a
+[00:20:22] Speaker B: That's she would like see. She
+[00:20:25] Speaker A: There's a d judgment is that that
+[00:20:34] Speaker B: Oh, sorry. I didn't go f back far enough.
+[00:20:37] Speaker A: Oh, I've not used that button yet.
+[00:20:39] Speaker D: Where you've written at et cetera, is that how we're supposed to be writing it? Okay.
+[00:20:42] Speaker B: Yes. Um where is that. Yes, she's so she spelled it wrong. Um uh up here.
+[00:20:47] Speaker D: Yeah.
+[00:20:49] Speaker C: Where?
+[00:20:51] Speaker C: Oh, et cetera.
+[00:20:52] Speaker B: Yeah, so I d I mentioned that because of spelling. And yes, any g
+[00:20:54] Speaker C: .
+[00:20:56] Speaker C: Is it one word or is it two words?
+[00:20:56] Speaker B: I
+[00:20:58] Speaker B: It's one word. So I d I just said spelling. It's an admonishment. Sorry?
+[00:20:58] Speaker C: Okay.
+[00:21:02] Speaker C: Because I thought it would be like et alii.
+[00:21:06] Speaker C: But in sh it isn't it in Latin like et cetera, like et alii or
+[00:21:07] Speaker D: Et cetera.
+[00:21:10] Speaker B: Uh like A_T_ is uh
+[00:21:14] Speaker C: No no no, like et w you know, when you have uh when you have a citation and you say et al, it means and others, et et al et alii is the full word, and et cetera means and following. So
+[00:21:18] Speaker B: Mm-hmm.
+[00:21:26] Speaker A: In the dictionary here it's one word.
+[00:21:27] Speaker C: Yeah. Oh in it is, okay, yeah.
+[00:21:29] Speaker B: Yeah, yeah, yeah. If you have any questions about spellings, I i I think I m might have sent an email to this effect, just check the Oxford English Dictionary online. Uh and that's that will be our guide. Um, so a as far as I know, this is just missing an E_ cetera. Um but anyway. You can
+[00:21:38] Speaker C: Mm-hmm.
+[00:21:38] Speaker D: Okay.
+[00:21:47] Speaker C: Mm-hmm, yeah.
+[00:21:53] Speaker B: We've considered experimenting with running this through a spell check. You could take this as an Emacs file and run a spell check on it. But I think it would slow things down too much. So just hopefully i in going through this very carefully you're going to notice these misspellings.
+[00:21:57] Speaker D: Mm.
+[00:22:01] Speaker C: Mm-hmm.
+[00:22:04] Speaker C: Yeah.
+[00:22:04] Speaker A: Yeah. Would give Emacs a headache as well.
+[00:22:06] Speaker C: I think
+[00:22:11] Speaker C: Yeah, I think i if somebody could write I don't know how difficult it would be in practice to write a script that would ignore um all the word fragments, anything with a hyphen. Then a spell-check might make make sense. But uh to just use simple Emacs, it will uh basically mark um all the word fragments for you, and uh, you know, and I know from experience, at some point you also get negligent, you just click okay okay okay, you know, that's not a mistake, and then you might miss a real error. So it doesn't make any sense.
+[00:22:11] Speaker A: Yeah.
+[00:22:21] Speaker B: Mm-hmm.
+[00:22:30] Speaker B: Mm-hmm.
+[00:22:37] Speaker B: Yeah, yeah.
+[00:22:39] Speaker B: Right. Yeah, I th I think you're right. So we'll we will just hope that you catch it. Um That's what we'll do.
+[00:22:45] Speaker C: Mm-hmm.
+[00:22:49] Speaker A: Yeah, the C_. Um
+[00:22:51] Speaker B: Okay. So
+[00:22:54] Speaker B: Sorry.
+[00:22:54] Speaker D: .
+[00:23:01] Speaker B: So I think she just she didn't catch the full form.
+[00:23:02] Speaker D: Okay.
+[00:23:03] Speaker A: She was cutting off rather than saying she would like s to have see something.
+[00:23:04] Speaker C: Yeah.
+[00:23:07] Speaker B: Right, right. Yeah. She I think she meant to use the infinitive, but she just left off the to.
+[00:23:08] Speaker C: Yeah.
+[00:23:12] Speaker C: But see is a actual full word, shouldn't it there b shouldn't there be a space between see and the hyphen?
+[00:23:13] Speaker A: Is a whole word.
+[00:23:19] Speaker B: A space between She would like see. She would like see.
+[00:23:19] Speaker C: You know, not to be not to be pedantic.
+[00:23:20] Speaker A: Yeah.
+[00:23:24] Speaker C: After the no, the the C_ and the hyphen, shouldn't there be a space?
+[00:23:26] Speaker B: Yes yes yes, you're right. Yeah.
+[00:23:30] Speaker C: Okay.
+[00:23:30] Speaker A: 'Kay.
+[00:23:31] Speaker B: Exactly. Uh that was what you were m remarking about. Okay. There we go. Let me save that. Okay.
+[00:23:32] Speaker A: Thanks, that's what I was asking. I should've just said it that way. Yeah.
+[00:23:32] Speaker C: Yeah.
+[00:23:40] Speaker B: What else? Um be careful about um finding mis-transcriptions. So um
+[00:23:51] Speaker C: Um the would and w
+[00:24:04] Speaker B: So she t she transcribed that as would. And so
+[00:24:05] Speaker D: Okay.
+[00:24:06] Speaker A: Uh-huh.
+[00:24:06] Speaker C: No. But sometimes it's really difficult, sometimes you really don't know whether they're saying will or would.
+[00:24:11] Speaker B: Well, I think it's quite clear there. I mean obviously there are gonna be ca
+[00:24:12] Speaker D: That one was clear.
+[00:24:12] Speaker C: Yeah, he it it's his yeah.
+[00:24:15] Speaker C: But if if it's not clear, do I just pick uh do you just pick the more grammatic alternative? Or
+[00:24:19] Speaker B: No, you try to keep it as true to what's being said.
+[00:24:21] Speaker C: B yeah. But if it but if it's really not absolutely not clear,
+[00:24:26] Speaker B: Then use um
+[00:24:26] Speaker C: when they say instea you know, some people when they swallow up the the last bit.
+[00:24:32] Speaker B: Mm-hmm. I'd have to hear it, because it m sounds like it could be a fragment. Uh it ju I'd just have to hear it. Um M I'd you don't want to b um be prescriptive and and type what you think they should've said. But
+[00:24:33] Speaker C: Or do we just then transcribe? Yeah.
+[00:24:37] Speaker C: Yeah.
+[00:24:38] Speaker C: Yeah.
+[00:24:45] Speaker C: Mm-hmm. Yeah.
+[00:24:48] Speaker C: Yeah.
+[00:24:50] Speaker B: but I I I do know the type of scenario you're describing. I just it's just hard to answer that without hearing something. Mm.
+[00:24:56] Speaker C: Mm-hmm.
+[00:25:02] Speaker C: The um should be capitalised.
+[00:25:04] Speaker B: Yeah, they should all I I stopped marking them, 'cause there are just too many. But
+[00:25:05] Speaker C: Yeah.
+[00:25:06] Speaker C: Okay.
+[00:25:08] Speaker A: Should it? 'Cause the loose uh is continuing from one sentence, isn't it?
+[00:25:10] Speaker B: Uh let's see. Oh yeah, y you're right. Right. That's right. Okay.
+[00:25:11] Speaker C: Oh, okay. No. Yeah.
+[00:25:18] Speaker B: There was a yes in there. Um and
+[00:25:20] Speaker D: Okay.
+[00:25:20] Speaker A: Was there? Okay.
+[00:25:21] Speaker B: Yes.
+[00:25:26] Speaker D: Yeah.
+[00:25:26] Speaker A: Oh yeah.
+[00:25:29] Speaker B: So another missed false start. Um
+[00:25:37] Speaker B: There was creakiness on the she. But you don't need to mark that as a separate sound. Um
+[00:25:43] Speaker A: Sometimes I've made buts after la like words after laughter, I've made them capitalised, 'cause I've not been sure if there's an if the laughter's been cutting everything off.
+[00:25:51] Speaker B: Mm. If it sounds like um the laughter is just um interrupting a an utterance that continues after the laughter, I wouldn't worry about capitalising.
+[00:25:59] Speaker C: Yeah.
+[00:25:59] Speaker A: Mm-hmm.
+[00:26:00] Speaker C: Um okay, so what about if a whole utterance is uttered while laughing? Do you put the laughter in front? Or in what I usu when that happens what I do is I put laughter in front, then the whole sentence and laughter in, you know, at the end as well. So
+[00:26:07] Speaker A: During.
+[00:26:17] Speaker B: If you hear just laughter on either side, yeah, do that.
+[00:26:20] Speaker C: Yeah. No, but it's it's laughter th throughout.
+[00:26:23] Speaker B: Yeah, yeah, mm I don't know, we'll have to I'll
+[00:26:26] Speaker C: Yeah. There's some people laughing themselves silly at absolutely nothing while while they speak.
+[00:26:30] Speaker B: Okay, so laughter during speech. I'll f I'll talk to Melissa and Jean. S
+[00:26:36] Speaker C: Mm-hmm.
+[00:26:39] Speaker C: Because in the ICSI dialogues um they always say, you know, while laughing, and we don't do that. So They say either so there it's really not ambiguous whether it's just laugh followed by an a normally spoken utterance or whether it's an utterance spoken while laughing. I think there is a distinction there and we don't have that.
+[00:26:44] Speaker B: Mm-hmm.
+[00:26:49] Speaker B: Mm-hmm.
+[00:26:56] Speaker B: Mm-hmm.
+[00:26:58] Speaker B: No, we don't have any qual tags like they use. But um I'll f I'll
+[00:26:59] Speaker C: Yeah.
+[00:27:05] Speaker B: I'll figure that one out and put it up on the wiki or email you.
+[00:27:07] Speaker C: 'Kay.
+[00:27:11] Speaker B: Good question. I've come across that as well. Mm, see.
+[00:27:24] Speaker B: Oh yeah, I don't know what that that noise was indicating. Um we can skip on. There are other types of things I wanna point out.
+[00:27:34] Speaker B: Um let's see.
+[00:27:45] Speaker C: Morse code.
+[00:28:02] Speaker A: Was that circuit?
+[00:28:02] Speaker B: Okay.
+[00:28:04] Speaker A: I figure if she is a person that calls circuit circuit
+[00:28:05] Speaker B: Did you
+[00:28:05] Speaker C: Morse.
+[00:28:08] Speaker B: Did she say circuit? I didn't really hear that.
+[00:28:09] Speaker D: How do you know it's that?
+[00:28:10] Speaker A: I'm not sure if she did. Just um if it's her, I just caught the end of it and
+[00:28:11] Speaker B: So would would you have been tempted to put an asterisk after that?
+[00:28:20] Speaker B: Uh yeah.
+[00:28:20] Speaker A: No, not for that one. But I had one person who said circuit. The.
+[00:28:20] Speaker D: Cir circuit.
+[00:28:21] Speaker C: Yeah.
+[00:28:23] Speaker B: Oh, okay.
+[00:28:23] Speaker C: But then I w but then I wouldn't put an asterisk on it. I thought asterisk is something where um it's c it's pronounced as a totally different word, like evaluation and evolution. No? Okay.
+[00:28:34] Speaker B: No, not necessarily. No, it's just something that the speech recognizer is liable to trip up on, I think.
+[00:28:39] Speaker C: Oh. Yeah, cause I this is a very frequent mistake that no native speakers make, to say circuit instead of circuit.
+[00:28:44] Speaker A: Mm-hmm.
+[00:28:46] Speaker B: Mm-hmm, mm-hmm. Um y that may be, but I probably would flag it. I depending on how how different the vowel sound was. It's gonna be your call in a lot of these cases.
+[00:28:55] Speaker C: Mm.
+[00:28:56] Speaker D: Oops.
+[00:28:57] Speaker A: Yeah, something like if ha I did that one 'cause it is well, a language teacher wouldn't low allow that to mo move on to the next stage. That wouldn't they wouldn't let that pass. Sort of.
+[00:29:06] Speaker B: Mm. Okay, here
+[00:29:06] Speaker C: Mm.
+[00:29:11] Speaker A: Or I wouldn't. If somebody that, I'd point it out to them.
+[00:29:13] Speaker B: Here's a case of um where I found it n uh found a case of discontinuity.
+[00:29:25] Speaker B: But you know, because she's a non-native English speaker, I don't I don't know. Maybe that was grammatically n uh
+[00:29:36] Speaker B: unmarked for her. If you know what I mean. Maybe that wasn't uh her re-starting, maybe sh that was
+[00:29:38] Speaker D: Yeah.
+[00:29:41] Speaker A: Yeah, 'cause otherwise you could end up putting a hyphen after every hesitation mark that you have.
+[00:29:45] Speaker D: Yeah.
+[00:29:45] Speaker B: Mm mm-hmm, mm-hmm. So again I don't know. That w that was my reflex at the time to put that there. But
+[00:29:49] Speaker A: Just if
+[00:29:52] Speaker A: Just a prosodic marker rather than an actual hesitation.
+[00:29:56] Speaker B: Yeah. Well
+[00:29:57] Speaker A: Uh as in a whole s like back-channel.
+[00:30:02] Speaker B: Unless you kinda get Right.
+[00:30:09] Speaker A: Oh yeah, sorry. I th I just read the rest of the sentence.
+[00:30:12] Speaker C: Is push buttons two words?
+[00:30:14] Speaker B: Uh yeah, yeah. Yeah, I would type it as two. Mm okay, I'm gonna skip ahead. Oh, let's see, there was a c
+[00:30:16] Speaker C: I used one word.
+[00:30:18] Speaker C: Okay.
+[00:30:33] Speaker B: So I I hear she would quite clearly there and I think a good number of them you'll be able to resolve just just helps to have the context and be able to listen to it again.
+[00:30:35] Speaker A: Yeah.
+[00:30:36] Speaker D: Yeah.
+[00:30:40] Speaker D: Okay.
+[00:30:43] Speaker C: Well it could be she would or should as well. Yeah.
+[00:30:45] Speaker B: Well. Okay. Yes, it could be a lot of things. Um
+[00:30:58] Speaker B: So there is there is another case where there wasn't a space between uh
+[00:31:02] Speaker D: Right.
+[00:31:04] Speaker B: a non-word fragment and um
+[00:31:06] Speaker C: Mm.
+[00:31:08] Speaker B: a re-start. Okay. What else. There is an extra little symbol in here, and that was just kinda carelessness. Um
+[00:31:22] Speaker B: So d even if it's something as brief as mm-hmm, we're we're gonna go ahead and capitalise that. And Maarika asked me what to do in the case of an utterance just consisting of laughter, do we do we use punctuation in these cases, and I don't know. I haven't been. I don't think it's necessary. Yeah. Uh no. Um
+[00:31:41] Speaker C: I haven't either. It's just too silly.
+[00:31:42] Speaker A: No.
+[00:31:45] Speaker A: 'Cause it's not linguistic.
+[00:31:49] Speaker A: Well, not yeah. I know, I yeah, you could think of an argu
+[00:31:49] Speaker C: I'm just thinking of uh you know an utterance consisting entirely of laughter and then putting like punctuation in, like. Sorry.
+[00:31:59] Speaker A: Or should we start it if we start the conversation in the common room, like is laughter linguistic, then they could come up with a theory. But
+[00:32:02] Speaker D: Someone's gonna have fun transcribing that now.
+[00:32:08] Speaker B: Delete and collapse.
+[00:32:13] Speaker D: Yeah.
+[00:32:15] Speaker B: I'm trying to underst I'm trying to interpret my note here. Delete and collapse the surrounding segments. Okay, I guess there there just really wasn't enough to transcribe there. Yeah.
+[00:32:21] Speaker A: Oh, d
+[00:32:25] Speaker C: Yeah, because it was it was really just silence and you're asking the person to just get rid of.
+[00:32:30] Speaker B: Yeah. So like I said, click down here just to if you haven't learned that trick already. And that won't play any surrounding segments. So there's nothing there worth transcribing. Um
+[00:32:34] Speaker C: Yeah.
+[00:32:35] Speaker D: Mm-hmm.
+[00:32:40] Speaker D: Okay.
+[00:32:48] Speaker B: Uh
+[00:32:52] Speaker A: Oh, I just noticed the the random yeahs, like with having the hyphen before they're s
+[00:33:00] Speaker A: Uh if you scroll up a little way.
+[00:33:01] Speaker B: Uh-huh.
+[00:33:06] Speaker A: Yeah, that ha um the second one from the top. Thinking I'm gonna have to go back and find my places where I've had someone pausing and then saying yeah yeah and then this that I've not had I need to go back and find uh p put hyphens in.
+[00:33:09] Speaker B: This one?
+[00:33:18] Speaker B: Oh so you haven't put a hyphen there. I see, I see. Yeah.
+[00:33:20] Speaker C: Mm.
+[00:33:23] Speaker B: Okay.
+[00:33:24] Speaker A: Hyphens or commas?
+[00:33:26] Speaker B: Commas. Commas did you say? Oh
+[00:33:29] Speaker A: Yeah.
+[00:33:33] Speaker B: For g for that s type of situation?
+[00:33:34] Speaker A: No, s alright. No, I've I've th I've sort it out.
+[00:33:36] Speaker C: Yeah.
+[00:33:37] Speaker B: Yeah, okay.
+[00:33:37] Speaker D: Actually, um a couple of times where they've repeated a word, I've put a comma between them. Should that be no comma? Oh, r okay.
+[00:33:44] Speaker B: Commas are fine. I mean they're eventually they're going to be extracted globally, so it doesn't matter how you use the comma. Yeah, we can just wipe them out in one fell swoop.
+[00:33:47] Speaker D: Right.
+[00:33:49] Speaker D: Oh right, okay.
+[00:33:49] Speaker A: Alright, okay.
+[00:33:50] Speaker C: Oh. Okay.
+[00:33:52] Speaker D: Okay. 'Cause I get I get quite prolific with my commas at times. So um
+[00:33:53] Speaker A: So we don't have to worry about commas. Okay.
+[00:33:54] Speaker C: Yeah.
+[00:33:57] Speaker B: I I am too. I I like commas and then uh Steve Renals, who's project manager, had a look at m I think it was my transcriptions. What are all these commas doing in here? But he didn't he ultimately he said it wasn't a problem. They will I th they'll help in the case of discourse marking, but his point was that they're really subjective, I mean something that you the transcriber here Yeah, yeah. I really like using commas. Oh.
+[00:34:01] Speaker A: Yeah.
+[00:34:04] Speaker D: Okay.
+[00:34:11] Speaker D: Okay, cool.
+[00:34:19] Speaker D: Yeah.
+[00:34:22] Speaker C: Yeah.
+[00:34:23] Speaker C: Just to make sense of a sentence.
+[00:34:25] Speaker D: Yeah.
+[00:34:30] Speaker A: I I read somebody's P_H_D_ proposals yesterday and s and it's saying, well, you could have a comma in here and one there and
+[00:34:36] Speaker B: Sh oh, she spelled cutest um with an I_, so that that's just something I pointed out. Okay, what else? Um
+[00:34:36] Speaker C: What does cutest spelling mean? Oh, okay. Okay.
+[00:34:43] Speaker D: Oh yeah.
+[00:34:48] Speaker A: Cutest?
+[00:34:49] Speaker D: E_ S_ T_.
+[00:34:50] Speaker A: Thank you. That one step behind.
+[00:34:51] Speaker B: So here's let's see. Now this was our
+[00:35:00] Speaker B: So she typed uh our and I I didn't quite hear that. But
+[00:35:02] Speaker D: Oh okay.
+[00:35:08] Speaker B: But I you can see how it could've been, I don't know.
+[00:35:08] Speaker C: Oh.
+[00:35:08] Speaker A: Oh.
+[00:35:09] Speaker D: Yeah.
+[00:35:11] Speaker C: Well, if you were Cockney, then Sorry.
+[00:35:13] Speaker B: Yeah, I don't know.
+[00:35:16] Speaker D: Sometimes you get like an uh and it g you're not sure if it's an, an A_, yeah, or an m it Yeah.
+[00:35:20] Speaker C: A_ or
+[00:35:22] Speaker B: Right. And you can never know, but if it fits well enough as a as an indefinite article, then you might as well.
+[00:35:26] Speaker D: As an.
+[00:35:28] Speaker D: Yeah, do it as Okay.
+[00:35:29] Speaker A: So which did you dec uh did
+[00:35:31] Speaker B: Oh, I was s I was suggesting that sh it be uh instead of our.
+[00:35:41] Speaker B: But
+[00:35:42] Speaker A: Evaluation. The z z
+[00:35:43] Speaker B: Yeah, I it's tricky, it gets ambiguous. Um I don't know.
+[00:35:43] Speaker C: Yeah.
+[00:35:45] Speaker D: Several vowels in there.
+[00:35:49] Speaker A: Evaluala?
+[00:35:57] Speaker B: Uh what's this? Well oh, she's
+[00:36:02] Speaker B: I hear the well there. The but this being a head-set mic channel m may make it easier to hear. She transcribed from the lapel mic. Uh
+[00:36:04] Speaker C: Yeah.
+[00:36:04] Speaker D: Yeah.
+[00:36:04] Speaker A: Yeah.
+[00:36:08] Speaker C: Yeah.
+[00:36:11] Speaker A: I've had one person with a dodgy headphone with with dodgy something where most of the time it's it's as if they've got their hand over something.
+[00:36:14] Speaker B: Oh. Oh.
+[00:36:20] Speaker B: Oh God. And you transcribed that speaker entirely? If that comes up again, we've got um headset mic files now. In fact, they replaced all the lapel mic files on the M_M_M_ server with head-set mic files, which we weren't asking them to do, but anyway they did it. And so now we don't have the lapel mic files. Apparently the headset mic files are are just a bit louder. And so you'll f probably find yourself turning the volume down considerably. But but apparently other than that they're just as good. But let us know, because we can retrieve the the other files.
+[00:36:21] Speaker D: That's harsh.
+[00:36:23] Speaker A: Yes, the uh yeah, it w it's for
+[00:36:30] Speaker A: Right.
+[00:36:35] Speaker C: Mm-hmm.
+[00:36:35] Speaker A: Hmm.
+[00:36:35] Speaker D: Oh okay.
+[00:36:46] Speaker A: Right.
+[00:36:46] Speaker D: Right.
+[00:36:50] Speaker A: Thank you for the warning.
+[00:36:53] Speaker A: Right.
+[00:36:57] Speaker C: Yeah, with some people it actually leads to some really screeching noises, because they're so loud or probably the mic is so close. I had this one um in one of the first dialogues I did, the g this guy called Ed, you could uh always see the waveform actually, you know, being just hitting um the b the boundaries on on both ends and just being at some points just black segments. And when he was talking there was this whole, like you know when you speak to close to a microphone, and that was really horrible.
+[00:37:15] Speaker B: Yeah.
+[00:37:27] Speaker A: Lot of people that say is this on and they hit it a few times. No.
+[00:37:31] Speaker B: Oh. Okay. I don't think I'm gonna go through uh any more of these, because I I think I've gotten through most of the types that I meant to point out.
+[00:37:37] Speaker C: The rest.
+[00:37:41] Speaker C: Hmm.
+[00:37:44] Speaker A: How about names that somebody says the name of somebody and you think, who? And you don't know how to spell the name or if you heard the right name.
+[00:37:46] Speaker D: Mm.
+[00:37:49] Speaker B: Uh right, right. Um what are we going to do for that.
+[00:37:56] Speaker C: Mister Ed.
+[00:37:58] Speaker A: Sorry?
+[00:37:58] Speaker C: Oh, I had one guy, one of the project managers was um he had a really weird accent and he was calling um one guy Mister Ed. His name was Ed, and it took me a whole time to, you find out that it was actually Mister Ed. Or
+[00:38:08] Speaker A: Mister Ed.
+[00:38:08] Speaker D: Mister Ed?
+[00:38:14] Speaker D: Yeah. Or myst mystery Ed or something.
+[00:38:16] Speaker C: Yeah. No, but that it wasn't one word, that it wasn't like some proper name starting with M_.
+[00:38:17] Speaker A: Oh it
+[00:38:21] Speaker D: Yeah.
+[00:38:22] Speaker D: Mm-hmm.
+[00:38:23] Speaker A: Mister Ed.
+[00:38:25] Speaker B: I d I did see s I've been looking at some guidelines for another corpus and I did see something about proper names, so I'll I'll have a look at that and see how we can handle that here.
+[00:38:32] Speaker C: Yeah. Well, but don't you guys have um have this data? Know the people na people's names, like when you
+[00:38:33] Speaker A: Right.
+[00:38:38] Speaker B: What
+[00:38:41] Speaker B: Uh yeah, quite possibly, but since it's coming from ICSI uh it's coming from IDIAP in Switzerland, yeah, it w it should be easy enough to get, but it's it's one other step, you know, emailing somebody to find out who knows this information. Anyway, it's
+[00:38:42] Speaker C: Collect the data, th aren't people filling out a form or something?
+[00:38:55] Speaker C: Okay. Yeah.
+[00:38:58] Speaker C: No, but it's information that we theoretically have.
+[00:39:01] Speaker B: Yeah, yeah, because everyone signs a consent form when they participate in the experiment. So we ought to be able to get that. But but there shou we should also have a w a means of dealing with proper names when we don't know what it is or how it might be spelled at all and and flagging that in in some way. So I'll th I'll I'll try to address both things.
+[00:39:03] Speaker C: Mm.
+[00:39:07] Speaker C: We didn't sign one.
+[00:39:17] Speaker A: Mm-hmm.
+[00:39:24] Speaker C: Mm-hmm.
+[00:39:24] Speaker A: Okay. What was Mister again? I can't remember seeing how to transcribe Mister. M_ M_R_ Mister
+[00:39:28] Speaker C: Mister just to
+[00:39:29] Speaker B: Oh, just just type Mister fully. I M_I_S_T_E_R_, yeah. And same with missus, M_I_S_S_U_S_, I believe. Is it I believe I believe check check the dictionary. That yeah, but you would never um type the abbreviated spelling for anything.
+[00:39:31] Speaker C: Yeah. No, M_
+[00:39:32] Speaker D: M_ I_ S_ T_ E_ R_.
+[00:39:36] Speaker C: Mi U_S_ Mi Missus, the Missus.
+[00:39:37] Speaker D: Okay, Missus. Missus.
+[00:39:38] Speaker A: Sorry?
+[00:39:42] Speaker A: Missus? Um
+[00:39:43] Speaker D: Yeah.
+[00:39:46] Speaker C: What if somebody calls themselves Ms?
+[00:39:46] Speaker A: Right.
+[00:39:49] Speaker B: Um well, I'm sure there's a spelling in the O_E_D_, yeah.
+[00:39:49] Speaker C: I mean it's not not that it ever happened, but yeah.
+[00:39:49] Speaker D: M_ I_ Z_?
+[00:39:52] Speaker D: Yeah. So um about um foreign words, what do we when we're checking um if we come up something so we just leave it as
+[00:39:56] Speaker B: Uh-huh.
+[00:39:59] Speaker B: Oh right. So the transcriber's enclosing everything in carets, and what you would do is
+[00:40:01] Speaker A: Is that
+[00:40:04] Speaker A: Yeah. Not come across any yet.
+[00:40:04] Speaker D: Yeah.
+[00:40:07] Speaker D: I got one, which I it was French, so I knew how to ex spell it.
+[00:40:09] Speaker A: Oh.
+[00:40:11] Speaker C: Yeah.
+[00:40:11] Speaker B: That's a good question, because you will be leaving question marks there. Um okay. Right. Um it shouldn't, because things are going to be left like the asterisk will be left for the proc the subsequent processing. But carets with question marks in-between would have to be resolved in some way.
+[00:40:15] Speaker D: Yeah.
+[00:40:17] Speaker D: I mean if it's in carets and they know it's foreign, does that matter?
+[00:40:28] Speaker D: Yeah, and the at symbol.
+[00:40:30] Speaker C: Yeah.
+[00:40:37] Speaker D: Or could we just change it to an at between the carets? 'Cause it's only intelligible theoretically.
+[00:40:40] Speaker B: Yeah. Yeah. Yeah. I I suppose that's all we can do really. You're not supposed to be polyglot transcribers here.
+[00:40:42] Speaker C: Yeah.
+[00:40:44] Speaker D: Yeah.
+[00:40:47] Speaker D: Yeah.
+[00:40:47] Speaker C: Oh, so even if we know what that word means we're not supposed to right.
+[00:40:52] Speaker B: Oh yeah yeah. If you if if f it's a foreign word and you know what it is, just enclose it in carets.
+[00:40:57] Speaker C: Yeah. Yeah, 'cause I have there is one dialogue where I think two speakers are French, like one is definitely French, and I know she is saying and then somebody s saying something to her and she goes comment and then you know you know that, so yeah.
+[00:41:09] Speaker D: Mm-hmm.
+[00:41:09] Speaker B: Yeah. Yeah, yeah. If you if you're confident that you've got a fair grasp on French for example, why not.
+[00:41:14] Speaker D: Okay.
+[00:41:16] Speaker C: . Oh, not really, but on comment, yeah.
+[00:41:17] Speaker A: And not accidentally translating in the process.
+[00:41:20] Speaker B: Yeah. Okay. Um there is there is just one other thing, she she typed okay um in caps. O_ c c O_ capital O_ capital K_ and huge no-no, I don't know why she missed that in the in the guidelines. Yeah.
+[00:41:29] Speaker A: Oh yeah, I saw it there.
+[00:41:31] Speaker C: Ok
+[00:41:34] Speaker C: No.
+[00:41:36] Speaker D: Yeah.
+[00:41:37] Speaker A: There it was.
+[00:41:38] Speaker D: Are we doing okay just as O_ K_, not as a O_K_A_Y_?
+[00:41:41] Speaker C: Okay.
+[00:41:43] Speaker B: It is O_K_A_Y_. Yeah, yeah. Okay. Okay. Well, it will be your jobs to catch all of these things. So no um n no transcriber will be checking no checker will be checking their t own transcription. Yes. Yes. So we will catch these things
+[00:41:43] Speaker C: No.
+[00:41:45] Speaker D: A_ Y_, alright, oops.
+[00:41:46] Speaker A: Okay, oops.
+[00:41:53] Speaker D: Someone's gonna find some of those.
+[00:41:58] Speaker D: Yeah.
+[00:42:02] Speaker C: Their own.
+[00:42:03] Speaker D: Checking their own work.
+[00:42:03] Speaker A: Checking their own transcription.
+[00:42:06] Speaker D: Right.
+[00:42:06] Speaker A: No transcriber will be checking their own transcriptions.
+[00:42:10] Speaker D: Have to remember that one now.
+[00:42:11] Speaker B: more efficiently, I think. And on so I'll just go up to the board do I have to keep this stuff on?
+[00:42:18] Speaker C: Probably.
+[00:42:19] Speaker A: Guess it depends how far you can stretch. Oh yeah, 'cause every time somebody'd be going over there you'd hear all this sound of
+[00:42:20] Speaker B: Oh yeah, they've got clips.
+[00:42:23] Speaker B: Right, I'm mobile. Alright.
+[00:42:25] Speaker D: D Yeah. Wrestling to the white-board.
+[00:42:27] Speaker C: Yeah, I can hear the chairs moving and the
+[00:42:30] Speaker A: And about five or six breaks in the between is the making it a.
+[00:42:33] Speaker C: Yeah.
+[00:42:35] Speaker B: Okay. So I guess just for the sake of using the white-board and killing a little more time I'll just write down the things that are most common to be checked. So let's see. So oh, okay. Now.
+[00:42:49] Speaker C: Oh, the white-board marker has a camera as well.
+[00:42:51] Speaker A: looks like some piece of medical equipment.
+[00:42:53] Speaker D: Wow.
+[00:42:54] Speaker B: Okay, s alright. Rather this is a list of things to do as the checker. So you wanna listen to the silent regions.
+[00:43:05] Speaker A: Mm-hmm.
+[00:43:06] Speaker B: Then check the speech regions.
+[00:43:13] Speaker B: And as part of that you want to um check the boundaries.
+[00:43:23] Speaker B: And oh, by the way, this should be um
+[00:43:27] Speaker B: Um transcribe
+[00:43:33] Speaker B: any missed speech.
+[00:43:41] Speaker B: And just let's see what else. Okay. And within this checking the speech segments, you want to listen for or look for missed um
+[00:43:53] Speaker B: Look for missed punctuation,
+[00:44:03] Speaker B: filled pauses,
+[00:44:10] Speaker B: words in stuttering. And if you have um if you have a stuttered word, you don't need to use the hyphen to mark discontinuity. It's just so if somebody says the the, then it's just the the. Um words in st uh
+[00:44:23] Speaker D: Okay.
+[00:44:29] Speaker A: Oh yeah.
+[00:44:37] Speaker B: And what else. Try to get f false starts.
+[00:44:46] Speaker B: Short words, make sure with little words like the and uh, little articles and that kind of thing don't get omitted. Um short words and word fragments.
+[00:44:59] Speaker B: Those are the commonly missed things.
+[00:45:07] Speaker B: And then um look for cases of mis-transcription
+[00:45:15] Speaker B: Seems so silly to be writing this all. But anyway, Mis-transcription, so make sure if the speaker said will, you type will not would or um if they say we, even though it might be more grammatically correct to type we're, um that kind of thing. Um tha cases of ellipsis, where um maybe the transcriber typed them, but really what was said was 'em, so where you use the apostrophe. And look for capitalisation I'm not gonna gonna do any more of this. Capitalisation. Spelling. Um, use the O_E_D_ to check on things you don't know about. Um refer to the wiki for all regularised spellings and f for things like filled pauses. Oh, was that
+[00:45:41] Speaker C: M_.
+[00:45:43] Speaker A: Mm-hmm.
+[00:45:48] Speaker A: Oh.
+[00:46:00] Speaker A: Mm-hmm.
+[00:46:05] Speaker A: I just remembered one.
+[00:46:08] Speaker A: Okay, when it's just as 'kay, but it's at the beginning of a sentence, should the K_ be capitalised?
+[00:46:13] Speaker C: No well apostrophe and then K_ A_ Y_.
+[00:46:13] Speaker D: W
+[00:46:14] Speaker B: W
+[00:46:16] Speaker B: And then, yeah, capitalise the K_. Yeah. And
+[00:46:18] Speaker A: Good.
+[00:46:21] Speaker C: That marker smells really bad.
+[00:46:23] Speaker B: I think smells really good. I used to always love smelling markers. What else did I find. Um the so make sure the da the dash, the hyphen, whatever you call it, is being used appropriately in cases of discontinuity, um but not in stuttering, like I said. And and don't use it when the utterance is clearly continued in the next segment or whatever. Um don't transcribe in-breaths or out-breaths. And okay should never be um two capital letters, it should be O_K_A_Y_. Um and one other thing is to break break up long segments if you find any. So
+[00:46:24] Speaker A: You've been doing this too long.
+[00:46:30] Speaker C: It probably became addicted to the fumes.
+[00:46:34] Speaker A: Grease paint.
+[00:46:53] Speaker A: Mm-hmm.
+[00:46:53] Speaker D: Okay.
+[00:47:15] Speaker A: Mm-hmm.
+[00:47:17] Speaker C: Over a minute.
+[00:47:18] Speaker B: Yeah, but that's a kind of crude guideline. I'd I'd say just anything that seems unmanageable.
+[00:47:22] Speaker C: Mm-hmm.
+[00:47:25] Speaker C: Okay. So if something is a minute and three seconds I can still have it, right?
+[00:47:29] Speaker B: Ah. Yeah, yeah. Really uh it it means nothing to say a minute, it's just a g a really crude guideline. I would just try to keep segments very manageable um and a but u you know, use these wave-forms to help you. And you can adjust the resolution so that Oh. That didn't help me too much, but you can use this little slide bar to adjust the resolution. Actually that doesn't seem to be working.
+[00:47:32] Speaker C: Mm-hmm.
+[00:47:44] Speaker D: Yeah, b
+[00:47:55] Speaker C: Um if you just click on one of the arrows.
+[00:48:00] Speaker B: Which o
+[00:48:00] Speaker C: Um in in the resolution thingy, um it will
+[00:48:01] Speaker A: The arrows by the resolution.
+[00:48:05] Speaker C: Yeah, on this one. No, not not the other one, this one. Yeah.
+[00:48:07] Speaker B: Yeah.
+[00:48:07] Speaker A: Not that one. The other arrow next to it.
+[00:48:10] Speaker A: Yeah.
+[00:48:11] Speaker B: Right, okay, okay. So yeah.
+[00:48:11] Speaker D: Oh. Is that zoom in?
+[00:48:13] Speaker A: Yeah.
+[00:48:13] Speaker C: Yeah. Oh, and you can also if you go to signal and
+[00:48:17] Speaker D: Wow.
+[00:48:19] Speaker C: Um that's it's something under signal, where you can adjust the amplitude as well, on resolution.
+[00:48:24] Speaker B: Mm-hmm.
+[00:48:27] Speaker C: Um
+[00:48:28] Speaker B: Oh okay, right.
+[00:48:29] Speaker C: Then you can also wait. No, I think that's not if you go to control panel.
+[00:48:29] Speaker A: Oh.
+[00:48:34] Speaker B: Uh-huh.
+[00:48:35] Speaker C: Signal control panel. No no, signal, control pan
+[00:48:39] Speaker B: Hmm?
+[00:48:40] Speaker C: Um the vertical zoom, you can adjust that as well, so if it seems too flat for you or you can't really
+[00:48:44] Speaker A: Ooh. Ah. That might have made it s 'cause I I appear to have nothing. But I was hearing stuff, but I g there was nothing on my wave-form. It's kinda hard to find where everything was.
+[00:48:45] Speaker B: Ah right, that's good. Okay. That's excellent. Alright.
+[00:48:47] Speaker C: Yeah.
+[00:48:52] Speaker C: Yeah.
+[00:48:56] Speaker C: Yeah.
+[00:48:57] Speaker B: Oh that's that's good to know. Okay. Yeah, so to help you make cuts, just look look f you know, use this wave-form and make sure you're not l losing any signal information. But um cutting segments down is a l a low priority, but it it will help ultimately, I think, post-processing wise. I don't
+[00:48:59] Speaker A: Control panel.
+[00:49:14] Speaker A: Right.
+[00:49:19] Speaker A: I think I've gone a bit far in cutting mine down at the moment.
+[00:49:22] Speaker B: Yeah, you don't don't get excessive about it. 'Cause that just ends up taking too much time. But I d I think from a speech recognition point of view it shouldn't matter, these segments being whatever length that they happen to be. I've seen other p people's transcription guidelines like f for the um ICSI project at Berkeley and elsewhere say indicating that it really doesn't matter and it's the point is just to get 'em into manageable units. And
+[00:49:27] Speaker A: Mm-hmm.
+[00:49:33] Speaker A: No, probably not.
+[00:49:36] Speaker C: Mm.
+[00:49:37] Speaker A: No.
+[00:49:47] Speaker C: Mm-hmm.
+[00:49:49] Speaker C: Okay.
+[00:49:50] Speaker A: Mm-hmm.
+[00:49:51] Speaker A: Easy for checking at any rate, rather than having to listen to a whole Anything.
+[00:49:53] Speaker C: Yeah.
+[00:49:56] Speaker B: Yeah. Yeah, yeah. Yeah, that's true actually, that's the best reason for cutting them down, but hopefully the that'll be done during the first pass, because that's the whole point. Making the checkers' job a little easier. Um and then, yeah, just m um be sure after you've gone through the four channels to um do a search on all the unknowns, all the um cases of ambiguity or whatever. And what else was I gonna say? The way we'll be allocating this is is the same as before, th it's gonna be on the th the same the same page, just further down. Scroll down, you'll see w all the files. And uh I've already allocated some some things to be checked. So if you run out of work, go ahead and start checking, because this is something that's um considerably um bottle-necked at the moment.
+[00:50:04] Speaker A: Mm-hmm.
+[00:50:35] Speaker A: The work allocation page.
+[00:50:40] Speaker C: Mm.
+[00:50:40] Speaker D: I turned the page.
+[00:50:47] Speaker D: Okay
+[00:50:54] Speaker A: Right.
+[00:50:54] Speaker D: So is this the priority then?
+[00:50:56] Speaker B: Yeah, I'd say for now um w we don't even have uh much new stuff to be uh to be gone over for a first pass. So it's important that we d um do this second pass. And I've indicated in a column whether something is priority. M I think I high typed high if it's high priority. Um so d those would be the ones you would focus on first, obviously. And when it come you don't want to change the file-name in any way. Just keep it the same. Um there there is going to be a checking in procedure. I don't know if anybody's mentioned this before, but you'll you'll know about this with the C_V_S_ server. So th
+[00:51:04] Speaker D: Transcri yeah.
+[00:51:13] Speaker C: Mm-hmm.
+[00:51:17] Speaker C: Mm-hmm.
+[00:51:33] Speaker D: Mm-hmm.
+[00:51:39] Speaker C: Mm yeah. Well, I don't know about I know about this for the summarisation, I haven't done this with uh transcription yet. Yeah.
+[00:51:43] Speaker D: Turn the page. Did you get the little buzz buzz?
+[00:51:44] Speaker A: It do yes.
+[00:51:45] Speaker B: Right, but it's be s y similar. But they're they're creating a their a guy Jonathan is creating a web form for you to do this all very simply and like just um upload everything that you've uh up upload the file that you've transcribed and and you'll be noting whether it's the first pass or the second pass and y your name um as the person who did that particular pass. And that will happen soon. I'll let you know.
+[00:51:52] Speaker C: Mm-hmm.
+[00:51:54] Speaker C: Yeah.
+[00:51:58] Speaker A: Checking in page. Oh right.
+[00:52:06] Speaker A: Mm-hmm.
+[00:52:12] Speaker D: So do we just open the file as we open the files for the first pass, like open up the sound file and then it sh
+[00:52:15] Speaker B: Yeah.
+[00:52:17] Speaker B: Yeah, you'll have to I would suggest creating a f folder um called files to be checked or something like that. Yeah, and then within that create a s create sub-folders for the the given meeting and you'll have to get all the sound files unfortunately from the M_M_M_ server on your own, because the the AMI server's not very reliable for getting these sound files uncorrupted. So you'll have to get all the sound files from the M_M_M_ server and the person's transcription file should be in that folder where you're putting yours. Um and then you'll just uh yeah d you'll copy that over, you won't don't move it over, because we wanna have multiple versions of these things, but yeah, copy it into your directory and keep the same name. And then when you check it in, it will automatically be registered even though the the first pass was checked in when we're doing this checking in business, um it will know which pass it is, but I think you'll also be indicating that as well.
+[00:52:25] Speaker D: In your home directory.
+[00:52:30] Speaker D: Okay.
+[00:52:32] Speaker D: Yep.
+[00:52:55] Speaker D: Okay.
+[00:53:04] Speaker D: Then you'll lose it, yeah.
+[00:53:23] Speaker D: Okay.
+[00:53:28] Speaker A: Uh it's vaguely connected question. Um, you You'll know. Um originally the like when we first like replied, say yes if you're interested in doing this, it said six weeks, and the contracts say eighth of May, which is longer in advance than which is a greater amount of time than six weeks.
+[00:53:30] Speaker B: Uh-huh.
+[00:53:39] Speaker B: Mm-hmm.
+[00:53:45] Speaker B: Yeah, it's it' actually six what is it? Is it three months, I think? Yeah. Yeah. They're they're three-month contracts and now, if you can't keep that, that's fine. But it's just a logistic thing with personnel where where we ha that was the minimum we were able to offer a contract for. So if you have to bow out, let us know as soon as you know when you you're gonna have to stop. Yeah, yeah, obviously those kinds of things are things we'll have to work around, but um yeah, it's just one of those details.
+[00:53:48] Speaker D: Sh Yeah, someone said three months. Yeah.
+[00:53:49] Speaker C: Um I've got a three month contract, yeah.
+[00:53:49] Speaker A: That's
+[00:53:56] Speaker A: Okay.
+[00:53:58] Speaker A: Right.
+[00:54:02] Speaker A: Okay, that's. Cool.
+[00:54:02] Speaker D: Oh, okay.
+[00:54:07] Speaker A: Right.
+[00:54:08] Speaker A: When it gets into the holidays and we're not necessarily around in the holidays and and
+[00:54:10] Speaker D: Mm.
+[00:54:17] Speaker A: Right.
+[00:54:19] Speaker A: Just checking.
+[00:54:20] Speaker D: Okay. Once we actually get into the like um Easter holidays, 'cause we're at having lectures at the moment, can we be more flexible with our hours if we wanna sort of I mean depending on who's using the computers.
+[00:54:25] Speaker B: Mm-hmm.
+[00:54:28] Speaker B: I should think so. I mean the whole point w of keeping well, as long as you're able to, yeah, work out use of your computer with the other person, that's fine, yeah. The the whole point of having m regular hours was to make sure that somebody was here to answer your questions. But you've got keys, so so you should be able to get in during odd hours if if you wanted to work.
+[00:54:36] Speaker D: Yeah.
+[00:54:37] Speaker D: Okay.
+[00:54:43] Speaker D: Yeah, sure.
+[00:54:44] Speaker A: Or else you can like p yes.
+[00:54:46] Speaker D: Yes. Yep.
+[00:54:50] Speaker D: If want
+[00:54:51] Speaker A: And if you can plug microphones into Apple Appleton Tower computers, I can do it there as well if you wanted me
+[00:54:54] Speaker B: Yeah, yeah. Yeah, I don't see why not, as long as you're, you know, doing your given set of hours for the week. Yeah. And um yeah. Paym I I think you'll all be paid. I think you'll all be paid uh well, have you not
+[00:54:56] Speaker D: Okay.
+[00:54:58] Speaker D: Know what you're doing.
+[00:55:00] Speaker A: We could meet up and have a session.
+[00:55:10] Speaker D: Phew.
+[00:55:10] Speaker A: That's a nice way to put it.
+[00:55:14] Speaker A: I'm having sort some s I'm having to sort some tax stuff out before I can even send my stuff in, 'cause I need to make sure I'm sending them the right form. But they won't even know what examining board I got my A_ levels in. Yeah, for human resources. I thought, surely you don't need that information, 'cause it took me it was about to take me half an hour well it did when I was like just going through the forms and filling in all the details, I thought I'm not going to spend w
+[00:55:18] Speaker B: Mm. Okay.
+[00:55:18] Speaker D: Oh.
+[00:55:20] Speaker C: Mm-hmm.
+[00:55:21] Speaker B: Okay.
+[00:55:21] Speaker D: Yeah.
+[00:55:25] Speaker B: Really?
+[00:55:39] Speaker A: A couple of hours getting photo-copies of degree certificates to give you for your files if I'm just gonna be here a good th they won't I think it th at one place it said give us copies of degrees? Oh, maybe I'm getting mixed up with something else, but it wanted a
+[00:55:41] Speaker C: Yeah.
+[00:55:41] Speaker B: No, that's certainly not necessary.
+[00:55:49] Speaker B: Mm no.
+[00:55:53] Speaker D: .
+[00:55:53] Speaker B: Well it
+[00:55:53] Speaker A: A_ level like examining board, which seemed a bit ridiculous.
+[00:55:56] Speaker B: If you have any th problems like that, mm um see Caroline Hastings. I mean if it's for this job and and getting paid, that that's not necessary and Caroline Hastings ought to be able to help you sort that out. But j also if if pay is a matter um like if it's a matter that you haven't gotten paid for some reason, um I hope that's not not the case.
+[00:56:02] Speaker A: Right. Mm-hmm. Yeah.
+[00:56:03] Speaker C: Mm.
+[00:56:03] Speaker D: Yeah.
+[00:56:06] Speaker A: Didn't think so.
+[00:56:07] Speaker C: Excuse me.
+[00:56:15] Speaker D: Yeah.
+[00:56:17] Speaker C: Yeah, I haven't gotten paid for the first two weeks, 'cause um I w I only have a three month contract starting February, but I started mid-January.
+[00:56:23] Speaker B: Mm-hmm.
+[00:56:25] Speaker B: Talk to Caroline. Yeah, 'cause I've I really don't know um why that would be. I'm here full-time now, so I'll I'll be here m Monday through Friday and I l I leave at four now, so you won't find me anytime after that. But
+[00:56:25] Speaker C: Yeah.
+[00:56:26] Speaker D: Oh.
+[00:56:32] Speaker A: Mm.
+[00:56:33] Speaker A: Alright.
+[00:56:33] Speaker C: Okay.
+[00:56:39] Speaker C: Mm-hmm. Okay.
+[00:56:41] Speaker C: Alright.
+[00:56:43] Speaker C: Is your husband now a stay-at-home-dad?
+[00:56:45] Speaker B: Yeah, my husband's at home with the baby. Yeah, yeah. He's uh four and half months.
+[00:56:48] Speaker D: Wow.
+[00:56:49] Speaker A: Oh, so it is your baby then on the photos. One assumes this. How old now?
+[00:56:57] Speaker A: Oh.
+[00:56:59] Speaker B: It's very lovely. A nice jolly little baby.
+[00:57:01] Speaker C: He's sleeping through.
+[00:57:02] Speaker A: Yeah, that's the question I was just gonna ask, does he sleep?
+[00:57:04] Speaker B: Yeah, well um only as of Friday actually. So he was uh I was just telling Melissa this do you want us to stop? Yeah, yeah.
+[00:57:09] Speaker A: Wow.
+[00:57:14] Speaker C: Yeah.
+[00:57:14] Speaker A: Alright.
+[00:57:16] Speaker B: Yeah yeah. Oh good, that worked out well.
+[00:57:16] Speaker D: Okay.
+[00:57:21] Speaker A: Oh, do we have to tick our note thing again when we finish this?
+[00:57:22] Speaker D: Oh yeah. Absolutely.
+[00:57:24] Speaker A: To say that we've

@@ -1,0 +1,458 @@
+[00:00:57] Speaker A: Right uh.
+[00:01:02] Speaker A: So um.
+[00:01:09] Speaker A: So where's the PowerPoint presentation?
+[00:01:16] Speaker A: Sorry?
+[00:01:21] Speaker A: Microsoft PowerPoint, right.
+[00:01:28] Speaker A: Right, okay. So.
+[00:01:37] Speaker A: Right.
+[00:01:40] Speaker A: Okay, so we've got uh
+[00:01:47] Speaker A: so we've got new project requirements. Um.
+[00:01:56] Speaker A: So basically we've got three things, and we've got forty minutes in which to uh for this meeting to uh to discuss the various options. Um.
+[00:02:06] Speaker A: Three presentations.
+[00:02:10] Speaker B: We have a I guess we have a presentation each, 'cause I've got one. Um.
+[00:02:13] Speaker A: I see, right. That's nice to know, one from each of you. Um new project requirements. Um so do we want to do the presentation first, or do we want to um
+[00:02:14] Speaker C: Yeah.
+[00:02:14] Speaker D: Yeah, I've got one too.
+[00:02:27] Speaker A: W I I got um or or three things basically, um relating to the remote being only for T_V_. We discussed that last time and in actual fact that was pr pretty well what we came up with anyway. So in fact it actually f we won't be forestalled in a sense. Um we've got uh teletext outdated. Um did you get any information on that? Right and the corporate image was the uh final thing. So I I got that in email form. Um. Right okay. So
+[00:02:38] Speaker B: Mm-hmm.
+[00:02:39] Speaker D: Mm-hmm.
+[00:02:43] Speaker D: Mm-hmm.
+[00:02:55] Speaker B: Uh we didn't, no.
+[00:02:56] Speaker C: No.
+[00:02:57] Speaker B: I d I didn't personally.
+[00:02:58] Speaker D: Hmm.
+[00:03:12] Speaker A: I guess if we go ahead with the uh with the three presentations. So we'll start with yourself on the basis that uh
+[00:03:20] Speaker B: Okay that's fine.
+[00:03:24] Speaker B: I'll just um I'll grab the wire out the back of this one.
+[00:03:28] Speaker A: Sorry, yep.
+[00:03:49] Speaker A: Oh.
+[00:03:57] Speaker C: What is it?
+[00:04:00] Speaker B: I'm not quite sure how it
+[00:04:01] Speaker C: I think you've got to do um control F_ eight.
+[00:04:03] Speaker B: Control
+[00:04:11] Speaker B: Doesn't seem to be quite working at the moment.
+[00:04:12] Speaker C: Shift F_ eight.
+[00:04:16] Speaker B: Alt function F_ eight.
+[00:04:20] Speaker B: Again not doing anything.
+[00:04:22] Speaker D: There's usually a little thing in the top right for the Oh hang on, it's just coming on.
+[00:04:25] Speaker C: Ah there, it's doing something.
+[00:04:25] Speaker B: Oh.
+[00:04:27] Speaker B: pressed about five times now.
+[00:04:37] Speaker B: Okay, that's me.
+[00:05:05] Speaker B: Okay, um I have to go again.
+[00:05:15] Speaker A: it going?
+[00:05:19] Speaker B: Hopefully that should be it this time.
+[00:05:28] Speaker B: Okay, I think we're there. That's good.
+[00:05:31] Speaker B: Okay, um
+[00:05:37] Speaker B: Okay I'm gonna be looking at the working design. Um of the of the remote control. Um I've just got three sections, first is the research I made on the on the remote control itself um. And then that involves the components required in it and the systems uh design of the actual the actual remote.
+[00:06:01] Speaker B: Um so having researched the existing models within the market, um I found my research off the internet. Um I've established what the components required for the remote control to function, actually are. And then also the methods in which these components interact together for the remote to actually do what you want it to do and how it connects with the television. Um the basic components are an energy source which I guess um in most existing models would be a battery supply.
+[00:06:30] Speaker B: Whether that'll be sort of two batteries, four batteries, um it may vary. We then have the user interface, which is basically the like the the buttons on the actual remote. Um the various functions used for changing channel, uh channel up and down, volume, things like that. Um there's also a chip inside the remote which does all the computer type things. And then the sender, which um
+[00:06:36] Speaker A: Okay.
+[00:06:58] Speaker B: is usually, I've found, an infra-red device which sends a signal to the actual television. Um and the last part is receiver which is important in the system but is not actually part of the remote itself, because that's obviously found in the television.. Um I'm gonna have to actually draw on the board because uh it was a little tricky on PowerPoint to get this working, so.
+[00:07:21] Speaker B: I'll just go through there.
+[00:07:24] Speaker B: S um um do we have a cloth to wipe this down with, or? Oh I'll j
+[00:07:28] Speaker A: Uh there's the rubber on the right, I think. it's magic.
+[00:07:28] Speaker C: I think it's that little
+[00:07:31] Speaker B: Oh I see. Oh okay. I'll get rid of the bear
+[00:07:42] Speaker B: Okay that's great.
+[00:07:45] Speaker B: Okay, so we start off with a um battery suppl Uh no, a power supply which we'd probably get it's probably gonna be the battery. Um
+[00:07:56] Speaker B: we then have
+[00:07:58] Speaker B: a particular button, which may be that's obviously there's lots and lots of different buttons. Um but this is how the basic system works. Um that sends after you press that that sends the message to
+[00:08:11] Speaker B: the chip, which um then sends
+[00:08:16] Speaker B: It sort of interprets which button you've pressed and then sends the appropriate message to the sender.
+[00:08:34] Speaker B: Um.
+[00:08:35] Speaker B: So that's. That's the remote in itself, that's the components of the remote and how they work together. So this is the uh user
+[00:08:44] Speaker B: interface.
+[00:08:48] Speaker B: Um this is the chip itself, which then, and that's the that's the infra-red
+[00:08:56] Speaker B: sender. And then on the separate thing we have on the
+[00:09:01] Speaker B: on the television
+[00:09:04] Speaker B: we have a
+[00:09:06] Speaker B: a receiver.
+[00:09:09] Speaker B: And the sender sends a message to the receiver. 'Kay.
+[00:09:17] Speaker A: So the the top bit's the power source, yes?.
+[00:09:20] Speaker B: Ah yes, that's the power source. Um.
+[00:09:25] Speaker B: going on to personal preferences, I've said that battery seems the best option for the actual remote, just because of the size. You don't want a a cable attached to the remote otherwise it's not it's not really a remote. Um and then the sender, and infra-red um has been used quite successfully. If the battery's on reasonable power, they always seem to work fairly well. You don't have to be point directly at the television itself. Um
+[00:09:47] Speaker A: So the battery is the in the sender.
+[00:09:49] Speaker B: Yes.
+[00:09:51] Speaker B: 'Kay and that's it for the moment.
+[00:09:53] Speaker D: Okay.
+[00:09:56] Speaker A: Okay. So, now more design.
+[00:10:01] Speaker C: Right.
+[00:10:04] Speaker C: Thank you.
+[00:10:08] Speaker C: Mine's not quite as complicated as all that.
+[00:10:11] Speaker A: That's what we like to hear.
+[00:10:20] Speaker C: Did I press function? Yeah.
+[00:10:29] Speaker A: Is it control function ei Oh, th there you go.
+[00:10:31] Speaker C: Oh.
+[00:10:32] Speaker C: Um. Okay so I'm gonna talk a bit about the technical functions design. I'm Louisa, the User Interface Designer, as you know. Um so the m basic method of this is to send a signal from the remote to the television set, so that a desired function is performed. Um an example of the function could be to change the volume up or down, uh so obviously you need two different buttons for that.
+[00:10:59] Speaker C: Um to change the channel, either by pressing the number that you want or by channel up or down. Um to switch the television on or off, maybe a standby button. Um here are two example remotes. Um by the look of it they both have um kind of play and fast forward, rewind functions, so I think they incorporate a kind of video function which we won't have to worry about. Uh but as you can see, the left remote is quite um quite busy looking, quite complicated. Um whereas the right remote is much simpler, it looks much more user friendly.
+[00:11:38] Speaker C: Um so my personal preference would be the right remote. So, it's got nice big buttons, it's got a very limited number of buttons. Um they're nice, kinda clearly labelled. Um I like the use of the kind of um symbols like the triangles and the squares and the arrows as well as the words on the um kind of play functions and all that. So it's very very user friendly, and it's got a little splash of colour. Could maybe do with some more colour. Um.
+[00:12:07] Speaker A: Well there's a couple of things there. Um we have to remember that we have our own um logo and colour scheme. So basically we'd have to uh we'd have to be putting that on um the the product.
+[00:12:27] Speaker C: Hmm. Do we get to see that? Will you be presenting that in a bit?
+[00:12:29] Speaker A: I haven't as yet, no. But uh I got uh I got an email that basically said to uh make sure that uh whatever device we come up with at the end of the day had to incorporate um the corporate colour and slogan. So uh I'm guessing that uh uh I notice on the bottom there it's got uh
+[00:12:56] Speaker A: what's that? A_P_O_G_E_E_ that might be the corporate colour scheme, although the only the only colour I can see in that is the red.
+[00:13:09] Speaker C: Hmm.
+[00:13:10] Speaker B: Would you be able to get rid of the the extra buttons here, the the sort of circular section, because that seems to be for a video as well. So we could dispense with that little bit as well and just get it down to just the numbers and the volume. Possibly?
+[00:13:21] Speaker C: What do you mean by the circular section? Like all of that bottom bit?
+[00:13:23] Speaker B: J yeah yeah yeah j yeah just this little bit is that I think that's still um a video remote part, so maybe we could get rid of that as well.
+[00:13:27] Speaker C: Yeah.
+[00:13:29] Speaker C: Yeah. And I don't really think that you need nine numbers. I mean how often do you use seven, eight and nine? I think just one to six and then channel up and down should be enough.
+[00:13:30] Speaker A: Well b uh w
+[00:13:39] Speaker A: Well th the on the Well uh for for general television purposes obviously you have channels one to five at this point in time, and we'd have to have some room for uh future such channels. But but
+[00:13:39] Speaker C: Like how often do you hit nine?
+[00:13:41] Speaker D: Mm-hmm.
+[00:13:53] Speaker B: It's just people are used to seeing that, so if we didn't have them then they might think it's
+[00:13:56] Speaker A: But, well possibly but the the other thing is that with um the current expansion of uh channels uh in the process of taking place, certainly the button up and down, but uh I mean how many channels do we have to um actual television channels do we have to uh prepare for? I would have thought that uh
+[00:14:19] Speaker A: it's forever expanding and at the moment we've got although you've onl you've got the five standard, you've got the B_B_C_ have come up with a further six and uh there's uh I don't know exactly how many channels there are on uh when you take into account uh Sky and various other um various others. So I would've thought that we wouldn't, you know, rather Okay, if the time of flicking from one to other, but presumably it'll take a second 'cause you have to be able to stop it. Maybe you could have a fast forward on the on the channels that w and then you could dispense with more otherwise. Y you'd want you'd want to get fairly quickly to the channel that you wanted.
+[00:14:30] Speaker D: Mm-hmm.
+[00:14:37] Speaker B: Hmm.
+[00:14:41] Speaker C: Hmm.
+[00:15:02] Speaker C: Um some remotes have kind of favourite options where if you always flick from channel one to channel six, um if that's a favourite you just like by-pass two to five.
+[00:15:11] Speaker A: Mm-hmm.
+[00:15:13] Speaker A: Yeah, I s I suppose in a sense you could have um if you've got a hundred channels then if you had sort of an easy way of getting rather than having to go one to a hundred, you could go one to one to ten, ten to twenty and then have a second button to get you to the actual channel you want and that would cut down your time. Anyway.
+[00:15:25] Speaker C: Hmm.
+[00:15:28] Speaker D: Mm-hmm.
+[00:15:33] Speaker C: Mm. Um. But I think a lot of um like Cable and Sky and stuff, that would be tuned to one channel, and then you'd have another remote for all of those channels. Like to get to fifty five and the higher numbers
+[00:15:42] Speaker B: Okay, yeah.
+[00:15:44] Speaker A: Whatever. Okay. Okay. Limit the number of buttons, user friendly.
+[00:15:46] Speaker C: Yeah.
+[00:15:52] Speaker C: But I suppose nine's not really excessive. I suppose it does make a good pattern.
+[00:15:54] Speaker B: I suppose with nine you've got the the like the last one which makes the tenth means you uh it's like uh multiples you can put them together so you can make any number. So with that we'd kind of by-pass any problems with
+[00:16:02] Speaker A: Yeah.
+[00:16:04] Speaker A: Well that's true, yeah, you could get fifty by five and a zero or whatever, that that makes sense.
+[00:16:04] Speaker B: Yeah.
+[00:16:06] Speaker B: Yeah. 'Cause that facilitates having all the numbers you could ever need.
+[00:16:10] Speaker A: Yeah.
+[00:16:11] Speaker B: Um.
+[00:16:12] Speaker D: Mm-hmm.
+[00:16:12] Speaker A: Does.
+[00:16:13] Speaker A: So w so what was the circular thing that you were
+[00:16:14] Speaker C: Okay.
+[00:16:17] Speaker C: Um I think that's just for a video, so we wouldn't need any of that at all.
+[00:16:21] Speaker B: So we could get it down to what?
+[00:16:21] Speaker A: If it's just for T_V_, which is what it is at the moment.
+[00:16:26] Speaker C: Mm-hmm.
+[00:16:27] Speaker B: So we get to How many buttons have we got? We've just got ten, eleven twelve th We got fourteen that we need. I guess.
+[00:16:33] Speaker D: Mm-hmm.
+[00:16:34] Speaker B: Um which isn't really too many. That'll be quite easy to make a user guide for a fourteen button remote.
+[00:16:37] Speaker A: Mm-hmm.
+[00:16:39] Speaker A: Well we've we've got um that it's remote for T_V_ only otherwise project would become too complex with uh which would endanger the time to market was one of the considerations. I'm I don't know d did you have that information behind the marketing, or was I meant to give you that information?
+[00:16:52] Speaker B: 'Kay.
+[00:16:54] Speaker D: Mm-hmm.
+[00:16:57] Speaker D: Um
+[00:16:59] Speaker D: I'm not sure. I had I've had some market information, but not from the company, no.
+[00:17:02] Speaker A: Right.
+[00:17:04] Speaker A: Right, okay, so basically time to market seems to be important, therefore speed of delivery. We've only got about another four hours left.
+[00:17:08] Speaker B: 'Kay.
+[00:17:16] Speaker C: Okay, so is everyone happy with that?
+[00:17:18] Speaker B: Ah yes yes, that seems good.
+[00:17:19] Speaker D: Okay.
+[00:17:21] Speaker C: Right well that's the end of my presentation.
+[00:17:24] Speaker D: 'Kay.
+[00:17:30] Speaker D: I'm gonna pull this off.
+[00:18:05] Speaker B: I think if you just give it a second to maybe catch up.
+[00:18:07] Speaker A: Yeah, I think she said twenty seconds to um
+[00:18:09] Speaker D: Uh-huh.
+[00:18:11] Speaker D: Okay.
+[00:18:11] Speaker B: I'm sure we'll have by the end of today.
+[00:18:17] Speaker D: I'll give it another go.
+[00:18:29] Speaker D: Yeah, there we go.
+[00:18:36] Speaker D: Right, we've done some research into the functional requirements that people want out of their remote control. And first off we should state that th the remote control's for controlling the T_V_
+[00:18:49] Speaker D: and um how do people use it? We asked them sort of which buttons were useful for them. Um how d how does a remote control look and feel for them, and what improvements would would they like to remote control. And we did that by sort of giving them a questionnaire that we'd prepared and asking them to fill in the answers.
+[00:19:10] Speaker D: And three quarters of them found that remote controls are ugly and that a sort of even higher proportion would spend more for a sort of s uh a fancier remote control
+[00:19:22] Speaker D: And that of all the buttons on the remote control, the sort of setting buttons for sort of the picture picture and brightness and the audio settings, um they weren't used very often at all. People concentrated on the channel buttons and the volume buttons and the power buttons. Uh we also asked them about speech recognition uh for remote control. And young people were quite receptive to this, but as soon as we got sort of over about into a thirty five to forty age forty five age group and older,
+[00:19:57] Speaker D: people people weren't quite so keen on speech recognition. There's a lot more th there's a lot lot more older people who didn't know whether they wanted it or not as well. Um we also asked what frustrated people about remote controls and the number one frustration was that the remote was lost somewhere else in the room and that they couldn't find it. And the second second biggest frustration what that if they got a new remote control, it was difficult to learn um all the buttons and all the functions, and to find your way around it. Okay, so
+[00:20:32] Speaker D: My personal preferences from the marketing is that we need to come up with some sort of sleek sort of good looking high high-tech A design which looks high-tech, basically. Um and that we should come up with fewer buttons than most of the controls on the market, and we should sort of concentrate on the channels and sort of power, and also volume and that sort of thing, as as Louisa said. Um we could maybe come up with a menu, a sort of a an L_C_D_ menu for other functions on the remote control. That's worth thinking about. Um and maybe we could think about speech recognition as well, because um sort of young people are
+[00:21:16] Speaker D: perhaps the ones that are gonna buy buy our new product if we aim it at sort of you know sort of a high-tech design.
+[00:21:22] Speaker D: That that might be the market that we're we're looking for.
+[00:21:27] Speaker D: And we could maybe think about using speech recogniti recognition as a way to find the remote control if it's lost in a room, rather than sort of um having it to speech recognition to change the channels. 'Cause there's a problem with that in that the television makes noise, so it could end up talking to itself and changing its channel. Okay um, and that's the end of the slide show. That's it. Cool.
+[00:21:44] Speaker B: Mm.
+[00:21:51] Speaker C: Do a lot of um
+[00:21:51] Speaker A: What was that last wee bit there? Speech recognition, right okay. But that was only for young people that preferred it, older people didn't.
+[00:21:53] Speaker D: Um about speech recognition? Yeah.
+[00:21:59] Speaker D: Youn young people pref Yeah, they s they said that they'd be interested in a remote control which offered that possibility and as you go up through the age groups, people got less and less interested in sort of a a remote control that you could talk to, so.
+[00:22:12] Speaker B: No what I maybe think is um
+[00:22:14] Speaker B: it seems the technology would be quite advanced for that and they might end up costing more than our twelve fifty budget for
+[00:22:19] Speaker D: Yeah. Yeah.
+[00:22:19] Speaker A: Well that's right.
+[00:22:20] Speaker B: for the speech recognition. Um.
+[00:22:22] Speaker D: Yeah.
+[00:22:24] Speaker B: And possibly the thing about the about the remote being lost we could have You know with your mobile phone, you lose that and you can ring it. Maybe we can have some kind of sensor which is kept somewhere where you can some kind of buzzer system between the two. So you can press a button which is always kept in one place and then it maybe buzzes to somewhere else, wherever the remote actually is.
+[00:22:34] Speaker D: Yeah.
+[00:22:37] Speaker D: Uh-huh.
+[00:22:38] Speaker D: Yeah.
+[00:22:41] Speaker D: Yeah, we'd have t that would mean we'd have to put two products together as well, which which again would probably be a bit expensive, but
+[00:22:44] Speaker B: That is true, yes.
+[00:22:46] Speaker B: Hmm.
+[00:22:47] Speaker C: There's key rings um that you kind of whistle at or clap at, I can't remember, and then they whistle back, or something like that. That'd probably be really simple, they're cheap.
+[00:22:51] Speaker D: Yeah.
+[00:22:53] Speaker D: Yeah.
+[00:22:53] Speaker A: Sounds reasonable.
+[00:22:55] Speaker D: Mm-hmm.
+[00:22:56] Speaker A: Mm-hmm.
+[00:22:57] Speaker A: Yeah. So
+[00:22:58] Speaker B: So I guess it'd be something we could like attach to the or like the same technology could be put inside the
+[00:23:02] Speaker A: Well if you're trying to avoid having a second product 'cause obviously you could have a second product that gave you the right pitch which would set the remote off to say here I am sort of thing, you know without sound recognition. But if you
+[00:23:03] Speaker B: inside the remote.
+[00:23:18] Speaker A: I know. Um I was gonna say a sharp noise, you know a clapping of hand or whatever.
+[00:23:25] Speaker A: You'd want to try and av just have the one product that if
+[00:23:28] Speaker B: Yeah.
+[00:23:32] Speaker B: Yeah if we if we could have it in the actual remote like everything in one one device.
+[00:23:32] Speaker D: Mm-hmm.
+[00:23:35] Speaker D: Yeah.
+[00:23:35] Speaker A: Yeah. Um I dunno um talking about vo I mean obviously if you've got voice recognition then you can do it in that way because it'll recognise the voice and you can give it a command, a set command whatever that happened to be. But you've then got the point if if you're not going with uh voice recognition then
+[00:23:50] Speaker D: Yeah.
+[00:23:55] Speaker B: you could have an option to turn it off. Or
+[00:23:55] Speaker D: Mm-hmm.
+[00:23:59] Speaker B: Perhaps, um.
+[00:24:01] Speaker D: Yeah.
+[00:24:02] Speaker B: So that would solve the problems with the T_V_ kind of speaking to the remote and changing its own channels.
+[00:24:05] Speaker A: Mm. So uh Any sugges Well, any conclusions?
+[00:24:12] Speaker D: Um would it take quite a while to sort of develop the speech recognition software in the remote control? Considering
+[00:24:19] Speaker A: Well if it does then we can't. It's that simple, because we've got uh th th three um primary um uh requisites from uh
+[00:24:19] Speaker B: Mm.
+[00:24:22] Speaker D: Yeah.
+[00:24:32] Speaker A: from and email uh that was sent to me whereby we had The design logo was one, which we've already mentioned. We've got um the remote was only for the television and not for because that would make it too complex and we have to get it market quickly. And the uh third thing was that um teletext uh as far as uh the management is concerned, um is becoming dated uh due to the popularity of the internet.
+[00:24:47] Speaker D: Mm-hmm.
+[00:24:59] Speaker D: Okay.
+[00:24:59] Speaker A: So that means that uh so these are the sort of three um extra parameters that have been put on this uh project. So we're being focused effectively directly at a television and it seems to me that the management is uh wanting us to go down a narrow path and not opening out. So anything that uh is to be added, such as voice recognition et cetera has to be very simple and has to be very quick because time to market is is critical. S
+[00:24:59] Speaker B: 'Kay.
+[00:25:10] Speaker D: Mm-hmm.
+[00:25:15] Speaker B: Yes.
+[00:25:28] Speaker B: Has to be simple enough to
+[00:25:37] Speaker B: I suppose if we could get something in which was quite quick and simple that would give us an advantage over the other remotes. Um.
+[00:25:37] Speaker D: Mm-hmm.
+[00:25:42] Speaker A: It would. But probably quick and simple is primary rather than
+[00:25:49] Speaker B: 'Kay.
+[00:25:50] Speaker A: added extras. Added extras would be nice, but the primary consideration is to get the project finished within uh this short time window, which effectively now is sort of four hours. So and if and we've gotta get to the end. Uh d d I think I think first and foremost we've gotta get to the end and then get to the end with um added extras if possible.
+[00:25:59] Speaker D: Mm-hmm.
+[00:26:13] Speaker B: Mm-hmm.
+[00:26:13] Speaker D: Mm-hmm.
+[00:26:14] Speaker A: Okay. Right okay, uh so I need to
+[00:26:18] Speaker D: So
+[00:26:26] Speaker A: Right. So I don't know how long we have left of our uh time. But we have to make the decisions on uh the remote control functions
+[00:26:33] Speaker D: About five minutes.
+[00:26:40] Speaker A: and how we were planning to proceed so that at the next uh meeting
+[00:26:47] Speaker A: each person that's got a a a task to do is clear from this meeting what that task is. We'll also know w when the next meeting is I um so we'll know how long we've got to complete that task. And then we can report back at the next meeting and say right okay yes, we've achieved this or we haven't achieved this, this is how far we've progressed. Does that make reasonable sense? So we have to come effectively to the decision on the remote functions so that you can decide what you're gonna be doing.
+[00:26:50] Speaker B: Yes.
+[00:26:53] Speaker D: Mm-hmm.
+[00:26:55] Speaker B: Um.
+[00:27:10] Speaker D: Mm-hmm.
+[00:27:13] Speaker B: Yes that seems right.
+[00:27:13] Speaker D: Okay, yeah.
+[00:27:13] Speaker C: Yeah.
+[00:27:23] Speaker A: And if dur between the time of this meeting finishing and the next meeting starting, if you get any additional information that uh only you have at that point in time you'd think would be relevant to other people in terms of their des decision making um process, then we should communicate that as quickly as possible and not wait until the next meeting.
+[00:27:34] Speaker B: Mm-hmm.
+[00:27:43] Speaker D: Mm-hmm.
+[00:27:46] Speaker A: Do it via the email so that rather than coming you know If you get the information just before the next meeting that's fine. Come along with it in the next meeting, we can discuss it then and take whatever action is appropriate. But if you get it well before the next meeting, let everybody else know 'cause that might have an impact on their uh on what they come up with effectively at the next meeting. Okay.
+[00:27:46] Speaker D: Okay. Yep.
+[00:27:56] Speaker B: Okay.
+[00:28:04] Speaker D: Yeah.
+[00:28:10] Speaker D: Mm-hmm.
+[00:28:12] Speaker A: Right, is there
+[00:28:13] Speaker D: So do we need to decide on the functions now? S
+[00:28:16] Speaker A: I would guess so.
+[00:28:20] Speaker C: Well I think it'd be really easy and it'd be a big advantage if we did have some sort of um kind of whistle back kind of function. 'Cause that'll solve kind of the frustration of losing it.
+[00:28:26] Speaker D: Mm-hmm.
+[00:28:28] Speaker D: Yeah and
+[00:28:31] Speaker D: Yeah and that was that was the number one sort of frustration that people said, so.
+[00:28:33] Speaker A: Yep.
+[00:28:36] Speaker D: I don't think there's anything else on the market that does that, so.
+[00:28:38] Speaker C: Yeah.
+[00:28:40] Speaker C: I don't really know about the voice recognition thing.
+[00:28:45] Speaker A: I w well uh i
+[00:28:48] Speaker B: Maybe we should concentrate just on the whistle back function at the moment, and if something comes back
+[00:28:50] Speaker A: Something simple. Uh if if our primary consideration is to get it there in time, time's short, you want something to meet the major concerns of the consumer so that we can have that as a selling point for the product, something that's quick and simple. So, sounds good.
+[00:28:59] Speaker C: Mm-hmm.
+[00:29:01] Speaker D: Mm-hmm.
+[00:29:06] Speaker C: Yeah. And that wouldn't put off the kind of older generation either, 'cause everyone can whistle or clap, and they wouldn't have to be kind of scared of this new technology.
+[00:29:13] Speaker A: Well, so maybe a clap rather than a whistle would be On the basis that if we've got if we're catering to the whole age range, you want something that's easy to do, now something that doesn't like whis uh Well I I I don't know. Well If you think that more people can whistle than clap then that's fine, then go for that option, but if I would have thought that more people could clap rather than whistle, so uh so clap option.
+[00:29:14] Speaker D: Mm-hmm.
+[00:29:26] Speaker D: No not everyone can whistle, can they, though?
+[00:29:33] Speaker D: No, clapping, I think clapping, yeah. Yeah.
+[00:29:34] Speaker B: I'd go more Yeah, f more for clap.
+[00:29:39] Speaker D: Yeah.
+[00:29:49] Speaker A: Okay.
+[00:29:50] Speaker C: 'Kay we've already decided that we don't need a teletext button, haven't we?
+[00:29:54] Speaker A: Uh. Ef effectively that's what the that's what they're saying, that uh if uh if people are now using the internet then you don't need teletext, so so take out teletext.
+[00:29:55] Speaker C: Is that one of the
+[00:29:58] Speaker C: Hmm.
+[00:30:00] Speaker D: Taking out teletext, okay.
+[00:30:04] Speaker B: Did we decide on having the ten um the ten numbers and then the the little digit next to it which kind of enabled you to put them together.
+[00:30:04] Speaker C: Right.
+[00:30:09] Speaker C: Yeah, I think so, so zero to nine.
+[00:30:12] Speaker D: Mm.
+[00:30:13] Speaker D: I think nowadays you can just get ones where it gives you a sort of a second or two to press another number, so you can press any two and it'll sort of put them together.
+[00:30:19] Speaker A: Yeah.
+[00:30:23] Speaker B: Okay, ten numbers and then some kind of device to allow uh
+[00:30:26] Speaker D: Yeah.
+[00:30:27] Speaker B: I'll put delay to allow um multiple numbers.
+[00:30:29] Speaker D: Yeah.
+[00:30:32] Speaker B: Or multiple digits.
+[00:30:34] Speaker D: Yeah.
+[00:30:37] Speaker B: Did we decide anything about um the other functions? As in setting the audio and tuning it and stuff like that? You had an had an idea about the menu?
+[00:30:48] Speaker D: Uh we could possibly put an L_ a sort of a L_C_D_ menu in, but that again is probably an expense that
+[00:30:56] Speaker B: But just thinking um people probably I mean you don't have you only have to probably tune in the T_V_ once, but you have to be able to tune it that once. So and if finally the T_V_ breaks, you get a new one, you're gonna have to be able to tune it. You can't really avoid that. Except the new digital markets which do it by themselves.
+[00:31:02] Speaker D: Yeah.
+[00:31:06] Speaker D: Mm-hmm.
+[00:31:07] Speaker C: Hmm.
+[00:31:07] Speaker A: No.
+[00:31:10] Speaker A: But the but that's relying on the television market changing to an automatic and if it is at the moment, that's fine. But at the moment it's not, so it seems to me that you have to have a device that caters, 'cause otherwise it would make it uh your device would become inoperable, or only operable in certain circumstances and the idea is to have an international market which is And it's also m it's the the product we've got is something that's at the I would have said the lower end of the s of the cost scale, so we're not really going for something that's uh
+[00:31:11] Speaker D: Yeah.
+[00:31:11] Speaker B: So that'll be in
+[00:31:16] Speaker B: Yes.
+[00:31:24] Speaker B: Yeah.
+[00:31:29] Speaker B: Yeah.
+[00:31:32] Speaker B: Yeah yeah.
+[00:31:33] Speaker C: Mm.
+[00:31:36] Speaker D: Yeah.
+[00:31:44] Speaker D: Yeah.
+[00:31:48] Speaker D: I s I suppose um
+[00:31:49] Speaker A: terribly high-tech.
+[00:31:51] Speaker D: if people are buying remotes, then they're probably buying it to replace another remote 'cause all most tellies come with remotes, so. I mean we're maybe talking about replacing remotes for slightly older televisions, so we maybe need to keep the the tuning function in.
+[00:31:55] Speaker A: Possibly.
+[00:31:58] Speaker A: That's right.
+[00:32:06] Speaker B: Yeah. So how would this menu function work? Would you maybe have like one menu button, then you'd use the other buttons, maybe the number buttons to actually do the separate functions.
+[00:32:07] Speaker C: Yeah.
+[00:32:14] Speaker D: Yeah, that would be a good idea, yeah.
+[00:32:15] Speaker C: Yeah, like the volume or something.
+[00:32:16] Speaker B: Okay.
+[00:32:18] Speaker C: Yeah, 'cause you do need um kind of brightness and contrast and everything as well. My dad was watching a film the other week and it was too dark, so I had to go through it and turn the brightness up.
+[00:32:22] Speaker D: Mm-hmm.
+[00:32:27] Speaker B: we're gonna have the the individual numbers and then a menu function and maybe sort of a slightly more advanced um instruction booklet to come with it, to guide Presu uh I think it'd be quite hard just for people to grasp um just off like the menu use different buttons you maybe have to have like some better instructions of how that would actually work.
+[00:32:27] Speaker D: Hmm.
+[00:32:45] Speaker D: Uh
+[00:32:47] Speaker D: I'm not sure whether the sort of having people have a booklet 'cause one the second most annoying thing that people found was having to learn the new one. So maybe next to each of the buttons, you know each of them could have a number and then also a function written next to it, so you're basically pressing
+[00:32:54] Speaker B: Right, okay um.
+[00:33:04] Speaker B: that also goes back to the original design when we saw those two, and there was the one on the left hand side which had all like the double functions and stuff which kind of looked too busy and had too much on it, so.
+[00:33:12] Speaker D: Right.
+[00:33:14] Speaker A: Okay, well.
+[00:33:14] Speaker D: Okay.
+[00:33:14] Speaker C: Well, if we're trying to keep it slee sleek and sexy as well, have you seen those remotes where kind of um the bottom bit slides down, so there's kind of um everything else revealed? So you don't use it that much, you don't have to see it all the time. But it's all there if you need it.
+[00:33:18] Speaker A: Mm.
+[00:33:21] Speaker D: Yeah.
+[00:33:22] Speaker A: So y Ah That's a very good idea. So you keep um Right we've got five minutes before we wind up this meeting, so I've been told. I don't know if you've got the same. Okay. So so keep um keep detailed functions um hidden at the back.
+[00:33:26] Speaker B: That is that is a good idea actually. Sor sort of a second.
+[00:33:26] Speaker D: Yeah, yeah.
+[00:33:31] Speaker C: Like a hidden panel.
+[00:33:36] Speaker B: Okay.
+[00:33:38] Speaker B: Uh not quite, but I guess.
+[00:33:41] Speaker B: Keep the other buttons but hide them away.
+[00:33:52] Speaker C: Hmm. And that'll be better for the older generation as well 'cause, well my dad doesn't like anything that you've got to kinda flick through a menu, but he can pretty much read a button if it's displayed properly.
+[00:33:57] Speaker A: Ah.
+[00:33:59] Speaker D: Mm-hmm.
+[00:34:01] Speaker B: So
+[00:34:02] Speaker A: Mm-hmm.
+[00:34:02] Speaker D: Yeah.
+[00:34:04] Speaker B: So um we're gonna have to have to work out what's gonna be on these other functions as as well. So we're gonna have like two separate two separate lists, I guess.
+[00:34:09] Speaker D: Yeah.
+[00:34:10] Speaker A: That's right.
+[00:34:12] Speaker D: Yeah.
+[00:34:14] Speaker A: data functions hidden at back. Can bring out when needed.
+[00:34:16] Speaker D: So th the
+[00:34:18] Speaker D: The detailed ones would be sort of brightness, uh sorta
+[00:34:22] Speaker C: Yeah.
+[00:34:23] Speaker A: That's right so we're dis So you've got which ones are gonna be on the front and which ones are gonna be on the back. We have to decide.
+[00:34:28] Speaker B: So sh
+[00:34:30] Speaker B: Should we decide in the next couple of minutes, and then
+[00:34:30] Speaker D: Mm-hmm.
+[00:34:32] Speaker D: Yeah.
+[00:34:33] Speaker A: I guess so.
+[00:34:34] Speaker B: So on the
+[00:34:36] Speaker A: So on front,
+[00:34:38] Speaker B: about the number.
+[00:34:40] Speaker A: numbers,
+[00:34:43] Speaker B: Um the volume up and down.
+[00:34:44] Speaker C: And the volume?
+[00:34:45] Speaker A: volume.
+[00:34:47] Speaker B: Shall we have a mute button as well?
+[00:34:47] Speaker C: Um.
+[00:34:49] Speaker A: Sorry?
+[00:34:50] Speaker B: A mute button as well.
+[00:34:51] Speaker C: Yeah.
+[00:34:52] Speaker A: Mm.
+[00:34:53] Speaker B: Yeah. Or
+[00:34:53] Speaker C: Yeah I think they're handy.
+[00:34:54] Speaker D: Mm-hmm. And probably a power one as well. Dunno.
+[00:35:02] Speaker C: I know it's probably like um
+[00:35:05] Speaker C: not an issue to raise here, but um the whole thing about not using your standby uh because of the like waste of electricity. Have you seen the adverts? Like if you boil the kettle that's full that's a waste. If you leave your telly on standby it powers Blackpool for a certain amount of time. Like we should maybe try to discourage people from standby.
+[00:35:15] Speaker D: Mm-hmm.
+[00:35:16] Speaker D: Yeah.
+[00:35:16] Speaker A: Mm-hmm.
+[00:35:23] Speaker B: But then they might not buy it if they haven't got one. 'Cause people might just be too fickle and not want to change.
+[00:35:25] Speaker D: Yeah.
+[00:35:25] Speaker C: Yeah, it's maybe too much of a big issue for here. Uh-oh danger sign.
+[00:35:27] Speaker D: Yeah.
+[00:35:27] Speaker A: So so are you having the stand-by on the front, then?
+[00:35:28] Speaker B: We can send out a flier with the device saying that you shouldn't leave it on stand-by.
+[00:35:32] Speaker B: I think you probably should.
+[00:35:33] Speaker C: Yeah, but a little bit smaller. Compromise.
+[00:35:35] Speaker D: Okay.
+[00:35:37] Speaker A: Well.
+[00:35:39] Speaker B: Um are we gonna have the channel up and down as well as the number buttons?
+[00:35:41] Speaker D: Um 'cause yeah the market research said there is quite a lot of people do just zap around and flick, so.
+[00:35:48] Speaker B: Okay, so we'll have um
+[00:35:49] Speaker C: Right.
+[00:35:52] Speaker B: So we've got ten eleven twelve thirteen fourteen fifteen sixteen there?
+[00:35:57] Speaker D: Um.
+[00:35:57] Speaker A: Channel up and down. What else have we got? What was that, sixteen?
+[00:36:00] Speaker D: Numbers is ten, volume is
+[00:36:04] Speaker D: twelve, th Yeah si One up, one down.
+[00:36:04] Speaker A: Volume button. How many volumes?
+[00:36:08] Speaker A: Right okay.
+[00:36:11] Speaker C: On mute.
+[00:36:12] Speaker D: And a mute, yeah. That's sixteen isn't it, yeah.
+[00:36:15] Speaker B: Is there anything else? Um.
+[00:36:18] Speaker D: I don't think so, no.
+[00:36:19] Speaker A: Power button, stand-by, channel, up and down. So is that it?
+[00:36:25] Speaker C: so.
+[00:36:26] Speaker A: Okay. That's sixteen buttons, you reckon. And then at the back?
+[00:36:32] Speaker D: You've got
+[00:36:34] Speaker D: brightness and contrast.
+[00:36:38] Speaker C: And then
+[00:36:38] Speaker B: Maybe if we're gonna run out of time, one of us should come up with a list of these and then get back at the next meeting just at the start and say what they're gonna be.
+[00:36:44] Speaker A: Okay. So on the back
+[00:36:45] Speaker D: Yeah.
+[00:36:45] Speaker C: Mm-hmm.
+[00:36:47] Speaker A: it'll have brightness, contrast, anything else? You're also gonna have the channel tuner, as it were.
+[00:36:51] Speaker C: Uh there's audio functions.
+[00:36:54] Speaker D: Yeah.
+[00:36:55] Speaker B: So tuner up and down, I guess.
+[00:36:58] Speaker C: Yeah.
+[00:36:58] Speaker A: Tuner, would that have up and down?.
+[00:37:01] Speaker B: Um up Tune one way, tune the o I I dunno I dunno possibly.
+[00:37:02] Speaker C: I think they normally do.
+[00:37:03] Speaker A: okay. Okay.
+[00:37:04] Speaker D: Yeah.
+[00:37:05] Speaker C: Yeah.
+[00:37:08] Speaker D: And then maybe sort of an enter button for
+[00:37:11] Speaker D: sort of s you know, saying that you want that particular thing tuned in. So you go up and down and then it pick it finds something and then you wanna press enter to select it, yeah.
+[00:37:19] Speaker B: Oh yeah and th and a enter button just to select. Yeah, okay.
+[00:37:27] Speaker B: Um I guess we're keeping s it simple. We don't really need any other audio funct uh functions because it's just volume up, volume down.
+[00:37:33] Speaker A: Um up volume, yeah, I would have thought so.
+[00:37:35] Speaker B: Um.
+[00:37:36] Speaker D: Yeah.
+[00:37:37] Speaker C: So I think um
+[00:37:40] Speaker C: there's quite a lot of like Dolby surround studio, surround sort of things.
+[00:37:44] Speaker D: Yeah.
+[00:37:44] Speaker A: Okay.
+[00:37:44] Speaker C: Um maybe for the younger market.
+[00:37:44] Speaker B: Do they have their own do they have their own controls on their actual products, then, or do you have to do it via the remote?
+[00:37:51] Speaker C: Um I think they've got their own controls in this kind of like hidden panel.
+[00:37:55] Speaker B: Yeah I suppose if we've got their if they've got their own controls then we can avoid it for ours just to keep it simple.
+[00:37:58] Speaker A: Yeah. Yeah.
+[00:38:00] Speaker C: Oh no, I mean um like there's kind of individual buttons for them, like on the T_V_ remote. But I don't really know what they're for, I've never used them. I just know they're something to do with Dolby.
+[00:38:03] Speaker B: Oh, okay.
+[00:38:05] Speaker B: Right.
+[00:38:06] Speaker D: Mm-hmm.
+[00:38:08] Speaker B: Um.
+[00:38:10] Speaker B: Maybe unless something comes up then we should I think
+[00:38:12] Speaker A: Well you might get some research.
+[00:38:16] Speaker B: Well shall we look into that and just get back together.
+[00:38:19] Speaker A: Okay. Right so I'll do the minutes of uh this meeting. And we'll meet back at I'm not sure. Um forty minutes, I believe is the time.
+[00:38:19] Speaker D: Okay.
+[00:38:20] Speaker C: Right.
+[00:38:20] Speaker D: Right.
+[00:38:33] Speaker B: 'Kay.
+[00:38:34] Speaker D: Okay.
+[00:38:36] Speaker A: Come on.

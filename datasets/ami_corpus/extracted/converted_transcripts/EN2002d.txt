@@ -1,0 +1,692 @@
+[00:00:20] Speaker A: Forget every time that the
+[00:00:23] Speaker B: Oh dear, this doesn't stick at all.
+[00:00:29] Speaker B: What Rena. What, this bit or this b
+[00:00:34] Speaker B: Like this?
+[00:00:41] Speaker A: Where did my oh, it's it's stuck here.
+[00:00:42] Speaker D: wanna go today.
+[00:00:49] Speaker D: Ooh.
+[00:00:49] Speaker B: I sabotaged it.
+[00:00:51] Speaker A: Yeah.
+[00:01:05] Speaker A: Okay. Keep an eye if I'm dropping this 'cause just seem ah, as I said, it doesn't seem very s Perhaps sweater, or maybe if I set it here on the this brand thing. Are they on, yeah. On.
+[00:01:10] Speaker C: Ooh, there you go. Doesn't wanna stay.
+[00:01:12] Speaker B: Yeah, mine doesn't stick today either.
+[00:01:14] Speaker D: Yeah, seems slippery.
+[00:01:25] Speaker C: Yeah.
+[00:01:28] Speaker A: Okay.
+[00:01:31] Speaker D: What day is it?
+[00:01:47] Speaker D: Okay.
+[00:01:48] Speaker B: Who wants to write summary?
+[00:01:51] Speaker D: Summary.
+[00:01:53] Speaker A: What? Was that a answer?. Well Okay. I was just about to
+[00:01:53] Speaker D: Um no. No, just the summary. No, that was just summary. No. Um no um okay.
+[00:01:58] Speaker B: Oh.
+[00:01:58] Speaker B: I'll do it.
+[00:01:59] Speaker C: No it won't.
+[00:02:03] Speaker D: Oh, write the sum okay, right.
+[00:02:06] Speaker D: Yeah, okay.
+[00:02:07] Speaker B: Um have you changed the the file yet?
+[00:02:09] Speaker D: I did I was trying to I didn't have privileges to get in to update your file. I w I actually meant to I meant to send the email and then I was just c didn't get around to it.
+[00:02:15] Speaker B: Oh.
+[00:02:15] Speaker B: Yeah. Yeah, I forgot that actually.
+[00:02:19] Speaker B: Yeah. No, when we um when you said at the beginning I thought must check the read-write and then I never did it.
+[00:02:23] Speaker D: Yeah, I had yeah, 'cause I forget mine as well, and it's just like, you know, every time put something in there. Um so yeah, I was j yeah. That was the main thing, so um as soon as that's in it'll be right out. I was making a couple of little change as well. So so those will be able to play with. Still working on the um trying to get the topics and summary search implemented as well. So that's that's sorta tonight as well. So Um yeah. Other than that it's sorta coming along. Um getting a better feel for all these NITE objects.
+[00:02:25] Speaker B: No? Alright.
+[00:02:44] Speaker B: Mm-hmm.
+[00:02:53] Speaker B: Mm g yeah. Uh.
+[00:02:53] Speaker C: Yeah. The fun and games. Yeah.
+[00:02:55] Speaker D: It's just I don't know, it seems a little chaos. I don't know, it's just it's um I don't know, it's it's like if you're gonna use this stuff later on in your life, then you t spend the time to invest and learn all about them, but it's like okay, wow. What's the minimum I can get away with that that will get me what we need. So it's like, I don't know, unless I wanna do something with this in the future
+[00:02:58] Speaker B: Yeah.
+[00:03:06] Speaker B: Yeah, yeah, exactly, yeah. Yeah.
+[00:03:07] Speaker C: Yeah. Yeah.
+[00:03:13] Speaker B: Make browsers for the rest of the night.
+[00:03:13] Speaker A: You could change your project. Do a P_H_D_ or uh yeah.
+[00:03:14] Speaker C: Seems unlikely.
+[00:03:15] Speaker D: Yeah, right. Yeah, mm. I don't know. Anyways, so um yeah, that's my bad.
+[00:03:23] Speaker B: There is a file in the directory called disful.
+[00:03:28] Speaker B: I ho what is it?
+[00:03:29] Speaker D: I th
+[00:03:29] Speaker C: It's an Excel s S_X_ dot X_S_L_.
+[00:03:31] Speaker D: I think I yeah. I I saw that and I'm just trying to remember if I did create it, 'cause I think I was 'cause I was trying some stuff uh a couple weeks ago, uh so that may be mine. Um
+[00:03:35] Speaker A: I haven't created it.
+[00:03:43] Speaker C: Doesn't st have anything in it, Oh, it does, it has about three lines of X_M_L_ that didn't do much, I think. Yeah. What's that?
+[00:03:45] Speaker D: Oh really? Okay.
+[00:03:48] Speaker B: Oh right. Yeah, that's right, yeah, yeah.
+[00:03:48] Speaker D: Oh yeah? Okay okay. Yeah, 'cause I saw it again today and I was just won Was that me. Yeah, I think that was me, I think so. Um but yeah, I'll yeah that was that was and sure.
+[00:03:53] Speaker B: Oh right. Well
+[00:03:56] Speaker B: j do you want remo move that just n just for nicety.
+[00:03:57] Speaker C: It just seems to be occupied. The place is alright, doesn't matter really. There's plenty in there.
+[00:04:00] Speaker D: No. G
+[00:04:02] Speaker D: Give you false impressions of what's hap s something's going on.
+[00:04:05] Speaker C: I had lots of stuff in there yesterday that Did you see? Loads of stuff. Oh no, they live there, but there's I had even more stuff there yesterday. I was unzipping all this kind of crazy huge things that were enormous. I needed them, they were for this though. It's alright, but uh
+[00:04:08] Speaker D: Yeah, I know it. Tons, tons. All those objects, yeah.
+[00:04:09] Speaker A: I I do
+[00:04:09] Speaker B: Yeah, yeah. And really.
+[00:04:18] Speaker D: Right. How's our quota on that? What's what do actually do you know how much we have? Yeah, okay. So we probably won't have to worry about that. Yeah. Yeah. Okay.
+[00:04:24] Speaker B: Oh it's huge, several gig I think.
+[00:04:28] Speaker A: Yeah. Shoulda run the I_L_ in that directory. Yeah.
+[00:04:30] Speaker C: Yeah, it's uh it's about yeah, it's so I think there's about eight gigs on there. So yeah, it's no problem. It's just much bigger than all of our home directories combined, isn't it?.
+[00:04:33] Speaker B: Yeah, something like that, yeah.
+[00:04:36] Speaker D: Yeah, exac exactly.
+[00:04:40] Speaker D: Um I don't know. How's everything else going?
+[00:04:40] Speaker A: Sounds good.
+[00:04:42] Speaker B: Has anyone had time to to play with it?
+[00:04:45] Speaker C: Yeah. I had a play with it um yesterday. Uh no, it was good really. Yeah, I liked it. Um
+[00:04:46] Speaker A: Oh.
+[00:04:47] Speaker A: .
+[00:04:48] Speaker B: Any comments?
+[00:04:54] Speaker C: uh
+[00:04:55] Speaker C: it uh generated a lot of exceptions in the background. But they didn't cause any problems, but it just
+[00:04:58] Speaker D: Oh, yeah. Actually
+[00:05:00] Speaker B: Um
+[00:05:01] Speaker D: Do we wanna keep that? Like are we keeping that how that happens? It just prints everything out in the in the shell as well, like as it does everything, it just kinda I guess that's its default behaviour anyway. So it's just kinda doesn't really do anything. So, okay.
+[00:05:02] Speaker B: Oh right.
+[00:05:10] Speaker B: Might as well, yeah. I mean yeah. The thing is that, yeah, there is as I said a while ago, there is still this one error which is a bug in in N_X_T_ um that r r always generates these. I think when you when you left-click or right-click or something, I can't remember now.
+[00:05:20] Speaker D: Oh, right.
+[00:05:27] Speaker D: Yeah.
+[00:05:28] Speaker B: Um but if it's a real error, then it it stops, so you can't do any any more. Good. Good. Good.
+[00:05:32] Speaker C: Uh yeah, I didn't discover any of those, yeah. I did have a look. I prodded it to see if it'd break, but it didn't break too m I didn't play that long, but um it seemed alright really, yeah. And it the the th the start-up's great, looks quite good, looks alright. And so yeah, yeah.
+[00:05:34] Speaker A: It's good thing. Yeah..
+[00:05:35] Speaker D: 'Kay. Right.
+[00:05:43] Speaker D: Yeah.
+[00:05:47] Speaker B: Yeah.
+[00:05:47] Speaker D: Yeah. I was more or less just playing with the things that had to do directly with what I was doing, so I didn't didn't take it for a full test drive yet. But uh I can do that. That's well, right after this, yeah.
+[00:05:52] Speaker B: Okay.
+[00:05:55] Speaker B: Yeah, be good. Is there any any comments you have about just like wording and or some sort of minor things?
+[00:05:56] Speaker A: Yeah. I'll do it.
+[00:06:02] Speaker C: No, looked alright. The only the only thing is the it's not the start-up screen is not too pretty. But uh the the s It doesn't matter too much.
+[00:06:03] Speaker B: Hmm.
+[00:06:08] Speaker D: A lot of this Java stuff isn't though.
+[00:06:09] Speaker B: Yeah, I know. At the moment as well the whole windows that pop up are not pretty at all. But um, you know, I would make them a bit nice if I had more time, but at the moment it doesn't look like that. So I will if
+[00:06:19] Speaker D: Mm-hmm.
+[00:06:20] Speaker C: No, it's not it's not it's not a um it's not the top priority, is it.
+[00:06:21] Speaker D: If you if you ch if you change your window manager, it might look a little bit nicer. Just yeah. Oh yeah? Okay, right.
+[00:06:25] Speaker C: Yeah. I think it'd look better on Windows as well actually. 'Cause um it Java uses the native Windows, doesn't it? So
+[00:06:30] Speaker D: Yeah.
+[00:06:31] Speaker C: Yeah.
+[00:06:32] Speaker D: Yeah. Actually can we run it on Windows.
+[00:06:33] Speaker C: But we don't
+[00:06:35] Speaker A: Hey Zoe.
+[00:06:35] Speaker C: No.
+[00:06:36] Speaker B: But that took me so long to do this bloody start window. Nasty. So I'm quite glad that it looks, you know, ni nice on one or this kind of thing.
+[00:06:40] Speaker C: Do they? Yeah.
+[00:06:41] Speaker D: Oh yeah? Okay.
+[00:06:45] Speaker D: Were you using like a GUI builder or just all from code?
+[00:06:48] Speaker B: No, this is just yeah.
+[00:06:49] Speaker D: Okay, and that's
+[00:06:51] Speaker C: .
+[00:06:53] Speaker D: That's nasty.
+[00:06:54] Speaker C: Well the um the um speaker characterisation is finished.
+[00:06:58] Speaker D: Oh yeah? Wow. Okay.
+[00:06:59] Speaker B: Alright.
+[00:07:00] Speaker C: I haven't done it, I haven't updated all those object files though 'cause it takes ages on these computers. So I do it it's faster for some bizarre reason if I log in at home and then run the code. It runs it much faster than if I do it here. But
+[00:07:00] Speaker A: It's good.
+[00:07:11] Speaker B: That's odd, yeah.
+[00:07:11] Speaker D: Hmm.
+[00:07:12] Speaker C: But that's why I just can't to sit in the lab and wait half an hour or whatever it takes
+[00:07:14] Speaker D: Well well can you can you connect to your home machine from here and then start it from there? Just yeah. I don't know. I've done stuff like that before, it's insane, it's insane. Yeah. Yeah. Yeah.
+[00:07:18] Speaker C: Yeah. No, I tried that, but l yeah. It'll really speed it up. Yeah. Yeah.
+[00:07:18] Speaker B: Try that a few times. Yeah, I started I started using your um um the speak I don't know if you've seen that in the yeah.
+[00:07:38] Speaker C: I saw that, yeah. I saw that it it doe it's tells tells you what speakers uh are in which meeting and then you can see which topics which topics yeah, something like that, yeah.
+[00:07:46] Speaker B: Yeah yeah yeah. But it's good, your your stuff is really coo good. It's got a good interface and easy to use. It's nice.
+[00:07:53] Speaker C: Yeah. The um th the dialogue acts are all done, and they're quite amusing some of them. But there's some of them some of th the thing actually what I wanted to talk about dialogue acts was um there are some that occur all the time that I just and I don't know how interesting there are. So the fir one statement is that it will b I'd removed it 'cause w it was like everything is prefixed by statement. Every single dialogue act starts with statement and um so everybody's top statement. So it
+[00:08:08] Speaker D: Mm.
+[00:08:16] Speaker B: Right.
+[00:08:20] Speaker D: Right.
+[00:08:20] Speaker B: Well wouldn't won't we include that then? Yeah.
+[00:08:21] Speaker A: Who?
+[00:08:22] Speaker C: So I got rid of that. And then everybody the next one seems to mostly be back-channel. Well I don't know what that means. Who knows what back-channel.
+[00:08:28] Speaker D: What was it?
+[00:08:28] Speaker A: What?
+[00:08:29] Speaker B: It's when they say mm, uh-huh, yeah.
+[00:08:32] Speaker C: Is that what that means? Oh, keep that then. Um and then the others are quite
+[00:08:32] Speaker B: Yeah.
+[00:08:33] Speaker A: Okay.
+[00:08:35] Speaker B: I don't know if that's very useful, because everyone does it. It's very
+[00:08:35] Speaker D: Well, it's kinda boring, yeah. Exactly.
+[00:08:38] Speaker C: Yeah. Some people don't though. There are some people who don't do that. Actually yeah, you can see that they don't do that and it's the bottom of their list. Yeah. I know. Some people have and acknowledgement is a big one that comes up all the time, yes no questions. Um uh what else comes up?
+[00:08:40] Speaker B: Really?
+[00:08:42] Speaker D: Hmm.
+[00:08:43] Speaker B: They're asleep, I think.
+[00:08:45] Speaker A: It's just very quiet.
+[00:08:45] Speaker D: Right.
+[00:08:55] Speaker B: So which you know, suggest maybe you can suggest a few that which which would be interesting to list. Like three or four or something.
+[00:09:00] Speaker C: Yeah. But that's the thing and so I wanted to know whether or not we 'cause at the moment you can get there's a method that will just give you the top five for or the top X_. You give it any number and it will give you the top whatever for each person. And then each meeting knows about all the different dialogue acts for each person in the meeting, and the amount that that occurred, and will give you that in top order as well, or will give you or you can just search for each specific dialogue act. Do you have to search on in B_s and K_s rather than real words right at the moment. But I can change that. Um so I don't know what we want to display. That's what I m That's what I'm asking you really.
+[00:09:08] Speaker B: Mm-hmm.
+[00:09:09] Speaker D: Oh yeah, cool.
+[00:09:09] Speaker B: Very nice.
+[00:09:34] Speaker B: Mm-hmm.
+[00:09:37] Speaker D: Okay, right. Or I don't know, if we have like uh a choice, so they can filter those out f the the top most common, just say okay all show all or show, you know, only the im interesting ones.
+[00:09:46] Speaker C: All's a lot, all's like twenty five
+[00:09:49] Speaker D: Yeah.
+[00:09:50] Speaker B: But
+[00:09:50] Speaker C: Dialogue acts per b
+[00:09:51] Speaker B: I mean do we do we care if, you know why not w I think, you know, it'd be it'd be difficult
+[00:09:53] Speaker D: Yeah. I don't know, yeah, it doesn't really matter. Well, if we just automatically filter these out.
+[00:09:57] Speaker B: But it would be difficult if, you know, if in the um speaker characterisation window we had a heading, you know, top five dialogue acts. And then then the little brackets, but they're not actually the top five, but top five minus the most common ones, which are, you know
+[00:10:12] Speaker C: Yeah. I think we should have the global top five that cause it each speaker's got top a top whatever, and so just say one of the boxes just explains does this is my top five dialogue acts for the speaker, and then in the meeting you have what you could either have the most commonly occurring ones or you could have a list of each speaker's top dialogue acts.
+[00:10:12] Speaker D: They're boring..
+[00:10:13] Speaker B: Because
+[00:10:21] Speaker B: For the speaker. Yeah.
+[00:10:30] Speaker C: Either of those would do you. But it would start take a lot of space if you have it
+[00:10:33] Speaker B: No, I wouldn't yeah.
+[00:10:35] Speaker C: Or you could have no, you don't need that. So you s 'cause it's 'cause it's a speaker window, the speaker characterisation window comes up. So you've got the global one there, and then here you can just have the top five in this meeting. And then then the top five in that meet in global, the top five this meeting, and then the rest is r obvious, isn't it. Yeah.
+[00:10:39] Speaker B: Exactly, yeah.
+[00:10:43] Speaker B: Yep. Yeah.
+[00:10:45] Speaker D: Mm.
+[00:10:45] Speaker B: Yeah yeah, yeah. Yeah.
+[00:10:46] Speaker D: Right.
+[00:10:49] Speaker D: Yeah.
+[00:10:49] Speaker B: Yeah, just do top five, both local and global, and then have another
+[00:10:55] Speaker B: Um but then we want a selection of three or four maybe interesting ones, and then
+[00:11:00] Speaker C: That occur.
+[00:11:02] Speaker C: But you th some often the interesting ones don't occur, things like joke don't occur very often. Well they do sometimes, but they're not that common. One guy has top five joke. One of them is joke. He's an undergrad. That's quite funny. Yeah. Yeah, it's interesting, isn't it? Yeah. He's the joker.
+[00:11:12] Speaker A: Oh.
+[00:11:13] Speaker B: You followed all this up.
+[00:11:14] Speaker D: Okay. Actually yeah. This is good for browsing though. It's perfect. I mean that's sorta exactly what you wanna do and look at these things. And so Yeah, who's doing what.
+[00:11:22] Speaker A: Yeah.
+[00:11:25] Speaker B: Yeah, see, and that's what speaker characterisation gives you.
+[00:11:27] Speaker D: Exactly. It's fun.
+[00:11:28] Speaker C: Yeah.
+[00:11:29] Speaker A: It's like I'm only interested in this guy, 'cause he seems to be funny. So what is it.
+[00:11:29] Speaker B: Who's the one who dr
+[00:11:32] Speaker C: Yeah, exactly. Yeah. That'd be quite good, wouldn't it?
+[00:11:32] Speaker D: Right. Yeah. Let's take 'em to the next joke. Yeah.
+[00:11:32] Speaker B: Yeah.
+[00:11:36] Speaker B: Yeah. Um so is is this percentage then um if you say like um joke for this speaker is percentage, I don't know, twenty, is that the ho what percentage of his speech is joke, or w how what percentage of the jokes
+[00:11:55] Speaker C: Yeah.
+[00:12:00] Speaker C: What percentage of the dialogue acts that he makes are jokes, in the meeting and globally separately, so once globally. Yeah.
+[00:12:03] Speaker B: Are jokes. Yeah. Yeah.
+[00:12:07] Speaker B: Okay.
+[00:12:10] Speaker C: Um I think most things are coded with a dialogue act. A lot of them are coded with Z_, which means no label. So I just ignored that as well. 'Cause that's boring.
+[00:12:16] Speaker B: Yeah.
+[00:12:19] Speaker C: And statement, which is boring. And also the other thing that they have is um if somebody quotes something, so if I quote a joke to you they separate that. So they put they put the the dialogue act and then they put a double a colon and they put that aside. Just ignored anyth any quoted material, 'cause it's got nothing to do with I just scrapped it. Yeah yeah yeah, somebody else's joke. So yeah, you have to be original about your material. Otherwise we don't credit it to you.
+[00:12:32] Speaker D: Hmm. Right, okay. Yeah. Well it's not a real joke anyways.
+[00:12:33] Speaker B: Yeah.
+[00:12:38] Speaker B: Yeah. Yeah, I mean just keep it simple as
+[00:12:39] Speaker D: .
+[00:12:47] Speaker D: Yeah.
+[00:12:48] Speaker C: Yeah. Yeah.
+[00:12:48] Speaker B: Um
+[00:12:51] Speaker D: Okay, that sounds real so that's sort of implemented now or is that or is it close? Wow. Super. Okay. Like to test that.
+[00:12:54] Speaker C: Yeah, that's all done, yeah. All done, yeah.
+[00:12:56] Speaker C: Um yeah, I just have to I'll just finish there might be some polishing. I can't remember. But I think it's pretty much complete done. So I'll do that tonight. Just put it up there. So you can us start using that whenever.
+[00:13:01] Speaker D: Mm. Actually
+[00:13:04] Speaker D: Yeah. And when I update my N_L_, just uh recompile the M_ browsers and then just uh get that. Yeah. Well, so it'll use as my part as well, my um the M_ search. It w actually do we have like naming convention for s our sorts files? Just prefix 'em with an M_ and Or
+[00:13:11] Speaker B: You will, yeah.
+[00:13:14] Speaker B: Yeah.
+[00:13:16] Speaker B: Sounds good.
+[00:13:22] Speaker B: Yeah, I was thinking that um it sort of turned out that way a bit, didn't it?
+[00:13:25] Speaker D: Yeah. Yeah. Well that's sorta what I was doing. It Like for your stuff do you have no.
+[00:13:29] Speaker C: No, I just well it's called meeting and speaker. Well, I can judge it if you want.
+[00:13:31] Speaker D: Oh okay, alright.
+[00:13:33] Speaker D: It doesn't really ma no, it doesn't matter at this point. No, I was just kinda curious. I'm thinking about future stuff maybe, if
+[00:13:33] Speaker B: I don't know. Does it matter?
+[00:13:35] Speaker C: Yeah.
+[00:13:37] Speaker B: Oh, I was
+[00:13:38] Speaker C: We could put it in a sep in a p package.
+[00:13:40] Speaker D: Yeah, that's true too.
+[00:13:41] Speaker C: If you can be bothered.
+[00:13:42] Speaker D: Yeah, yeah, doesn't matter.
+[00:13:44] Speaker C: Well it doesn't seem to make any differ I've never ever used Java packages. Doesn't even make any difference. As long as in the same directory it works. So sod it. Right.
+[00:13:47] Speaker D: Yeah, exactly. 'Cause
+[00:13:51] Speaker D: Yeah.
+[00:13:51] Speaker B: Mm.
+[00:13:54] Speaker D: Okay.
+[00:13:56] Speaker B: I have one one m one little question that I reckon we should have a little icon for our browser.
+[00:14:02] Speaker C: Well then you can double-click on and it oh, oh. No.
+[00:14:04] Speaker B: Well no, the thing is um in, yeah, in the the top left. At the moment they've got an X_, which is, you know, N_X_T_ and it's sort of a bit cheeky to use that. So
+[00:14:06] Speaker A: Like instead of the
+[00:14:09] Speaker D: Oh yeah. Yeah.
+[00:14:13] Speaker C: Yeah, it will have something else. Just borrow a little Microsoft GIF like that.
+[00:14:15] Speaker D: Hmm.
+[00:14:17] Speaker D: Mm yeah right.
+[00:14:17] Speaker B: No, we want something original. What do you suggest? We could the only thing I could think of was an M_. But
+[00:14:20] Speaker A: Oh.
+[00:14:28] Speaker D: Yeah, I know, yeah. Same here.
+[00:14:31] Speaker C: M_B_.
+[00:14:31] Speaker A: We have the g big yellow one maybe. No Huh? Yeah. Yeah, that would be good. Ah no.
+[00:14:34] Speaker C: Where have I seen that before.
+[00:14:34] Speaker B: We'd be sued for that, I think.
+[00:14:36] Speaker D: Oh right.
+[00:14:40] Speaker D: Super-size meeting browser.. Well, it's. I don't know.
+[00:14:42] Speaker C: Yeah.
+[00:14:42] Speaker B: Yeah.
+[00:14:48] Speaker D: Um
+[00:14:52] Speaker D: Just probably basic just text font, and just something nice, something solid maybe. Be a good
+[00:14:56] Speaker B: Yeah um
+[00:14:57] Speaker C: Yeah, anything you like, yeah.
+[00:14:58] Speaker B: I mean it's tiny, so we can't really put more than one character really or one sort of simple GIF.
+[00:15:01] Speaker D: Yeah, exactly.
+[00:15:03] Speaker D: I know. Anybody have any um artistic talent? No? No? Ok
+[00:15:08] Speaker B: No. Well, I can dr
+[00:15:09] Speaker C: Do you think we'd be doing uh M_S_C_s in Informatics if we did? Some people do, yeah. Yeah.
+[00:15:09] Speaker A: Oh.
+[00:15:11] Speaker D: Yeah. Oh it's possib some people are balanced. Some people are No, I know some balanced people. no. Maybe I'll check see if I can find anyone. Um
+[00:15:12] Speaker B: Yeah.
+[00:15:23] Speaker B: Well if you find anything, then send it to me.
+[00:15:25] Speaker D: Okay.
+[00:15:26] Speaker B: Otherwise I'll I'll make up some M_.
+[00:15:28] Speaker D: How do you s add that to the to the Java programme? Is it just basic little Okay. Uh-huh, yeah.
+[00:15:32] Speaker B: I'm not sure actually. I'm thinking yeah.
+[00:15:33] Speaker C: That's really easy. You do it in um one of the w whatever the main is it you set w GIF or some Set f set set picture or something. It's really simple.
+[00:15:39] Speaker D: Oh.
+[00:15:39] Speaker B: Yeah, yeah yeah, I I know yeah, I know how to how to put it there. But I'll have to import it somehow. I'm not quite sure. But
+[00:15:42] Speaker D: So just in the main frame. Okay. Okay, right.
+[00:15:46] Speaker D: Right, okay.
+[00:15:47] Speaker C: Yeah, I think you just give it a file-name and it tells it it knows
+[00:15:49] Speaker B: Yeah, yeah, probably.
+[00:15:50] Speaker D: Oh, so it'll do the automatic scrunching down if it's bigger? Oh cool. Nice. Super.
+[00:15:51] Speaker C: Yeah, yeah, it just sticks it in the corner. Yeah, yeah. Yeah.
+[00:15:53] Speaker A: Yeah.
+[00:15:54] Speaker A: We have to remember to include that in our evaluation, how they did the GIF improve your browsing experie
+[00:16:01] Speaker B: Yes.
+[00:16:01] Speaker D: They know it's a distincting di distinctive experience, I guess. Yeah.
+[00:16:01] Speaker C: Yeah.
+[00:16:06] Speaker A: Sorry.
+[00:16:06] Speaker B: Oh yes.
+[00:16:08] Speaker C: It could even have some sound when it comes on. It go welcome to the meeting browser. No, that's problem. Have to do it in the
+[00:16:10] Speaker B: No. No uh
+[00:16:11] Speaker D: Can we g
+[00:16:14] Speaker D: Can we get sound on these machines? Yeah. I wish Actually have you ever managed N oh yeah, you must have, yeah, got play any sort of music on the DICE machines? Right, okay.
+[00:16:23] Speaker C: Not no, but I think if you put headphones in, it will just play just normally.
+[00:16:26] Speaker D: Oh right right. They have them on the front too, I think. Yeah.
+[00:16:26] Speaker B: If
+[00:16:29] Speaker B: if the sound-card is registered to your name, which it usually is not, and you have to re-boot, and sometimes it still doesn't work, then yeah.
+[00:16:32] Speaker D: Mm. Okay, right.
+[00:16:33] Speaker C: Yeah. Yeah.
+[00:16:37] Speaker D: Right.
+[00:16:38] Speaker C: Sometimes it works, yeah.
+[00:16:39] Speaker A: I guess that's why we have a separate speech lab. Yeah. Yeah, um
+[00:16:39] Speaker D: Damn.
+[00:16:42] Speaker C: Yeah.
+[00:16:42] Speaker D: Yes. Yeah. Get a lot of audio. No. Okay. Um okay, well this this looks good.
+[00:16:50] Speaker A: 'Kay. Yeah. Yeah.
+[00:16:54] Speaker A: I ran in some troubles with the indexing, but uh f found another package I instead of writing it from um the scratch, 'cause it well, I don't know um just now, but I haven't played around it that much. But
+[00:16:54] Speaker B: Um
+[00:17:08] Speaker D: .
+[00:17:10] Speaker A: We'll see what happens in the next few days.
+[00:17:11] Speaker D: Yeah.
+[00:17:13] Speaker D: Are we gonna be uh trying to get the output from that and I don't know, still haven't found out if it's um
+[00:17:18] Speaker D: feasible to open up more than one well, as many mm NOM objects as we can for each meeting to do like we were gonna need like figure that the ranking did make sense, like to be looking through the highest ranked ones first. So if we are gonna look through only five of them, just pick the top five to to do the the search and Since that's probably what we're looking for anyways. So
+[00:17:20] Speaker A: Yeah we'll think about that.
+[00:17:34] Speaker B: Mm-hmm.
+[00:17:39] Speaker A: I can send you right now. Like
+[00:17:41] Speaker D: Yeah.
+[00:17:42] Speaker A: Um
+[00:17:45] Speaker C: I still can't make it run T_N_T_ from Java. Yeah, you try it. If you can make it work, then I'll be well chuffed.
+[00:17:45] Speaker A: C_.
+[00:17:48] Speaker D: Are you serious? Maybe I'll try. Yeah? Okay. S Yeah, I'd That'd be a surprise 'cause I'm bad at Java. Yes. Um
+[00:17:53] Speaker A: Yeah.
+[00:17:58] Speaker A: Yeah. I didn't expect this course to be so much about Java. But uh feels like it's it's a Java course more than anything else. It's just like
+[00:18:03] Speaker D: Yeah, seriously.
+[00:18:05] Speaker B: .
+[00:18:07] Speaker C: It's a Java course.
+[00:18:09] Speaker B: Yeah.
+[00:18:09] Speaker D: Mm yeah. Practical Java.
+[00:18:11] Speaker B: In fact it's a N_X_T_ package.
+[00:18:14] Speaker A: Yeah.
+[00:18:14] Speaker D: Yeah. How do you guys find the documentation for N_X_T_ and
+[00:18:15] Speaker C: Course, yeah.
+[00:18:17] Speaker A: .
+[00:18:20] Speaker C: Right.
+[00:18:21] Speaker B: Yeah.
+[00:18:21] Speaker D: Yeah, okay, good. That's my belief as well.
+[00:18:23] Speaker B: I mean sometimes they have methods that don't have any explanation to them at all. So you just like right, I'll try this then and see what it gives me.
+[00:18:27] Speaker D: Yeah.
+[00:18:28] Speaker C: Yeah, I think it was
+[00:18:30] Speaker C: So what does. Yeah. And it uh it's was apparently generated by going to d generate JavaDoc and it just went Spat it all out and they never bothered to uh d comment anything.
+[00:18:32] Speaker D: Yeah. Yeah.
+[00:18:41] Speaker D: Yeah, exactly. Well it's still I guess research platform. Uh
+[00:18:45] Speaker C: Yeah. At least get to know what methods are there. So without having to look at the source codes. Yeah, yeah.
+[00:18:47] Speaker D: Yeah.
+[00:18:49] Speaker D: Yeah, that's true. Okay. I was just curious. Well
+[00:18:51] Speaker C: What?
+[00:18:51] Speaker B: Hmm.
+[00:18:52] Speaker C: Yes, that's it right here.
+[00:18:58] Speaker A: So
+[00:18:58] Speaker D: So c did we have a date for when we actually want the system done? I thought I thought we said th I thought we ch yeah, I thought we change it to the tenth or something. Um 'cause the thing is I mean we can keep working on little things f you know and sh Oh, well we should do this or do this. Should we Um
+[00:19:03] Speaker B: Friday?
+[00:19:04] Speaker C: Today, wasn't it? It's the eighth.
+[00:19:05] Speaker A: We change it to Friday. Yeah.
+[00:19:05] Speaker B: I thought it was Friday.
+[00:19:09] Speaker C: Okay.
+[00:19:11] Speaker A: I guess that's not
+[00:19:21] Speaker D: so I don't know, do we want to set an actual hard deadline for like did when exactly were we gonna start the evaluation?
+[00:19:25] Speaker B: Yeah, I think we both should, yeah.
+[00:19:29] Speaker B: Well that's the problem, because Steve hasn't given us any details, has he?
+[00:19:33] Speaker D: Mm 'kay. Well we yeah, I guess well we can still come up with like test cases or whatever for for the people and just yeah, come up with scenarios, that sort of thing. I mean that's that's fairly straight-forward. And could actually be fun. Yeah, exactly. That's true, just brain-storm, yeah. Yeah.
+[00:19:40] Speaker B: That's true.
+[00:19:44] Speaker B: I I'm sure we could do that in like a meeting
+[00:19:47] Speaker B: and make it up together. Yeah.
+[00:19:51] Speaker B: Um
+[00:19:53] Speaker D: .
+[00:19:53] Speaker B: the thing is yeah, we had the the deadline last Friday, but we won't be able to do any evaluation during the weekend anyway, so I think we could set Monday.
+[00:19:53] Speaker A: Yeah.
+[00:20:00] Speaker A: No. So we
+[00:20:00] Speaker D: Yeah, that's true, yeah.
+[00:20:03] Speaker A: Yeah, that would be more reasonable. 'Cause the I_L_ is Friday.
+[00:20:03] Speaker D: Yeah.
+[00:20:05] Speaker D: Right.
+[00:20:05] Speaker B: And that would give us the whole weekend.
+[00:20:07] Speaker D: To work on it as well. Yeah.. No, I've I've got my D_N_L_G_ presentation on Monday. I have to read the paper. Yeah.
+[00:20:09] Speaker A: What? Oh yeah, you have your presenta Right, whatever. It's too much now. Well but yeah, Monday
+[00:20:21] Speaker D: Mm-hmm.
+[00:20:22] Speaker A: we'll try and do Monday. Um I mean we could
+[00:20:22] Speaker D: Yeah, I think so.
+[00:20:26] Speaker A: Should we meet up Monday?
+[00:20:28] Speaker A: Or
+[00:20:31] Speaker D: We'll probably have to talk to Steve at some point as well I guess. But um
+[00:20:32] Speaker A: Should we
+[00:20:33] Speaker A: Yeah.
+[00:20:35] Speaker A: Just sh like w
+[00:20:36] Speaker D: I'll probably just have a regular Tuesday meeting with him. Like we can send him an email, but I don't know if he's around even. He's not around this week, is he or that's why I think that's why we didn't have the the meeting.
+[00:20:41] Speaker A: Yeah. Just
+[00:20:44] Speaker B: I don't know. I think it was.
+[00:20:46] Speaker C: Don't know. Maybe it's just a day, I don't know.
+[00:20:48] Speaker B: Yeah.
+[00:20:49] Speaker D: Yeah, 'kay.
+[00:20:49] Speaker A: Yeah.
+[00:20:50] Speaker C: Send him an email. He'll probably re-do it anyway. So
+[00:20:51] Speaker D: Yeah, it's true. Although do we really want the answer. S s So if we don't ask we can push it off and
+[00:20:51] Speaker A: Okay.
+[00:20:54] Speaker A: Okay. Yeah.
+[00:20:55] Speaker B: Yeah. Exactly, yeah. At the end we'll say, yeah but you never gave us any test subjects.
+[00:20:57] Speaker A: Yeah.
+[00:21:00] Speaker D: Yeah.
+[00:21:01] Speaker C: Yeah w
+[00:21:02] Speaker A: Well so he's supposed to give us test subject. Did he say that or what?
+[00:21:04] Speaker B: Well sort of, that's how I understood it. He would he would make something up. Ha yeah, find some people, that's how I understood it. Um the thing is, you know
+[00:21:05] Speaker C: He said he might he would try.
+[00:21:08] Speaker A: Okay.
+[00:21:09] Speaker D: Yeah. Yeah. Yeah, that's
+[00:21:12] Speaker C: Yeah.
+[00:21:12] Speaker A: 'Cause we're gonna get an email on our uh M_S_C_ list saying from Steve, we need volunt yeah.
+[00:21:16] Speaker D: You're right, yeah. We're looking for volunteers.
+[00:21:19] Speaker B: Yes. Um I think if we if we don't get anything from him, then we should just do our friends basically.
+[00:21:21] Speaker D: Yeah.
+[00:21:30] Speaker A: Yeah.
+[00:21:30] Speaker D: Yeah, if they have time. It's hard finding people.
+[00:21:32] Speaker A: Well th they gonna u need us. They're gonna need us for like perception projects and things like that. So yeah. We need to use each other for those
+[00:21:34] Speaker C: Hmm.
+[00:21:35] Speaker B: Well they're your friends, so they should
+[00:21:36] Speaker D: Yeah yeah I know, but
+[00:21:39] Speaker D: Yeah. Yeah, that's true. Yeah, that's true. Yeah. Yeah.
+[00:21:40] Speaker B: But it's not gonna take long. It's only only gonna be half an hour maybe.
+[00:21:46] Speaker B: Um
+[00:21:46] Speaker D: Yeah. Actually some other friends of mine in different programmes might might be more willing. Have more of a break. So that might be an idea, get a range of types of people as well. Like not like highly computer lit like not, you know, Linux literate or yeah. I think that might be good, as well. Set a wider range of people.
+[00:21:52] Speaker A: Yeah, that's true.
+[00:21:58] Speaker B: Maybe, yeah. Well it will be. Yeah. It'll have to be, yeah.
+[00:22:05] Speaker B: Hmm.
+[00:22:06] Speaker B: So
+[00:22:07] Speaker C: So how many people do we uh try and 'cause it
+[00:22:09] Speaker D: Uh no, I think like three or four maybe. Bet that would be a good yeah, I think that d No, that's that's a lot. No. Yeah, exactly. Like the thing like did an H_C_I_ course a while ago and it's just that's what these yeah, there's three people. Yeah. And that was fine. Then you can do a massive amount of analysis on three people. Yeah. Yeah. Oh yeah. S We don't want to.
+[00:22:11] Speaker C: Yeah. Yeah, yeah.
+[00:22:12] Speaker B: Really? I was thinking of like ten. Fifteen.
+[00:22:15] Speaker C: No, it'll take forever, and then you gotta analyse the results. No no no no no, forget it.
+[00:22:19] Speaker B: Uh
+[00:22:25] Speaker B: Really?
+[00:22:30] Speaker B: Really?
+[00:22:30] Speaker A: Yeah.
+[00:22:34] Speaker B: How can you get a range of people if you have three?
+[00:22:37] Speaker C: Yeah, but one computer scientist one l and one dude off the street.
+[00:22:37] Speaker A: Yeah. Yeah. Yeah, yeah. And then one's supposed to be a woman. And one's supposed be a man. And one, I don't know. Oh yeah.
+[00:22:38] Speaker B: One art student.
+[00:22:38] Speaker D: Yeah, exact exact Mm visible minorities. yeah. Three or four. Oh God. Um but yeah, if he finds them, then that's cool. If he finds the people. M um
+[00:22:41] Speaker B: Yeah.
+[00:22:48] Speaker B: Yeah. And hen we should just have two. Yeah. Oh dear. Um
+[00:22:51] Speaker C: Yeah, one man, one woman, yeah.
+[00:22:59] Speaker A: Yeah, okay.
+[00:23:02] Speaker C: Yeah.
+[00:23:02] Speaker B: Another thing, um, we have the we have the um the presentation on like in one and a half weeks or something, whatever it is. Or nearly two weeks.
+[00:23:03] Speaker A: Should we just yeah.
+[00:23:05] Speaker D: Oh, writing up.
+[00:23:11] Speaker A: Yeah.
+[00:23:12] Speaker D: Looks brilliant.
+[00:23:13] Speaker A: Yeah, it's Tuesday the twenty second.
+[00:23:14] Speaker C: Two weeks. Two two two weeks today.
+[00:23:14] Speaker B: Oh is Tu yeah, it is two weeks then. Do we have to have done the evaluation by then?
+[00:23:17] Speaker A: Yeah.
+[00:23:17] Speaker D: Okay.
+[00:23:20] Speaker C: Yeah.
+[00:23:21] Speaker A: I think so.
+[00:23:22] Speaker D: Um I thought the evaluation maybe for the report. So th and that's due on the twenty fifth. Twenty fifth is is it? I is it? That's what I understood.
+[00:23:23] Speaker A: Well uh
+[00:23:26] Speaker C: When's the report hand-in? Is oh right, is that th is that the Friday?
+[00:23:29] Speaker A: What? Oh, it's a Thursday. Yeah. So it's not the yeah.
+[00:23:29] Speaker B: It's the Thursday. No, the Thursday, I think. I think it's the Thursday.
+[00:23:31] Speaker C: The twenty fourth then.
+[00:23:32] Speaker D: I thought it said twen I thought he said twenty fifth. Even though it's Good Friday, I thought okay. Yeah. Oh yeah. Easter two days yeah. No. Well it wasn't originally either. So Um Yeah, okay. Okay. So that gives us two days to do the uh evaluation. No evaluation I was gonna say. And report.
+[00:23:37] Speaker C: Yeah.
+[00:23:37] Speaker A: It's not a good Friday if if that's
+[00:23:37] Speaker B: Is that Good Friday already?
+[00:23:39] Speaker C: Yeah yeah, that's Good Friday.
+[00:23:42] Speaker B: Wow.
+[00:23:42] Speaker A: It's not a good Friday if it's a deadline.
+[00:23:43] Speaker C: Yeah.
+[00:23:44] Speaker B: No.
+[00:23:46] Speaker B: Well it I'm sure on the web-site it says Thursday. Hmm.
+[00:23:47] Speaker A: No.
+[00:23:52] Speaker A: Can have a look.
+[00:23:54] Speaker A: The report, yeah. No, okay. Oh. No, we p
+[00:23:56] Speaker B: Well, you know, the the question is, i do we need the evaluation for the presentation.
+[00:24:01] Speaker D: I didn't think so necessarily. I wouldn't I wouldn't assume. But we should ask him.
+[00:24:06] Speaker B: We should definitely ask him. Because if not, then
+[00:24:08] Speaker A: I thought we would.
+[00:24:11] Speaker C: Mm. oh we should have it we should try and have at it done by then anyway, I think. Otherwise it will start to getting b bit tight otherwise.
+[00:24:16] Speaker D: Yeah, that's probably c Like, it's a good target. It's a good Yeah.
+[00:24:19] Speaker A: Oh.
+[00:24:20] Speaker B: Yeah, you might be right.
+[00:24:22] Speaker C: We should aim to be finished by Monday, this Monday coming. A week no yeah well, basically for Tuesday. Start the evaluation t pretty much straight-away and then get
+[00:24:30] Speaker D: Mm, right.
+[00:24:33] Speaker C: Get s yeah, and then get um
+[00:24:35] Speaker B: Because we need to write a presentation as well.
+[00:24:36] Speaker C: We have to write the report, yeah, and everything. We have to write everything.
+[00:24:37] Speaker D: Yeah.
+[00:24:38] Speaker D: Actually it's fun No. No, it's it just funny that, you know, have it finish by Monday. 'Cause after Monday I'm pretty much free for about a week or so. It's like it's like if we had, you know, a bit more time. Yeah.
+[00:24:45] Speaker B: Exactly, me too. That's the point.
+[00:24:45] Speaker C: Yeah.
+[00:24:49] Speaker B: Yeah. Yeah. Well, I'm not free after this Monday, but I'm free at like after the eighteenth.
+[00:24:53] Speaker D: Okay.
+[00:24:54] Speaker D: Oh the next one, okay. See, I'm yeah I'm free this after this Monday, and it's well, why? What else uh that's that's easy compared to the other stuff. I mean I'm not even worried about that. Yeah. Yeah, okay. Yeah, okay.
+[00:24:55] Speaker A: Yeah. Oh we have three? S_P_ two.
+[00:25:00] Speaker C: S_P_ two.
+[00:25:02] Speaker B: Because because I don't have anything after the eighteenth apart from this.
+[00:25:05] Speaker A: Aren't you?
+[00:25:07] Speaker A: Oh yeah.
+[00:25:08] Speaker C: And you must have your research proposal. Is that in on the eighteenth? Shit. I've not done at all, yeah.
+[00:25:10] Speaker D: Oh.
+[00:25:10] Speaker B: Well that's in on the eighteenth. Mm-hmm.
+[00:25:13] Speaker D: You didn't know that? Oh yeah. How's yours?
+[00:25:17] Speaker A: Oh yeah.
+[00:25:19] Speaker D: Thank God.
+[00:25:19] Speaker B: Ooh.
+[00:25:21] Speaker B: So um
+[00:25:22] Speaker A: In our uh timeline we r put in twenty fifth and that's the Friday I think.
+[00:25:26] Speaker D: Okay. Maybe that was us then, not him. No actually I might have this stuff here.
+[00:25:29] Speaker A: Yeah. I'm just that's why I'm trying to find his his dates. Whatever.
+[00:25:35] Speaker D: Schedule. Yeah, Thursday twenty fourth.
+[00:25:40] Speaker A: We're planning on having a big party on the twenty fourth. So
+[00:25:40] Speaker D: Deadline for submission of final report.
+[00:25:42] Speaker D: Oh. Well now you can. Yeah.
+[00:25:45] Speaker A: End of lectures.
+[00:25:50] Speaker B: So
+[00:25:51] Speaker D: So twenty fourth so it we sh
+[00:25:53] Speaker B: Anyone fancy writing him an email?
+[00:25:55] Speaker A: Oh, it's actually twenty fourth.
+[00:25:57] Speaker D: Yep. Um just to ask whether we need to have the evaluation done for the demonstration? Or
+[00:26:03] Speaker B: That, yep. And
+[00:26:06] Speaker D: We should have it done anyways. But okay, yeah. Sure.
+[00:26:11] Speaker D: Hopefully, but yeah. Is is that is that a part of the demonstration, did they want that information, the evaluation as part of yep.
+[00:26:11] Speaker B: But it's still important to know. So we would def
+[00:26:15] Speaker B: Yeah, yeah yeah. I mean we need to know that anyway to prepare the presentation in the first place. And um
+[00:26:21] Speaker D: Right.
+[00:26:26] Speaker B: What was the other one.
+[00:26:28] Speaker B: Basically, how is how is it going with your evaluation proposal. Have you got people yet for us, or what are you thinking, and when?
+[00:26:35] Speaker A: Yeah.
+[00:26:35] Speaker D: Oh right.
+[00:26:40] Speaker A: Did he say anything about like h what he expects of the final report and stuff? Like length or
+[00:26:47] Speaker B: No.
+[00:26:47] Speaker D: Um there are a f a few little things. Um just made some comments the last meeting. Just general, like how it all integrates, blah blah blah, all this kind of stuff. But yeah.
+[00:26:55] Speaker B: Do we know did he ever say how long it was supposed to be?
+[00:26:56] Speaker A: Only
+[00:26:58] Speaker D: No. I'd expect somewhere ten to fifteen pages.
+[00:27:01] Speaker B: Mm it's gonna be a lot.
+[00:27:02] Speaker A: I mean how long we're this
+[00:27:03] Speaker D: Although it's fifty percent of the mark I think, is it? I think.
+[00:27:07] Speaker A: One, two
+[00:27:07] Speaker B: But we can write a lot. I mean I think we should we should write everything.
+[00:27:08] Speaker D: yeah.
+[00:27:11] Speaker D: Exactly. Well we have a bit of time to do the writing up.
+[00:27:11] Speaker A: Yeah. 'Cause this I mean We have interim report of seven pages, and that's we can y yeah. We could p probably just expand that.
+[00:27:14] Speaker D: So that'll be good.
+[00:27:20] Speaker B: Seven pages? Oh.
+[00:27:26] Speaker A: I mean 'cause it I mean a lot of it's gonna be the same thing.
+[00:27:28] Speaker D: Yeah. Just a fine-tuned or detailed and yeah.
+[00:27:30] Speaker B: True.
+[00:27:31] Speaker A: Yeah. And then I mean write about the evala evaluation and stuff. That's gonna be quite a few pages. But
+[00:27:33] Speaker D: More stuff.
+[00:27:35] Speaker B: Yeah, we can n
+[00:27:37] Speaker D: Yeah, that could be yeah, that could easily be five or six pages.
+[00:27:39] Speaker A: So I don't think
+[00:27:42] Speaker B: Yeah, should be good.
+[00:27:42] Speaker A: page is gonna be problem.
+[00:27:46] Speaker D: Okay.
+[00:27:46] Speaker A: But uh
+[00:27:50] Speaker B: So do you wanna write him an email then? That'd be good.
+[00:27:52] Speaker D: Sure.
+[00:27:54] Speaker B: Um
+[00:27:58] Speaker B: And uh when I get home today, which will be before
+[00:28:04] Speaker B: um
+[00:28:06] Speaker B: before half past six, I will make that file readable, writable, everything.
+[00:28:10] Speaker D: Oh yeah, sure. Yeah, no no big rush.
+[00:28:13] Speaker B: Uh-uh. Well I I will
+[00:28:14] Speaker D: Although just to get it out of the way. So I'll try and remember to do that to my own s
+[00:28:19] Speaker B: Well I will I will need your snippets of code or it'd be good if I had them by tomorrow evening.
+[00:28:24] Speaker D: Yeah.
+[00:28:26] Speaker D: Yeah.
+[00:28:28] Speaker D: Yep.
+[00:28:29] Speaker B: Oh, I was gonna ask um
+[00:28:32] Speaker B: at the moment your search window,
+[00:28:35] Speaker B: how is it organised?
+[00:28:37] Speaker D: Just basic um pretty much like the interim do you wanna do you have the interim stuff? Just um sorta like Google type thing and just um Oh.
+[00:28:44] Speaker B: But at the beginning, it when you haven't searched yet, is it is it just is it still divided into two and the bottom half is just just empty? Okay.
+[00:28:51] Speaker D: Yeah. Yeah.
+[00:28:55] Speaker D: Then as these come up it'll just pop 'em in there.
+[00:28:58] Speaker B: And then if you, I don't know, double-click on one
+[00:29:02] Speaker D: It doesn't do anything yet. S like that's that's the other big part. I mean how to get that that communication between the two different kinds of windows.
+[00:29:04] Speaker B: Okay.
+[00:29:14] Speaker B: Yeah.
+[00:29:14] Speaker D: Because the thing is if we have different things in here, like transcripts versus summaries versus topics, um that was why it was sorta deciding to get the three panes in there instead of just the one. Um
+[00:29:18] Speaker B: Yeah yeah yeah.
+[00:29:20] Speaker B: Hmm.
+[00:29:26] Speaker D: Yeah, so so there's a couple of those little things as we Yeah, exact It's beautiful. Yeah, m M_ makes more sense.
+[00:29:27] Speaker B: Well y y this this is the icon by the way.
+[00:29:30] Speaker C: Hmm.
+[00:29:35] Speaker B: Um, yeah, maybe you wanna do um left-handed um yeah, one left-click um highlights the the result in whatever you've got open.
+[00:29:44] Speaker D: Okay. Is that how it works in the other ones? In like the other windows like the various like um if we're in the topic. Or
+[00:29:48] Speaker B: Which other ones?
+[00:29:49] Speaker B: Um yeah. Usually one left click, it's highlights it cross-highlights everything, I think. Yeah.
+[00:29:58] Speaker D: If you have like a particular w window that you want me to mimic its behaviour, then like just find it in the programme and just say, okay, just how this one does it. So if it's like the topic window or the whatever.
+[00:30:10] Speaker B: Mm well it's difficult, because
+[00:30:16] Speaker D: So then I can just sorta trace back and figure out what objects they are and bring 'em into here. So
+[00:30:16] Speaker B: Well you could look up
+[00:30:23] Speaker B: Mm no, that's difficult. Because it the transcription window does cross-highlighting.
+[00:30:29] Speaker B: In a very awkward way, because it has to find the topic first. That was that was a pain.
+[00:30:30] Speaker D: Hmm.
+[00:30:32] Speaker D: Okay.
+[00:30:37] Speaker B: And um when you when you g um right-click on a topic, it pops open the list of meetings that contain that pop po topic. And um and that works when you when you left-double-click on a topic oh, on a meeting, sorry, then it loads it.
+[00:30:54] Speaker D: Okay.
+[00:30:54] Speaker B: So you could
+[00:30:56] Speaker B: you could take that for loading.
+[00:30:58] Speaker D: Right.
+[00:30:59] Speaker B: So if we have that um the same on this one, at least that you if you double-left-lick, then it loads.
+[00:31:07] Speaker D: Okay.
+[00:31:12] Speaker A: Mm.
+[00:31:14] Speaker B: Mm.
+[00:31:15] Speaker D: So one left click just highlights Is that?
+[00:31:18] Speaker B: Highlights um yeah. I mean a hi obviously highlights whatever you've clicked on here, but also highlights um
+[00:31:22] Speaker D: Oh just the item in
+[00:31:25] Speaker D: The transcript or whatever it is.
+[00:31:28] Speaker B: Actually it's difficult, because
+[00:31:28] Speaker D: The
+[00:31:33] Speaker A: Can I have it?
+[00:31:33] Speaker D: If even if we could just
+[00:31:34] Speaker B: Because you n you don't you only ever have one meeting open and those results will be op I well I suppose if you have a if you have a local search, then it could cross-highlight.
+[00:31:35] Speaker A: Well, the one meeting.
+[00:31:45] Speaker D: Yeah. That should be possible.
+[00:31:49] Speaker B: Because you know, if you get back several different meetings here and you've only got one meeting open, then you can't cross out anything.
+[00:31:49] Speaker D: Right.
+[00:31:52] Speaker D: Oh yeah.
+[00:31:55] Speaker D: Although, yeah, this this will uh this is actually different from how we print it up here. Like if we're doing a global search, then we are gonna do it like how we said before and pop up a list of the various meetings that found those terms. And then we'll either, you know, multi-select or, you know, choose the one we wanna actually do this wi I think multi-select would make the most sense. Well just um if there's like three of the top meetings, like like we said before, language, we're looking for the l word language and get the highest-rated ones. To actually look for the terms we're not loading it on a val of seventy six I mean or seventy five, whatever it is. Um so the r the results from that will, you know, narrow down what we're gonna use for the local search. Then we'll just do the local search on those ones that are chosen. And if we can yeah. So it it will be a bit different from from how that is right now when when we do the global search at least. Yep.
+[00:32:06] Speaker B: Okay.
+[00:32:12] Speaker B: What do you mean by multi-select?
+[00:32:24] Speaker B: Mm-hmm. Oh, okay.
+[00:32:36] Speaker B: Oh, I see what you mean, yeah. Okay.
+[00:32:42] Speaker B: Well i i i in any case, if you left-click on on a result that is contained in the meeting that is currently open, then it should cross-highlight. If not, it can't. So
+[00:32:52] Speaker D: Yes, yes. Exactly, yep.
+[00:33:04] Speaker A: Um it should be fairly simple to just get the topics and the summaries fro using that text extractor thingy you wrote, Ray.
+[00:33:05] Speaker D: Okay.
+[00:33:14] Speaker C: Yeah, you have to start again. It's just do topics instead of seg yeah, you have to get the topics out instead of the segments. Uh yeah.
+[00:33:16] Speaker A: You just like or
+[00:33:20] Speaker A: Yeah.
+[00:33:23] Speaker A: Excuse me. I just realised I haven't done that part yet.
+[00:33:24] Speaker D: Hmm.
+[00:33:26] Speaker B: Can you make
+[00:33:27] Speaker B: Is it d very difficult to make another another GUI, but only for a global search?
+[00:33:36] Speaker D: Um so that we search two different
+[00:33:39] Speaker B: Just just take that away, the the local check-box. Because um hmm?
+[00:33:41] Speaker D: Right. Yeah. That's actually fairly
+[00:33:44] Speaker A: To have for the start-up. Oh. To have for the start-up. Uh-huh.
+[00:33:47] Speaker B: Yeah, because in the start-up screen you can't have a
+[00:33:50] Speaker D: You know, local anyways, yeah. No, that's easy. Sure, yep. That's that's quite t straight-forward.
+[00:33:52] Speaker B: Yeah, would you make that? That'd be really handy. Everything else can just stay the same, you know. In fact you can just leave everything as it is and just remove the check-box.
+[00:33:57] Speaker D: Yeah.
+[00:34:01] Speaker D: Mm-hmm.
+[00:34:05] Speaker B: Radio button.
+[00:34:06] Speaker D: Yeah.
+[00:34:09] Speaker C: To you're gonna be able to do a global search for topics?
+[00:34:14] Speaker A: Yeah g uh that was li like yeah, if I'll make a just index
+[00:34:15] Speaker C: Is that what you mean, yeah? Yeah. Okay. Yeah, yeah. Okay. Yeah, I didn't think you'd bother with that, but yeah, cool. I didn't think we're gonna bother with that. But yeah. Yeah, it does, isn't it. Yeah.
+[00:34:16] Speaker D: Yeah. Exactly.
+[00:34:22] Speaker A: What?
+[00:34:24] Speaker D: Well it it kinda makes sense. It would be kinda cool
+[00:34:24] Speaker A: Well I I mean I I'm f it's not first priority maybe, but don't know. But uh
+[00:34:28] Speaker D: Actually, are we bothering with our topic stuff still? Or is that sorta gone like our own topic segment. Like since we can't do the labelling and all the rest. We are still doing our topic segment? Well you are you are, I guess.
+[00:34:29] Speaker C: Yeah.
+[00:34:32] Speaker C: What? With
+[00:34:39] Speaker C: Well we'll certainly do it enough to make it so we can do some numerical analysis on the Yeah, but at at the very least.
+[00:34:42] Speaker D: Okay. But we're not gonna be we won't be l doing a global search on the topics for our topics, since they don't have labels. Probably? Okay. La label all the label ones I'll open 'em. Yeah, all the label twos, yeah. I don't know. Okay. Mm.
+[00:34:43] Speaker B: Mm.
+[00:34:50] Speaker C: No. Exactly. Yeah. Uh yeah. No, we won't be doing that. Well yeah, even if even if I happen to manage to make it decent keywords, I don't think we can expect you to also come up with the search thing for it as well. So
+[00:34:51] Speaker A: Yeah.
+[00:35:05] Speaker D: Yeah, okay. Yeah, okay. Well no, it will be kind of straight-forward. Like if you're creating if you're creating X_M_L_ files of this
+[00:35:08] Speaker C: Would, yeah. But if I collate yeah. Yeah, if I create X_M_L_ files, but if I m I'm not gonna do that. Um I did have a look at trying to create X_M_L_ files. It did look like a quite a a mission really. I suppose it's not it's it's as straightforward as writing in X_M_L_ files. But it's but it's organising the segment data though. It would just looks so complicated to get it from
+[00:35:14] Speaker D: Yeah.
+[00:35:31] Speaker C: the um from a plain text file back into organise it by who which speaker speaks what and how n doing the segment I think that was the stupidest way they could ever have organised the whole thing if you ask me. But Organise it by time not by speaker. But yeah. But
+[00:35:34] Speaker A: Yeah.
+[00:35:35] Speaker D: Hmm.
+[00:35:47] Speaker D: Hmm.
+[00:35:49] Speaker C: So I don't know really what we're gonna do about that.
+[00:35:59] Speaker B: Okay.
+[00:36:00] Speaker A: Yeah. Yeah. I guess we just
+[00:36:00] Speaker B: Are we done?
+[00:36:04] Speaker A: see what Steve says about the re-evaluation and then like we'll keep in touch by email if we need
+[00:36:06] Speaker D: Yeah.
+[00:36:09] Speaker D: Yep.
+[00:36:12] Speaker D: Right.
+[00:36:13] Speaker A: anything. I guess we will see you on Thursday.
+[00:36:15] Speaker D: Mm.
+[00:36:17] Speaker A: And Monday.
+[00:36:19] Speaker D: Mm-hmm.
+[00:36:19] Speaker A: D_N_L_G_.
+[00:36:20] Speaker C: Yeah, we don't. Do we need another meeting this week?
+[00:36:23] Speaker D: Hmm. Probably not. I mean just get work done. I think that's what I've gotta do.
+[00:36:30] Speaker A: We can just email if we need other
+[00:36:30] Speaker C: Mm.
+[00:36:32] Speaker D: Yeah.
+[00:36:32] Speaker C: Mm.
+[00:36:33] Speaker B: Hmm.
+[00:36:35] Speaker A: I guess.
+[00:36:41] Speaker B: Okay.
+[00:36:42] Speaker A: Hooray.
+[00:36:47] Speaker A: Okay.

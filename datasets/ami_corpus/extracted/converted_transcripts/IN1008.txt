@@ -1,0 +1,750 @@
+[00:00:42] Speaker A: Okay.
+[00:00:43] Speaker C: Okay.
+[00:00:44] Speaker B: No. I don't uh
+[00:00:49] Speaker C: Should I start? Maybe by presenting the project little bit. Okay, so historically it was um uh last year Prof Delambeaux in uh his C_S_C_W_ classes uh asked the student to design a table. And all the students, and Guillaume wa was a student of this class, was very excited uh to design such a table. So he decided to um to make more research on this topic. So the general topic uh is about uh interactive table, um disappearing computer, um what is the other one. Um um na uh in the general fi field of uh collaborative computer supported collaborative learning.
+[00:00:52] Speaker D: Okay.
+[00:00:57] Speaker D: Mm-hmm.
+[00:01:04] Speaker D: Okay.
+[00:01:08] Speaker D: Okay.
+[00:01:10] Speaker D: Mm-hmm.
+[00:01:24] Speaker D: Okay.
+[00:01:40] Speaker D: Okay.
+[00:01:41] Speaker C: So the idea is we have different people collaborating uh in a pedagogical purpose. And uh we know that when we put a computer in front of them, uh it doesn't help focusing on collaboration. So if we make the computing um functionalities disappearing on on the in the furniture, in the wall or other things like that, we may more efficiently support uh collaboration than the the learning. So I arrived uh in June, something like that, a couple of month ago. Uh Guillaume and uh Michael uh are two students that are working uh four four months to their master project. And they start working on two uh different uh sub-projects. So Guillaume is working on the noise sensitive table. It's uh what we are discussing about uh today.
+[00:01:57] Speaker D: Yeah.
+[00:02:19] Speaker D: Okay.
+[00:02:31] Speaker D: Yeah.
+[00:02:33] Speaker D: Okay.
+[00:02:38] Speaker D: Mm-hmm.
+[00:02:46] Speaker D: Okay.
+[00:02:46] Speaker C: So the idea is uh okay, w we have in the lab a notion about um root mirroring. The idea is if we can provide a feedback to people working together, uh it may help them self-regulating their activity, their collaboration. So could be normative or not. In our own case we want to have uh a table that would be accessible by by students. Uh at O_P_F_L_ we are uh
+[00:02:59] Speaker D: Mm-hmm.
+[00:03:03] Speaker D: Okay.
+[00:03:19] Speaker D: . Ok okay.
+[00:03:20] Speaker C: At O_P_F_L_ uh the learning centre will be built in a couple of uh years. So the idea we we will have plenty of rooms uh like in libraries or meeting rooms where student will arrive and work. So if we have this table uh that is accesi accessible to students if they arrive, if we provide a feedback of um who is talking, um instantly the uh at one moment or uh through time or the turn taking, uh maybe they will just by seeing an explicit uh feedback of that, they will um take profit uh of it and um
+[00:03:31] Speaker D: Mm-hmm.
+[00:03:49] Speaker D: Mm.
+[00:03:58] Speaker D: So do you know uh which way you give the feedback? Light or I saw something like that.
+[00:04:04] Speaker C: Yes.
+[00:04:05] Speaker A: Okay, uh for for uh the noise sensitive table project um we decided to um to take the noise uh as input, and uh give a feedback uh with LEDs on the table. So this is uh one of the the possibilities that were offered to us. But uh we decided to do to do uh it this way.
+[00:04:15] Speaker D: Okay.
+[00:04:20] Speaker D: Hmm.
+[00:04:24] Speaker D: Hmm.
+[00:04:28] Speaker C: The idea is to have uh peripher peripherical uh information. We don't want people to focus on uh what's going on, uh what on the feedback. So we don't want histogram or very precise information. But we will uh have LEDs that will be distant. There will be six centimetres between each LED with a blurring glass. The idea is to have more um a kind of uh art, artistic uh feedback, to have a kind of general feeling of what's going on. Something about
+[00:04:34] Speaker D: Mm-hmm.
+[00:04:42] Speaker D: Mm.
+[00:04:48] Speaker D: Okay.
+[00:05:01] Speaker D: Okay.
+[00:05:02] Speaker C: Uh dance.
+[00:05:03] Speaker B: Well I guess it's just a restriction we took. So so we don't uh the m amount of money we have to spend. Otherwise we could have uh we could imagine to have a whole table of of uh s well, of L_E_D_s. And then y you can really start to to some regions of the table. So yeah.
+[00:05:17] Speaker D: Yeah.
+[00:05:25] Speaker D: Maybe more complex, yeah. Yeah.
+[00:05:28] Speaker A: Yes, the the first uh the first idea of the project uh was to have um the whole table covered by LEDs.
+[00:05:28] Speaker D: So th
+[00:05:33] Speaker D: Hmm. But yeah.
+[00:05:35] Speaker A: But uh for the prototype of this isn't this is not the the way we implement it now. But uh in fact we have a there was th yes, th there was the the restriction that if we cover the le the table with LEDs, uh some won't be visible because uh you have uh yes. So um if there is information displayed under the the sheets uh the it won't be um very useful. So we decided to have it uh yes, thirty centimetre uh at each side.
+[00:05:36] Speaker C: For practical reasons.
+[00:05:42] Speaker D: To the border basically some distance? Or
+[00:05:46] Speaker C: We kept uh one paper sheet.
+[00:05:49] Speaker D: Okay. O okay.
+[00:05:57] Speaker D: Obviously, yeah.
+[00:06:07] Speaker D: Okay.
+[00:06:12] Speaker D: Okay.
+[00:06:13] Speaker C: So uh the first shape of the table the shape of the table obviously is one of the factor on that will change the collaboration. So uh but we don't want to start with too many parameters. So we start with a table that is approximatively the tab uh of the table where we are now. And we will have uh a square shape like this that will be here and a second one that would be there. So we will have something like this. Like this. That will be the our first uh real prototype.
+[00:06:20] Speaker D: Hmm.
+[00:06:29] Speaker D: Yeah.
+[00:06:36] Speaker D: Yeah.
+[00:06:38] Speaker D: Okay.
+[00:06:43] Speaker D: Right.
+[00:06:44] Speaker C: Okay. And the so this L_E_D_ modules are being uh designed uh now. We should have them in a couple of weeks. And uh we will be able to uh start uh evaluating uh the prototypes. Uh uh about the C_S_C_W_ class, that will start at the end at the beginning of November. Uh so the student will be asked to design uh a table. So to find the shape uh of the table to get uh who the and put that uh on the um on table uh legs. And we will uh so at the beginning we wanted to put this L_E_D_ modules uh in the tables.
+[00:06:54] Speaker A: weeks.
+[00:06:55] Speaker D: Hmm.
+[00:07:07] Speaker D: Mm.
+[00:07:21] Speaker D: Okay.
+[00:07:31] Speaker D: Mm-hmm.
+[00:07:32] Speaker C: But we won't make it because uh for solidity reason of the table. You know, it's not very uh strong uh wood. Um so we will rather beam uh the L_E_D_ on the table. So we come back to a more richer display. B but we will um restrict it to a small uh to have the same display. LED lights uh that will be distant uh six centimetres between LEDs. So we will simulate our
+[00:07:55] Speaker B: Oh let's.
+[00:08:01] Speaker D: Okay.
+[00:08:01] Speaker A: . This is for prac practical reason and uh also a matter of time. Because uh
+[00:08:06] Speaker D: But don't yeah. Don't you think with a beam also you have less problems with the sheets? Or you don't want to do that.
+[00:08:08] Speaker B: Does
+[00:08:14] Speaker A: Yes. But uh th there are o other problems, like um yes, the the information display on the sheets. So we don't know if it's
+[00:08:17] Speaker D: Yeah.
+[00:08:21] Speaker D: Okay.
+[00:08:22] Speaker C: And we have yeah. And we have the feeling that to have the information embedded in the table, make it part of the table, it I don't know, we'll we we will try uh we don't really know what uh will happen with this prototype. We are very excited about that. Okay, uh maybe before uh going on on this subject we can talk talk a little bit on uh
+[00:08:23] Speaker D: Confusing, yeah. Hmm.
+[00:08:24] Speaker A: Yes. True.
+[00:08:34] Speaker D: Okay. No, it's a choice. Yeah.
+[00:08:36] Speaker D: .
+[00:08:41] Speaker D: Okay.
+[00:08:49] Speaker B: Yeah, I can just explain my project. It's completely different from this one. Well, it's also about tables, but the idea is if uh uh the several students come to a table with their laptops, they should be able to to share information easily. And uh in fact w what we we are doing now, we project um another screen on on the table, and different people are are are able to use their their mouse of their laptop to go to the to the project screen there and uh the project screen is just another Windows machine that is running. So you just have another f computer more or less you can use, but you can use it with your your own mouse and keyboard.
+[00:08:50] Speaker D: Mm-hmm.
+[00:08:54] Speaker D: Yeah.
+[00:09:01] Speaker D: Mm-hmm.
+[00:09:05] Speaker D: Okay.
+[00:09:13] Speaker D: Yep.
+[00:09:22] Speaker D: Okay.
+[00:09:27] Speaker D: Yeah.
+[00:09:34] Speaker D: But physically it's just uh something flat on the table again, yeah.
+[00:09:37] Speaker B: Exactly.
+[00:09:39] Speaker C: Huh.
+[00:09:41] Speaker B: But uh in contrary to to having al another keyboard and mouse that only one person can use, now the different persons can use the the screen um at the same time with the with the mouse.
+[00:09:45] Speaker D: Okay.
+[00:09:53] Speaker D: Okay.
+[00:09:53] Speaker C: So based on the fact that most of the P_F_L_ student have their own laptop uh the idea is the similar idea uh is to okay, people are coming on a should be able to very easily uh use some um resources offered to them. So so the idea is to help them socialising, organising their own work, and uh not in a classroom setting, but in a social place where they could gather.
+[00:09:58] Speaker D: Yeah.
+[00:10:12] Speaker D: Okay.
+[00:10:18] Speaker D: Hmm.
+[00:10:24] Speaker D: Okay.
+[00:10:27] Speaker D: Yeah, so it's different, but still uh yeah, it's same
+[00:10:30] Speaker B: I'll s still the same subjects. It's it's collaborative work. But uh
+[00:10:32] Speaker D: Okay.
+[00:10:35] Speaker C: Different directions.
+[00:10:36] Speaker B: It has nothing to do with uh audio processing and uh L_E_D_. So
+[00:10:36] Speaker D: Okay.
+[00:10:39] Speaker D: Yeah.
+[00:10:42] Speaker D: Okay.
+[00:10:44] Speaker C: Okay. So uh maybe we can focus a little uh uh bit more on the what we have done about uh the noise sensitive table. Tell you about uh what we're interested in on the so we start so Guillaume started by uh developing the application that get the audio input. So we want it to have a modular architecture to be able to improve each uh layer separately. So the audio input uh is quite basic, no? We u we use uh sound cards to to get uh the signals and to detect to uh on to ha and we have a threshold to detect uh when someone is talking, at least when the noise is uh at uh is bigger that uh specific levels.
+[00:10:51] Speaker D: Yeah.
+[00:11:03] Speaker D: Mm-hmm.
+[00:11:13] Speaker D: Okay.
+[00:11:22] Speaker D: Mm-hmm.
+[00:11:30] Speaker D: Okay.
+[00:11:35] Speaker D: Mm-hmm.
+[00:11:36] Speaker C: And then we get this information about people talking, not talking, and to say okay uh, this one is talking for X_ time or uh has been talking uh X_ percent of the five last minutes. Or two people are talking together. So this is more semantic uh layer. Uh we call that interaction uh models. And uh uh so when different conditions are trigger are detected, we trigger on the interaction event. So very simple one could be one person is talking. So it's uh the easy one.
+[00:12:04] Speaker D: Mm-hmm.
+[00:12:09] Speaker D: Yeah, yeah.
+[00:12:12] Speaker A: And there is uh a lot of programmes now about this implementation. Is it's not uh it's not obvious. Hmm? Still in progress. Almost done.
+[00:12:16] Speaker C: It's still in progress. Still in progress.
+[00:12:21] Speaker B: Anyway, uh I think the the details of the implementation is not that important. It's more important that first we want to to have some events like two people are talking or one one started and another started and uh well, more or less broke into the speech of the first person, and so on. And then you can start to visualise these uh different situations.
+[00:12:29] Speaker D: Hmm.
+[00:12:31] Speaker D: Right.
+[00:12:37] Speaker D: Hmm.
+[00:12:41] Speaker D: Okay.
+[00:12:44] Speaker C: So the last layer is about this visualisation. W we will uh we are thinking about the visual grammar, meaning that when we have an interaction event that is uh fired, we uh will associate uh a way of visuali visualising it. So for instance if someone is talking, uh we can just have a light that will centre on the point that is uh close to him. That could be an uh instant uh feedback. And if he has been talking maybe seventy percent of the last five minutes, as me, uh uh it it may be reflected as the um intensity or size of a s a cycle.
+[00:12:45] Speaker D: Right.
+[00:13:02] Speaker D: Mm-hmm.
+[00:13:12] Speaker D: Mm-hmm.
+[00:13:20] Speaker D: Or too long. Oh, just kidding.
+[00:13:22] Speaker A: Mm-hmm.
+[00:13:30] Speaker D: Okay.
+[00:13:31] Speaker C: Centre on the same point. And then if there's turn taking, we can show waves of light going from uh me to you uh or from other people. Or using the centre part of the table to show some something more about the um uh more general uh dynamic.
+[00:13:33] Speaker D: Yeah.
+[00:13:40] Speaker D: Yeah.
+[00:13:46] Speaker D: Right.
+[00:13:49] Speaker B: Well that's uh I guess it's first prototype i you see we start with uh people two people talk or and don't and don't they. Uh afterwards uh one could imagine that you for example you can detect that someone is a bit angry or is uh yelling. And wi with different colours with uh with different colours on on table you could uh display this this uh give some feedback. But uh
+[00:13:52] Speaker D: Mm-hmm.
+[00:14:06] Speaker D: Yeah.
+[00:14:08] Speaker C: Or laughing.
+[00:14:14] Speaker D: Ah, so you ha you you might have multiple colours? Or yeah. Sorry, didn't get that.
+[00:14:18] Speaker A: Yes.
+[00:14:19] Speaker B: Yep. That's uh
+[00:14:19] Speaker C: Yes.
+[00:14:21] Speaker C: In uh we can change inte so we have uh eight by eight uh two times LEDs. Each uh LED is actually three LEDs um. Th uh M_G_B_ LED. And we can change the intensity. So it's already quite a rich uh feedback.
+[00:14:32] Speaker D: Yeah. Yeah.
+[00:14:35] Speaker D: Alright.
+[00:14:38] Speaker D: Okay.
+[00:14:39] Speaker B: Once we get the hardware.
+[00:14:40] Speaker C: Yes. And just a last thing. So this table is uh two different things. It's uh one object that will uh g provide a feedback to the terminal users, people collaborating around uh the table. But it also a tool for us as a researcher to test uh both the interaction event we want to detect and to test the visualisation. So um we will be able to edit some uh interaction rules and the visualisation uh grammar. And uh we will be able to process to post-process some conversation just to see what happens and to uh have these um models on feedback working when people are using the table.
+[00:14:40] Speaker D: Yeah..
+[00:14:52] Speaker D: Mm-hmm.
+[00:14:55] Speaker D: Right.
+[00:15:05] Speaker D: Mm-hmm.
+[00:15:08] Speaker D: Okay.
+[00:15:22] Speaker D: Mm-hmm.
+[00:15:30] Speaker D: Okay.
+[00:15:33] Speaker D: Hmm.
+[00:15:37] Speaker C: So I think it was
+[00:15:37] Speaker D: No, it's quite clear.
+[00:15:38] Speaker B: Mm.
+[00:15:41] Speaker D: So uh I guess you want to know what you could do with an array maybe?
+[00:15:46] Speaker C: Yes.
+[00:15:46] Speaker A: Mm yes.
+[00:15:48] Speaker B: Yes. Everything from um multi switch administration of uh audio and how you can uh analyse it, uh what information you can get out of speech and so on. So
+[00:15:55] Speaker D: Mm-hmm.
+[00:15:56] Speaker A: Yes. Uh
+[00:16:01] Speaker D: Yeah.
+[00:16:01] Speaker A: I have one or or two question. I don't know if you want to to begin with the the explanation about the the release.
+[00:16:10] Speaker C: Um
+[00:16:11] Speaker C: Maybe we could summarise the question we were thinking about.
+[00:16:11] Speaker D: Or yeah. Yeah. Yeah, it's good idea. Just give some questions uh
+[00:16:15] Speaker A: O okay.
+[00:16:18] Speaker A: So um I have actually two questions that are uh just practical question abo about my um my implementation now. Uh i
+[00:16:27] Speaker D: Mm-hmm.
+[00:16:28] Speaker C: So basically what we want we want to know when A_ is talking, B_ is talking and uh
+[00:16:31] Speaker A: No.
+[00:16:33] Speaker D: Right.
+[00:16:34] Speaker C: Basic information we need..
+[00:16:36] Speaker A: So and the first information is um about the the noise level. N not the noise level, the sound level. Uh because uh what you get from from the microphones is uh a curve. And um a way the way uh it is implemented now uh to detect yes, you have a uh I have packets uh for uh let's say uh this is uh this is uh not uh fixed. But uh I have packets for about um uh alpha second. So it's uh second. And uh on these packets I want to know the the sound level, the average sound level. So uh the way I do it now is uh to to take uh each top of the curves' bottoms and uh just making leverage this.
+[00:16:42] Speaker D: Mm-hmm.
+[00:16:50] Speaker D: Mm.
+[00:16:59] Speaker D: Mm-hmm.
+[00:17:11] Speaker D: Okay.
+[00:17:17] Speaker D: Mm-hmm.
+[00:17:27] Speaker D: Yeah.
+[00:17:30] Speaker D: Mm-hmm.
+[00:17:31] Speaker A: But I don't know if it's it's not really um the best way to do it. But I don't know uh if
+[00:17:38] Speaker D: You mean the top of the wave-form? Okay.
+[00:17:40] Speaker A: Yes.
+[00:17:41] Speaker B: Probably it's uh it's f be a good idea if you have s two uh with um with source like uh books or web page centre. Give a lot of information how it is audio programming and so on works, cetera. Maybe you you know some at least a good book that's uh dealing with this stuff.
+[00:17:54] Speaker D: Yeah.
+[00:18:00] Speaker D: Oh
+[00:18:00] Speaker C: Maybe we can uh go through the different questions and then you can organise your own? Um I would just add something. Uh we are not interested so much in sound level but uh in the level of uh the sound that corresponds to voice.
+[00:18:03] Speaker A: Okay. So this is this the the first question.
+[00:18:04] Speaker B: Mm-hmm.
+[00:18:05] Speaker D: Okay.
+[00:18:17] Speaker D: Hmm.
+[00:18:17] Speaker A: Yes. But I think uh this is two different problems. Uh the filtering must be must be done before.
+[00:18:25] Speaker C: Mm-mm. Okay, it was just a
+[00:18:26] Speaker A: And after that uh if you have uh a cleaned curve and you can uh just apply uh functionally. And uh the second question was about um uh filtering and uh F_F_T_ yeah, what you can get from it. Uh
+[00:18:31] Speaker D: Hmm.
+[00:18:31] Speaker C: Okay. Go on.
+[00:18:39] Speaker D: Mm-hmm.
+[00:18:43] Speaker D: Okay.
+[00:18:46] Speaker C: And I would add uh one more. It's about um because what we can uh record is uh sound uh origins. So in po uh so no sonic points. But what we are interested in is people. So the question is if someone is moving, I'm talking here, I stop talking, I'm going here, I'm talking. How to detect that it's the same people. If we want to uh integrate information to say these people has uh spoken seventy percent of the time in the five last minutes. Obviously we need to uh to know that it's the same people. So right now our practical solution is to have one uh microphone close to um every place where people are supposed to sit. So we can infer that if a sound is coming in this area, it's the same. So kind of trick. But for the beginning it's enough.
+[00:18:46] Speaker A: general questions.
+[00:18:57] Speaker A: Okay.
+[00:18:59] Speaker D: Yeah.
+[00:19:03] Speaker D: Yeah.
+[00:19:09] Speaker D: Hmm.
+[00:19:22] Speaker D: Okay.
+[00:19:36] Speaker D: Mm-hmm.
+[00:19:42] Speaker A: Mm-hmm. Uh o yes, I will just add something. Um
+[00:19:48] Speaker A: is there a way to uh to from one uh from one stream to uh to build two streams that correspond to the the voice of one people and the voice of the second? the
+[00:19:58] Speaker D: Yeah.
+[00:20:05] Speaker D: Yeah, yeah. Okay. Separation uh
+[00:20:07] Speaker A: Yes.
+[00:20:09] Speaker B: And is possible to do this in real time.
+[00:20:12] Speaker D: Yeah.
+[00:20:13] Speaker B: That's uh
+[00:20:16] Speaker C: And a last question that is related t uh our last if I not find another one, um
+[00:20:25] Speaker C: About people, if someone is leaving or if someone uh maybe it would be something ev uh quite complex even for you. If someone is staying here, but is quiet or leaving, how can we detect that someone is here but quiet? Okay.
+[00:20:33] Speaker D: Hmm.
+[00:20:39] Speaker D: Mm-hmm.
+[00:20:45] Speaker D: Well you need a camera. Obviously. I mean will you have a camera?
+[00:20:46] Speaker C: I know. But how to integrate the information? Uh
+[00:20:52] Speaker A: No. And it it this is not uh
+[00:20:52] Speaker B: No.
+[00:20:53] Speaker C: Not not yet. Maybe later on. But
+[00:20:55] Speaker D: Maybe you can detect breathing.
+[00:20:58] Speaker C: Oh, the wait and the sit.
+[00:21:01] Speaker D: Yeah. Yeah, that you could do. Or on the table uh there should be well.
+[00:21:07] Speaker C: .
+[00:21:07] Speaker B: Yeah, but what happens if o someone is standing then?
+[00:21:10] Speaker C: Or putting his bag on the okay. But it was just to it's a question. I'm not sure we will talk too much about that today.
+[00:21:15] Speaker D: Okay uh
+[00:21:18] Speaker A: a sound question. Sound related question.
+[00:21:23] Speaker D: Okay.
+[00:21:27] Speaker C: Uh not directly. But it's uh related.
+[00:21:30] Speaker D: Mm.
+[00:21:32] Speaker D: Well
+[00:21:32] Speaker C: So in a couple of days we will get this um uh the fire-wire uh box. So we will we have chosen one that has eight uh line up. So we'll be able to have line in, sorry. So we will be able to plug uh up to eight uh microphones with uh jack plugs to exhale air with the possibility of extending with eight more X_L_R_ uh microphone with another box.
+[00:21:38] Speaker D: Okay.
+[00:21:44] Speaker D: Mm-hmm.
+[00:21:45] Speaker A: Line in.
+[00:21:55] Speaker D: Okay.
+[00:22:02] Speaker D: So you I think Guillaume said that's optic, something like that? Or
+[00:22:05] Speaker A: Uh yes. The the communication between the the extension and is uh of the.
+[00:22:05] Speaker B: Yeah.
+[00:22:07] Speaker D: Okay. So you you need a different you need a microphone with um a device inside, right?
+[00:22:15] Speaker B: No, no, no. In fact uh that's uh it's another thing, this optic. Well uh m we have
+[00:22:16] Speaker D: Ho how does it work?
+[00:22:17] Speaker A: No, no, no. Uh okay.
+[00:22:20] Speaker C: So we ha we have the computer, we have the the main box with the eight line ins. And it's fire-wire.
+[00:22:26] Speaker A: And the fire-wire port. And there is an extension for this this uh this device connected to it uh with uh optic fibre.
+[00:22:27] Speaker D: Okay.
+[00:22:32] Speaker D: Yeah.
+[00:22:34] Speaker C: It is optic.
+[00:22:36] Speaker C: To have eight more X_L_R_ if we need it. But we are not sure to to buy it now. But we can extend it.
+[00:22:36] Speaker B: Ye
+[00:22:39] Speaker D: Okay.
+[00:22:42] Speaker D: Mm.
+[00:22:42] Speaker B: Actually, it's not really an extension to the first box, just an indu industry standard uh uh protocol between these two uh
+[00:22:45] Speaker C: That's uh
+[00:22:48] Speaker D: Hmm.
+[00:22:51] Speaker D: It's another fire-wire or not fire-wire, but um
+[00:22:54] Speaker B: Well well there's a special protocol to to deliver uh audio signals and uh its path through uh o um
+[00:22:56] Speaker D: Okay.
+[00:22:59] Speaker D: But concretely you would use that to get higher quality signals?
+[00:23:05] Speaker A: Yes. Uh yes.
+[00:23:05] Speaker D: Y that's all.
+[00:23:07] Speaker B: Well actually, just to have the the ICSLA e uh possibly to to branch ICSLA.
+[00:23:07] Speaker C: Yes. Well
+[00:23:07] Speaker D: .
+[00:23:10] Speaker C: We are not sure about what kind of microphone we should use. So we wanted to uh that's a first thing. So we wanted to have open possibilities. And secondly, maybe we will use this box, you know, to get uh data. I don't know if in another experiment, maybe in another project, if we want to have comments of different people around the table or o elsewhere. Uh getting uh having the possibility of using X_L_R_ microphone could be uh uh could be neat. So everything is open.
+[00:23:10] Speaker D: Yeah.
+[00:23:13] Speaker D: Ah okay, okay.
+[00:23:19] Speaker D: Yeah.
+[00:23:33] Speaker D: Yeah.
+[00:23:39] Speaker D: Hmm.
+[00:23:39] Speaker A: Be because for now uh I'm just sampling the sound that uh eight thousand. So uh just uh something very very rel I could uh even uh go to lower. But uh this is just to get the the s the noise, the sound level. But uh if I want to record the conversation with uh uh a processing after th
+[00:23:52] Speaker D: Okay.
+[00:23:58] Speaker D: And how
+[00:23:59] Speaker D: Hmm.
+[00:24:04] Speaker D: Hmm. You mean you meant eight kilo uh sampling frequency?
+[00:24:08] Speaker A: Yes, to to have a better sound quality. Uh perhaps it's better to have a X_ array, yeah. Something like that.
+[00:24:14] Speaker D: Yeah.
+[00:24:16] Speaker D: Uh we use sixteen. So that's eight kilo band-width.
+[00:24:21] Speaker D: Sixteen kilo uh sampling frequency. It it's not bad. Uh it's quite decent.
+[00:24:21] Speaker A: Yes.
+[00:24:25] Speaker A: . Okay.
+[00:24:27] Speaker D: Um
+[00:24:30] Speaker D: Mm f before answering the questions uh th there's also a point of uh precision of localization if you use an array. So if you use higher frequencies you can get more precise localization. But maybe you don't need it.
+[00:24:37] Speaker A: Mm-hmm.
+[00:24:43] Speaker A: Sure, sure. But uh what is the the gain? In terms of uh position?
+[00:24:51] Speaker D: Uh that I can't answer directly.
+[00:24:54] Speaker A: Uh uh uh centimetres or uh more?
+[00:24:59] Speaker D: Uh it depends on your set-up, you know. Um you have to test basically.
+[00:25:01] Speaker A: Okay.
+[00:25:04] Speaker A: M uh what you get is uh the real position or uh just uh the angle at which the the sound comes?
+[00:25:11] Speaker D: Um
+[00:25:14] Speaker D: Y you get uh the angle. The most precise one is the asymmet in the horizontal plane. Then you also get elevation. But it's not very precise. It's more of an indication. And radius is very bad.
+[00:25:16] Speaker A: Mm-hmm.
+[00:25:20] Speaker A: Mm-hmm.
+[00:25:28] Speaker A: Okay.
+[00:25:29] Speaker D: If you use a planar geometry like this one.
+[00:25:33] Speaker A: Yes, sure.
+[00:25:34] Speaker D: Yeah. Um you can use multiple ones and do some um um triangulation.
+[00:25:42] Speaker A: Yes. Uh because uh there there is just um four microphones that are eight.
+[00:25:43] Speaker B: Hmm.
+[00:25:48] Speaker D: Eight, eight. These are only screws. Microphones are on bottom. Yeah, yeah.
+[00:25:51] Speaker A: Okay, yes. Okay, but there are in uh in a plan. Okay. Because uh at at T_P_F_N_ there is a lab that is uh has done almost the same thing. But they have uh eight microphone that are uh at uh yes, the eight um the eight uh uh cor corner of uh a cube, yes.
+[00:26:00] Speaker D: Mm-hmm.
+[00:26:10] Speaker D: A cube? Okay.
+[00:26:13] Speaker D: Yeah, then you might get uh better direction in elevation. But I'm not sure it's really relevant. Um no. So
+[00:26:21] Speaker C: No, we are not very interested in.
+[00:26:22] Speaker A: The elevation, no. But uh what is could be relevant, it's not uh almost it's not always the case with the the um
+[00:26:23] Speaker B: No.
+[00:26:31] Speaker D: Uh if people move forward, yeah.
+[00:26:32] Speaker A: Yes, the the position, the the radius of the
+[00:26:37] Speaker D: Ah, the radius? Th then the r the problem is not the geometry, it's the um I you need more than one basically.
+[00:26:38] Speaker A: Yes, it could be.
+[00:26:45] Speaker A: Yes, okay.
+[00:26:47] Speaker D: With one you will only get direction.
+[00:26:49] Speaker C: More than one
+[00:26:50] Speaker D: Microphone array. So
+[00:26:52] Speaker A: Yes. Because um because i the um the distance between the the microphone is too uh is too low to
+[00:26:53] Speaker B: Uh-huh.
+[00:26:59] Speaker C: Mm-mm mm-mm.
+[00:26:59] Speaker D: Mm.
+[00:27:01] Speaker C: Okay.
+[00:27:01] Speaker B: Well uh so you say this one already works to uh to tell the the direction. Um would it also work if you placed uh the microphones at at the border of the table? You see, now you you have it quite central. And uh what happens if if you put them here on around the table? Would it work as well? Or
+[00:27:06] Speaker D: Direction, yeah.
+[00:27:13] Speaker D: Um
+[00:27:16] Speaker D: Yeah.
+[00:27:22] Speaker D: It's a different option, yeah. Um we haven't tried that because we are not going to have the special kind of table. More uh this is not a good example but we have like a box, just bring the box and put it. So it uh we could not consider that. But in your case it could be interesting, yeah. Unless people put something on the microphone. But um
+[00:27:25] Speaker B: You just didn't try? Or
+[00:27:32] Speaker B: Mm-hmm.
+[00:27:32] Speaker A: Mm-hmm.
+[00:27:38] Speaker B: Yeah.
+[00:27:42] Speaker B: Yeah, it is clear, this.
+[00:27:47] Speaker A: Yes, sure.
+[00:27:50] Speaker C: They won't have nice light uh lighting on in front of them.
+[00:27:55] Speaker D: Yeah.
+[00:27:55] Speaker A: Yes, but I think the the most relevant part is the um the other uh the hardware that synchronize the microphones and that.
+[00:27:55] Speaker C: they would maybe careful.
+[00:27:56] Speaker B: No.
+[00:28:06] Speaker D: Right. But that I'm I think after the meeting we can go and talk to Olivier about that. I'm not the person for hardware.
+[00:28:07] Speaker C: But
+[00:28:12] Speaker C: Okay.
+[00:28:12] Speaker A: Yes.
+[00:28:12] Speaker B: Mm-hmm.
+[00:28:15] Speaker B: No.
+[00:28:15] Speaker C: So maybe w uh you could present a different work uh you have done. And uh I don't know how they are.
+[00:28:19] Speaker D: Yeah.
+[00:28:23] Speaker D: Yeah, I'll t I'll try to present uh I guess it corresponds to your questions.
+[00:28:28] Speaker C: So you told us it was different pieces, more than one integrated device.
+[00:28:30] Speaker D: Yeah.
+[00:28:32] Speaker D: So the the lowest layer would be the first two questions. Um you asked about how to detect um activity. Currently you're thresholding the t maximum of your wave-form, right.
+[00:28:42] Speaker A: Yes.
+[00:28:46] Speaker A: Mm not maximum. The the average on the on the packets.
+[00:28:48] Speaker D: Ah, ah. Okay. And you're looking for a peak.
+[00:28:48] Speaker C: Oh uh
+[00:28:53] Speaker A: Uh yes, the the I take the the b I g when I go up to the the curve uh I'm uh on the at the local maximum. I take it. Then the next uh local minimum and uh taking this uh this range, doing average on it.
+[00:28:55] Speaker D: Yeah.
+[00:29:00] Speaker D: Yeah.
+[00:29:03] Speaker D: Yeah.
+[00:29:06] Speaker D: Hmm.
+[00:29:10] Speaker D: Okay.
+[00:29:10] Speaker C: What would be the d difference between detecting the average or detecting the maximum?
+[00:29:16] Speaker D: Uh
+[00:29:17] Speaker A: Yes.
+[00:29:18] Speaker A: Difference.
+[00:29:18] Speaker C: What what would be the difference? What is the difference?
+[00:29:21] Speaker A: Difference is uh is that if I just uh
+[00:29:24] Speaker C: It's a kind of filtering already?
+[00:29:26] Speaker D: Yeah. Yeah. And your second question uh was about F_F_T_, what can be done with F_F_T_. So um the approach we're taking here is to answer both questions the same time. We use F_F_T_ to do detection. We don't use the wave-form, the raw wave-form. So um
+[00:29:26] Speaker A: Mm yes.
+[00:29:33] Speaker A: Yes.
+[00:29:45] Speaker A: Okay.
+[00:29:48] Speaker A: A you have uh you have fifteen implementations. Uh
+[00:29:53] Speaker D: We split um we split the signal in small frames, like sixteen millisecond. Sixteen.
+[00:29:57] Speaker A: Yes.
+[00:30:00] Speaker A: Okay.
+[00:30:00] Speaker C: Sixty? Okay.
+[00:30:01] Speaker A: Sixteen.
+[00:30:02] Speaker D: Um each frame is taking thirty two millisecond of signal, just to give an idea. And there is a one frame every sixteen millisecond, and they overlap of fifty percent.
+[00:30:09] Speaker C: again.
+[00:30:12] Speaker C: Uh-huh.
+[00:30:15] Speaker C: Okay.
+[00:30:17] Speaker D: Um
+[00:30:18] Speaker C: So it's thirty two millisecond frames taken each
+[00:30:21] Speaker D: Yeah. Each sixteen millisecond.
+[00:30:26] Speaker D: Well th these are details. It's just to give an idea. Um
+[00:30:28] Speaker C: An idea. So something like that. So why are you overlapping?
+[00:30:36] Speaker D: Well it's uh the the c
+[00:30:37] Speaker C: I have a rough idea. But uh what is the main interest?
+[00:30:39] Speaker D: Because usually when you do F_F_T_, y if I'm getting into details, but you you apply um a window to avoid effect. So the beginning and the end it it i it's not crappy, it's just not very much rep represented because you apply um a window which has this shape, having window. So they're very yeah.
+[00:30:47] Speaker C: Mm-hmm.
+[00:30:50] Speaker C: Yeah, and it's kind of crappy.
+[00:30:55] Speaker C: Precise. Okay. Okay.
+[00:31:00] Speaker C: Mm mm mm. So you use the first and last point to detect what is between.
+[00:31:06] Speaker D: No, I'm saying uh when you take your signal you take one frame, you apply the window, uh and the window is simply uh coefficients you give. And you give higher coefficient to the middle than to the extreme. So if you don't do overlap y you will lose information at the beginning and the end.
+[00:31:11] Speaker C: Mm-hmm.
+[00:31:19] Speaker A: Sure.
+[00:31:20] Speaker C: Mm-mm.
+[00:31:24] Speaker B: You lose information. Um.
+[00:31:26] Speaker C: Okay.
+[00:31:29] Speaker A: Okay, okay.
+[00:31:31] Speaker D: Okay. But you don't have to do overlap. I mean uh it's um
+[00:31:35] Speaker A: Yes, and then I just uh because uh we are using um uh an open s an open source framework to do this, there is uh something, I don't know if you know i know it, uh calls Sphinx, that is doing uh s sorry.
+[00:31:43] Speaker D: Hmm.
+[00:31:49] Speaker D: Um C_M_U_, no? Is it from C_M_U_? Um uh yeah.
+[00:31:55] Speaker A: Yes. Doing um voice recognition. And uh I just use it for the for the for the microphone and the acquisition. So uh there is uh already uh an F_F_T_ uh module implemented in it. I didn't test it. But um
+[00:31:59] Speaker D: Yeah, yeah.
+[00:32:06] Speaker D: Right.
+[00:32:12] Speaker D: Yeah, yeah.
+[00:32:14] Speaker D: Yeah.
+[00:32:17] Speaker D: F_F_T_ is only a tool. Uh um uh what we do release a phase domain analysis. We only use the phase between the microphones. Um
+[00:32:19] Speaker B: Yeah.
+[00:32:19] Speaker A: Yes, sure.
+[00:32:30] Speaker A: Y yes, for the for the the position,.
+[00:32:33] Speaker D: Yeah, but also for detection.
+[00:32:35] Speaker A: Also for detection.
+[00:32:36] Speaker D: Yeah. Um we have a way so um I don't think I should get into details. But basically the beginning is your signal which you slice into frame. You do F_F_T_ on each mic. And the end is um a number of uh frequency beams which are used by each person, to uh explain roughly. S so when you speak, speech is wide band. So um the more active you are the more band-width you use. So you will get a large value of band-width for people who speak. And uh for the others it will random. It will be a small value.
+[00:32:49] Speaker A: Mm-hmm.
+[00:33:03] Speaker C: So you are
+[00:33:05] Speaker C: Mm-hmm.
+[00:33:07] Speaker A: Mm-hmm.
+[00:33:18] Speaker C: Mm-hmm.
+[00:33:23] Speaker C: Corresponding to breath or a little noise.
+[00:33:26] Speaker D: Or just background noise. And so uh
+[00:33:27] Speaker C: 'Kay.
+[00:33:30] Speaker A: 'Kay, yes. Sure. Okay.
+[00:33:31] Speaker C: But you're talking about the microphone array here?
+[00:33:34] Speaker D: Yeah. 'Cause one problem if you use energy based methods, which is probably more uh the thing you've been using so far, is that it's not um quite related to location. So you can have um uh for one person you can have uh a high energy signal which is difficult to locate, and visa versa. Um I think in your case you're quite interested in the location. So I would advise to um use more uh phase domain methods.
+[00:33:39] Speaker A: Yes.
+[00:33:46] Speaker A: No.
+[00:33:49] Speaker C: Strong background noise.
+[00:34:12] Speaker C: So phase
+[00:34:13] Speaker D: Um
+[00:34:13] Speaker B: Well that's something with F_F_T_s.
+[00:34:16] Speaker D: Once you have the fifty, for each frequency you have uh the magnitude and the phase. So you can compare the phase of the microphones. And this is directly linked to the direction of the person.
+[00:34:17] Speaker C: Uh-huh.
+[00:34:20] Speaker C: Uh-huh.
+[00:34:20] Speaker B: And the phase.
+[00:34:22] Speaker A: Yes.
+[00:34:22] Speaker C: Okay.
+[00:34:30] Speaker D: Um
+[00:34:31] Speaker B: So the magnitude you don't really use? Or and for this uh
+[00:34:35] Speaker D: Sometimes we use it, but not it's not the first thing we use. I know it's a bit counterintuitive. But um maybe I'll go t to the board. Yeah.
+[00:34:43] Speaker B: Well uh uh uh I did a speech processing uh course and I'm not sure if they a uh they also um mm learns that that. We more used the face than the magnitude. So uh I guess the
+[00:34:45] Speaker A: Okay.
+[00:34:48] Speaker D: Okay.
+[00:34:55] Speaker D: R right, for a single channel it's not very meaningful. But here it's relative phase between the microphones. So uh I'll just try to um s summarise.
+[00:35:03] Speaker B: Uh-huh.
+[00:35:05] Speaker A: Y you have to detect uh an event on one microphone and uh know when it's happened on uh on the other one. No? Okay.
+[00:35:12] Speaker D: No, that's what I don't do. Um this would be valid for uh like speech recognition with a single channel. That would be a very good idea. But if you choose to use multiple channels
+[00:35:29] Speaker D: um
+[00:35:32] Speaker D: let's say you have four of them,
+[00:35:35] Speaker D: with F_F_T_ you can just uh, as I said, l look at the phase between the microphones at a given frequency.
+[00:35:43] Speaker C: So the phase the time between uh audio signals for um for this microphone on this microph
+[00:35:50] Speaker D: Um it is linked to this value, yeah. Uh basically the time you're mentioning is this value.
+[00:35:53] Speaker C: Okay.
+[00:36:01] Speaker D: And this is the frequency. And this is an angle in radians.
+[00:36:05] Speaker A: Mm-hmm.
+[00:36:05] Speaker C: Okay.
+[00:36:07] Speaker D: So uh F_F_T_ gives you a measure of these values.
+[00:36:13] Speaker D: Uh this, I can point to a paper, uh I don't think this is the right place to explain everything. But will give you if you look at your table, uh what we have developed here
+[00:36:26] Speaker D: is an approach where um th uh you divide the space in sectors.
+[00:36:33] Speaker A: Mm-hmm.
+[00:36:34] Speaker D: For example ten sectors around the table.
+[00:36:36] Speaker C: Mm-hmm.
+[00:36:38] Speaker D: And uh
+[00:36:41] Speaker D: in each sector you will get the value.
+[00:36:44] Speaker A: It's related to the number of microphones around. No.
+[00:36:46] Speaker D: No. It's uh application dependent. For example um
+[00:36:55] Speaker D: Well this is not.
+[00:36:59] Speaker D: And on this one you could have a large value.
+[00:37:03] Speaker D: On on on those ones, small values.
+[00:37:07] Speaker D: Uh these are number frequencies
+[00:37:11] Speaker D: which we estimate with several steps from these measures. So to conclude what we are doing is uh we estimate how much of the frequency spectrum you are occupying when you speak, or I am occupying in this direction when I speak. And it turns out that um this is quite good to do uh detection and localization at the same time.
+[00:37:28] Speaker A: Okay.
+[00:37:28] Speaker B: Mm-hmm.
+[00:37:38] Speaker A: Mm-hmm.
+[00:37:38] Speaker D: Bec because you know in a sector space there is uh uh this much activity.
+[00:37:45] Speaker C: Mm-hmm.
+[00:37:46] Speaker A: Okay, this is a measure of the activity o okay.
+[00:37:48] Speaker D: Yeah, yeah. Um
+[00:37:53] Speaker D: more recently um I've worked on uh
+[00:38:00] Speaker D: um prolongating this with a more precise direction evaluation to know where in the sector the person is. So that uh that's not much work. Once you have done this, this is can be this can be done quite quickly.
+[00:38:17] Speaker B: And what happen uh if two person are talking at the same time? This it just get two sectors that are higher than others, no?
+[00:38:20] Speaker D: Then you
+[00:38:23] Speaker D: Yeah, y well I I use a value. But then you'll get two large values. Yeah. So
+[00:38:28] Speaker C: And do you get something about the um distance of the guy that is talking, or just a direction?
+[00:38:28] Speaker B: Sounds.
+[00:38:34] Speaker D: No. Just direction. Yeah.
+[00:38:36] Speaker C: Okay.
+[00:38:36] Speaker A: Th there there is a distance. But it's not very uh very effective.
+[00:38:41] Speaker D: Well, f yeah, I it's not uh i it's an inherent problem to the geometry you use. You can for example, if you use another array, uh you can intersect lines of direction.
+[00:38:43] Speaker A: As as you mentioned.
+[00:38:49] Speaker A: It's
+[00:38:49] Speaker C: Mm-mm.
+[00:38:55] Speaker C: Mm-hmm.
+[00:38:58] Speaker C: Okay.
+[00:38:59] Speaker A: And uh from from this kind of if information you can uh let's say have uh a finger print of the user to know uh if this is the same user speaking.
+[00:39:11] Speaker D: Uh
+[00:39:14] Speaker A: So
+[00:39:16] Speaker D: Mm maybe. Uh uh I w mm I wouldn't trust it too much. Classically, what you do is you extract the signal of the person. Um one interesting thing is that these numbers are not uh arbitrary things. They represent the number frequencies where a given person is dominant. But when you have two of them, which might be interesting for separation, you know already when you have done this processing uh w which part of the frequencies of the spectrum um belongs to this person and to that person. And then it's easy to separate the signals.
+[00:39:17] Speaker B: Well uh uh
+[00:39:18] Speaker A: Not sure. Because the the um
+[00:39:29] Speaker A: Okay.
+[00:39:29] Speaker B: Mm-hmm.
+[00:39:47] Speaker A: Which
+[00:39:57] Speaker B: Yeah.
+[00:39:57] Speaker C: You mean that each person will have a specific frequency because i the way he's talking or his localization?
+[00:40:01] Speaker A: range.
+[00:40:03] Speaker B: No, it's more than.
+[00:40:05] Speaker D: Um both.
+[00:40:06] Speaker C: It's a kind of uh speaking styles? Both.
+[00:40:08] Speaker B: No, it's uh
+[00:40:09] Speaker D: It's it's more an instantaneous um this is still instantaneous. This is for one time frame.
+[00:40:12] Speaker A: .
+[00:40:16] Speaker A: Yes, okay.
+[00:40:17] Speaker D: If you look at all your frequencies for example uh zero to four kilohertz,
+[00:40:23] Speaker D: um
+[00:40:25] Speaker D: you can split it and say uh all these parts belong to person one here.
+[00:40:36] Speaker D: And uh all the other parts belong to the other person.
+[00:40:36] Speaker A: So
+[00:40:38] Speaker A: This is this is a bit arbitrary. Because uh perhaps uh person two will have uh some frequencies in the range of
+[00:40:47] Speaker D: That's correct. But then uh you can look statistically it wi it will be negligible um because the r of uh of the difference level.
+[00:40:53] Speaker A: Okay.
+[00:40:57] Speaker A: And if you reconstruct the stream from this uh this range, you will uh get something uh that is uh
+[00:41:03] Speaker D: Yeah. It's uh you can listen to it, yeah. And then you can do some uh maybe higher level um analysis where you get the pitch of the person or
+[00:41:05] Speaker A: Okay.
+[00:41:14] Speaker B: Mm-hmm.
+[00:41:14] Speaker C: I don't really get your last uh diagram, yes. So it's at one given moment still? Okay, so you can say that f this frequency belongs more to this person and this one more to this one? But some frequency may maybe are not used neither by uh guy the guy one or the guy two.
+[00:41:17] Speaker D: This
+[00:41:20] Speaker D: Yeah, yeah. And this is
+[00:41:27] Speaker D: Exactly.
+[00:41:32] Speaker D: Yeah.
+[00:41:34] Speaker D: Then it's uh random. And that's why you get these values uh which are random.
+[00:41:40] Speaker C: Okay. maybe they are using the same frequency. so you need to s
+[00:41:43] Speaker D: Yeah. Yeah, but this is very rare. And when it happens, one is always masking the other in practice. So um
+[00:41:46] Speaker C: Okay.
+[00:41:50] Speaker C: Okay.
+[00:41:52] Speaker C: Okay.
+[00:41:54] Speaker C: And can you detect if someone is laughing or angry d uh there is kind of signature uh even if we can't really trust it uh uh s one hundred percent of the time. Uh
+[00:42:02] Speaker D: Yeah.
+[00:42:04] Speaker D: No no. But uh I've I've seen quite a few papers I I've n not done it myself. I'm really on the lowest level. Um but uh once you have done this, as I said,
+[00:42:18] Speaker D: you can uh separate the signals
+[00:42:22] Speaker D: and um
+[00:42:24] Speaker C: And do processing on it.
+[00:42:26] Speaker D: do do processing. Uh
+[00:42:29] Speaker C: Okay.
+[00:42:30] Speaker D: so uh you can get pitch, rate of speech. That's quite easy. Pitch um the uh uh timbre en Francais. Um so uh for different person this might be quite different. At least for male females.
+[00:42:34] Speaker C: Pitch.
+[00:42:37] Speaker C: It is pitch.
+[00:42:37] Speaker B: I'll show you this afterwards.
+[00:42:40] Speaker C: Li okay.
+[00:42:48] Speaker D: And uh rate of speech. Like if somebody is talking very uh in a very energetic manner, it might be quite fast. Uh or just energy also. One
+[00:42:55] Speaker A: Mm-hmm.
+[00:43:00] Speaker A: And you can you can um this way you can filter uh perhaps some range that are uh just very low frequencies for uh perhaps uh a noise or
+[00:43:09] Speaker D: Yeah, also. Um that might be an issue with people are bringing laptops. Um
+[00:43:18] Speaker A: The yes, the fan.
+[00:43:20] Speaker D: They will b yeah. They might be detected as another another source. Uh so you would have to uh classify the sources as human or machine. But again, yeah, I think once you see the spectrum, if it's just pure and stable
+[00:43:32] Speaker A: Okay.
+[00:43:38] Speaker B: Now if you don't really detect the pitch, ch can say that uh no persons..
+[00:43:39] Speaker D: uh
+[00:43:43] Speaker D: Also yeah, if if there's no pitch.
+[00:43:47] Speaker D: So uh
+[00:43:47] Speaker A: Yes, but but then this this is very interesting because uh this way you can detect uh if someone is talking, if someone uh has an uh some noise with uh perhaps putting his uh his cap on the on the table. Perhaps if there is a laptop and uh in one position
+[00:43:49] Speaker D: Yeah.
+[00:44:01] Speaker D: Yeah.
+[00:44:05] Speaker D: So all will go and be detected there.
+[00:44:08] Speaker A: And you can classif uh classify. And this is
+[00:44:11] Speaker D: Yeah. So w what you're mentioning is a pain for us. But for you it might be 'cause we're only interesting in getting the speech. But for you it might be quite uh quite good, yeah. So I've to avoid uh filtering and smoothing. 'Cause as soon as you do that um you exclude some of the information. So it's better to keep it for the latest stage. So um um on top of this there's another part uh which is more linked to the tracking.
+[00:44:12] Speaker A: Yes. She' very good.
+[00:44:21] Speaker A: Okay.
+[00:44:23] Speaker A: Yes.
+[00:44:36] Speaker A: Yes.
+[00:44:51] Speaker D: All this was for one time frame.
+[00:44:55] Speaker D: So um
+[00:44:58] Speaker A: And the the length of the time frame has um an inference of uh on uh which parameters
+[00:45:06] Speaker D: Yeah, you can play with it. Um in speech it's uh stationary over ten, twenty millisecond. And we make a stationary assumption, a local stationary T_ assumption um which allows you to use F_F_T_ and blah, blah, blah. Uh now in spite of that I know some people use much longer windows, which is not a problem. But
+[00:45:24] Speaker A: Okay.
+[00:45:32] Speaker A: Th there i uh let's say if you use a one second window.
+[00:45:36] Speaker D: Uh it's a bit too much I think.
+[00:45:38] Speaker A: Uh the in fact the the frame lengths will be uh very uh very uh i
+[00:45:44] Speaker B: It's not really meaningful. Well if you do this.
+[00:45:48] Speaker A: Yes.
+[00:45:49] Speaker D: Uh like some very small words, like yes, they might be two hundred millisecond
+[00:45:49] Speaker B: Somehow.
+[00:45:56] Speaker A: Okay.
+[00:45:57] Speaker D: or three hundred millisecond.
+[00:46:00] Speaker D: Um
+[00:46:02] Speaker A: They they won't be visible on the on the wavefo okay.
+[00:46:04] Speaker D: Yeah, they might be blurred with uh silence.
+[00:46:10] Speaker A: Yes.
+[00:46:11] Speaker D: So yes. You you might have to play with it just to save processing time, like use slightly longer frames.
+[00:46:19] Speaker A: But the the the the long uh the longest frame you would use would be one hundred.
+[00:46:25] Speaker D: Yeah, at m at most, yeah.
+[00:46:27] Speaker A: At most, okay.
+[00:46:28] Speaker D: Um
+[00:46:31] Speaker D: Simply because I've used one hundred as a minimum length of a speech word. Yeah, so.
+[00:46:37] Speaker A: Okay, yes.
+[00:46:37] Speaker B: Mm-hmm.
+[00:46:40] Speaker D: Um
+[00:46:43] Speaker D: now assuming you have done this for each time,
+[00:46:47] Speaker D: i if this is your detail or I should use a different
+[00:46:52] Speaker D: Um
+[00:46:54] Speaker D: if this is your asymmet at each time you get a direction. So asymmet is your direction in horizontal plane. It's an angle. Like north, south, east, west. And
+[00:46:57] Speaker C: What is a? Excuse me?
+[00:47:02] Speaker C: Uh-huh. Okay.
+[00:47:05] Speaker C: Okay. So where are you represent the phase?.
+[00:47:08] Speaker D: Yeah. No no, of this is uh really different. I'm just saying that uh once you have done this for a given time frame you can have a direction of the person, at least in terms of sector. And it's also possible to give a more precise direction quite quickly.
+[00:47:12] Speaker B: Mm thanks.
+[00:47:12] Speaker C: Okay.
+[00:47:13] Speaker A: .
+[00:47:17] Speaker C: Uh-huh. Uh-huh.
+[00:47:21] Speaker C: Okay.
+[00:47:24] Speaker C: Mm-hmm.
+[00:47:31] Speaker D: So uh this was kind of the lowest layer.
+[00:47:35] Speaker C: Mm-hmm.
+[00:47:36] Speaker D: Now this is a layer just above it which might interest you. Um if you repeat that over time
+[00:47:45] Speaker D: you will see patterns um
+[00:47:49] Speaker D: for example uh at two different locations.
+[00:47:56] Speaker A: 'Kay, so you can yeah.
+[00:47:57] Speaker D: Two different person will speak. So you can cluster those.
+[00:47:59] Speaker A: Okay.
+[00:48:02] Speaker A: Enter uh when user is
+[00:48:03] Speaker D: And you will see that uh if it's long enough it's some significant event. Um this can be done quite cheaply, yeah.
+[00:48:11] Speaker C: Mm mm mm.
+[00:48:16] Speaker A: Uh yes. And before I forg forget it uh I have one question. Uh you say you do the processing after uh afterwards. And uh what is the the cost, yes, the the length? One one or uh bit longer?
+[00:48:20] Speaker D: Yeah.
+[00:48:26] Speaker D: Yeah.
+[00:48:30] Speaker D: A cost.
+[00:48:32] Speaker D: Yeah, th
+[00:48:35] Speaker D: Um well I use Matlab. So it's not perfect. It's like three, four
+[00:48:38] Speaker A: Okay.
+[00:48:40] Speaker A: Yes, but Matlab is very uh very effective for uh matrices and uh
+[00:48:44] Speaker D: Yeah. But not everything is uh um simple linear. Especially this part. It's definitely not linear because you're looking at a maximum energy in a frequency, kind of.
+[00:48:49] Speaker A: Okay.
+[00:48:58] Speaker A: Yes.
+[00:49:00] Speaker D: The most expensive part is here. With Matlab I have three, four times real time.
+[00:49:06] Speaker A: Okay.
+[00:49:07] Speaker D: Um you can do sub-optimal processing and uh for example here I'm considering all possible pairs of microphones, uh which is twenty eight, and the processing is directly um r proportional to that. So um you can save on that.
+[00:49:21] Speaker A: Yes.
+[00:49:24] Speaker A: Relative, yes. Mm.
+[00:49:34] Speaker D: But then you lose a little bit on precision. Also I I'm using all the small frames with fifty percent overlap. I don't think you really need absolutely to do that.
+[00:49:37] Speaker A: Yes.
+[00:49:44] Speaker A: And even if you use uh four microphones to get uh not good.
+[00:49:48] Speaker D: It's not that good in terms of uh direction.
+[00:49:51] Speaker A: Okay.
+[00:49:52] Speaker D: Um
+[00:49:54] Speaker D: Yeah, I would be careful with that. Like five, six is uh decent.
+[00:49:56] Speaker A: Okay.
+[00:50:01] Speaker D: Uh six I would say, yeah.
+[00:50:03] Speaker A: And eight is uh is good.
+[00:50:06] Speaker D: Eight, yeah, uh I get down now to one, two degrees uh root mean square error.
+[00:50:13] Speaker D: Uh so you might not need that. That's what I mean. Might not be
+[00:50:14] Speaker A: There i yes. But uh
+[00:50:18] Speaker A: Yeah.
+[00:50:20] Speaker A: Yes, one, two degree is very very small for uh for our application. Because we want we really want to detect uh if th this is the same person that is speaking or not. If there is uh an error of uh let's say uh ten, fifteen degrees and but uh it is um capable of uh seeing it as two different person. There is not problems with the
+[00:50:23] Speaker D: Um
+[00:50:27] Speaker D: Yeah.
+[00:50:30] Speaker D: Yeah.
+[00:50:36] Speaker D: Yeah.
+[00:50:42] Speaker D: Yeah. Yeah. So it could be sufficient to uh, yeah, define enough sectors and
+[00:50:52] Speaker A: Okay, and the number of sectors is uh is not dependent of uh the number of microphones?
+[00:50:56] Speaker D: No. No. So it's arbitrary. I use twenty degree sectors. Uh 'cause I had to choose a value. But it's up to you. Um
+[00:51:03] Speaker A: Okay.
+[00:51:10] Speaker B: Well, otherwise it could also just rely on the frequency band separation and detect that way the different persons and th then you don't really know where around the table these. But uh
+[00:51:18] Speaker D: Yeah. Yeah.
+[00:51:23] Speaker A: If there is uh two two person the same sector, I see.
+[00:51:23] Speaker D: Um
+[00:51:27] Speaker B: Well d depends with how you do it. But if if you place the the microphones uh n yeah. Uh
+[00:51:33] Speaker D: So that's another way, yeah. It it's almost like having a lapel, yeah. Um
+[00:51:39] Speaker B: That way you can separate where where is the the voice loud with uh or the loudest.
+[00:51:42] Speaker D: Yeah.
+[00:51:44] Speaker D: I think it's not necessarily a bad idea, actually. Um
+[00:51:48] Speaker B: Well it's quite different thing and uh you don't really get uh a name for it. But uh
+[00:51:53] Speaker D: Well uh
+[00:51:56] Speaker D: If you are able to calibrate your microphones um the ones who are closer to the person will get more energy.
+[00:52:06] Speaker A: Mm-hmm.
+[00:52:07] Speaker D: Um so you can compare that. It's possible. So
+[00:52:12] Speaker B: At the end it it depends a bit what you want. If you are
+[00:52:16] Speaker D: Yeah. Um
+[00:52:19] Speaker D: I have experience with that. Um
+[00:52:23] Speaker D: on the side I've done some single channel work which can maybe help.
+[00:52:27] Speaker A: Mm-hmm.
+[00:52:30] Speaker D: Um 'cause uh it seems to me that you are not definite on the geometry, right?
+[00:52:36] Speaker A: No. Geometry is not. We have not uh thought a lot about it.
+[00:52:40] Speaker D: Yeah.
+[00:52:42] Speaker D: Um m this part is quite specific to a microphone array where like they are concentrated in uh some place, like in the middle of the table.
+[00:52:53] Speaker A: Yes.
+[00:52:53] Speaker C: Because if we are distributing the microphone all around the table, then we come back to the energy solution? Is it what you say?
+[00:52:57] Speaker D: Yeah.
+[00:53:00] Speaker D: Yeah. Yeah. But you can kind of come back to that also. Um
+[00:53:06] Speaker C: With the energy dissolution or with uh F_F_T_ too?
+[00:53:09] Speaker D: Uh F_F_T_ also. Yeah, yeah.
+[00:53:09] Speaker A: F_F_T_.
+[00:53:10] Speaker C: Okay.
+[00:53:13] Speaker A: But th uh uh I think what is very important here is the synchronization of the microphones. Right.
+[00:53:19] Speaker D: R right. Yeah, yeah. It has to be as good as possible.
+[00:53:21] Speaker A: Okay, um uh I'm speaking about it because uh we wanted uh to do this table in uh a mid-tech way, let's say a cheap way. To have not uh very expensive tables. So I don't know if um uh what I've seen w on our website was uh that the this installation was uh a bit expensive. Uh but I'm trying to uh to to to see what is very important and uh what is not uh for
+[00:53:35] Speaker D: Yeah.
+[00:53:47] Speaker D: Yeah. True.
+[00:53:50] Speaker C: But there are many many things.
+[00:53:52] Speaker D: Yeah.
+[00:53:57] Speaker D: We can also consider directional microphones. You know no. Um so you can uh their pattern is uh not uh the same uh depending on the direction where the person is. So for example if there was a directional microphone pointing there you would get most of my energy but less from you, et cetera. You can also do microphone arrays with directional microphones. Uh um might not be relevant. But um
+[00:54:00] Speaker A: Yes.
+[00:54:04] Speaker C: The difference between the
+[00:54:15] Speaker C: Mm-hmm.
+[00:54:22] Speaker A: Sure.
+[00:54:23] Speaker C: Mm mm yeah.
+[00:54:28] Speaker A: Yes, sh I think you have to uh to uh
+[00:54:35] Speaker C: What would be the difference? You will not compare each mic with uh all the other one. But just comparing this one with the
+[00:54:42] Speaker D: Uh
+[00:54:48] Speaker D: More or less. It's it depends on what you want. I mean uh I don't know. Yeah.
+[00:54:50] Speaker C: Mm okay. Okay. But what are uh-uh. So what are this mic for instance, the electret mic. Omni-directional? Electret?
+[00:54:50] Speaker A: It sh
+[00:54:51] Speaker B: I guess it's completely other approach. So uh
+[00:54:57] Speaker D: They're o yeah, omni-directional, yeah.
+[00:55:02] Speaker D: M uh I guess so.
+[00:55:03] Speaker C: Okay.
+[00:55:04] Speaker A: These are these are um some kinds of uh and this one. Yes. Okay.
+[00:55:09] Speaker D: It's the same, yeah. Exactly the same, yeah. Yeah. Yeah, yeah. Quite expensive.
+[00:55:11] Speaker B: Expensive?
+[00:55:13] Speaker B: Ca can you uh say a number?
+[00:55:13] Speaker A: Expensive. Because because uh of the quality of the the
+[00:55:18] Speaker D: Yeah, they are um high quality mics.
+[00:55:21] Speaker A: And they are plug in the on the X_L_R_? Or uh
+[00:55:25] Speaker D: Uh I think we can leave this question for Olivier.
+[00:55:28] Speaker C: Yes.
+[00:55:28] Speaker B: Okay.
+[00:55:28] Speaker A: Yes,.
+[00:55:31] Speaker A: Okay, for the our we'll we we'll uh.
+[00:55:32] Speaker C: And when you were talking about comparing energy in the case where a microphone would be distributed all around the table, uh you're comparing energy and the time delay?
+[00:55:38] Speaker D: Yeah.
+[00:55:43] Speaker D: No, no. Y you would uh assume
+[00:55:46] Speaker C: Because time delay is is too short to be compared or can be neglected?
+[00:55:51] Speaker D: Uh you would neglect it. The time delay is is very small. It it's only used for uh getting the a direction when you have a microphone array. But in that case it's not relevant. Um you would assume that they are roughly synchronised, not necessarily very precisely, and um compare the energy levels. But I have no experience with that.
+[00:56:01] Speaker C: Okay.
+[00:56:10] Speaker A: Mm-hmm.
+[00:56:17] Speaker C: Okay, okay. Yeah.
+[00:56:18] Speaker D: Um
+[00:56:21] Speaker D: Now I don't know, you don't want to use ah, it's almost okay.
+[00:56:24] Speaker A: Let's have a break.
+[00:56:26] Speaker C: It's time. Cool.
+[00:56:26] Speaker D: Yes.
+[00:56:26] Speaker B: .

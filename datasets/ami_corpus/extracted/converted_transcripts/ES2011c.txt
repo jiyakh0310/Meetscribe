@@ -1,0 +1,362 @@
+[00:01:13] Speaker A: Hi everyone, hope you had a nice lunch. Um. Alright we're moving on to conceptual design.
+[00:01:23] Speaker C: 'Scuse me.
+[00:01:25] Speaker D: Bless you.
+[00:01:28] Speaker A: Um, I'll just review what we did in our last meeting. Um, under marketing we targeted our audience, and
+[00:01:38] Speaker A: Um, yeah.
+[00:01:41] Speaker A: That was generally how helpful that was. Um, then we considered some design options with how it should look, um, we discussed an iPod-like button system which, uh, we haven't concluded but we're
+[00:02:00] Speaker A: Right, um
+[00:02:04] Speaker A: So, if you all have presentations to do, we can see what where you've come from our last time.
+[00:02:14] Speaker A: Does everyone have presentations?
+[00:02:14] Speaker B: Hmm.
+[00:02:16] Speaker D: Yeah.
+[00:02:16] Speaker C: Yes.
+[00:02:17] Speaker B: Yes.
+[00:02:17] Speaker A: Okay. Would anybody like to go first?
+[00:02:20] Speaker B: Sure.
+[00:02:21] Speaker A: Okay.
+[00:02:41] Speaker B: So I've been looking at the components design. Um. Mostly by consulting remote control diagrams from the internet and also by incorporating design ideas from the last project meeting.
+[00:02:54] Speaker B: Um, so we need some custom design parts, and other parts we'll just use standard. Um, I assume we'll be custom designing our case, probably a hard plastic or some other material case, to protect the remote and the locator.
+[00:03:10] Speaker B: And we'll need to custom desi design a circuit board, because the circuit board has to take the button input and send it to the output so you have to design that each time. But once we come up with a design we'll send it to the circuit people and they'll just print it out.
+[00:03:24] Speaker B: Um, standard parts include the buttons and the wheels, um the iPod-style wheel. The infrared L_E_D_ is actually gonna be included in the circuit board that comes with it. Um, we need a radio sender and receiver, those are standard. And al we also need a beeper or buzzer or other sort of noise thing for locating the remote.
+[00:03:43] Speaker B: So we have some material options. Um, we can use rubber, plastic, wood or titanium. Um, I'd recommend against titanium because it can only be used in the flat cases and it's really heavy. Um, and the rubber case requires rubber buttons, so if we definitely want plastic buttons, we shouldn't have a rubber case.
+[00:04:03] Speaker A: And why not wood? And why not wood?
+[00:04:03] Speaker B: And, hmm?
+[00:04:06] Speaker B: Uh, well we can use wood. I don't know why we'd want to. Um and also we should note that if we want an iPod-style wheel button, it's gonna require a m qu slightly more expensive chip. We can't use the minimal chip, we need the next higher grade, which is called regular. I don't think it's much more expensive, but it is more expensive.
+[00:04:25] Speaker B: So that's what I've got on design.
+[00:04:31] Speaker A: 'S good.
+[00:04:39] Speaker D: Um, can I do next? 'Cause I have to say something about the material
+[00:04:41] Speaker A: Hmm.
+[00:04:42] Speaker C: Yeah.
+[00:04:43] Speaker D: which is quite shocking.
+[00:04:52] Speaker D: Ha. Mm.
+[00:05:08] Speaker D: Right, um, I have been searching the current trends, um, both on the web and via fashion-watchers, and the findings are that the first thing to aim for is a fashion uh, fancy look and feel. Um. Next comes technologic technology and the innovations to do with that. And th last thing is the
+[00:05:35] Speaker D: easy to use um factor. Um, fancy look and feel goes far beyond the functionality of the thing, but I suppose that is included in in the ease of use. Um, our fashion-watchers in Milan and Paris have decided, well noticed, that f the fruit and vegetable theme is the is the current trend and and therefore um we need to go for that if we want, you know, wh whatever our motto is. Um.
+[00:06:10] Speaker D: For fashion, we go for fashion. The fashion in electronics. So we want to put the fashion electronics, we need to go fruit and vegetables. And also go for a spongy feel, so the the question of our technology whate is Industrial Designer. As to the material should be limited to I don't know how spongy it can be, should discuss this together, I don't know how spongy can be achieved but apparently that's the way to go.
+[00:06:11] Speaker A: Mm.
+[00:06:41] Speaker D: Um. I I have been thinking about this fruit and vegetable thing and I prefer fruits to vegetables, but that's just a personal opinion. I think I think people like to have a fruit instead of a vegetables in their sitting room. Uh those are just suggestions and also we need to decide whether this should be printed, so that still has to do with the material discuss should we print the fruit stuff, or should the actual remote look like a fruit?
+[00:07:11] Speaker D: Um, and finally again with the spongy. It has to be technologically innovative so maybe again our Industrial Designer should look into that or find come up with a solution that's better than mine. Um, yeah, to summarise these are the points that need to be
+[00:07:31] Speaker D: um, touched in order to get a good decision, and hopefully our User Interface has more to say about the matter. Thank you for your attention.
+[00:07:40] Speaker C: Mm-hmm.
+[00:07:57] Speaker C: So.
+[00:08:00] Speaker A: I think it's the next it's the blue one, yeah.
+[00:08:01] Speaker C: Oh, uh, there we go. Uh.
+[00:08:09] Speaker C: Okay. Um. Well so that fruit and vegetables thing huh. I actually wasn't aware of the new trends in electronics and and uh
+[00:08:20] Speaker D: Neither was I. Well it's a trend in fashion, in clothing and um fabrics.
+[00:08:25] Speaker A: Yeah but you're not gonna wear your remote control.
+[00:08:27] Speaker C: So so okay, let me get this right. Okay, uh
+[00:08:34] Speaker C: Okay, alright anyway. Um here we go. Conceptual User Interface. Trying we're gonna try to talk about, um what kind of uh how people are actually going to be using this iPod-ish remote control, based on fruit vegetable design. And, um, basically, so, this is a touched ba a touch-based graphical interface system. Uh, so people are going to be looking at this little screen. Um, kind of I mean I assume, are we still on the screen idea?
+[00:09:06] Speaker A: Oh we s hadn't discussed it last time.
+[00:09:08] Speaker C: 'Cause if we're gonna have to ha if we have this it just seems like in order to have someone going around and using the um the wheel
+[00:09:18] Speaker A: You need a screen for it?
+[00:09:19] Speaker C: you it seems like you would need a screen.
+[00:09:21] Speaker B: You need a screen with music because you're looking for a specific song, like you know that band or whatever. With T_V_ channels it's, you know, one two three. So
+[00:09:25] Speaker C: But like if you think about it yeah but if so is it just okay. So, b you you're gonna have to switch to like D_V_D_ and like other things like that, aren't you? Are we
+[00:09:34] Speaker A: We're, um, we're actually not having D_V_D_, that was one of th I I was sorry, I I meant to update you on that. Um.
+[00:09:36] Speaker B: Yeah.
+[00:09:38] Speaker C: Okay. Alright. Okay.
+[00:09:41] Speaker D: But the screen can come up on the telly, the she said. That correct?
+[00:09:44] Speaker C: Okay. Okay. So anyway if well we just we need to Okay so if we're not gonna have a screen I think I was thinking okay. So basically it's just gonna be a wheel then? And you're just gonna I mean I think you're gonna have to have some kind of a right. Yeah like you're g yeah like you're gonna have to be able to switch to like a mode where you can okay we're not choosing that, I guess. But like choose channel control, like if you wa Because people aren't gonna be able to have like, um, you know, channels one two three four five six seven eight nine. So that people seems to be well
+[00:09:45] Speaker B: Yeah.
+[00:10:00] Speaker D: Graphical interface? Uh on the you can have it on the telly though.
+[00:10:03] Speaker A: Yeah.
+[00:10:16] Speaker A: Yeah.
+[00:10:18] Speaker A: You've Yeah, I know what you're saying, you have to
+[00:10:20] Speaker C: You know. But you're gonna have to scroll to get channels. So um I guess that's wh why I was thinking you may need to have some kind of a screen because
+[00:10:31] Speaker C: So that people can go arou go back and forth and choose if or or then again if you just I guess I c I can see like some kind of a thing where like you sort of have like the number come up on the T_V_ like what channel you're on. You can just scroll and you can just get to like five or like twelve or
+[00:10:42] Speaker D: Yeah, yeah, yeah. Yeah, yeah.
+[00:10:43] Speaker B: Yeah.
+[00:10:46] Speaker A: But but imagine someone with s
+[00:10:46] Speaker B: My flatmates actually had one with a wheel, and it it did show up on the T_V_.
+[00:10:49] Speaker C: I oh yeah?
+[00:10:51] Speaker A: But i what if you have satellite and you have like two hundred channels. Then to get to channel one eighty nine you have to
+[00:10:54] Speaker C: 'Cause you'll have to like but you can quickly s you can
+[00:10:55] Speaker D: Yeah.
+[00:10:56] Speaker B: They have to r wheel really fast. But I think the wheel goes through like a hundred channels, at least on theirs.
+[00:10:57] Speaker A: Yeah.
+[00:11:00] Speaker D: Yeah, yeah, yeah.
+[00:11:00] Speaker C: Yeah.
+[00:11:02] Speaker C: Yeah if you do, it w so it would have to be you I mean so you basically just kinda need to figure out like what kind of, you know, range we need to have on the wheel, and um
+[00:11:13] Speaker C: So you're either you're you know, th you're either doing this motion to like control the channels or like once once you stop that, you know, you can like tap for, um, different
+[00:11:23] Speaker A: Yeah.
+[00:11:25] Speaker C: uh, whatchamacallits, different um, you know, functions like volume or, like you can tap just to get to different channels.
+[00:11:35] Speaker C: Like if you just wanted to go to like from five to six you could tap or someth
+[00:11:39] Speaker A: Right.
+[00:11:40] Speaker C: And then there's also the concern about you know um how do you get to the menu if you wanna change the brightness of your television, or if you want to um you know switch around, I don't know, like, these different modes like turn on the timer or like something something like that, like
+[00:11:56] Speaker A: Yeah
+[00:11:58] Speaker A: I mean with that many options, you'd uh I'd think that the screen would be better, because you could have that menu option, sort of
+[00:12:03] Speaker C: I would think so too, like
+[00:12:06] Speaker C: So I mean and it seems it w it does seem a little silly to have this screen if you hardly are ever using it, you know, because but then again it would it does make kind of if the screen's sort of just like an option that, like, is just there and you're not really using it, that's kind of m yeah.
+[00:12:11] Speaker A: Yeah.
+[00:12:19] Speaker A: Yeah.
+[00:12:19] Speaker B: It's more expensive according to the design people. You have to get a an advanced chip if you wanna have a screen in, which is more expensive than the regular chip, which is more expensive than the minimal.
+[00:12:21] Speaker A: Uh.
+[00:12:22] Speaker C: Yeah, that's the only thing though.
+[00:12:29] Speaker C: Yeah. So then basically it has to have some way to get to get to a mode on the television where you're doing, um
+[00:12:30] Speaker A: Mm.
+[00:12:37] Speaker C: You can get to you know, you can
+[00:12:40] Speaker C: Like maybe it'll be that central button that, like, then you hit that and then you can it brings up like the menu on the T_V_ and you can just scroll around, like, to do the timer, to do the yeah, yeah.
+[00:12:42] Speaker D: Yeah, yeah, yeah.
+[00:12:43] Speaker B: Mm-hmm.
+[00:12:43] Speaker A: Mm.
+[00:12:46] Speaker D: Yeah.
+[00:12:47] Speaker A: Yeah. So the T_V_ is the screen, that yeah
+[00:12:51] Speaker A: So it would have all these different options of changing
+[00:12:53] Speaker C: Yeah. But the remote itself isn't really cluttered up.
+[00:12:55] Speaker A: to
+[00:12:56] Speaker D: Look it even has settings.
+[00:12:57] Speaker A: Okay.
+[00:12:59] Speaker D: On the you can just take theirs and just
+[00:12:59] Speaker C: Hmm? Yeah, well we don't want the screen I guess, but um 'cause that just it does seem like, it that would be, like, incredibly expensive, but I dunno, and then so, it just im really all you need is, like, this little wheel then, and you can control everything.
+[00:13:00] Speaker A: Yeah.
+[00:13:01] Speaker A: Yeah.
+[00:13:18] Speaker C: So
+[00:13:22] Speaker A: Um, right.
+[00:13:25] Speaker A: What if I mean, if you're thinking of the design of it now, like the a you know, physical attributes, um, and you just have this, it's like just a long silver thing, or whatever we're thinking. I mean are you you gonna have any buttons on that besides power and this thing? Or
+[00:13:30] Speaker C: Yeah.
+[00:13:45] Speaker C: It doesn't seem that you would need anything besides pow I mean and the power button could even be like hold down the menu button for like longer than one second and it turns on the T_V_.
+[00:13:51] Speaker A: Yeah.
+[00:13:54] Speaker A: So can we imagine that this would be smaller than the remote controls that you showed us before. I mean okay.
+[00:13:59] Speaker C: Yeah. Yeah definitely. Like, I think we're looking at something that could be, like
+[00:14:04] Speaker C: like even maybe like a cir I'm f I'm seeing almost like a circular sort of like handheld like thing. I mean it it needs to be easy to somehow it needs to be easy to like manipulate and use your
+[00:14:09] Speaker D: Yeah but should be comfortable.
+[00:14:10] Speaker A: Yeah. Yeah.
+[00:14:10] Speaker B: Yeah.
+[00:14:16] Speaker A: Yeah.
+[00:14:17] Speaker C: I mean how do how do I'm not really
+[00:14:21] Speaker C: Like when I use an iPod, I end up just kind of using my index finger to like control it. So
+[00:14:26] Speaker A: Yeah, I've seen some people just going like that with their thumb, yeah.
+[00:14:28] Speaker C: Yeah. Or your thumb or something. So
+[00:14:28] Speaker D: Yeah I use it like that.
+[00:14:30] Speaker B: W when we had the wheely remote control, we it was on the top I think, if you held it like that.
+[00:14:34] Speaker A: Yeah.
+[00:14:35] Speaker C: Yeah. Yeah, so
+[00:14:35] Speaker D: Yeah.
+[00:14:36] Speaker A: But, were there buttons on there as well?
+[00:14:38] Speaker B: Yeah well it had the wheely thing and then it had those eighteen different buttons that I don't know what they do. So we just used the top part.
+[00:14:41] Speaker A: Mm. Yeah.
+[00:14:42] Speaker C: Mm yeah.
+[00:14:44] Speaker A: Yeah.
+[00:14:44] Speaker C: Yeah, so but I mean I think it could be pretty small. Like, I d I mean, you you want it to be large enough that
+[00:14:45] Speaker D: Uh.
+[00:14:51] Speaker C: you can
+[00:14:51] Speaker A: What if, um, you had like a b a cover that went over buttons that you don't use very much? Like you so you could slide it up if you needed to like change the contrast or something like that? So the options are there but they're not in interfering with the design and the practicality of it.
+[00:15:11] Speaker C: But can't you just get
+[00:15:12] Speaker A: Do do you know what I'm talking about though? Like, uh, yeah just something
+[00:15:13] Speaker B: Yeah. Yeah like maybe something on the side where you slip a panel down and it's got a whole bunch of
+[00:15:14] Speaker C: K
+[00:15:15] Speaker D: Well you can have it on the settings, no?
+[00:15:16] Speaker A: Yeah, that you can flip over, yeah, yeah.
+[00:15:17] Speaker C: Yeah, But, I mean, do you need that? If if you can get to, you know if so long as you're able to bring up the menu on the T_V_ screen. That keeps it
+[00:15:25] Speaker A: Yeah I mean I guess that's the thing is is if w I if we can do this, that'd probably be
+[00:15:26] Speaker B: Yeah.
+[00:15:28] Speaker C: really
+[00:15:31] Speaker C: Yeah. Uh you wouldn't I don't I just don't think you would even need it. So
+[00:15:33] Speaker A: Yeah, yeah.
+[00:15:35] Speaker A: So I guess we have to look into the, um, like, the programming, how this how they actually programme these things, and if that's yeah.
+[00:15:35] Speaker C: Mean
+[00:15:43] Speaker B: Oh how they make the menu show up on the T_V_?
+[00:15:46] Speaker D: They already do it.
+[00:15:47] Speaker B: I don't know. I believe it's ins it's gotta be inside the T_V_, not inside the remote.
+[00:15:47] Speaker C: I mean you can do it, you it's it doesn't seem that hard.
+[00:15:47] Speaker A: I mean it would y would that would be
+[00:15:53] Speaker C: I mean I've never bought a remote. It sounds like this remote's going to be purchased separately from the television, which is a little
+[00:15:54] Speaker B: I'm not sure.
+[00:15:57] Speaker B: Well they usually are. Well
+[00:15:59] Speaker C: My I've never bought just a remote, like, so I don't I don't really know. But um
+[00:16:01] Speaker D: No.
+[00:16:02] Speaker A: Huh.
+[00:16:03] Speaker B: I guess that's right. It always comes with the T_V_.
+[00:16:06] Speaker C: So, um but I mean it's I've never had a hard time with like my remotes, like bringing up the menu screen if you need to like change the date or whatever, you know. And I don't think that should uh that should be too hard.
+[00:16:19] Speaker B: Yeah, it most of the ones we've had have had the menu button, 'cause it's not like you need to have a button access to like change the contrast or something. 'Cause it just doesn't come up every day or something.
+[00:16:26] Speaker C: Yeah.
+[00:16:29] Speaker C: Yeah. Well so
+[00:16:33] Speaker C: So, do we need I dunno. Well I guess we have to you know think about But I mean you just basically need the output signal you know to be able to bring it up. That's what it does anyway.
+[00:16:41] Speaker B: Mm-hmm.
+[00:16:41] Speaker A: Yeah. Okay.
+[00:16:43] Speaker D: But also if you have it on the screen you can actually write everything out, because the problem with buttons is you like, they have these sort of abbreviations and codes that you're supposed to understand, and I never get it. Never ever. So
+[00:16:53] Speaker C: Yeah.
+[00:16:54] Speaker B: Yeah.
+[00:16:54] Speaker A: Yeah, you don't know they mean, yeah, it's like yeah.
+[00:16:57] Speaker C: Yeah.
+[00:16:59] Speaker C: So, but oh, you mean if we have this screen like the iPod screen? On the telly, okay, yeah. So yeah I think, I mean, I think I think the touch-based graphical interface is a really uh cool idea because you know it is so obnoxious to like have to push those like okay now I hit this you know, you have your little guide out and you're like, hit this button twice, like to activate the date.
+[00:17:03] Speaker D: Well on the telly.
+[00:17:04] Speaker B: Or on the T_V_ too.
+[00:17:18] Speaker A: Mm. And it is technologically innovative in a way, so that fits with the
+[00:17:19] Speaker D: Mm.
+[00:17:22] Speaker C: Yeah. I guess. And it is trendy, the iPods are really hot right now, so
+[00:17:25] Speaker A: B
+[00:17:26] Speaker A: Yeah.
+[00:17:27] Speaker D: Did you did you get that pc picture on did they provide you with that picture on the web?
+[00:17:31] Speaker C: Um, yeah, by web research, yeah, so
+[00:17:35] Speaker D: That's quite interesting.
+[00:17:38] Speaker D: What are we going to do about this vegetable thing that I'm dreading?
+[00:17:41] Speaker A: Oh god.
+[00:17:41] Speaker C: Oh.
+[00:17:41] Speaker B: Oh, I was gonna say. You said uh people want spongy. Um, one of your one of the material options is a sort of rubber that's in like those stress ball things. So, that would be spongy.
+[00:17:46] Speaker D: Yeah.
+[00:17:46] Speaker C: Yeah.
+[00:17:51] Speaker C: Oh, okay, that would be cool. Mm.
+[00:17:51] Speaker D: Yeah. Yeah.
+[00:17:52] Speaker A: Ah. Yeah.
+[00:17:55] Speaker D: Just nice feel, but I hate spongy.
+[00:17:57] Speaker C: Yeah, c that's e that would be kind of oh, you know, usually like the touch pad things are kind of a hard plastic typ mouse type, you know, thing. But what if we ha what if we had like a spongy sort of like stress balley kinda so you're like
+[00:17:58] Speaker A: Yeah.
+[00:18:03] Speaker A: Yeah.
+[00:18:05] Speaker A: I mean definitely the area round it.
+[00:18:12] Speaker B: Yeah I think it could work.
+[00:18:13] Speaker C: Or what if we integrated the the uh the f what if the whole thing about the fruit and vegetables we somehow made it tactilely fash you know, we c tapped into that, so like it feels like
+[00:18:13] Speaker A: Yeah.
+[00:18:24] Speaker B: Don't think I'd want it to feel like a banana.
+[00:18:24] Speaker D: Well it could be like mobiles that just you just put a cover.
+[00:18:24] Speaker C: a vegetable.
+[00:18:25] Speaker A: An orange.
+[00:18:29] Speaker C: Yeah.
+[00:18:29] Speaker D: If it's a small thing, you c instead of creating an object for it that looks like a banana, which frankly I'm not particularly fond of, um you could just have covers and then your mobile f it's like a mobile phone thing. You know you had there was a time when they had all these different covers for mobiles.
+[00:18:44] Speaker C: Yeah.
+[00:18:44] Speaker A: Yeah.
+[00:18:46] Speaker C: Yeah.
+[00:18:46] Speaker B: You could do like the computers where they have like the grapefruit, apple machine and they have like the blueberry, like all the colours are named after fruits.
+[00:18:52] Speaker D: Yeah, yeah, yeah.
+[00:18:52] Speaker A: Yeah. Yeah.
+[00:18:54] Speaker C: Yeah. You could name it after fruits and vegetables, or
+[00:18:54] Speaker D: Yeah.
+[00:18:57] Speaker D: And it could the colour can fit your sitting room, so if you have red sitting room you can have strawberry, and then if you have a green one you can have well I don't know. Um.
+[00:19:05] Speaker C: Yeah.
+[00:19:06] Speaker A: So what if what this is I'm just forming this idea in my head of how this thing is looking. If you have like that stress ball material kind of as what you're actually holding in your hand, so like what you're feeling is comfortable, and then there's more of a hard plastic thing where that thing is. And on that hard plastic thing you can change either the colour or the fruit or vegetable that's on there. Is that kind of I 'cause I I'm thinking of silver because those are our company colours. Um
+[00:19:06] Speaker C: So I think yeah, colours.
+[00:19:21] Speaker D: Yeah.
+[00:19:23] Speaker C: Yeah.
+[00:19:31] Speaker C: Yeah.
+[00:19:35] Speaker C: Yeah. Unfortunately they don't have silver fruits and vegetables. I do I dunno. Um
+[00:19:44] Speaker A: I mean how are you how are you all envisioning by what we've just the feedback we've just got about the
+[00:19:51] Speaker D: Maybe a ball.
+[00:19:53] Speaker A: A ball?
+[00:19:55] Speaker D: Know, a squashy ball. A relaxing squashy ball.
+[00:20:01] Speaker D: That you can p well I see you're thinking, it's weird, you're thinking the opposite of me 'cause you're thinking you change the the hard bit and I'm thinking how do you change the hard would you put a um
+[00:20:02] Speaker C: That's in the shape of a fruit, like a
+[00:20:12] Speaker A: Yeah.
+[00:20:18] Speaker D: sticker sort of? Because I was thinking if you have a cover for the squashy bit, like a
+[00:20:24] Speaker A: This is just
+[00:20:27] Speaker A: Okay. Say that's the s say that's the squashy bit. Squashy.
+[00:20:27] Speaker D: Oh, okay, yeah.
+[00:20:30] Speaker D: Yeah I was thinking of getting a cover for
+[00:20:34] Speaker A: That see I was thinking this s sorry I was thinking this bit here would be the cover and like that's your actual thing. And like this you could have like you could have like cherries and things around there. Um but
+[00:20:34] Speaker D: Which is cheaper. Well I don't know if it's cheaper actually.
+[00:20:37] Speaker B: Oh. Mm.
+[00:20:43] Speaker C: Yeah. Oh I like that shape.
+[00:20:47] Speaker C: Yeah.
+[00:20:50] Speaker B: I was thinking sort of a single ball shape. So you're holding a squishy ball and then it has a
+[00:20:53] Speaker C: Yeah.
+[00:20:53] Speaker A: I was thinking if it was like this 'cause the way you were describing the the iPod and the thi the roll thingy
+[00:20:58] Speaker C: It's like it has to be s yeah.
+[00:20:59] Speaker B: Mm-hmm.
+[00:21:00] Speaker A: It's almost like your thumb is farther up, so if if you could squish it lower then
+[00:21:02] Speaker B: Yeah I guess so.
+[00:21:03] Speaker C: Yeah.
+[00:21:04] Speaker D: Yeah. So it wouldn't be very big in either like how big? This big, and then you just do that, I suppose.
+[00:21:10] Speaker C: What if, yeah, what if the squishy, oh so so you're saying the squishy part's like detachable, and you can so so maybe one you know you can have like the broccoli squishy thing, and then you could have like the banana squishy thing and you could get you could have your choice, you know?
+[00:21:10] Speaker A: Yeah, I know what you meant, yeah.
+[00:21:26] Speaker D: Well just a li I can't des like condom thingy, like a a cover. But well the question is, which one's easiest to change and we can just contact our relevant department for that, and just see what the cost is for covering that or covering that, and for now we can do two prototypes maybe and then hi try and ask users what the best is, and
+[00:21:37] Speaker A: Yeah.
+[00:21:40] Speaker C: Yeah.
+[00:21:43] Speaker C: Yeah, yeah.
+[00:21:43] Speaker A: Mm.
+[00:21:47] Speaker C: Yeah.
+[00:21:48] Speaker A: Okay.
+[00:21:51] Speaker A: Yeah. Okay.
+[00:21:51] Speaker C: Yeah. Oh.
+[00:21:51] Speaker D: No.
+[00:21:53] Speaker D: Um. That's nicer. I think it's nicer to have a drawing 'cause it's neater.
+[00:21:55] Speaker C: Yeah.
+[00:21:58] Speaker A: Hmm.
+[00:21:59] Speaker D: Um.
+[00:22:00] Speaker A: Well that's not very neat, but
+[00:22:02] Speaker C: Yeah. I mean I think uh and I think the handhe I think the handheld part is definitely
+[00:22:09] Speaker C: So you could make that
+[00:22:12] Speaker C: into the fruit and vegetable part.
+[00:22:13] Speaker D: If it's a bit like those juggling balls, you can change shape according to your
+[00:22:19] Speaker D: to the way you hold it. If it's got sand in it maybe, or something, you it it just moulds to your hand.
+[00:22:20] Speaker B: Yeah you could squish it.
+[00:22:20] Speaker A: Mm-hmm.
+[00:22:23] Speaker A: Yeah.
+[00:22:26] Speaker C: Yeah. So where are the fruit and vegetables now?
+[00:22:30] Speaker D: We we don't know.
+[00:22:30] Speaker C: Fruits and veg.
+[00:22:30] Speaker B: I guess they would be either in the colour of that plastic face on the front, or in the colour of the squishy thing underneath.
+[00:22:33] Speaker C: Yeah.
+[00:22:34] Speaker A: Yeah.
+[00:22:36] Speaker D: Yeah.
+[00:22:37] Speaker C: Yeah.
+[00:22:38] Speaker D: And the rest is the company the company colour's silver?
+[00:22:42] Speaker A: It was, yeah, silver and yellow. It l it looks like I don't
+[00:22:46] Speaker C: We could promote the banana one. Like mm.
+[00:22:47] Speaker D: Okay.
+[00:22:48] Speaker A: Yeah.
+[00:22:52] Speaker A: I mean that's another question, where are we gonna we we should have the logo somewhere on it.
+[00:22:56] Speaker C: Mm.
+[00:22:57] Speaker D: Mm-hmm. Should also fit the batteries, which we haven't
+[00:23:01] Speaker C: Oh yeah.
+[00:23:01] Speaker A: Yeah.
+[00:23:01] Speaker B: I think the batteries would have to go right under the plastic case.
+[00:23:03] Speaker A: Yeah, th and that would that
+[00:23:04] Speaker C: Yeah.
+[00:23:05] Speaker D: Okay.
+[00:23:05] Speaker B: Especially if you're switching out the squishy part. Then you need to have the other part just be sort of a single unit that you can snap off.
+[00:23:11] Speaker D: Mm-hmm.
+[00:23:12] Speaker A: Mm-hmm.
+[00:23:13] Speaker C: Yeah, I think, um
+[00:23:19] Speaker C: it'd be interesting to have the b the squishy bit.
+[00:23:23] Speaker C: The part that you, yeah, can change into the different, you know, trendy vegetables and fruits. But uh it
+[00:23:31] Speaker B: Well I dunno. You'd spend so much time like squishing it to your own personal hand. Then you'd get a new one and you'd have to do it all over again.
+[00:23:36] Speaker C: Yeah.
+[00:23:38] Speaker D: No but it does it automatically. Does it automatically? I don't know.
+[00:23:42] Speaker C: Yeah.
+[00:23:43] Speaker A: I don't know what the rest of my notes mean because they were made for me. But if someone components concept. Question mark. Energy. Question mark. Was that you? Okay. Oh right right. Yeah. Um, so what d but what do we know about
+[00:23:49] Speaker D: Okay.
+[00:23:54] Speaker B: That was me.
+[00:23:56] Speaker B: Yes.
+[00:24:02] Speaker A: energy? I mean we're gonna use batteries right? And
+[00:24:04] Speaker B: Uh we actually had an option of batteries, solar power, and um a dynamo, which is something I don't know what it is. Something to do with torches.
+[00:24:11] Speaker D: Oh, a dynamo is ah, it's a bicycle. It's a bicycle mechanism. It's the en it's like if if something moves, when it moves, it stores energy.
+[00:24:20] Speaker B: Oh okay. Yeah, the other one was the other one was a kinetic thing where you'd basically have to wind it yourself. So I sort of picked battery. We could have talked about doing a wind-up or a dynamo or a solar power. Um but I think solar power's not available with the rubber case anyways.
+[00:24:26] Speaker D: It's quite sweet.
+[00:24:38] Speaker A: I think batteries sound good. What does everyone else think?
+[00:24:38] Speaker B: It it seems a little weird for a living room anyways.
+[00:24:39] Speaker C: The dynamo would be interesting.
+[00:24:40] Speaker D: No. But dynamo the the fact with dynamo is, the moment you move it, it c it creates energy on its own.
+[00:24:50] Speaker C: Oh.
+[00:24:50] Speaker A: What about Kryptonite?
+[00:24:50] Speaker D: Which is quite cool. So if you throw it, it's gonna store loads of energy, and you don't need to buy a battery 'cause they're quite f I find them annoying. But we need to find cost.
+[00:24:59] Speaker A: Yeah.
+[00:25:02] Speaker D: Don't know the cost.
+[00:25:04] Speaker D: Does anyone have costs on the on the web?
+[00:25:05] Speaker B: Didn't have enough data to actually
+[00:25:07] Speaker B: All it said was it gave sort of relative, some chips are more expensive than others, sort of things. It didn't give me any actual cost.
+[00:25:14] Speaker D: Okay.
+[00:25:16] Speaker D: Right.
+[00:25:17] Speaker C: Hmm.
+[00:25:17] Speaker D: Mm.
+[00:25:18] Speaker B: Most of the stuff is pretty cheap though bought in bulk. So I don't think it's that much of a problem.
+[00:25:24] Speaker B: Like the chip is probably the most expensive part.
+[00:25:28] Speaker A: What does chip on print mean?
+[00:25:30] Speaker B: Um, for things like remote controls, um, they stamp out a chip, calculators too I think. Um, so you can mass produce 'em pretty cheap. But it's not like a computer, you can't like reprogramme your remo remote controls, it's like stamped onto the chip.
+[00:25:35] Speaker A: Uh-huh.
+[00:25:39] Speaker A: Okay.
+[00:25:43] Speaker A: Right.
+[00:25:45] Speaker A: So, chip on print is just means like that they're mass-produced. Okay. And case? Uh I guess that's what we've been talking about, yeah. Casing. Yeah.
+[00:25:47] Speaker B: Yeah.
+[00:25:51] Speaker B: Case is what we were discussing yeah.
+[00:25:54] Speaker A: thinking of like syntactic case and thi um let's see.
+[00:26:07] Speaker A: Is there anything else we need to
+[00:26:10] Speaker C: Hmm.
+[00:26:11] Speaker A: talk about? Oh when we move on, you two are going to be playing with play-dough.
+[00:26:17] Speaker A: Um, and working on the look and feel of the design and user interface design. And you're gonna be doing protu product evaluation.
+[00:26:29] Speaker A: So you'll get mm m more instructions from your personal coach.
+[00:26:33] Speaker D: Oh, thank you.
+[00:26:34] Speaker A: Mm.
+[00:26:34] Speaker C: Cool.
+[00:26:35] Speaker A: See you soon.
+[00:26:39] Speaker A: Does it matter that I end early?
+[00:26:41] Speaker D: I it's strange because
+[00:26:44] Speaker A: How how early is it?
+[00:26:49] Speaker A: I didn't get a pop-up thing that said

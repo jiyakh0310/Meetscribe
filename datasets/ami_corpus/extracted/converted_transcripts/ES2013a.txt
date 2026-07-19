@@ -1,0 +1,135 @@
+[00:00:22] Speaker D: Is this okay?
+[00:00:27] Speaker A: Uh yeah. Fine now.
+[00:00:47] Speaker A: Oh, it's not liking us, it went that-a-way.
+[00:00:53] Speaker A: Computer adjusting. Oh.
+[00:01:01] Speaker A: Uh.
+[00:01:18] Speaker A: Okay. So.
+[00:01:28] Speaker A: Right.
+[00:01:38] Speaker A: You ready back there?
+[00:01:44] Speaker A: Uh okay.
+[00:01:47] Speaker A: Welcome everyone. Um this is the kick-off meeting for the day. Um we're the new group uh to create a new remote control for Real Reaction.
+[00:02:00] Speaker A: As you can see our agenda is to open up the meeting, um become acquainted with each other, um have a little training on tools, uh create a plan, discuss things and and we only have twenty minut twenty five minutes total.
+[00:02:18] Speaker A: Okay. The new remote control is to be original, trendy and user-friendly. That, Steph, is your part, is the user-friendliness. The originality um is gonna take all of us. Um the trendiness we'll probably go look at for some marketing research information from you, Sarah. Um and we'll get on with it. Okay, so we'll have a functional design individual work um with meeting and then conceptual design t and then detailed design.
+[00:02:56] Speaker A: Okay? Right. Everybody's supposed to try out the whiteboard. Kate, why don't you try it first, if you can either bring your things with you, I guess
+[00:03:07] Speaker B: Uh yeah, if I can pick up with all these bits and pieces, hang on.
+[00:03:11] Speaker A: And while you're doing that we'll try and figure out how to hook these things on as well, 'cause we're all gonna have to be able to walk around.
+[00:03:28] Speaker B: Uh right, so you want an animal and the characteristics of that animal. Do you have to be able to recognise what animal it is? Um
+[00:03:37] Speaker A: Uh I do not think so, I think it's just to try out the whiteboard.
+[00:03:50] Speaker C: Are we all gonna draw a cat?
+[00:03:52] Speaker D: I know.
+[00:03:52] Speaker B: Only animal I could thin I could draw.
+[00:03:52] Speaker A: Ah.
+[00:04:02] Speaker B: Its a sort of bunny rabbit cat. You can tell it's not a bunny rabbit by the ears. Um I suppose it should have a mouth as well, sort of
+[00:04:07] Speaker A: Uh-huh.
+[00:04:11] Speaker A: Okay.
+[00:04:13] Speaker B: Right, yeah.
+[00:04:14] Speaker A: Great. And the characteristics?
+[00:04:15] Speaker B: Um the favourite characteristics of the cat um the whiskers I think, um because they're the easiest to draw. In fact, I'll give it some more
+[00:04:23] Speaker A: Uh-huh.
+[00:04:28] Speaker B: Oh, and the tail
+[00:04:28] Speaker A: Okay.
+[00:04:32] Speaker A: Fantastic. Since you're handy as well, why don't you do yours next, Steph.
+[00:04:45] Speaker A: I think it's to get us used to using the pen.
+[00:04:47] Speaker B: Yes. Um sure it's not to test our artistic
+[00:04:52] Speaker A: Uh no.
+[00:04:58] Speaker B: It's a mouse.
+[00:04:59] Speaker A: A mouse-y?
+[00:05:00] Speaker C: That's not a mouse-y, no.
+[00:05:02] Speaker B: No it's not a mouse.
+[00:05:06] Speaker B: It's a wombat.
+[00:05:07] Speaker A: Oh.
+[00:05:15] Speaker C: It's a ratty.
+[00:05:17] Speaker A: Argh. Rat.
+[00:05:17] Speaker B: A what?
+[00:05:18] Speaker C: A ratty.
+[00:05:20] Speaker A: Not a mouse, a rat.
+[00:05:20] Speaker B: A webbed foot. Webbed f Oh right.
+[00:05:22] Speaker C: It's clothes. That's it's clothes.
+[00:05:26] Speaker C: It's a ratty with a with a with a very long tail.
+[00:05:30] Speaker A: And your favourite characteristics of that animal.
+[00:05:31] Speaker C: I love whiskers.
+[00:05:34] Speaker C: Uh they're intelligent and they're cheeky and
+[00:05:40] Speaker C: uh fantastic pets and very friendly. And they sit on your shoulder and whisper the answers to your homework in your ear when you're doing your homework.
+[00:05:41] Speaker A: Oh. Okay. Kate?
+[00:05:52] Speaker D: Thanks.
+[00:06:19] Speaker A: Oh, a fish.
+[00:06:21] Speaker B: Gosh, why didn't I think of fish? That's even easier to draw than cat.
+[00:06:21] Speaker C: A shark?
+[00:06:27] Speaker D: Mm this is very representational fish. Um I like them because they're sleek and they have a lot of freedom but they also do n uh swim in groups, so.
+[00:06:30] Speaker A: Oh, okay. Fine.
+[00:06:32] Speaker A: Favourite characteristics?
+[00:06:41] Speaker A: 'Kay.
+[00:06:43] Speaker A: So they have team elements.
+[00:06:43] Speaker D: Do you have a favourite one?
+[00:06:51] Speaker A: I'm afraid I'm with Steph.
+[00:06:54] Speaker A: And I think your pen's running out of whatever.
+[00:06:59] Speaker A: But I'm afraid I take the coward's way out, and the cat's looking the other way. He's hiding.
+[00:07:11] Speaker A: Um cats are sometimes very independent. My parents had cats. Uh and they can mm decide for themselves what is best.
+[00:07:30] Speaker A: Okay.
+[00:07:34] Speaker A: Now um we have to get down to the nitty-gritty of how to make this and this remote control has to be sold um we're to sell it for twenty five Euros, with a profit aim ultimately of fifty million Euros. That tells you something about how many um we have to sell on an international scale. Um would be an awful lot of these, would be like what, a hundred million of them um to make twenty five Euros on each one and to make a total profit of fifty million. Um the production is to only cost twelve and a half Euros per item.
+[00:08:23] Speaker A: Now if they cost twelve and a half, you're selling it for twenty five, you're making twelve and a half Euros each. Um and we're to make a profit of fifty million, that's t uh can you do the maths and how many are we selling?
+[00:08:38] Speaker D: Uh yeah. I was just wondering if that's the um
+[00:08:44] Speaker D: If fifty percent is normal
+[00:08:47] Speaker A: Mark-up?
+[00:08:48] Speaker D: B yeah. Um I would think would be more like sixty percent.
+[00:08:51] Speaker D: But um let me I have two thoughts. One hundred, fifty percent.
+[00:08:52] Speaker A: Okay.
+[00:08:58] Speaker D: And and your question is how many do we have to sell?
+[00:09:00] Speaker A: Yes, 'cause our market um is international and your problem is has to do with marketing of you know, you gotta know how many we're going to be selling to know how big a market you have to target and who is that.
+[00:09:10] Speaker D: At twenty five.
+[00:09:14] Speaker D: Mm-hmm.
+[00:09:16] Speaker D: Yeah, that's um
+[00:09:19] Speaker A: To give you a pretty good idea of where you're looking.
+[00:09:21] Speaker D: So that's four million of them?
+[00:09:23] Speaker A: Something like that?
+[00:09:26] Speaker A: Okay.
+[00:09:27] Speaker D: Yeah.
+[00:09:29] Speaker A: That's fifty million Euros. In order to make fifty million Euros, and you're only getting twelve and a half each
+[00:09:32] Speaker D: And if we make
+[00:09:38] Speaker D: Mm-hmm.
+[00:09:40] Speaker A: That's a lot of selling.
+[00:09:44] Speaker D: Yeah.
+[00:09:44] Speaker A: Two four
+[00:09:46] Speaker D: Four million.
+[00:09:47] Speaker A: To be fifty, be four million. You'd have to sell four million.
+[00:09:52] Speaker D: Hmm.
+[00:09:53] Speaker A: Okay?
+[00:09:55] Speaker A: Right.
+[00:10:02] Speaker A: Experience with a remote control. Any of you use of remote control for a television or D_V_D_ or something? You're both nodding, all three.
+[00:10:10] Speaker B: That that that's the sorta product we're talking about, one that will work for a in a home environment, for a T_V_s and
+[00:10:10] Speaker D: Yeah.
+[00:10:16] Speaker A: Well
+[00:10:18] Speaker A: I've seen some remote controls that are for more than one device at a time, but I also have heard about them not working well or not well co-ordinated and you wind up working with this one for thi this three and then this one over here for another.
+[00:10:31] Speaker C: It is true that you always sit around you know, you're sitting on your sofa and you wanna change something, there's five different remotes, and one for the D_V_D_ and one for the video and one for cable and one for whatever else. But I presume this is t I presume this is just for television.
+[00:10:39] Speaker D: Mm-hmm.
+[00:10:42] Speaker D: Y yeah.
+[00:10:43] Speaker A: And they don't always talk to each other.
+[00:10:47] Speaker A: Don't know.
+[00:10:49] Speaker A: Okay. Are there any um ideas for the remote? What would it be for and what group would be be for?
+[00:11:00] Speaker A: We have to think about that one.
+[00:11:03] Speaker D: We could make a Hello Kitty
+[00:11:05] Speaker D: themed remote.
+[00:11:08] Speaker C: I think one in b bright colours would be good.
+[00:11:10] Speaker D: Yeah. We could totally go for the Japan-a-mation. Well I mean there's also the cachet that um uh the Japanese make great products. Electrical their industrial design is very good.
+[00:11:11] Speaker B: I think one that works would be good.
+[00:11:25] Speaker C: I think one that doesn't have lots of superfluous functions. Like I've got one at home that has
+[00:11:34] Speaker C: well, apart from the obvious, channels, channel up, channel down, volume,
+[00:11:40] Speaker D: Yeah.
+[00:11:40] Speaker C: you know, subtitles, mute, there's a lotta buttons that I've got no idea what they do, like.
+[00:11:46] Speaker D: Well, that's a really good point, because I think one of the things that being somewhat computer literate, we tend to um go to menus and then make choices, you know, so if it's like an uh volume button, you know, you can go in and say mute or or volume. We don't need to have like the l the numbers if we also have uh uh channel up channel down.
+[00:11:48] Speaker A: Okay.
+[00:12:07] Speaker C: Mm.
+[00:12:09] Speaker A: Mm.
+[00:12:11] Speaker A: Okay.
+[00:12:11] Speaker D: Mm. We can make it smart like an iPod, you know, make everything menus.
+[00:12:23] Speaker C: Ooh, closing the meeting.
+[00:12:25] Speaker A: Yeah. Um I know this sounds like it was very quick, but the
+[00:12:26] Speaker C: That was quick.
+[00:12:34] Speaker A: I think that's the industrial design is the first one, that's Kate, for the working design. And user, that's you S Steph, for the technical functions design, and for marketing the user requirements specification. I think there's going to be a lot of we have to help each other and work through this as a group, and I think we all, you know, we like our kitty-cat and our rat and our fish, but I think we all have to like each other um to get this done. Uh as it says, we're gonna get individual instructions, but uh I don't think they allowed a lot of extra time, so I think a little bit of less of this and more at do will set us in good stead. Do you all agree?
+[00:12:36] Speaker B: Mm.
+[00:12:38] Speaker B: Mm-hmm.
+[00:13:23] Speaker C: Mm-hmm.
+[00:13:24] Speaker B: Mm-hmm.
+[00:13:25] Speaker A: Alright. Um then I don't see any reason to prolong it and f we should finish this meeting at ni right now and go into other things. Alright, so this is the end of the first meeting. Thank you all.
+[00:13:39] Speaker D: Okay.
+[00:13:39] Speaker B: 'Kay.

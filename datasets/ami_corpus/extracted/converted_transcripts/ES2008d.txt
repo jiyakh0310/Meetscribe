@@ -1,0 +1,759 @@
+[00:00:36] Speaker A: Okay um,
+[00:00:38] Speaker A: welcome to our detailed design meeting. I'm pretty excited.
+[00:00:43] Speaker A: Let's start it's approximately fifteen forty or something like that.
+[00:00:52] Speaker A: Okay um the agenda we're gonna do an opening and then um I'll talk about the minutes from the last meeting, what we d discussed um, then we'll have the prototype presentation and a look at the evaluation criteria. We'll look at the finances and finally a do a production evaluation and close.
+[00:01:13] Speaker A: So, starting off with the um last the last one, oh I don't have it here um, but we talked about energy, we're gonna use a kinetic battery um, we want to use a simple chip, because we're not gonna need a a shuffle um, we're gonna need a scroll um, we're choosing a latex case w in fruity colours that's curved and um we're using push buttons uh with a supplement of an on-screen menu.
+[00:01:40] Speaker A: And it sounded like we had set um like eight or nine buttons, including five pre-set channels.
+[00:01:47] Speaker A: Okay? Let's do the look and feel design presentation first.
+[00:01:52] Speaker C: Right, do you wanna start?
+[00:01:54] Speaker B: Right, well we made three different prototypes and I guess we'll start with with this one.
+[00:01:58] Speaker B: Um we have our colours not are not fixed, but this is the general shape. Um it's you hold it sort of either like like this in your left hand or you switch it over and uh it's easily adaptable to either hand. You can push the buttons with your thumb like a mobile phone, or you can push them with your
+[00:02:17] Speaker B: index finger of your other hand, or even I mean there's a whole variety, you can hold it like this and press it with your same index finger.
+[00:02:24] Speaker B: Uh we have the on off button at the tip, very visible, very big.
+[00:02:29] Speaker B: We have our up and down buttons, which are also gonna be our channel selectors, and we have our little menu button here. If you push if you're just pushing these normally, they're the menu buttons, if uh the volume buttons rather. If you press select once, they become channel changing buttons. If we press select three times, the menu with the other features and pro possibly also with your T_V_ channel choices shows up, and you have your five presets down here.
+[00:02:58] Speaker B: Um if people wanna grab hold of that, see how it feels in your hand.
+[00:03:02] Speaker B: That's our number one prototype. Um do you wanna present the potato, or shall I present the Martian?
+[00:03:07] Speaker A: like a little lightning in it.
+[00:03:08] Speaker C: Okay, um
+[00:03:09] Speaker A: The little lightning bolt in it, very cute.
+[00:03:11] Speaker C: What
+[00:03:12] Speaker C: We call that one the rhombus, uh the rhombus. Um this one is known as the potato, uh it's
+[00:03:12] Speaker D: I could
+[00:03:14] Speaker A: The v the rhombus rhombus?
+[00:03:15] Speaker B: That's the rhombus, yep.
+[00:03:21] Speaker C: it's a how can I present it? It's an ergonomic shape, so it it fits in your hand nicely. Um
+[00:03:29] Speaker C: it's designed to be used either in your left hand or or in your right hand.
+[00:03:33] Speaker C: Um I've gone here just for just for four buttons on this one. Um
+[00:03:38] Speaker C: the two blue buttons here are for adjusting the volume. So you've got volume up and volume down on the other side here.
+[00:03:45] Speaker C: Um the red ones are for uh changing channels, channel up and channel down and that's um moves between your favourite channels that you've selected.
+[00:03:57] Speaker C: Uh this middle button here brings up the on-screen menu and when you're working in the on-screen menu you use the other four buttons to navigate around the menu system and the middle button uh to select
+[00:04:09] Speaker C: and that's basically it, that's the potato.
+[00:04:15] Speaker A: Um on, off?
+[00:04:16] Speaker C: Uh that would be one of your channels, basically, so like channel zero would be t to switch switch the machine off, yeah.
+[00:04:20] Speaker A: Okay.
+[00:04:22] Speaker A: Yeah we turn it off.
+[00:04:24] Speaker D: Could the middle button of the on-screen menu function as a power button?
+[00:04:28] Speaker C: Um not really, it would make it hard to turn the machine off, to turn your T_V_ off.
+[00:04:32] Speaker A: Mm-hmm.
+[00:04:35] Speaker B: If you pressed and held it maybe.
+[00:04:37] Speaker C: Yeah yeah, that that'd be one way of doing it, yeah. That'd work, yeah.
+[00:04:38] Speaker D: If you like held it down, that would be on off.
+[00:04:39] Speaker B: Yeah.
+[00:04:40] Speaker B: On off, that's a possibility, yeah.
+[00:04:42] Speaker A: Okay.
+[00:04:43] Speaker B: And then finally we have um the Martian or the pear, either way. Um it's a bit different, just a little bit more of a creative feel. Uh you have the on off toggle stem on the top. We have the five preset seeds.
+[00:05:04] Speaker B: And then you have on the sides to make it a little bit more three-dimensional, you have your channel changing, volume changing buttons and your menu button right here in the middle.
+[00:05:13] Speaker B: So, that's for your consideration as well, plus it's an interesting talking point to have standing up. We figured it could stand up like this on your table, if you wanted it to, if I made the bot the bottom flat.
+[00:05:15] Speaker C: Let's pass.
+[00:05:21] Speaker A: Uh-huh.
+[00:05:25] Speaker D: Sorry, what's the yellow one in the middle, I forgot.
+[00:05:26] Speaker B: Uh the menu select button.
+[00:05:32] Speaker A: Very interesting. I think that one's my favourite.
+[00:05:33] Speaker C: So that's
+[00:05:36] Speaker C: So that's our three prototypes. Um basically, in terms of making decisions, what we'd need to do is first of all decide on a form uh which of the three different shapes we want, then decide what kind of button layout we want, how many buttons,
+[00:05:50] Speaker C: and then to choose what colours we want to make the buttons and if we wanna put any text on the device, like label on the buttons or put a brand name or or a logo on it or whatever.
+[00:06:00] Speaker A: Mm-hmm.
+[00:06:02] Speaker B: We were we were thinking that
+[00:06:05] Speaker B: normally we'd go for fruity colours, but maybe we're also thinking that your sort of middle aged man, for an example customer, might not want a fruity coloured remote, so m maybe we'd have one version that's a bit toned down, maybe with with less contrasts on it. Yeah, something still a little bright to make it hard to lose, but
+[00:06:21] Speaker A: Mm 'kay.
+[00:06:24] Speaker C: Would
+[00:06:26] Speaker C: Yeah,
+[00:06:28] Speaker C: but we don't want it to look like a kids' toy.
+[00:06:30] Speaker B: yeah.
+[00:06:31] Speaker A: Now that was one thing that we brought up over email. I don't know if you picked up your email, but um the f the um feature that we considered for it not getting lost.
+[00:06:35] Speaker C: Yeah.
+[00:06:40] Speaker B: Right. Well we were we were talking about that a little bit when we got that email and we think that each of these are so distinctive, that it it's not just like another piece of technology around your house. It's gonna be somewhere that it can be seen. So we're we're not thinking that it's gonna be as critical to have the loss
+[00:06:53] Speaker A: Mm-hmm.
+[00:06:57] Speaker D: But if it's like under covers or like in a couch you still can't see it.
+[00:06:59] Speaker A: It's really
+[00:07:01] Speaker A: Would it be very difficult to um just have an external device that like I dunno, you tape to your to your T_V_ um that when you press it you ha a little light beep goes off?
+[00:07:12] Speaker A: Do you think that would be conceptually possible?
+[00:07:15] Speaker C: I think it would be difficult technologically, because if your if your remote's lost it's probably under the settee and in that case you can't you can't send an infrared sing signal to it to find it, s so it's
+[00:07:15] Speaker B: I think
+[00:07:18] Speaker A: Mm-hmm.
+[00:07:28] Speaker A: Mm.
+[00:07:29] Speaker C: I'm not quite sure how it would work and then I wonder if it's if it's more just a gimmick then anything else. Uh I mean ho how many times do you really, seriously lose your remote control and would would a device like that actually help you to find it?
+[00:07:30] Speaker A: That's true, mm 'kay.
+[00:07:31] Speaker B: Yeah.
+[00:07:45] Speaker B: There might be something that you can do in the circuit board and the chip
+[00:07:49] Speaker B: to make it make a noise or something, but it would take a lot more development than we have this afternoon.
+[00:07:52] Speaker A: Mm-hmm.
+[00:07:54] Speaker A: Okay, that's a fair evaluation. Getting lost. Um we so we do we've decided not to worry about that for now.
+[00:08:03] Speaker A: Okay 'cause well, the designs are very bright, so you're right, they're gonna stick out, but um
+[00:08:08] Speaker B: So d do people have a preference as far as feel and functionality? Um.
+[00:08:12] Speaker D: I feel like this is simil or it's sort of what already exists so if we're trying to think of something sort of like new and fun, even though this is like what you're init I'm initially drawn to, just 'cause it's like comfortable and like not different. I sort of like this one, like I I don't know why, it just it's like small but still sort of like cute looking, I dunno. But I also like the b the side buttons on that one, like I think that's kind of neat.
+[00:08:38] Speaker A: Mm-hmm.
+[00:08:41] Speaker D: But I dunno how much any of this has to do with the fashionable, sort of cool looking thing that we also need to focus on.
+[00:08:50] Speaker A: Could we maybe have like an extra button on the top for on off? So then w we wouldn't have to have like a dual function?
+[00:08:53] Speaker B: Mm yeah, that's good, that's good.
+[00:08:54] Speaker C: Yeah, it's possible, yeah, yeah.
+[00:08:54] Speaker D: Ah, there we go.
+[00:08:57] Speaker B: Here, stick it on.
+[00:08:58] Speaker C: Put an extra the button on.
+[00:09:00] Speaker A: Sure.
+[00:09:02] Speaker A: Um uh why don't we do a product evaluation using your criteria, if you've developed some?
+[00:09:06] Speaker D: Well do we w like I think we're supposed to have one that we do it for.
+[00:09:10] Speaker A: Oh okay. Okay.
+[00:09:12] Speaker D: That was I was a little vague on what exactly I'm supposed to do, but let me I have to like write something on the whiteboard, so.
+[00:09:12] Speaker B: So where
+[00:09:17] Speaker A: Okay.
+[00:09:19] Speaker A: Do you need this or just write on the white board?
+[00:09:21] Speaker D: No, I actually don't have like a PowerPointy thing, 'cause I think it would be redundant.
+[00:09:23] Speaker A: Okay.
+[00:09:24] Speaker B: Right.
+[00:09:27] Speaker B: Okay.
+[00:09:27] Speaker D: I dunno.
+[00:09:29] Speaker A: It's kind of like uh like a joystick kind of thing, you know, kinda push it.
+[00:09:30] Speaker B: Ooh.
+[00:09:32] Speaker C: Cool.
+[00:09:34] Speaker B: Hey.
+[00:09:37] Speaker A: 'Kay.
+[00:09:39] Speaker A: Maybe a little smaller than that.
+[00:09:41] Speaker B: No, I kinda like it. That's hard to miss.
+[00:09:43] Speaker C: It makes look more fruity as well.
+[00:09:44] Speaker A: Oh it does, it's kind of like
+[00:09:46] Speaker C: It's like a deformed foot, I dunno.
+[00:09:55] Speaker A: There it could have a stem like that, 'cause I do l kind of like the stem.
+[00:09:57] Speaker B: Like
+[00:09:58] Speaker C: Yeah.
+[00:10:02] Speaker A: Yeah.
+[00:10:04] Speaker A: It almost helps you ge keep a grip too, 'cause it goes in between fingers.
+[00:10:06] Speaker C: Yeah.
+[00:10:06] Speaker B: Yeah. Interesting.
+[00:10:08] Speaker A: I like this one.
+[00:10:09] Speaker B: Okay, is that where people are leaning then, the potato? I like the idea of the I mean that's really gotten the simplicity of the buttons down, that one.
+[00:10:10] Speaker A: Variety of colours are nice.
+[00:10:13] Speaker A: I think I'm leaning towards the potato.
+[00:10:17] Speaker A: Mm-hmm. I am worried about like um using a menu.
+[00:10:22] Speaker A: Um in that like i withing menus there are submenus, and so how do you get back to the main menu?
+[00:10:28] Speaker B: Hmm.
+[00:10:28] Speaker C: Yeah.
+[00:10:31] Speaker B: Well that on the iPod, for example, you just every time you wanna go back you hit the menu button again and it brings you back one level.
+[00:10:36] Speaker A: But that has a menu button separate from a select button, whereas if this one's both the menu and the select button?
+[00:10:40] Speaker C: Yeah.
+[00:10:41] Speaker B: Good point.
+[00:10:42] Speaker C: This is, it's the up and down buttons are used for scrolling up and down for a list of choices. You find the choice that you want and you press uh you press the right button uh.
+[00:10:48] Speaker A: Okay.
+[00:10:56] Speaker A: Could these be used for going to submenus or
+[00:10:57] Speaker C: Yeah.
+[00:10:58] Speaker C: Yeah, so they're used for going into and out of your submenus, yeah.
+[00:10:59] Speaker B: Maybe yeah, maybe it can be one of those, if you press down and hold
+[00:11:02] Speaker A: Okay.
+[00:11:05] Speaker B: for two seconds, then it brings you back one level or something.
+[00:11:08] Speaker A: Mm-hmm.
+[00:11:10] Speaker A: Okay. Well, as long as we have that in mind as we're designing it still, mm 'kay.
+[00:11:14] Speaker D: Okay, so which one are we sort of roughly looking at to address whether or not it meets our s um necessities, the yellowy one is that
+[00:11:24] Speaker B: The potato? Are we leaning towards the potato?
+[00:11:25] Speaker C: Potato.
+[00:11:26] Speaker A: I think so.
+[00:11:27] Speaker D: Okay, well we can obviously change it after we go through each different one. So basically what we need to do is some of the things that we've talked about before we need to make sure that that remote actually does conform to the things that we said it was going to. So what we sort of wanna do is that we each need to separately
+[00:11:30] Speaker B: Okay.
+[00:11:38] Speaker B: Okay.
+[00:11:44] Speaker D: rank each of the following things and then I'll tabulate an average just to make sure that it does meet that. So we'll just go through them one at a time and we'll just go around and each of you can tell me on a scale of one to seven with one being really extremely true
+[00:11:49] Speaker B: Okay.
+[00:11:59] Speaker D: and seven being not true at all, or false, if the remote that we've created conforms to the following criteria. So we can do this one first. First we wanna know if it meets the fancy look and feel um objective.
+[00:12:17] Speaker D: So like in my opinion the for now at least, the yellow one is probably somewhere in the middle so I'm gonna say it's like a three. That's just my opinion.
+[00:12:26] Speaker B: Yeah.
+[00:12:27] Speaker D: What does each of you
+[00:12:30] Speaker A: I I kind of think it's it's unique enough that I'd give it a one or a two.
+[00:12:33] Speaker D: Okay, well give it a number, sorry.
+[00:12:35] Speaker A: Okay.
+[00:12:37] Speaker A: I will give it a one.
+[00:12:41] Speaker B: Um I dunno if it's it's creative. I dunno if fancy is the word I would use.
+[00:12:47] Speaker B: I dunno if any of them are fancy in I'd say two, because c unique.
+[00:12:52] Speaker D: Okay.
+[00:12:54] Speaker D: And two, awesome. Alright, and same sort of scale for functionality, is it functional? I think it's extremely functional, I'm gonna give it a one.
+[00:12:54] Speaker C: I'll go for two.
+[00:13:05] Speaker B: Yeah, one.
+[00:13:06] Speaker D: One?
+[00:13:08] Speaker C: I think it's it's functional, it's also pretty basic, so I'll give it a two.
+[00:13:12] Speaker D: Okay.
+[00:13:14] Speaker A: Um functional.
+[00:13:17] Speaker A: I think it'll get everything done, I think it might be a little confusing at first, um, I don't know if that's gonna be a later one. Okay, then I'm gonna give it a two.
+[00:13:21] Speaker D: Okay. Well there's some other ones, I will address that, yeah.
+[00:13:26] Speaker D: Awesome, okay. Um we wanna know next if it's technologically innovative.
+[00:13:31] Speaker A: Did you give a functional? Okay.
+[00:13:32] Speaker D: Yeah, she said it was one. Um is it technologically innovative?
+[00:13:38] Speaker D: Mm.
+[00:13:40] Speaker D: Not really, I mean not so much, 'cause we we don't have the L_C_D_ screen, we don't have fancy chip. Other than what it looks like, I dunno if it's really
+[00:13:49] Speaker A: Well, the kinetic battery.
+[00:13:50] Speaker B: In the battery, that's it.
+[00:13:51] Speaker D: I kinetic battery is a big one, so.
+[00:13:54] Speaker B: How many people would notice that, though?
+[00:13:54] Speaker D: Mm.
+[00:13:56] Speaker D: But it but we know it's there.
+[00:13:57] Speaker A: But they'll notice it after like a year, they'll be like hey, I have never changed the battery.
+[00:14:00] Speaker D: And if it's made of like latex, that whole idea, that's pretty cool. I'll give it a three.
+[00:14:02] Speaker A: Mm.
+[00:14:03] Speaker A: Just the material.
+[00:14:05] Speaker D: 'Cause it we could've picked a lot of features that would've made it really
+[00:14:08] Speaker B: Yeah. I I would say that it's
+[00:14:14] Speaker B: Yeah, like fancy versus creative it's it's
+[00:14:18] Speaker B: different. But does that equal innovative? I dunno. I'll give it a three.
+[00:14:23] Speaker D: Alright.
+[00:14:25] Speaker D: Everyone else?
+[00:14:26] Speaker C: I'd say it's technologically it's not it's not unique, I mean it's it's just it is just pushbuttons um, so I I'd give it a four.
+[00:14:37] Speaker A: Think I'm gonna go with the four as well.
+[00:14:39] Speaker D: Mm 'kay.
+[00:14:40] Speaker A: I really like that kinetic battery though.
+[00:14:41] Speaker D: Next, is it easy to use? Just so you know, easy to learn will be separate, so don't overlap them. I think it's really easy to use. I'll give it a two.
+[00:14:46] Speaker A: Mm 'kay.
+[00:14:47] Speaker B: Okay.
+[00:14:54] Speaker B: Um I'll give it a one. Pretty hard to mess up.
+[00:14:58] Speaker C: I'll say one.
+[00:14:59] Speaker A: Uh let's say two.
+[00:15:01] Speaker D: Alright. Um we next wanna see if it has a spongy quality and if indeed it's made of latex or rubber I it's spongy all the way.
+[00:15:13] Speaker A: Give it a one.
+[00:15:14] Speaker D: Yeah.
+[00:15:14] Speaker B: Yeah.
+[00:15:15] Speaker C: I wonder if it bounces when you drop it.
+[00:15:17] Speaker B: Ooh, that you couldn't it'd be harder to break, harder to lose.
+[00:15:17] Speaker D: Mm-hmm.
+[00:15:20] Speaker A: Mm. 'Cause there would be less impact maybe,.
+[00:15:21] Speaker C: Yeah.
+[00:15:23] Speaker D: Iain, what do you give it?
+[00:15:23] Speaker B: Mm.
+[00:15:23] Speaker C: Yeah I'd I'd give it a one.
+[00:15:26] Speaker D: Alright and the next is, does it integrate some notion of fruits and vegetables? Well, is it gonna be yellow?
+[00:15:32] Speaker C: Uh um.
+[00:15:37] Speaker B: It it might be, 'cause that's our corporate colour, isn't it?
+[00:15:40] Speaker A: That's right, yeah, corporate colour, we didn't keep that in um well if we I know it would make it a little less c a little more confusing, but if we had all the buttons in black, and a design in and the outside in yellow, that'd be our corporate one and we could also have alternative colours, one a more conservative one, one that's more fruity.
+[00:15:41] Speaker C: Yeah.
+[00:15:43] Speaker B: We might wanna keep it yellow.
+[00:15:57] Speaker D: Yeah, but if you had like a silvery kind of white or something.
+[00:16:00] Speaker B: Yeah.
+[00:16:01] Speaker C: Yeah,
+[00:16:02] Speaker A: Um and can we have like an R_R_ inscribed on the bottom or something? Okay.
+[00:16:02] Speaker B: If we had a yellow
+[00:16:05] Speaker B: Sure.
+[00:16:05] Speaker D: Oh, yeah.
+[00:16:06] Speaker C: Yeah.
+[00:16:08] Speaker D: Alright, so I think it it's
+[00:16:08] Speaker A: Fruity, so fruity.
+[00:16:08] Speaker B: So it was inspired by the potato, so I think it's pretty fruity.
+[00:16:11] Speaker D: Yeah.
+[00:16:12] Speaker A: I think i it's kind of mangoey too.
+[00:16:14] Speaker D: Yeah. I okay, I'm giving it a one the mango put me over.
+[00:16:14] Speaker B: Oh, mango that that
+[00:16:14] Speaker C: Mangoey is better, yeah. I like mangoes.
+[00:16:15] Speaker A: Yes.
+[00:16:17] Speaker A: Mm.
+[00:16:18] Speaker B: That's a much more trendy than a potato one.
+[00:16:19] Speaker D: What are what's everyone's numbers?
+[00:16:24] Speaker C: Uh two.
+[00:16:25] Speaker A: One.
+[00:16:26] Speaker D: Alright um, and does the design match the appropriate behaviour? Remember earlier we discussed that people don't use a lot of buttons, that they use the channel flipping and the volume the most.
+[00:16:39] Speaker D: I think we really took that into account a lot, so I'm gonna give it a one.
+[00:16:42] Speaker B: Yeah, me too.
+[00:16:42] Speaker A: Mm-hmm.
+[00:16:45] Speaker C: Uh one.
+[00:16:46] Speaker D: Did you say one, Rose?
+[00:16:47] Speaker A: Yes.
+[00:16:49] Speaker D: Okay um, also we talked earlier about R_S_I_ and wanting to prevent um any sort of like Carpal Tunnely kind of thing. Do we think that the latex sort of grip appropriately takes that into account?
+[00:17:04] Speaker D: I think I'll give it a two, 'cause I almost feel like no matter what you do, something is gonna happen.
+[00:17:08] Speaker A: It's gonna be hard.
+[00:17:08] Speaker B: Yeah.
+[00:17:09] Speaker C: Yeah, yeah.
+[00:17:11] Speaker A: And if it's repetitive movement it is gonna be only four buttons that you're constantly pushing, but um
+[00:17:16] Speaker D: Um um worth the risk, I think.
+[00:17:17] Speaker A: I like how it fits in the hand though so I I'd go with a two.
+[00:17:20] Speaker B: Yeah.
+[00:17:22] Speaker B: I'll I'll say two as well. Because older people that aren't used to like texting with the thumb might find it a bit at first, but
+[00:17:28] Speaker A: Mm.
+[00:17:29] Speaker D: 'Kay.
+[00:17:31] Speaker C: Yeah I'll I'll say two.
+[00:17:33] Speaker D: Alright, awesome. And the ease of learning it. I know you were saying that you're a little bit nervous about that, I dunno. It sort of reminds me of the iPod. I just got mine, I still haven't read the instruction book and I'm doing okay, so and I'm not good at learning technology. So I'll give it a two.
+[00:17:45] Speaker A: Mm.
+[00:17:51] Speaker B: The menu system and the the fact that multiple buttons are used for different things might be a bit confusing, but I think if it's one it's one of those things that it might take you five minutes to figure out, but you'll have it afterwards. So I'd I think I'd give it a two I guess.
+[00:18:02] Speaker A: Mm-hmm.
+[00:18:07] Speaker C: I think it it's probably a little harder then most remotes to learn, because you have to you have to use the menu system and you have to tell it what your favourite channels are and that could take a bit of learning at first, but
+[00:18:17] Speaker B: Oh, good point.
+[00:18:19] Speaker D: Mm-hmm.
+[00:18:21] Speaker C: once you've, yeah once you'd learned how to use it, I think it is a lot easier. So I'd I'd give it a four.
+[00:18:26] Speaker D: Okay.
+[00:18:27] Speaker A: I think I'd give it a four too. It's a pretty high learning curve, it'll be easy once you've done it, but
+[00:18:32] Speaker D: Mm-hmm.
+[00:18:32] Speaker C: Yeah.
+[00:18:33] Speaker D: Alright, um also earlier we had something about losing it and so now we're not addressing that at all, so
+[00:18:41] Speaker A: We we I think we can kind of say we addressed it with colour, but
+[00:18:44] Speaker D: Okay, so in terms of not losing it, do you think that on a scale of one to seven, how easy or hard is it to lose? I'm gonna I'm gonna give it a four, 'cause I think that you can still if it's in between somewhere where you can't see it, you're kind of not gonna find it, but anywhere else it's gonna stand out.
+[00:19:00] Speaker A: Mm-hmm.
+[00:19:01] Speaker C: Yeah.
+[00:19:04] Speaker B: Um I'd say I'd give it uh a three, I guess it depends on how tidy you are normally.
+[00:19:09] Speaker A: Mm I'd give it a four.
+[00:19:11] Speaker C: Um I'll give it a five 'cause i it would be easy to lose something like that, yeah.
+[00:19:15] Speaker A: Small too.
+[00:19:17] Speaker D: Alright, we also said simplicity, how w how well does it address just being simple?
+[00:19:23] Speaker B: Simple to use or simple in design? Do you know?
+[00:19:27] Speaker D: I think overall, 'cause we had said before our two main things were simplicity and fashion, so those are the next two things we're gonna look at. Separate from fancy, like that sort of thing.
+[00:19:35] Speaker B: Right.
+[00:19:37] Speaker D: Um it like wants to be simple but it's not like totally totally simple, so I'm gonna give it a two.
+[00:19:44] Speaker B: I'm give it a three I guess.
+[00:19:47] Speaker C: I'll give it a two.
+[00:19:49] Speaker A: Three.
+[00:19:51] Speaker D: Alright, and fashionable?
+[00:19:53] Speaker A: It's totally fashionable. I'd give it a one.
+[00:19:54] Speaker D: It's hot, I mean it's a mango, come on.
+[00:19:56] Speaker A: Mango.
+[00:19:58] Speaker D: I mean how fashionable can you make a remote? I think it's bringing technology and fashion together real really well.
+[00:20:02] Speaker B: I dunno. I don't think it's quite as fashionable as my robot remote
+[00:20:06] Speaker A: I do like uh the little Martian one.
+[00:20:08] Speaker B: or alien or whatever he was.
+[00:20:09] Speaker D: Yeah, the toggle on off switch, it's really appealing.
+[00:20:15] Speaker D: Number.
+[00:20:15] Speaker B: Um two.
+[00:20:19] Speaker C: Three.
+[00:20:21] Speaker A: One.
+[00:20:22] Speaker D: And does it meet our like demographic need sort of for international appeal,
+[00:20:30] Speaker D: that whole thing?
+[00:20:33] Speaker D: Just that it would se serve our audience.
+[00:20:36] Speaker D: I don't see why not.
+[00:20:37] Speaker A: Mm-hmm. I think as long if we offer in a in at least three different colour arrangements.
+[00:20:43] Speaker A: Um yeah, that's good.
+[00:20:44] Speaker B: Yeah.
+[00:20:44] Speaker D: Mm-hmm.
+[00:20:47] Speaker A: So I'll give it a a two.
+[00:20:49] Speaker B: Yeah, I'll say two.
+[00:20:51] Speaker D: Alright, did anyone have any other features that they think were important that we didn't talk about?
+[00:20:56] Speaker A: Well um we didn't we didn't address the fact that it does need to b have a corporate logo, so let's let's make sure we keep that in mind that we ha that one of our colours concepts is corporate and has an R_R_ on it. All of them should have R_R_, yeah.
+[00:21:04] Speaker B: Shall we uh
+[00:21:06] Speaker B: Well I think all of them should have an R_R_.
+[00:21:10] Speaker D: And so we're gonna do that, so it will address it, fine.
+[00:21:11] Speaker A: Mm-hmm. Mm 'kay.
+[00:21:16] Speaker D: Okay.
+[00:21:18] Speaker D: That's me.
+[00:21:18] Speaker A: Lovely.
+[00:21:20] Speaker A: Okay, now we're gonna look at finances. Um I have an Excel sheet that we're actually gonna calculate the cost um,
+[00:21:29] Speaker A: so let me exit out of this first.
+[00:21:35] Speaker A: Okay um
+[00:21:37] Speaker B: Oh my.
+[00:21:37] Speaker D: Whoa.
+[00:21:38] Speaker A: I know.
+[00:21:40] Speaker A: Let me one more space. Gonna zoom in real quick.
+[00:21:50] Speaker A: Okay. Hand dynamo.
+[00:21:54] Speaker A: We're using kinetic battery, right?
+[00:21:54] Speaker B: Uh we're n using kinetic, yeah.
+[00:21:56] Speaker A: Um and we're having one per
+[00:22:00] Speaker B: Yeah.
+[00:22:00] Speaker A: One, okay. Um electronics.
+[00:22:03] Speaker B: Single. Simple, simple rather.
+[00:22:04] Speaker A: Simple.
+[00:22:04] Speaker D: Simple.
+[00:22:06] Speaker A: Mm 'kay.
+[00:22:08] Speaker A: Um the case.
+[00:22:08] Speaker B: Uh uh uh double-curved.
+[00:22:10] Speaker C: Guess it's double-curved. It is pretty curvy.
+[00:22:13] Speaker D: Yeah.
+[00:22:13] Speaker A: It's very curvy, so okay.
+[00:22:15] Speaker B: Yeah I never did get a picture of those so I don't really know.
+[00:22:19] Speaker B: Our case material supplements oops, we just skipped by them. No, we we the plastic is the plastic for the inside is assumed. The supplement is
+[00:22:22] Speaker D: Well don't we need plastic, and
+[00:22:28] Speaker D: Provided, okay.
+[00:22:30] Speaker A: The wood?
+[00:22:31] Speaker B: Oh, I guess it was rubber rather than latex.
+[00:22:31] Speaker A: I mean the rubber.
+[00:22:32] Speaker D: It was rubber and special colour, right?
+[00:22:34] Speaker B: Yeah.
+[00:22:35] Speaker A: Mm-hmm, okay.
+[00:22:35] Speaker D: Do we have more than one special colour?
+[00:22:39] Speaker B: Uh well
+[00:22:39] Speaker A: Yeah, we're using we're gonna need at least two special colours.
+[00:22:41] Speaker C: Special colours, isn't it?
+[00:22:44] Speaker A: Um.
+[00:22:44] Speaker B: I don't know what the se the basic colour is though.
+[00:22:45] Speaker D: Per
+[00:22:46] Speaker A: I dunno where it yeah.
+[00:22:47] Speaker D: Well, but we know that we're having at least three colours, so
+[00:22:49] Speaker A: So let's y say three.
+[00:22:50] Speaker B: Well, are we talking about on each colour combination or are we, you know, we'll like we'll have yellow and black. Is that two special colours?
+[00:22:59] Speaker A: Yeah, I dunno. That I thi I thought that would be under yours.
+[00:23:00] Speaker B: Or or is white and black, then two more or
+[00:23:08] Speaker B: Uh.
+[00:23:10] Speaker B: I guess it's three, three three.
+[00:23:11] Speaker A: We'll just say three.
+[00:23:13] Speaker A: Mm-hmm. Maybe the R_R_ will be in colour as well, so yeah. Interface, we're doing push buttons. And how many buttons do we have?
+[00:23:13] Speaker D: Right.
+[00:23:14] Speaker B: Alright.
+[00:23:19] Speaker B: Yeah.
+[00:23:20] Speaker D: We have six.
+[00:23:21] Speaker C: We've got five. Oh six.
+[00:23:23] Speaker B: Six, with the power.
+[00:23:23] Speaker A: Six.
+[00:23:23] Speaker D: Oh no, five.
+[00:23:26] Speaker B: Yeah.
+[00:23:26] Speaker A: Anything else?
+[00:23:28] Speaker B: No. Oh, we'll do we wa
+[00:23:31] Speaker B: Are the buttons in special colour, special f
+[00:23:34] Speaker B: I didn't get information on
+[00:23:35] Speaker D: Oh wait.
+[00:23:35] Speaker A: Oh, buttons oh, so um. So the case material will just have one colour, right, but then the buttons will be in special colours?
+[00:23:41] Speaker B: Well, does it but if we're making multiple varieties of this is where I'm getting confused.
+[00:23:41] Speaker D: Yeah.
+[00:23:46] Speaker A: We're saying per unit.
+[00:23:47] Speaker B: per unit, okay, okay.
+[00:23:48] Speaker D: Yeah, per unit.
+[00:23:49] Speaker A: Okay, so each unit will only have one colour on their but the case is
+[00:23:51] Speaker B: Alright, and each button s
+[00:23:55] Speaker A: could have up to thr I mean the buttons could ea could be up to three colours, 'cause that how it's designed there. So
+[00:23:58] Speaker D: Yeah.
+[00:23:59] Speaker C: Yeah.
+[00:24:00] Speaker B: Yeah, okay.
+[00:24:00] Speaker D: I like it like that.
+[00:24:03] Speaker A: Special form? They're all kind of just push button, right?
+[00:24:06] Speaker B: No, I think they're fine. Material, we want them rubber as well probably, yeah.
+[00:24:06] Speaker C: Yeah.
+[00:24:08] Speaker A: Special material?
+[00:24:11] Speaker A: Uh. Oh do I have to do it per button, do I?
+[00:24:15] Speaker B: No, I don't think so.
+[00:24:18] Speaker B: I think they're if they're all gonna be rubber then it that's what it matters.
+[00:24:19] Speaker A: Okay.
+[00:24:23] Speaker D: Yeah, 'cause it wouldn't make sense otherwise, 'cause for the whole mat case material it's only one. It's I mean it's two to make it rubber. Oh wait, so maybe.
+[00:24:24] Speaker B: Yeah.
+[00:24:24] Speaker A: Yeah.
+[00:24:27] Speaker A: Mm-hmm.
+[00:24:27] Speaker B: Yeah.
+[00:24:29] Speaker B: Okay.
+[00:24:31] Speaker A: Thirteen point seven.
+[00:24:33] Speaker B: Oh oh.
+[00:24:35] Speaker A: Yeah, what can we reduce?
+[00:24:36] Speaker B: Okay, let's have our buttons all be one colour.
+[00:24:40] Speaker D: Mm, I kind of like the buttons.
+[00:24:41] Speaker A: Let's see what that would do. It's only gonna bring us down to thirteen point three anyway.
+[00:24:45] Speaker B: Alright.
+[00:24:46] Speaker A: Okay um, are we sure this is double-curved? Maybe it's single-curved, we have no idea.
+[00:24:47] Speaker B: Uh.
+[00:24:50] Speaker B: We have no idea.
+[00:24:54] Speaker B: I dunno, I didn't get any pictures.
+[00:24:57] Speaker B: It's single curved. Why not?
+[00:24:58] Speaker D: It's single curved.
+[00:25:04] Speaker A: Well it's not the yeah. Okay, it's the kinetic battery that's kind of expensive, but we have a simple chip, single curve,
+[00:25:12] Speaker A: case material is rubber and it's a special colour, but that's important. Six buttons we have to have six buttons.
+[00:25:15] Speaker B: Yeah.
+[00:25:18] Speaker B: That is important. How did it get more expensive, what did you just change? It was it was thirteen and now it's fifteen.
+[00:25:22] Speaker A: What?
+[00:25:26] Speaker A: No, okay, maybe not. I don't know what just happened. Now it's twelve.
+[00:25:30] Speaker D: We
+[00:25:30] Speaker C: What was our target price again?
+[00:25:32] Speaker B: Twelve point five. Hey hey.
+[00:25:32] Speaker A: Twelve point five.
+[00:25:33] Speaker C: Twelve point five. So we're just just about there.
+[00:25:35] Speaker A: So we're okay, I think.
+[00:25:36] Speaker B: We're all set then.
+[00:25:37] Speaker A: Yeah.
+[00:25:40] Speaker B: Ish.
+[00:25:42] Speaker A: Okay, we're all set. Um save. I saved that to our um our big shared folder, so you know. Um okay, back to agenda.
+[00:25:42] Speaker B: Alright.
+[00:25:58] Speaker A: Um are the are the costs under twelve fifty Euro? Yes. Let's move on to the project evaluation.
+[00:26:01] Speaker B: Yes.
+[00:26:02] Speaker C: Yeah.
+[00:26:02] Speaker D: Yeah, they are.
+[00:26:06] Speaker A: Project process.
+[00:26:08] Speaker A: Satisfaction with for example the room for creativity, leadership, teamwork, the means, any new ideas found. So I guess what we're gonna talk about here is just evaluating how we created this project, the information we got on the news, how we used it, if we were able to um, you know, use our creativity with the information, um how how well I guess I led it, um the how well we worked together as a team, um the digital pens, the whiteboard.
+[00:26:39] Speaker B: Well.
+[00:26:40] Speaker A: Okay.
+[00:26:42] Speaker B: I felt very creative. I enjoyed making the prototypes.
+[00:26:49] Speaker C: I think we've been successful in that we've achieved almost all of the design goals that we've set and we've come up with a finished project and we just about got cost.
+[00:26:56] Speaker B: Yeah.
+[00:27:03] Speaker B: I think we could've done even better with a little bit more information, like what's a single-curved case, how many colours, what do colours count
+[00:27:06] Speaker A: Mm-hmm.
+[00:27:10] Speaker A: Mm-hmm.
+[00:27:11] Speaker B: things, but given given what we had I think that we did we did really well.
+[00:27:16] Speaker B: Um I think we worked together pretty well.
+[00:27:19] Speaker C: Yeah.
+[00:27:20] Speaker D: Yeah, I mean if I'd had more market research on the fruits and vegetables, maybe we could've taken that into account.
+[00:27:23] Speaker B: Yeah. But the fruits and vegetables, they really my creativity, so.
+[00:27:24] Speaker A: Mm-hmm.
+[00:27:29] Speaker D: I know, I really did, the the whole mango idea was great. No, I mean
+[00:27:31] Speaker B: Do you think we could
+[00:27:35] Speaker D: I thought the pen was a little distracting for me personally, like its heaviness, and like just being so conscious of like turning the pages, I dunno. That was a bit of a distraction. That was the last one, like I chose not to do a PowerPoint 'cause I didn't think it made sense to, so I liked that I had the option to do that and just to take my own notes and that whole sort of thing.
+[00:27:46] Speaker B: Yeah.
+[00:27:54] Speaker A: Mm-hmm.
+[00:28:01] Speaker C: Yeah.
+[00:28:01] Speaker A: I think we all made um very significant contributions, I don't think anybody dominated it, which I thought was really good, like each of us was able to um like each of you had your information and I uh I tried to facilitate it without like taking over, um
+[00:28:15] Speaker B: Yeah.
+[00:28:17] Speaker A: I like our little finished products.
+[00:28:19] Speaker B: Can we market this as the mango remote? Should we have that somewhere on the packaging?
+[00:28:19] Speaker D: They're funny.
+[00:28:20] Speaker A: Really cute.
+[00:28:21] Speaker D: I kind of want one.
+[00:28:31] Speaker B: I have a little R_R_.
+[00:28:31] Speaker D: I'm trying to think of a good pun that I could add there.
+[00:28:34] Speaker A: I know, let's think of it like a little jingle.
+[00:28:37] Speaker A: Um.
+[00:28:38] Speaker D: I like the R_R_, that's gonna be etched in.
+[00:28:40] Speaker B: Yes. Hopefully not with just my fingernail at some point but um it's quite a useful little gadget.
+[00:28:48] Speaker B: All thanks to Iain for the design of that one.
+[00:28:50] Speaker A: .
+[00:28:53] Speaker A: Okay um new ideas found?
+[00:28:53] Speaker B: Mm. What did we find for new ideas? People should really base their remotes on fruits and vegetables.
+[00:28:59] Speaker A: Definitely. Or or at least be c p creative enough to think of toggle switches mm
+[00:29:00] Speaker C: Yeah.
+[00:29:05] Speaker B: I I am really into the idea of kinetic batteries now after reading about them. That was
+[00:29:06] Speaker A: etcetera.
+[00:29:09] Speaker A: Oh, I'm so excited.
+[00:29:12] Speaker D: Yeah, I didn't even know they existed.
+[00:29:14] Speaker B: I I knew you can get watches that had them, like really quite expensive watches that just never need a battery, 'cause you're always moving your wrist.
+[00:29:21] Speaker A: Mm-hmm.
+[00:29:23] Speaker B: But in other things, I think it'd be really good.
+[00:29:27] Speaker A: I thi yeah, that's awesome.
+[00:29:30] Speaker A: Um okay, closing.
+[00:29:33] Speaker A: Are the costs within the budget? Is the project evaluated? Now there's the final questionnaire and meeting summary. Um so, this is the great product kids, I think we've created something really interesting and that we have a market for it, um especially if we can produce it at twelve point three which we hope um
+[00:29:36] Speaker B: Yes.
+[00:29:47] Speaker B: Yeah.
+[00:29:53] Speaker A: yeah. Make sure in your questionnaire to put down criticisms of
+[00:29:58] Speaker A: both the process and the um the final results and. I do like the Martian remote. If we could choose more than one, that would be my second choice.
+[00:30:04] Speaker D: Yeah, Real Reaction.
+[00:30:09] Speaker D: Oh, that would definitely be my second choice.
+[00:30:10] Speaker C: Mm.
+[00:30:11] Speaker A: Although the tog toggle
+[00:30:13] Speaker A: I'm afraid I would
+[00:30:14] Speaker C: That's cool. Let's all let's all go for the yellow
+[00:30:14] Speaker D: I would break it. I would break it.
+[00:30:15] Speaker A: It's cool. I think I would break it.
+[00:30:16] Speaker B: It started because I wanted to have it as st as a stem and then alright, so
+[00:30:18] Speaker C: Break the stem off.
+[00:30:23] Speaker D: Oh that's funny.
+[00:30:26] Speaker B: Is it started as a pear, but then it started looking more and more like a Martian when I put the
+[00:30:31] Speaker D: Kind of looks like a penguin, like with no eye.
+[00:30:31] Speaker A: Oh yeah, it's kind of a penguin.
+[00:30:32] Speaker B: Take me to your leader.
+[00:30:37] Speaker D: I like that it stands up.
+[00:30:39] Speaker A: Mm-mm.
+[00:30:41] Speaker B: Wow, maybe I should market it to some remote control company now.
+[00:30:46] Speaker B: So are are poor little thing.
+[00:30:48] Speaker C: That was bound to happen
+[00:30:49] Speaker D: Oh, sad.
+[00:30:57] Speaker A: Mm 'kay, congratulations.
+[00:31:01] Speaker A: Um.
+[00:31:03] Speaker A: Anything else to say?
+[00:31:07] Speaker D: Nothing will come up until after our meeting's supposed to be over, its all timed.
+[00:31:09] Speaker A: Alright.
+[00:31:11] Speaker B: Oh.
+[00:31:11] Speaker A: Um anybody have I got more master classes, anybody else wanna like take a master's class?
+[00:31:12] Speaker D: Oh.
+[00:31:15] Speaker B: It's really funny that you got spam in your work emails.
+[00:31:20] Speaker A: Yeah, but check it out. So like there are all these like links, they don't go anywhere.
+[00:31:25] Speaker A: But all that you need to keep in mind your knowledge management. Um just wanna make sure you do.
+[00:31:31] Speaker D: No the first one that you sent like I didn't realise that it was a joke and I was like why did she send this to us? It's very it's very work relevant, 'cause people send spam a lot.
+[00:31:35] Speaker A: Oh
+[00:31:39] Speaker A: It is.
+[00:31:41] Speaker A: Yes definitely I'm very sad that I didn't get any links to the corporate website.
+[00:31:46] Speaker B: Let's see, what did I get through the corporate website? It's just inspiration about circuit boards.
+[00:31:46] Speaker D: Oh here you can you can view.
+[00:31:46] Speaker A: .
+[00:31:49] Speaker D: You can just see what's up.
+[00:31:52] Speaker A: Wow.
+[00:31:53] Speaker D: Yeah it's it's really deep. Hold on.
+[00:31:57] Speaker D: Takes a little while to get excited to load. That the Excel thing is pretty cool. Here, like, basically it's like inspiration, basically I'm gonna give you two sentences on fashion and
+[00:32:02] Speaker A: Yes. I love Excel, it's one of my favourite programs.
+[00:32:02] Speaker B: Yeah, that is pretty neat.
+[00:32:10] Speaker D: that kind of thing, see. You didn't miss out that much.
+[00:32:12] Speaker A: I see, mm.
+[00:32:13] Speaker B: Yeah, my inspiration from from last time is the in interior of a remote control being taken apart bit by bit, talking about circuit boards. I learned a lot actually. I could probably take apart a remote control now if I really needed to.
+[00:32:15] Speaker A: Spongy.
+[00:32:22] Speaker C: Mm.
+[00:32:22] Speaker D: Oh wow.
+[00:32:26] Speaker D: This one was cooler. I got a whole table and everything.
+[00:32:29] Speaker B: Now I have all about circuits and chips and transponders and I wrote it all down, because I thought it would be relevant, like all the different parts of the inside of a remote control, but then they're like, you don't actually need this you just need to talk about the case.
+[00:32:43] Speaker D: That's like mine it was like, would you prefer an L_C_D_ screen or a multifunction remote control? And then it didn't have like any kind of table, like awesome, I'm glad they asked that question and didn't report the result.
+[00:32:53] Speaker B: It's really interesting though.
+[00:32:54] Speaker A: I I thought it was a little tricky having to hand around this thing.
+[00:33:00] Speaker B: Yeah.
+[00:33:00] Speaker D: Yeah.
+[00:33:01] Speaker C: Yeah.
+[00:33:01] Speaker A: We had a lot of the um otherwise the technology today was kinda cool.
+[00:33:03] Speaker C: I think.
+[00:33:06] Speaker B: That was really neat how I got emails and
+[00:33:06] Speaker C: Yeah.
+[00:33:07] Speaker C: We didn't we didn't use the whiteboard that much.
+[00:33:08] Speaker A: Mm-hmm.
+[00:33:10] Speaker B: No.
+[00:33:10] Speaker A: No. Although I don't see how we could have very l at least for me I
+[00:33:16] Speaker B: I yeah. If I'd gotten pictures of the different parts of the case, the different looks of the case, I would have probably drawn them up, but
+[00:33:24] Speaker A: Mm.
+[00:33:25] Speaker D: 'Cause we weren't like voting on anything and I think usually, like whiteboards are good, you know like crossing out ideas, or like if we had had like a brainstorming period.
+[00:33:32] Speaker B: Yeah, we could've put our brainstorming stuff up there rather than just talking about it, but with only four people it doesn't really make sense. I think if you had a larger group
+[00:33:36] Speaker A: Mm-hmm.
+[00:33:36] Speaker D: But I thought we were good orally.
+[00:33:39] Speaker D: Get crazy.
+[00:33:40] Speaker A: And with and with the PowerPoint that we can all look at, like you can do all those things pretty much on PowerPoint as that's not as necessary to have.
+[00:33:42] Speaker B: Yeah.
+[00:33:45] Speaker C: Yeah.
+[00:33:45] Speaker D: And these might've made us more willing to like take notes than to
+[00:33:50] Speaker D: like write up them here, 'cause we all needed them separately, kind of on the whiteboards in this room.
+[00:33:51] Speaker A: Mm.
+[00:33:54] Speaker A: Mm-hmm.
+[00:33:56] Speaker B: Because we're all gonna be working in different places. We if we were all gonna stay in here all the time, then having the notes up on the whiteboard would've been alright, but everyone needs their own, like specific notes, I guess.
+[00:33:59] Speaker D: Yeah.
+[00:34:02] Speaker A: Mm-hmm.
+[00:34:09] Speaker A: Now when you were um creating your um prototypes here, did you work together or did you like do separate projects?
+[00:34:15] Speaker C: Uh we we worked together, um but we were making like we sort of made different shapes and then discussed how the how the buttons might work, um and how we could like improve on the on the design.
+[00:34:17] Speaker B: Yeah.
+[00:34:25] Speaker A: Mm-hmm.
+[00:34:25] Speaker B: Yeah.
+[00:34:31] Speaker B: So it was a bit of both really, we just kind of started out by each taking a colour of clay and
+[00:34:36] Speaker B: just fooling around with it and I came up with that rhombus shape and he came up with the sort of potatoey, mangoey shape, and then just went from there really.
+[00:34:39] Speaker A: Mm-hmm.
+[00:34:46] Speaker A: Cool.
+[00:34:47] Speaker B: It was fun.
+[00:34:54] Speaker B: So well done with the management, I felt well managed.
+[00:34:58] Speaker A: Oh thanks.
+[00:34:59] Speaker C: I think we did well in first of all giving our meetings the time, and second we actually
+[00:35:00] Speaker A: It's kinda fun.
+[00:35:06] Speaker C: we we did a good job of making firm decisions at the ends of the meetings.
+[00:35:09] Speaker A: Mm.
+[00:35:10] Speaker D: Sorry.
+[00:35:10] Speaker C: And I
+[00:35:11] Speaker B: That happened to me all the time though.
+[00:35:14] Speaker C: I know what happens sometimes is that you tend to sort of have meetings and then people sorta drift away without anything actually really being decided. But I think here we got we got clear and and decisive decisive points at the end of the meetings, so that we we knew where to go on from there.
+[00:35:21] Speaker A: Mm-hmm.
+[00:35:31] Speaker B: Yeah, I was quite worried at the end of the last meeting that we weren't getting we didn't really have enough information to make firm decisions, but we were able to do it regardless, so.
+[00:35:38] Speaker A: Mm-hmm.
+[00:35:43] Speaker B: I'm not usually a very decisive person, so it helped to have people say this needs to be done in five minutes.
+[00:35:47] Speaker A: This is what we'll do.
+[00:35:47] Speaker C: Yeah.
+[00:35:52] Speaker A: I found that we did we could have used another five or ten minutes
+[00:35:56] Speaker A: sometimes in the meetings.
+[00:35:56] Speaker C: Yeah, for some of the meetings, yeah.
+[00:35:57] Speaker B: Especially last time, yeah.
+[00:35:58] Speaker A: Mm-hmm. Yeah I think the last time we had a lot of information, but at the same time not quite enough, you know what I mean, like we we couldn't answer every single question.
+[00:36:02] Speaker B: Yeah,
+[00:36:05] Speaker B: Yeah.
+[00:36:06] Speaker C: Yeah.
+[00:36:07] Speaker B: Yeah.
+[00:36:09] Speaker B: Right.
+[00:36:09] Speaker A: Um but
+[00:36:13] Speaker B: And I I felt the first two meetings, that I was coming in with no information, and not sort of
+[00:36:17] Speaker A: Mm.
+[00:36:19] Speaker B: made me really like, ooh I don't know, throwing together PowerPoint out of no no information and then last time it was like the opposite. I had so much information and so much to talk about.
+[00:36:29] Speaker A: It was interesting what came out like later, like as I was doing the when I was doing the breakdown on the agenda that they gave me um, that more points came out from your presentation even.
+[00:36:32] Speaker B: Yeah.
+[00:36:37] Speaker B: Mm.
+[00:36:40] Speaker A: Um.
+[00:36:45] Speaker A: I'm a little I am a little disappointed that we didn't do a um something for losing the remote, because that was kind of a big point.
+[00:36:51] Speaker B: Yeah.
+[00:36:52] Speaker B: that was something like in order to talk about that we would've had to have actual knowledge about circuit boards and things like
+[00:36:58] Speaker A: About yeah.
+[00:36:58] Speaker D: Well the problem was, even when we just were creating from the Excel file, there wasn't like a option to select to somehow have it included, so there was no we could be like yeah, it has it included. There was no way for us to have
+[00:36:59] Speaker C: Yeah.
+[00:37:05] Speaker A: Mm-hmm.
+[00:37:06] Speaker B: Yeah.
+[00:37:08] Speaker B: I think we were
+[00:37:09] Speaker A: Mm-hmm.
+[00:37:12] Speaker B: Yeah.
+[00:37:12] Speaker A: Considered the re yeah.
+[00:37:12] Speaker D: written down that it was really there.
+[00:37:13] Speaker B: I think we were just getting overenthusiastic with the task. I think we really got into it, I mean I got into it as the day went on and I got really like, ooh I'm designing a remote control, I dunno if that's just me, but
+[00:37:16] Speaker A: Well it's interesting that they
+[00:37:24] Speaker A: Mm-hmm, yeah. It was interesting though that they put that fifty percent of people say they have frustration with losing their remote and yet they didn't provide us with information to um we weren't provided with information to discuss that.
+[00:37:33] Speaker B: Yeah.
+[00:37:34] Speaker D: Yeah.
+[00:37:39] Speaker A: I know that like people people have like things they can put on their keys that you press it and it'll beep, but I but I'm sure that would require some kind of technology that
+[00:37:44] Speaker C: Yeah.
+[00:37:44] Speaker B: Yeah.
+[00:37:48] Speaker A: I just don't know what it is, but
+[00:37:49] Speaker B: I think there are some of those like infomercial remotes that have things
+[00:37:54] Speaker B: so you won't lose them.
+[00:37:55] Speaker A: Mm.
+[00:37:56] Speaker B: I dunno. I mean we were talking about it and like i in my household at least, there's only about two places that the remote is ever 'cause there's only one T_V_ and
+[00:38:03] Speaker A: Hmm.
+[00:38:06] Speaker B: there's only like three chairs.
+[00:38:06] Speaker D: That's like saying you're never gonna lose your keys, and I always do, anyway.
+[00:38:11] Speaker D: You'll lose 'em in your pocket, like you just will forget that or you like put it down somewhere that like made sense and then not remember, there's always ways to lose things.
+[00:38:12] Speaker A: Mm-hmm.
+[00:38:17] Speaker A: Mm.
+[00:38:19] Speaker B: Yeah.
+[00:38:20] Speaker A: It d yeah, it depends on how organised you are personally, but
+[00:38:23] Speaker B: Yeah, or like I guess what the setup of the house is too.
+[00:38:25] Speaker A: Mm-hmm.
+[00:38:27] Speaker B: But, I mean
+[00:38:29] Speaker B: I am notorious for losing my keys, I just I guess I've just never lost the remote. I put my keys in the refrigerator the other night and couldn't find them. 'Cause I was putting groceries away.
+[00:38:41] Speaker D: That's funny.
+[00:38:43] Speaker A: Oh.
+[00:38:46] Speaker B: You you're taking stuff from a bag and putting them in the refrigerator and then go back to my room.
+[00:38:52] Speaker A: Can't get in.
+[00:38:53] Speaker B: Can't get in, look all around the kitchen.
+[00:38:57] Speaker B: Definitely in the vegetable drawer.
+[00:38:59] Speaker D: That's funny.
+[00:39:00] Speaker B: So.
+[00:39:01] Speaker D: I always do that, leaving it in my coat, and then like using a different coat.
+[00:39:04] Speaker B: Mm.
+[00:39:05] Speaker A: Yep.
+[00:39:07] Speaker B: But I guess it's 'cause we don't carry remotes around that much.
+[00:39:10] Speaker D: Yeah.
+[00:39:14] Speaker D: Can't really take it into the other room.
+[00:39:16] Speaker B: Yeah.
+[00:39:20] Speaker B: Maybe with our little robot one we could've had him have a robot, alien, pear, whatever he is, have a little voice like, I am located
+[00:39:28] Speaker B: Oh a G_P_S_ system, internal G_P_S_.
+[00:39:34] Speaker D: Oh man.
+[00:39:37] Speaker D: Here you go.
+[00:39:38] Speaker A: We should make one that walks by itself.
+[00:39:39] Speaker B: Although if it's sitting still for too long.
+[00:39:42] Speaker B: Yes I
+[00:39:44] Speaker D: That really could get up and walk away.
+[00:39:46] Speaker A: Or or like some crazy like electro-magnet, that you push it and it'll go zoom to the T_V_ and stick there.
+[00:39:48] Speaker B: Or little
+[00:39:50] Speaker B: Or just just a wheel, you know.
+[00:39:55] Speaker B: Just if you like you'd have a remote for your remote, that'll.
+[00:40:00] Speaker C: Yeah.
+[00:40:01] Speaker A: Well, but if you could attach them to the T_V_, then you can.
+[00:40:01] Speaker B: zoom
+[00:40:03] Speaker B: Yeah.
+[00:40:05] Speaker B: Hmm.
+[00:40:06] Speaker B: All kinds of possibilities.
+[00:40:06] Speaker A: Mm.
+[00:40:16] Speaker A: Okay.
+[00:40:19] Speaker A: Sorry, I'm just um trying to update my minutes. I decided to you know how I sent you the email saying that PowerPoint minutes will be complimentary, rather than like repeating them. Just gonna make I'm making full minutes, so that it'll include all of the agenda and all that. 'Cause that seems a little more useful.
+[00:40:27] Speaker B: Yeah.
+[00:40:31] Speaker B: Oh.
+[00:40:33] Speaker B: Wow.
+[00:40:36] Speaker B: 'Cause you've had like the most typing and organising to do.
+[00:40:41] Speaker A: But I didn't have like information to sloth through either, so
+[00:40:44] Speaker B: Yeah, I guess
+[00:40:47] Speaker B: How much of your PowerPoint was already done for you, every meeting.
+[00:40:50] Speaker A: Most of it, mm-hmm. I added slides, um I added a couple slides each time, but that was about it.
+[00:40:54] Speaker B: Oh.
+[00:40:56] Speaker B: Okay.
+[00:40:57] Speaker B: Yeah, I didn't even think about adding slides, 'cause I would just get slides with titles on them and fill them all in w didn't even think about adding more.
+[00:41:01] Speaker A: Mm.
+[00:41:05] Speaker A: Well, the thing was they would provide y an agenda with s like several points, but it wouldn't have a slide for each point. And that's the only way I remember that I need to go other that point. I know personally when I do PowerPoint, that's what I do and so I had it once, even if it was just like the title of it, like the three presentations, and I would do your three.
+[00:41:10] Speaker B: Ah yeah..
+[00:41:21] Speaker B: Right.
+[00:41:37] Speaker D: You have you have to have the slogan on it or can it just be like
+[00:41:41] Speaker A: The slogan on it? No no no.
+[00:41:42] Speaker B: No, no, definitely not.
+[00:41:43] Speaker D: Okay good.
+[00:41:45] Speaker B: We
+[00:41:45] Speaker D: 'Cause I was like, it could go around the outside.
+[00:41:47] Speaker B: No, I don't think we need to I think the R_ and R_, especially if the yellow and black one.
+[00:41:49] Speaker A: I think we just need the um the R_R_, yeah.
+[00:41:55] Speaker D: Is it yellow and blue?
+[00:41:57] Speaker B: Or yellow and blue. Lemme go to the web page.
+[00:41:59] Speaker A: Yeah, I was just kinda going by the web page, 'cause they didn't give me any clear, like yellow, grey, or.
+[00:42:04] Speaker D: Oh I guess it is black, grey. Grey is better than black, doesn't look so bumblebeeish.
+[00:42:12] Speaker A: I don't really like yellow in general.
+[00:42:14] Speaker D: Hey now I understand the random like newsclippings.
+[00:42:15] Speaker A: But it
+[00:42:18] Speaker B: Finish meeting now.
+[00:42:21] Speaker A: Wasn't it interesting that um I thought it was interesting that our market marketing um expert did not agree with the marketing um
+[00:42:29] Speaker D: Yes.
+[00:42:29] Speaker A: the marketing choices, you know, like that was a bit of a conflict.
+[00:42:32] Speaker D: I will I just feel like if you're really doing like a a really big market evaluation, you wouldn't just have like one set of source, it's kind of an they were so not backed up, it would just be a sentence like we did a survey, this is what people said.
+[00:42:48] Speaker D: S mm, I dunno.
+[00:42:48] Speaker B: Yeah.
+[00:42:50] Speaker A: People are stupid.
+[00:42:52] Speaker B: I guess it i it sort of a grey, isn't it? Yellow and grey, but then the slogan's in blue.
+[00:42:59] Speaker D: Well we got some grey and we got some blue buttons, we're good.
+[00:43:02] Speaker B: Yeah. Well we don't have the right colour clay anyway.
+[00:43:05] Speaker A: Maybe, like I don't know. That could always be.
+[00:43:10] Speaker B: Well we're not, sadly, going to actually be producing this, so.
+[00:43:14] Speaker A: Oh.
+[00:43:15] Speaker D: If they ever come out with potato
+[00:43:18] Speaker B: Potato mango shaped remotes.
+[00:43:21] Speaker D: I'm gonna have to
+[00:43:21] Speaker A: I'm claiming it intellectual property.
+[00:43:23] Speaker D: Yeah.
+[00:43:31] Speaker B: I can't believe a whole day is gone. I don't feel like it's been that long.
+[00:43:33] Speaker D: I know.
+[00:43:36] Speaker B: Get sucked in.
+[00:43:40] Speaker B: Mm I haven't gotten questionnaire eight yet.

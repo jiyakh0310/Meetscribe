@@ -1,0 +1,538 @@
+[00:00:31] Speaker A: Okay? Good afternoon. Hope you have good lunch.
+[00:00:34] Speaker C: Afternoon. Yeah, we had falafel.
+[00:00:34] Speaker B: Hi.
+[00:00:38] Speaker A: Oh. Nice.
+[00:00:41] Speaker A: And you?
+[00:00:43] Speaker B: Uh, yes, I had something similar
+[00:00:46] Speaker B: but non-vegetarian.
+[00:00:50] Speaker A: Okay. So today is um
+[00:00:53] Speaker A: our third meeting. It will be about the conceptual design uh. If I come back to uh the minutes of the last meetings
+[00:01:04] Speaker A: um. We decided not to go for speech recognition technologies because of some reasons and we are not decided about u the use of L_C_D_ screen on on the remote control because of costs. So maybe we cou wi will be able to clarify this this question to today. Uh at the end of the meeting we should take decision on that point.
+[00:01:28] Speaker A: So I hope uh that your respective pr presentations uh will help us. So each of you have some presentatio presentation to perform um who starts?
+[00:01:46] Speaker D: Okay,.
+[00:01:47] Speaker A: So marketing.
+[00:01:52] Speaker A: So you are you saved your y your presentation somewhere?
+[00:01:56] Speaker D: Yep.
+[00:01:57] Speaker A: So you're four?
+[00:01:58] Speaker D: Four, yeah.
+[00:02:00] Speaker A: Which is trend watch.
+[00:02:06] Speaker A: Okay. Mr Marketing Experts.
+[00:02:11] Speaker D: Yeah that's me. Uh. Well I investigate the preference more d I investigate deeper the preference of the users. Uh so the the current investigation th uh th uh sorry the current
+[00:02:11] Speaker A: So
+[00:02:28] Speaker D: the n
+[00:02:30] Speaker D: current trends?
+[00:02:32] Speaker B: Yeah.
+[00:02:32] Speaker D: Yeah? Okay. Okay.
+[00:02:33] Speaker A: Mm-hmm.
+[00:02:38] Speaker D: Well wha what I found um can you
+[00:02:42] Speaker A: Next slide? Yeah.
+[00:02:44] Speaker D: Yeah. Thank you. What I found in order of importance from less to more important is that
+[00:02:52] Speaker D: people want an easy to use device.
+[00:02:55] Speaker D: After they they want something new technologic technologically speaking, but the most what they what they find more more interesting, more or more important it's uh a fancy look and feel instead of uh instead of the current
+[00:03:19] Speaker D: the current trend which was f the functional look and feel. So now more more cool aspect, ma more a cooler aspect uh rather than a device with many functions and many buttons with instead of i instead of ha of a device which can do many things, a device which is pleasant to to watch, to see.
+[00:03:48] Speaker A: Okay.
+[00:03:49] Speaker D: Uh also
+[00:03:51] Speaker D: Well in in Euro in in Paris and and Milan the in Paris and in Paris and Milan the the current trend of uh of clothes, furniture and all this
+[00:04:11] Speaker D: all this fashion it's it's fruit and the the the theme is fruit and vegetables.
+[00:04:18] Speaker A: Mm.
+[00:04:18] Speaker D: And also in the in the U_S_A_ the the current the mor the most popular feeling it's it's a spongy.
+[00:04:29] Speaker D: Spongy means eponge?
+[00:04:32] Speaker C: Mm-hmm.
+[00:04:32] Speaker D: So maybe we should we should think in in this direction, so
+[00:04:37] Speaker B: What what do you mean by fruit and vegetables and spongy? What you mean clothe
+[00:04:41] Speaker C: Spongy means it it's like sp
+[00:04:43] Speaker D: Fruit vegetables is the the new have you seen the last exposition of clothes in Milan?
+[00:04:49] Speaker B: No, I missed that one.
+[00:04:51] Speaker D: Yeah, I I didn't miss an I didn't miss and I saw that the fruit, there are many fr pictures of fruits and vegetables in the clothes.
+[00:05:00] Speaker B: Oh, they're okay so they're not like dressed as a carrot they just have like pictures of fruit on, okay. So we're not gonna have a remote control in the shape of of a banana, just maybe
+[00:05:03] Speaker D: No no, not not yet, not yet.
+[00:05:06] Speaker D: Yeah, yeah. So te textu textures, yeah.
+[00:05:11] Speaker D: Yeah.
+[00:05:12] Speaker D: Vegetable textures and all this kind.
+[00:05:15] Speaker A: Drawings of bananas.
+[00:05:17] Speaker D: Uh yeah, yeah.
+[00:05:19] Speaker B: Okay and
+[00:05:20] Speaker A: Uh-huh.
+[00:05:23] Speaker C: But what's your suggestion how we can have some shape like that on the remote?
+[00:05:26] Speaker A: Well so this is in the next slide certainly.
+[00:05:28] Speaker D: Uh no no, it's not. It's
+[00:05:29] Speaker A: It's not?
+[00:05:34] Speaker B: So which fruit are you thinking of?
+[00:05:34] Speaker D: And
+[00:05:36] Speaker D: Um.
+[00:05:40] Speaker D: I ha I haven't thought of any particular fruit, but the general aspect of the of the remote control
+[00:05:49] Speaker D: may may could remind some kind of vegetable, some kind of
+[00:05:56] Speaker D: instead of vegetable, some natur mm uh natural object or something.
+[00:06:01] Speaker C: Mm-hmm.
+[00:06:03] Speaker D: But yeah it it depends on the
+[00:06:04] Speaker A: So maybe you maybe you can display a banana on the L_C_D_.
+[00:06:09] Speaker B: Oh, so you want the remote control to be the shape of a fruit, or you want just some kind of like fruit logo on the
+[00:06:17] Speaker C: Means buttons are in the shape of fruits, buttons are in the frape shape of fruits or something, apple, banana, something like that.
+[00:06:18] Speaker D: Yeah maybe the shape the shape
+[00:06:24] Speaker D: No, not n not not too much focus, not too much focu not n not too s not too similar to a fruit because next year the ten the trend the trend will be different. So we shouldn't be at re really attached
+[00:06:26] Speaker A: Apple for channel one.
+[00:06:32] Speaker C: Mm-hmm.
+[00:06:36] Speaker C: Mm-hmm.
+[00:06:40] Speaker D: to to the trend but
+[00:06:42] Speaker B: So something that looks half like a fruit and half like an elephant.
+[00:06:46] Speaker D: For instance, yeah. African or as an elephant?
+[00:06:49] Speaker C: That we can discuss afterwards.
+[00:06:50] Speaker B: But okay, I'm not, I'm not really sure
+[00:06:50] Speaker A: Okay.
+[00:06:54] Speaker B: if uh that would really appeal to everyone though, maybe just to fashion gurus, like maybe just like a little bit n a little fruit picture somewhere in the corner, but I don't know about uh I dunno how ergonomic a, an orange is.
+[00:07:06] Speaker D: Well ma maybe we we should further specify what target are we focusing.
+[00:07:13] Speaker D: I think in my opinion we should focus on on young people because they are more open to new devi new devices and also yeah according to the marketing report ninety p ninety five percent of young people was
+[00:07:20] Speaker B: To fruit?
+[00:07:31] Speaker D: was was able to
+[00:07:36] Speaker D: to buy a a n a cooler remote control.
+[00:07:40] Speaker B: But is it uh is fruit cool?
+[00:07:43] Speaker A: That's a question.
+[00:07:43] Speaker D: What?
+[00:07:44] Speaker D: What?
+[00:07:45] Speaker B: Is fruit cool?
+[00:07:47] Speaker D: Yeah? Uh
+[00:07:50] Speaker D: Is the new trend
+[00:07:52] Speaker D: of the
+[00:07:54] Speaker B: Well I guess, you know, Apple has the iPod so, imagi just 'cause they have an apple on their
+[00:08:02] Speaker B: on their product, doesn't mean fruit is cool.
+[00:08:06] Speaker D: No I think we we should think about a a shape with it a device with a shape of some
+[00:08:15] Speaker B: Okay, but it has to be easy to uh to use though and to hold you know, you don't wanna pear or a watermelon.
+[00:08:22] Speaker D: Yeah.
+[00:08:25] Speaker D: Don don't you think we can find uh the shape of a fruit which is handy to use?
+[00:08:30] Speaker B: Well, probably the only thing is a banana that I can think of, a cucumber.
+[00:08:32] Speaker C: Banana.
+[00:08:34] Speaker C: Mm-hmm.
+[00:08:35] Speaker B: I dunno.
+[00:08:35] Speaker D: Or m
+[00:08:35] Speaker A: Maybe too long.
+[00:08:38] Speaker B: Maybe. Too green.
+[00:08:39] Speaker D: Maybe.
+[00:08:42] Speaker B: So, but I mean you also have to you have to also have, fit r all the buttons and you know.
+[00:08:42] Speaker A: A banana.
+[00:08:44] Speaker D: Um
+[00:08:49] Speaker B: It's, it
+[00:08:50] Speaker D: Yeah.
+[00:08:51] Speaker B: The thing is you have t normally with um with buttons, they have to be at some point attached to a circuit board so if you're gonna have things like on a cylindrical kind of device it may be difficult to kind of to build.
+[00:09:03] Speaker D: Yeah but I li I like your idea that we shouldn't have a lot of buttons b buttons so
+[00:09:03] Speaker C: I don't th it will be rolling a lot.
+[00:09:05] Speaker A: Okay.
+[00:09:10] Speaker A: Yeah and you you you will not have pla enough a lot of place to put a L_C_D_ on a banana also.
+[00:09:16] Speaker B: Yeah.
+[00:09:17] Speaker D: Uh do you want a an L_C_D_ with twenty five Euros?
+[00:09:20] Speaker A: Well, you're the Marketing Expert you should tell us if it is too much or not.
+[00:09:20] Speaker B: Well, this is
+[00:09:24] Speaker D: I think
+[00:09:26] Speaker D: Well, according to the to the report people are more interested in in a fa fancy look and feel and in a technological inno in innovation, so, I will give more importance to the look and feel than rather than the
+[00:09:39] Speaker A: So
+[00:09:44] Speaker A: So you you you suggest to go f
+[00:09:45] Speaker D: new inputs and also it's I'm not convinced about this L_C_D_ because you need uh internet connection, you need more things, it's not just buying a new control re remote, you need buying control remote, buying uh
+[00:09:55] Speaker A: Okay.
+[00:09:59] Speaker A: S so you're simply you're simply looking s to a remote control that looks like a banana with few buttons with only a few buttons.
+[00:10:00] Speaker D: more things. It's not so simple.
+[00:10:07] Speaker D: For instance, yeah. Yeah for for for given an an example yeah.
+[00:10:11] Speaker A: Okay good. So maybe you can go ahead?
+[00:10:14] Speaker D: Yeah no, it's what I already said.
+[00:10:16] Speaker A: Okay.
+[00:10:19] Speaker A: Thanks. Um.
+[00:10:22] Speaker A: Okay, I'll give the floor.
+[00:10:25] Speaker A: So you are User Interface guy.
+[00:10:27] Speaker B: Okay.
+[00:10:28] Speaker A: So you're three?
+[00:10:29] Speaker B: Yeah.
+[00:10:31] Speaker A: And it's this one.
+[00:10:33] Speaker B: Yep.
+[00:10:36] Speaker A: Go for it.
+[00:10:36] Speaker B: Yep. Okay. So.
+[00:10:40] Speaker B: S next uh slide.
+[00:10:42] Speaker B: Okay. So I received an email um around lunchtime letting me know that the brilliant minds at our technology division had developed an integrated programmable sample sensor sample speaker unit, um which is a way for you to have a conversation with your coffee machine and or remote control.
+[00:11:01] Speaker C: But it's just a speaker right?
+[00:11:03] Speaker B: It's no, what it is, it's it's very
+[00:11:05] Speaker C: It's not a microphone.
+[00:11:07] Speaker B: It has a has a microphone, has a speaker, it's got a little chip and it allows you t
+[00:11:11] Speaker C: Mm-hmm. Actually I'm not reading microphone there, so that's why you can all have conversation, it just to speak to you.
+[00:11:15] Speaker B: Well, it's a sample sensor sample speaker.
+[00:11:19] Speaker B: Sample sensor sample speaker. It means that it can recognize, it can do like a match on a on a certain phrase that you speak and then can play back a phrase in response to that. But uh there's no kind of um understanding of the phrase. So, I mean, you know, I guess you could build that in, you could you could link the the recognition of a certain phrase to some function on on the remote control. But basically the thing is, we have this technology available
+[00:11:21] Speaker C: Mm-hmm.
+[00:11:27] Speaker C: Mm-hmm.
+[00:11:28] Speaker C: Mm-hmm.
+[00:11:30] Speaker C: Mm-hmm, mm-hmm.
+[00:11:35] Speaker C: Okay.
+[00:11:41] Speaker C: Mm-hmm, mm-hmm, mm-hmm.
+[00:11:47] Speaker C: In-house.
+[00:11:48] Speaker B: in-house. So, um but the thing is obviously there's still gonna be a cost if you decided to integrate that because you still have to pay for the c production of the components, so um it it but it basically means we c we can kind of consider this from uh you know uh a theoretical or usability kind of viewpoint without worrying too much about you know how to develop it because we have this already done.
+[00:11:49] Speaker C: Mm-hmm.
+[00:11:53] Speaker C: Mm-hmm, mm-hmm.
+[00:12:10] Speaker C: Mm-hmm, mm-hmm.
+[00:12:11] Speaker B: Whilst you know, some people might get annoyed if we uh if we just dump it,
+[00:12:15] Speaker A: I there's something that I
+[00:12:18] Speaker A: unclear really understanding. Is this a technology that recognize keywords speech keywords?
+[00:12:25] Speaker B: It's it it's no, well, it's it'll recognize uh I guess keywords, but you know keywords in a certain order like a phrase. You train it for a certain uh, for a certain phrase, you say the the example they said that they have uh up and running with their prototype is um well they've actually integrated into the into the the coffee machine that uh that we're producing is, you can say good morning to the coffee machine and it can recognize that phrase and it'll playback good morning, how would you like your coffee?
+[00:12:53] Speaker A: And it's just to, it's just to playback something?
+[00:12:56] Speaker B: Yeah. So actually that was a bad example, 'cause it doesn't actually ask how do you want your coffee because it can't really understand the response, so.
+[00:13:01] Speaker A: Yeah yeah. So this is not s really to do to to do control.
+[00:13:07] Speaker B: Only, like, only in the sense that it it can recognize a set a set target kind of word an
+[00:13:12] Speaker A: Yeah. This is just more like a poi pois yeah.
+[00:13:15] Speaker B: It's designed it's designed as a fun kind of thing, but I guess you could use it as uh as a way to implement uh
+[00:13:17] Speaker A: Yeah yeah.
+[00:13:22] Speaker A: So it it's c uh it it it is a uh uh easy uh a fancy thing that you you can bring to we can bring to the remote control that will not have any uh yeah comp completely pointless for the inter for from the interaction point of v point of view.
+[00:13:22] Speaker D: Yeah but you can u
+[00:13:32] Speaker B: Completely pointless yeah.
+[00:13:34] Speaker B: Yeah.
+[00:13:39] Speaker B: Yeah, unless you know, you like having conversation with your remote control.
+[00:13:43] Speaker A: Okay.
+[00:13:44] Speaker D: Yeah but the can we use it for saying okay, channel fifty, channel twenty?
+[00:13:47] Speaker B: Well yeah, that's the thing, if you can but you have to pro though I think it's a fairly simple design so you would have to record into the device every possible combination, you have to s tr train it to l to learn channel fifteen, that whole thing, not just the word channel and the word fifteen, it doesn't have that kind of logic in it. So
+[00:14:04] Speaker A: Yeah yeah. So this is so this is this is much more than tak taking this technology, bringing it to the remote control and using it. So this is out of discussion. So if if if it is something that you can we can bring easily and to put it into the banana remote control
+[00:14:06] Speaker C: Mm-hmm.
+[00:14:11] Speaker B: Yeah, that would be some development work.
+[00:14:16] Speaker B: Yeah.
+[00:14:23] Speaker D: M Mando.
+[00:14:24] Speaker B: Banana-mando. Banana-man
+[00:14:24] Speaker A: No this is mm banana-bando, yeah. Uh then it could be cool yeah.
+[00:14:26] Speaker D: Banana-mando yeah.
+[00:14:34] Speaker C: Yeah okay, let's go ahead.
+[00:14:36] Speaker A: Okay.
+[00:14:36] Speaker B: I uh I I I don't think it's worth it though, I think it doesn't really add much to the functional
+[00:14:42] Speaker B: design and it's it's it's not mature enough
+[00:14:45] Speaker B: to use as a speech recognition engine, so
+[00:14:47] Speaker A: Okay.
+[00:14:49] Speaker B: Um, yeah. So if we can just move on to the next slide, I've just done a quick mock-up of uh uh some of the features of our potential funky-looking uh remote control
+[00:15:00] Speaker A: It doesn't look like a banana at all.
+[00:15:02] Speaker B: Well, you see, I was I was unaware at this point of th of the fruit focus, um, so at the moment it's more of a box focus.
+[00:15:06] Speaker A: Yeah.
+[00:15:08] Speaker D: Looks like a tr look likes a a tro a tropical fruit.
+[00:15:08] Speaker A: But you you can fit i you're saying now you can fit it to
+[00:15:12] Speaker B: Yeah, well, this is actu this could be a genetically engineered fruit that's designed to be you know square so that it packs tighter in the boxes.
+[00:15:12] Speaker A: Yeah.
+[00:15:13] Speaker D: Yeah.
+[00:15:20] Speaker B: But um, I've just indicated here, we could have actually two scroll wheels, 'cause I think the scroll wheel is a fairly um key part of, you know, I think everyone has has agreed that it's that it could be quite a useful um thing, so.
+[00:15:27] Speaker C: Stable thing, that's right. To have, mm-hmm, mm-hmm.
+[00:15:34] Speaker B: But I think it's important, you know, to have two scroll wheels because, you know, you want one for for the channel, but you also want one for for the volume, because it's it's the volume i it's, you know it's very handy for it to have uh instant kind of uh feedback uh and response, so.
+[00:15:42] Speaker A: Mm.
+[00:15:47] Speaker C: Mm-hmm, mm-hmm.
+[00:15:50] Speaker B: But um, I've also included this turbo button because I think, you know, every design should have a turbo button, and well so this is you know, a unique problem with with televisions is that if you have this scro this scroll wheel for the television, the uh the tuner on the T_V_ is not gonna be able to to switch between stations as fast as you can scroll, so you know, the th the person might want to have a uh
+[00:15:56] Speaker D: What's a turbo button?
+[00:16:16] Speaker B: Might want to be able to scroll past television stations without seeing what's on them, in which case it just waits until you stop scrolling and then, you know, displays that station. Or they might want to scroll and and have a quick glimpse of it, even if it lags behind what they're doing.
+[00:16:31] Speaker D: It con it controls the speed?
+[00:16:33] Speaker B: Yeah, so with this turbo button you can, say, skip over t channels if uh, you know, if I'm if I'm going if I'm scrolling past them and you know, it's um, you could have a little red light that comes up when they press it so they feel you know it's really going fast or whatever.
+[00:16:51] Speaker B: So yeah, that's um, those are the two important uh features I think we need on the remote, but I mean we can discuss about what other kind of buttons we need, um.
+[00:16:56] Speaker C: Mm-hmm.
+[00:17:02] Speaker B: You know, i it could be, you know, if we if we wanna have like a very cheap kind of device, I mean, we could either consider that maybe we want to sell this as a very, if it's gonna be a banana, you know that's a pretty gimmicky kind of
+[00:17:16] Speaker B: thing that doesn't have that much functionality, it's just you know a couple of scroll wheels and a button cause it's hard to get so many buttons on a banana and it's still very it may even be for most for some people more functional than their current remote, but if they have these scroll wheels, so, um you know, what other buttons do we want?
+[00:17:22] Speaker A: It's enough.
+[00:17:35] Speaker C: Mm-hmm.
+[00:17:35] Speaker B: I mean we could have well, I guess you need an on and off switch, but you could you could o you could turn it turn it on by taking the top off the banana maybe, you know, it's kind of like a spy kind of flick thing.
+[00:17:38] Speaker A: Switch on. Yeah.
+[00:17:44] Speaker D: Yeah. So sounds crazy. I like crazy ideas.
+[00:17:48] Speaker B: That's why you're a marketing guru.
+[00:17:50] Speaker A: Okay. So i it looks like we're going completely to forget about the L_C_D_ thing.
+[00:17:50] Speaker D: Yeah, of course.
+[00:17:57] Speaker B: Well, that's the thing, as have we decided that we can only spend, uh, twenty five Euro?
+[00:18:03] Speaker A: I think that
+[00:18:04] Speaker B: Well not spend, but you know, charge twenty five Euro.
+[00:18:05] Speaker D: I I think we could use somehow the s coffee machine dialogue interface or so.
+[00:18:15] Speaker A: No we can we can't use that.
+[00:18:19] Speaker D: You we can? We can't.
+[00:18:20] Speaker A: We can't use that to
+[00:18:23] Speaker C: Communicate.
+[00:18:23] Speaker A: to comman co communicate, it's just a thing
+[00:18:25] Speaker D: Yeah, but we can say channel twenty five. No?
+[00:18:26] Speaker C: It's one way.
+[00:18:27] Speaker A: No.
+[00:18:29] Speaker B: But then you have to have a template for every channel, for a hundred channels, you have to be able to to recognize
+[00:18:34] Speaker C: Mm-hmm.
+[00:18:34] Speaker D: It's not a lot one hundred templates, it's not
+[00:18:35] Speaker B: Mm.
+[00:18:36] Speaker B: Well, I f I think it's probably more than, than our can handle because it's designed for a coffee machine, you know, to say hello in the morning.
+[00:18:39] Speaker A: Yeah.
+[00:18:43] Speaker D: Ah, it's designed for a cof okay. Is it design for a coffee machine?
+[00:18:47] Speaker B: Well that's its current application, I would presume that it's kind of, they wouldn't design it to handle a hundred things th so.
+[00:18:48] Speaker D: Okay.
+[00:18:51] Speaker D: Yeah. Maybe you could ask your the you could ask the engineering department if we can
+[00:18:57] Speaker A: Yeah. A good good good thing. You want to g to move to your slides? You're finished?
+[00:18:57] Speaker C: Mm-hmm.
+[00:18:59] Speaker B: But uh
+[00:19:00] Speaker C: Yeah, that's right, yeah.
+[00:19:02] Speaker B: Well I just I just made the point, I don't I don't know if that speech recognition is, you know, even if we can do it, I think it's not really appropriate for uh television environment.
+[00:19:10] Speaker A: Yeah I think so.
+[00:19:12] Speaker B: But um I did have one thing from a previous meeting, you were talking about um being able to find the remote control and I was talking about extendin being able to extend the remote control by having you know, a base station that can control other things as well. It might be useful to have some kind of base station, even if it's just you press on a button on it and uh and the remote control starts beeping, you know, this is a way of finding the remote.
+[00:19:16] Speaker D: Yeah.
+[00:19:25] Speaker A: Mm-hmm.
+[00:19:36] Speaker B: Y in that case maybe the maybe the speech recognition the speech thing could be useful just to say I'm here but uh it's probably a bit of overkill if you could just have a a beeping
+[00:19:36] Speaker A: Mm.
+[00:19:40] Speaker A: Exactly yeah.
+[00:19:46] Speaker C: So it's a speech synthesis kind of thing, something has been uh stored and it's just uh spoken out.
+[00:19:48] Speaker B: It's speech
+[00:19:50] Speaker B: It's it's speech synthesis and s it's speech kind of, not really speech recognition, but kind of pattern matching, yeah yeah.
+[00:19:52] Speaker C: Mm-hmm.
+[00:19:55] Speaker C: Yeah. That's right.
+[00:19:55] Speaker A: Oh, good idea. Very good. Okay, let's move on.
+[00:20:03] Speaker A: So you're two?
+[00:20:04] Speaker C: That's right.
+[00:20:08] Speaker A: Okay.
+[00:20:09] Speaker C: So this is going to be about the component design. So first thing is we need power source for the remote control. So I was of the idea that we can have two kind of power supplies, one is the usual batteries which are there, they could be chargeable batteries if there's a basis station kind of thing and on top of that we can have solar cells, when the lighting conditions are good they can be used so it'll be pretty uh innovative kind.
+[00:20:12] Speaker A: Mm-hmm.
+[00:20:34] Speaker C: Then uh we need plastic with some elasticity so that if your if the remote control falls it's not broken directly into pieces, there should be some flexibility in t
+[00:20:44] Speaker B: I guess that fits in with the spongy kind of design philosophy.
+[00:20:47] Speaker A: Yeah.
+[00:20:49] Speaker C: Yeah. So there should we should think of something like that and then it should be double curve.
+[00:20:56] Speaker C: The s science for the ease of handling and there are some other issues why we need double curve. Then controls for the traditionals u traditional users we can have the push buttons so that they don't feel that it's an alien thing for them.
+[00:21:11] Speaker B: So, just one second, when you say double curve, what do you actually mean? You reckon you could like draw us a thing on the, on the whiteboard 'cause I'm not sure
+[00:21:18] Speaker C: Double curve is, you have curves on both the sides if I'm right.
+[00:21:23] Speaker C: So it's symmetrical kind of thing, whatever it is.
+[00:21:25] Speaker B: Okay, but like, kind of convex or concave?
+[00:21:27] Speaker C: So, it could be curve, so it could be convex, conve concave, depending on what what we want.
+[00:21:32] Speaker B: Mm-hmm. Okay.
+[00:21:34] Speaker C: So there are flats, there are single curve and there are double curves. These are the three things, and there are different materials, with plastic you can have double curve but with uh certain other materials we cannot have double curve.
+[00:21:37] Speaker B: Okay.
+[00:21:45] Speaker C: So there there was uh there were many other materials like wood, titanium and all those things, but plastic is I think is the most appropriate one, it'll bring the cost down and anyway it's
+[00:21:53] Speaker A: Yeah.
+[00:21:56] Speaker B: Although, you know, wood
+[00:21:58] Speaker B: could be uh quite a stylish uh option, if you take like, nice quality kind of wood that's got a nice grain and you kind of put some, some varnish on.
+[00:22:06] Speaker A: Mm but i but there is no elasticity which could be
+[00:22:10] Speaker C: Wooden cases
+[00:22:11] Speaker B: Well it depends, I mean, you have the outs the wood itself is not gonna break so you don't have to worry too much about the case being broken, it's the inside. Yeah but inside you know you could have you can still have some kind of cushioning that's not visible to the to the user.
+[00:22:17] Speaker A: Yeah but the components inside.
+[00:22:22] Speaker A: Yeah.
+[00:22:22] Speaker C: Mm-hmm.
+[00:22:24] Speaker A: Very too expensive to do.
+[00:22:24] Speaker C: Mm-hmm.
+[00:22:26] Speaker D: Yeah.
+[00:22:28] Speaker A: And also uh
+[00:22:28] Speaker B: And I mean you could also, you can have just a very thin veneer of wood as well.
+[00:22:31] Speaker A: Yeah but it's more easier to do a banana in plastic than uh in wood.
+[00:22:36] Speaker B: That's true, but are we set on the banana
+[00:22:40] Speaker B: idea?
+[00:22:42] Speaker D: Actually
+[00:22:42] Speaker A: Well it look like it looks like you are all targeting that yeah?
+[00:22:43] Speaker D: I was thinking that the
+[00:22:46] Speaker D: the shape of a banana is not
+[00:22:50] Speaker D: it's not really handy.
+[00:22:52] Speaker A: Yes it is.
+[00:22:53] Speaker D: Uh I don't know the name o o in English uh
+[00:23:01] Speaker D: This it's not a fruit it's a vegetable.
+[00:23:03] Speaker C: Is it an e apple which has
+[00:23:06] Speaker B: It's like a pumpkin or
+[00:23:07] Speaker A: Yeah? Pumpkin.
+[00:23:10] Speaker D: Green.
+[00:23:11] Speaker B: Green.
+[00:23:11] Speaker A: Green. Um um um, yes I see.
+[00:23:16] Speaker B: What does it taste like?
+[00:23:16] Speaker A: Pep pepperoni.
+[00:23:16] Speaker D: And you put in the salad.
+[00:23:19] Speaker D: Um
+[00:23:20] Speaker B: Ah yeah, is it what's it in French?
+[00:23:22] Speaker A: Poivron.
+[00:23:23] Speaker D: Oui c'est ca
+[00:23:24] Speaker B: Yeah, okay, so capsicum or pepper. Yeah.
+[00:23:27] Speaker A: Uh pepper.
+[00:23:28] Speaker D: Pepper.
+[00:23:29] Speaker A: But um they do d
+[00:23:30] Speaker D: And it's al it also suits with the double curve for easy of
+[00:23:34] Speaker A: Yeah.
+[00:23:36] Speaker B: I don't know, it seems a little bit kind of bulky to me, like
+[00:23:39] Speaker D: No, I mean in a
+[00:23:39] Speaker A: Yeah.
+[00:23:41] Speaker A: It's not re it you you think it's really fancy and fun? You think that young people that are
+[00:23:41] Speaker B: like with a banana you can have
+[00:23:46] Speaker D: I'm sure it's fun.
+[00:23:48] Speaker A: Yeah. More than a banana?
+[00:23:50] Speaker D: But banana is not so handy, I think that's handier.
+[00:23:53] Speaker C: Banana is more handier as compared to this I think, and to capsicum.
+[00:23:53] Speaker B: Well
+[00:23:58] Speaker B: But like a banana you can you can be holding like this and have the scroll wheel kind of on top and just
+[00:24:03] Speaker A: Yeah.
+[00:24:04] Speaker B: roll it back and forth like that, but with uh I don't know how you would hold a capsicum and
+[00:24:05] Speaker A: It's kind it's kind of it's more uh it's really ergonomic, it's fit in the hand and you've a lot of surface to to put the controls. Okay let's move on. So time is running, let's move on.
+[00:24:19] Speaker D: Yeah you're right.
+[00:24:21] Speaker C: Okay, so push buttons for the traditional users so that they don't feel they are alienated, just and a scroll button with push technology for channel selection, volume control and teletext browsing. These are the three scroll buttons which are already available with us in the company and we we can go ahead with that.
+[00:24:38] Speaker C: Yeah, we can go to the next slide. Then uh there are different kind of chips, one one is the basic chip and the regular chip and one an adva advanced chip. So we can have regular chip for control. Pricing is a factor for us, that's why we'll go for the regular chip.
+[00:24:38] Speaker A: Okay.
+[00:24:54] Speaker C: And uh regular chip supports speaker support, so this functionality could be used for tracing the mobile phone which has been misplaced.
+[00:25:02] Speaker B: So is that, when you say speaker support, you mean it just has some output pinned which which which kind of
+[00:25:07] Speaker C: It could be a beep kind of thing.
+[00:25:08] Speaker B: Okay, but the speaker is actually attached to the to the chip in some way, or is just the the signal? Okay.
+[00:25:12] Speaker C: Yes, yes, that's right, it's it's onto the chip, most most probably, not not hundred per cent sure about that.
+[00:25:19] Speaker B: Okay.
+[00:25:20] Speaker B: So are there any issues where we place this this chip to make sure you can actually hear the the speaker from the outside of the banana?
+[00:25:28] Speaker C: That will be the volume control I think which which a user shou it it should be already pre-defined. It should be whatever will be the case, the chip is always going to be sitting inside.
+[00:25:37] Speaker B: Okay.
+[00:25:39] Speaker B: Yeah, but the speaker, if the speaker is actually on the chip, then if it's too far away from the the casing, or if the casing is too thick, then you may not hear the the speaker.
+[00:25:42] Speaker C: Mm-hmm.
+[00:25:48] Speaker C: Uh, so we can have it at one of the boundaries so that things are slightly better. As or as hearing is concerned, we can have some gap at some place, so that
+[00:25:53] Speaker B: Yeah.
+[00:25:58] Speaker B: Yeah. So that's something we have to keep in mind with the actual physical design is to keep the the speaker close enough to the outside.
+[00:26:02] Speaker C: That's right.
+[00:26:04] Speaker C: Okay. Yeah. So these these were the component selection and these things. We can go to the next slide.
+[00:26:12] Speaker C: And uh these were the findings which I I saw with the web web, that user wants to have control more than one device wants to control more than one device from the same remote control, so our T_V_ remote can have little extra things to support additional devices like V_C_R_ D_V_D_ players which are usually attached with the T_V_, because users are like this and they don't want to have one remote control for everything, so with this additional little, we might be having slightly better market for us.
+[00:26:36] Speaker B: Although, if
+[00:26:40] Speaker B: It depends, if we like, if we are concentrating on like a fruit design, then maybe maybe we wanna sell a collection of fruit, you know, like a different fruit for each device. Cause that, you know, that sometimes people like to collect um you know things that of a similar type.
+[00:26:45] Speaker C: Mm.
+[00:26:48] Speaker C: Of fruits.
+[00:26:51] Speaker C: Mm-hmm. Remotes objects, okay.
+[00:26:54] Speaker A: S objects.
+[00:26:57] Speaker A: Crazy objects.
+[00:26:58] Speaker D: I think that would be funny at the beginning but after one month you will be tired of be surrounded of fruits.
+[00:27:06] Speaker B: Well, you're the one who wanted to do fruit in the first place.
+[00:27:07] Speaker D: No but I think just one fruit to control everything.
+[00:27:11] Speaker B: Like a power fruit.
+[00:27:12] Speaker D: A power fr a power M a Mando, a Supermando fruit.
+[00:27:15] Speaker C: And uh as well as I could see on the web the scroll button is becoming really uh hot thing s and we should have it on the remote.
+[00:27:24] Speaker B: Yeah.
+[00:27:24] Speaker A: Okay.
+[00:27:26] Speaker A: Okay, good.
+[00:27:26] Speaker D: Actually I I didn't understand very well this trace speaker lost control.
+[00:27:26] Speaker B: Well
+[00:27:32] Speaker C: So you're having a basis station.
+[00:27:34] Speaker C: Okay. Your usually your remote sits on that. So you and it's that's why it can have chargeable batteries. Now let's say
+[00:27:42] Speaker D: So you you have to buy two things, the banana and the basis station.
+[00:27:44] Speaker A: Bu it's it's. You s you you thing.
+[00:27:45] Speaker C: Basis station is with the thing.
+[00:27:50] Speaker C: It's like a telephone handset is there and the basis station for the telephone hand set is there. So now what user gets additionally he doesn't have to buy batteries, they're rechargeable batteries, so over the period of cor time he'll recover the cost.
+[00:28:04] Speaker C: So you're having the basis station and there is a button, if you press that button wherever the remote it'll start beeping so you know where the remote is. Uh
+[00:28:11] Speaker B: I think that's a pretty handy feature.
+[00:28:13] Speaker A: Yeah.
+[00:28:14] Speaker D: Yeah.
+[00:28:14] Speaker B: I think it's kind of people would find that worth it even if it wasn't uh a recharging station, even if they didn't have to buy extra batteries, you know.
+[00:28:20] Speaker C: Mm-hmm, mm-hmm, mm-hmm, mm-hmm.
+[00:28:23] Speaker B: So
+[00:28:23] Speaker D: Yeah but I'm a bit worried about the budget.
+[00:28:26] Speaker C: Uh this is basis station is nothing more, just it's a wire which is coming from the main cable and uh you're having one socket on which the thing sits.
+[00:28:32] Speaker A: Mm-hmm.
+[00:28:37] Speaker B: Although you do need to include R_F_ kind of circuitry in the remote.
+[00:28:39] Speaker C: That's right. But all these things are usually in-house so we don't have much problems. So component cost is going to be the least. Anyway, we are not using really advanced technology, L_C_D_ has already been ruled out, A_S_R_ has been ruled out. So it's the basic thing but very trendy and very user-friendly.
+[00:28:58] Speaker B: Okay. I'm just wondering actually, 'cause, you know, I this whole fruit thing with the banana, it's um it seemed like it first seems a bit kind of uh niche, like only a few people would really want a banana, but what if it was kind of uh a stylised banana? You know, rather than having it kind of you know yellow and really looking exactly like a banana, you could make it kind of silver.
+[00:28:58] Speaker C: And
+[00:29:22] Speaker B: And um, you know to give you kind of the idea of a banana but without it looking you know completely
+[00:29:31] Speaker B: kitsch. For better want of a better word you know?
+[00:29:34] Speaker C: Mm-hmm.
+[00:29:34] Speaker A: You think that yellow it's kitsch.
+[00:29:36] Speaker B: Well, you know, I don I don't know how many peop
+[00:29:39] Speaker A: If you make something that looks like a banana it should have the colour of a banana.
+[00:29:39] Speaker D: Yeah.
+[00:29:42] Speaker D: No, I I
+[00:29:44] Speaker C: A yeah, otherwise it'll be mis means you don't get b any feeling then. It's neither a banana nor a
+[00:29:45] Speaker B: Well they
+[00:29:45] Speaker A: O otherwise
+[00:29:47] Speaker D: Maybe li like that.
+[00:29:49] Speaker B: Yeah, like this colour this colour
+[00:29:53] Speaker B: Maybe, you know, maybe like still in the shape of a banana.
+[00:29:57] Speaker A: Roughly.
+[00:29:59] Speaker B: No, exactly. Exactly. Um, but you know, just maybe maybe not exactly the same texture as a banana and just kind of, you know because the thing is it's gonna be a little bit difficult to make um to give like the texture of a banana anyway and to k to have the exact shape. I think if you're gonna not be able to do it properly you may as well do it in a stylised way that just looks a bit more kind of, you know, twenty first century rather than sixties or seventies.
+[00:30:26] Speaker A: Yeah.
+[00:30:29] Speaker A: Okay. Let's move on. Uh uh yeah. Before before st before ending the meeting I'd like to to draw some sketch about the pro future prot prototype. Go for it.
+[00:30:30] Speaker C: And uh going to the last slide.
+[00:30:39] Speaker B: Okay.
+[00:30:41] Speaker C: Okay.
+[00:30:43] Speaker A: Well no, not not you, you can finish your slides before
+[00:30:44] Speaker C: Okay. Okay, so. Anyway, users'll be so the findings is users'll be very interested in our locator device to find their misplaced remotes. So that was very I thought it's a very good suggestion by everybody. That's it. Yep.
+[00:30:51] Speaker A: Mm okay.
+[00:30:56] Speaker A: Okay. That's all? Okay, so mm so well done for the presentations. So we need to take some de decisions about um about what we're going to do. So I I propose that you go to the whiteboard and we're going to report all the ideas we had we had during this these presentations just to draw some sketch about what will be the prod final product and uh where Superman go banana and uh uh extra func functionalities such as wheels, um the speaker unit um well not in order not to lost the um the device, I do I don't remember you call it?
+[00:31:11] Speaker B: Yeah.
+[00:31:21] Speaker B: Okay.
+[00:31:30] Speaker C: Mm-hmm.
+[00:31:41] Speaker C: That's right. The basis station. That's right.
+[00:31:43] Speaker A: Basis station, yeah. Uh so um so we're going for a stylish
+[00:31:51] Speaker A: banana shape.
+[00:31:51] Speaker B: Yeah, so, I guess you wanna hold like the way the end of the banana you wanna kind of hold as ma you maybe wanna kinda hold like a gun rather than 'cause you don't want it to point kind of towards the floor.
+[00:32:03] Speaker A: Yeah, right.
+[00:32:05] Speaker B: So
+[00:32:07] Speaker B: you know, so if you have like
+[00:32:09] Speaker D: What about what about this shape?
+[00:32:12] Speaker D: More or less.
+[00:32:13] Speaker A: We
+[00:32:14] Speaker C: There's less space on this to put with the buttons.
+[00:32:17] Speaker A: I if it i if it has really the model shape of a bana you could the the starting is good but it could it should have more the shape of a banana if you want to point really a at the thing. If you don't want to to to do that movement which is which is difficult if you don't have to do it in fact, it's better. So ti time is running, we have to we have to we have to to move forward. So let's skip to uh this uh this this this idea. Yeah.
+[00:32:18] Speaker D: Yeah, but how many buttons do we need?
+[00:32:35] Speaker C: Uh what about a
+[00:32:46] Speaker B: Okay, so
+[00:32:50] Speaker A: So we have this. We have a a basis um, how do you call it?
+[00:32:50] Speaker B: So
+[00:32:55] Speaker C: The base station.
+[00:32:56] Speaker A: A base station. We'll have a base station extra uh on the side.
+[00:32:57] Speaker C: Right.
+[00:33:00] Speaker B: okay, so I guess we need, you know, something that can fit a banana
+[00:33:07] Speaker B: shaped object.
+[00:33:08] Speaker A: Yeah. Uh, we have a R_F_ for um for beeping for beeping. We need b R_F_ to beep. So we that means we need a button on th on the on the basis.
+[00:33:08] Speaker C: Mm-hmm. Yeah.
+[00:33:16] Speaker C: That's right, yeah, we need that, yeah.
+[00:33:19] Speaker B: Okay, so it's uh
+[00:33:26] Speaker B: Yeah.
+[00:33:26] Speaker C: Basis station. Yeah, yeah.
+[00:33:27] Speaker A: Basis station, thank you.
+[00:33:30] Speaker B: Alright, so we need uh okay.
+[00:33:43] Speaker B: Yeah.
+[00:33:44] Speaker A: Can you go quickly please? Okay. So we are going to add uh also um you as you suggested the whee some wheels to control the volumes and channels and your tur turbo turbo uh button.
+[00:33:53] Speaker B: Yeah.
+[00:33:57] Speaker B: Yeah, which I think it's it's probably best actually on the on the underneath of the the device, so you have
+[00:33:57] Speaker C: Turbo button.
+[00:34:01] Speaker A: Yeah, on the th yeah, maybe here. And the and the wheel a a at the level of the thumb for instance.
+[00:34:04] Speaker B: Yes.
+[00:34:08] Speaker B: Yeah, so you have the thumb kind of here. So yeah, you need one one here and one on on the other side, so you got volume an and channel. And, uh
+[00:34:10] Speaker A: And and you have two wheels.
+[00:34:14] Speaker A: Okay right.
+[00:34:17] Speaker A: Good.
+[00:34:19] Speaker A: So no L_C_D_.
+[00:34:21] Speaker B: No L_C_D_.
+[00:34:22] Speaker A: Okay great. Um.
+[00:34:26] Speaker A: Very good.
+[00:34:27] Speaker C: Okay.
+[00:34:28] Speaker B: Oh we need a we need a power um on off switch as well.
+[00:34:32] Speaker A: Yeah.
+[00:34:32] Speaker C: Uh for the remote?
+[00:34:35] Speaker B: Yeah.
+[00:34:35] Speaker A: Oh, just the switch, no f not for the T_V_ for the T_V_. Uh so you
+[00:34:35] Speaker C: Remotes don't have power on off switch.
+[00:34:38] Speaker B: Yeah.
+[00:34:38] Speaker C: Okay. S no, that'll be controlled by the those buttons'll be there already, yeah.
+[00:34:41] Speaker D: What a
+[00:34:44] Speaker B: Where?
+[00:34:45] Speaker C: Means on the remote.
+[00:34:46] Speaker A: On the side.
+[00:34:47] Speaker C: Because remote is going to have both the interfaces, scroll as well as buttons. They are not going to cost you much, everything is in-house and now you don't want the traditional users to be apprehensive of this.
+[00:34:47] Speaker B: Okay.
+[00:35:00] Speaker B: Well, I dunno if the traditional user is gonna buy a a banana remote
+[00:35:06] Speaker C: Oh, yeah. That's that's another issue which I didn't think of.
+[00:35:06] Speaker B: in the first place, you know.
+[00:35:09] Speaker B: Y I mean you need to kind of keep it um
+[00:35:12] Speaker C: But you know our targets are very high, means fifty million Euros is the profit which we want make.
+[00:35:18] Speaker D: What about
+[00:35:19] Speaker B: Yeah, how many of these did we wanna sell? I can't remember, what was
+[00:35:21] Speaker C: Twenty five. Twelve point five is the profit on one.
+[00:35:22] Speaker A: Twenty five.
+[00:35:24] Speaker B: Yeah, but how many units did we need to to sell?
+[00:35:27] Speaker C: Uh forty th four.
+[00:35:30] Speaker D: Four millions?
+[00:35:30] Speaker C: Point point four million?
+[00:35:33] Speaker B: Four point four million.
+[00:35:34] Speaker C: Point four million.
+[00:35:35] Speaker B: That's a lot of fruit.
+[00:35:37] Speaker C: In the market.
+[00:35:38] Speaker D: What about a
+[00:35:38] Speaker A: Yeah.
+[00:35:40] Speaker A: So. Well. No. Time is running, we have to close the meeting in a few minutes. So, okay, the next step, you can come back to your seat. The next step is to go for to f is to go to uh
+[00:35:43] Speaker B: Okay.
+[00:35:46] Speaker B: Okay.
+[00:35:52] Speaker A: to building a prototype, based on this, okay? So next meeting you guys have to prepare the followi things. You have to uh work on the look and feel uh design and you have to work on the user interface, in fact you two you have to work together to model the first uh f first prototype.
+[00:35:56] Speaker B: Okay.
+[00:36:09] Speaker C: Mm-hmm.
+[00:36:14] Speaker A: Uh Marketing Expert uh have to go to product evaluation.
+[00:36:20] Speaker D: I wo what about adding the this word spotting, keyword spotting recognition saying volume up volume down?
+[00:36:20] Speaker A: Okay?
+[00:36:31] Speaker A: It's too difficult.
+[00:36:32] Speaker D: It's too difficult but people like innovation and that's really uh innovative and I don't know if it would cost a lot, just a few five words.
+[00:36:46] Speaker A: It's not a possi it will not be possible to implement it for the next prototype, so t it's in the next prototype so let's skip it.
+[00:36:52] Speaker B: Uh.
+[00:36:53] Speaker D: Okay.
+[00:36:54] Speaker C: For the future prototypes.
+[00:36:55] Speaker A: Yeah, maybe, for the n if if if it it works well, we'll go for uh an orange one. Yeah yeah, honour the fruit.
+[00:36:57] Speaker B: That can be the t
+[00:37:00] Speaker B: That can be like the turbo banana plus plus commando.
+[00:37:02] Speaker D: Plus plus, okay. Maybe objective banana?
+[00:37:06] Speaker A: Okay. Thanks very much. We'll see n next meeting. Bye.
+[00:37:12] Speaker B: Okay. Yep. We have to go design the prototype.
+[00:37:12] Speaker C: So meeting's over?
+[00:37:14] Speaker C: Okay. Okay. Okay. Thank you.
+[00:37:17] Speaker D: Thank you.
+[00:37:17] Speaker A: Thank you.
+[00:37:24] Speaker C: The problem is after all this meeting there is

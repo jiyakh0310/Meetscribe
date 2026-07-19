@@ -1,0 +1,577 @@
+[00:00:04] Speaker A: So yeah, we put this stuff on so that so that we have some record of the whole thing, what uh are going to say. And uh the whole idea here is says also put the lapel on.
+[00:00:21] Speaker B: Yep.
+[00:00:23] Speaker A: Uh the whole idea of this meeting is that it's not me who will be talking all the time. So so that would be a boring that would be definitely boring meeting. Yeah, yeah, yeah. So I so the p the actually the reason why we got together is that it's ab it's about the time to A_ make sure that when Petr leaves us uh I'm afraid it may happen, right. I mean it or did you didn't change your mind yet. Or your girlfriend didn't change your mind. So so that whatever he's whatever he's been doing uh is not uh forgotten and then people can stay on his shoulders and uh I hope that he won't get out entirely out of uh out of uh this problem. But still we we need to continue on this.
+[00:00:27] Speaker D: Oh what what is the topic here?
+[00:00:30] Speaker B: S so Joel is going to talk.
+[00:00:32] Speaker C: No I'm going to listen.
+[00:00:44] Speaker D: Well, I guess so. I couldn't. I would like to change. But I cannot.
+[00:00:44] Speaker B: That's mine.
+[00:01:06] Speaker C: Yeah.
+[00:01:06] Speaker A: So I think the Joel will be is is my main hope that he's uh he's going to pick up uh the key-word spotting and some of these ideas and also the reason why p uh I p uh uh Petr Motlicek is here is that Joel is also getting interested in uh OPAL models of uh tem temporal envelope. Yeah, and of of course Pet uh Petr for signals. So about it but Petr Motlicek too. Eh both of you you know. So but but but you will be here and from different point of view, eh. Petr Motlicek is working mainly on speech coding. Yeah, and uh so so this is um yeah, I guess this is it. So m I I guess that really you should be talking more than anybody else because you should be asking questions. Yeah. Yeah, I know. So what is it that you need to know. And uh
+[00:01:22] Speaker C: Yeah.
+[00:01:24] Speaker C: Yeah. That's true.
+[00:01:29] Speaker D: Well I think that I'm more now. Much more than me. Because
+[00:01:31] Speaker B: Well, may from different point of view. But
+[00:01:35] Speaker D: Oh. Okay.
+[00:01:35] Speaker B: Yeah.
+[00:01:35] Speaker C: Yeah. Speech coding.
+[00:01:42] Speaker C: No.
+[00:01:44] Speaker C: Yeah.
+[00:01:46] Speaker C: Yeah well that's uh yeah.
+[00:01:47] Speaker B: Right.
+[00:01:49] Speaker C: So
+[00:01:51] Speaker B: Let me just tell us so what you know already about uh, I don't know, how far you are with the s features. Or
+[00:01:55] Speaker D: Yeah.
+[00:01:56] Speaker C: Uh well uh so basically I started reading about the features that's taking the long temporal and uh time frame, that's uh TRAPs. And uh tandem approach.
+[00:02:06] Speaker A: Yeah.
+[00:02:11] Speaker B: So you know s something like that.
+[00:02:11] Speaker C: Yeah, s yeah, yeah. So then I also started with the there was a paper on uh fitting a ear model to the D_C_T_ of a signal. Started with that and slowly getting used to the stuff.
+[00:02:25] Speaker B: Mm-hmm.
+[00:02:25] Speaker D: To the D_C_D_.
+[00:02:26] Speaker C: S
+[00:02:27] Speaker C: Yeah.
+[00:02:28] Speaker B: But t what Christos was doing. Right.
+[00:02:28] Speaker D: Oh I cannot say it. To the Hilbert envelope you mean, no?
+[00:02:29] Speaker C: Uh I think yeah, yeah. It's uh the paper by Dan Ellis and co. Yeah.
+[00:02:34] Speaker A: Oh this were ho how it started basically because that was uh Marios Athineos, yeah, and Dan Ellis. They had a paper, I believe it was not in ICASSP A_S_R_U_ or something, right. It was a A_S_R_U_ but that was a time when they weren't using very long uh uh uh d uh segments. It was like fifty millisecond or something what they were playing with at the time. Yeah, I know. So then i the story was that then uh Marios presented that at so some meeting and we realised oh, that might be cute thing uh for uh estimating uh spectral energies. Because that's what we want. And we'll the the way we've uh we are doing it is kind of I think it works, but it's little bit inelegant.
+[00:02:36] Speaker D: Yeah, yeah.
+[00:02:36] Speaker B: Yeah.
+[00:02:38] Speaker C: Yeah.
+[00:02:40] Speaker C: Yeah.
+[00:02:43] Speaker C: A_S_R_U_. Two thousand four I guess, yeah. Two thousand three, yeah.
+[00:02:47] Speaker B: Mm-hmm.
+[00:02:54] Speaker D: Yeah, okay.
+[00:02:54] Speaker C: Yeah.
+[00:02:56] Speaker C: Okay. Yeah, yeah.
+[00:02:56] Speaker D: Yeah, yeah, yeah.
+[00:03:00] Speaker C: So for
+[00:03:04] Speaker C: Yeah.
+[00:03:09] Speaker C: .
+[00:03:17] Speaker A: somehow stupid, so so first do the frame by based uh estimate, and then you you get stick to hundred hertz sampling, ten millisecond sampling or uh something, and then you just pick up the trajectory. So so Marios was here for half a year maybe or even more uh, and uh started work with Petr who also j just came. So they were working little bit together, mainly M Marios was uh programming in MATLAB and Petr was putting it into fancy is yeah and uh but uh and but then we were hoping uh uh uh th to pick up on that little bit more, and we we did, right? You did a little bit of work. Yeah.
+[00:03:17] Speaker C: Mm-hmm. Yeah.
+[00:03:18] Speaker B: Mm-hmm.
+[00:03:35] Speaker D: Why that?
+[00:03:38] Speaker D: I don't think so.
+[00:03:39] Speaker C: Mm-hmm.
+[00:03:44] Speaker D: Yeah, I just re-wrote in in C_ plus plus. I didn't do us so much on that.
+[00:03:57] Speaker D: Well, we we tried uh many knobs to tune on th on that. Because you can decide what compression factor and everything. So I tried a little bit like um pick maybe three knobs and try to go through the three D_ three D_ cage to see what happens in which which kind of settings. So this we did. But we we didn't because there was still a question that I don't remember right now. Because there was some essential question
+[00:04:01] Speaker C: Okay.
+[00:04:14] Speaker C: Mm-hmm.
+[00:04:17] Speaker A: Hmm. And we never published that anywhere, right? Huh. Yeah.
+[00:04:27] Speaker D: I I don't remember, I would have to look at it f and because be before I wou before I we could u we could write anything I I would be have to be sure that something is right there. I couldn't be sure about it at the time. So and anyway, it it takes time, this this computation. It's it's very inefficient. It takes like hundred times more than computing some M_F_C_C_s computing these features, because it's uh huge D_C_T_, huge F_F_T_ everywhere. And
+[00:04:29] Speaker A: Yeah.
+[00:04:32] Speaker C: Yeah.
+[00:04:41] Speaker A: . Yeah.
+[00:04:43] Speaker C: Yeah.
+[00:04:55] Speaker C: Yeah.
+[00:04:56] Speaker A: We were also doing a serious thing that we were stepping it by ten millisecond, right? At the time.
+[00:05:00] Speaker D: Yeah. There is no optimisation. We just stick to the TRAP. We wanted to make as close to TRAP as is possible, which is silly, but that w you have to start somewhere. Yeah.
+[00:05:02] Speaker A: Right. Yeah.
+[00:05:06] Speaker A: Right.
+[00:05:07] Speaker B: Mm-hmm.
+[00:05:09] Speaker A: That was a reasonable start, yeah.
+[00:05:10] Speaker C: Yeah. So then I continued with uh another uh paper that you are mentioning, L_P_ TRAP. So I just moving around with that ideas. And also uh the main idea today why I told maybe is like if you can list down what all things are there to be taken care of. Then one by one. Because finally face find I do have something else.
+[00:05:14] Speaker D: .
+[00:05:24] Speaker A: Yeah.
+[00:05:29] Speaker C: So uh maybe to list down the things other than the what I've already taken from you. And also to discuss generally.
+[00:05:35] Speaker D: Y okay.
+[00:05:38] Speaker D: So so what well, last time we we were s talking about what, about Gaussians? You you have the Gaussians running somehow. Like feature extraction. And then the tandem training c also, so the you are able to train the net now.
+[00:05:46] Speaker C: Yeah. Yeah. Feature extraction. Part tandem training.
+[00:05:53] Speaker A: So you may be the only one in the whole world now. Because uh because Chi Fong is gone and uh and uh Barry is gone. So Morgan was joking no what he informed me they are gone from ICSI. Uh Chi Fong went to T_I_ and uh and uh uh uh B Barry is at Lawrence Livermore lab. He basically got a job. He he graduated. And he's he'll be working on things which he cannot talk about. He can't even say it on a microphone here I heard. It's uh i yeah, it's classified work typically. It's and so so jo Morgan was h only half joking. He was s somebody was asking him you were or so s or somebody was asking him something. Uh or there was uh there was uh Matthew and he said well, probably we'll be coming to ask you because nobody really knows anymore at ICSI. So please stay.
+[00:05:59] Speaker D: No. No so they are going from ICSI?
+[00:06:07] Speaker D: Huh.
+[00:06:13] Speaker D: Yeah.
+[00:06:20] Speaker D: Eh?
+[00:06:40] Speaker C: 'Kay.
+[00:06:40] Speaker D: But who who is the one who who is now developing the Quicknet and these things? The the M_L_P_ four and these things. Because it's
+[00:06:46] Speaker A: Uh th nobody. That was Barry. And now it's uh cl close histo actually Brno is doing a a lot of that now. They picked up the software and they play with the and nets. So that might be that Brno will be at the soonest as uh a ultimate expert on on the whole thing.
+[00:06:49] Speaker D: It was Barry?
+[00:06:53] Speaker B: Yeah.
+[00:06:53] Speaker D: Ah, I see.
+[00:06:57] Speaker D: I see.
+[00:07:02] Speaker D: Well still we have the experts who who made the software on here, you know. Olivier Bornet and
+[00:07:07] Speaker A: N n where which software? No, they ne Quicknet was done uh uh well Quicknet itself was done actually long time ago at ICSI.
+[00:07:09] Speaker D: Uh Quicknet training. Yeah. Yes, but Olivier make it run on on these machines and make the uh cross the two G_ barrier here at IDIAP. Because we couldn't we couldn't do something, I don't know what. But he is he is no good in Quicknet, right, I s I guess. Yeah.
+[00:07:17] Speaker A: Is that so?
+[00:07:20] Speaker A: Group?
+[00:07:24] Speaker B: What yeah, yeah.
+[00:07:27] Speaker A: Okay. So we h have to treat him well.
+[00:07:29] Speaker C: .
+[00:07:31] Speaker D: Um okay. So so
+[00:07:32] Speaker C: So yeah, right now I have the feature extraction part where I can get the phoneme posteriors and through the neural net. So then I think I need yeah. Yeah, i yeah, but uh yeah, it's T_K_ through for some other task I've run it's T_K_. So I have the general feel. But uh maybe I can take the interceptor from you and run it once on my to have it.
+[00:07:36] Speaker D: ? Right. So you just miss the back-end, which is easy because it's H_T_K_, it's everyone knows here.
+[00:07:49] Speaker D: Okay.
+[00:07:54] Speaker D: Yeah, okay. A and you you just need from us to hear w what are the other p front-ends and other features to to choose or something.
+[00:08:04] Speaker C: Yeah. So
+[00:08:06] Speaker C: Yeah. Basically. So then I can can share what I ca have read and uh
+[00:08:11] Speaker A: Well the whole idea then is that then you start playing with it, right? And you yeah, and
+[00:08:14] Speaker C: Yeah. Yes.
+[00:08:18] Speaker D: Okay, so how do we do it? Shou shou should I list it? Or
+[00:08:21] Speaker C: So I'll use this. Yeah, the
+[00:08:22] Speaker A: Maybe that might be the
+[00:08:25] Speaker C: Let's do the feature extraction that we have already taken, then the back-end for that. Then? Yeah.
+[00:08:29] Speaker D: Yeah. Well, uh like I I d I distinguish between feature extraction and then the M_L_P_. Because see you feed something to the M_L_P_ which are not the waves. So so well and that's that's what I call it. And then the back-end. But okay. Well so what what I have here, what I've been working on since I was here was M_F_C_C_ P_L_P_, which is always needed for compressing purposes. Then TRAPs with w various lengths. And also uh you know TRAPs now?
+[00:08:39] Speaker C: Yeah. Okay. Uh so yeah..
+[00:08:44] Speaker C: Yeah.
+[00:08:56] Speaker C: Yeah.
+[00:09:06] Speaker C: Yeah. Traps I know. But though with various?
+[00:09:08] Speaker D: With var various lengths we were trying to to start them from from on the ultimate length of one one uh frame up to one second or even more. But it was mm so this. Also w then we apply the D_C_T_ on the TRAP itself, which is some something like the Gaussians. Applying some filt filtering. Basically the TRAP. So this. But this is mainly Franta who was doing this.
+[00:09:11] Speaker C: Okay. Length. Ah.
+[00:09:17] Speaker C: Okay.
+[00:09:18] Speaker A: On frame. Oh.
+[00:09:18] Speaker C: Frame.
+[00:09:33] Speaker C: Okay.
+[00:09:35] Speaker C: Filtering, yeah.
+[00:09:40] Speaker C: Mm-hmm.
+[00:09:42] Speaker D: So this is related to TRAPs. I was also trying the warping. Means if you have a second um which is uh a hundred and one samples, I was just keeping the central ten ten samples. And then I was throwing away some some of them, you know. Like with sampling this this uh one second of the TRAP to something which I which I uh preserved all the points in the centre and just uh picked every tenth point at the boundaries, which means the TRAP uh hundred and one TRAP trajectory shrank to say fifteen points with uh with still preserving the maximum resolution at the centre and throwing away most of the points near the boundary. So this I was trying. So these I have some results on. So these are TRAPs. Then the Gauss TRAPs. Then tandem system.
+[00:09:46] Speaker C: Okay.
+[00:09:48] Speaker C: Yeah.
+[00:10:02] Speaker C: Mm-hmm.
+[00:10:11] Speaker C: Mm-hmm.
+[00:10:17] Speaker C: Okay.
+[00:10:24] Speaker C: .
+[00:10:32] Speaker C: Okay.
+[00:10:35] Speaker C: Okay.
+[00:10:38] Speaker D: Uh the tandem you plus minus half. Because that's that's just a P_L_P_s. And then there is a training uh with M_L_P_ that's taking some context of these P_L_P_ coefficients. So it's like feeding the P_L_ uh P_L_P_s or M_F_C_s, w whatever to M_L_P_ and taking some context. This is the tandem. So this set-up we also have here. I didn't experiment with this. But maybe you some more results oh it's Hemant who has the results on tandem I guess, no? Yeah, yeah. Right. Yeah. But uh I think the uh I think the most important results are already in the thesis he's writing. So so is there some somewhere. So this is tandem. Uh then uh then what? And then there is the F_D_L_P_. Then we can talk more about.
+[00:10:43] Speaker C: Okay.
+[00:10:47] Speaker C: Okay.
+[00:10:50] Speaker C: Uh-huh.
+[00:10:54] Speaker C: Mm-hmm.
+[00:11:00] Speaker C: Okay.
+[00:11:07] Speaker C: Okay.
+[00:11:08] Speaker A: He used to have before he lost all the data. But he will have it again.
+[00:11:11] Speaker B: We shouldn't smile.
+[00:11:12] Speaker C: It's alright.
+[00:11:20] Speaker A: . Yeah.
+[00:11:29] Speaker C: Yeah. Yeah, that's ri
+[00:11:33] Speaker D: Which is which I have more experiments on. Also this warping and compressions and all these things. So
+[00:11:36] Speaker C: Yeah.
+[00:11:41] Speaker B: Right.
+[00:11:41] Speaker C: So compression basically you are looking at I guess, yeah.
+[00:11:44] Speaker B: Yeah. Yeah, but I'm using that for different different reason, right. So it's uh speech coding. So uh what is the task is usual just take the speech of course somehow to encode it into as as small number of beat as possible and with a reasonable quality of course. And again to e uh decode it. And I'm using F_D_L_P_ for that, still playing with uh more less one second long segments. So just dividing the speech into one s one second frames doing D_C_T_. It's just the standard wor of work. And then doing some compression and computation of yeah, yeah yeah, sh oh, yeah. But you are doing the same, no? Yeah b yeah yeah you take the the D_C_T_ and you just divide it into several sub-bands, frequency bands with a different uh
+[00:11:49] Speaker C: Mm-hmm. Coding.
+[00:11:58] Speaker C: . Yeah.
+[00:12:05] Speaker C: Okay.
+[00:12:07] Speaker C: Uh-huh.
+[00:12:12] Speaker C: Uh-huh.
+[00:12:16] Speaker C: Okay. Uh-huh.
+[00:12:24] Speaker D: Well it's bil still sub-bands, no?
+[00:12:30] Speaker D: Well yeah. But that you just didn't talk about any sub-band so far.
+[00:12:34] Speaker C: Okay.
+[00:12:36] Speaker C: Mm-hmm.
+[00:12:39] Speaker D: And by the way, you don't do the overlap on the sub-bands, no? Or you do? Yeah, but you don't do the overlap on the time domain? You said somethi yeah. Okay, so that's the difference.
+[00:12:43] Speaker C: No, that's for compression.
+[00:12:43] Speaker B: I d I do. You mean
+[00:12:47] Speaker B: No, no, no. No. I don't do.
+[00:12:49] Speaker C: I don't need for for compression you basically don't need the.
+[00:12:52] Speaker B: Yeah, just one second with without overlapping. But in frequency domain there is a overlap. Because you can choose which filters you want, more less, or just trajectories of those bands. So there is overlapping. I'm using those Gaussian filters or classical those those TRAPet trapezoidal like in uh M_F_C_C_s, right. And then processing each f yeah, P_L_P_s. Okay, tr triangulars. That one. Then I'm doing s doing uh independent processing of each frequency band. So I'm computing that Hilbert envelope, which is just the envelope of some temporal trajectory. And more or less you can divide this into a Hilbert envelope, Hilb Hilbert carrier. We use something like L_P_, a linear prediction envelope. Auto-regressive model and excitation signal.
+[00:13:00] Speaker C: Yeah.
+[00:13:07] Speaker D: Hmm.
+[00:13:11] Speaker C: Mm-hmm.
+[00:13:13] Speaker C: Mm-hmm. And P_L_P_.
+[00:13:15] Speaker D: P_L_P_s.
+[00:13:17] Speaker D: M_F_C_C_ or triangles?
+[00:13:18] Speaker C: Triangle. Uh yeah.
+[00:13:22] Speaker D: Okay.
+[00:13:25] Speaker C: Mm-hmm.
+[00:13:28] Speaker C: Okay.
+[00:13:31] Speaker C: The speech signal, yeah.
+[00:13:42] Speaker C: Mm-hmm.
+[00:13:45] Speaker C: Mm-hmm.
+[00:13:45] Speaker B: Yeah, so those are two parts or items you need somehow to encode if you want again to get original speech or reasonable quality. And yeah, there is some compression factor, which is again when you're computing that auto-regressive model from F_D_L_P_. You can compress the spectrum somehow in in such a way that you rather um preserve those even also those dips, not only peaks in the spectrum. And it sounds better for some kind of speech signals.
+[00:13:50] Speaker C: Okay.
+[00:13:53] Speaker C: Mm-hmm. Mm-hmm.
+[00:14:03] Speaker C: Mm-hmm.
+[00:14:16] Speaker C: Mm-hmm.
+[00:14:18] Speaker C: Okay.
+[00:14:20] Speaker C: Mm-hmm.
+[00:14:21] Speaker D: So you know about this compression, how how does it why it's okay. I just don't know.
+[00:14:24] Speaker C: Yeah, yeah. Yeah.
+[00:14:25] Speaker A: knows more than than than I do. S so that's good.
+[00:14:29] Speaker D: Ah he's new. He's he's doing you most of the things.
+[00:14:31] Speaker B: So it's kind of logarithm when you use logarithm for M_F_C_C_s, right. So it's again compression factor, something like th and but then you have to uncompress it again of course to get back the speech. And there other other things which I'm doing. But it's not related to speech recognition so much, or but
+[00:14:36] Speaker C: Yeah.
+[00:14:41] Speaker C: Mm-hmm.
+[00:14:48] Speaker C: Mm-hmm.
+[00:14:48] Speaker D: So
+[00:14:52] Speaker D: Okay.
+[00:14:52] Speaker A: But certainly when it comes to like uh the the OPAL modelling of temporal trajectories, even pe Petr Fousek is not here, you probably know a lot about it by now.
+[00:15:03] Speaker D: Well what?
+[00:15:03] Speaker B: Well
+[00:15:04] Speaker A: No. That uh uh ap approximating Hilbert envelope by OPAL model.
+[00:15:06] Speaker B: Right, right.
+[00:15:08] Speaker D: I what? I I d yeah. Well the beginning of the
+[00:15:10] Speaker A: I a v a V_L_P_. Uh as as I say when you when you are not here, that that Petr Motlicek knows enough about it too, because same ap yeah, different uh application, different uh different software or something.
+[00:15:12] Speaker B: Well, it's yeah. Sure, sure, I know. I mean it's more or less the same approach, right. There is m uh just more right, right, right.
+[00:15:16] Speaker D: Oh yeah. Sure, sure, sure, sure. Okay.
+[00:15:20] Speaker D: Yeah. Okay.
+[00:15:24] Speaker C: Yeah.
+[00:15:24] Speaker D: So um just they in th um in the speech uh re-synthesis or coding, what you're doing, um did you try to to play with the knobs somewhere. Like uh many uh uh v widths? I m no no. The compression number of bands and lengths of the so what you what you were playing with and what other result? Like what to use so that it sounds the best?
+[00:15:29] Speaker B: Yeah.
+[00:15:34] Speaker B: With what?
+[00:15:40] Speaker B: Yeah yeah. Sure. Number of bands and
+[00:15:48] Speaker B: You know, that's the problem for speech coding. Because I don't have results like in speech recognition. So of course I have to listen it and and s well so now what I'm using are fifteen bands, which seems to me fit fifteen frequency band, which seems to me quite reasonable. We can go down till like twelve and still okay I would say. But then you start hearing difference. Or also that's another problem. Once you can go down with frequency bands, then you will have much uh more c uh complicated data. Uh let's say excitation signal, or that carrier which yeah because broad bands, right.
+[00:15:53] Speaker D: Yeah, o of course you you listen to it yourself. I d I'm fine with that. Because
+[00:16:06] Speaker D: Yeah.
+[00:16:11] Speaker D: Okay.
+[00:16:12] Speaker D: But
+[00:16:22] Speaker D: If you go down?
+[00:16:23] Speaker A: If if you make a b broader bands. Because when the band is narrow, the c excitation is close the carrier is close to s sinusoid basically, co-sinusoid.
+[00:16:23] Speaker C: Yeah. Because
+[00:16:31] Speaker B: Yeah, maybe like that. No? So there is more and more s uh frequency components let's say or something like that in one broad band. So
+[00:16:33] Speaker D: I see.
+[00:16:38] Speaker D: So so you won't say that the L_P_C_ is not able to fit it so that the residual was easy?
+[00:16:43] Speaker B: No. L_P_C_ will maybe. But then you have still another part, sometime something like a source and a filter. So when you are doing speech coding or
+[00:16:53] Speaker A: You may almost want to dis uh um i b uh uh uh yeah, uh b use the white-board, I mean uh and uh that's why we have it here, right, so that
+[00:16:56] Speaker C: Yeah, use maybe you can use the board for that, yeah.
+[00:16:57] Speaker B: Yeah. Why?
+[00:16:59] Speaker D: Will be hero.
+[00:17:02] Speaker C: Can we remove this when you are going to this place?
+[00:17:06] Speaker A: I don't think so. I think no, we are wired.
+[00:17:06] Speaker B: I don't know now. It's quite long.
+[00:17:06] Speaker D: I don't think so. No, no, no, no. are not supposed
+[00:17:08] Speaker C: Oh.
+[00:17:09] Speaker B: Well I mean it's it's the same like when you are doing L_P_ L_P_ synthesis, right. So you've got source signal. I don't know. Source.
+[00:17:19] Speaker D: I think you have to push it push it as much as possible because it reacts to the
+[00:17:19] Speaker B: Uh
+[00:17:20] Speaker A: Except
+[00:17:22] Speaker B: Yeah. And then there is some filter, which is that one divided by A_ Z_.
+[00:17:29] Speaker B: And that's and that's it. And the source can be a noise signal or it can be some uh sequence of uh what is that? Pulses, right.
+[00:17:38] Speaker A: Pulses. This is L_P_. This is a standard time domain L_P_, right?
+[00:17:38] Speaker C: Periodic pulse, yeah.
+[00:17:40] Speaker D: Yeah.
+[00:17:41] Speaker B: This is yeah. So and it's more less or less the same what I'm doing. So this is some envelope, which is in our case related to Hilbert envelope. And this is a source signal which is Hilbert carrier.
+[00:17:43] Speaker D: Yeah.
+[00:17:54] Speaker A: But since you are in a different domain, this is he here we are in time domain, right. But but you are you are really in a frequency domain. So it uh the line's turning to into sines, right. And you p and since this this I mean because this thi this this spectrum is al has also line spectrum, right. I mean all components. So if you are then if we are in a frequency, th your source looks like this. And
+[00:17:54] Speaker C: But this is uh
+[00:17:58] Speaker B: Right.
+[00:18:06] Speaker B: Right. Exactly. Yeah. So this is now going to be frequency.
+[00:18:06] Speaker D: Oh which lines?
+[00:18:08] Speaker C: Yeah.
+[00:18:10] Speaker D: Yeah. Okay, okay, okay, okay, okay. Mm-hmm.
+[00:18:19] Speaker B: Yeah. So more or less if we uh can we can plot it. So what we can see is some Hilbert envelope like this. And then there is that Hilbert carrier. Or this not Hilbert carrier. But this is the signal which we get from one di one frequency band. So you compute D_C_T_, right, from signal? Yeah yeah, exactly. And what we get from that is this Hilbert envelope, right. And the second, which should be that carrier should be something like this. It's just really close to cosine we m we might see if we do it do it properly, right. And this is what you also have to somehow transmit, or at least try to transmit in order to get
+[00:18:24] Speaker D: I see what you mean.
+[00:18:36] Speaker D: This is the sub-band time signal. It's
+[00:18:38] Speaker A: It's uh yeah, right.
+[00:18:42] Speaker A: So you know that.
+[00:18:43] Speaker D: Yeah.
+[00:18:45] Speaker D: I see.
+[00:18:51] Speaker D: Okay. So
+[00:18:56] Speaker D: Mm-hmm.
+[00:18:59] Speaker D: I see. I was thinking the residual in L_P_C_ fit of the Hilbert envelope, not this. I was not thinking of this at all before, you know. 'Cause there are three things. First you have to encode this, then the L_P_C_ coefficients and the residual after L_P_C_ fit if you like.
+[00:18:59] Speaker A: And this is where
+[00:19:05] Speaker B: Right, right.
+[00:19:12] Speaker B: Right.
+[00:19:14] Speaker B: No, I don't need L_P_C_. No, no. This is a residual for me.
+[00:19:17] Speaker C: This is like a residual for him. Yeah, in the for uh frequency it is.
+[00:19:17] Speaker D: Oh you don't
+[00:19:20] Speaker D: This is the residual?
+[00:19:22] Speaker B: Yeah, I'm just wan I just want to transmit this signal right. It's and what you need is this envelope and this one carrier. And you again get the same signal, this this this shape, doing I_D_C_T_. Putting everything together.
+[00:19:25] Speaker D: Yeah. Well i
+[00:19:34] Speaker D: Okay. Yeah. Yeah.
+[00:19:37] Speaker A: And the biggest problem currently is that the carrier is actually not cosine but uh something little bit more uh uh interesting.
+[00:19:39] Speaker D: Yeah, right.
+[00:19:41] Speaker B: Right. But if you take a look for example for a s if you have a very g good music signal, which is very uh periodic you can really see something like there is one peak and
+[00:19:49] Speaker D: Mm-hmm.
+[00:19:52] Speaker A: And if the frequency doesn't change over the wa over over the lengths of the uh
+[00:19:54] Speaker B: And frequency more or less doesn't change. It's uh related to uh that frequency of the broad band or how it's called. If you add those filters, which are uh wider and wider this is that centre frequency which is somehow related to this one. So then you can transmit uh just fe
+[00:19:58] Speaker A: Yeah.
+[00:20:01] Speaker D: Yeah. That that's nice.
+[00:20:04] Speaker A: Yeah.
+[00:20:10] Speaker D: Okay. And so so so the so the broader bands do what on this picture? L left left.
+[00:20:16] Speaker B: It's worse and worse. Don't then you don't see any anything like cosine. But
+[00:20:18] Speaker A: But but f f fortunately, because of he uh because of properties of hearing more or less, for the higher bands you if you put in just s some garbage, some noise, it doesn't really m w matter all that much. It w sounds little bit worse. But uh it's not a big tragedy. Uh where you really w if you want to g do a good voice speech, uh you'll want to get the lower bands correct. And if you put in uh noise altogether, it sounds like a whispered speech, uh but you understand perfect.
+[00:20:32] Speaker D: Hmm.
+[00:20:34] Speaker B: Right, right.
+[00:20:41] Speaker D: Yeah, that that's
+[00:20:43] Speaker B: Everywhere.
+[00:20:46] Speaker B: It sounds like L_P_C_ when you excited by noise. It's better, I would say. Uh better quality. Definitely better quality. It lower bit rate. But that's a problem. So so
+[00:20:50] Speaker A: By noise.
+[00:20:51] Speaker D: Yeah.
+[00:20:56] Speaker A: So now we have to kill them both. Because I mean gave all the secrets away. I mean Qual computers is going to
+[00:20:57] Speaker B: ...
+[00:21:00] Speaker B: Yeah, sure.
+[00:21:01] Speaker D: .
+[00:21:03] Speaker C: For any object you measure you use for uh a reconstructed signal and uh
+[00:21:06] Speaker B: Objective measure, well, it was some those uh distances, spectral distances well, Edinburgh saw probably. So well, I mean
+[00:21:13] Speaker A: Yes.
+[00:21:14] Speaker A: If Motorola or Nokia gets hold of this uh tape, then we are in trouble. Uh hopefully it by then it will be protected and and everything, right?
+[00:21:17] Speaker C: Uh-huh.
+[00:21:21] Speaker D: Although Herve just said that we shouldn't s talk about confidential things here. That's that's the problem. Yeah.
+[00:21:26] Speaker A: It's it's uh it's but listen, this is a science. I mean it's uh confidential to the extent that we are not uh i uh publishing it yet. But we w we of of course we will. And uh and uh but uh we have to make sure that that uh if Qualcomm has a interest of who's funding the work the they have to have a chance to uh to to patent it or something. But that's about all. This is not a public uh public uh presentation. So this i is not even a problem. The only problem would be if but you know, nobody can beat p Petr uh Petr Motlicek anymore in I mean if even if if Nokia knows everything if you if you sell it tomorrow who did you work for th the uh uh text no, t H_P_ H_P_. They will take half a year before they would even realise what it is. And by then so it's not no problem. Okay. So that's where that's uh that's uh
+[00:21:37] Speaker B: I h
+[00:21:43] Speaker C: Yeah.
+[00:21:55] Speaker B: Alright.
+[00:21:58] Speaker B: Yeah. Sure. I see.
+[00:22:01] Speaker D: Okay.
+[00:22:12] Speaker C: H_P_.
+[00:22:14] Speaker D: Yeah.
+[00:22:21] Speaker D: Oh okay. So so there is a compromise between the the lower bands the the worse stuff you just said and and the more bands the more coefficients to transmit. So fifteen is about okay.
+[00:22:31] Speaker B: Right. Yeah. Yeah, yeah. Also there are papers about it that f if you have like twelve frequency bands it's somehow optimal.
+[00:22:39] Speaker D: Okay. So this. And then there is a compression. What about that?
+[00:22:44] Speaker B: Compression is only to really to somehow feed that uh Hilbert envelope to yeah. Yeah, yeah. You can model it better. There is no echo or something like reve reverberance in the signal if you really go down with that compression factor to like zero point one, something that. Zero point one.
+[00:22:49] Speaker A: To get the uh
+[00:22:49] Speaker D: So that you get so that you can't model it actually.
+[00:22:58] Speaker D: Yeah.
+[00:23:03] Speaker D: Of what? Oh oh oh, compression. 'Kay.
+[00:23:06] Speaker B: So
+[00:23:06] Speaker C: So what is the compression factor we are getting here?
+[00:23:08] Speaker A: When you comp uh w what you com when you compress the effectively they'll want the signal which we are modelling. And uh so then you get the fitting to compress signal. Essentially if you were in spectral domain you would compress the power spectrum. Here you compress the the th this th this i the what ful yeah of D_C_T_ of of the signal, right. And so the w then you have uh predictor is fitting actually this compress signal. But you know how much c it was compressed. So you can always expand it back so that you get the c that you get a fit to the to the original thing, except that if it is different. Because uh it ha th basically this OPAL modeling has a different properties. And uh it's
+[00:23:14] Speaker C: Uh-huh.
+[00:23:14] Speaker B: Right.
+[00:23:16] Speaker D: The sub-band signal.
+[00:23:18] Speaker C: Okay.
+[00:23:22] Speaker C: Yes.
+[00:23:26] Speaker D: Sub-bands power spectrum.
+[00:23:27] Speaker B: It's it's s right. And it's still yeah.
+[00:23:35] Speaker C: .
+[00:23:39] Speaker C: Mm-hmm.
+[00:23:43] Speaker C: To fit the the
+[00:23:53] Speaker B: Yeah, you just preserve something different little bit. Let's say in R_S_S_.
+[00:23:56] Speaker C: Yeah.
+[00:23:56] Speaker A: So we can tell you a little bit more about it. This is an uh sort of old technique which uh it
+[00:24:00] Speaker B: Yeah. I think Hynek has got ma many papers or some papers over that. So Oh. In I think I read it.
+[00:24:01] Speaker C: Mm-hmm.
+[00:24:03] Speaker A: And it was my thesis even. P_H_D_ thesis actually. A small sorry? Yeah it was S_T_L_P_, was called spectral transform linear prediction. It was my first ICASSP paper ever. It was uh it nineteen eighty three Boston. You guys were still in kindergarten, right? Oh, this is terrible. So But no nobody nobody was using it for anything, except it was cute. But that was about it.
+[00:24:06] Speaker D: L_P_C_. L_ uh L_P_
+[00:24:18] Speaker B: Right, more or less.
+[00:24:18] Speaker C: Yeah.
+[00:24:20] Speaker D: Yeah.
+[00:24:28] Speaker C: Mm.
+[00:24:31] Speaker A: And uh and but now it seems like that is since since what we are doing here we are normal L_P_C_ is fitting uh peaks, right. But when you are modeling Hilbert envelope, you don't necessarily want to fit only peaks. You sometimes want to get a basically good estimate of the of the envelope. So that helps you. Because in this uh thi thi this spectral transform allows you to to find the right balance between how well it fits peaks, how how well it fits dips and uh and yeah, and sort of the so this is g so I think that basically I don't know what else I mean you should be asking questions, right. So
+[00:24:35] Speaker C: Coming back though.
+[00:24:40] Speaker C: Yes.
+[00:24:45] Speaker C: Yes.
+[00:24:49] Speaker C: Envelope, yeah.
+[00:25:01] Speaker B: Right.
+[00:25:02] Speaker B: Exactly.
+[00:25:03] Speaker B: Yeah.
+[00:25:11] Speaker C: Yeah. Uh one thing I wanted to know is any um a good literature on these lines. Uh where you started with, yeah.
+[00:25:11] Speaker D: S
+[00:25:12] Speaker D: Well yeah. Yeah, yeah. Go on.
+[00:25:18] Speaker D: Uh
+[00:25:20] Speaker B: Well I think you can really take those papers from uh Marius about F_D_L_P_. They are that's really enough on
+[00:25:25] Speaker A: Yeah.
+[00:25:25] Speaker D: Yeah, they are. About three papers. There was uh the s s s SAPA or how it's called, the confere then then
+[00:25:25] Speaker C: Yeah, that's one yeah, o uh th oh. I have two with the
+[00:25:32] Speaker A: SAPA. And then yeah this is a this they are two papers in uh one is in SAPA, one is in uh U_ Interspeech. uh in a c Cheju. And one was in the A_S_R_U_. It was from Virgin Islands. SAPA was a s I I tell you what it stands for, statistic and ad and something ad and uh perceptual approaches. I was on f I was on a f w s organising committee. I should know. But statistic and uh and something approaches. Uh pe perceptua and statistics and perceptual a approaches. That was uh
+[00:25:39] Speaker D: And one is in in the America uh yes. Yeah.
+[00:25:39] Speaker C: Interspeech paper I
+[00:25:45] Speaker B: What is SAPA?
+[00:25:46] Speaker D: I I don't know. I just n
+[00:25:54] Speaker D: You were
+[00:25:54] Speaker B: Mm-hmm. Mm-hmm.
+[00:25:59] Speaker B: Just something. Right.
+[00:26:00] Speaker D: You don't know. Evaluation, that's that's bad.
+[00:26:02] Speaker C: Pattern?
+[00:26:08] Speaker B: Approaches. Mm-hmm. But there are also reports from IDIAP I think. At least two reports from Marius seem to me. Yeah, they are more less they are same like.
+[00:26:09] Speaker C: Okay, okay.
+[00:26:10] Speaker D: 'Kay.
+[00:26:13] Speaker D: Yeah.
+[00:26:18] Speaker A: But they are the same, right, as uh as uh and then also is there is some more work actually can be traced down. I think there wa uh the reading Les Atlas's papers are very good. Because Les Atlas is doing a lot of work on coding in this domain. He doesn't use OPAL model. But he uses D_C_T_ and then he p uh so the so so and it and Les is excellent guy. He's very good mathemat mm h very good theoretician. Basically he's a he's at Stanford the guy. And uh really he likes to write things well. So he's very rigorous uh as opposed to s to me for instance. So if you read that then it then you know that there are no errors and
+[00:26:18] Speaker C: Uh-huh.
+[00:26:21] Speaker C: Okay.
+[00:26:28] Speaker C: Yeah.
+[00:26:28] Speaker B: Mm. Mm-hmm.
+[00:26:32] Speaker C: Okay.
+[00:26:35] Speaker C: Uh-huh.
+[00:26:38] Speaker B: Yeah, yeah.
+[00:26:43] Speaker C: Uh-huh.
+[00:26:47] Speaker B: Right, right. Yeah, yeah.
+[00:26:48] Speaker C: Mm-hmm.
+[00:26:50] Speaker B: Yeah.
+[00:26:50] Speaker C: Okay.
+[00:26:52] Speaker B: Yeah, definitely.
+[00:26:55] Speaker B: Sometimes unreadable I would say. It's quite difficult, but yeah.
+[00:26:57] Speaker C: Okay.
+[00:26:59] Speaker A: Yeah, uh but um so whatever you g whatever you get hands on from Les Atlas uh for over past five years uh regardi this two years ago, last year on one of the ICASSPs he had like five papers, right. Or various aspects of this because uh he's eager to
+[00:27:13] Speaker B: Mm-hmm. Mm. Mm-hmm.
+[00:27:16] Speaker C: Mm-hmm.
+[00:27:17] Speaker B: Yeah, I think this year a lot uh Interspeech there was one paper. But it was regarded to speech recognition somehow. Y yeah, yeah. It was not something like speech coding or that D_C_T_ transforms. N nothing like that.
+[00:27:22] Speaker C: Okay.
+[00:27:23] Speaker A: Is that so? I didn't even see it. Yeah. Or
+[00:27:28] Speaker A: Uh-huh.
+[00:27:29] Speaker C: Mm-hmm.
+[00:27:32] Speaker A: I don't
+[00:27:33] Speaker B: So
+[00:27:34] Speaker D: Also I can um before Marius left, he he has he had actually left himself. But all the files are here. You know. So all the m MATLAB implementations of these are here. And there is also one big table that he used he used to yeah. He was also playing with all these compression factors and lengths of the of of that. And there is a big table in in Excel which you can look at.
+[00:27:43] Speaker C: Mm-hmm.
+[00:27:46] Speaker C: Okay.
+[00:27:50] Speaker A: To fill in, yeah, with all kinds of parameters.
+[00:27:58] Speaker C: Uh-huh.
+[00:28:00] Speaker C: Uh-huh.
+[00:28:04] Speaker A: He has all kinds of speech recognition results, right. It was the first time you start using the cluster, I remember, or some uh some parallel processing. That was a big thing here.
+[00:28:07] Speaker D: Yeah yeah yeah. This wa
+[00:28:10] Speaker D: Uh yeah. Because it it it took a huge amount of time. And he basically he he was the first one to realise that these these guys are pretty slow to to do these things. So he he he just uh he just uh put here the P_ make environment and he didn't stick to any cluster or anything. He just put P_ make and run it on uh on all the machines here. So at some point he was using all the available memory by any mistake, you know. So at th in the morning all the machines were were just stuck. D no one could ever m move the mouse
+[00:28:21] Speaker A: Everybody hated him for t uh temporarily. I remember.
+[00:28:24] Speaker B: Right.
+[00:28:29] Speaker A: Uh-huh.
+[00:28:32] Speaker A: .
+[00:28:37] Speaker C: Uh-huh.
+[00:28:46] Speaker A: I yeah, I remember Frank came to me and says is everybody was computing like Marius, we would be all dead. But I say, Frank, but I want everybody to compute like Marius. And
+[00:28:52] Speaker B: Right.
+[00:28:58] Speaker D: .
+[00:29:00] Speaker D: So these these resul yeah. Because he was doing everything in MATLAB. So it was again ten times more demanding than C_ plus plus and then
+[00:29:00] Speaker C: Yeah. So
+[00:29:06] Speaker C: Yeah.
+[00:29:07] Speaker B: Mm. Maybe yes. Maybe no. I don't it's hard to say. Now it's not so bad with that if you really write it f well. And he did. I think so. Sure.
+[00:29:11] Speaker D: Mm
+[00:29:15] Speaker D: But he did. He wrote it well. But anyway anyway. Because I w i in the code that I wrote I was like playing also with if if the mat matrix is parse I really don't use it all. I just multiply from here to here from here to here. Not to matrix p my matrix. And then I I just optimised it a bit. And also BLAST libraries and all these sta things. But okay. Oh well whatever. But the t
+[00:29:30] Speaker B: R right. Yeah. Yeah.
+[00:29:36] Speaker B: Yeah. Yeah.
+[00:29:40] Speaker B: Whatever. That's not important.
+[00:29:42] Speaker A: Well it is important, you know. Whereas I mean this is something which we never talk about, right. I hear it how much work uh does put in uh here. Because it's true it's true this that uh that things sped up tremendously since I came. I mean uh of course partially because they started to buy some more uh more hardware. But also be p some at least some people basically know how to uh uh write faster programs.
+[00:29:43] Speaker B: Uh
+[00:29:44] Speaker B: ..
+[00:29:48] Speaker D: Uh
+[00:29:48] Speaker B: Oh yeah. Sure, it is important for this case. But still
+[00:29:50] Speaker C: Yeah.
+[00:29:59] Speaker D: Yeah.
+[00:30:04] Speaker D: Yeah. But there is a the back-end recognizer which I will give you which is turn-around of eighteen minutes or well from eleven to fifteen minutes. Normally it would take hour and a half.
+[00:30:10] Speaker A: Uh this is fantastic.
+[00:30:13] Speaker A: And used to be two days, yeah.
+[00:30:15] Speaker C: Mm-hmm.
+[00:30:16] Speaker D: Yeah no. No today it was over one hour. It's just like ten times less maybe or five to ten times less. But still still you can you can five times more compute.
+[00:30:17] Speaker A: . Uh
+[00:30:21] Speaker A: .
+[00:30:22] Speaker C: Mm-hmm.
+[00:30:26] Speaker A: So do you already know where uh what is the situation with you? You go back to Prague for a while. And then did you get anything in F in France? I got some ideas by the way. I yeah. Yeah. Yeah.
+[00:30:32] Speaker D: Great. I have to talk to you about these. I I don't know. I I didn't try to. I didn't even mail to to Chernotsky, I must say. Uh I just talked to one girl there which told me that he would be possibly able to find me a job there. Any any job, like related maybe to field. But job. Not not anything any research. So if if nothing then then I could be able to get the job somewhere.
+[00:30:42] Speaker A: Uh-huh.
+[00:30:56] Speaker A: Oh it's that's the that's the would be a pity, right. You you ca you t so you don't die of hunger. And so yeah. Yeah, that's not the idea. No. We'll we'll uh we will we'll try something, let's see what we can do. Um
+[00:31:03] Speaker D: Yeah, probably. Yeah, but t s but yeah.
+[00:31:12] Speaker D: 'Kay.
+[00:31:12] Speaker A: So Joel, your main basically thing is as I told you to t uh when we were walking that uh that what whatever Petr did, that it doesn't die, but it i it carries. And obviously uh v we very much hope that you get into that and you get excited and you do s more and uh or uh maybe even different things. But uh
+[00:31:21] Speaker C: Yes.
+[00:31:32] Speaker D: We hope that you find out that everything was wrong and that the potential is much bigger. Yeah, it actually work that too.
+[00:31:32] Speaker C: Yeah.
+[00:31:36] Speaker A: That it actually works. It's not that it doesn't work. Uh
+[00:31:37] Speaker C: Yeah.
+[00:31:41] Speaker B: Right.
+[00:31:42] Speaker D: No. But after you find out the back then it will be that will be the yeah. So we will send you the papers related. And I will point you to all the code which I have. And yes. Yeah, yeah, yeah.
+[00:31:47] Speaker A: Yeah. Then
+[00:31:56] Speaker C: Yeah. So
+[00:32:00] Speaker C: Yes. Uh yeah. Well, regarding this F_D_L_P_. Yeah,
+[00:32:04] Speaker A: And i and this and this is all on the record. So if we uh if uh if we you can hold him to his word.
+[00:32:08] Speaker C: He doesn't send. Yeah. Yes.
+[00:32:08] Speaker D: Yeah, I can play it back. So I can just now tell the the locations of all the files and you can rewind. Yeah, yeah, ferret.
+[00:32:15] Speaker A: J ju you rewind. Browse through the meeting. Okay.
+[00:32:22] Speaker C: Yes. So
+[00:32:25] Speaker D: Um so
+[00:32:27] Speaker A: How we doing time-wise? Yeah I think half hour it's fine, right?
+[00:32:31] Speaker C: Yeah.
+[00:32:32] Speaker B: Yeah, and definite.
+[00:32:34] Speaker D: Any any more things?
+[00:32:36] Speaker C: .
+[00:32:38] Speaker A: But you will be here until almost until end of uh
+[00:32:41] Speaker D: Yeah, until twenty four. It's the Friday. So November, yeah.
+[00:32:42] Speaker A: Yeah. So breaks my heart. It's just like I was just start teaching and then I n I'll need an assistant.
+[00:32:43] Speaker C: November?
+[00:32:44] Speaker B: November? November.
+[00:32:45] Speaker C: Okay.
+[00:32:51] Speaker D: Mm..
+[00:32:52] Speaker A: Hmm. Yeah maybe. Uh yeah. Uh d hopefully it's make m makes uh pay pay some extra.
+[00:33:01] Speaker B: What are you going to t talk or to teach? It's just that perceptual stuff and
+[00:33:01] Speaker A: So we'll see.
+[00:33:01] Speaker D: Mm-hmm.
+[00:33:03] Speaker A: Either speech. Uh but it's co actually compilation of uh really compilation of two classes I was giving at O_G_I_, which is like speech processing and and uh perception. And so I tried to put it together so that it makes some sense.
+[00:33:10] Speaker B: Mm-hmm.
+[00:33:17] Speaker B: Do you already know how many students you have? No.
+[00:33:19] Speaker A: No. No. I've it's uh i it I should have at least four. Because this is a p like uh graduates. But I have one, alright. Guaranteed. I have one guaranteed that I don't know if anybody else is uh
+[00:33:26] Speaker C: Yes..
+[00:33:26] Speaker B: Oh it's graduate for graduates.
+[00:33:31] Speaker A: Uh uh
+[00:33:31] Speaker B: Well I think Guillermo was thinking about. And
+[00:33:32] Speaker C: Yeah. Bu three I mean four credits? Or uh a total of four. Ah.
+[00:33:37] Speaker A: Sorry? I s I don't know. I don't know if it needs to be four credit or not.
+[00:33:42] Speaker A: I don't know how much I like people without uh n not taking it for credit because then they just sit there and having good time. But it's okay. No no, it's okay.
+[00:33:43] Speaker B: Hmm.
+[00:33:48] Speaker C: Yeah.
+[00:33:51] Speaker C: Because s s in I_S_ it's four uh credits and uh Guillermo is taking I think he's g yeah.
+[00:33:57] Speaker A: Yeah. Guillermo is taking, very good. And so I'll I_S_ who already have at least two. If uh
+[00:34:06] Speaker A: Yeah, we pro I probably get four.
+[00:34:07] Speaker B: Well I would like to go there, but not just for credits. Just maybe to hear something new.
+[00:34:15] Speaker A: And uh it's possible. That's for sure. I mean that's
+[00:34:21] Speaker A: Okay.
+[00:34:21] Speaker D: It was yeah, the last time it was for me it was good, the course from my from one special reason, because in the f when there th were the flats in I lost all my papers from my school. All the all the exercise books. Um how to say this? Note note yeah, all the notepads and everything, all the notes from any courses. So I was remembering what I was learned or what I was taught at the time. So so I have it now back, at least partially. 'Cause all the all the algorithms you were speaking about
+[00:34:33] Speaker A: Mm-hmm.
+[00:34:37] Speaker A: Mm-hmm. Yeah, the notes notebooks. Uh-huh.
+[00:34:40] Speaker C: Notebooks.
+[00:34:46] Speaker A: .
+[00:34:48] Speaker A: But that's good, you know. It's uh
+[00:35:00] Speaker D: Yeah. Uh uh I would add
+[00:35:00] Speaker A: I didn't get into too many things actually. We know the reason was that at the time we thought I was teaching with Herve. And we thought I we have much more time. And suddenly we ran out of time basically because what happened was that uh it was supposed to be three hour lecture. But it was only two hour lecture. And uh Herve assumed that it's going to run longer. Or I don't know what he assumed. But suddenly we sa s he said well so so where are you. I said well I'm just slowly getting into L_P_C_. He said why but I we have only three more lectures. I have to teach H_M_M_ and everything. So I the L_P_C_ part was like I had to do it in one hour. And then everybody was c totally confused I guess. And
+[00:35:07] Speaker D: Yeah.
+[00:35:10] Speaker D: Now.
+[00:35:13] Speaker B: Mm-hmm.
+[00:35:13] Speaker D: Mm-hmm.
+[00:35:17] Speaker D: Mm.
+[00:35:23] Speaker D: Oh. some
+[00:35:29] Speaker D: Yeah.
+[00:35:36] Speaker C: Mm-hmm.
+[00:35:36] Speaker D: Yeah.
+[00:35:39] Speaker D: Yeah and also in the in the l lab labs the d people didn't know anything about it and they just follow the papers. It was
+[00:35:43] Speaker A: Yeah, they were also confused.
+[00:35:46] Speaker A: Yeah.
+[00:35:47] Speaker C: Where was this? In okay.
+[00:35:48] Speaker A: It was at D_B_F_L_, yeah.
+[00:35:52] Speaker A: But
+[00:35:53] Speaker D: Yeah.
+[00:35:54] Speaker A: Oh we'll see.
+[00:35:58] Speaker A: Okay guys. I think that um this unless somebody has uh still anything incredibly important
+[00:36:04] Speaker D: Uh
+[00:36:07] Speaker D: Not to this topic.
+[00:36:09] Speaker C: Yeah. But I can come to yeah. Later.
+[00:36:10] Speaker A: Right, it's uh ju it's a little bit up to you. You have to p you have to back this uh uh ha h specially Petr. Because just to make sure that and yeah. Yeah.
+[00:36:19] Speaker D: Yeah, but anyway after I'm back I'll be still on Skype and all these things, so no problem to contact me until, I don't know, May next year. So it's fine.
+[00:36:24] Speaker C: Okay.
+[00:36:28] Speaker C: Uh-huh.
+[00:36:29] Speaker A: Do you think that you will be done by May? Is it plan?
+[00:36:31] Speaker D: Well I would like to, yeah. I should.
+[00:36:33] Speaker A: I think so. Yeah, we made a mistake, I tell you,. I think if I had to do it again and we made a mistake we should have register you here at E_P_F_L_. You would have had a degree by now from E_P_F_L_.
+[00:36:45] Speaker A: Yeah, that was a mistake.
+[00:36:46] Speaker D: But I would have to study here for that that long time, no? I th
+[00:36:50] Speaker A: Sorry yours You were or you were here t you were you were here how long you were here? Two years? Yeah.
+[00:36:55] Speaker D: Two two years, yeah. And I would have to stay one more. Uh well it would be good reason for Petra that I have to stay here..
+[00:36:58] Speaker A: Where are the
+[00:37:03] Speaker A: Yeah. Right. So is she getting uh uh another position there? Or what is the re reason of What a boyfriend, huh.
+[00:37:05] Speaker B: Right.
+[00:37:08] Speaker D: Yeah, yeah. Because she has a good position because she has a friend which is starting who is starting a lab there. And everything is it's a great opportunity for her at least. But the problem is and then she will go back and there's uh f family issues and all these things, you know. For a girl it's always the pain. Because she has to break for some time, at least a little. But has to break. And in in the science it's not that easy to to break.
+[00:37:17] Speaker A: Oh I see. So that's good. Mm-hmm. Mm-hmm. Yeah.
+[00:37:26] Speaker A: Mm-hmm. Mm-hmm. Yeah, I know.
+[00:37:27] Speaker B: Mm-hmm.
+[00:37:31] Speaker A: Yeah.
+[00:37:33] Speaker A: Yeah.
+[00:37:36] Speaker A: I know. Yeah.
+[00:37:42] Speaker A: Um okay,
+[00:37:42] Speaker D: Okay.
+[00:37:43] Speaker C: Yeah.
+[00:37:45] Speaker C: So in case I need something on this F_D_L_P_, I'll come to you? Uh yeah?
+[00:37:49] Speaker B: Oh, sure. A any
+[00:37:50] Speaker A: Otherwise I am also much more available than I was. I mean when you came it was just like cra one of the craziest uh uh times of this year. Uh uh it's not it's not that I was very productive, that I was doing anything useful. But it just like it's a little bit like writing thesis, all the time re-writing and change the do make a little changes and uh uh and
+[00:37:53] Speaker C: Okay.
+[00:37:55] Speaker C: Okay.
+[00:38:00] Speaker D: Yeah.
+[00:38:03] Speaker D: Yeah. But
+[00:38:08] Speaker C: Takes your uh
+[00:38:09] Speaker C: Uh-huh.
+[00:38:12] Speaker D: Yeah, but I think definitely you are the best person here to with uh related to availability of you. Because if if if I want to go to Herve, I probably call secretary. He's there or and when I can and i there was no op uh no ev every time I came to you you were available. At least it
+[00:38:25] Speaker A: Yeah, he's ver no he has many more sp many more people so to take care of. Yeah.
+[00:38:35] Speaker A: Well I'm typically I try to be, because uh because, you know, I mean for s this is also my livelihood, right, students. So I have to make sure that that that uh they need to know something that uh so feel free basically to stop by any time and um yeah and uh it's not that I know everything. But
+[00:38:37] Speaker D: That's great.
+[00:38:41] Speaker C: Yeah.
+[00:38:52] Speaker C: Yeah.
+[00:38:58] Speaker A: if I know I uh I think I sort of know a little bit like what you guys were doi uh doing, right. But not uh not obvi every detail obviously. Yeah.
+[00:39:04] Speaker B: I think so.
+[00:39:07] Speaker C: Mm-hmm.
+[00:39:10] Speaker D: You know the core, which we don't remember anymore programming. We know the details and you know what what is th what is the global stuff.
+[00:39:13] Speaker A: What yeah, you don't know why why you are doing it anymore. Yeah. Oh boy. Yeah. Oops.
+[00:39:19] Speaker B: Why you are you doing this. Good question sometime asking
+[00:39:23] Speaker D: Uh ask Hynek. Ask my boss.
+[00:39:28] Speaker A: Okay, I think my mic is falling falling. So I think we go, huh? Thank you very much. Thanks a lot.
+[00:39:28] Speaker D: Yeah.
+[00:39:32] Speaker B: Right.
+[00:39:32] Speaker D: Yeah.
+[00:39:32] Speaker C: Yes. Yeah, thanks.
+[00:39:34] Speaker B: Thank you.
+[00:39:34] Speaker D: Oh.

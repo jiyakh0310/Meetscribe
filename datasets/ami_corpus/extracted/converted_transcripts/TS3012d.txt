@@ -1,0 +1,723 @@
+[00:00:12] Speaker A: Can I close this?
+[00:00:12] Speaker B: Uh we don't have any changes, do we? So no.
+[00:00:14] Speaker A: Oh, okay.
+[00:00:26] Speaker A: There we go.
+[00:00:30] Speaker A: Okay, here we are again. Detailed design oh, come on.
+[00:00:37] Speaker A: Well Ah s Forgot to insert the minutes, but it's about the same thing we discussed before. Uh
+[00:00:46] Speaker A: Could open that anyway, think.
+[00:00:59] Speaker A: Other design anyway, we took as we took w we took rubber as as the material last time. We also that you're just busy with it. Took the advanced chip to t uh implement the advanced features. Well, we discussed the design, no sharp corners, we rounded it off, like you see on the other screen, which is fine. Um we agreed that the colour should be b uh yellow and black. Yellow in the back because it's m trendy, more trendy than black anyway. So then we ca yeah. We agreed that we would implement both the L_C_D_ and speech recognition, but I'll get to that in a moment. 'Cause some changes in the finances have
+[00:01:40] Speaker A: left us implications anyway. So so, like I said, we had no insight in finances, no prices, but we have 'em now,
+[00:01:43] Speaker D: Hmm.
+[00:01:47] Speaker A: and it's bad. Anyway.
+[00:01:52] Speaker A: We are
+[00:01:54] Speaker A: Oh. Prototype presentation, well first you guys built the prototype. So you could could present that. But um let's see what be handy to do.
+[00:02:08] Speaker A: Nee no, you just go ahead and present the w we'll scrap it later because
+[00:02:13] Speaker C: I think it's more or less the same as we had.
+[00:02:14] Speaker A: What?
+[00:02:15] Speaker B: It's basically what we agreed upon, but just a little bit more specified.
+[00:02:15] Speaker D: Hmm?
+[00:02:16] Speaker A: Oh that's
+[00:02:17] Speaker C: No much s
+[00:02:18] Speaker A: hasn't changed that much, huh? I didn't expect anyway. You just coloured it.
+[00:02:19] Speaker C: No no no, not at all.
+[00:02:24] Speaker B: Uh s
+[00:02:27] Speaker B: Final design.
+[00:02:38] Speaker B: Basically in what we discussed, cover and buttons will be made of rubber, yellow colour, black components, as you can see right over here. We chose a different type of colour for the menu. A bit darker yellow so that it com really shows in this keypad. If you put them all black, it's not really that good a contrast. So
+[00:02:46] Speaker A: Mm-hmm. I like the menu.
+[00:02:58] Speaker A: Mm-hmm.
+[00:03:04] Speaker A: And I suppose the the the yellow is not printed on the on the rubber. It's it's part of the rubber, I suppose. I think that's more I think that's more durable anyway than printed on to
+[00:03:09] Speaker B: Probab Yeah. That's the be
+[00:03:13] Speaker C: Hmm.
+[00:03:14] Speaker B: And it I guess it's more easier to just paint it on the rubber than to uh
+[00:03:17] Speaker C: Yeah, of course.
+[00:03:19] Speaker D: Mm yeah.
+[00:03:19] Speaker C: That's uh the integration story again.
+[00:03:22] Speaker D: Okay.
+[00:03:23] Speaker B: So we have it's a bit round shaped, that's what we had uh
+[00:03:24] Speaker A: Oh yeah.
+[00:03:31] Speaker B: We chose the buttons to be uh teletext, okay button, favourite channel and the mute. So that's basically what we chose there. If you have anything to add, please interrupt me.
+[00:03:39] Speaker A: Mm-hmm.
+[00:03:42] Speaker A: Okay.
+[00:03:44] Speaker C: No, uh this is just a description of what we see there. So
+[00:03:47] Speaker A: Yeah.
+[00:03:48] Speaker D: Yeah.
+[00:03:48] Speaker B: Oh.
+[00:03:48] Speaker C: Speaks for itself.
+[00:03:52] Speaker B: That's pretty much it.
+[00:03:55] Speaker A: Okay. Now it's my time to ruin everything. Well, not ruin everything, but no, nah. Finances, that's what we have here, what you drew. We have battery power, we have advanced chips and the sam the sensor. The sample sensor and uh for speak recognition anyway. So which you see the which is de o one of the most expensive parts. So well, we have sin one curve, a design. Rubber design. And we had a special colour. Suppose yellow is a special colour. So just half a Euro for You have pushbuttons and an L_C_D_ display. You have the total of seventeen Euros in production cost, which is higher than the twelve and a half that we are permitted to use. So, easy. What do we scrap. Well think I had the best solution that I came up with is just to s take out the speech recognition.
+[00:04:01] Speaker B: Oh sorry.
+[00:04:41] Speaker C: Hmm.
+[00:04:46] Speaker D: Hmm.
+[00:04:49] Speaker C: I d
+[00:04:54] Speaker C: Yeah.
+[00:04:54] Speaker B: I'd say that too.
+[00:04:55] Speaker A: Because the L_C_D_ has more support on customer side. There are ninety one percent of uh the people, or something like that. But ninety percent who favour an L_C_D_ display, and only sixty percent that favour speech recognition. I think it's also harder to
+[00:04:57] Speaker C: Hmm.
+[00:05:07] Speaker B: Uh we don't really have a extra function with the speech sample, which you can't do with a normal remote control, which people already do. So
+[00:05:08] Speaker D: Yeah.
+[00:05:12] Speaker C: Hmm.
+[00:05:13] Speaker A: . So I ju I took that out. So and so it's still stuck with thirteen, so I had to take out the special colour I suppose. And, yeah, I didn't see anything else I could take out.
+[00:05:27] Speaker A: Yeah, I could take out the push-buttons, but we need those. So, generally what I came up with, in order to be cou to to have production cost of twelve and a half Euros, spe scrap speech recognition and the separate covers can account for the if people want it, we'll just then we'll do it in black. We'll just deliver it in black, have the it has all the function that it's supposed to have, and if you want it if you want the custom design, then you can buy the separate covers. You make it d orange or whatever you want.
+[00:05:27] Speaker D: Pushbut
+[00:05:29] Speaker C: Huh.
+[00:05:31] Speaker D: Special colour, yeah.
+[00:05:54] Speaker B: Well, I'd I tend to disagree with you on that, because the trend issue was a big issue when we started designing this. So can't we just basically extend it to thirteen?
+[00:06:00] Speaker A: It was a big issue, but
+[00:06:03] Speaker A: I'll just go back. Uh let's just let's see what okay, let's just see what we no, we we have to be under twelve and a half. It it's not uh the project is a no-go if we go over twelve and a half, so.
+[00:06:08] Speaker D: Yeah, it
+[00:06:09] Speaker D: The p
+[00:06:10] Speaker C: Okay, but there's another problem.
+[00:06:11] Speaker D: And the p
+[00:06:12] Speaker B: Okay.
+[00:06:13] Speaker C: But there's another problem. If we take another cover, for instance black, then we also need another button frame, 'cause black and black doesn't work obviously.
+[00:06:14] Speaker D: What
+[00:06:20] Speaker A: I think you that's what you were ass assigned to do really, to to see how b th both those work together. So I think yeah, it's I think it's y one of the it's a good way to um
+[00:06:23] Speaker C: Huh.
+[00:06:25] Speaker C: Huh. Yeah.
+[00:06:32] Speaker A: to help people uh to make to keep the product trendy too. Just keep you just make new covers for the for it, like we agreed before. And everything that's left is is the basic function that uh that we want our product to have. Because the expensive parts are in either the advanced chip. But we need that for the L_C_D_ display. Then again, we have the L_C_D_ display, which is also expensive. B yeah, but those go together. And yeah, we could take out the curve.
+[00:06:34] Speaker C: Hmm.
+[00:06:36] Speaker C: Hmm.
+[00:06:38] Speaker C: Right.
+[00:06:39] Speaker C: I agree.
+[00:06:52] Speaker B: Yeah. We do.
+[00:06:52] Speaker C: Mm-hmm.
+[00:07:00] Speaker C: Or say let's lose rubber, take plastic.
+[00:07:00] Speaker B: We could take out a curve indeed.
+[00:07:03] Speaker A: Could we could take out the curve. Is that an option?
+[00:07:05] Speaker C: Yes.
+[00:07:05] Speaker D: .
+[00:07:06] Speaker A: For you?
+[00:07:07] Speaker C: Although we are demolishing a little bit the style. But
+[00:07:08] Speaker D: But uh the and
+[00:07:08] Speaker B: I think the colour is more important than the really the curve, because if you just end up with an entirely black remote control
+[00:07:10] Speaker A: Yeah.
+[00:07:16] Speaker D: Yeah. The people
+[00:07:16] Speaker A: I think it's it it does ruin it, but the fact that I t took that decision or t
+[00:07:18] Speaker C: Yeah.
+[00:07:23] Speaker A: Took this example actually, not really decision, but the example is because we do offer the um the possibility of adding your own custom covers. So you can change any colour you want. So it's just you deliver a basic remote control with a possibility to change you into whatever you want.
+[00:07:42] Speaker C: Can we then not also uh change the material? We take plastic for the basic cover and
+[00:07:47] Speaker A: You can take plastic, but I d it's something that's stuck into my mind is that something that really came forward from the marketing research is that people like the the the the squishy feeling of the spongy feeling of the and it really makes it also makes it different from the existing remote controls, because they're all plastic. So which in in turn Rubber would increase durability because it doesn't break.
+[00:07:55] Speaker D: Spongy, yeah.
+[00:07:58] Speaker C: We can put those to the to the other covers.
+[00:07:59] Speaker D: Yeah.
+[00:08:02] Speaker D: And
+[00:08:04] Speaker C: That's true.
+[00:08:07] Speaker C: But okay.
+[00:08:10] Speaker C: But what do you then suggest we'd lose? Because we have to lose two things and I guess.
+[00:08:14] Speaker A: I al like I said, I lost the speech recognition and I lost the special colour, which would make this black a black and grey. Yeah, that's that that that's enough, because
+[00:08:15] Speaker D: But
+[00:08:17] Speaker C: Yes.
+[00:08:20] Speaker C: Okay, and that's enough?
+[00:08:23] Speaker B: So black and grey is okay.
+[00:08:25] Speaker A: I guess those are the basic colours. So Oh.
+[00:08:25] Speaker D: But
+[00:08:26] Speaker C: Hmm.
+[00:08:27] Speaker B: Which we can fabricate, okay.
+[00:08:29] Speaker A: I think those are basic col
+[00:08:29] Speaker D: The people want to pay for for it, so why why uh do we have to keep us uh uh um on the twelve and a half?
+[00:08:32] Speaker A: They want to
+[00:08:37] Speaker A: To ensure the profit. That that's th that's the order. We're just uh we're the project team and we got our our orders from the pro from the boss of our company which say we don't wanna spend more than twelve fifty for this. But that's not for our that's not our decision to take. We have a budget of twelve fifty per product. So
+[00:08:45] Speaker D: Yeah.
+[00:08:47] Speaker D: But we can take a risk.
+[00:08:51] Speaker B: No, we basically
+[00:08:52] Speaker D: Okay, yeah.
+[00:08:53] Speaker C: Hmm.
+[00:08:54] Speaker B: We need to stick to that.
+[00:08:55] Speaker A: Stick that. I don't think it's really bad either. I mean if we we have the the backup of or the backup design thing
+[00:09:01] Speaker D: I hope the people will like it, but
+[00:09:02] Speaker A: to have I think they would do. Th I think they do like because yo we you we agree upon that the that the the the cover thing was a nice idea, because p you could have all sort of designs while at the same time just manufacturing one product, one basic product which you could turn into any any taste you want. So I think it's the best solution to make those cu custom covers for the design aspect and keep the functionality between of within the th the boundaries of the your f uh your budget. So
+[00:09:18] Speaker D: Yeah.
+[00:09:26] Speaker C: Perhaps we should make m
+[00:09:26] Speaker D: Yeah.
+[00:09:29] Speaker C: Huh.
+[00:09:34] Speaker D: The first sheet.
+[00:09:35] Speaker C: Perhaps we should make clear to our customer that we had to do this to stay under the cost. And that's uh they know that this is an option and that we had to drop the option to stay under the cost, that they know that.
+[00:09:47] Speaker A: Well I don't think Yeah. Is it worth is it is it does it mean anything to the customer? Like, it like, we don't care we don't care that you had to
+[00:09:48] Speaker C: Perhaps they decide tha
+[00:09:49] Speaker B: But they don't
+[00:09:52] Speaker C: Of course. Perhaps they uh no, but perhaps they think uh okay, the cover is such a nice idea, uh let's that that then they uh that allow us to make some more costs.
+[00:10:03] Speaker C: We ca we uh we can at least tell them that
+[00:10:04] Speaker A: True, but we did we didn't get that. So I think it's it should either be a pack, maybe we sh that should be sold in in the s in stores with with a standard cover or something. But
+[00:10:06] Speaker C: You don't know that.
+[00:10:08] Speaker B: Well
+[00:10:09] Speaker C: Huh.
+[00:10:14] Speaker C: No, I'm not uh talking about that cost but the one that g has given us the order to design this. We could at least m uh make it like this, like you said, and then tell them okay, we had to drop this and that, just that you know. It is an still an option, but not for this price.
+[00:10:20] Speaker A: They could, but uh
+[00:10:27] Speaker A: It's an option, but yeah, it's true. So actually uh it's not that much of an increase, but yeah. We cannot contact them. It's just the order that we got. So that's what we gotta go with. So it's either one fi just just to get it f just to get it through final, it's either turned into plastic, drop the squishy feel, make it make it more breakable, um or turn it yellow. So
+[00:10:33] Speaker B: And if we
+[00:10:34] Speaker C: Exactly, but
+[00:10:35] Speaker D: Yeah.
+[00:10:48] Speaker D: Yeah.
+[00:10:50] Speaker C: Hmm.
+[00:10:56] Speaker A: It's uh something we have to decide on.
+[00:10:59] Speaker C: I'd say lose the curve and the colour and
+[00:11:02] Speaker A: I say lose the curve. Oh that's true, we could lose the c yeah, I forgot that, sorry. Uh the curve. So That's just this one just d this is the banana curve.
+[00:11:08] Speaker B: So which curve is that ba that's basically that curve.
+[00:11:13] Speaker C: Hmm.
+[00:11:14] Speaker D: Yeah, that's better.
+[00:11:15] Speaker A: So this would this would be straight.
+[00:11:15] Speaker B: So we could u still have the comfort.
+[00:11:18] Speaker A: No, uh no, that would be a curve inside the thing, I guess. No, would ju then it would just be a straight remote. Just like like that.
+[00:11:26] Speaker C: Hmm.
+[00:11:29] Speaker A: Which would, yeah, turn it into something far more ordinary. we could make it yellow then, but
+[00:11:34] Speaker B: I second that.
+[00:11:37] Speaker A: You second that, you second that we lose the curve.
+[00:11:40] Speaker B: No, that it would turn out to be a pretty straight-forward remote control. So that's not really that
+[00:11:44] Speaker A: Okay, yeah.
+[00:11:45] Speaker D: Yeah. Yeah.
+[00:11:46] Speaker A: So I think it would be a good idea to keep the curve to separate it from the rest of the remote control world, so to speak. So we keep the curve.
+[00:11:51] Speaker C: Hmm.
+[00:11:57] Speaker A: So the only only solution is either to use the l y lose the yellow or lose the rubber. And I'm in favour of keeping the rubber, because it has more more advantages than the colour yellow has.
+[00:11:57] Speaker B: I would
+[00:12:06] Speaker C: Oh.
+[00:12:08] Speaker C: I agree.
+[00:12:09] Speaker B: Yeah. I would say I would agree with you on the colour, because that's an extra option, an extra service we can deliver for a little bit of more money. So we can always do that.
+[00:12:10] Speaker C: No.
+[00:12:10] Speaker D: Yep.
+[00:12:16] Speaker A: Mm-hmm.
+[00:12:19] Speaker A: Yeah, um I guess people are willing to pay for that. So I think we can take that option and just with uh with the idea in the back of our head that you can customise your remote control. So I think that would still make it a nice product. Okay, we're final on that. So it's too bad we can't make the whole super thing. But anyways we're here. Um yeah.
+[00:12:21] Speaker D: Yeah.
+[00:12:22] Speaker C: Hmm?
+[00:12:27] Speaker C: Yes.
+[00:12:41] Speaker B: Which is basically what we discussed.
+[00:12:42] Speaker A: This we discussed just now.
+[00:12:46] Speaker A: That's just now just we could just discuss how the project went. I mean, was kind of
+[00:12:50] Speaker D: And I want to do that.
+[00:12:51] Speaker A: I sort of expected that everything would turn out this way, but because you yeah, everything cannot be for free. We didn't I think it was too bad we didn't have the financial info the last time. Because that was I th it was really essential really to ma because we spent uh uh entire stage designing a product of which we had no idea what it would cost. So we just put something I think it's really nor not in stroke with reality actually. So
+[00:13:03] Speaker B: Yes, we could have
+[00:13:03] Speaker C: Huh.
+[00:13:12] Speaker C: Hmm.
+[00:13:14] Speaker D: Yeah.
+[00:13:20] Speaker C: Me too, I felt a bit blind throughout the project, because in the beginning I had no list of available materials, and then I d had not list of available c finances. So
+[00:13:22] Speaker A: Yeah.
+[00:13:24] Speaker A: Yeah, I think would have been. Materials would be ok at least the last meeting I would have expected had to have that. So I suppose
+[00:13:24] Speaker D: Yeah.
+[00:13:26] Speaker D: But
+[00:13:34] Speaker D: Let's um see um
+[00:13:37] Speaker A: Yeah, let's see if it sells. I mean I suppose this sells, because it's very very extended. But
+[00:13:39] Speaker D: Um
+[00:13:43] Speaker B: Well I hope it sells.
+[00:13:44] Speaker D: Let's
+[00:13:45] Speaker D: Uh
+[00:13:46] Speaker C: Hmm.
+[00:13:46] Speaker A: I suppose it sells, because it's good. I mean it's got everything for the for the reasonable price, because we didn't know what it's gonna cost anyway.
+[00:13:47] Speaker D: Oh.
+[00:13:52] Speaker C: Hmm.
+[00:13:58] Speaker D: Hmm.
+[00:13:59] Speaker D: Okay, let's eval evaluate uh the product of us, our design. Um I have some uh a method, a requirements and scale of. I uh will pre present uh some statements and we will decided together wha what if it's true or false and uh then we see uh if the requirements of the user are fulfilled or not.
+[00:14:21] Speaker A: Okay.
+[00:14:26] Speaker A: Have been met, okay.
+[00:14:28] Speaker D: And I will
+[00:14:30] Speaker D: uh make a new blank sheet.
+[00:14:33] Speaker A: Yeah.
+[00:14:35] Speaker D: So so the buttons, the look and feel. I thought it was okay, but the advanced uh settings, um screen, audio and channel
+[00:14:45] Speaker B: Which are basically accessible through the menu button.
+[00:14:45] Speaker A: They're stuck under menu.
+[00:14:46] Speaker D: We are not
+[00:14:47] Speaker A: For the menu. I think those are totally met, because we we really took them for the they have the feel they want, they have the simplicity they want. I think it's very uh very well met. Either two or one maybe.
+[00:14:48] Speaker C: Hmm.
+[00:14:49] Speaker D: Oh the menu button is it.
+[00:14:51] Speaker B: Yeah.
+[00:14:51] Speaker D: Hi Oh, okay.
+[00:14:54] Speaker D: Then it's all uh
+[00:14:57] Speaker D: S it's true.
+[00:14:58] Speaker C: One.
+[00:15:00] Speaker A: I think we took that everything they wanted into consideration. So it could either be a two or a one.
+[00:15:01] Speaker D: Yeah.
+[00:15:04] Speaker D: So d
+[00:15:06] Speaker D: Oh wait. Uh pen. The p
+[00:15:07] Speaker A: One and a half.
+[00:15:09] Speaker B: Which is not an option.
+[00:15:12] Speaker D: Oh yeah, it's red, okay, but
+[00:15:12] Speaker A: Just create our own option.
+[00:15:15] Speaker D: Look and feel is everybo it's true.
+[00:15:21] Speaker A: Yeah.
+[00:15:21] Speaker D: So
+[00:15:23] Speaker D: Anyone? And the next one uh yeah, when it's lost uh you can find it. It's
+[00:15:29] Speaker A: It's perfect. Even for deaf people, yeah. It's I don't think it's perfect, but we did everything possible to to get it back. Because if it's stuck in you couch, you can see the light. Maybe you can hear it. But I mean we tried, so I think it that's that deserves a one.
+[00:15:32] Speaker C: Hmm.
+[00:15:35] Speaker B: To make it that way, yeah.
+[00:15:39] Speaker D: Yeah. And it's
+[00:15:43] Speaker D: and it's yeah.
+[00:15:45] Speaker A: Definitely.
+[00:15:48] Speaker D: To. That's okay then. And the next one.
+[00:15:55] Speaker D: How is that? Uh w we had we don't have an uh
+[00:15:59] Speaker C: Manual.
+[00:15:59] Speaker D: manual, yeah.
+[00:16:01] Speaker C: I think the L_C_D_ display could be a little bit more difficult then a normal remote control, but then again, it's for young people. So
+[00:16:02] Speaker D: But I think that's a part of it. But
+[00:16:04] Speaker A: I'd use an remote control.
+[00:16:07] Speaker B: Mm yeah.
+[00:16:10] Speaker D: Yeah, an L_C_D_, it tells a lot about uh
+[00:16:12] Speaker C: Yeah, I th
+[00:16:12] Speaker B: And it's pretty straight-forward, you have a navigation no keys to navigate through the L_C_D_ menus. So
+[00:16:14] Speaker A: It's pretty straight-forward, uh-huh.
+[00:16:14] Speaker C: Exactly.
+[00:16:16] Speaker C: No, that's true.
+[00:16:18] Speaker C: I think it won't be a big problem.
+[00:16:18] Speaker D: Yeah.
+[00:16:20] Speaker D: So it's a one or a I don't know.
+[00:16:21] Speaker B: One I d no, actu
+[00:16:25] Speaker A: I think but we didn't even there was no issue on making a manual actually. We didn't really discuss it, but
+[00:16:25] Speaker D: For the advanced uh settings.
+[00:16:30] Speaker D: No okay, that uh that's true.
+[00:16:32] Speaker A: I don't think it takes no, it really does doesn't take time to learn, I think. We took it s it's so easy, we have so little button, everything speaks for itself really. So I think that's yeah, we didn't it's either two or one, I guess. Maybe it's a two, because d uh the L_C_D_ is a little is a little new and there is there are some option hidden under the menu button. So I might make this a two instead of a one, I guess.
+[00:16:35] Speaker D: Oh, so it
+[00:16:36] Speaker B: No, it it is pretty straight-forward.
+[00:16:40] Speaker C: Ah. Um
+[00:16:42] Speaker D: Takes no ti
+[00:16:47] Speaker C: With the more important functions on.
+[00:16:49] Speaker D: Yeah.
+[00:16:50] Speaker B: Yeah.
+[00:16:52] Speaker B: Yeah.
+[00:16:52] Speaker D: And the L_C_D_, you have to see it.
+[00:16:55] Speaker A: So just make that a two.
+[00:16:58] Speaker D: Um mm
+[00:17:03] Speaker D: Oh, it's a little bit
+[00:17:06] Speaker D: learning.
+[00:17:12] Speaker D: Okay. Uh yeah it's uh a little bit same. But it tells you or not?
+[00:17:19] Speaker C: Mm-hmm.
+[00:17:20] Speaker A: You can use the L_C_D_ in a good way. I think so. I think it's perfect, the w where it is, what it can do, if it useful. I think so.
+[00:17:28] Speaker D: But wha w oh, yeah. What are we uh
+[00:17:29] Speaker C: Mm-hmm.
+[00:17:32] Speaker D: displaying on the L_C_D_ screen? Just uh only the channels and or
+[00:17:38] Speaker C: the menus uh
+[00:17:40] Speaker D: What uh?
+[00:17:40] Speaker C: Things like brightness and uh those kind of things we've put in the menu, because we have no buttons for those.
+[00:17:46] Speaker B: Well, basically the menu options indeed. But
+[00:17:49] Speaker D: Oh, in the L_C_D_ screen.
+[00:17:49] Speaker A: No, y I mean in the L_C_D_ screen, the small screen. What does it display?
+[00:17:50] Speaker C: Yes.
+[00:17:52] Speaker D: And for a channel selection, uh or that's not
+[00:17:53] Speaker A: Well I thought it was I thought it was I thought that people wanted previews on their I'm not sure if that even possible, but 'cause it's this requires a quite quite a bit of band-width. I don't think it's possible really. But
+[00:17:58] Speaker D: Yeah, I thought I thought too but yeah.
+[00:18:06] Speaker A: the they didn't really define in what should be used for.
+[00:18:06] Speaker D: But
+[00:18:09] Speaker D: Maybe a T_V_ guide or something in your L_C_D_ uh
+[00:18:09] Speaker B: No.
+[00:18:10] Speaker A: But I think in for example like T_V_ guides, I think that's that th that you can transmit through it and everything. Just for extra information on your programmes.
+[00:18:11] Speaker C: Mm.
+[00:18:13] Speaker D: Yeah.
+[00:18:18] Speaker D: Yeah, it must be clear then what what what for we use it.
+[00:18:19] Speaker A: But also things like like like menus or p how about preferences of your uh with configuring your remote control for favourite your favourite channel for example, how do you configure that. So that could be done by L_C_D_ display. I think it's good. No, maybe it's not a one because it's we're not using it perfectly. We didn't give it I don't thing over-discussing. Now we gave it enough thought though. I think we d should just lower this. Maybe maybe it's a three though. We could've used it more effectively probably.
+[00:18:25] Speaker B: Yeah.
+[00:18:27] Speaker D: Yeah.
+[00:18:40] Speaker D: Yeah.
+[00:18:47] Speaker D: Yeah, indeed.
+[00:18:49] Speaker D: So everybody's agree with an uh three on it, it's
+[00:18:52] Speaker C: Yes.
+[00:18:52] Speaker B: Yeah. Two or three. So
+[00:18:52] Speaker A: Yeah, we are using it, but it's not it's not poorly used, but it's not efficiently used, I think. We could have ev even lost the selection button and uh done everything via L_C_D_ selection. It's now it's just extra to illustrate im uh extra features, but okay.
+[00:18:53] Speaker D: W
+[00:18:54] Speaker D: Yeah.
+[00:19:03] Speaker D: Yeah.
+[00:19:06] Speaker D: Yeah, I
+[00:19:09] Speaker D: A three.
+[00:19:11] Speaker C: Nah, it's not really only an extra. No menus. Think about
+[00:19:13] Speaker B: You can seven.
+[00:19:13] Speaker D: Ah, nothing, that's
+[00:19:15] Speaker D: A seven. Uh that's uh
+[00:19:18] Speaker A: Can you talk to remote control? Well, it can't talk anymore. So we scrap that.
+[00:19:18] Speaker B: Or we could say it
+[00:19:21] Speaker D: Yeah.
+[00:19:24] Speaker B: Or we could say neutral, we 'cause we scratched the
+[00:19:25] Speaker A: Oh yeah Just to be a prick, but of course you can talk to your remote control, it doesn't do anything. But you c you can talk to it.
+[00:19:27] Speaker B: C
+[00:19:28] Speaker D: Yeah yeah yeah yeah.
+[00:19:31] Speaker D: Not with the speech recognition. Uh yeah, all the trends and no colours uh anymore. So
+[00:19:38] Speaker A: Well, we did take everything into consideration of course. Uh the shape i shape is i
+[00:19:41] Speaker D: Yeah, uh um only in the curves.
+[00:19:43] Speaker A: I think we yeah, I think that's okay.
+[00:19:45] Speaker D: But the colours, we don't have special colours on it.
+[00:19:47] Speaker B: No, we don't have the colour. So I
+[00:19:47] Speaker A: Yeah, special co but we took into consideration the fact that it's customisable to the fashi
+[00:19:51] Speaker D: Yeah, but we yeah, we don't have it, so d
+[00:19:52] Speaker B: Yes, but the end product So
+[00:19:52] Speaker C: Hmm.
+[00:19:55] Speaker A: We don't have it we do have it, it's just sold as a package. It does it's not part of the basic product.
+[00:19:56] Speaker D: In the end product.
+[00:19:57] Speaker C: But
+[00:19:59] Speaker C: M
+[00:20:01] Speaker C: Changing covers is also trend that we followed.
+[00:20:03] Speaker A: It that that's what I call trendy. I mean the shape is trendy. The the sh the the functions are trendy. It's just the colours that are not supporting the basic model. Because you ha it's just not affordable at the moment.
+[00:20:12] Speaker D: Now
+[00:20:14] Speaker D: But it's not a one.
+[00:20:14] Speaker B: Maybe we should go with a two then, because it's not perfect, because we can't do it initially, but we
+[00:20:17] Speaker D: Yeah.
+[00:20:19] Speaker D: Oh.
+[00:20:20] Speaker C: Mm-hmm.
+[00:20:20] Speaker A: It's possible, but you have to pay extra for the for the possibility of having it in a f a different colour.
+[00:20:28] Speaker D: Oh well
+[00:20:30] Speaker D: Oops.
+[00:20:44] Speaker D: Oh it's a two, right?
+[00:20:47] Speaker B: Yeah.
+[00:20:48] Speaker C: Mm-hmm.
+[00:20:52] Speaker D: On the last one. Uh that n that's all.
+[00:20:55] Speaker A: Overall score.
+[00:20:55] Speaker B: Overall score.
+[00:20:57] Speaker D: Overall. It's um
+[00:21:00] Speaker A: One two three. sixteen.
+[00:21:01] Speaker D: ten, sixteen
+[00:21:04] Speaker D: three uh two two point seven or something like that.
+[00:21:06] Speaker A: Two two point some two point something.
+[00:21:09] Speaker C: Hmm.
+[00:21:13] Speaker D: I don't know why.
+[00:21:14] Speaker B: Ten, sixteen,
+[00:21:15] Speaker A: .
+[00:21:17] Speaker B: divided by
+[00:21:18] Speaker C: Six.
+[00:21:18] Speaker D: Six.
+[00:21:24] Speaker B: Is two two third.
+[00:21:27] Speaker A: Two and two thirds.
+[00:21:28] Speaker D: Um
+[00:21:32] Speaker D: So we can say it's it's the product is it's okay.
+[00:21:37] Speaker A: It's okay, but that's yo m mostly it's it's influenced by the fact that we didn't have enough resources to implement speech recognition. 'Cause yeah, that gives you a seven, which ruins your your average.
+[00:21:37] Speaker D: Y not
+[00:21:38] Speaker C: Mm-hmm.
+[00:21:39] Speaker B: There's
+[00:21:46] Speaker C: Mm-hmm.
+[00:21:50] Speaker D: Yeah.
+[00:21:51] Speaker A: Without that it would be like under it wouldn't yeah, it would be under two. So I think we have even with this it's reasonable.
+[00:21:56] Speaker D: Woah.
+[00:22:00] Speaker B: Yeah, if we make it into a four, as in neutral, because we didn't implement it, so we can't say that we that it's really not well implemented. We come out on a average of two one eighth.
+[00:22:06] Speaker D: Yeah.
+[00:22:12] Speaker A: Well I think it's two is okay.
+[00:22:13] Speaker B: So which is pretty w good. It's at least on the positive side. So We could definitely have done better if we've had more resources, but
+[00:22:13] Speaker C: Mm-hmm.
+[00:22:14] Speaker A: Yeah, two is pretty good.
+[00:22:17] Speaker C: Hmm, of course.
+[00:22:17] Speaker A: Definitely.
+[00:22:17] Speaker D: Yeah.
+[00:22:23] Speaker A: Yeah, I think it's probably I I do admit that we d did miss a little or didn't sp didn't talk talk enough about the possibility of the L_C_D_ display. We could have used it more efficiently, we just didn't think of it that way.
+[00:22:24] Speaker C: Mm-hmm.
+[00:22:24] Speaker D: Yeah.
+[00:22:35] Speaker D: Yeah.
+[00:22:37] Speaker B: Yeah. True.
+[00:22:37] Speaker D: Yeah, with.
+[00:22:39] Speaker A: So like I said, changing channels, everything hidden in your L_C_D_ display, so you just need the navigation buttons to do everything.
+[00:22:41] Speaker D: The scale.
+[00:22:47] Speaker C: But I think for this price, this is it's really a reasonable product. It's a good product.
+[00:22:51] Speaker A: I think we div I think we did very well, uh ev even if you look at this score, we did quite well. It just looking for improvements what what you could have improved. So.
+[00:22:53] Speaker D: Yeah.
+[00:22:55] Speaker D: With an L_C_D_ screen.
+[00:22:55] Speaker C: Oh.
+[00:22:58] Speaker C: Oh. Yeah. But if pep people really want speech recognition, then they must be prepared to pu to pay more, because it's cannot be done for this.
+[00:23:05] Speaker D: Yeah, you can make 'em another one.
+[00:23:05] Speaker A: They sh they should get kids, and just stick 'em in T_V_ and say change the channel.
+[00:23:08] Speaker C: Hmm yeah.
+[00:23:10] Speaker C: Ah but for this price uh you cannot ask that. You cannot th think of that
+[00:23:12] Speaker A: I don' think so. Uh it's just not it it's not affordable. Or your sh you should lose the L_C_D_ screen probably, but I think that's I think the L_C_D_ screen is more worth than speech recognition.
+[00:23:15] Speaker C: No, it's not.
+[00:23:18] Speaker C: Mm-hmm.
+[00:23:21] Speaker C: Oh It's also more attractive.
+[00:23:23] Speaker A: Definitely. Okay, that was that.
+[00:23:26] Speaker D: Yeah.
+[00:23:30] Speaker D: Yeah.
+[00:23:31] Speaker A: So that's the final product without the speakers, I guess. Let's see, what was left in the the Another one.
+[00:23:32] Speaker B: So did you
+[00:23:50] Speaker A: Hmm. Yeah, we evaluate the product. General project, what's i in For example, I thou I thought we were pretty creative in what we created. We took the whole new approach of making exchangeable cover for example, which I thought was pretty creative, because it was never never ever listed somewhere.
+[00:24:15] Speaker C: Hmm.
+[00:24:15] Speaker D: Favourite channel.
+[00:24:17] Speaker A: Well
+[00:24:19] Speaker A: Anyways. Yeah, leadership is up to you. I mean perhaps I screwed up because I d put a put a speech recognition into it. But that's not for me to decide. I think we did pretty well as team-work though. Because, yeah was very hard to work with one another if you cannot communicate in the meantime, because when I got the when I got the input for the financial results, initially of course I wanted to contact you. Say, look, this is you're doing the wrong thing, you're s you're wasting your time now, because we're implementing stuff that we cannot afford. So it would be better if y if there was more communication between uh because that's that's what would w you what you would normally do, either call or email someone. So that was too bad con was impossible here anyways..
+[00:24:27] Speaker D: Yeah, I know. Yeah.
+[00:24:30] Speaker C: Yes.
+[00:24:33] Speaker C: Hmm.
+[00:24:34] Speaker C: Hmm.
+[00:24:35] Speaker D: Yeah, you're working separate.
+[00:24:38] Speaker C: Yeah.
+[00:24:41] Speaker D: Yeah.
+[00:24:42] Speaker C: Huh.
+[00:24:46] Speaker B: Yeah.
+[00:24:47] Speaker D: Yeah, yeah yeah.
+[00:24:47] Speaker C: Hmm.
+[00:24:48] Speaker C: Hmm.
+[00:24:51] Speaker D: Yeah yeah yeah. Direct uh communication with yeah.
+[00:24:52] Speaker B: And we could share information which we received.
+[00:24:56] Speaker C: Hmm.
+[00:24:59] Speaker C: That's the same thing that I had in the beginning. Everybody was using materials that s I didn't have. So
+[00:25:04] Speaker A: It didn't have or didn't knew what they costs or whatever. There was just too little information about what things actually cost and if you could use them. So that was a little unclear I suppose. I think a SMARTboard SMARTboard is pretty cool. I think uh s especially for design issues, it's very easy just to give your give your thoughts a little it's easier to share them.
+[00:25:04] Speaker D: Yeah.
+[00:25:05] Speaker C: Oh.
+[00:25:06] Speaker B: Yeah.
+[00:25:09] Speaker C: Hmm.
+[00:25:17] Speaker D: My handwriting is little bit yeah.
+[00:25:22] Speaker D: Yeah.
+[00:25:24] Speaker C: Hmm.
+[00:25:24] Speaker B: Although for actual design I'd say the response time should be a little bit higher, because
+[00:25:27] Speaker A: It's a little less it the response time is le it's very bad. It's good to visualise everything, but I think the response time should could be a lot better.
+[00:25:30] Speaker C: Hmm.
+[00:25:34] Speaker B: The digital pen was definitely better to draw my ideas and to
+[00:25:35] Speaker D: But th that's
+[00:25:37] Speaker A: Definitely.
+[00:25:38] Speaker C: Mm-hmm.
+[00:25:39] Speaker A: Yeah, it's true.
+[00:25:39] Speaker D: Yeah, okay.
+[00:25:39] Speaker B: further elaborate on that. So
+[00:25:41] Speaker C: But there's uh also one problem with this I noticed. Uh you have to finish a page before going to a n
+[00:25:45] Speaker A: No, you don't have to. No, you don't. I jin I didn't check the finish button. I just you just ditch it and you can copy it or whatever. Uh only if you uh check the notes or press done. Then it um then you can then it exports to Word automatically. But it's not necessary to check either one of those two. You can just preview your p you can just preview your page in the in the programme.
+[00:25:47] Speaker D: No. You can
+[00:25:48] Speaker C: Oh.
+[00:25:50] Speaker D: Done and then it's okay.
+[00:25:53] Speaker C: Okay, I saw that uh
+[00:26:00] Speaker C: Hmm.
+[00:26:04] Speaker C: Yeah, but I made
+[00:26:05] Speaker D: Oh, okay.
+[00:26:08] Speaker C: Okay, but I made three pages and they were not finished. And when the third one was finished, I wanted to download it and then it was not possible anymore, because you have to close all the pinnits uh the pages before going further.
+[00:26:09] Speaker D: Okay, yeah.
+[00:26:19] Speaker A: Okay, before starting a ne a new page. Okay, that could be b.
+[00:26:20] Speaker D: Okay.
+[00:26:21] Speaker C: Exactly. So we cannot work on more than one page at same time. That's not possible. You have to finish it completely, then download it, it's then start a new one. That's not very uh handy, but if you know that, then it's not a problem.
+[00:26:22] Speaker D: Oh.
+[00:26:25] Speaker D: Hmm.
+[00:26:25] Speaker A: Okay.
+[00:26:25] Speaker B: Oh can you? Okay.
+[00:26:28] Speaker A: Yeah, okay.
+[00:26:30] Speaker A: That's
+[00:26:32] Speaker A: Yeah, it's understandable, okay. Any new ideas? Yeah, more communication between between uh that's the thing I noticed, that communication is very um very important, because if you get new information, it's essential f for the other team-mates to know that as soon as possible, because you would avoid making doing extra work, because you were doing extra work now uh m working on the on the speech recognition, you have limitation both on the technical on the d on the design side. So I think that could have been better. But that's I think it's more of a a setting here that you cannot communicate than uh than somewhere else. So
+[00:26:42] Speaker D: Important to mm
+[00:26:57] Speaker D: Yeah.
+[00:27:08] Speaker C: Hmm.
+[00:27:09] Speaker B: Yeah, well it could also possibly be well, is it a more real-time information base, so we can all see which information is available to one another.
+[00:27:16] Speaker A: Yeah, I think so. And l less p less spam probably. I'm not sure i I'm not sure you got spammed as well, but I get spammed like every t every two minutes there was a there was another email about master classes or something. So which were totally useless actually. I thought I should probably look into them, but they were all useless. So I just
+[00:27:18] Speaker C: Mm-hmm.
+[00:27:22] Speaker C: Ah.
+[00:27:23] Speaker C: Well
+[00:27:26] Speaker C: Hmm.
+[00:27:33] Speaker B: Well, I personally did not have that, but
+[00:27:34] Speaker D: Mm
+[00:27:35] Speaker A: Oh okay.
+[00:27:38] Speaker B: That's probably your l description. But I also didn't not really. But still, you had that as well. Is that we finished up the design and then we checked the website, and then there was just extra information.
+[00:27:44] Speaker C: Huh.
+[00:27:49] Speaker C: Yeah.
+[00:27:50] Speaker D: Yeah, after
+[00:27:51] Speaker C: .
+[00:27:52] Speaker D: After five minutes, uh
+[00:27:53] Speaker C: Yeah,
+[00:27:54] Speaker B: There was a little delay in the bit of a c
+[00:27:55] Speaker D: Yeah.
+[00:27:55] Speaker A: I didn't have any uh more information, it's just always the same here. So that's that's kind of a
+[00:27:57] Speaker B: crucial delay.
+[00:27:58] Speaker C: Mm.
+[00:28:00] Speaker D: Email uh
+[00:28:01] Speaker A: It would change, but not for me. So I'd I had no extra information to go on that one than what you give me actually. I couldn't do any research myself or I see, that's yeah, w I could have done a little extra work probably, then
+[00:28:04] Speaker C: Hmm.
+[00:28:06] Speaker C: Hmm.
+[00:28:08] Speaker C: Hmm.
+[00:28:13] Speaker D: it's
+[00:28:15] Speaker A: But I was busy enough anyway. So
+[00:28:17] Speaker C: Hmm.
+[00:28:18] Speaker D: Yeah.
+[00:28:18] Speaker A: Any new ideas found? Or is that a 'cause uh yeah, it's well, probably is.
+[00:28:24] Speaker C: No.
+[00:28:27] Speaker B: How much time do we have for this anyway?
+[00:28:30] Speaker A: I have no clue. That's like oh,but it
+[00:28:36] Speaker C: .
+[00:28:36] Speaker A: Should i if the project is evaluated and it was it was in b within budget, we should celebrate. So
+[00:28:41] Speaker C: Okay, bring out the beer.
+[00:28:42] Speaker B: Yeah. Champagne.
+[00:28:49] Speaker A: Uh okay, think that's about it. Uh
+[00:28:50] Speaker D: I want one for my own.
+[00:28:53] Speaker A: I'm not sure what we should still do though uh t let's see what all your tasks were finished, right? What you ha from your assistant. So let's
+[00:29:00] Speaker D: Yeah.
+[00:29:00] Speaker C: I have no more email. My coach is uh being very silent now.
+[00:29:05] Speaker D: Yeah, my personal coach i
+[00:29:05] Speaker A: Okay, I should I think I sh I still have the the total report to finish up. I think we took very little time now, because
+[00:29:14] Speaker A: Yeah, we're in agreement, everything the design is okay. The one thing we missed though,
+[00:29:21] Speaker A: we don't have a product name.
+[00:29:21] Speaker D: What
+[00:29:22] Speaker C: No, we haven't think above about that. Huh. It's better than thi I think than a serial number. Sony uh T_R_ something uh f means nothing to me. Uh
+[00:29:23] Speaker A: How about you cook a how about you cook up a product name?
+[00:29:23] Speaker B: Product name.
+[00:29:23] Speaker D: Yeah, name.
+[00:29:32] Speaker D: Or fruit name.
+[00:29:32] Speaker A: Just oh, think of a catchy name. I'll be working on this until the beep until it beeps. So
+[00:29:38] Speaker C: Like fruit names.
+[00:29:40] Speaker D: Fruit name or something like that. The banana remote or something. I don't know. Yeah, it's the form of it.
+[00:29:42] Speaker A: What? Fruit?
+[00:29:44] Speaker A: You don't want it to resemble a banana. It's not yellow anyway. It's not yellow anymore. It is curved, but
+[00:29:47] Speaker B: The bana 'cause it's not yellow anymore.
+[00:29:48] Speaker D: Yeah oh, yeah.
+[00:29:51] Speaker D: Uh yeah.
+[00:29:53] Speaker B: Well, uh I was going for the R_C_ deluxe, but it's not really a catchy name or anything, it's more
+[00:29:53] Speaker D: Uh
+[00:29:59] Speaker A: No, it's
+[00:30:00] Speaker C: Uh at least it's not something with numbers. Numbers are so meaningless to the people. I mean
+[00:30:01] Speaker A: Hmm.
+[00:30:05] Speaker D: Yeah.
+[00:30:07] Speaker B: Something with our company name, can we do anything with that?
+[00:30:07] Speaker D: That's true.
+[00:30:11] Speaker C: .
+[00:30:19] Speaker D: Reaction, Real Reaction.
+[00:30:19] Speaker B: Maybe there's something on the website which will help us out.
+[00:30:29] Speaker C: Real Reaction.
+[00:30:30] Speaker B: The reaction deluxe.
+[00:30:31] Speaker A: Real Reaction future R_C_.
+[00:30:36] Speaker A: Step into the future of of remote controlling your T_V_.
+[00:30:39] Speaker B: Is that a name or a c campaign? Yeah.
+[00:30:42] Speaker A: No that's a that's a catchy slogan.
+[00:30:46] Speaker B: Or the
+[00:30:46] Speaker A: Control your remote control.
+[00:30:48] Speaker B: The real reactor.
+[00:30:50] Speaker C: Real react.
+[00:30:51] Speaker A: I go for future R_C_ probably.
+[00:30:54] Speaker A: Something like
+[00:30:56] Speaker C: The Real Reactor, I don't find that uh that bad at all.
+[00:30:56] Speaker A: It's short f
+[00:30:57] Speaker D: .
+[00:31:01] Speaker A: Real reactor?
+[00:31:02] Speaker C: Yeah. Because our name is Real Reaction.
+[00:31:03] Speaker B: You should write it down as a an option.
+[00:31:03] Speaker A: Uh that that's
+[00:31:05] Speaker D: .
+[00:31:05] Speaker A: That makes me think of different products than a remote control really.
+[00:31:12] Speaker A: I'm not sure. Real reaction in a real
+[00:31:18] Speaker D: Zapping.
+[00:31:20] Speaker D: The
+[00:31:29] Speaker B: So that's one option.
+[00:31:30] Speaker A: Real reactor.
+[00:31:41] Speaker A: Didn't notice.
+[00:31:41] Speaker C: I'm looking for things in the name. So that the first three letters are s the same. R_E_A_ R_E_A_.
+[00:31:43] Speaker A: Mm.
+[00:31:45] Speaker B: Should I write the banana down or
+[00:31:48] Speaker D: Yeah, sure.
+[00:31:48] Speaker A: I take f yeah, take a banana.
+[00:31:49] Speaker B: Sure?
+[00:31:50] Speaker D: The banana.
+[00:31:53] Speaker A: Hmm.
+[00:31:53] Speaker D: Remote.
+[00:31:56] Speaker D: Banana recei R_C_.
+[00:31:57] Speaker C: The triple R_. Real Reaction remotes control. Triple R_.
+[00:32:00] Speaker D: Remote.
+[00:32:02] Speaker B: Well I
+[00:32:04] Speaker D: R_ three C_.
+[00:32:05] Speaker B: Uh do you mean it like
+[00:32:07] Speaker C: ?
+[00:32:08] Speaker D: R_ three C_.
+[00:32:09] Speaker C: yeah.
+[00:32:10] Speaker B: You mean it like this?
+[00:32:11] Speaker C: Yeah, that
+[00:32:12] Speaker D: Real Reaction Remote Control. R_ three C_. Oh yeah.
+[00:32:13] Speaker C: .
+[00:32:17] Speaker A: No, not like that. It should be it should be longer, because it's not a product name that you f print on a box.
+[00:32:17] Speaker C: .
+[00:32:21] Speaker C: I think
+[00:32:22] Speaker C: triple R_. Doesn't sound?
+[00:32:23] Speaker A: Just write out triple, like a word triple R_C_, triple stripe Oh. Triple dash R_ dash s s C_.
+[00:32:24] Speaker D: Yeah, triple R_.
+[00:32:27] Speaker C: Yeah.
+[00:32:28] Speaker D: Triple R_C_.
+[00:32:29] Speaker C: Ah.
+[00:32:31] Speaker D: The triple R_C_, yeah.
+[00:32:33] Speaker A: Yeah.
+[00:32:36] Speaker D: R_ s R_ three C_.
+[00:32:43] Speaker D: .
+[00:32:49] Speaker A: R_ dash C_.
+[00:32:52] Speaker B: Dash C_?
+[00:32:53] Speaker C: I think I like it like this more.
+[00:32:53] Speaker A: Dash. Triple R_ or triple R_C_?
+[00:32:58] Speaker B: Like a C_ right now or a dash in a C_?
+[00:32:58] Speaker D: Triple R_ dash.
+[00:33:00] Speaker A: How about do both?
+[00:33:05] Speaker A: Sure if it looks stupid.
+[00:33:09] Speaker A: Uh I think that the the R_C_ together takes away the the the image of it's a triple
+[00:33:16] Speaker C: Hmm.
+[00:33:17] Speaker A: Uh the first the first one looks like it's a triple remote control, but it's only a single remote control. And it's especially on the triple R_ that's important. The Real Reaction Remote.
+[00:33:18] Speaker C: Mm.
+[00:33:19] Speaker D: That
+[00:33:25] Speaker D: Yeah, this yeah.
+[00:33:26] Speaker C: I would huh. I would lose the C_ and just name it triple R_.
+[00:33:30] Speaker B: Is it triple R_C_s? No.
+[00:33:33] Speaker C: It sounds like uh thinking about two different things and combining it. I would just say triple R_s triple R_
+[00:33:35] Speaker D: Triple remote.
+[00:33:39] Speaker D: Yeah.
+[00:33:41] Speaker A: Yeah, triple R_ yeah, you can
+[00:33:41] Speaker B: Well, that's another option.
+[00:33:43] Speaker C: That's also short, catchy.
+[00:33:43] Speaker D: It's okay.
+[00:33:47] Speaker A: Yeah, triple R_.
+[00:33:47] Speaker B: Okay, so which ones are we going to scratch
+[00:33:50] Speaker D: The banana. Banana.
+[00:33:51] Speaker B: definitely?
+[00:33:52] Speaker C: Banana.
+[00:33:53] Speaker A: Banana remote.
+[00:33:56] Speaker B: I say this one as well.
+[00:33:57] Speaker D: Yeah, the deluxe.
+[00:33:59] Speaker A: I think we're all in agreement about the triple R_. I think triple R_ is cool.
+[00:33:59] Speaker C: .
+[00:34:01] Speaker C: Yes.
+[00:34:01] Speaker D: The r triple R_.
+[00:34:02] Speaker B: Triple R_?
+[00:34:04] Speaker B: Triple R_ it is.
+[00:34:04] Speaker A: And it looks cool when you print it in font, looks pretty cool.
+[00:34:04] Speaker D: Yeah.
+[00:34:08] Speaker C: did you do now?
+[00:34:10] Speaker A: Just like this just and you just print triple R_, it looks doesn't look bad, it's short, it's okay. So have to write my report now, I guess. Um
+[00:34:12] Speaker C: Yeah.
+[00:34:15] Speaker C: Yeah.
+[00:34:21] Speaker A: Um
+[00:34:27] Speaker A: Yeah, so we have everything. We have the product, we have the costs, we have the possibility of everything. Okay. I think it's adjourned. Retire to my lair and finish the report.
+[00:34:31] Speaker C: Yep.
+[00:34:32] Speaker D: It can't work. That will not
+[00:34:44] Speaker A: That was a short meeting.
+[00:34:45] Speaker C: Mm-hmm.
+[00:34:46] Speaker A: But efficient though.
+[00:34:48] Speaker C: The boss is always the last one to go home. So
+[00:34:51] Speaker A: Probably. See. Okay, goodbye.
+[00:34:57] Speaker D: Okay.
+[00:34:58] Speaker C: See you in a minute.
+[00:35:03] Speaker D: Damn.
+[00:35:09] Speaker D: I will write that one
+[00:35:15] Speaker D: in a Word uh document.
+[00:35:17] Speaker C: Okay.
+[00:35:57] Speaker A: Could you guys draw me a picture of the final design to put on the cover of the report?
+[00:36:00] Speaker B: Yeah, sure.
+[00:36:03] Speaker C: Can't we take this one?
+[00:36:04] Speaker D: Oh sh
+[00:36:07] Speaker C: Otherwise we have to do it all over again.
+[00:36:08] Speaker D: Um
+[00:36:12] Speaker B: I don't really know whether we can save it as a picture or no.
+[00:36:16] Speaker C: Is it okay if I try? Is that okay with you?
+[00:36:17] Speaker B: Sure.
+[00:36:18] Speaker D: Yeah, okay, I will ask you when uh I need the information. So it's oh.
+[00:36:21] Speaker C: I'll put it back in a minute.
+[00:36:26] Speaker C: Okay, it has been saving something, but where to I don't know.
+[00:36:28] Speaker D: Uh
+[00:36:31] Speaker D: Oh.
+[00:36:33] Speaker D: Merge.
+[00:36:33] Speaker C: Oh, can I say exp yes, I can. Export as J_ PEG.
+[00:36:35] Speaker D: Sucks.
+[00:36:48] Speaker C: .
+[00:36:51] Speaker C: Okay, can I not put this
+[00:36:54] Speaker C: wherever I wants.
+[00:36:58] Speaker C: My document is the wrong one, huh.
+[00:37:01] Speaker D: Yeah, but
+[00:37:02] Speaker C: I cannot
+[00:37:03] Speaker B: Network places.
+[00:37:03] Speaker D: I don't know. Smart no.
+[00:37:05] Speaker C: .
+[00:37:06] Speaker D: Ma it's maybe it's not on the network of uh the rest. That one is..
+[00:37:10] Speaker C: I don't think so.
+[00:37:12] Speaker C: Document and settings.
+[00:37:13] Speaker B: I wouldn't pick that one, no.
+[00:37:18] Speaker C: That's a pity. That means that we have to gonna draw it again.
+[00:37:27] Speaker C: Are you gonna do that? Okay.
+[00:37:28] Speaker B: Sure. Oh.
+[00:37:35] Speaker C: That
+[00:37:38] Speaker C: Yes.
+[00:37:40] Speaker C: Okay.
+[00:37:43] Speaker C: Okay.
+[00:37:45] Speaker C: Okay.
+[00:37:50] Speaker C: Yes, that's correct.
+[00:37:50] Speaker D: Yeah.
+[00:37:57] Speaker D: Okay.
+[00:37:57] Speaker C: Okay.
+[00:38:04] Speaker C: No. Oh, it's export.
+[00:38:06] Speaker D: Oh yeah,.
+[00:38:12] Speaker C: Okay.
+[00:38:13] Speaker D: Can I see scores? Uh, one one, two threes, two
+[00:38:14] Speaker C: Oh, of course. Sorry.
+[00:38:20] Speaker D: Okay, then we'll overall, two points. Yes.
+[00:38:26] Speaker B: I see you later.
+[00:38:27] Speaker D: Yeah.
+[00:38:43] Speaker D: Mm.

@@ -1,0 +1,243 @@
+[00:00:13] Speaker A: So uh good morning. I see you all find your places. Is everybody sitting on the right place? Yeah? I guess so. So
+[00:00:15] Speaker D: Morning.
+[00:00:15] Speaker B: Morning.
+[00:00:16] Speaker C: Morning.
+[00:00:19] Speaker D: Yep.
+[00:00:32] Speaker A: Let's see.
+[00:00:35] Speaker A: First I will introduce myself. I don't know if uh if everybody knows me, so I'm Bart, hello. Hello. Bart. Hello. Hello. Bart. Welcome.
+[00:00:40] Speaker D: My name's Frank.
+[00:00:42] Speaker B: I'm.
+[00:00:48] Speaker D: Thank you.
+[00:00:50] Speaker A: Uh let's see. Uh let's start off um with a little presentation.
+[00:01:01] Speaker A: Uh
+[00:01:05] Speaker A: Now first I'll tell you a little bit about the setting. You can see there are a few cameras here. They'll record uh our actions and you'll have wires and microphones that will record your voice. Uh there are also some microphones there but th um you don't have to pay a lot of attention on those, because it will uh disappear when you don't attend to it. So is there a project documents folder? There are some notes in it already I see, some documents. Uh I'll start with the presentation kick off.
+[00:01:46] Speaker A: Is being modified by the administrator. Uh okay. Let's do it read only.
+[00:01:49] Speaker D: Hmm, that's interesting.
+[00:01:56] Speaker A: Well I don't know if you've noticed, but uh we're working for Real Reaction. Uh it's a company in uh electronics. We put fashion in electronics, uh we make it work, uh we put a lot of effort in design and in the product itself. I'm Bart the project manager so I'll direct you through the project.
+[00:02:20] Speaker A: This is our agenda.
+[00:02:22] Speaker A: Uh we have our opening acquaintance, tool training, project plan description closing.
+[00:02:29] Speaker A: Uh maybe I can sit down, then I can take some notes or Let's see.
+[00:02:41] Speaker A: Maybe you can take the minutes once in a while. I dunno it's not a lot of work, but just uh if you hear something uh you can write down, just write it down. Uh as you can see uh it's the opening, aquaintance tool training. Aquaintance is a point we've done a bit. Um have you all seen the corporate website already? Yeah. Have you seen any flaws in it? I think I found one. No?
+[00:02:43] Speaker D: Sure.
+[00:03:02] Speaker D: Yep. Visit it.
+[00:03:02] Speaker B: Yep.
+[00:03:09] Speaker B: Hmm?
+[00:03:10] Speaker D: Can't say I paid much attention to it, but
+[00:03:13] Speaker A: I can
+[00:03:15] Speaker A: see if it works this way. No, it doesn't work here. Okay no problem. But um on the corporate information side there's a th uh there was Real Remote instead of Real Reaction. Real Remote is not really the company we're we are, but it's just a little fault. Um okay, what are we going to do? Uh our project aim is as you can see a new remote control. It has to be original, trendy, and user friendly. So these are uh the points why uh we also hired you. We've got the Marketing Expert for uh the trendy and user friendly look. And Industrial Designer uh there's also user friendly and a bit original.
+[00:03:32] Speaker D: Oh yeah.
+[00:03:36] Speaker B: Okay. Yeah.
+[00:03:58] Speaker D: Okay.
+[00:04:12] Speaker A: And we've got our User Interface Designer. He's also uh
+[00:04:16] Speaker B: Yep.
+[00:04:20] Speaker A: That's about the new remote control.
+[00:04:23] Speaker A: Uh project method um is uh there are three phases we are going through. First is functional des uh design, individual work, meetings. After the functional design, then the conceptual design and the detailed design.
+[00:04:41] Speaker A: I had some role indications on here.
+[00:04:48] Speaker A: But I think you know it already by yourself. The Industrial Designer is going to work on the working design, uh components design and a bit of the look and feel design. Uh the User Interface Designer is going to do the technical function design, user interface concept and user interface design. And the marketing expert is doing a little bit of user requirement specification, trend watching and project uh product ev evaluation. So that's a bit what you're going to do. But that will be all worked out in uh other meetings.
+[00:05:32] Speaker A: Then we've got our first tool training. We are going to work with a lot of high-tech tools here, so it's ab it's handy if we have a little bit of training first. As you can see we've got the smart boards here and here in the white board. Um in the white board here there's a little tool bar on this side. Here are some functions. You can save. N uh these functions we don't have anything to do with, only undo, you can undo a little
+[00:06:03] Speaker A: uh piece of drawing. A blank new document for each person. Uh select a pen, eraser. Capture we don't have to do anything with. Uh then we've got our pen. This pen. It's really funny because you can draw with it on this page um in the think it is form of. You can also select the current colour and the line width. But then first you have to select the pen function. But we're going to work with it in a minute. So okay. Uh that's very simple and it's easy to uh draw your findings and drawings on there.
+[00:06:20] Speaker D: 'Kay.
+[00:06:32] Speaker B: Hmm.
+[00:06:49] Speaker A: Uh then
+[00:06:52] Speaker A: a short thing about documents. We've got our shared folder, uh project project what was it? Project documents I think. But all you will found that already because there are a lot of documents in it already, so it will be okay. And these are available on the smart boards as well, so if you have a document you wanna show, just open it from the folder.
+[00:07:15] Speaker B: Okay.
+[00:07:16] Speaker B: Yeah.
+[00:07:19] Speaker A: Here is a simple tool bar. It's what I just said, it's save, print, move back or forward one page. You can switch between the different drawings.
+[00:07:32] Speaker A: And then we're going to try out the white board.
+[00:07:35] Speaker A: So as you can see we g all going to draw a animal. Just to uh uh just to get a bit familiar with it. Mouse wasn't running away.
+[00:07:48] Speaker D: That was interesting.
+[00:07:50] Speaker A: Is everybody is anybody playing with the mouse? No. Okay. We're going to uh draw animal.
+[00:07:53] Speaker D: Innocent.
+[00:07:57] Speaker A: And uh just sum up a few of its favourite characteristics. Um the only thing we have to uh look after is that we use different colours, and different line width. Uh there's I can start from now. I will. You can use this pen by holding it like a like a little child. Because if you hold it like this, the sensors will get blocked and then the drawing won't get good.
+[00:08:26] Speaker B: Okay.
+[00:08:26] Speaker D: 'Kay.
+[00:08:29] Speaker A: Another thing is you have to be uh a bit slow. 'Cause if you're going to draw like really fast then um the pen won't hold up. So we choose form of current colour uh I think grey is appropriate. Then the line width. I think seven will be nice. Now you'll see my drawing capabilities. These are not very much, but uh
+[00:09:03] Speaker A: Uh, see you have to do it real slow.
+[00:09:14] Speaker A: Oh
+[00:09:29] Speaker B: Sure.
+[00:09:31] Speaker A: Ah I was trying to draw a dolphin, but I think his nose has to be a little bit But it's close.
+[00:09:37] Speaker D: I'm thinking about a swordfish.
+[00:09:39] Speaker A: So what yeah it's this is bit of the swordfish. Yeah, he hasn't got an eye.
+[00:09:39] Speaker B: Yeah. Yeah.
+[00:09:43] Speaker C: Mm-hmm.
+[00:09:44] Speaker A: Woah. Now we've got another function. We've got the eraser. And then you can undo
+[00:09:48] Speaker D: .
+[00:09:53] Speaker A: this easily.
+[00:09:55] Speaker D: Meat.
+[00:09:56] Speaker A: Ah it's okay. And I've got to write down a few of its characteristics. Uh is
+[00:10:12] Speaker A: They've got no text tool, no.
+[00:10:17] Speaker A: Uh.
+[00:10:27] Speaker A: Okay. This is typically a undo action, I think. Pen.
+[00:10:33] Speaker D: Yeah.
+[00:10:39] Speaker A: Maybe you have to hold it a bit
+[00:10:42] Speaker A: upside-down. I think that's it because if you wan ar are going to do it like this then it will be a stripe. But I don't know, I'm just trying.
+[00:10:55] Speaker A: This is not my work, okay. Maybe you have to use
+[00:11:01] Speaker D: Hmm.
+[00:11:10] Speaker A: Oh.
+[00:11:23] Speaker A: Uh. I think it's a it wants to draw a another animal? I don't know.
+[00:11:31] Speaker A: It lives for the fun.
+[00:11:34] Speaker A: So
+[00:11:40] Speaker A: It's my characteristic uh characteristic about the dolphin. It lives for the fun. So now I'm gonna hand over the pen on the new blank sheet to you. Go ahead.
+[00:11:44] Speaker D: Okay.
+[00:11:44] Speaker B: Okay.
+[00:11:51] Speaker D: Thank you.
+[00:11:54] Speaker D: Okay.
+[00:12:01] Speaker D: Gonna use a different line width.
+[00:12:04] Speaker D: And I'm gonna draw in black.
+[00:12:09] Speaker D: There. 'Kay, I'm not much of an artist, but here we go.
+[00:12:23] Speaker A: Maybe it's easier to draw the smaller line width, I think. Because this is going a lot better than uh I did.
+[00:12:28] Speaker B: Hmm.
+[00:12:46] Speaker B: A sheep.
+[00:13:03] Speaker D: Mm.
+[00:13:21] Speaker D: Okay. This is my um Hmm.
+[00:13:32] Speaker D: Sheep.
+[00:13:38] Speaker A: It's nice.
+[00:13:40] Speaker D: With of course
+[00:13:49] Speaker D: little blue dot they always get sprayed on their butts.
+[00:13:49] Speaker A: Uh.
+[00:13:53] Speaker A: It's a real dead sheep, yeah. For recognition, yeah, I see.
+[00:13:54] Speaker D: There.
+[00:13:56] Speaker D: Yeah.
+[00:14:02] Speaker A: Um maybe you can also write your name somewhere. On just a
+[00:14:03] Speaker D: 'Kay.
+[00:14:06] Speaker D: They are
+[00:14:09] Speaker D: Come on.
+[00:14:18] Speaker D: You have to go really slow when you're writing.
+[00:14:21] Speaker A: Yeah.
+[00:14:39] Speaker D: They're brilliant animal animals. And that's just a little me thingy.
+[00:14:44] Speaker D: So.
+[00:14:48] Speaker D: Guess I'll pass the pen to our User Interface Designer.
+[00:14:49] Speaker B: Okay. Um I'm just gonna draw its uh head, but mm
+[00:14:49] Speaker A: Nice.
+[00:14:57] Speaker B: Let's see.
+[00:15:03] Speaker B: Mm.
+[00:15:15] Speaker B: Uh.
+[00:16:05] Speaker B: Okay.
+[00:16:07] Speaker D: Interesting.
+[00:16:08] Speaker A: Sweet.
+[00:16:11] Speaker B: Yeah. You know what that is?
+[00:16:14] Speaker D: A rabbit? Garfield. Yeah.
+[00:16:15] Speaker B: Or who?
+[00:16:15] Speaker C: Garfield.
+[00:16:16] Speaker B: Ah okay, yeah.
+[00:16:18] Speaker B: Just a
+[00:16:22] Speaker B: Mm. Guess.
+[00:16:26] Speaker B: So uh
+[00:16:30] Speaker B: Yeah. That's enough.
+[00:16:33] Speaker B: Um, you say a blank, or
+[00:16:34] Speaker A: Yeah, just a blank sheet.
+[00:16:36] Speaker B: Okay.
+[00:16:49] Speaker C: Well I was gonna draw a cat too, so. I'll just try something else. Something different than Garfield.
+[00:16:57] Speaker A: No.
+[00:17:19] Speaker C: Mine is a bit more skinny.
+[00:17:21] Speaker A: Yeah, it's pretty skinny cat.
+[00:17:21] Speaker D: Yeah.
+[00:17:22] Speaker C: But uh
+[00:17:25] Speaker D: And the most interesting tail.
+[00:17:28] Speaker A: Is your cat, or did you find him on the street?
+[00:17:36] Speaker C: Well, it's supposed to be a cat. I like cats because uh
+[00:17:42] Speaker C: they are uh
+[00:17:47] Speaker C: independent.
+[00:17:51] Speaker A: Ah.
+[00:17:54] Speaker C: The pen.
+[00:18:00] Speaker C: So.
+[00:18:01] Speaker A: Okay. That's pretty clear. So everybody knows how to work with the white board now? So if you have any ideas or if you wanna draw anything on the white board, just ask and go ahead. It's pretty uh easy.
+[00:18:08] Speaker D: Yeah.
+[00:18:10] Speaker C: The pen.
+[00:18:18] Speaker A: 'Kay. S haunted white board. So we've got the tool uh introduction. We
+[00:18:22] Speaker D: We're being haunted.
+[00:18:31] Speaker A: move along to the project finance. Um as you can see, we um for our remote control, a selling price is uh twenty five Euros. Our selling price. Uh our profit aim is fifty million Euros. Uh that's the least we have to get from our remote controls, so we have to work together to reach our aims. Uh we can do it international, so we have to focus on different kind of users, different kind of cultures, and different kind of trends as well. Um but that's all in the later stadium.
+[00:19:11] Speaker A: Our production cost um can be maximal twelve and a half Euros, so that's also a point we have to keep in mind, that we won't make remote controls with small televisions inside, and stuff like that. It won't work. So just try to remember these points. Selling price twenty five, profit aims fifty million um, but more important is the int international market we're trying to focus on. And production cost uh maximal twelve and a half Euros.
+[00:19:49] Speaker A: So that's leads us to our little discussion. We've got about five or ten minutes left for discussion. So I'm gonna sit down, I think. It's easier. I've got a message. Five minutes. Okay, that's uh good timing.
+[00:20:01] Speaker D: Yeah, you got a message.
+[00:20:06] Speaker B: Five minutes, okay.
+[00:20:10] Speaker D: So just on a side note, why is it my laptop is only giving me a black screen?
+[00:20:14] Speaker B: Mm?
+[00:20:15] Speaker A: Uh maybe you have to say the magic word.
+[00:20:17] Speaker D: Yeah. Right.
+[00:20:20] Speaker A: Does it do anything?
+[00:20:22] Speaker D: No.
+[00:20:23] Speaker A: Maybe you have to just clap it down?
+[00:20:27] Speaker A: Mm back up again.
+[00:20:33] Speaker A: No slide show. Hmm.
+[00:20:36] Speaker D: It's off now.
+[00:20:37] Speaker A: It's off. Now you have to put it back o Oh yeah. You'll be okay, I think.
+[00:20:40] Speaker D: Well, it was on, but
+[00:20:43] Speaker A: Well it's those laptops.
+[00:20:47] Speaker D: Ah, there we are.
+[00:20:48] Speaker A: Nice. Okay. But so mm does everybody has um experiences with uh remote controls, and I mean not the ordinary mote controls, but also a little bit different ones? Like you can use for other? No? You?
+[00:21:01] Speaker B: Mm.
+[00:21:04] Speaker B: Oh really?
+[00:21:05] Speaker B: Huh.
+[00:21:07] Speaker D: Well, we have a
+[00:21:07] Speaker C: No, me neither.
+[00:21:07] Speaker B: It's a
+[00:21:08] Speaker D: kind of broad T_V_ at home, and a D_V_D_ player, so we got like a lot of remote controls, one for the T_V_, one for the video recorder, one for the D_V_D_ player. And I think it's it would be best to just make one remote control that can operate them all.
+[00:21:18] Speaker A: Ah yeah.
+[00:21:24] Speaker A: Yep. Yeah I've I've got one at home. And you can uh program I think eight different devices in it, and you can use it for your television, anything else. And it also operates on infra-red, so you have to got the little device inside your room, and then you can operate it from the third or th or second floor. So that's pretty handy when you have a video recorder or D_V_D_ player downstairs and you've got a link to your T_V_ on the second floor. So that's a pretty handy um
+[00:21:25] Speaker B: Sure. Yeah.
+[00:21:34] Speaker B: Okay, yeah. Yeah.
+[00:21:46] Speaker B: Okay, yeah.
+[00:21:48] Speaker D: Oh really.
+[00:21:48] Speaker B: Hmm.
+[00:21:53] Speaker B: Oh.
+[00:21:56] Speaker D: Yeah.
+[00:21:57] Speaker B: Mm-hmm.
+[00:22:00] Speaker A: thing.
+[00:22:01] Speaker A: Um but only the
+[00:22:05] Speaker A: I think that if you can put different kind of devices in one remote control, it makes it a lot easier as well. It's uh
+[00:22:13] Speaker D: Yeah.
+[00:22:15] Speaker B: Oh.
+[00:22:16] Speaker A: That's good to remember.
+[00:22:17] Speaker D: So I think you can take minutes again.
+[00:22:19] Speaker A: Yeah, that's nice, I think. So we've we want different functions
+[00:22:21] Speaker D: Since it's your job.
+[00:22:26] Speaker D: Yeah.
+[00:22:26] Speaker A: uh and we can maybe see if we can do something with the infra-red. But I don't know if that will exceed the production costs. So that uh that's something we have to find out, I think.
+[00:22:37] Speaker B: Mm.
+[00:22:40] Speaker D: Yeah. But that would be really good if we could do that.
+[00:22:45] Speaker A: And other functions for a remote control?
+[00:22:50] Speaker A: Maybe we can make it uh uh
+[00:22:50] Speaker D: Um.
+[00:22:51] Speaker B: Mm-hmm.
+[00:22:54] Speaker D: Think it has to be shock proof
+[00:22:56] Speaker B: Sure, yeah.
+[00:22:56] Speaker D: 'cause
+[00:22:57] Speaker A: Shock proof.
+[00:22:58] Speaker D: my remote control tends to fall a lot.
+[00:22:59] Speaker B: Waterproof, or uh
+[00:23:01] Speaker A: Sure.
+[00:23:01] Speaker D: So
+[00:23:02] Speaker B: Uh, you never no know uh, I w I mean uh
+[00:23:06] Speaker A: Waterproof.
+[00:23:09] Speaker A: Okay. So these are our um a few things we can think of. Um I will put the minutes from this meeting uh in our project folder.
+[00:23:21] Speaker B: 'Kay.
+[00:23:21] Speaker D: Yeah, one other little thing. Thought it might be handy to put a battery status display on it.
+[00:23:28] Speaker D: So you can see
+[00:23:28] Speaker A: That's a battery stays.
+[00:23:30] Speaker B: Okay, yeah.
+[00:23:30] Speaker D: how much is left in the battery.
+[00:23:34] Speaker D: But they'll also really drag up the production costs, so think we'll have to see about that too.
+[00:23:38] Speaker A: Yeah.
+[00:23:40] Speaker B: Mm.
+[00:23:41] Speaker A: Uh.
+[00:23:42] Speaker D: But maybe just a little LED, I don't know.
+[00:23:45] Speaker A: That's an idea as well. Other ideas?
+[00:23:49] Speaker A: Quick ideas.
+[00:23:50] Speaker C: Nope. They were all mentioned, so
+[00:23:51] Speaker B: Mm.
+[00:23:52] Speaker A: Okay. Any questions about this uh presentation? Kick off presentation.
+[00:23:52] Speaker B: Yeah.
+[00:23:58] Speaker D: Um.
+[00:24:00] Speaker D: Nope, don't think so.
+[00:24:02] Speaker A: No?
+[00:24:03] Speaker A: Okay, then I'll put the minutes from this meeting in the project folder,
+[00:24:09] Speaker A: and then we can all work.
+[00:24:11] Speaker A: Finish meeting now. Okay. And we can all work uh on our own projects.
+[00:24:13] Speaker D: Okay.
+[00:24:15] Speaker D: Aye sir.
+[00:24:28] Speaker A: Okay then I'll meet you in about a half an hour, I think. So good luck.
+[00:24:31] Speaker D: Half an hour.
+[00:24:33] Speaker C: Okay.
+[00:24:34] Speaker B: Okay. Yep.
+[00:24:34] Speaker D: Okay.

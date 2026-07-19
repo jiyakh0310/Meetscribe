@@ -1,0 +1,507 @@
+[00:03:20] Speaker C: Okay.
+[00:03:22] Speaker B: So I see all everybody's here, 'kay.
+[00:03:24] Speaker D: Yep.
+[00:03:25] Speaker A: Mm-hmm.
+[00:03:26] Speaker B: And we can start meeting.
+[00:03:28] Speaker C: Okay.
+[00:03:30] Speaker A: What's the agenda for this meeting?
+[00:03:31] Speaker B: The I will uh
+[00:03:34] Speaker B: present here agenda with with with with slides
+[00:03:36] Speaker A: Okay.
+[00:03:38] Speaker B: to you. Um
+[00:03:41] Speaker B: as you can see here.
+[00:03:43] Speaker D: Perfect.
+[00:03:45] Speaker B: So first uh just to mention I will
+[00:03:52] Speaker B: take notes uh of this meeting and uh I will try to work them out and give them to you. I've also made notes of the previous meeting and um I was about to send them you but then uh I had to go to this uh meeting so you will get them too uh
+[00:03:53] Speaker A: Mm-hmm.
+[00:04:08] Speaker C: Next.
+[00:04:09] Speaker A: Mm-hmm.
+[00:04:10] Speaker B: Um.
+[00:04:12] Speaker D: So y you are the secretary also. Right? Okay.
+[00:04:15] Speaker B: Yes. Indeed.
+[00:04:18] Speaker B: Um.
+[00:04:21] Speaker B: Then I hope you all have uh worked out some some uh some some presentations about uh about well you the the task given to you in the previous meeting. Um. W We will uh in a minute we will uh start with them. Um, we will see in which order we will handle them of. Um then I will uh bring in some some some new requirements I I got uh from the uh account manager, I try to work them out, they were quite abstract, and we can have maybe have com some discussion about it. Uh Um about the functions and Well in this meeting we should really try to reach a decision about the target group
+[00:04:26] Speaker D: Perfectly yeah yeah of course uh-huh.
+[00:05:02] Speaker A: Mm-hmm.
+[00:05:16] Speaker A: Mm.
+[00:05:16] Speaker B: and the functionality of the
+[00:05:19] Speaker D: You mean the social target group who we wants to target?
+[00:05:20] Speaker B: Yes I mean well yes w who are we going to uh to well to sell this, the customers, indeed yes.
+[00:05:25] Speaker A: Mm.
+[00:05:25] Speaker D: Oh the customers, okay.
+[00:05:26] Speaker A: Yeah.
+[00:05:29] Speaker B: Think that's that's important matter.
+[00:05:30] Speaker A: That's the big question yeah.
+[00:05:33] Speaker B: Uh. So And then uh we will close this meeting uh and after this meeting we'll uh we'll have a lunch. Good.
+[00:05:46] Speaker B: Um.
+[00:05:49] Speaker B: Maybe um
+[00:05:52] Speaker B: why uh Anna can you c do you have a presentations? You don't have presentation?
+[00:05:55] Speaker A: No, I don't. I wasn't.
+[00:05:58] Speaker A: No.
+[00:05:59] Speaker B: Uh you want a table to to uh
+[00:06:01] Speaker A: I c I can talk about it but I have no slides or anything.
+[00:06:02] Speaker B: Yes yes maybe maybe you can uh can just talk about it or maybe you can use the whiteboard if necessary um.
+[00:06:07] Speaker A: Mm-hmm. Well I've just been um presented with some research we've done in a small focus group so, a hundred people, just asked them about their remote control usage habits and what they want in a remote control. Um.
+[00:06:21] Speaker A: It's probably can't email this to you, I've just got a web page with some data on it. Um basically it's saying that
+[00:06:30] Speaker A: users generally dislike the look and feel of their remote controls. Um seventy five u seventy five percent of users find most remote controls ugly. Um.
+[00:06:40] Speaker B: Mm-hmm.
+[00:06:42] Speaker A: Eighty percent of users would spend more money when a remote control would look fancy. Um. Current remote controls do not match well the operating behaviour of the user. Uh seventy five percent of users said they zap a lot, so they use their remote control quite frequently while they're watching television. Uh. Fifty percent of users say that they only use ten percent of the buttons, so they've got a remote control with a lot of functionality but really most of the time they only use a small part of that.
+[00:07:09] Speaker B: Mm.
+[00:07:11] Speaker A: Um.
+[00:07:13] Speaker B: Do you Do you have this uh information on the web page you said?
+[00:07:15] Speaker A: I have an a web page yes.
+[00:07:17] Speaker B: Yes, mayb maybe you can can send an email to me later uh.
+[00:07:20] Speaker A: Yep. Yep, sure.
+[00:07:22] Speaker B: Uh about this.
+[00:07:23] Speaker A: Mm-hmm. So basically um there's a breakdown of how much they use the different functions on a rem remote control. Um, power and volume selection are only used a few times within this uh per hour. Um, channel selection is used a hundred and sixty eight times um and then there's things like channel settings, audio settings, which are only used very infrequently. Um. Teletext is used um fourteen times in the hour, so it is used but not nearly as much as the channel selection is used. Um.
+[00:07:47] Speaker B: Mm.
+[00:07:55] Speaker B: Mm.
+[00:08:00] Speaker A: An interesting thing that this report has brought up is that um fifty fifty percent of users report that the remote control gets lost a lot of the time in the room, so some way of some way of locating the remote control would be very useful to a lot of users. Um. Thirty four percent said it takes too long to learn to use a remote control, they want something that's easier to use straight away, more intuitive perhaps.
+[00:08:10] Speaker B: Yes yes, I have that too.
+[00:08:25] Speaker B: Mm.
+[00:08:26] Speaker D: It's it's easy to learn or how do you say it's
+[00:08:26] Speaker A: Um.
+[00:08:29] Speaker A: Thirty four percent said it took too much time to learn to use a new one. Yep.
+[00:08:31] Speaker D: Okay too much time to learn. Okay.
+[00:08:34] Speaker A: Um. And thirty twenty six percent said remote controls are bad for R_S_I_. I don't know how we'd go about combating that. For R_S_I_? Respet Repetitive strain injury.
+[00:08:34] Speaker D: Not enough
+[00:08:41] Speaker C: . What do you mean there?
+[00:08:45] Speaker C: Okay.
+[00:08:46] Speaker B: Mm.
+[00:08:47] Speaker A: So. But
+[00:08:49] Speaker B: They think that or do their doctor the doctor says? But it's it's the opinion of the uh of the users huh?
+[00:08:51] Speaker A: Mm.
+[00:08:54] Speaker A: Yeah. That's what the report says yeah. Um and then it's got a demographic breakdown on
+[00:08:56] Speaker B: So mm.
+[00:09:00] Speaker D: Maybe y y you cannot put this webpage online on the
+[00:09:04] Speaker A: Uh I should be able to actually, if I email it to you now.
+[00:09:06] Speaker C: You can disconnect it there no?
+[00:09:07] Speaker B: You can maybe just just
+[00:09:09] Speaker D: Ah it's it okay it's a webpage on the C_ it's a file okay. O otherwise you yeah.
+[00:09:09] Speaker A: Oh no, yeah.
+[00:09:12] Speaker A: Yeah. Um, s hang on.
+[00:09:15] Speaker C: Then you can connect this one or this one yeah.
+[00:09:16] Speaker D: You can connect this one.
+[00:09:20] Speaker C: All to your computer.
+[00:09:25] Speaker D: Yeah.
+[00:09:27] Speaker A: Well.
+[00:09:29] Speaker D: So these are important numbers that Matthew and I need to take into account for our functional um
+[00:09:33] Speaker C: Oh yeah.
+[00:09:34] Speaker A: Oh I need to muck around with this. It's probably easier if you put it on yours and then I'll just email it to you. It's just a web link.
+[00:09:39] Speaker D: Yeah
+[00:09:39] Speaker B: Hmm.
+[00:09:49] Speaker C: Okay.
+[00:09:51] Speaker D: Yeah these numbers have have to be have to be taken into account
+[00:09:54] Speaker C: Hmm.
+[00:09:56] Speaker D: for the uh both yeah user interface and functional design.
+[00:09:59] Speaker C: Yeah.
+[00:10:00] Speaker A: One thing it goes on to talk about, which is interesting, is the hang on a minute.
+[00:10:06] Speaker D: Because if there are many numbers and we need to select to to constraint uh our design based on what is more important.
+[00:10:13] Speaker A: Mm-hmm.
+[00:10:14] Speaker B: Mm-hmm.
+[00:10:15] Speaker A: Yep. Um, one thing is interesting is talking about
+[00:10:23] Speaker A: um speech recognition in a remote control.
+[00:10:25] Speaker D: Speech recognition in
+[00:10:26] Speaker A: And who would pay more for that and whether people would find it useful.
+[00:10:29] Speaker B: D do you have numbers o o on that?
+[00:10:30] Speaker D: Ah okay.
+[00:10:31] Speaker A: Yes, I'll just get this up.
+[00:10:35] Speaker D: So that we don't Do we not need any button on the remote control it would be all based on speech. Okay.
+[00:10:39] Speaker A: Well potentially yeah, um
+[00:10:42] Speaker A: I think even for interesti yeah I think that would not work so well. You wanna have both options.
+[00:10:43] Speaker D: Interesting idea.
+[00:10:48] Speaker D: Okay.
+[00:10:56] Speaker B: Well it would it would be a solution for uh when your
+[00:11:02] Speaker B: remote control is lost, I mean when it has speech recognition then
+[00:11:04] Speaker A: Mm-hmm.
+[00:11:07] Speaker D: Yeah.
+[00:11:07] Speaker B: uh i then it doesn't matter where it is, my well it's we should be in range, or maybe it can respond and produce sound, so say where it is. But the these are all quite fancy features I'm not sure whether
+[00:11:11] Speaker A: Mm.
+[00:11:16] Speaker D: Yeah.
+[00:11:21] Speaker C: Well it would be f
+[00:11:22] Speaker B: we will we can make this for for twelve Euro fi and fifty cents.
+[00:11:25] Speaker D: Yeah.
+[00:11:26] Speaker A: Yeah.
+[00:11:27] Speaker C: No you can't.
+[00:11:27] Speaker D: And we don't know where the state of the art of speech recognition is, maybe you know?
+[00:11:32] Speaker C: Oh.
+[00:11:34] Speaker C: Well, it depends you know like
+[00:11:37] Speaker C: there is uh it's a very small vocabulary that you want to do the operations like you want to say on, off,
+[00:11:45] Speaker B: Mm.
+[00:11:46] Speaker C: one, two,
+[00:11:47] Speaker D: But it's quite noisy if there is the T_V_ uh shouting.
+[00:11:48] Speaker A: Mm.
+[00:11:49] Speaker C: twenty three, yeah. It's it's going to be li it's not going to be s so easy but
+[00:11:50] Speaker A: Yeah.
+[00:11:50] Speaker B: Yes, that that that that's mm.
+[00:11:55] Speaker C: u usually it's going to be more of an isolated
+[00:11:59] Speaker B: Do you have some more important facts or
+[00:11:59] Speaker C: case but it's but I don't know with twenty fi
+[00:12:00] Speaker D: Okay.
+[00:12:00] Speaker A: Um
+[00:12:01] Speaker B: can we go to the next presentation?
+[00:12:02] Speaker D: So you had to to to summarise maybe the
+[00:12:03] Speaker A: Well
+[00:12:05] Speaker A: This is now talking about um who would pay for speech recognition in a remote control, who would pay more for it, um.
+[00:12:12] Speaker A: Ninety percent of the fifteen to twenty five year old market said that they would pay more, it goes down from there, seventy six percent for twenty five to thirty five, thirty five percent for thirty five to forty five, um twenty two percent for forty five to fifty five and then eight percent for fifty five to sixty five. Yeah. But we sh Yeah, it really depends where we're gonna be targeting this product, um, which we'll be talking about later I think.
+[00:12:27] Speaker B: Mm.
+[00:12:27] Speaker C: Okay it's uh decline. Okay.
+[00:12:30] Speaker B: Mm-hmm. Decline with age, mm.
+[00:12:35] Speaker B: Mm.
+[00:12:35] Speaker D: Mm.
+[00:12:37] Speaker B: Yes. We will talk about it later. Okay.
+[00:12:39] Speaker A: Did you get the email?
+[00:12:47] Speaker D: Mm-hmm.
+[00:12:47] Speaker A: Yep, that one. Just follow that link.
+[00:12:55] Speaker D: I thi You us yeah yeah.
+[00:12:56] Speaker A: It'll be in a different window, yep.
+[00:12:59] Speaker A: That's left that one.
+[00:13:02] Speaker A: Yep.
+[00:13:03] Speaker D: Okay perfect.
+[00:13:04] Speaker D: ...
+[00:13:08] Speaker A: Mm. So that's the figure that I was just talking about there, with the different demographics. Another thing it's talking about there is the L_C_D_ screen but there's no figures apparently on that.
+[00:13:10] Speaker C: Okay.
+[00:13:17] Speaker D: Mm 'kay.
+[00:13:18] Speaker B: Mm. Okay. um
+[00:13:23] Speaker B: Uh maybe uh Mael c c can you give uh uh your presentation uh?
+[00:13:27] Speaker D: Yeah.
+[00:13:33] Speaker D: Mm I okay I stay
+[00:13:35] Speaker B: Oh, this is
+[00:13:39] Speaker C: Now you can move I think yeah.
+[00:13:40] Speaker D: I can move as far as
+[00:13:40] Speaker B: Mm-hmm, y y you can move, uh.
+[00:13:48] Speaker D: Maybe I take your chair? I okay.
+[00:13:50] Speaker B: Yes. You can you can sa take my chair.
+[00:13:52] Speaker C: It's a channel selection, a module, this and this function, go to the.
+[00:13:55] Speaker A: Sorry? Oh.
+[00:13:58] Speaker C: Yeah.
+[00:13:59] Speaker D: So I think as everybody knows uh I'm the uh Industrial Designer.
+[00:14:09] Speaker D: And uh in this presentation uh this group presentation um is gonna focus on the working design of the the remote control. Um I'd like first to give a quick a very simple introduction, how does it work, so that everybody knows even if you don't have a very uh technical background uh what is it because I think in the product it is important.
+[00:14:30] Speaker A: Mm.
+[00:14:33] Speaker D: So basically um the basic function of a remote control is to send uh messages to another system that is fixed. And so an energy source feeds an integrated circuit, the chip, that can compose messages, usually uh through a um infrared bit and uh the user interface controls the chip and accordingly the the messages, alright.
+[00:14:41] Speaker A: Mm-hmm.
+[00:14:53] Speaker A: Mm-hmm.
+[00:15:01] Speaker D: So my method for um designing the yeah the work design uh yeah first the the main point is that I would wish to to make a really functional product. I would prefer to have very functional um capabilities rather than fancy stuff that in fact is not used and doesn't work. So for that yeah as it's important to take into account the user requirements from the Marketing uh Expert uh Anna and um
+[00:15:25] Speaker B: Mm.
+[00:15:25] Speaker A: Mm-hmm.
+[00:15:34] Speaker A: Mm-hmm.
+[00:15:38] Speaker D: w to to we should agree on what are the technical functions uh for this remote control and I show you the the working design. So um basically uh here is a really large view of what we want. Uh we want an on off button, it can be uh it's simple but it's it's important, and also uh the to both channels as well as other buttons that come after, right.
+[00:16:02] Speaker A: Mm.
+[00:16:12] Speaker D: So the components I quickly draw here, is that in this part you have the remote control the the sender and on the other part the receiver so that's my method is um will be to well my aim would be to uh design the and choose the chips and the infrared um components to build the remote control right.
+[00:16:38] Speaker A: Mm-hmm.
+[00:16:39] Speaker B: Mm-hmm.
+[00:16:39] Speaker D: So of course we need energy sources and uh uh the receiver a a receiver. This is very quick uh design, uh you stop me or interrupt me if uh you don't agree on it on that.
+[00:16:54] Speaker B: Mm-hmm.
+[00:16:55] Speaker D: And um so what I have found and after a lot of work actually I I draw this I draw for you this uh schema that can be maybe too technical for you but is very important for me you know. And uh that's it so I won't go into details about that but uh these are my preferences to use uh that kind of components.
+[00:17:01] Speaker A: Well.
+[00:17:07] Speaker B: Uh-huh.
+[00:17:12] Speaker A: You drew it a long time ago?
+[00:17:13] Speaker B: Is huh
+[00:17:14] Speaker A: Ninety one.
+[00:17:15] Speaker B: overwhelming.
+[00:17:23] Speaker B: No.
+[00:17:28] Speaker B: And and why do you want these kind of component? I mean, are they cheap, or are they uh reliable? What were your
+[00:17:28] Speaker D: So.
+[00:17:36] Speaker D: So the the main components you see here are the cheapest I have found and
+[00:17:43] Speaker D: yeah th you have always a compromise with uh reliability and uh i if it's expensive, but uh this one was not this one also really uh reliable um so
+[00:17:47] Speaker B: Mm.
+[00:17:59] Speaker D: yeah that's it for the working design, uh I hope you get clearer view on uh what what a remote control is uh in terms of uh technical components but maybe yeah
+[00:18:09] Speaker B: Yes.
+[00:18:14] Speaker B: It it
+[00:18:16] Speaker B: it's more clear now I think.
+[00:18:18] Speaker B: So
+[00:18:19] Speaker C: But is it uh can you just buy it on the market and f plug it in or you want to ma
+[00:18:24] Speaker D: No no no no we we will uh This is a preference but we can always change uh
+[00:18:28] Speaker B: Mm-hmm.
+[00:18:30] Speaker B: What I w what I was thinking about uh the the the schema uh about uh the sender and the receiver, I mean can you can you get back to it?
+[00:18:37] Speaker D: Yeah.
+[00:18:41] Speaker B: Yeah uh, the receiver is of course already in the television and we are not uh able to change it. So we we must adapt to the to the receiver. I I suppose there is a standard uh way of communicating to televisions uh.
+[00:18:49] Speaker D: Of course yeah.
+[00:18:58] Speaker D: Yeah. We will use uh infrared protocol uh using yeah infrared and uh
+[00:19:07] Speaker D: and of course we need to adapt to that protocol that already exists and but we what we can do is uh uh adapting the the chips inside uh to the best uh chips and uh infrared bubbles.
+[00:19:09] Speaker B: Mm-hmm.
+[00:19:19] Speaker B: Mm. Mm. Mm. Mm.
+[00:19:23] Speaker B: Yes. Okay.
+[00:19:24] Speaker D: Um. Okay.
+[00:19:30] Speaker B: Thank you.
+[00:19:30] Speaker C: Well it to du it's just you had to change the frequencies.
+[00:19:34] Speaker D: The frequencies? Yeah yeah. Of course yeah in the chip you have it yeah.
+[00:19:35] Speaker C: Yeah.
+[00:19:38] Speaker C: But you should be careful, people are sometime becoming problem, like a guy has recently designed a remote uh uh uh which could switch off any other T_V_s, so basically through all the things. So maybe we should think of yeah.
+[00:19:46] Speaker D: That can control o other things.
+[00:19:50] Speaker D: Yeah.
+[00:19:52] Speaker B: Mm.
+[00:19:52] Speaker A: Ah.
+[00:19:56] Speaker D: Of course yeah we should take that into account in the uh
+[00:19:58] Speaker B: Yeah yes I I I
+[00:19:58] Speaker A: That's handy. So if the b T_V_ in the next apartment's really loud, you can just turn it off.
+[00:20:00] Speaker C: Yeah so you can just go on the street and then switch off everyone's T_V_ and you can just walk away You don't have to be near the T_V_ at all.
+[00:20:08] Speaker A: Yeah.
+[00:20:08] Speaker B: I I feel I I I think M Mael will will consider this uh th these things. Maybe Maybe we can go to to your presentation uh Matthew. I I I assume you were finished here. Uh okay.
+[00:20:10] Speaker A: I like that idea.
+[00:20:18] Speaker C: Yeah so.
+[00:20:20] Speaker D: Yes.
+[00:20:21] Speaker C: Okay. So I can take I think mine now there. Okay so voila. Hmm I can take mine it's okay, voila, mm so mm.
+[00:20:27] Speaker D: Okay.
+[00:20:47] Speaker C: Okay.
+[00:20:50] Speaker B: Oh. I
+[00:20:52] Speaker B: Uh, sorry? I know where it is.
+[00:20:54] Speaker C: It's on the desktop.
+[00:20:55] Speaker B: It's uh
+[00:20:56] Speaker C: Technical function. Okay.
+[00:20:58] Speaker B: Yes.
+[00:20:59] Speaker B: It's uh
+[00:21:01] Speaker C: Like so. Well. So um I'm going to talk a little bit about the technical function so wha what actually it's about what is the user going to do, I think my last presented what is going inside, so what's the user is going to see from the outside and how he is going to use it. So well the approach is that uh
+[00:21:13] Speaker A: Mm-hmm.
+[00:21:15] Speaker A: Yep.
+[00:21:25] Speaker C: basically the idea is to send a message to the T_V_ set, as Mael has pointed, and it will be decoded by the T_V_ and usually we it is easier to have uh keys or buttons with which people can uh press and then um changing a button will basically uh change the message which is being sent to the T_V_ and uh um a and basically it sends an internal signal and decoded by the receiver.
+[00:21:48] Speaker D: Mm-hmm.
+[00:21:54] Speaker C: So p as um Anna has said that this ki people are interested in things which are you don't need to k press the keys, people are can have a speech recognition but this is uh s a question which will we have to see later. But in the present scenario is that you have certain keys and you press it like your mobile phone, and it sends a message to the T_V_. And um so generally mm I don't have some figures sorry but um so there are two kinds of uh remote if you popularly in the household, actually so you have a standard T_V_ remote where you have just a on, off button and play, uh volume change and uh keys for the number and more than one digit option.
+[00:22:11] Speaker B: Mm-hmm.
+[00:22:21] Speaker B: Mm.
+[00:22:22] Speaker D: Yep.
+[00:22:45] Speaker C: And if you see for example righ right now uh uh even the one uh on more than one digit option is for two digit channel which is like ninety nine, but tomorrow you might have one fifty channels you know to browse or two hundred channels to browse who knows, but uh uh. Then there is uh this is the standard one with without any fancy thing you know like i it doesn't have teletext option, it can without any, it's a very simple thing, um which which you can vouch.
+[00:23:17] Speaker C: And then you have uh what's the v video remote file which is like usually it has almost all the keys over there and, but it then it has other options like stop uh and then you play the movie or uh or fo fast forward the movie or something like that so i it has those so these are the standard uh commonly found remote controls in the uh market.
+[00:23:35] Speaker A: Mm-hmm.
+[00:23:46] Speaker C: And then whi which is generally used by the people. And then well personal preferences I would uh basically think of having a kind of aim for the next generation thing where the we could have both the uh the f a T_V_ and the remote video remote control because uh some of the keys in the video's remote control and the T_V_ they could be integrated together so that uh we could um aim for the like in the f coming future um that type of uh applications with
+[00:24:23] Speaker A: Okay. How would that work? So you've got say maybe a V_C_R_ and a T_V_ which are separate, so you on my one at home I've got a V_C_R_ remote which then changes the channel on the V_C_R_ and doesn't do anything on the T_V_, so is it gonna be like a switch on the remote that says t use the T_V_ or use the V_C_R_? or does it know which one you want to use?
+[00:24:33] Speaker C: Yeah.
+[00:24:34] Speaker C: Yeah.
+[00:24:41] Speaker C: Um actually um you could you could think of um having s a y you can have a key which could tell y it could go to the video thing but um uh yo you you you still can't um in that case when it you use that the function should be able to take up the V_C_R_ option and you could play it or You can also think about having like um
+[00:24:51] Speaker A: Mm-hmm.
+[00:25:02] Speaker A: Mm-hmm.
+[00:25:08] Speaker C: I in a few days you will be ha in in few ye coming years you might even have a system where you have a separate uh sitting setup box and uh you have uh um something like uh uh you do you do you suppose you are not able to watch some programme and actually it downloading all the time for you and uh you can just you know uh when you come back you could just switch on that thing and uh watch a program. In that case you want to browse faster, browse slow, you want to have those kind of functionalities.
+[00:25:16] Speaker A: Mm-hmm.
+[00:25:24] Speaker A: Mm-hmm.
+[00:25:26] Speaker A: Mm.
+[00:25:33] Speaker A: Mm.
+[00:25:37] Speaker A: Mm.
+[00:25:38] Speaker B: Mm mm mm mm mm.
+[00:25:40] Speaker A: Mm.
+[00:25:40] Speaker D: These are kind of next generation functionalities.
+[00:25:42] Speaker C: It's the next generation thing, but it is going to come in couple of years. It's goi
+[00:25:43] Speaker B: Mm yes, but I think it's i i it's already there, I mean the hard disk uh recorders uh I I've seen them in the shop.
+[00:25:44] Speaker A: Mm.
+[00:25:47] Speaker C: Yeah it's
+[00:25:49] Speaker A: Mm.
+[00:25:49] Speaker C: Yeah.
+[00:25:50] Speaker C: Yeah. So it's going to record your things and you and you you need basically the functionalities what you need in both uh uh video as well as in the standard T_V_ thing.
+[00:25:51] Speaker D: Mm 'kay.
+[00:25:51] Speaker A: Yeah.
+[00:25:54] Speaker A: Mm.
+[00:25:56] Speaker A: Yeah.
+[00:25:58] Speaker A: That's fair enough.
+[00:26:00] Speaker A: Mm. But I don't think we're trying to make a universal remote here. That's, yeah.
+[00:26:04] Speaker C: No no we are not making a universal remote, we are just looking at uh giving a scenario, I have a T_V_ and tomorrow I am going to have set up box which is going to sit there and uh it's going to do that job for me.
+[00:26:11] Speaker A: Mm.
+[00:26:13] Speaker A: Mm. Because y
+[00:26:15] Speaker B: W w w w we need to decide on on on on in how far we go to in this.
+[00:26:20] Speaker A: Mm-hmm.
+[00:26:22] Speaker B: Mean, you can go pretty far I f I think with with with functions and possible uh future p uh prospects yes.
+[00:26:22] Speaker A: Mm.
+[00:26:26] Speaker A: Mm.
+[00:26:29] Speaker A: Yep.
+[00:26:30] Speaker C: Yeah. So
+[00:26:31] Speaker B: But it's good to keep in mind.
+[00:26:32] Speaker A: Mm.
+[00:26:33] Speaker C: Okay so that p ends my presentation.
+[00:26:36] Speaker B: Mm. Very well.
+[00:26:36] Speaker C: Well. So we can always discuss about it for example uh the presently the video market actually uh this demand, video over-demand or what we call it as, it's presently booming up actually so it i like people are providing like uh things like uh uh movies, you can select actually so you want to watch a movie and uh your p your provider gives a list of movies, and then you select those list. And it basically you go off, it downloads the movie, it gives for you and then when you come you want to loo watch it on your T_V_. And thi this is going to come.
+[00:26:49] Speaker D: Mm-hmm.
+[00:26:50] Speaker A: Mm.
+[00:26:52] Speaker A: Yeah.
+[00:27:08] Speaker A: Mm-hmm.
+[00:27:08] Speaker D: Yeah.
+[00:27:13] Speaker D: Yeah.
+[00:27:13] Speaker A: Mm.
+[00:27:17] Speaker B: Good.
+[00:27:19] Speaker D: Or even you don't need to download it, it's streamed uh online uh yeah. Yeah.
+[00:27:22] Speaker C: Yeah it can be streamed online for you and you can say what time I want to watch the movie and
+[00:27:26] Speaker D: Yeah.
+[00:27:27] Speaker A: Mm.
+[00:27:28] Speaker C: Yeah so.
+[00:27:28] Speaker B: Um,
+[00:27:30] Speaker C: Yeah.
+[00:27:30] Speaker B: so u um I have uh received some some some some well points of of thinking over of my account manager and uh I would like to share them with you. Um
+[00:27:41] Speaker A: Mm-hmm.
+[00:27:41] Speaker D: Mm-hmm.
+[00:27:42] Speaker B: first thing is uh teletext is a well known feature of televisions but it's it's getting used less and less.
+[00:27:47] Speaker A: Mm-hmm.
+[00:27:51] Speaker C: Yeah.
+[00:27:51] Speaker B: That's that's especially because of the internet of course. So we should think about it um. Do we include it, and do we give it a prominent uh prominent uh place on on on the on well huh
+[00:27:55] Speaker A: Hmm.
+[00:28:08] Speaker B: on the remote mot control itself.
+[00:28:08] Speaker A: Mm.
+[00:28:11] Speaker B: Uh as uh a in any case it's it's not used, well very much, but it's it is still used. Um
+[00:28:17] Speaker A: Mm.
+[00:28:19] Speaker C: Um.
+[00:28:22] Speaker B: further yes we must think, uh do we stay uh to to television only, the television as we as we all know it with with broadcasting signals and you can't go back uh huh, or do we uh uh go further as Matthew indicated by supporting uh uh recording uh devices?
+[00:28:45] Speaker B: Uh indeed indeed. And and and the hard disk recorders.
+[00:28:45] Speaker A: So D_V_D_s and V_C_R_s? Mm.
+[00:28:52] Speaker B: Um, furthermore, uh, w we need really need to interest uh y younger customers and then with younger customers I mean people uh below the age of forty,
+[00:29:09] Speaker A: Mm-hmm.
+[00:29:09] Speaker B: and our our current customers are mainly forty plus uh which well Forty.
+[00:29:14] Speaker A: Mm-hmm.
+[00:29:16] Speaker D: Fourteen or for O okay. So
+[00:29:18] Speaker B: So that's to that's I mean there's a market but uh they will grow older older and you'll al always need to have the the future with younger people. Um therefore,
+[00:29:30] Speaker A: Mm-hmm.
+[00:29:34] Speaker B: younger people like trendy trendy designs, so that's w we should
+[00:29:41] Speaker B: make our our our R_C_ as trendy as possible but
+[00:29:46] Speaker B: it should also be uh have a reliable image, so when it looks too too spacey or too fancy people will think well does it work at all.
+[00:29:56] Speaker B: Hmm.
+[00:29:56] Speaker A: Mm.
+[00:29:56] Speaker C: Yeah it's uh well you you can follow the ideas how you want to keep the keys, you know right now if you take it you have like zero, one, two, three like a keys separately, but suppose if you take the the present trend of mobile phones there are like big thick keys you press on the top, it takes one number, you press on the bottom it takes another number, and uh basically uh uh so the space covered so that you don't see two separate keys there actually so it it is like uh um i i it is like uh
+[00:30:09] Speaker A: Mm-hmm.
+[00:30:14] Speaker A: Mm.
+[00:30:29] Speaker D: Mm-hmm.
+[00:30:30] Speaker A: Mm.
+[00:30:34] Speaker B: Ma Maybe Maybe you can draw it on the on the board uh
+[00:30:36] Speaker A: Mm. But I think taking the idea of getting inspiration from mobile phones is interesting, especially if we're going after a younger market, that's the the the mm the new and the funky things, that's, yeah, there's lot there's lots of pretty mobile phones, not too many pretty remote controls. That's
+[00:30:36] Speaker C: Yeah so.
+[00:30:41] Speaker D: Yeah.
+[00:30:41] Speaker B: Hmm.
+[00:30:43] Speaker B: Yes yes mo
+[00:30:43] Speaker D: Because they are already used to that, you know, product. Yeah.
+[00:30:46] Speaker B: Yes it's recognisable
+[00:30:50] Speaker B: Mm mm.
+[00:30:52] Speaker B: And and they are skilled uh by using it.
+[00:30:55] Speaker A: Mm.
+[00:30:55] Speaker C: So for example uh
+[00:30:58] Speaker D: Mm-hmm.
+[00:30:58] Speaker C: Well uh
+[00:30:59] Speaker D: ...
+[00:31:02] Speaker C: Okay, it works. Fine. So, for example you have uh presently uh keys like one, two,
+[00:31:07] Speaker B: Mael can you hand me over this uh?
+[00:31:08] Speaker D: Yes.
+[00:31:13] Speaker B: Uh thank you.
+[00:31:14] Speaker C: three like this, actually, and uh uh four five six like that and uh you can have keys like this in form like
+[00:31:15] Speaker A: Mm-hmm.
+[00:31:26] Speaker C: uh keys like that
+[00:31:26] Speaker A: Okay.
+[00:31:28] Speaker A: How much longer have we got for the meeting by the way? 'Cause we haven't talked about demographic at all and it's a very important issue.
+[00:31:30] Speaker B: Mm well I think fi five min Mm-hmm.
+[00:31:31] Speaker C: Forty minutes?
+[00:31:33] Speaker C: Yeah so you you you can have uh keys like uh which are which are like so.
+[00:31:45] Speaker C: too sorry, so we basically don't change the uh original order of them but then the keys are more spacious, they don't look uh so there there is a very sligh thing, so if you press on the top it takes the one, it takes the three, uh four, sorry four here uh five and six, so the keys can be it looks you know not very much cluttered but it looks nice for you don't have too many keys but you can have a lot of options t if you press on the to
+[00:31:54] Speaker A: Mm-hmm.
+[00:32:01] Speaker A: Mm.
+[00:32:07] Speaker A: Mm.
+[00:32:13] Speaker D: Mm-hmm.
+[00:32:16] Speaker A: Mm.
+[00:32:18] Speaker B: Okay.
+[00:32:20] Speaker B: 'Kay I I think now that the idea's clear. Uh we should now uh try to decide um on our target group.
+[00:32:21] Speaker D: Yep.
+[00:32:22] Speaker C: Yeah.
+[00:32:22] Speaker A: Mm.
+[00:32:31] Speaker A: Yeah. Which I think is quite tricky. Um, basically we're trying to get people to buy a remote control wouldn't they already have a remote control with their television when they buy one?
+[00:32:33] Speaker C: Yeah.
+[00:32:41] Speaker B: Of course they have already one. So our our our remote control has to be better.
+[00:32:45] Speaker C: Mm-hmm.
+[00:32:45] Speaker A: But it's not going to have more functionality, 'cause it's only a low market, it's a cheap-end remote control, we can't beat modern functionality, we might we'll be able to beat them on th the look of it, th the design of it but that's not a big seller, if they're not just going to buy a new remote control just 'cause it looks pretty, they have to actually need it as well. So I'm not sure how we can get people to buy this thing.
+[00:33:02] Speaker B: Mm-hmm.
+[00:33:08] Speaker B: Mm. I well I think many people said uh in your in in your research uh uh
+[00:33:16] Speaker A: Mm.
+[00:33:18] Speaker B: uh the appearance of the uh R_C_ is is important when they are buying one but
+[00:33:21] Speaker A: Yeah. But why are they buying one in the first place?
+[00:33:24] Speaker B: Indeed.
+[00:33:26] Speaker B: So that will be about
+[00:33:29] Speaker B: functionality
+[00:33:32] Speaker A: Mm. But if people are buying a new remote control for functionality they'll buy a universal remote. I've got friends who've got so many things they need a universal remote, otherwise they're using five different remotes for their all their things. In that case they wouldn't buy our product, because it doesn't give them what they need in terms of functionality.
+[00:33:42] Speaker B: Mm. Mm-hmm. Mm.
+[00:33:48] Speaker B: So your you think we should go for a more u universal high-performance
+[00:33:53] Speaker A: Well, we can't, with the price range. We We're not building a universal remote, we're not building a high end product.
+[00:33:57] Speaker B: What do What do you think about What componen
+[00:34:00] Speaker D: Yeah we have yeah twelve point five Euros uh per uh per R_ s R_C_ and I think uh with this now you know that chips are very uh cheaps and uh we can include it in our control some new new features. Yeah.
+[00:34:03] Speaker A: Mm.
+[00:34:12] Speaker A: Mm-hmm.
+[00:34:19] Speaker A: Mm.
+[00:34:21] Speaker D: And um But yeah that's
+[00:34:21] Speaker A: But yeah.
+[00:34:23] Speaker A: If we're getting into universal remote territory, we're getting to L_C_D_ screens and things like that which would drive the cost up a lot.
+[00:34:28] Speaker D: Ye
+[00:34:28] Speaker B: I don't know. I don't know whether that's necessary. Is the L_C_D_ screen
+[00:34:31] Speaker D: I don't think L_C_D_ is not necessary well, th for long term.
+[00:34:31] Speaker A: For universal remotes
+[00:34:33] Speaker A: If you mm.
+[00:34:35] Speaker B: I think thi this could be this could be a market because uh universal remote controls uh tend to be uh quite expensive.
+[00:34:43] Speaker A: And quite complicated to use, yes.
+[00:34:44] Speaker B: S so we can try to go in between, and offer a product which is not as expensive and not as
+[00:34:51] Speaker A: Mm-hmm. Not as flexible maybe, yeah, but s yeah.
+[00:34:52] Speaker B: complicated
+[00:34:53] Speaker D: Yeah.
+[00:34:54] Speaker B: but but still but still people have the idea this is more functional than a normal uh uh
+[00:35:00] Speaker D: Universal.
+[00:35:02] Speaker B: R_C_ because it has more uh it it is in some kind universal.
+[00:35:02] Speaker D: Yeah.
+[00:35:02] Speaker A: Mm-hmm.
+[00:35:06] Speaker A: Mm-hmm.
+[00:35:08] Speaker A: But if we're going for the say fifteen to twenty five age group then not many of them would actually own T_V_s to use a remote control on.
+[00:35:16] Speaker B: Mm yes but w we're targeting I think on more on the on the twenty to forty group.
+[00:35:22] Speaker A: Okay. So they're yeah.
+[00:35:25] Speaker B: People yes. Who just have or already have a job and have the money but
+[00:35:30] Speaker A: Mm-hmm.
+[00:35:33] Speaker B: may not want to spend that much money on a on a universal universal control.
+[00:35:35] Speaker A: Mm-hmm. Yep.
+[00:35:38] Speaker A: I don't know really what the the price range for remote controls is. Are we gonna be at the very bottom of the price range, or are we kind of middle to bottom? I don't know.
+[00:35:46] Speaker B: Uh well
+[00:35:47] Speaker D: Mm.
+[00:35:51] Speaker B: I think uh when we think it over I thi I think we are trying to offer the a kind of universal control for for less money.
+[00:35:53] Speaker A: Mm.
+[00:35:59] Speaker A: Mm-hmm.
+[00:36:00] Speaker D: Yeah.
+[00:36:02] Speaker B: So d Do you agree?
+[00:36:04] Speaker C: Well
+[00:36:06] Speaker C: Well I it's fine with me like the price as long as it is uh not too expensive.
+[00:36:11] Speaker D: Yeah because we have to take into account that we are gonna b we are gonna sell uh four aro around four million so when we speak about these numbers uh the price of a chip is uh price of a chip is very cheap. So I'm okay for designing um a ne uh less yeah a a kind of universal uh R_C_ yeah.
+[00:36:12] Speaker C: Uh and it d uh
+[00:36:14] Speaker C: Our provin
+[00:36:27] Speaker A: Mm.
+[00:36:27] Speaker C: Mm.
+[00:36:37] Speaker B: Mm-hmm. You think it's possible for the twelve Euro fifty?
+[00:36:40] Speaker D: Yeah.
+[00:36:41] Speaker B: Okay.
+[00:36:42] Speaker B: Um so
+[00:36:45] Speaker B: then we we decide on on on going to this more universal kind of control.
+[00:36:50] Speaker C: Uh yeah, that's that's what we needed basically.
+[00:36:53] Speaker A: Mm-hmm.
+[00:36:53] Speaker B: Mm. Mm. Okay.
+[00:36:54] Speaker C: Uh that's needed right now. And uh basically you can look to the standards of other
+[00:36:55] Speaker D: Yeah that's needed, yeah. And if we want to get the market, we really need that.
+[00:36:57] Speaker A: Mm.
+[00:36:58] Speaker A: Yeah.
+[00:36:59] Speaker A: Yeah. So I guess what I'd like from a universal remote is maybe choosing between three devices, being able to switch between them, there may be stereo, V_C_R_ and T_V_.
+[00:37:01] Speaker C: Actu
+[00:37:05] Speaker D: Yes.
+[00:37:09] Speaker C: Yeah.
+[00:37:09] Speaker D: Exactly.
+[00:37:10] Speaker A: And just be able to s use them all from the same remote, but not at the same time.
+[00:37:10] Speaker B: Yes.
+[00:37:11] Speaker C: Yeah you can also browse through all the standards you know, where are the limit of standards for all of them and you can just browse through them.
+[00:37:13] Speaker D: Is that okay for you? Yeah.
+[00:37:15] Speaker B: Mm mm mm mm.
+[00:37:17] Speaker D: Yeah.
+[00:37:20] Speaker D: Yeah.
+[00:37:21] Speaker B: So given we are going for this uh
+[00:37:24] Speaker B: uh universal type uh m maybe it is good when you try to find out which components you therefore need and y you will try to get more specific uh user interface content and uh maybe you can look on on what trends are in this uh in this type of market.
+[00:37:32] Speaker D: Yes.
+[00:37:33] Speaker A: Mm.
+[00:37:37] Speaker C: Okay. Okay.
+[00:37:41] Speaker A: Mm-hmm yep.
+[00:37:45] Speaker C: Voila.
+[00:37:48] Speaker C: Hmm.
+[00:37:49] Speaker B: So anyone uh has a point to bring in or shall we no.
+[00:37:50] Speaker C: So.
+[00:37:53] Speaker C: Well.
+[00:37:55] Speaker C: Oh I don't have anything right now. We can we'll we'll go and we'll I'm sure we'll up something good for the
+[00:37:57] Speaker D: Oh that's that's fine then.
+[00:37:58] Speaker B: Okay.
+[00:38:02] Speaker B: W yes, we uh we can have lunch now. So um
+[00:38:02] Speaker A: Mm-hmm.
+[00:38:03] Speaker D: Yeah.
+[00:38:06] Speaker A: Mm-hmm.
+[00:38:08] Speaker C: Yeah so we meet in well what are our
+[00:38:08] Speaker B: Then th
+[00:38:10] Speaker B: th the next meeting will uh after lunch you have uh we have
+[00:38:18] Speaker B: uh thirty minutes of work and then we have the next meeting. But you will be informed via the computer. Okay.
+[00:38:25] Speaker C: Okay. Cool. So see you later.
+[00:38:26] Speaker D: Okay perfect.

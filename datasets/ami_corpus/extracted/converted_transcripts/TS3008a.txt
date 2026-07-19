@@ -1,0 +1,317 @@
+[00:00:23] Speaker D: Hello.
+[00:01:07] Speaker D: Dang it.
+[00:01:12] Speaker A: And then you have to place your laptop exactly on the marked spot.
+[00:01:16] Speaker D: Alright.
+[00:01:23] Speaker A: It's important to place your laptop exactly on the marked spot over here.
+[00:01:27] Speaker B: Okay.
+[00:01:34] Speaker B: No, that's okay.
+[00:01:43] Speaker B: Joost, your mouse.
+[00:01:45] Speaker D: What?
+[00:01:46] Speaker B: No mouse needed?
+[00:01:48] Speaker D: I've got a touch-pad. Do you know how how I can wake it up?
+[00:01:50] Speaker B: Mm.
+[00:01:54] Speaker B: A touch-pad?
+[00:01:55] Speaker D: No, my laptop.
+[00:01:58] Speaker B: Slap it.
+[00:01:59] Speaker D: You with your brilliant ideas. I don't know if I can touch the power button.
+[00:02:08] Speaker D: Do you know how how I can wake it up?
+[00:02:09] Speaker B: Is
+[00:02:09] Speaker A: No. Yeah. Try the power button.
+[00:02:12] Speaker D: Oh.
+[00:02:18] Speaker D: Come on, move it.
+[00:02:23] Speaker B: Um
+[00:02:30] Speaker D: Now, wake up, bitch.
+[00:02:35] Speaker A: Huh.
+[00:02:38] Speaker B: F_ five.
+[00:02:41] Speaker B: F_ five.
+[00:02:43] Speaker C: I've lost my screen. Uh
+[00:02:45] Speaker D: Yeah, so did I. I closed it. That wasn that wasn't very smart, I guess. Come on. Get back to me.
+[00:02:47] Speaker B: I don't.
+[00:02:59] Speaker D: Yes.
+[00:02:59] Speaker C: Yes.
+[00:03:02] Speaker C: I closed the
+[00:03:03] Speaker D: I closed it.
+[00:03:04] Speaker B: You've got your name.
+[00:03:05] Speaker A: Yeah, my name is name.
+[00:03:09] Speaker D: No, I didn't restart it, I just closed it.
+[00:03:14] Speaker D: Yes.
+[00:03:16] Speaker B: Hope it working.
+[00:03:18] Speaker D: Alright.
+[00:03:21] Speaker C: No.
+[00:03:28] Speaker B: Never close your laptop.
+[00:03:31] Speaker A: Yeah? Everybody's ready? Great. Well, welcome to the kick-off meeting. I uh forgot to put my name over here, it's uh it's Martin.
+[00:03:32] Speaker D: Great. Thanks.
+[00:03:32] Speaker B: Yeah.
+[00:03:42] Speaker A: Uh, so you all know.
+[00:03:46] Speaker A: Well, this is the agenda for today. Well, the opening is what I'm doing right now. Uh, we gonna do some acquaintance acquaintance things. Uh give some um
+[00:03:57] Speaker A: examples of the tool training, project plan discussion and the closing. We have twenty five minutes.
+[00:04:04] Speaker A: Okay, the project aim is to design a new remote control. Uh, some of the oje objectives are that is has to be original, trendy, and user-friendly.
+[00:04:07] Speaker D: Mm-hmm.
+[00:04:15] Speaker B: Okay.
+[00:04:15] Speaker A: So now we all know what our
+[00:04:17] Speaker A: goal is. Um, I oh forget I forget the whole acquaintance part, but we we all know each other. We all know each other's names. Joost, Guido, Antek.
+[00:04:25] Speaker D: Yes.
+[00:04:26] Speaker B: What is your name?
+[00:04:26] Speaker C: Yes. Antek.
+[00:04:28] Speaker B: Antek Ahmet. And Joost.
+[00:04:29] Speaker A: Okay. I think we uh al already uh been through that part. Okay, it consists of uh three levels of design. Uh we begin with the functional design, then we go to the conceptual design and the detailed design. Every uh level of design consists of some individual work, and we uh close it with a meeting. You all received an email with a example of our explanation of what uh the particular level of design uh means to the different uh functions, and uh you p you probably read that already, so I don't have to tell you about that.
+[00:04:31] Speaker B: Okay.
+[00:04:32] Speaker B: Yeah.
+[00:05:01] Speaker D: Yes.
+[00:05:01] Speaker B: Yes.
+[00:05:05] Speaker A: Okay, first we're gonna um uh gonna try some different things with the tools we have over here, so you get acquainted with these uh um uh meeting tools. We have the smart-boards, uh the thes those two boards. This is the presentation boards, wh which one I'm using right now. You can uh um there's a document folder called um the sh shared document folder. You can upload your uh documents to that folder and then you can open them over here, so you can do your PowerPoint presentations on this screen. We also have the white-board. Uh, we're gonna skip through th
+[00:05:43] Speaker B: Can we see the white-board on our laptops? No, I saw I saw the file, the smart-board that X_B_K_ but
+[00:05:45] Speaker A: No, no. Just on the on the screen over there.
+[00:05:49] Speaker A: Oh, no. Probably is, but I don't know if the software is on the laptop. Is is if it's mainly a thing for in the meeting, so I don't think it's I don't know if it's important.
+[00:05:56] Speaker B: Okay.
+[00:06:00] Speaker A: This an explanation of the smart-boards. There is a tool-bar over here.
+[00:06:05] Speaker A: It's quite simple. You have the the pen function, eraser function. It's like a very simple uh paint application. Uh, we well, we use the same file during uh the whole day, and uh you can make new sheets by uh by pu puttin pressing on the blank button. It works like this.
+[00:06:26] Speaker A: Oh. If pen is selected, yes. Oh, no no.
+[00:06:30] Speaker B: With that pen?
+[00:06:31] Speaker A: It's not
+[00:06:33] Speaker A: But it is pen.
+[00:06:36] Speaker A: It's not working like a pen yet.
+[00:06:42] Speaker B: Mm.
+[00:06:42] Speaker A: Huh.
+[00:06:52] Speaker A: Huh.
+[00:06:53] Speaker B: Mm.
+[00:06:54] Speaker A: It's doing some stuff now. So you can use a pen. You can use an eraser.
+[00:06:55] Speaker B: Little bit slower.
+[00:07:00] Speaker A: And you can make new uh fi uh new blanks, and you can change uh the line width and the colour of the pen by pressing on forward, which y you have to select pen format.
+[00:07:15] Speaker A: And then select current colour or line width.
+[00:07:19] Speaker A: So, it's quite easy.
+[00:07:22] Speaker A: Uh well, now you're all uh acquainted with the different tools.
+[00:07:29] Speaker A: Right, we're gonna try out the electronic white-boards. Uh, every participant should draw his favourite animal and some of its favourite characteristics, on blank sheets with different colours, with different pen widths. Uh, I'll start off then. I'll use this uh same sheet. Alright.
+[00:07:51] Speaker A: Oh, let me think.
+[00:07:55] Speaker A: Different colours.
+[00:07:59] Speaker A: Oh.
+[00:08:07] Speaker A: Well, I'm gonna draw um a p piranha. Uh, a fish.
+[00:08:10] Speaker B: piranha. Okay.
+[00:08:13] Speaker A: Uh.
+[00:08:27] Speaker A: Mm-hmm.
+[00:08:33] Speaker B: Oh.
+[00:08:33] Speaker A: I'm gonna use some different colour now. Some a little white.
+[00:08:41] Speaker A: Looks like a fish.
+[00:08:43] Speaker A: Think it is.
+[00:08:48] Speaker A: Oh.
+[00:09:03] Speaker A: Oh.
+[00:09:06] Speaker A: Uh, colour.
+[00:09:11] Speaker A: This is black?
+[00:09:13] Speaker A: I think so.
+[00:09:17] Speaker B: Yellow
+[00:09:18] Speaker A: Oh.
+[00:09:22] Speaker A: Oh, this is just uh
+[00:09:26] Speaker A: useless uh
+[00:09:29] Speaker A: drawings but Oh teeth. I need teeth.
+[00:09:38] Speaker A: Well, they're not supposed to be green, or whatever colour this is.
+[00:09:42] Speaker B: Hmm.
+[00:09:43] Speaker A: Okay.
+[00:09:45] Speaker A: What was uh I have su to sum up its favourite characteris Well, I like its uh sharp razor sharp teeth. Plus, uh the the big uh forehead and uh a small uh, well a small actual face. And I like its overall uh aggressive look and
+[00:09:47] Speaker B: Different.
+[00:10:04] Speaker A: Well, that's what I like about uh piranha. I think that's kind of what uh the intention should be.
+[00:10:06] Speaker B: Okay.
+[00:10:12] Speaker A: Well, who wants to be next?
+[00:10:14] Speaker D: Nobody, I guess.
+[00:10:15] Speaker B: I will try. Yeah. I will try. Uh
+[00:10:16] Speaker A: You go, Guido? Okay.
+[00:10:20] Speaker A: Uh, make a new sheet. Uh, it's by pressing on blank. Yep.
+[00:10:23] Speaker B: Blank?
+[00:10:26] Speaker B: Okay. Then pen again?
+[00:10:29] Speaker A: Yep.
+[00:10:30] Speaker B: Okay.
+[00:10:31] Speaker A: And uh so in the format menu you can choose the different uh colours and uh pen widths.
+[00:10:35] Speaker B: Okay, um
+[00:10:42] Speaker D: Format.
+[00:10:43] Speaker B: control.
+[00:10:52] Speaker B: Uh
+[00:10:54] Speaker B: Ah, purple.
+[00:10:56] Speaker B: Um, I don't know what my uh favourite uh animal is, but the easiest animal I can think is is a bird. Uh I will
+[00:11:10] Speaker D: You know, I thought of that actually. Yeah.
+[00:11:10] Speaker B: That's my bird. Yeah? Isn't it quite it's a little bit light.
+[00:11:20] Speaker B: Uh, another colour maybe. A red one.
+[00:11:26] Speaker B: A small one. Uh, line width.
+[00:11:32] Speaker B: Two? Three. Oh that's okay.
+[00:11:40] Speaker B: That's another one. Ano Uh uh it's a Yeah, it's uh the most simple uh animal I know, I think. Um, I don't know. Maybe because uh there's there's some s uh free uh maybe in the sky or something like that. Maybe a little bit. Yeah. I don't know.
+[00:11:42] Speaker A: Well, tell us something about uh your favourite characteristics of these uh particular birds.
+[00:11:47] Speaker D: Its simplicity.
+[00:12:01] Speaker A: Oh, okay. Okay.
+[00:12:04] Speaker A: Okay.
+[00:12:05] Speaker A: No, uh it's clear.
+[00:12:06] Speaker B: So more uh birds? Okay, okay, okay.
+[00:12:08] Speaker A: N no no.
+[00:12:10] Speaker A: We get your point. Okay. Who wants to be next?
+[00:12:14] Speaker D: Yeah, whatever. I'll go next. Thanks. I haven't got a favourite animal too, so
+[00:12:18] Speaker B: M
+[00:12:21] Speaker B: Pictionary.
+[00:12:22] Speaker D: Oh. What should I draw?
+[00:12:26] Speaker B: A cow.
+[00:12:26] Speaker A: Oh.
+[00:12:29] Speaker D: Thank you, I'll draw a penguin.
+[00:12:30] Speaker B: Okay.
+[00:12:36] Speaker D: Yeah.
+[00:12:40] Speaker D: I'll draw a penguin. Whatever.
+[00:12:43] Speaker D: I can't draw, so
+[00:12:46] Speaker D: you can start to laugh already.
+[00:12:48] Speaker A: I'll do so.
+[00:12:50] Speaker D: Whatever. Something like that.
+[00:13:02] Speaker D: Come on.
+[00:13:04] Speaker B: Yeah, it's little bit hard.
+[00:13:07] Speaker D: Mm hmm hmm, orange.
+[00:13:09] Speaker B: Orange, of course.
+[00:13:13] Speaker D: Whatever.
+[00:13:20] Speaker D: Oh, it's better than your bird.
+[00:13:21] Speaker B: Uh yeah. Yeah. True.
+[00:13:24] Speaker D: Everything's better than your bird.
+[00:13:30] Speaker D: Whatever. Hey, it's blue. No. Whatever. Um, I like its ugliness and uh Yeah, whatever. The way it walks or whatever. Your turn.
+[00:13:44] Speaker A: Okay.
+[00:13:46] Speaker C: 'Kay.
+[00:13:48] Speaker D: Drawing.
+[00:13:50] Speaker C: I'm going to draw a cat.
+[00:13:53] Speaker C: I don't know why, but a cat is a very uh smart animal.
+[00:14:00] Speaker C: And you can have them at home.
+[00:14:04] Speaker C: Which is not as the case with uh with bingwings and
+[00:14:07] Speaker A: Well, you can have a piranha at home.
+[00:14:10] Speaker C: Ye yes, yeah.
+[00:14:11] Speaker A: Huh.
+[00:14:13] Speaker D: Or a line.
+[00:14:14] Speaker B: A little bit. Yeah.
+[00:14:15] Speaker D: I mean a bird.
+[00:14:18] Speaker B: Don't mess with my birds, yeah.
+[00:14:22] Speaker C: It's not very uh
+[00:14:27] Speaker C: very good drawn, but you can see a cat from it.
+[00:14:29] Speaker D: Hmm. It's a handicapped cat.
+[00:14:33] Speaker B: cat.
+[00:14:34] Speaker A: I don't think uh I don't think uh Darwin would agree with that.
+[00:14:40] Speaker C: It's
+[00:14:47] Speaker C: Ah, it's not scared. He's crying but
+[00:14:49] Speaker A: .
+[00:14:51] Speaker D: He's crying because it's ugl because of his ugliness.
+[00:14:51] Speaker A: Okay.
+[00:14:54] Speaker A: What do you like about it then?
+[00:14:57] Speaker C: Uh it's i most cats are small. You can handle them.
+[00:15:01] Speaker A: Oh, okay. Okay. Okay. Okay, and then we are uh through the tool training, I guess.
+[00:15:05] Speaker B: Okay.
+[00:15:09] Speaker D: I wouldn't call it training, but
+[00:15:15] Speaker A: Okay, this is uh something about the project finance. The selling price of our remote control is gonna be twenty five Euros. And our profit aim is fifteen million Euros. We're very ambitious on this one. The market range is international, so it's gonna be sold world-wide, and the production cost should be a maximum of twelve Euro fifty per remote control. So that's clear. Yeah?
+[00:15:41] Speaker B: Okay.
+[00:15:41] Speaker D: Alright.
+[00:15:43] Speaker A: Okay, we're now gonna discuss some stuff when well, we're gonna brainstorm about uh what kind of kemoro romo remote control it's gonna be. Uh, well tell me about your experiences with the remote controls. Do you have uh know what good experiences with remote controls? Or do they annoy you sometimes? Are they difficult to understand, or maybe they don't interact with different kind of uh equipment very well?
+[00:15:59] Speaker C: Yes.
+[00:16:08] Speaker B: Hmm.
+[00:16:08] Speaker D: I don't th I don't think the four of us got problems with remote controls, but if you see elderly people, all these buttons, and then they buy new T_V_ because their previous one was stolen or whatever. And then a totally different remote control with with different functions on different places, and half of the functions a are removed, or whatever. Uh, so I think what we need is is a clear uh remote control with
+[00:16:13] Speaker A: Yeah, okay.
+[00:16:18] Speaker B: Different.
+[00:16:21] Speaker A: Okay.
+[00:16:37] Speaker D: uh grouped buttons, you know. All th all the buttons which apply to the text functions in in one uh
+[00:16:44] Speaker A: Different functions of of uh
+[00:16:45] Speaker D: Well, one area or whatever, not like the button to enter text on top of the remote control and the button to um, yeah, to minimise it to this this or whatever o o other functions totally somewhere else. I think we should group them. And same for the for the volume buttons and the the t
+[00:16:57] Speaker A: Okay.
+[00:17:00] Speaker A: Yeah.
+[00:17:02] Speaker A: Okay.
+[00:17:04] Speaker A: And uh, is it gonna be a remote control that's um what it can be used for different kind of equipment, like your T_V_ and your home stereo? Uh
+[00:17:11] Speaker D: Well I was I was thinking uh since a T_V_ is uh mostly used together with a V_C_R_ or D_V_D_ player or recorder, and not with a stereo, I think it should be good to include functions for V_C_R_s and D_V_D_ players, recorders.
+[00:17:12] Speaker B: Yeah.
+[00:17:19] Speaker A: Mm-hmm.
+[00:17:22] Speaker A: Mm-hmm.
+[00:17:28] Speaker A: But uh, the D_V_D_ players and home cinema sets often double as stereo hi-fi sets probably. It's what, from my experience.
+[00:17:31] Speaker D: Yeah.
+[00:17:36] Speaker B: But isn't it
+[00:17:36] Speaker D: I don't know. Hi-fi set is uh not often used uh as I know of in combination with television.
+[00:17:38] Speaker A: Okay.
+[00:17:44] Speaker A: But we gonna
+[00:17:45] Speaker B: It's only for television, I thought. Not
+[00:17:46] Speaker D: Yes.
+[00:17:47] Speaker A: Oh, it is only for televis
+[00:17:48] Speaker B: I thought it was only for television. So so we probably don't have to have to uh have the functions for D_V_D_ player or V_C_R_.
+[00:17:50] Speaker D: Yes, it is only for television, but uh
+[00:17:52] Speaker A: So wha what
+[00:17:54] Speaker D: Well
+[00:17:55] Speaker A: What wha what uh what document
+[00:17:56] Speaker D: well we we're gonna brainstorm about that. If we think it's useful, we do it.
+[00:18:00] Speaker A: But, where where did it uh Where did you find that?
+[00:18:04] Speaker B: Uh, in the email. I thought it said uh Yeah, television remote control.
+[00:18:05] Speaker A: Oh, okay.
+[00:18:05] Speaker D: That's right. It's a television remote control. But I was thinking since it is useful with D_V_D_
+[00:18:07] Speaker C: Yes,
+[00:18:10] Speaker A: Yeah, but most television remote controls support other functions as well. So we can No, we have to think about that. Okay, uh but uh we've gonna put some a uh is is it so user-friendliness, is a is a pri priority in this case, or
+[00:18:13] Speaker C: Yes, that's uh something extras.
+[00:18:14] Speaker B: True. Yeah.
+[00:18:17] Speaker B: True.
+[00:18:18] Speaker D: Yep.
+[00:18:25] Speaker C: Yeah.
+[00:18:25] Speaker D: Yeah, also no one's gonna buy it.
+[00:18:25] Speaker B: Yeah, yeah.
+[00:18:27] Speaker A: Okay.
+[00:18:27] Speaker B: Yeah.
+[00:18:28] Speaker D: I guess.
+[00:18:28] Speaker C: Only the experts.
+[00:18:28] Speaker B: True.
+[00:18:30] Speaker D: Yeah.
+[00:18:30] Speaker A: Well, this the maybe is uh some aspect of the uh, or or some point at at which we can excel by making it very useful. That w Well, then you're you're the usability uh man, so this uh gonna be a very important task for you then.
+[00:18:41] Speaker B: Oh my God.
+[00:18:43] Speaker D: Yeah.
+[00:18:43] Speaker B: Okay.
+[00:18:45] Speaker A: Okay. Well, other ideas? How can we make it trendy or something? Do uh by just sh shape and the look of it?
+[00:18:49] Speaker C: Uh, to go with to go with fashion and
+[00:18:52] Speaker A: Maybe a can opener underneath it? I don't know. Or someth something special, like uh M_P_ three player inside of it, or uh Oh, well then the production costs are gonna be too high probably.
+[00:18:54] Speaker B: For the bear. Uh
+[00:18:59] Speaker B: I I uh, no I think it
+[00:19:03] Speaker D: Yeah, way too high.
+[00:19:03] Speaker B: Uh, I th I think yo we have to keep it simple, to get a whole market. It's international, so we have to use a standard.
+[00:19:06] Speaker D: Yep.
+[00:19:08] Speaker A: Okay. Maybe with different type of fronts or uh Well, m has to be something spectacular or uh one which makes it We gonna skip back to the goals probably. Uh,
+[00:19:12] Speaker D: Well that's an idea of course, yeah.
+[00:19:19] Speaker D: Mm-hmm.
+[00:19:21] Speaker A: original, trendly, and user-friendly Well, we al also already talked about user-friendliness. No, well something trendy and original, well that that goes hand in hand I guess. When something is original, it tends to be trendy, probably, or we should make it combination of that.
+[00:19:25] Speaker B: Hmm.
+[00:19:30] Speaker D: Yeah.
+[00:19:38] Speaker A: 'Kay, so you the um technical part of the process is something you're gonna look after for, so you have to think about what kind of uh equipment you want to uh, you know, you want to manage with it. Well, and that's an important part for you then, with gogors regards to the user-friendly part of it.
+[00:19:55] Speaker B: Use friendly.
+[00:19:58] Speaker B: Yep.
+[00:20:00] Speaker A: Well, and you uh should look out for what makes it trendy. Well, you know, y like some special feature. Or some Does it does it gets some gadgetness or something.
+[00:20:09] Speaker D: Yeah.
+[00:20:11] Speaker D: Yes, what the market wishes.
+[00:20:12] Speaker A: Okay.
+[00:20:15] Speaker A: Well, the closing. Next meeting starts in thirty minutes. Individual, I think so. The the Industrial Designer will w or the working design, of course, we will uh
+[00:20:26] Speaker A: Already s said that. The User Interface Designer is it a User Inter User Interface the technical functions design. And the Management Expert of uh the Marketing Expert. User requirements specifi Well, this one was already clear to us. Specific instructions will be sent to you by your personal coach. I don't know how much time we have left. Oh, not many I guess. We started at twelve.
+[00:20:32] Speaker B: Yeah. Yeah, yeah. Interface d
+[00:20:33] Speaker D: Yeah.
+[00:20:51] Speaker D: You just got a message.
+[00:20:52] Speaker A: Oh, and what does it said?
+[00:20:53] Speaker D: And it said uh five minutes, so we got four and a half.
+[00:20:54] Speaker B: Oh, I don't
+[00:20:56] Speaker A: W
+[00:20:58] Speaker A: Okay, well um
+[00:20:58] Speaker B: I didn't get a message.
+[00:21:00] Speaker D: No.
+[00:21:02] Speaker D: He's the whatever.
+[00:21:02] Speaker B: Oh, the Project Manager.
+[00:21:04] Speaker C: Team Leader.
+[00:21:05] Speaker A: No, we're uh ahead of schedule then.
+[00:21:05] Speaker D: Team Leader.
+[00:21:08] Speaker D: He is the whatever.
+[00:21:09] Speaker A: Yeah, close it.
+[00:21:11] Speaker B: Okay.
+[00:21:11] Speaker A: I'm gonna make some minutes or take some minutes.
+[00:21:15] Speaker D: Yes.
+[00:21:16] Speaker A: And uh it's it's clear you can put the stuff in the project documents presentations. You can all Or we're all uh
+[00:21:19] Speaker B: Okay.
+[00:21:21] Speaker D: Project joc project documents is for showing uh on the white-board. Yeah.
+[00:21:25] Speaker A: Yeah. Yeah, but we're all familiar with uh uh Microsoft PowerPoint, are we? Yeah, okay. I'm gonna wri uh write some stuff down and then we're ready.
+[00:21:30] Speaker D: Yes.
+[00:21:30] Speaker B: Yeah.
+[00:21:32] Speaker D: Alright.
+[00:21:35] Speaker D: Okay.
+[00:21:38] Speaker A: Or we can leave already I guess. or uh or sh or should we uh or is important that we leave at exact uh
+[00:21:40] Speaker D: Yeah.
+[00:21:45] Speaker C: No.
+[00:21:45] Speaker D: No. I don't think so. Yes? Great.
+[00:21:46] Speaker A: Okay.
+[00:21:48] Speaker B: I don't think Oh
+[00:21:49] Speaker A: Yes.
+[00:21:50] Speaker C: Oh.
+[00:21:52] Speaker A: We'll see each other in uh thirty minutes.
+[00:21:54] Speaker D: Yeah. Good luck.
+[00:21:57] Speaker A: Yeah, good luck.
+[00:21:57] Speaker B: I will need it.
+[00:22:00] Speaker D: I will need it.

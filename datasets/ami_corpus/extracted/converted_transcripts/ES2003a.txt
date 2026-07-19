@@ -1,0 +1,117 @@
+[00:00:01] Speaker B: Okay, well I think we're ready to begin. Right, my name's Adam Duguid, we're here because of real reaction, um, we have in the group
+[00:00:13] Speaker C: Oh, Ebenezer Ademesoye. Would you like me to spell that?
+[00:00:18] Speaker C: S
+[00:00:18] Speaker B: Um, yeah, go for it mate.
+[00:00:20] Speaker C: Um, N_E_Z_
+[00:00:21] Speaker B: N_ E_ Z_. Ebenezer. And your role is?
+[00:00:23] Speaker C: E_R_.
+[00:00:26] Speaker C: I'm the Marketing Expert.
+[00:00:28] Speaker B: You're the Marketing Expert, okay.
+[00:00:32] Speaker B: Next we have?
+[00:00:34] Speaker D: Tarik Rahman. T_A_R_I_K_.
+[00:00:36] Speaker B: T_ R_ I_ K_. And your role in this is?
+[00:00:39] Speaker D: Industrial Designer.
+[00:00:40] Speaker B: Industrial Designer.
+[00:00:47] Speaker B: And, lastly we have?
+[00:00:49] Speaker A: Uh, Dave Cochrane.
+[00:00:52] Speaker B: And you're going to be the User Interface, is it? Designer. Okay.
+[00:00:54] Speaker A: User Interface Defin Designer, yes.
+[00:01:02] Speaker B: Right. This is the agenda for today's meeting. As you can see, w opening, acquaintance, tool training, project plan discussion, and closing. Um, we already got n through opening, and partially through acquaintance. So, the reason we're here, we're gonna design a new remote control, as you probably all know. The very broad overview is original, trendy, and user-friendly. Course, we'll have to go into a bit more um detail than that, but uh personally I think that the original is gonna be a very key aspect to this design. Um, there's a lot of remote controls out there anyway, so we're gonna need something that's really gonna set it apart.
+[00:01:44] Speaker B: This is how today seems to be going to work. We're gonna have the three kay phases, as you've probably already been told, the functional, architectural, and the detailed design. Um
+[00:01:58] Speaker B: First one's gonna be covering the user requirement spec, technical functions, working design. Second seems to be conceptual components, properties, materials, and the last one is a detailed analysis of our design so far. Of course, you've all got the similar emails, I believe, right.
+[00:02:16] Speaker B: What can I say? Ebenezer, you wanna have a you wanna draw your favourite animal?
+[00:02:23] Speaker C: Sure.
+[00:02:27] Speaker C: Whiteboard. 'Kay.
+[00:02:34] Speaker C: S okay. I will make this quick, since we don't have much time.
+[00:02:40] Speaker C: Um.
+[00:03:32] Speaker C: 'Kay, so it's not the best picture in the world.
+[00:03:35] Speaker C: Here we have an elephant.
+[00:03:38] Speaker C: First point, begins with an E_, same like Ebenezer. Also, elephants have a very good memory, much like myself, and I can't remember back when I used to live back in Nigeria, but I think I used to have a pet elephant.
+[00:03:54] Speaker C: So elephants are big, strong and gentle, and they have great memories, and they begin with the letter E_, just like Ebenezer.
+[00:04:03] Speaker B: Brilliantly done. Thank you. Tarik, would you like to have a shot at a bit of artistry?
+[00:04:04] Speaker C: Thank you.
+[00:04:13] Speaker D: .
+[00:04:15] Speaker C: Oh. Oh oh I think you ga
+[00:04:16] Speaker B: Oh, um, you can clip them to your belt.
+[00:04:16] Speaker D: Do we take them off? Oh right, okay.
+[00:04:18] Speaker B: You should also l um have your the lapel mic on as well.
+[00:04:19] Speaker C: The little
+[00:04:23] Speaker C: The the
+[00:04:23] Speaker D: Ah-ha.
+[00:04:25] Speaker C: Oh that's good, we can clip them on. Okay. Yeah, there was this microphone as well that you
+[00:04:32] Speaker D: Now where do I put the
+[00:04:34] Speaker C: Just um somewhere
+[00:04:44] Speaker B: Yep, the, it's just across there, that's it.
+[00:04:50] Speaker B: Yep.
+[00:04:59] Speaker D: Is this supposed to be clipped as well?
+[00:05:01] Speaker C: I think so.
+[00:05:01] Speaker B: Yeah. It'll follow you if you
+[00:05:03] Speaker C: Yeah. There you go.
+[00:05:08] Speaker B: You can probably just stick it in your pocket for now, I wouldn't worry too much. Should have good range.
+[00:05:17] Speaker D: Uh, destroying your elephant here.
+[00:06:33] Speaker D: Uh, here we have a tiger. Uh
+[00:06:37] Speaker D: I've always loved tigers. They're just they're big, they're biggest cats, uh I did a project on cats in the wild when I was a kid and uh it was my favourite cat, just 'cause it was looks the best, the stripes, orange. My dad used to talk about he's from Bangladesh so he used to tell me all about them when he was when I was a kid. And uh they're just the most feared of of uh animals in the wild. So uh that's why I like them. Didn't say an anything about me really but
+[00:07:06] Speaker B: Excellent, thank you very much. Dave, if you'd like to uh
+[00:07:12] Speaker B: have a dash.
+[00:07:19] Speaker A: Um
+[00:09:21] Speaker A: Um, the monkey, um. The one f uh in fact this is a somewhat oblique reference in fact to uh well my I have a three uh three y year old daughter who h who who who is affectionately known as Miss Monkey. Um, monkeys have attitude. Which I think is a good thing. And I mean fr and from uh from the point of view of sort of the study of human evolution they and other primates are terribly interesting. Um, so I like monkeys. And and th th th th thi thi this one seems to have perhaps more attitude than most.
+[00:10:05] Speaker B: Cheers.
+[00:10:56] Speaker B: Hardly what I'd call the best drawing in the world but it'll do for now. Also not quite as feared as your average tiger, but uh cats are one of my favourite animals, they're very independent, they're snotty as hell at the best of times, and uh, what can you say, you got to love those qualities in an animal.
+[00:11:20] Speaker B: Right. I think we've all managed to master the whiteboard there by looks of it, so, on to it. Project finance. As you can see, twelve point five Euros per unit. That's not a terrible lot as far as I'm aware, and we're hoping to sell them for twenty five. If we're aiming for fifty million Euros we're gonna have to be selling an awful lot of them.
+[00:11:45] Speaker C: Oh, that was profiting, that was an amount, so that's the amount made, okay.
+[00:11:49] Speaker B: Yep. Well, fifty million, and if you're making twelve point five Euros on each one, then, awful lot need to be sold.
+[00:11:57] Speaker C: Yeah.
+[00:12:01] Speaker B: Okay. Now we better actually just get on with the uh the meat of the project. So I'm gonna guess that we've all used remote controls.
+[00:12:10] Speaker B: Any ideas of where you think a new remote control could go into this market?
+[00:12:16] Speaker A: Well, one thing I'm aware of is, th there uh um at the sort of v very high price end of the market there's there's a em emerging market for sort of touch screen L_C_D_ remotes that can be uh programmed in m much more sophisticated ways than sort of conventional models, so you get the sort of you get um you you can redesign the interface to your own needs, you can programme in macros, and you get a much greater degree um um I mean you get in these sort of three in one, five in one, whatevers, but you can get integration between the different uh the the the diff the different things that it's designed to control, to a much greater extent, and you can have one uh you know one macro to turn the uh you know turn the T_V_ to the right channel, get the uh re uh rewind the tape in the V_C_R_ and get it to play once it's rewound, for instance. Um b it occurs to me there might be a niche for uh for a remote that aimed towards some of that sort of functionality but using a just conventional push button design. And therefore putting it into a um well much lower price bracket.
+[00:13:09] Speaker B: Okay.
+[00:13:32] Speaker B: Okay, yeah, tha that's true, with the price range we're looking at, going for a touch screen would probably be possibly out of our yeah. But you think uh again something to control multiple units in uh a simple fashion.
+[00:13:39] Speaker A: Absolutely prohibitive, yeah.
+[00:13:40] Speaker C: Oh.
+[00:13:45] Speaker A: Yeah, I mean I wouldn't like to say you g I mean you get ones that you can switch between multiple units, but something that could um operate between multiple units in a more integrated fashion. Some and ideally something into which it would have some at least limited facility for um running macros.
+[00:14:05] Speaker B: Would the the idea something along the lines of, one on button would turn on say the video recorder, the T_V_, maybe the sound system as well, all in one go, is that kind of
+[00:14:13] Speaker A: For instance, um let's say oh oh um, or um you know you pr uh you press uh say the play button for the D_V_D_ player and it turns the T_V_ on and onto the right channel as well, um
+[00:14:30] Speaker B: Okay, that sounds like a a good strong idea. Um
+[00:14:31] Speaker C: 'Kay
+[00:14:37] Speaker B: Any takes on this?
+[00:14:39] Speaker C: Well um I've noticed that uh gaming c is becoming quite popular with television, um when I was younger we used to e play games using our cable, using the cable subscribed the cable providers, but our remote controls would get worn out really easily, and the remote control was not a great kind of keyboar, um keypad, for playing games. So perhaps one that was more um
+[00:14:54] Speaker A: Mm-hmm.
+[00:15:03] Speaker B: Okay.
+[00:15:06] Speaker C: specialised for game playing or interactive television. They they've recently brought out this new remote control, for people to set their favourite channels, or um to record things. Instead of people entering in what time things start, you simply stri slide a bar to say what time it begins, and slide another bar to say what time it ends, you know that's
+[00:15:25] Speaker B: Okay.
+[00:15:27] Speaker B: Yeah I've heard I've seen the bar-code design before, yeah.
+[00:15:28] Speaker D: Mm.
+[00:15:30] Speaker A: Mm-hmm.
+[00:15:30] Speaker C: Yeah, it's it's taken out the
+[00:15:33] Speaker C: Y you don't have to be uh really clever to use a remote control. I think for gaming, you know you want you want some big buttons for up, down, left and right, shoot.
+[00:15:44] Speaker C: Uh, you wanna be able to change angles in interactive television, so you need buttons to change the television angle, the camera angles and stuff like that.
+[00:15:52] Speaker D: 'Kay.
+[00:15:52] Speaker B: Okay, well we're beginning to run out of time now, so, we've got a couple of ideas, we can we'll have to work fast, um, alright as you can see we've got thirty minutes until the next meeting, so we'll have to try and decide on some of the basic functionality, um, how the user interface might work, that'll be a key aspect especially if the idea of um some kind of macros facility because you have to program it, you have to have a lot of response back, or at least some kind. Um
+[00:15:55] Speaker C: Yeah.
+[00:16:22] Speaker A: Mm-hmm.
+[00:16:26] Speaker B: And we're gonna maybe n try and have to figure out
+[00:16:31] Speaker C: What the user wants uh.
+[00:16:32] Speaker B: what the user wants, yes. Um, right. Has anybody got anything they'd like to add at this stage, anything they think that might have been missed so far?
+[00:16:33] Speaker C: Okay.
+[00:16:42] Speaker D: Well when you're talking about gaming and stuff, do you think they should have some sort of
+[00:16:47] Speaker D: stick on it, rather than buttons?
+[00:16:48] Speaker C: Oh. Okay,.
+[00:16:50] Speaker D: Like uh control pads, you know of games, but or is that a bit ridiculous?
+[00:16:53] Speaker C: Mm-hmm.
+[00:16:56] Speaker B: I I don't see why not, almost everybody is probably used to a console by now, and all of them incorporate small keypads on them, in fact even the mobile phones these days are beginning to use them as well, so it's probably an interface that most people are used to. Um
+[00:17:06] Speaker D: Yeah.
+[00:17:12] Speaker B: and that could allow n easy navigation, used as a joystick as well.
+[00:17:25] Speaker A: Mm-hmm. The other key feature that uh that would be a good idea built into it is t is is to make something you know fairly sort of ergonomic, something that just fits fits as comfortably as possible into the hand. But of course, uh al al also allows for the possibility of a more sort of
+[00:17:47] Speaker A: slightly unconventional or attractive uh
+[00:17:52] Speaker A: sha shape for it overall,.
+[00:17:52] Speaker B: Okay.
+[00:17:55] Speaker B: So, small, stylish, and something that's just a little different.
+[00:17:56] Speaker A: A curve, mm-hmm. Something sort of sort of sl slightly sort of biomorphic in form, uh which it would need to be to sort of conform to the shape of the hand more efficiently anyway.
+[00:18:08] Speaker B: Okay. That's definitely something that we should be able to do quite easily.
+[00:18:13] Speaker B: I would I would have hoped so anyway. Um, right.
+[00:18:20] Speaker B: I'd say we finish this one up, we get started, I'll get in, I'll write up what we've um kind of quickly done, and I'll get that out to everybody.
+[00:18:29] Speaker C: 'Kay. So.
+[00:18:30] Speaker B: Yeah? Okay.
+[00:18:36] Speaker D: .
+[00:18:36] Speaker C: .
+[00:18:38] Speaker B: Um, as far as I'm aware we leave the microphones here, um unless we get told otherwise, and just take the laptops with us.

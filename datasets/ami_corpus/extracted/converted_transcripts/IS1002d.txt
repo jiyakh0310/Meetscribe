@@ -1,0 +1,306 @@
+[00:00:03] Speaker A: Uh 'kay.
+[00:00:09] Speaker A: So
+[00:00:10] Speaker D: So so so.
+[00:00:11] Speaker B: Put on your mic.
+[00:00:12] Speaker C: So you forgot how this works again?
+[00:00:17] Speaker B: Boss.
+[00:00:18] Speaker A: Yep.
+[00:00:21] Speaker C: Boss.
+[00:00:23] Speaker D: Maybe. Maybe maybe maybe.
+[00:00:25] Speaker A: Okay so we're here to talk about the detailed design of the product, 'kay?
+[00:00:31] Speaker B: Yep.
+[00:00:33] Speaker A: And here's the agenda for this meeting. Uh I'm just gonna open, say a few boring words to start with again, and start taking minutes afterwards. You guys are gonna give us a presentation of our wonder product that I can see some demonstrations of over there. Looks cool.
+[00:00:49] Speaker A: And then we're gonna evaluate it. Then we're gonna talk about finance, and I've got a lovely Excel spreadsheet that I knocked up in the last five minutes for this. And uh yep. And we're gonna evaluate the product and close. Got forty minutes to do this in. We should be fine. Let's try and keep this one on schedule. So
+[00:00:51] Speaker D: Bra
+[00:00:58] Speaker C: Hmm you knocked it up?
+[00:01:10] Speaker B: Alright.
+[00:01:15] Speaker A: Your
+[00:01:17] Speaker A: thing is in where is it? Is it in
+[00:01:19] Speaker C: Thi third third third.
+[00:01:20] Speaker B: Three, three.
+[00:01:22] Speaker C: The end product thingy.
+[00:01:26] Speaker C: Yeah.
+[00:01:28] Speaker A: Who wants it?
+[00:01:31] Speaker B: Pedro can have it.
+[00:01:36] Speaker C: .
+[00:01:36] Speaker B: I like I'll help talk.
+[00:01:37] Speaker C: Um yeah so what we ended up with.
+[00:01:43] Speaker C: Production costs estimated by our manufacturing department and um the research department, which is us, is uh fifteen point eight Euros, someone forgot the units there yeah, uh unit price unit production price cost thing. Um
+[00:01:53] Speaker B: Unit price.
+[00:02:00] Speaker C: we implemented the basic functions, which is just T_V_ functions plus the locator, which was one of the marketing things, cradle, scroll wheel for uh the the channels, and uh we implemented the f the the way of putting the new and revolutionary zapping, your favourite channels functionality, in the scroll.
+[00:02:25] Speaker A: Zapping your favourite channels, eh?
+[00:02:27] Speaker C: Yeah.
+[00:02:28] Speaker B: Scrolling through your favourites list.
+[00:02:29] Speaker A: Oh okay okay.
+[00:02:30] Speaker C: Zapping you know zapping.
+[00:02:31] Speaker A: Ah 'kay okay, that's favourites.
+[00:02:32] Speaker C: Maybe it's just a Portuguese thing. And um yeah that was the result.
+[00:02:38] Speaker A: Ah 'kay. I like the the the the logo on there as well.
+[00:02:43] Speaker B: It's very prominent.
+[00:02:45] Speaker A: It is very prominent. So this is the
+[00:02:48] Speaker B: So here I'll give you the so this is the cradle unit, and this is the actual remote itself. Um so the scroll bar is or the scroll wheel is this this green little scrolly guy here, um and then the volume controls are here and here. Uh you've got the keypad which is the numbers uh f from zero to nine and then ten. This is the power button. Uh we have our um we have the enter button and uh what was the other button here?
+[00:03:05] Speaker A: Okay.
+[00:03:21] Speaker B: This is the teletext.
+[00:03:21] Speaker C: Start s the the start uh to to to programme yeah.
+[00:03:24] Speaker B: The programme button, yeah the programme button. So this bl this button will be used both for the favourites and for programming your uh the um the type of television you wanna use. So um the plastic is the white area of this of the model here, and the red area is like a rubber covering. So you can see that when it lays like this or like this and the buttons are all gonna be rubber, so it's pretty hard to actually damage it um
+[00:03:26] Speaker A: Ah, okay I see.
+[00:03:43] Speaker A: It's pretty cool.
+[00:03:52] Speaker A: Is that could that be easy to for the scroll wheel to be rotated if it lands on it?
+[00:03:57] Speaker B: Yeah that might be a possible
+[00:04:00] Speaker B: a mi uh possible problem, but if you drop it yeah.
+[00:04:03] Speaker C: Not helping.
+[00:04:06] Speaker A: Oh well I guess it depends on the stiffness a little of it.
+[00:04:09] Speaker B: Yeah and it depends on if it's sliding, but I think it's pretty ergonomic. You can feel it.
+[00:04:14] Speaker A: Mm. Feels good. I take it that this is gonna be slightly lighter in the final design as well.
+[00:04:19] Speaker B: Yeah of course. Well this is clay.
+[00:04:22] Speaker A: Yeah it's kinda cool. You have to reach a little bit don't you.
+[00:04:25] Speaker B: Yeah the the power button is a bit of a reach, but I think we might scale down the final model a bit. These this is a bit larger than it would be, but
+[00:04:29] Speaker A: Ah yeah that wouldn't make sense.
+[00:04:33] Speaker A: It's cool. I'm impressed.
+[00:04:35] Speaker C: Don't have no one to handle that.
+[00:04:37] Speaker D: Mm that's oh that's oh I like it. I mean you guys gave me more than I was asking for, so I'm happy because we've got some really marketable features in this.
+[00:04:37] Speaker A: And hold it so wh what's the marketing perspective?
+[00:04:50] Speaker D: Yeah I think it's good. Good good good job.
+[00:04:54] Speaker B: Mm Pedro can demonstrate the the paging ability.
+[00:04:56] Speaker C: Yeah.
+[00:04:57] Speaker C: So you ha you have like the the base station with um the little button for the where's my remote.
+[00:05:03] Speaker B: Beep beep beep.
+[00:05:04] Speaker D: Uh pla
+[00:05:06] Speaker C: The locator function.
+[00:05:07] Speaker D: I'm ha
+[00:05:08] Speaker A: Okay.
+[00:05:08] Speaker D: It's great. That's great. It's a great feature.
+[00:05:11] Speaker B: Um beep beep beep so beep beep beep beep beep beep be shut up. Beep beep beep okay. Um no no no tha that's alri
+[00:05:12] Speaker A: Mm it's impressing. So let me get it, if I press this button
+[00:05:14] Speaker C: Wicked isn't it?
+[00:05:18] Speaker A: I see. That's pretty cool. Hang on.
+[00:05:24] Speaker D: So you can take this ho take this home with you tonight and you can push that and he'll be across town
+[00:05:29] Speaker A: I plan to do that as well. So the the two blue are are those for the the it to charge off of in?
+[00:05:37] Speaker B: Exactly that's exactly what those are for. And um there's one other feature that we were debating, but we decided to go against it, is um you could beep beep beep we were thinking that it might be interesting to have a trigger button here because you have this finger it it's it kinda feels like there should be something there, but we couldn't figure out what button is important enough to put there. And we we don't wanna accidentally be hitting the power button like that so
+[00:05:38] Speaker A: Ah okay okay.
+[00:05:52] Speaker A: Yeah it's the right shape isn't it?
+[00:06:01] Speaker A: But maybe if you had a trigger plus the scroll then that would get past the the problem of it landing and scrolling, 'cause then it would need to be hit on both sides.
+[00:06:03] Speaker B: Mm.
+[00:06:06] Speaker B: Right.
+[00:06:08] Speaker B: So maybe in a final design phase we might tweak that a little bit, but
+[00:06:11] Speaker A: Okay.
+[00:06:12] Speaker D: Uh, I can see that.
+[00:06:13] Speaker A: But it's definitely got options for like different types of models and things as well based on that, hasn't it?
+[00:06:16] Speaker B: Mm-hmm.
+[00:06:19] Speaker D: Yep I like. Good job.
+[00:06:22] Speaker A: So is that the the final colour scheme as well or?
+[00:06:23] Speaker D: No no.
+[00:06:24] Speaker B: Oh no this is just what we had to work with at the time.
+[00:06:27] Speaker A: Okay.
+[00:06:28] Speaker B: So we'll leave the colour scheme up to the marketing people.
+[00:06:31] Speaker A: The hmm.
+[00:06:36] Speaker B: Careful.
+[00:06:36] Speaker A: It came off. The scroll wheels, a problem with them not being sort of
+[00:06:44] Speaker D: Well I mean of course, I mean
+[00:06:44] Speaker A: I don't think the user interface guy wants to touch it anymore.
+[00:06:46] Speaker D: My my s my suggestion is we're gonna go go to the silvers and blacks like most of the televisions.
+[00:06:51] Speaker A: Mm.
+[00:06:52] Speaker D: You know some blend of silvers and blacks.
+[00:06:57] Speaker B: Beep beep beep.
+[00:06:59] Speaker A: Okay enough of that. Well i it's cool guys.
+[00:07:03] Speaker A: 'Kay so are we done with the this presentation?
+[00:07:07] Speaker B: Yeah.
+[00:07:07] Speaker C: Ja.
+[00:07:07] Speaker A: Okay.
+[00:07:12] Speaker A: Now now.
+[00:07:17] Speaker D: So you're not gonna find my uh my folder up there I gotta do mine up at the board.
+[00:07:22] Speaker A: Have you? Okay.
+[00:07:23] Speaker D: Yeah yeah.
+[00:07:25] Speaker D: So
+[00:07:27] Speaker A: Can I not get your get at stuff from your shared folder now?
+[00:07:30] Speaker D: No it's not in there because I had the computer problem and I I I cou I couldn't create it. I couldn't create it in the PowerPoint, and I think I've got this really strange cable. So what I had, basically going from the PowerPoint format, is that uh yeah yeah I like this a lot.
+[00:07:33] Speaker A: Oh I see I see.
+[00:07:53] Speaker D: Is this one of the tests is to see how we can adapt to s changing situations in the in the meeting room?
+[00:08:00] Speaker C: Nah.
+[00:08:01] Speaker D: So what we had is we had the method.
+[00:08:08] Speaker D: That's not how you spell method, is it?
+[00:08:10] Speaker B: No way.
+[00:08:11] Speaker D: No A_.
+[00:08:14] Speaker D: .
+[00:08:17] Speaker D: So this doesn't go so fast this way.
+[00:08:22] Speaker D: And when I speak about method I speak about the marketing of the product huh.
+[00:08:34] Speaker D: And uh to me with this product we got uh we got basically three things to market. We've got the features,
+[00:08:47] Speaker D: we have the uh characteristics,
+[00:08:55] Speaker D: and we have the I I don't know what we would call the other part what we call you know the the the
+[00:09:04] Speaker D: corp corporate
+[00:09:07] Speaker D: Help me.
+[00:09:10] Speaker D: The the corporation stands behind the product, okay. So the features I think we got the scroll, we've got the uh the locator, we've got the durability, we've got the dependability, we've got you know the features that make this a unique product. Um
+[00:09:19] Speaker C: It fell off.
+[00:09:25] Speaker B: Beep beep beep.
+[00:09:29] Speaker D: the characteristics I talk about, we have reliability, we have comfort, we have ergonomics, we have environmentally s sensitive. Uh and the corporation, we're talking about we're we're a new we're a new company. We're wanting to make a name for ourself. We're wanting you to uh find our product so we're gonna give you a good product at a fair price.
+[00:09:54] Speaker D: One thing I would want to to see is uh is can we can we get a lifetime uh guarantee on this product, a normal use guarantee, which means that this product, for the for the life of of the life use, if it should have a technical problem, that we could re replace it at no cost? That was something I would be interested in. Um so yeah without uh going into great details, we have a we have a product, it has the features and the characteristics, and the background, I believe, to make it marketable I believe at a cost of of of thirty thirty five to to fifty Euros. We're gonna be competitive, and we're gonna we're gonna have a market niche. Um w
+[00:10:45] Speaker A: Do you would you a argue that that we're better going for the higher cost than bringing it down into twenty f five as we probably could, but lowering our profit margins?
+[00:10:54] Speaker D: That that would be uh that would be I think a decision best made by corporate um I I m for my evaluation, based on what our competition is, I th I think that that we can go after this and and and go after more of the uh exclusivity sense than the mass market sense.
+[00:11:13] Speaker A: Mm-hmm.
+[00:11:15] Speaker A: Mm 'kay.
+[00:11:17] Speaker D: But I'm sh I'm sure open to to market this in either direction.
+[00:11:23] Speaker D: But you guys came up with a great product, and at that cost I think it uh there's nobody else that's putting this this combination of of ingredients together. The only limitations I see to this is that we're focused on television only.
+[00:11:37] Speaker D: Uh that's the only that's the only drawback I see to this. But with all of these other features I think people c one thing I'm I'm hoping for is people are not gonna even notice. There's gonna be somebody going home and say oh sh this thing doesn't work for my D_V_D_ and my but I like these other things, so they keep it, they don't take it back.
+[00:11:56] Speaker A: And we're actually quite open to be able to expand the product for a later version with those features quite simply anyway, aren't we? Th there's no fundamentally different technology to do that.
+[00:12:02] Speaker D: Well one of one of the thoughts that I had is can can this unit be be produced in a way that makes it upgradable?
+[00:12:11] Speaker D: You know uh like like a um a sim card in a in a um in a telephone. You know is there a card in th can we make a card and so after
+[00:12:12] Speaker A: Hmm.
+[00:12:21] Speaker C: W we need we need we need s some more buttons if it would to work on some other stuff, but
+[00:12:26] Speaker B: Mm-hmm.
+[00:12:26] Speaker D: Mm-hmm, but you follow what I'm s I'm s
+[00:12:27] Speaker C: We we w yeah we could get another version of it that actually works. But uh
+[00:12:32] Speaker D: Yeah 'cause if if we can make this unit upgradable then we're yeah but then we talk about changing the warranty concept and everything, but that's that was just an idea I had. Uh to me the only additions
+[00:12:42] Speaker A: Yeah, the plus there's the the risk of making it unusable as well, or making it less b because at the moment it's actually very straightforward to look at all the buttons, you know what they do, it's very simple, and it just works.
+[00:12:51] Speaker D: Yeah.
+[00:12:53] Speaker D: Yep.
+[00:12:54] Speaker A: Mm there's a risk of that.
+[00:12:55] Speaker D: But anyway that's uh
+[00:12:58] Speaker A: Okay so we can talk about finance now.
+[00:13:02] Speaker A: So I have a little spreadsheet for us where I I was wondering, you when you talked about the fifteen point eight Euros, I was wondering how you came up with that figure?
+[00:13:11] Speaker B: Well, that was just just our technical team added up the um production costs of the individual units.
+[00:13:17] Speaker A: Okay so I have bit of a spreadsheet here for this.
+[00:13:23] Speaker C: Very co very colf colourful.
+[00:13:23] Speaker A: Now
+[00:13:23] Speaker B: Oh.
+[00:13:24] Speaker A: I've made a f few assumptions here in that I'm assuming that our power adaptor we can make for a cost of four Euros, equivalent to solar cells, which I think is probably fair considering that we have in-house manufacturing of power adaptors already. Uh and I'm assuming that the locator beacon, the you know the
+[00:13:29] Speaker B: Uh-huh.
+[00:13:42] Speaker B: Uh-huh.
+[00:13:49] Speaker D: Mm-hmm.
+[00:13:49] Speaker B: Yeah.
+[00:13:49] Speaker C: beep beep beep.
+[00:13:50] Speaker A: Can be made for it sounded different that time uh can be made for a similar price to uh an L_C_ display, uh an uh
+[00:13:54] Speaker B: Oh, sorry.
+[00:14:00] Speaker A: Uh do you think that's fair coming from a m the manufacturing?
+[00:14:03] Speaker B: Yeah um I do think we that we we uh don't need the events chip on print, we only need the uh the regular chip on print, so there may have been a m miscalculation in there.
+[00:14:04] Speaker A: .
+[00:14:11] Speaker A: Okay.
+[00:14:13] Speaker A: Yep.
+[00:14:18] Speaker A: Okay.
+[00:14:20] Speaker A: So we're down to sixteen point four, yeah.
+[00:14:21] Speaker B: And we and we have a single-curved uh
+[00:14:25] Speaker A: Is that a single-curved rather than a double-curved?
+[00:14:28] Speaker B: Uh I think that
+[00:14:30] Speaker A: We're not entirely sure what single-curve versus double-cur
+[00:14:30] Speaker D: We've got a we've got a curve and a droop. I don't know whether that.
+[00:14:34] Speaker B: It's single-curved, yeah.
+[00:14:36] Speaker A: You think? Okay I'm convinced.
+[00:14:40] Speaker A: But we save one Euro that way, yeah? So we come bring it down to
+[00:14:45] Speaker A: Fifteen point four.
+[00:14:45] Speaker B: See it's a little bit more than f single-curved. So yeah it's fifteen point eight, that's where we came up with it.
+[00:14:51] Speaker A: Well hang on. Do don't speak so it's in here, in that w do we have any we have special form don't we? So that's yeah. But the the the we haven't talked about any special colour though uh I don't th if we're going for greys and silvers then I don't think we're
+[00:14:54] Speaker B: Okay.
+[00:14:58] Speaker C: Yeah.
+[00:14:58] Speaker B: Yeah we do.
+[00:15:00] Speaker B: Ah. What do you know.
+[00:15:05] Speaker B: Oh it's a that's not very special, it's pretty
+[00:15:09] Speaker A: O okay so we're
+[00:15:10] Speaker B: If th.
+[00:15:11] Speaker A: Push-button, scroll wheel, we're basically we have uh th is this intended to be a button as well or just a scroll? Just a scroll? It's not one of the scrolls where, for example, with this one you could push it down to be a button?
+[00:15:11] Speaker C: We don't
+[00:15:18] Speaker C: It's a scroll.
+[00:15:19] Speaker B: That's a scroll.
+[00:15:24] Speaker B: Uh no we just use it as a scroll.
+[00:15:26] Speaker D: Ooh.
+[00:15:27] Speaker A: Okay then we have fifteen point eight Euros.
+[00:15:31] Speaker B: It was a pretty accurate estimate I would say.
+[00:15:32] Speaker A: It wasn't bad.
+[00:15:32] Speaker C: Yes.
+[00:15:34] Speaker B: Yeah.
+[00:15:34] Speaker C: We're wicked. Awesome.
+[00:15:37] Speaker A: Okay so
+[00:15:39] Speaker A: we're on to the
+[00:15:39] Speaker B: S's kind of s frighteningly accurate.
+[00:15:42] Speaker C: Yeah.
+[00:15:42] Speaker A: We're on to the pat-on-the-back part of the
+[00:15:47] Speaker A: presentation, where we have a look at the criterias th that Paul the criterion criteria that Paul has has given us, and we can use that to tell
+[00:15:59] Speaker A: How's it going?
+[00:16:01] Speaker A: Anyone got any thoughts? How how have we done today?
+[00:16:03] Speaker B: What?
+[00:16:06] Speaker B: I think we did pretty well.
+[00:16:07] Speaker C: Yeah.
+[00:16:08] Speaker A: I think we did pretty well too. That looks pretty spectacular.
+[00:16:11] Speaker D: No, I think we come up with a with a attractive marketable um product and and concept.
+[00:16:28] Speaker A: Any other chang uh thoughts?
+[00:16:36] Speaker A: Okay so th th what about um room for creativity?
+[00:16:43] Speaker C: That was mm-hmm
+[00:16:43] Speaker A: Is it the.
+[00:16:44] Speaker B: Sh I think there was plenty of room. We got a couple innovative i
+[00:16:46] Speaker C: Yeah.
+[00:16:46] Speaker A: I I think we we ended up being quite creative there.
+[00:16:49] Speaker D: Yeah well we we we kinda broke we kinda at least adjusted every every criteria they gave us because we d we still have the the teletext capability in this thing right, we raised the price of it, we've added two t new technology to it. So you know you know if this thing flies then we've we've adjusted or broken every every idea they gave us.
+[00:16:50] Speaker B: Couple innovative ideas.
+[00:16:59] Speaker A: Mm.
+[00:17:02] Speaker C: No.
+[00:17:03] Speaker B: Mm-hmm.
+[00:17:05] Speaker C: Yeah.
+[00:17:14] Speaker A: Not every idea necessarily, it's still a remote control. Uh no yeah but we did we did break with the specs a little bit I guess, but the uh
+[00:17:14] Speaker C: Basically.
+[00:17:17] Speaker D: Yeah yeah yeah yeah.
+[00:17:23] Speaker D: But I like I mean when I say we have we had I believe we have room for creativity 'cause w this is we did it.
+[00:17:31] Speaker A: 'Kay leadership, what do we report back to the bosses? No th th I think they were r reasonably flexible with us over the whole changing the specs thing.
+[00:17:40] Speaker C: It was more of a teamwork thing then really leadership based project was
+[00:17:40] Speaker B: Yep.
+[00:17:44] Speaker A: I agree.
+[00:17:47] Speaker C: Teamwork.
+[00:17:47] Speaker D: Cohesive yeah. Yes synergistic yeah.
+[00:17:49] Speaker A: Synergy.
+[00:17:50] Speaker B: There was a lot of synergy.
+[00:17:52] Speaker A: Teamwork, yeah he is uh.
+[00:17:58] Speaker D: Yeah.
+[00:18:00] Speaker A: What did we think of the meeting room, I guess is an important thing here.
+[00:18:05] Speaker B: These cables suck.
+[00:18:05] Speaker A: Mm.
+[00:18:07] Speaker A: Yeah, this falls off and uh the white board worked really well without any pro
+[00:18:08] Speaker C: Yeah.
+[00:18:10] Speaker B: Yep.
+[00:18:10] Speaker C: And that's
+[00:18:12] Speaker B: Yeah.
+[00:18:12] Speaker C: D you must have very long shirts. That's way far down lapel mic.
+[00:18:17] Speaker A: Mm-mm, lapel. Wha okay, oh, alright.
+[00:18:18] Speaker C: Lapel lapel lapel. That's almost a crotch mi cr
+[00:18:19] Speaker B: Lapel.
+[00:18:24] Speaker A: That's it's down, it's quite close.
+[00:18:24] Speaker D: You know you know what they're gonna have on the recording in there from that microphone is your lunch digesting you know th
+[00:18:27] Speaker A: Keep it, keep it calm.
+[00:18:30] Speaker C: Oh dear oh dear.
+[00:18:30] Speaker A: Oh dear. No more pizza for me. So yeah the the pen came in alright and it's a little uncomfortable to use but I guess it works.
+[00:18:44] Speaker C: 'Cause this is you were using it o upside down. Still that
+[00:18:47] Speaker B: That's our boss.
+[00:18:48] Speaker A: Nah, I'm I'm not convinced of that at all. I've been wor I've been wondering about that all day, but see these look like they're that looks the oth that looks like it would be that way around, but it feels more comfortable, wh what you call upside-down. I don't care. Uh okay so that data might be slightly invalid. What new ideas have we found?
+[00:18:58] Speaker C: Use them like that.
+[00:18:59] Speaker B: Pedro's right.
+[00:19:02] Speaker B: Pedro's right.
+[00:19:11] Speaker B: Oh wel
+[00:19:12] Speaker D: New ideas f uh for the product or for the the the the environment or what are we ta
+[00:19:17] Speaker A: Well let's do both then. Uh for the product?
+[00:19:20] Speaker B: Well we had the favourites list, and the scroll bar, and we have the cradle,
+[00:19:25] Speaker B: and the r uh remote call feature.
+[00:19:26] Speaker D: Oh.
+[00:19:27] Speaker A: Yeah we came up with quite a bit.
+[00:19:29] Speaker C: Bunch of new ideas.
+[00:19:31] Speaker A: And for the meeting room, Has anyone got any more
+[00:19:34] Speaker C: Yeah comfortable headsets would be nice.
+[00:19:36] Speaker A: Yeah less sore on the ears.
+[00:19:37] Speaker D: Well I I mean clearly remote control microphones would be the would be a nice solution to all these cables, but I'm sure that there's there's some justification for these things that I don't know about. And of course I did not have so much fun with my computer this afternoon. It's not been uh it's not been cooperating so well, but I don't think that's the
+[00:19:37] Speaker C: Mm.
+[00:19:59] Speaker D: that's avoidable.
+[00:20:00] Speaker C: Coulda been worse.
+[00:20:02] Speaker A: Okay so
+[00:20:04] Speaker A: Are the costs within the budget?
+[00:20:05] Speaker C: Mm n no.
+[00:20:06] Speaker D: No.
+[00:20:06] Speaker A: Nope. Oh hang on it really that's something we that the costs were under twelve fifty Euros. No requirements are changed. We're still under twenty Euros to build, so we're good.
+[00:20:16] Speaker A: And the costs within the budget? Not the original budget, but they are now. Is the project evaluated? Mm I think so yeah, then celebration as it says.
+[00:20:26] Speaker C: Hooray. Free coke provided at the cafeteria.
+[00:20:27] Speaker D: Okay.
+[00:20:30] Speaker B: All right.
+[00:20:30] Speaker A: Oh I don't know how that got there. Uh anyway.
+[00:20:33] Speaker C: Who wrote that one?
+[00:20:34] Speaker A: Thank
+[00:20:37] Speaker D: So we need to close this meeting, yeah bravo. Congratulations.
+[00:20:37] Speaker A: Thanks guys.
+[00:20:40] Speaker B: Good job guys.
+[00:20:40] Speaker C: Cool.
+[00:20:41] Speaker D: S I've got a lot of paperwork to catch up on so let's close this and come back and 'kay.
+[00:20:45] Speaker A: Yeah, I've got a lot of paperwork to catch up on too.
+[00:20:49] Speaker A: Oh.

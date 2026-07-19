@@ -1,0 +1,184 @@
+[00:00:14] Speaker B: How do you wear this thing?
+[00:00:20] Speaker A: Hmm. Mm mm mm.
+[00:00:31] Speaker B: Not too many cables and stuff.
+[00:01:02] Speaker B: Original.
+[00:01:18] Speaker A: Is recorded? Okay? Okay so welcome everyone. So we are here for the kickoff meeting of uh the process of designing a new remote control.
+[00:01:33] Speaker A: So I will first start with a warm welcome opening stuff, then uh we will uh see what will be uh our product and what will be the different step we will have to design it.
+[00:01:51] Speaker A: And uh then we will uh discuss if we have few ideas and we will uh end uh by uh dispatching the different task you will be you will have to fulfil to complete this process.
+[00:02:06] Speaker A: So
+[00:02:07] Speaker B: Uh. Just one thing. Uh, you said twenty-five minutes, but I have something else to do uh, so gotta have another meeting uh soon, so maybe you could hurry up a bit
+[00:02:17] Speaker A: sorry?
+[00:02:18] Speaker B: It's true. I have another meeting so if you could uh
+[00:02:22] Speaker A: You have another meeting soon?
+[00:02:23] Speaker B: Yeah.
+[00:02:24] Speaker A: So you have to be quick.
+[00:02:25] Speaker B: Yeah, for the lawnmower project.
+[00:02:28] Speaker A: Okay. So the the goal is to have a remote control so to have an advantage over our competitors we have to be original, we have to be trendy and we have to also try to be user-friendly.
+[00:02:28] Speaker B: Okay.
+[00:02:46] Speaker A: So uh the design step will be divided in three uh main points. First it will be the functional design.
+[00:02:55] Speaker A: Third is the conceptual design and then is the desired design. So the functional design is to identify the main user needs, the technical function the remote control should fulfil.
+[00:03:09] Speaker A: And then we will move to f conceptual design where we'll specify the different component involved, what kind of user interf interface we want and what are the different uh trend in user interface and stuff like that.
+[00:03:25] Speaker A: And then the desired devi design will consist in uh specifically implementing and detailing the choice we've uh made in the second point.
+[00:03:40] Speaker A: So I will now ask you which is very important for the design of a new remote control for to uh each of us to to draw uh your favourite animal on the white board.
+[00:03:54] Speaker B: What an original idea.
+[00:03:58] Speaker A: Do you have any idea of which animal you want to show us?
+[00:04:02] Speaker B: Orangutan.
+[00:04:04] Speaker A: Okay that's good. n n
+[00:04:08] Speaker C: No no n
+[00:04:09] Speaker B: Can I give you the no? But I don't have to say anything.
+[00:04:11] Speaker A: You should
+[00:04:15] Speaker B: When I'm drawing the orangutan.
+[00:04:18] Speaker A: If you want to react uh about this wonderful drawing uh I'll let you uh comment.
+[00:04:29] Speaker B: It's an abstract drawing of an orangutan.
+[00:04:32] Speaker A: Okay it's an abstract drawing.
+[00:04:33] Speaker B: Yes.
+[00:04:37] Speaker A: I think it's nice and original.
+[00:04:39] Speaker C: You should write y the name I think.
+[00:04:42] Speaker B: I don't have a red colour. Usually orangutans have red hair so this is a very important but I don't have red pen, so
+[00:04:48] Speaker A: Okay.
+[00:04:48] Speaker B: Yes.
+[00:04:49] Speaker A: You want to draw something Christine?
+[00:04:59] Speaker D: Okay uh sorry. You have to imagine a little bit um.
+[00:05:12] Speaker D: This
+[00:05:18] Speaker A: Of course your animal is recorded so it's not lost.
+[00:05:20] Speaker D: Sorry too uh.
+[00:05:22] Speaker B: Yes. I know.
+[00:05:43] Speaker B: Wha what is this strange beast?
+[00:05:43] Speaker A: Is this uh
+[00:05:44] Speaker D: Is it beautiful?
+[00:05:48] Speaker B: Is it a monster?
+[00:05:50] Speaker D: Do you know? It's a cat. Isn't it?
+[00:05:52] Speaker B: It's a cat?
+[00:05:54] Speaker B: I thought these things did not exist.
+[00:05:55] Speaker D: Yes yes is it like that. Is it better? Okay. It's my cat. Yeah. The name is Caramel.
+[00:05:56] Speaker C: Me Ah yeah. Yeah.
+[00:05:59] Speaker B: Ah yeah
+[00:06:00] Speaker A: Ah okay it's pretty.
+[00:06:03] Speaker A: Okay it's your cat.
+[00:06:05] Speaker B: Does have a name?
+[00:06:09] Speaker B: Caramel. Ah-ha.
+[00:06:09] Speaker C: Caramel. And you I think I'm too short for the cables.
+[00:06:09] Speaker D: Yeah.
+[00:06:10] Speaker A: Okay. Olivier, do you want to
+[00:06:15] Speaker A: Okay I go, but next time you'll do something I'm sure.
+[00:06:23] Speaker B: Next time I concentrate.
+[00:06:23] Speaker A: I'm a bit short on cable. Okay. So what could I draw? Maybe I can draw like
+[00:06:39] Speaker A: a very simplified cow. I don't know if it looks like a cow
+[00:06:46] Speaker B: He looks like a bong.
+[00:06:47] Speaker A: Like a what?
+[00:06:49] Speaker B: Okay. Sorry. No.
+[00:06:52] Speaker C: Quite squarey.
+[00:06:54] Speaker B: Scary?
+[00:06:55] Speaker A: I dunno it it looks more like a donkey in fact I would say. Okay so I hope that it helps you uh in the process of designing a remote control.
+[00:06:55] Speaker C: He also.
+[00:07:02] Speaker B: I I think we will be finished this uh
+[00:07:02] Speaker C: Mm.
+[00:07:07] Speaker B: Is it for uh for putting a for logos, no.
+[00:07:11] Speaker A: Okay.
+[00:07:12] Speaker B: That's
+[00:07:15] Speaker A: Let's move on. So
+[00:07:18] Speaker A: Here the uh financial objective of our project. That is to say to to have a production cost lower than twelve point five Euros and have a selling price of twice that price t in order to target a profe profit of uh fifty uh million Euros.
+[00:07:40] Speaker B: I is there a matter for a new remote control?
+[00:07:43] Speaker A: Yeah if it's trendy, original I d fulfil the user needs.
+[00:07:50] Speaker B: Is it uh a single device remote control or is it a multi-device remote control?
+[00:07:54] Speaker A: We have to discuss that point. On yeah you you can suggest points like this. So what what so we have to decide for example if it can control one device or multiple.
+[00:07:56] Speaker B: Ah this is not defined at all?
+[00:08:00] Speaker B: Ah, okay.
+[00:08:11] Speaker A: So what's what are your ideas about that? Maybe I can have the your opinion from the marketing side?
+[00:08:16] Speaker B: Well uh do we sell other stuff?
+[00:08:18] Speaker B: Uh if if we bundle the remote control with something uh to sell then it could be a single device, otherwise it could be programmable one otherwise who would buy a remote control from us.
+[00:08:29] Speaker A: Okay, so if it selled uh by its own i it it would rather be for multiple device.
+[00:08:35] Speaker B: Yeah.
+[00:08:36] Speaker A: Do you agree?
+[00:08:38] Speaker C: Mm-hmm.
+[00:08:38] Speaker A: Yeah. So maybe it should be for multiple devices.
+[00:08:46] Speaker A: And uh do you have any ideas um of uh design ideas or any uh uh technical requirement we we should uh fulfil?
+[00:09:00] Speaker C: I think we shouldn't have too many b for my part. I think
+[00:09:02] Speaker B: No, I couldn I cannot fi think of any requirements right now.
+[00:09:07] Speaker C: If we don't have so many buttons could be nice.
+[00:09:09] Speaker A: Few buttons. Okay. And do you have it also to be to be lighted in order to be used in the dark? Might be a good idea.
+[00:09:20] Speaker C: Yeah.
+[00:09:25] Speaker A: Okay. And do you have any um any uh idea of the trend the trend in domain, what it shouldn't it should look like, or things like that?
+[00:09:37] Speaker C: Something which is not squarey maybe uh, not a box.
+[00:09:37] Speaker B: Mm.
+[00:09:42] Speaker A: With rou okay. Like for okay.
+[00:09:45] Speaker B: Something like that, least fits in your hand.
+[00:09:47] Speaker C: Yeah.
+[00:09:47] Speaker B: Yeah. The basic requirement.
+[00:09:47] Speaker A: Okay.
+[00:09:50] Speaker A: So. Fit in your hand, yeah.
+[00:09:55] Speaker B: Only a buck.
+[00:09:57] Speaker A: And also it have, i it may be it may be important for the remote control to be uh
+[00:10:04] Speaker A: To, to resist to various shocks that can happen if it fall. Water-proof as well. Maybe it is original because you can uh use it in your uh in your bath whereas the others can't.
+[00:10:07] Speaker C: Mm-hmm.
+[00:10:08] Speaker B: Waterproof.
+[00:10:12] Speaker C: And I think we should have a device
+[00:10:21] Speaker A: Maybe water-proof would be very original.
+[00:10:23] Speaker C: Sorry.
+[00:10:24] Speaker A: Havin having a water-proof remote control so that the people can uh use it in their bath.
+[00:10:30] Speaker B: Mm.
+[00:10:31] Speaker B: B it seems uh so, but uh if you don't have an waterproof remote control it means you can just cover it with some plastic and you can sort of f
+[00:10:31] Speaker A: That could be uh
+[00:10:38] Speaker A: Yeah but, it is still something uh you have to buy and that is um not maybe very
+[00:10:44] Speaker B: And, and that's one of the that's one of the shock I mean there are people that have a remote control and they are worried that it's going to break and they put some extra plastic around it. That's people they actually do it themselves.
+[00:10:52] Speaker A: Yeah, mayb
+[00:10:54] Speaker A: B
+[00:10:55] Speaker A: But maybe we can bulk it with uh already this plastic thing and uh the waterproof uh stuff as well.
+[00:10:59] Speaker C: Yeah.
+[00:11:01] Speaker C: directly.
+[00:11:02] Speaker B: I it will look a bulky in that case.
+[00:11:04] Speaker A: Yeah. Maybe we can sell uh all that together, so so plastic protection
+[00:11:05] Speaker C: Yeah.
+[00:11:12] Speaker A: and uh and a waterproof box as well.
+[00:11:17] Speaker A: That might be good uh track to follow.
+[00:11:20] Speaker B: Like as an optional thing.
+[00:11:22] Speaker A: Optional or selled with it?
+[00:11:22] Speaker C: And I I think we should have something, most of the time I I lose my remote control. We should have s uh special bu button on the T_V_ to make the remote control beeping.
+[00:11:29] Speaker A: Yeah.
+[00:11:32] Speaker A: Maybe we can have uh
+[00:11:35] Speaker A: But we don't design the T_V_. Maybe we can have uh something you whistle and uh the remote control uh beep.
+[00:11:36] Speaker C: Ah yeah.
+[00:11:42] Speaker C: Yeah.
+[00:11:43] Speaker B: Barks.
+[00:11:44] Speaker C: Barks.
+[00:11:44] Speaker A: Yeah, barks, yeah. So we can uh have a whistle uh remote control?
+[00:11:50] Speaker C: Yeah.
+[00:11:52] Speaker C: Yeah whistle.
+[00:11:54] Speaker A: I don't know, whistle-able?
+[00:11:58] Speaker C: Whistle tracking.
+[00:11:58] Speaker A: Th
+[00:11:59] Speaker A: Whistle tracking yeah. Whistle tracking remote control. That's a good idea, that's very original and that's can uh improve.
+[00:12:05] Speaker B: That's that's quite cool, but uh of course we you don't normally need uh any audio uh recording stuff on your remote control right?
+[00:12:15] Speaker A: Yeah d d uh.
+[00:12:16] Speaker B: So i it's just going to add t to the cost.
+[00:12:19] Speaker A: Yeah but s still we have to mm we have to have an advantage over our competitors. I think this is a good advantage.
+[00:12:27] Speaker B: It's cool. I think I like the idea, but I'm not sure about the what you, who is giving who's giving who's giving our budget. Who's
+[00:12:31] Speaker A: Yeah. We have to ask
+[00:12:33] Speaker A: Yeah. We have to ask the quest of that's uh design to the uh Industrial um Designer.
+[00:12:35] Speaker B: Yeah. Yeah.
+[00:12:40] Speaker C: Yeah. yeah
+[00:12:40] Speaker A: Which is you. Okay so try to find that for next meeting.
+[00:12:41] Speaker B: 'Kay.
+[00:12:47] Speaker C: Okay.
+[00:12:49] Speaker A: Okay. So next meeting is in thirty minutes or so uh. Don't pani. So so I will ask the Industrial Designer to find out more about this industrial design so any working any working function we have discussed.
+[00:12:53] Speaker C: Don't panic.
+[00:13:02] Speaker C: Mm-hmm.
+[00:13:08] Speaker A: So then I will ask the User Interf Interface Designer to to think about the point we discussed like the number of buttons, the the fact that is lighted or not, things like that, and what would be convenient for the user.
+[00:13:22] Speaker B: Mm-hmm.
+[00:13:24] Speaker A: And also um I will ask the Market Expert to uh try to find out what are the absolute requirements, what is absolutely needed in a remote control uh for the user.
+[00:13:41] Speaker A: So. And then uh I will uh just ask you to think about that and uh look at your mail because you will receive uh some good advice soon.
+[00:13:52] Speaker B: Mm.
+[00:13:54] Speaker A: So.
+[00:13:56] Speaker A: Thank you I think that's all for this point.
+[00:13:58] Speaker B: Good.
+[00:13:58] Speaker C: Mm-hmm.
+[00:14:01] Speaker D: Thank you
+[00:14:08] Speaker B: Uh, so we come back in five minutes?
+[00:14:12] Speaker B: Half an hour.
+[00:14:17] Speaker A: Anyway you will receive some messages.
+[00:14:28] Speaker A: Be careful.
+[00:14:32] Speaker A: You eat it?
+[00:14:37] Speaker A: Does it move uh?
+[00:14:41] Speaker A: Okay, but I don't know if it uh is still correctly uh
+[00:14:50] Speaker A: We'll see.
+[00:14:58] Speaker C: Ah.

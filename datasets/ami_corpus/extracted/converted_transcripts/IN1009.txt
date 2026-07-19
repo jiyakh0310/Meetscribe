@@ -1,0 +1,274 @@
+[00:00:32] Speaker B: Okay.
+[00:00:35] Speaker C: Okay.
+[00:00:35] Speaker D: So b maybe I'll go back to your questions. Um
+[00:00:37] Speaker C: Yes.
+[00:00:38] Speaker B: Mm-hmm.
+[00:00:40] Speaker C: So you were talking about the two first question? Okay. And a little bit about same people moving, with the clustering.
+[00:00:42] Speaker D: Yeah.
+[00:00:44] Speaker D: Um
+[00:00:47] Speaker D: Yeah.
+[00:00:50] Speaker D: And this also um allows you to separate people.
+[00:00:55] Speaker C: Uh-huh.
+[00:00:57] Speaker D: Um and the questions I did not talk about was uh going from location to uh identity of the person. Um
+[00:01:09] Speaker D: That is quite different, you you need to use a signal you have separated and uh do the type of analysis I mentioned. Um from the spectrum you can transform the the magnitude spectrum and um um build model of the person.
+[00:01:33] Speaker A: Mm-hmm.
+[00:01:33] Speaker D: Um
+[00:01:33] Speaker B: Or actually look at the pitch, no? Don't ask me how it's done I I know the theory, so, yeah.
+[00:01:34] Speaker C: So this one.
+[00:01:36] Speaker D: Yeah, pitch at least. But pitch is
+[00:01:40] Speaker D: Pitch isn't is not enough sometimes.
+[00:01:43] Speaker A: Actually uh you can t perhaps just uh just
+[00:01:45] Speaker B: Isn't it the pitch and the frequency? The base frequency of the
+[00:01:49] Speaker D: I it's a frequency, yeah, yeah. It's a frequency of your vibration here. Uh
+[00:01:55] Speaker A: Th there is one frequency that is the base from for uh
+[00:01:58] Speaker D: Yeah. And then it's transformed through the mouth, that's the usual model.
+[00:02:02] Speaker B: And if you have both you can um well, you can compare this to to one stored and so get out uh which person it is. Pardon?
+[00:02:03] Speaker A: Okay.
+[00:02:08] Speaker A: Both. Mm the pitch and uh and the freque
+[00:02:11] Speaker C: What?
+[00:02:13] Speaker B: And uh well, the things that make the sou the voice.
+[00:02:16] Speaker A: Okay, s and you can measure measure that? Or
+[00:02:16] Speaker D: Yeah.
+[00:02:19] Speaker D: I yeah, um it's not necessarily done explicitly, but it's equivalent to that, yeah. So again, F_F_T_ is useful to do this type of analysis. Um
+[00:02:19] Speaker B: Yeah.
+[00:02:31] Speaker C: I'm sorry, I didn't really get the point of comparing the pitch the pitch is the is the frequency that is okay. And the way you transform it uh v by the mouth? You were comparing what with what?
+[00:02:37] Speaker D: Yeah, but it's quite personal. Uh
+[00:02:43] Speaker D: Yeah.
+[00:02:45] Speaker B: And and the the holes in your head, everything, the the nose and so on, and that's that's really uh unique for ev well almost unique for every person, so.
+[00:02:49] Speaker C: Uh-huh, okay, okay.
+[00:02:50] Speaker D: Yeah.
+[00:02:52] Speaker C: So uh
+[00:02:55] Speaker C: And you were talking about comparing what with what?
+[00:02:58] Speaker B: Well once you get this information, your frequency and uh your vocal contract or how it's called, uh y you can use this information to compare to to to the frames here.
+[00:03:03] Speaker D: Yeah, yeah.
+[00:03:05] Speaker C: Okay.
+[00:03:09] Speaker C: But you want to have the information because the the mouth, you move it.
+[00:03:14] Speaker D: It it's an information equivalent to that. It's maybe n you don't need to do the whole uh complicated modelling, but
+[00:03:14] Speaker B: No, but
+[00:03:24] Speaker C: To scan t all the user.
+[00:03:26] Speaker B: No no no no. That that that everything is done through through the voice here, you take a voice of someone, and then you can get out this information, it's it's not p it's clear it's not perfect, but s it's enough to to to use it for for different purposes and uh
+[00:03:26] Speaker D: No, no.
+[00:03:31] Speaker C: Okay.
+[00:03:39] Speaker C: Okay, so you have the p the pitch and you have information about the voice dynamic or
+[00:03:46] Speaker D: Yeah, rate of speech is also possibility. Um how fast you speak, that's quite personal also. But it varies over time, um depending on emotion. That also might be interesting for you, detecting emotion.
+[00:03:49] Speaker A: Okay.
+[00:04:00] Speaker C: Mm mm mm.
+[00:04:05] Speaker C: Emotion, the involvement in a discussion. If you are saying oh yeah yeah we should
+[00:04:07] Speaker D: Yeah, yeah.
+[00:04:09] Speaker D: And us yeah, yeah, so these measures are a way to quantify that.
+[00:04:16] Speaker C: Okay.
+[00:04:16] Speaker A: And i is it uh expensive to do,
+[00:04:20] Speaker C: In C_P_U_ you mean?
+[00:04:20] Speaker B: Um not not that, well uh as far as I know. Actual
+[00:04:20] Speaker D: Uh p no. No, no it's not.
+[00:04:24] Speaker A: But in fact if y you speak of uh a lot of things that are not expensive, at the end you have uh something that is.
+[00:04:26] Speaker D: What w w what is m what is more expensive is to um take the decision finally. So your decision can be for example uh who is it, or if the person moved, which is probably the most complicated thing, like the person goes away, then comes back ten minutes later, sits at a different place. Uh you will need to build statistical models of um the person identity using these measures. So the ones um he mentioned um
+[00:05:05] Speaker D: I don't know if you're familiar with that.
+[00:05:07] Speaker B: Is it called P_C_M_? I thi um well it's it's not a technology s yeah. It's more or less used this to compress audio. I have to I want to check it, I can show it you afterwards.
+[00:05:12] Speaker D: Yeah.
+[00:05:15] Speaker D: Yeah.
+[00:05:19] Speaker D: So um
+[00:05:20] Speaker C: Not really familiar.
+[00:05:22] Speaker B: well I did a course about it, but uh I shouldn't say it too loud, because um the professor is working here at IDIAP. I should reread what I signed there so.
+[00:05:23] Speaker D: No.
+[00:05:24] Speaker C: Hmm. Okay, so you are the expert.
+[00:05:25] Speaker A: Hmm.
+[00:05:32] Speaker D: Yeah.
+[00:05:36] Speaker C: Careful, you are recorded.
+[00:05:39] Speaker C: Okay.
+[00:05:41] Speaker D: S
+[00:05:42] Speaker C: Okay, so all this stuff is done from the F_F_T_.
+[00:05:46] Speaker D: Yeah.
+[00:05:47] Speaker A: So you have to do F_F_T_, because otherwise
+[00:05:50] Speaker C: Also location to identity. Uh
+[00:05:54] Speaker D: All I was saying is that these different measures are a way to uh evaluate the identity of the person. So if with location all you can do is extract segments of speech, for example, but it will not tell you that these are the same person. It's just a location.
+[00:05:57] Speaker C: Mm-hmm.
+[00:06:01] Speaker C: Okay.
+[00:06:02] Speaker A: Mm-hmm.
+[00:06:09] Speaker C: Mm-hmm.
+[00:06:14] Speaker C: But to get a cluster the location that is uh a place where uh noise is regularly coming from.
+[00:06:17] Speaker D: Yeah.
+[00:06:19] Speaker D: Yeah.
+[00:06:21] Speaker D: Yeah, so that might be good for example for ten minutes, but then the person might move, or a different person might come.
+[00:06:25] Speaker C: Mm-hmm.
+[00:06:27] Speaker C: Mm mm mm.
+[00:06:30] Speaker C: But for instance for a setting like uh here it would be enough, because we are not moving.
+[00:06:33] Speaker D: Yeah.
+[00:06:35] Speaker D: It is. Well, unless sometimes somebody goes there or yeah.
+[00:06:39] Speaker C: Okay, right. But we are uh targeting a place where we don't know i where it will be more flexible, so we need more than just uh location if we want to uh
+[00:06:40] Speaker A: Yes.
+[00:06:47] Speaker D: Yeah.
+[00:06:54] Speaker A: Yes, but it
+[00:06:54] Speaker B: Well uh it I'm even not sure if it's that important to know which person is talking, because uh if uh if it I think about a table, or so something uh physical, uh you just want to know in in which corner of the table uh speech is coming and not uh which person produced the speech, so.
+[00:06:55] Speaker D: Mm-hmm.
+[00:07:04] Speaker C: Mm-mm.
+[00:07:06] Speaker D: Yeah.
+[00:07:10] Speaker C: I agree. Maybe just
+[00:07:10] Speaker A: I it it is im
+[00:07:13] Speaker D: Yeah.
+[00:07:14] Speaker A: It i it yes, it is important for detecting patterns. Because uh if you say uh let's say uh w how much the person um have spoken over the the five last minutes, uh
+[00:07:20] Speaker D: Yeah.
+[00:07:29] Speaker B: Yeah, but it's not really related to the ah, yeah, I see it's uh you need a bit both uh
+[00:07:32] Speaker D: So it hmm.
+[00:07:34] Speaker A: Uh if someone come and yes.
+[00:07:36] Speaker D: But that you can do with location, if it's only on the short term.
+[00:07:41] Speaker A: Yes, yes. Y
+[00:07:42] Speaker C: I think it may it may be okay, but it depends how long
+[00:07:46] Speaker D: On on the off-line yeah. I would say you might use these measures in a simple way if you do it uh on-line. Like um to give feedback. But uh you you mentioned that another side of your project is also to analyse off-line. So there you might want to use a
+[00:08:03] Speaker C: Hmm.
+[00:08:06] Speaker A: This is uh mm.
+[00:08:08] Speaker D: We had a student here, he finished uh one or two years ago, but he left his software, and his software is precisely to do that to um cluster at uh another level, to cluster these small clusters of speech, uh group them by person automatically. Y no, from the these measures, pitch, etcetera.
+[00:08:30] Speaker C: From th from the location.
+[00:08:34] Speaker C: Oh.
+[00:08:37] Speaker A: Okay. So i uh this is only based on uh you give uh the spectrum and uh uh okay.
+[00:08:37] Speaker D: So um
+[00:08:38] Speaker B: Sound.
+[00:08:45] Speaker D: Yeah, exactly. So I would say from location at the lower level you can get small parts of speech, and then at the next level, possibly off-line, you can uh group them into um a speech segment. I'm hoping to have enough time to try um doing that before I finish my thesis. Um so if I manage to do some um uh practically usable software, I'll tell you.
+[00:08:53] Speaker A: Mm-hmm.
+[00:09:11] Speaker A: Yes.
+[00:09:20] Speaker C: Mm-hmm. When are you planning to finish your
+[00:09:22] Speaker D: Uh in five, six months, abou approximately.
+[00:09:23] Speaker C: Okay.
+[00:09:26] Speaker A: But uh the last ones are always the
+[00:09:30] Speaker C: More extensible.
+[00:09:32] Speaker A: Mm not really.
+[00:09:35] Speaker D: More busy I would say.
+[00:09:36] Speaker C: Mm.
+[00:09:36] Speaker A: Mm yes.
+[00:09:39] Speaker D: Yeah.
+[00:09:41] Speaker D: So you said you want to do separation, um but ex exactly, yeah.
+[00:09:47] Speaker C: I don't know how mu maybe we would be more interested to know that it's not the same people, more than knowing that it's the same people. Or to detect that someone is more that was not talking before is talking now.
+[00:09:53] Speaker D: Yeah.
+[00:09:55] Speaker D: Okay.
+[00:10:00] Speaker D: Okay.
+[00:10:01] Speaker A: Hmm uh I I said uh we want t to know to um to do separation just because of the voice recognition. I mm this is not the yes. Yes, no, but but in fact we have uh yes, we are designing uh a noise sensitive table just f from your ring, but we are also designing uh a prototype um to analyse the conversations. So uh we might add there a lot of uh features.
+[00:10:11] Speaker D: Ah, you want to do voice recognition.
+[00:10:15] Speaker D: You might want. Okay.
+[00:10:16] Speaker B: You might might want to do.
+[00:10:16] Speaker C: Yes.
+[00:10:33] Speaker D: Okay.
+[00:10:36] Speaker D: Yeah.
+[00:10:39] Speaker D: So yeah, once you have locations it's not a big problem. Um
+[00:10:44] Speaker A: Okay. And uh I don't know, perhaps uh perhaps if you have two people speaking uh speaking uh at the same time, uh I don't know if uh voice recognition of an uh such a stream is uh real. Okay.
+[00:10:55] Speaker D: Mm-hmm.
+[00:11:01] Speaker D: No no, you should separate them first, yeah, yeah.
+[00:11:05] Speaker D: So
+[00:11:06] Speaker A: Yes, so that's fine.
+[00:11:09] Speaker D: So the type of things I presented can lead to separation.
+[00:11:12] Speaker A: Mm-hmm.
+[00:11:15] Speaker A: Sure.
+[00:11:16] Speaker D: Um it's only a very small step to add.
+[00:11:22] Speaker A: Yes, it's not um every important feature for now, but
+[00:11:26] Speaker D: Yeah, yeah.
+[00:11:28] Speaker D: Although it might be, if you want to um ex extract these features like pitch and uh rate of speech, or energy simply, from each person. Um you might have to do some ba basic separation. 'Cause quite often people uh don't realise that they talk at the same time, um interrupt each other. So even if you don't want to recognise a speech fully, at least um you need yeah.
+[00:11:39] Speaker C: Mm.
+[00:11:43] Speaker A: Mm-hmm.
+[00:11:51] Speaker C: Mm.
+[00:11:52] Speaker A: Yes.
+[00:11:57] Speaker B: You need to separate it.
+[00:12:01] Speaker A: And uh uh another what uh. Um I don't remember.
+[00:12:11] Speaker D: It's okay. You can email later. Yeah. Um
+[00:12:19] Speaker D: So
+[00:12:19] Speaker C: Okay.
+[00:12:20] Speaker A: Yes, also uh to to extract the context.
+[00:12:23] Speaker D: Yeah.
+[00:12:24] Speaker A: Mm because if you know the words that are spoken, you can let's say uh someone say uh he's angry uh about the word he's seen. Yes.
+[00:12:30] Speaker D: Uh
+[00:12:33] Speaker D: Okay. A semantic context, yeah. Yeah. Yeah, then mm.
+[00:12:41] Speaker A: You mi you might want to add uh this kind of this is not in uh my project, but
+[00:12:41] Speaker C: That are further directions.
+[00:12:47] Speaker B: No, but I think once you have the voice for a person, you can start to do this and uh once uh people have speech recognition or uh far enough to t
+[00:12:51] Speaker A: Yes. Um
+[00:12:51] Speaker D: Hmm.
+[00:12:57] Speaker C: Professor was interested to know when people were talking about him. Ah, someone is talking about me, let's listen.
+[00:13:02] Speaker B: Mm uh.
+[00:13:04] Speaker D: So it's uh
+[00:13:08] Speaker D: Yeah, you could detect one word, yeah. Keyword spotting, yeah.
+[00:13:11] Speaker A: Yes.
+[00:13:14] Speaker A: And have a special events trigger if
+[00:13:18] Speaker C: And lighting a on his office.
+[00:13:22] Speaker D: So um
+[00:13:23] Speaker C: Okay, so are you done w with what you wanted to presented us uh in regards with these questions?
+[00:13:29] Speaker D: Yeah. Yeah, I I'll just say uh if you want I can point to um three papers, um but no, I think it's better if I just send you the link, it's probably simpler.
+[00:13:30] Speaker B: I think so.
+[00:13:39] Speaker A: Sure.
+[00:13:44] Speaker B: The link. Mm.
+[00:13:45] Speaker A: Sure.
+[00:13:45] Speaker C: Mm mm. three papers about?
+[00:13:49] Speaker D: Uh one im is about this um sector based stuff, like uh the localisation and detection.
+[00:13:54] Speaker C: Mm-hmm.
+[00:13:58] Speaker C: Okay.
+[00:13:58] Speaker D: One is about how to take the decision, that somebody's active or not. Um it sounds simple at first, you think you just put the threshold and that's it, but um the problem is uh the
+[00:14:12] Speaker C: It's n no problem. No more time for problems. Okay.
+[00:14:12] Speaker A: No, it's it doesn't sound simple, but yes, you can yes.
+[00:14:15] Speaker D: It no, you can do that. There's no problem, but i if you want your your system to work in different conditions, like cafeteria, library, um the environment will be quite different, so a single fixed threshold value might be a problem. S
+[00:14:23] Speaker C: Uh uh.
+[00:14:28] Speaker A: Sure.
+[00:14:33] Speaker A: Yes, in fact uh for now we are using uh a kind of calibration, but uh it's still um
+[00:14:38] Speaker D: Yeah.
+[00:14:41] Speaker D: So you can do that automatically, this kind of things. Um I don't know if you're doing that already, but uh
+[00:14:46] Speaker A: Yes.
+[00:14:46] Speaker B: Okay.
+[00:14:50] Speaker A: Yes, um uh but in fact you have to sit in front of the microphone, and it's uh yeah, people one speak and people two and people three and you are just uh subtracting the the level that you you kept in the other microphones.
+[00:14:58] Speaker D: Okay.
+[00:15:04] Speaker D: So uh I have another paper which might be interesting for that for a single channel uh calibration. And I've code on-line, so for this particular one.
+[00:15:10] Speaker A: Okay.
+[00:15:15] Speaker A: Okay.
+[00:15:20] Speaker D: And the last one I would say is um the clustering um to um yeah, the clustering of the different locations over time, so that you can get small clusters of speech. Um there are other ways to do it, but uh I think it's it's important because um in spontaneous speech all these words are quite small. So you need to do that uh adequately, yeah. But otherwise yeah, I'm done.
+[00:15:36] Speaker A: Mm-hmm.
+[00:15:50] Speaker A: Mm-hmm.
+[00:15:54] Speaker C: Mm mm mm.
+[00:15:59] Speaker A: Okay, just uh a last question, um when you mentioned it. Um if I'm speaking very uh, how do you say it, um yes, I'm just speaking one word every uh every one second. Yes a. Uh is the the event that is detected is um will be uh a sum of uh small parts? There won't be uh okay. So you yes, you have to to reprocess to uh to say let's say yes. There is a very small um interval. You have to consider it uh.
+[00:16:18] Speaker D: Hmm.
+[00:16:20] Speaker C: Slowly.
+[00:16:29] Speaker D: Yeah, yeah. Many small events basically, yeah.
+[00:16:46] Speaker D: Yeah, basically uh I mean it depends uh
+[00:16:50] Speaker A: Because this is yes, this is one this can be considered as one interv intervention.
+[00:16:57] Speaker D: Yeah, even if somebody says just yes.
+[00:17:00] Speaker D: I don't know if it's important for you or not. It might be.
+[00:17:04] Speaker A: It might be.
+[00:17:06] Speaker C: Might.
+[00:17:07] Speaker A: This is not a very uh easy problem.
+[00:17:10] Speaker C: For the first application we will do with uh prototypes, it will be more about quantity uh of speech or how long, how much someone speak, but when we will go to final uh details, if I'm talking and someone say yes yes yes from time to time, it show that he's participating, and obviously it makes different that if someone is talking and one is replying never uh nor moving or nor having eyes open
+[00:17:16] Speaker D: Yeah.
+[00:17:19] Speaker D: Yeah.
+[00:17:22] Speaker D: Hmm.
+[00:17:29] Speaker D: Yeah.
+[00:17:34] Speaker D: Y Yeah.
+[00:17:40] Speaker D: Yes. Um
+[00:17:48] Speaker D: So I I'll send you links some of the papers are long, but you can just um briefly look, yeah.
+[00:17:48] Speaker C: Okay.
+[00:17:54] Speaker C: Go through them.
+[00:17:58] Speaker C: Okay.
+[00:17:59] Speaker D: Um we can go and see Olivier, unless you want to talk about something else.
+[00:18:05] Speaker C: No, I think uh I think we has already have plenty to read.
+[00:18:05] Speaker B: No, I think does this work, email?
+[00:18:06] Speaker A: I'm done.
+[00:18:09] Speaker D: Huh?
+[00:18:10] Speaker B: Does it work if I put in my email and uh
+[00:18:14] Speaker D: Well, we can try. But uh
+[00:18:16] Speaker C: Try.
+[00:18:18] Speaker B: No, if it's not uh I guess you would have to install it and so on.
+[00:18:21] Speaker D: We have yeah, we have O_C_R_, but maybe not on this computer. Yeah.
+[00:18:28] Speaker B: Uh no no no, you see uh I thought you can put in here your email address and and just uh do this and then it mails me. Yeah, you see I want too much.
+[00:18:36] Speaker D: That is good idea, yeah. It's a good idea.
+[00:18:43] Speaker C: And the application you are using, all of them uh y every time you are using Matlab, or you are programming everything is based based on Matlab?
+[00:18:49] Speaker D: Yeah, yeah.
+[00:18:53] Speaker D: Yeah. Once I I um coded the most expensive part in C_ just to see so you can have a mix of both. From Matlab you call C_ and back.
+[00:19:04] Speaker C: Mm.
+[00:19:05] Speaker A: Sure, yes. And you can code Java.
+[00:19:05] Speaker B: And after all Matlab is also programming, so it
+[00:19:10] Speaker D: But the day you want to do uh on-line real time stuff nah, I wouldn't wouldn't trust it.
+[00:19:14] Speaker A: You can choose Matlab.
+[00:19:18] Speaker C: Mm mm mm.
+[00:19:21] Speaker B: Mm-hmm.
+[00:19:22] Speaker A: Yes, sure. You have to code it uh directly to the machine.
+[00:19:23] Speaker C: Okay.
+[00:19:24] Speaker B: So.
+[00:19:26] Speaker B: Thank you for the information.
+[00:19:33] Speaker A: Hmm.
+[00:19:36] Speaker A: My sheet is very uh filled up.
+[00:19:45] Speaker A: I will take yours.
+[00:19:47] Speaker C: I'm writing so only me can read.
+[00:19:53] Speaker C: It's uh a kind of secret language.
+[00:20:00] Speaker C: Okay.

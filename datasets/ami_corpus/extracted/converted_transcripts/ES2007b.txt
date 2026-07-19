@@ -1,0 +1,330 @@
+[00:00:00] Speaker A: Think we can first
+[00:00:09] Speaker B: Mm.
+[00:00:09] Speaker C: Right it was function F_ eight or something.
+[00:00:13] Speaker C: This one right there.
+[00:00:14] Speaker B: Tha
+[00:00:17] Speaker B: Okay. Who is gonna do a PowerPoint presentation?
+[00:00:17] Speaker C: Okay.
+[00:00:20] Speaker C: Think we all
+[00:00:22] Speaker C: Huh.
+[00:00:22] Speaker B: You will as well?
+[00:00:24] Speaker C: Oh I thought we all were. Yeah, I have one too, okay.
+[00:00:25] Speaker B: Okay.
+[00:00:27] Speaker A: .
+[00:00:33] Speaker C: S
+[00:00:45] Speaker B: Yep.
+[00:00:48] Speaker D: .
+[00:00:48] Speaker C: Whoops I forgot to put the thing on
+[00:01:03] Speaker A: Right. I just wanna 'cause basically I can't re I've really crap at remembering everyone's name so I just wanna rather than going uh Miss Marketing and Miss this and Miss that wanted to know your names again. just gonna leave this up here 'cause I'll you know. So
+[00:01:12] Speaker C: Okay.
+[00:01:14] Speaker B: Okay I'm
+[00:01:16] Speaker C: Yeah. Sure, that's a good idea.
+[00:01:17] Speaker B: Okay.
+[00:01:20] Speaker B: I'm Catherine with a C_. C_A_T_H_
+[00:01:26] Speaker B: E_R_
+[00:01:27] Speaker B: I_N_E_.
+[00:01:29] Speaker A: Okay, and Gabriel.
+[00:01:33] Speaker C: Uh Gabriel.
+[00:01:38] Speaker A: E_L_ is it?
+[00:01:39] Speaker C: E_L_.
+[00:01:42] Speaker A: 'Kay.
+[00:01:43] Speaker A: And you're s r R_E_I_S_S_
+[00:01:44] Speaker D: I am Reissa. R_E_I_S_S_A_.
+[00:01:50] Speaker D: Double S_ A_, yeah yeah. Sorry.
+[00:01:57] Speaker A: Okay.
+[00:02:00] Speaker A: 'S just a bit nicer calling people by their names I think. Uh, right.
+[00:02:03] Speaker B: Right.
+[00:02:05] Speaker B: True.
+[00:02:11] Speaker D: Mm 'kay.
+[00:02:12] Speaker A: Okay, right, welcome to meeting B_. Um this is gonna go a lot better than the last meeting, basically, uh 'cause I know what I'm supposed to be doing now. I am your Project Manager, and, uh yeah, I'm just here to
+[00:02:30] Speaker A: sort of liaise between the three of you and get things going, get people talking and and I'm gonna be making notes and sending them off to the powers that be and stuff basically. Um right, this for the purposes of this meeting what this meeting is all about is um I'm gonna have some presentations from all three of you, what you've been working on for the last
+[00:02:59] Speaker A: wee while, when you haven't been getting hit with spam on your computers and and, you know, filling out silly questionnaires and things. But hopefully you've been actually been doing something productive. So we're gonna each of you gonna give us a litt a little presentation. Um.
+[00:03:16] Speaker D: Mm.
+[00:03:19] Speaker A: Then we're gonna work, you know, from each of your presentations. We'll we'll uh talk about what we actually need as a final coming together of it all. Um and then we'll, yeah, we'll sort of conclude anything else comes up at the end of it.
+[00:03:34] Speaker B: How long is the meeting?
+[00:03:35] Speaker A: This meeting it's not very long. It's uh probably down to about thirty five minutes now. So I want each of your presentations to not be too long, five five minutes, something like that. Um if you haven't done a PowerPoint thingy, it doesn't matter, it it just it just says that you it's that's just one particular medium. If you haven't had time to prepare one, you can draw stuff on the noteboard, you can talk to us, you can you know however you want to do your little presentation, basically, you can.
+[00:03:40] Speaker B: Okay.
+[00:03:45] Speaker B: No problem.
+[00:04:08] Speaker A: Don't feel pressurised into using this thing. 'Cause I don't. Uh okay. So um. You okay over there? Reissa, are you uh b are you joining in with this meeting here or are y or are y or are you are you just are you just uh doing some Internet shopping there?
+[00:04:22] Speaker D: I'm fine. Yeah.
+[00:04:26] Speaker D: I uh yeah, yeah. D I mean, I I'm finishing off my presentation.
+[00:04:27] Speaker C: Think she's finishing up her presentation.
+[00:04:31] Speaker D: No no.
+[00:04:33] Speaker D: Uh I'm done. Okay.
+[00:04:34] Speaker A: Okay, jolly good. Alright, let's have um well, we all know that it's it's a remote control that we're gonna be dealing with. I think the first thing we should look at is um probably the um what it is that it is actually supposed to be. So that's gonna be you Catherine, if we wanna hear from you first.
+[00:04:43] Speaker D: Mm.
+[00:04:52] Speaker B: Okay.
+[00:04:55] Speaker B: Okay. Um just connecting this.
+[00:05:13] Speaker B: Are we getting i
+[00:05:14] Speaker A: You don't have to worry about screwing it in just there you go.
+[00:05:16] Speaker B: Really? Okay. Cool. Okay. So I've got a very quick uh
+[00:05:26] Speaker B: Uh.
+[00:05:30] Speaker B: Okay.
+[00:05:32] Speaker B: So the working design, I've got a very quick presentation on this, so um I've oh no, you can't see a thing. Oh well, I'm gonna draw it on the board then. It's in blue uh, and I couldn't change it. We it's fine on my screen, but never mind. So um the idea is that we've got the
+[00:05:45] Speaker C: Oh.
+[00:05:48] Speaker A: Ah.
+[00:05:57] Speaker B: energy source um, which in our case will pr, oh well okay, never mind. So um I think maybe uh two batteries, I dunno what they're called six, or something like that. Uh and then
+[00:06:14] Speaker A: Mm-hmm.
+[00:06:20] Speaker B: um
+[00:06:26] Speaker B: then on the uh remote control itself will have um the sender for the signal, which could be uh
+[00:06:39] Speaker B: an infra-red signal,
+[00:06:44] Speaker B: um which will be sent by an electronic chip.
+[00:06:54] Speaker B: And uh the chip will be controlled by the user interface.
+[00:07:02] Speaker B: So we'll hear about that later from Gabriel. And uh the sender will send to the telly itself an infra-red signal to tell it to switch on or switch channels.
+[00:07:05] Speaker A: Mm-hmm.
+[00:07:22] Speaker B: Um and that's it really for the working design.
+[00:07:28] Speaker A: Great. Okay.
+[00:07:32] Speaker B: Sorry the presentation wasn't very uh clear but
+[00:07:35] Speaker A: I prefer the pe I prefer the human touch personally. Yeah.
+[00:07:37] Speaker B: Really? Cool.
+[00:07:39] Speaker B: Um, should I erase this or
+[00:07:42] Speaker A: Do you wanna just give us a moment, I just wanna copy this down. Um I dunno if you guys have got any questions for Catherine on any of this?
+[00:07:44] Speaker B: Okay.
+[00:07:45] Speaker B: Fine.
+[00:07:50] Speaker B: Or suggestions?
+[00:07:55] Speaker D: Is a battery like
+[00:07:58] Speaker D: the only way of
+[00:08:00] Speaker B: Well, it's just, you don't want it plugged in really, s
+[00:08:04] Speaker C: Yeah, alternate energy source, like win wind power or
+[00:08:07] Speaker B: In indoors.
+[00:08:07] Speaker A: Yeah, you blow on it and i
+[00:08:07] Speaker D: No, no
+[00:08:09] Speaker D: No I meant like
+[00:08:09] Speaker C: Bicycle power.
+[00:08:10] Speaker D: No 'cause like cha 'cause always changing um um batteries can get like annoying. The battery's down and maybe, I dunno, solar charged?
+[00:08:20] Speaker B: I dunno, swi I th I th I think changing your batteries once every six months is not really a pain, but
+[00:08:26] Speaker A: Yeah, it's worked for the last fifty years you know.
+[00:08:26] Speaker D: Mm. Yeah.
+[00:08:30] Speaker C: One question I have, and I don't know how much control we have over this is um, as far as the infra-red signal, do we have control over, you know, how far away you can be from the receiving unit, the the T_V_, and still have it be operational? I mean, maybe we want one with a strong signal stream.
+[00:08:46] Speaker A: How far away is your television?
+[00:08:47] Speaker B: Yeah.
+[00:08:49] Speaker A: It's never gonna be more than it's never gonna be, you kno unless you've got a T_V_ the size of a football pitch, it's not doesn't have to go that far, does it? Doesn't have to go through a wall, because you're not gonna be looking through a wall.
+[00:08:49] Speaker C: Uh
+[00:08:50] Speaker B: Well, the thing is uh you you don't
+[00:09:01] Speaker D: Yeah, but if like you're on the phone in the other room and you need turn television off or something and you don't really want to go into the put the telephone down, and go into the other room.
+[00:09:01] Speaker C: That's true.
+[00:09:08] Speaker B: Well, we can make the the signal strong enough to go through walls if if you fancy it.
+[00:09:16] Speaker B: I didn't think about that
+[00:09:18] Speaker D: How about Bluetooth?
+[00:09:19] Speaker B: but
+[00:09:22] Speaker D: Instead of using infra-red,
+[00:09:24] Speaker D: use Bluetooth.
+[00:09:26] Speaker B: Why not?
+[00:09:29] Speaker D: Isn't that a better signal?
+[00:09:29] Speaker B: I just think that it's it's gonna cost more and I'm I'm not sure it's you're gonna use it.
+[00:09:32] Speaker A: Yeah, yeah I d it sounds like you you w don't wanna overcomplicate things. You know we don't need it.
+[00:09:36] Speaker D: Mm.
+[00:09:37] Speaker B: It's a fancy idea uh it's quite nice, but then I don't th I dunno, either you if you wanna watch the telly you're in the room, you are gonna
+[00:09:45] Speaker A: Yeah, exactly. Basically, we're we're desi we're designing and marketing a television remote control unit. We're not w w w w designing something that you can plug in a headset to and and you know connect to your laptop computer and stuff. It's uh
+[00:09:46] Speaker B: But
+[00:10:02] Speaker D: Mm.
+[00:10:02] Speaker B: Oh, we can we can keep the idea if you i
+[00:10:08] Speaker B: We can see at a later stage, maybe, I don't
+[00:10:09] Speaker D: 'S just an idea.
+[00:10:12] Speaker A: Okay.
+[00:10:32] Speaker A: Right, well done, Catherine. Um Gab Gabriel let's uh let's hear from you on on on such things.
+[00:10:39] Speaker C: Okay.
+[00:10:42] Speaker B: Do you need the border?
+[00:10:43] Speaker C: Uh I'm just gonna use the PowerPoint uh.
+[00:10:44] Speaker B: Okay.
+[00:11:07] Speaker B: Sorry.
+[00:11:08] Speaker C: Technical. Okay.
+[00:11:31] Speaker D: Adjusting.
+[00:11:31] Speaker C: Okay, so, while this is warming up, there it is uh.
+[00:11:33] Speaker D: Yeah.
+[00:11:35] Speaker C: So I'm doing the user interface design.
+[00:11:40] Speaker A: Mm-hmm.
+[00:11:41] Speaker C: Yeah, and basically uh, as far as methods, I was I was looking looking at
+[00:11:47] Speaker C: looking at uh already existing remotes, trying to find some inspiration from designs that are already out there.
+[00:11:54] Speaker C: Thinking of what we can retain, what we can do away with, uh what we what we can perfect a little bit as far as design um. we don't want to do something that's too radical of a change, I guess, I mean people want a remote that's familiar, that has their favourite functionalities um and and does the basics, but
+[00:12:13] Speaker A: Mm yeah.
+[00:12:14] Speaker C: Um so we can improve what's out there and maintain that,
+[00:12:18] Speaker C: the basic functionality that people want.
+[00:12:22] Speaker C: Um so things that seem like absolute must-haves uh would be a volume control,
+[00:12:29] Speaker C: um so up-down keys for that, uh channel keys up-down, but then also a numerical key pad so that they can just key directly to the channel that they want, rather than doing up-down, and uh a mute button. Uh one thing that I didn't include here, that I forgot that we talked about last time, was doing um some sort of lock uh function. Uh, I don't I dunno, uh that's one possibility.
+[00:12:50] Speaker A: Okay.
+[00:12:56] Speaker C: And so in the research that I was doing
+[00:12:59] Speaker C: there's basically two types of remotes, ones that are engineering centred and ones that are more user centred, which I don't know if I can access the web page from here, but I can show you uh.
+[00:13:13] Speaker C: Yeah. So this is a engineer centred one, so you see it's rather busy, but it also lets you play your movie, stop your movie, fast-forward, all this, um freeze frame. Uh and this is a user centred one. Uh it's it's easier to g just glance at this and see what's possible to do, you're not gonna be staring at it for five minutes. And I judging from what what we all talked about during our last meeting I kind of gathered that that's what we were going after, uh or the direction we were going in at least. Um.
+[00:13:23] Speaker A: Mm-hmm.
+[00:13:31] Speaker A: Yeah.
+[00:13:37] Speaker A: Great.
+[00:13:51] Speaker C: So, the engineering centred ones uh provide a lot of functionality, but it can be a little bit overwhelming, so the user centred ones just focus on ease of use. Uh and this sort of overlaps with what the marketing person uh, Reissa, because uh we we need to find out what what people want before we make firm decisions on this. So uh, yeah, that's me.
+[00:14:06] Speaker D: Mm.
+[00:14:11] Speaker D: .
+[00:14:11] Speaker A: Yeah.
+[00:14:17] Speaker A: Great. Okay. Now that's I just have a q a q question for you. This w um research that you've been doing looki looking at other, you know, existing units stuff. Um have you found that anyone else has do has looked into the locking function or
+[00:14:37] Speaker C: No that that that seemed like a novel idea as f as far as I know. I mean obviously another exists like you like you said in in mobile phones. That was sort of the inspiration for it. Um I've never seen that with in in all my years in in the remote business.
+[00:14:44] Speaker A: Yeah.
+[00:14:49] Speaker A: Yeah.
+[00:14:51] Speaker C: I've, haven't I've never seen a locking functionality.
+[00:14:55] Speaker C: I dunno, what uh do you guys have a a yea or nay on that a feeling about whether that's really necessary?
+[00:15:02] Speaker A: Um
+[00:15:03] Speaker A: I would say
+[00:15:06] Speaker A: it's
+[00:15:11] Speaker A: If it's simple to do,
+[00:15:14] Speaker A: which I think it probably should be, even if it's a physical, you know, a f a like a f a physical switch or a physical cover for the remote, even something like that, um then yes, it's like, you know, like s you said earlier on ab ab ab a flip thing, something like that, but you know being physical. Look into. Um I've had word down from head office that something that we should be centred well, something we should take into account is um we've gotta keep the corporate image within this remote control unit. It's gotta d look like it's in the R_ and R_.
+[00:15:15] Speaker C: Yeah.
+[00:15:22] Speaker C: Mm-hmm.
+[00:15:25] Speaker C: 'Kay.
+[00:15:32] Speaker C: Right.
+[00:15:56] Speaker C: Mm.
+[00:15:57] Speaker A: You know, the the company it's it's, from what I can see from our other products, are yellow with blue writing on them. Um.
+[00:16:03] Speaker D: Mm.
+[00:16:04] Speaker C: Right.
+[00:16:05] Speaker C: And our motto is is we put the fashion in electronics.
+[00:16:07] Speaker A: We put the fashion in electronics. There you go.
+[00:16:08] Speaker D: Mm.
+[00:16:09] Speaker C: I think I think we have to carry that mental.
+[00:16:11] Speaker A: So it's kinda gotta look it's gotta look new and s you know something fashionable. If if remote control well, if telephones can be fashionable, then maybe remote control units can be.
+[00:16:18] Speaker C: Mm.
+[00:16:23] Speaker D: Mm.
+[00:16:24] Speaker C: Well yeah these, I think, we can so we talked about the layout in my presentation and what I didn't mention yet really is is the sort of like the ergonomic design. I t I think we can make big improvements over these two that you see here, I mean.
+[00:16:31] Speaker A: Yeah. Because we need
+[00:16:35] Speaker A: Yeah. Great.
+[00:16:35] Speaker C: Uh, everything is going t ergonomic, you know, there's you know mice for your computers that are very ergonomic and keyboards and that could be one of our niches p sort of uh uh in the market, I guess. Um.
+[00:16:46] Speaker A: Okay, fantastic. Right, well done, Gabriel. Um Reissa. Let's plug you in, baby.
+[00:16:50] Speaker D: Okay.
+[00:16:51] Speaker D: .
+[00:16:55] Speaker D: Where does it go into?
+[00:16:57] Speaker C: .
+[00:16:58] Speaker D: Here? The blue thing.
+[00:16:58] Speaker C: Yeah.
+[00:17:00] Speaker C: Uh, yeah, this is getting all. Mm.
+[00:17:08] Speaker D: .
+[00:17:10] Speaker C: Yeah, then you just have to do function F_ eight and it should come up.
+[00:17:14] Speaker D: Well, function F_ eight.
+[00:17:19] Speaker D: No oh.
+[00:17:20] Speaker C: Yeah, it just takes a second uh.
+[00:17:20] Speaker A: Yeah, w it it just takes a wee while.
+[00:17:26] Speaker D: Come on.
+[00:17:33] Speaker D: Right. Okay.. Okay. Well, for our marketing report uh we observed remote control users in a usability lab, and also gave so this is research and we also gave participants um questionnaires to fill out. Um total number of people tested were a hundred just so you know, so that hundred people were tested and these were the findings. So seventy five per cent of users find the remote control ugly. Okay, so they don't like the look of the remote control. Um eighty f eighty per cent of them would spend more money if the rem remote control looked really cool and fancy. So I think we all agree with that. Um current remote controls do not match well with the operating behaviour of the user.
+[00:18:24] Speaker D: So, they don't like like the way they operate it doesn't
+[00:18:28] Speaker D: like match how people behave. Um per cent of the users say that they only use ten per cent of the buttons on a remote, so probably if you have like one, two, three, four, five, the whole up to z ten, they probably don't use those, they only use the up and down channel.
+[00:18:44] Speaker A: 'Cause we've only got five channels.
+[00:18:46] Speaker D: exactly. That's another thing. Um seventy five per cent of users say they zap.
+[00:18:55] Speaker D: Not quite sure what they mean, zap, goes like.
+[00:18:57] Speaker A: I think that's k flicking quickly between channels.
+[00:19:01] Speaker C: Yeah, you wanna navigate the channels quickly I guess.
+[00:19:01] Speaker D: Yeah.
+[00:19:03] Speaker D: Mm. Um takes too much time to learn how to use a new remote. I think especially for uh the older generation. I know my grandmother doesn't like mobile phones, takes ages to work how to use. Anyway um and they also remotes often get lost in the room, so nobody can find them. So maybe tracking devices is a good idea. Um personal preferences.
+[00:19:03] Speaker A: Yeah.
+[00:19:21] Speaker C: Mm.
+[00:19:24] Speaker A: Wow. You are a child of technology, aren't you?
+[00:19:33] Speaker D: Um so yeah um I was thinking something easy to use, especially for older people. Um has to look really cool, flashy groovy for people to buy it. And it's easy to find, so I don't know whether maybe and also we asked them whether they wanted whether they'd be interested in um voice activating.
+[00:20:00] Speaker D: So voice activation. So and this was what we came up with. Then if you look fifteen to twenty five this is age, sorry, age groups. So fifteen to twenty five said like ninety two ninety one per cent of them said yes. Um so basically the majority except for the forty five to fifty five year olds for some reason didn't want a voice activated one. And neither did the older generation, but the younger generation who we are catering for, like who have most of the money nowadays, do want a voice act speech recognition in a remote.
+[00:20:15] Speaker A: So there you go, yeah.
+[00:20:32] Speaker A: Uh but do the younger generation have the money? They they don't. It's older generation, they're the ones that have gone out and
+[00:20:33] Speaker C: No I would I would say the older the older people, yeah.
+[00:20:36] Speaker D: Well the twenty five to thirty five year old, and thirty five, and the thirty five to forty five, forty five point seven per cent say no, so
+[00:20:44] Speaker A: People people from the age of thirty f there's a big drop off there. For people up to the age of thirty five, you're kinda saying, yeah, they want it.
+[00:20:55] Speaker A: Um but no they're not sort of most people that have the money are people from the age of thirty five to fifty five, uh 'cause they're the ones that have been working for twenty years. Um d and tha and that's a that's quite a minority there, so yeah, it's not even like fifty fifty that's th thirty five per cent.
+[00:21:02] Speaker C: Yeah, that would be my guess as well.
+[00:21:03] Speaker D: So they don't
+[00:21:07] Speaker D: Well
+[00:21:14] Speaker D: These guys are growing up.
+[00:21:17] Speaker C: What about just from the the prospective of our manufacturing cost? I mean if if it's twelve fifty per unit. I mean, okay, there's
+[00:21:22] Speaker A: Yeah.
+[00:21:24] Speaker D: Voice activation might not be the best.
+[00:21:26] Speaker A: I would say scra I'd say scrap that straight off.
+[00:21:27] Speaker C: Uh.
+[00:21:30] Speaker D: Um also with um with buttons, a thing called R_S_I_, so wrist sense Huh?
+[00:21:40] Speaker C: Repetitive strain uh rep repetitive strain injury or like from doing
+[00:21:43] Speaker D: Yeah, repetitive strains injury, so they don't I think people who watch T_V_ maybe too often, keep changing channel hurts their wrist. I don't think so.
+[00:21:49] Speaker B: Well maybe they shouldn't watch so much T_V_ then.
+[00:21:53] Speaker A: So y so it's so it's so you got so that's something we should have a look into then i when desi when designing the ergonomics of see have a look if um there's any w any medical background we can find out about this.
+[00:21:58] Speaker D: Yeah maybe not so hard.
+[00:21:59] Speaker C: Mm.
+[00:22:02] Speaker C: Mm.
+[00:22:07] Speaker B: Maybe it could be, instead of pressing button it could be just touching a
+[00:22:11] Speaker D: Yeah.
+[00:22:12] Speaker A: Let's jus we just want need to cover our arses so that people aren't gonna sue us in ten years' time, say your remote control gave me repetitive strain injury.
+[00:22:12] Speaker D: Maybe
+[00:22:20] Speaker C: Yeah, we should probably consult with our legal department uh.
+[00:22:21] Speaker D: Mm.
+[00:22:24] Speaker A: Yeah. They're having a lunch break at the moment, but yeah. I'll see if I can get see if I can get hold of them for the next meeting.
+[00:22:27] Speaker D: Yeah.
+[00:22:30] Speaker C: Yeah.
+[00:22:34] Speaker C: I think we can do some really in in that department, the the ergonomic department, we can make some some really good improvements.
+[00:22:37] Speaker A: Yeah.
+[00:22:40] Speaker D: Mm. Maybe th the buttons not so high up so you don't have to press so much, or we just like flat buttons, something.
+[00:22:44] Speaker C: Mm.
+[00:22:47] Speaker D: Yeah.
+[00:22:50] Speaker A: Okay. That's great, thank you very much for that, Reissa. Um okay, so we've basically
+[00:22:50] Speaker D: So that is me.
+[00:23:03] Speaker A: we've decide we've d
+[00:23:05] Speaker A: we've decided that it's gonna be, you know uh, we're going for a basic television remote. It's gotta be safe to use, it's gotta look cool. It's gotta be cheap. S um.
+[00:23:15] Speaker D: Mm.
+[00:23:21] Speaker D: Mm.
+[00:23:23] Speaker A: Now going back to the uh industrial design of it, you know, we were looking at whether to use maybe infra-red or Bluetooth. I think, we should just go with the simplest option on everything, uh and that would be infra-red, energy source, that would be batteries. Uh mean we we can look into using the s, you know, the little tiny weeny batteries, all like special long-lasting batteries. Um.
+[00:23:56] Speaker A: But a in there's no I don't think there's any point in making a remote control unit that's gonna last for fifty years, because technology will have changed and, you know, we won't have televisions in ten years' time. So
+[00:24:11] Speaker B: Yep.
+[00:24:15] Speaker A: I think we're all um pretty sussed on that.
+[00:24:18] Speaker A: Um
+[00:24:20] Speaker A: anyone have any questions? Everybody happy in their work?
+[00:24:24] Speaker D: Mm.
+[00:24:26] Speaker C: Yeah, it seems like we're all on the pretty much on the same page.
+[00:24:29] Speaker A: Now this is good, we've got a good structure going on. We all know where we're going to. Have you been ge has have any of you lot been getting loads of crap spam on your computers?
+[00:24:42] Speaker C: Oh it's probably just you, 'cause you're the project manager.
+[00:24:44] Speaker B: .
+[00:24:45] Speaker D: Well, just questionnaires.
+[00:24:47] Speaker C: Sell trying to sell your things.
+[00:24:47] Speaker A: Yeah.
+[00:24:49] Speaker A: Yeah, stuff. Um okay. Do oh have you guys found out if we can if we can e-mail stuff to each other?
+[00:25:00] Speaker D: Yeah, you can.
+[00:25:01] Speaker A: Right. Do all you all know my e-mail address?
+[00:25:02] Speaker C: Okay.
+[00:25:04] Speaker C: No I don't. I
+[00:25:05] Speaker D: I think he's participant one, aren't you?
+[00:25:05] Speaker B: Well, in the project announcement, you've got the addresses, I think. So Project Manager, it's participant one at A_M_I_.
+[00:25:09] Speaker C: Uh
+[00:25:10] Speaker C: Oh, it's just participant one oh okay. Yeah.
+[00:25:12] Speaker A: Can you all d e-mail me your e-mail addresses?
+[00:25:17] Speaker C: Well it's just w it's just it's just par participant one, participant two.
+[00:25:17] Speaker B: You have them i you have them, but we'll send you an e-mail. You want to have friends, don't you?
+[00:25:17] Speaker A: .
+[00:25:21] Speaker A: Send me, yeah yeah, okay.
+[00:25:23] Speaker C: So are we headed towards like a b a big yellow and black remote as far as maybe that's our next meeting that we discuss that.
+[00:25:30] Speaker A: Is it yellow and black or is it yellow and blue? I I kind of thought it was blue writing on a yellow background, but I might be just going a bit
+[00:25:36] Speaker C: Well, it's like white on i white and blue on a black background with white with yellow borders. Maybe that's like getting ahead of ourselves.
+[00:25:41] Speaker A: Okay. Well,
+[00:25:44] Speaker B: It wouldn't be
+[00:25:44] Speaker A: maybe you can come up with a few with a couple of different ideas?
+[00:25:46] Speaker C: Mm.
+[00:25:47] Speaker D: Can't we have different colours in the remotes, so somebody can choose different col like does it have to be of a certain?
+[00:25:51] Speaker C: Mm.
+[00:25:51] Speaker A: Well, see the thing is is we've gotta keep the company image. It's gotta say people have gotta look at this remote control and instantly recognise that it's a Real Reaction i product.
+[00:25:59] Speaker D: But if it's a R_R_, it would be Real Reaction, like if it had a symbol on it.
+[00:26:00] Speaker C: Mm.
+[00:26:03] Speaker A: There's loads of companies that called R_R_.
+[00:26:04] Speaker C: Mm.
+[00:26:06] Speaker D: Whoa.
+[00:26:07] Speaker A: This is slog but this is the slogan, this is the the the the type.
+[00:26:10] Speaker C: And this is something that came on down from from the higher ups, so, I mean, we are sort of beholden to them.
+[00:26:13] Speaker A: Yeah.
+[00:26:16] Speaker D: So we have to have it one colour.
+[00:26:17] Speaker A: Well, not necessarily. But we have to incorporate it.
+[00:26:18] Speaker C: Not one colour, but the pattern needs to be recognisable.
+[00:26:22] Speaker D: Mm.
+[00:26:23] Speaker A: Not necessarily even if i it just has to ye but you have to look at the product and instantly know that it's one of our products as opposed to a Sony product or a, you know, a Panasonic product. It's got to so maybe, so you can have a look at our our other products and see if they all follow a s similar vein, perhaps.
+[00:26:29] Speaker B: Well you could
+[00:26:31] Speaker D: Mm.
+[00:26:36] Speaker B: It could come
+[00:26:44] Speaker B: But it could come in different colours and have the R_R_ colours just somewhere like just around the lock button could be the R_R_ logo or colours and
+[00:26:48] Speaker A: Yeah.
+[00:26:54] Speaker A: Yeah.
+[00:26:56] Speaker D: Mm.
+[00:26:57] Speaker B: If.
+[00:26:57] Speaker A: Quite poss yeah. Well this is all your department.
+[00:27:03] Speaker A: Mm okay. Well, well done everybody. And um, I think we uh stop for lunch now.
+[00:27:06] Speaker C: .
+[00:27:13] Speaker C: Yeah, pretty soon I think, I guess that's now.
+[00:27:14] Speaker D: Are we are we finished ahead of schedule?
+[00:27:16] Speaker A: We might possibly have done.
+[00:27:18] Speaker B: Cool.
+[00:27:19] Speaker C: Alright, see you all soon.
+[00:27:20] Speaker A: If we've if we've finished at five minutes before the meeting's supposed to finish, then that means we get an extra five minutes for lunch.
+[00:27:33] Speaker D: 'Kay uh.
+[00:27:40] Speaker A: Yeah, there you go.
+[00:27:49] Speaker A: Right. I just have to there's a few little bits and pieces I have to write down, but
+[00:27:57] Speaker A: Take your headsets off, kick back, smoke 'em if you got 'em.

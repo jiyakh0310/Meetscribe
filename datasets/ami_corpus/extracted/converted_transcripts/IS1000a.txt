@@ -1,0 +1,389 @@
+[00:00:37] Speaker C: Okay.
+[00:00:38] Speaker D: Or you get it. Okay.
+[00:00:44] Speaker C: No I don't think so it has to be like that yeah and you have to adjust the length.
+[00:01:09] Speaker C: Okay, and then.
+[00:01:32] Speaker B: So we uh we will wait for Anna, a few minutes.
+[00:01:35] Speaker C: Yeah, s yeah, um.
+[00:01:44] Speaker D: Mm. Yours is well
+[00:01:50] Speaker C: I think you can put anywhere you want, actually.
+[00:01:53] Speaker D: Yeah but the the mic should not
+[00:01:54] Speaker C: I thin
+[00:01:56] Speaker C: It's not a directional mic, anyway.
+[00:02:02] Speaker B: I think it should work like this. So I will try to get my presentation running.
+[00:02:06] Speaker C: Uh.
+[00:02:12] Speaker D: Yeah.
+[00:02:13] Speaker C: Yeah.
+[00:02:18] Speaker B: Mm.
+[00:02:21] Speaker D: Mm. Can't help you with that.
+[00:02:22] Speaker C: Last.
+[00:02:24] Speaker D: Okay, it's y yeah.
+[00:02:24] Speaker B: It's no matter.
+[00:02:28] Speaker B: No problem.
+[00:02:30] Speaker B: Ah yes.
+[00:02:34] Speaker D: Right.
+[00:02:38] Speaker C: Okay.
+[00:02:41] Speaker D: Then press uh al
+[00:02:44] Speaker C: Okay.
+[00:02:45] Speaker D: This. You know?
+[00:02:46] Speaker B: I don't know. Just try.
+[00:02:49] Speaker C: 'Kay.
+[00:02:49] Speaker B: On this normal
+[00:02:50] Speaker D: Oh oh.
+[00:02:51] Speaker C: Alt F_ five.
+[00:02:54] Speaker B: Good. Doesn't appear on the screen here.
+[00:02:59] Speaker D: Right well
+[00:03:03] Speaker B: Oh.
+[00:03:04] Speaker D: Wow. Amazing. It's working.
+[00:03:08] Speaker B: Okay. Thank you. Uh.
+[00:03:28] Speaker A: Hold that.
+[00:03:32] Speaker B: Yes and you can put can clip it uh on your
+[00:03:33] Speaker A: Okay.
+[00:03:36] Speaker B: Somewhere.
+[00:03:36] Speaker A: Okay. Mm.
+[00:03:44] Speaker B: So, good morning, everyone.
+[00:03:47] Speaker B: Um
+[00:03:49] Speaker B: Welcome at uh at the kick off meeting of our uh latest project. I hope you all have been uh updated about it.
+[00:03:56] Speaker D: Yeah.
+[00:03:58] Speaker B: Good.
+[00:03:58] Speaker C: So. Yes.
+[00:04:00] Speaker B: So w we will try to structure this uh meeting with an a with an agenda uh as presented here. Um after the opening we will tr get acquainted to each other. See what our roles are in this project.
+[00:04:18] Speaker B: So, um
+[00:04:21] Speaker B: We have been provided with uh some uh w technical tools to uh
+[00:04:27] Speaker B: to communicate and to well, learn from each other's plans uh as I can say um so w
+[00:04:37] Speaker B: we will also try to uh
+[00:04:40] Speaker B: to get acquainted to this tools so they are also new to me I don't know whether you worked with them before. Um then we will come to the uh to the to the actual project plan. You all know I hope how it's about uh the uh new r remote control we are going going to design.
+[00:04:58] Speaker A: Mm-hmm.
+[00:04:59] Speaker C: Total.
+[00:05:01] Speaker B: Uh then we will uh discuss uh, well, how it should be and uh
+[00:05:08] Speaker B: wh what uh what our new product should look lite like. And uh well then uh after some twenty five minutes I hope uh we can end this meeting.
+[00:05:22] Speaker B: So. Um basically this is about a uh a new c remote control. Um
+[00:05:33] Speaker B: We When you design a new product you of uh you of course want it to be original. Be uh we want to be distinguished, mm? People uh want to uh when they look at the shelf want to think, well that's the product I I need. So it needs to be trendy. I mean trendy is what people want, so then I w they will buy our product.
+[00:05:57] Speaker B: But then, uh, it also should work uh user friendly and uh otherwise people uh uh well it will not be uh
+[00:06:10] Speaker B: be rated very well in consumer uh articles and like that.
+[00:06:18] Speaker B: So, the general outline of uh new project will be we first uh go through a functional design phase. Um
+[00:06:32] Speaker B: You all get uh um certain task uh in this uh in this phase and uh
+[00:06:41] Speaker B: then we will meet again and uh discuss this functional design. And the same holds for the uh
+[00:06:49] Speaker B: ph two phases uh after this, the conceptual design
+[00:06:54] Speaker B: and after that a a more detailed design in which the the final project should get its definite shape.
+[00:07:06] Speaker B: Alright, but first we will do some uh tool training.
+[00:07:11] Speaker B: In all in front of you uh you see uh the uh
+[00:07:16] Speaker B: notebooks and w uh n note blocks and we have here a
+[00:07:21] Speaker B: a a a white-board.
+[00:07:22] Speaker C: Whitebo
+[00:07:23] Speaker A: Mm-hmm.
+[00:07:25] Speaker B: And um well it should work uh I've read it from my uh from some colleague that it should work with some kind of toolbar. I didn't find out yet how it work, but maybe one of you did, so
+[00:07:40] Speaker B: Um
+[00:07:40] Speaker D: Under documents in the shared folder. Okay.
+[00:07:44] Speaker B: Yes. Do Do we have to say something about that? I I I'm not fully updated about this shared folder uh.
+[00:07:52] Speaker D: Yeah, I guess we'll have a shared folder uh with documents that we can share. And uh, yeah.
+[00:07:58] Speaker B: Yes well we will then find out ho how it works.
+[00:08:02] Speaker D: Yes.
+[00:08:03] Speaker B: Um.
+[00:08:06] Speaker B: Well, this seems to me, yes, some computer program but I didn't find it yet.
+[00:08:11] Speaker B: So, we'll come to that later.
+[00:08:15] Speaker B: So, uh now we will try out the white-board we have here.
+[00:08:22] Speaker B: So,
+[00:08:24] Speaker B: I would suggest uh
+[00:08:27] Speaker D: Each of us is going.
+[00:08:28] Speaker B: Well, yes, um we uh we should try to t to draw on it and then well it should be smart some way. I I'm not really sure how this works, but
+[00:08:41] Speaker D: Okay, shall I start?
+[00:08:42] Speaker A: Mm. Yeah.
+[00:08:42] Speaker C: Yeah, you can start it you know.
+[00:08:42] Speaker B: Yes, a good idea Mael.
+[00:08:44] Speaker A: I think for us it's just like a normal whiteboard, but they'll be recording what we write down.
+[00:08:47] Speaker D: So, i
+[00:08:48] Speaker C: No they will record through that. There's a sensor over there which is going to record the strokes that you make.
+[00:08:51] Speaker A: Mm. Mm.
+[00:08:53] Speaker A: But for us it's just like a normal whiteboard.
+[00:08:53] Speaker B: Okay.
+[00:08:54] Speaker C: Yeah.
+[00:08:56] Speaker B: 'Kay.
+[00:08:59] Speaker D: But it's
+[00:09:04] Speaker D: Actually, I think I cannot go with uh
+[00:09:08] Speaker B: You you
+[00:09:11] Speaker B: D doesn't it work?
+[00:09:13] Speaker B: Maybe someo Maybe maybe Anna, maybe you can start. Then he can maybe find out to get his cord right.
+[00:09:15] Speaker A: Mm-hmm.
+[00:09:15] Speaker D: Yeah.
+[00:09:22] Speaker A: I have to draw.
+[00:09:22] Speaker B: So um
+[00:09:25] Speaker B: L Why don't you draw uh your favourite animal on on th on the white-board.
+[00:09:29] Speaker A: M my my favourite animal. Sorry this is all tangled up here.
+[00:09:39] Speaker B: Oh, I see uh
+[00:09:40] Speaker A: That's better.
+[00:09:44] Speaker C: Yeah.
+[00:09:45] Speaker B: Yeah.
+[00:09:47] Speaker B: Yes. Mm.
+[00:09:54] Speaker B: So draw it. We will try to guess what it is.
+[00:09:55] Speaker A: Mm-hmm. I'm a very bad drawer.
+[00:10:02] Speaker A: Weird.
+[00:10:07] Speaker A: Um. You're not gonna be able to guess from my drawing. I'm a bad drawer. Okay.
+[00:10:14] Speaker B: Mm.
+[00:10:17] Speaker A: They're ears, by the way. No. Um close though.
+[00:10:17] Speaker C: 's a cat.
+[00:10:26] Speaker A: Okay so like a pet animal.
+[00:10:31] Speaker D: Okay.
+[00:10:34] Speaker A: Like a cat.
+[00:10:37] Speaker C: Yeah.
+[00:10:39] Speaker B: It's like a cat, so I guess it's a cat.
+[00:10:41] Speaker A: No, not a cat though.
+[00:10:45] Speaker B: What is this now?
+[00:10:58] Speaker C: Ah you forget about it.
+[00:11:01] Speaker D: You're on the knife.
+[00:11:02] Speaker C: Yeah, uh I think it's fine. I just don't want to carry it off.
+[00:11:11] Speaker C: Man, this wires, eh? We need a wireless microphone.
+[00:11:18] Speaker C: You know? Pro specially we should next project we should take l like that.
+[00:11:28] Speaker B: So, that's the cat. Oh.
+[00:11:28] Speaker A: Okay. So. It's not a cat, it's a dog. Yes.
+[00:11:30] Speaker D: Mael.
+[00:11:31] Speaker C: So.
+[00:11:32] Speaker B: It's a dog.
+[00:11:34] Speaker B: So but that's also kind of cat, isn't it?
+[00:11:35] Speaker C: Oh the dog doesn't have a tail?
+[00:11:37] Speaker A: It's got a tail then.
+[00:11:37] Speaker B: B bo both predators.
+[00:11:38] Speaker C: Yeah, sure, yeah. I thought so. The dogs have a tail.
+[00:11:40] Speaker A: Yeah yeah.
+[00:11:43] Speaker A: So do cats. And you guessed cats without a tail.
+[00:11:43] Speaker B: So, thank you. Uh d did you uh work out cord?
+[00:11:48] Speaker C: Yeah.
+[00:11:48] Speaker D: Yeah, I think I will go without without it, right?
+[00:11:50] Speaker A: Okay.
+[00:11:52] Speaker B: Okay.
+[00:11:55] Speaker C: It'll still not extend, right? It's not up to that.
+[00:12:02] Speaker A: Okay, there you go. So what favourite characteristics. Uh. Dogs are always friendly and loyal and fun.
+[00:12:29] Speaker A: A horse?
+[00:12:30] Speaker C: It's a horse.
+[00:12:33] Speaker A: This is why you're the designer. And I'm marketing.
+[00:12:37] Speaker B: Yes. Yes, yes this is Yes definitely a horse. Yes. Oh very good. So
+[00:12:46] Speaker A: Ah
+[00:12:47] Speaker B: I suppose it
+[00:12:47] Speaker C: Ah I think you can put that.
+[00:12:55] Speaker A: Mm-hmm. That's it.
+[00:13:00] Speaker A: A blue and black zebra.
+[00:13:05] Speaker B: Yes.
+[00:13:10] Speaker B: Can you can meet them in Africa, I think. Yes. Very good. So
+[00:13:14] Speaker A: The very rare blue zebras. Yes.
+[00:13:16] Speaker C: I'll tell to get it off my
+[00:13:18] Speaker B: Ma Matthew?
+[00:13:25] Speaker C: Uh?
+[00:13:28] Speaker C: Mm-hmm.
+[00:13:29] Speaker B: So
+[00:13:33] Speaker A: You got a lot of room here. You can probably reach.
+[00:13:33] Speaker B: Maybe
+[00:13:35] Speaker C: Oh y it's not for that.
+[00:13:37] Speaker A: No?
+[00:13:37] Speaker C: No.
+[00:13:38] Speaker B: I hope you have some space in your uh the horse of uh Mael.
+[00:13:40] Speaker C: Okay. Yeah.
+[00:13:45] Speaker C: So what should I draw? Mm.
+[00:13:48] Speaker C: He has already to do cat.
+[00:13:51] Speaker A: I took a dog.
+[00:14:01] Speaker A: Um.
+[00:14:03] Speaker A: A mouse?
+[00:14:09] Speaker B: This looks likes a cat who has been driven over.
+[00:14:12] Speaker A: Okay.
+[00:14:17] Speaker D: Yeah. And we should sum up its favourite charas characteristics, right?
+[00:14:26] Speaker A: Mm-hmm.
+[00:14:30] Speaker B: Yes, the moustache.
+[00:14:31] Speaker D: So
+[00:14:33] Speaker B: That's that's definitely a cat.
+[00:14:35] Speaker A: Mm-hmm.
+[00:14:35] Speaker D: Uh yeah. And i Th They like to sleep, that's why you said you they are like this.
+[00:14:46] Speaker B: It's quite, you know relaxed situation. Yes.
+[00:14:47] Speaker D: Yeah.
+[00:14:54] Speaker A: Mm-hmm.
+[00:15:06] Speaker B: Yes, okay.
+[00:15:10] Speaker D: She has the small legs.
+[00:15:12] Speaker B: Th thank you, Matthew.
+[00:15:14] Speaker D: Yeah.
+[00:15:18] Speaker D: Thank you, Matthew. Perfect.
+[00:15:20] Speaker A: It's a very big rat. Or a very small cat.
+[00:15:23] Speaker D: Oh a rat, okay.
+[00:15:27] Speaker B: Yes, this is certain uh
+[00:15:31] Speaker B: some contribution to our project. So. Let's see. Which animal has not been drawn yet.
+[00:15:32] Speaker D: And you,
+[00:15:32] Speaker A: Mm 'kay.
+[00:15:33] Speaker A: Your turn.
+[00:15:52] Speaker B: So you've all drawn land animals, so why not draw an animal from the water.
+[00:15:56] Speaker D: A bird. Okay, in the water.
+[00:16:08] Speaker A: Ah I don't know what that is. It's a bit
+[00:16:11] Speaker D: Mm.
+[00:16:11] Speaker B: Mm.
+[00:16:12] Speaker A: It's a bit hard to guess.
+[00:16:13] Speaker D: Yeah. Put it colours. Maybe it would help us.
+[00:16:17] Speaker C: So
+[00:16:19] Speaker A: Yeah.
+[00:16:20] Speaker B: Yes.
+[00:16:21] Speaker C: The cat is going to eat the fish or the rat?
+[00:16:22] Speaker D: With different pen widths.
+[00:16:23] Speaker A: Mm-hmm
+[00:16:27] Speaker B: So
+[00:16:33] Speaker A: Oh, it's a shark now.
+[00:16:34] Speaker D: Ah it's a shark, yeah.
+[00:16:35] Speaker B: Oh, yes, why not? Good idea.
+[00:16:39] Speaker C: Ah it's a baby shark, it looks to me, you know it's going to eat the cat rather than the cat eating the fish, no?
+[00:16:41] Speaker A: Mm.
+[00:16:44] Speaker D: Oh.
+[00:16:45] Speaker A: Now it's a swordfish.
+[00:16:50] Speaker B: Why not. A swordfish.
+[00:16:50] Speaker D: You have some in in Australia, right? Yeah. I dunno.
+[00:16:53] Speaker A: Swordfish. Um, maybe.
+[00:16:57] Speaker A: I've never seen one, no.
+[00:16:57] Speaker D: Oh well.
+[00:16:58] Speaker D: Yeah.
+[00:17:01] Speaker B: I hope it still works. So
+[00:17:03] Speaker D: Perfect. So I dunno if we need to spend time on that, actually But uh
+[00:17:08] Speaker C: You should go for the next one it seems to me.
+[00:17:09] Speaker B: W Well, this uh this tool seemed to work. Let's continue to uh to the real stuff.
+[00:17:13] Speaker A: Mm-hmm.
+[00:17:13] Speaker D: Yeah, exactly, yeah.
+[00:17:15] Speaker D: Wow.
+[00:17:19] Speaker B: Um our project uh finance uh
+[00:17:23] Speaker B: thing. Uh when we are and when w you are uh going to design w uh we must keep in mind that the selling price of the product uh will be about twenty five Euros, so when
+[00:17:38] Speaker C: Twenty four.
+[00:17:39] Speaker B: designing a project uh I also look at you uh Mael, keep in mind uh uh uh People uh
+[00:17:44] Speaker D: Yeah.
+[00:17:48] Speaker B: want to get the feeling this is a twenty five Euro project uh pr um
+[00:17:53] Speaker D: Per remote control, yeah? Per project.
+[00:17:53] Speaker B: product.
+[00:17:54] Speaker A: Mm.
+[00:17:56] Speaker B: Yes. Okay. Um more interesting for our company of course, p uh profit aim, about fifty million Euro. So we have to sell uh quite a lot of this uh um things. Uh we will try to uh
+[00:18:19] Speaker B: to get at a international market uh so um it will be I think mainly Europe and uh Northern America,
+[00:18:26] Speaker C: Ah yeah, the sale man, four million.
+[00:18:27] Speaker B: maybe some uh Asian countries.
+[00:18:30] Speaker B: Um also important for you all is um the the product uh production cost must be maximal uh twelve uh twelve Euro and fifty cents.
+[00:18:43] Speaker D: So it's half of the selling price, if I am good in mathematics.
+[00:18:47] Speaker B: Yes, of course. Uh um I mean we still have to uh to make a profit, huh?
+[00:18:53] Speaker C: They have to sell at least four million to make a profit
+[00:18:53] Speaker D: Of course.
+[00:18:54] Speaker A: Mm.
+[00:18:54] Speaker B: You all have to be paid.
+[00:18:56] Speaker A: Mm.
+[00:18:57] Speaker B: Excuse me?
+[00:18:58] Speaker C: Ah we have to make we have to sell at least four million to make our own profit. Fifty mill
+[00:19:01] Speaker D: Oh you're g very good in mathematics. Four million.
+[00:19:03] Speaker A: Yes.
+[00:19:05] Speaker B: Yes, indeed.
+[00:19:07] Speaker B: So uh well I think w when we are working on the international market, uh in principle it has enough customers uh so when we have a good product we uh we could uh meet this this aim, I think.
+[00:19:09] Speaker D: Yeah.
+[00:19:22] Speaker B: So, that about finance.
+[00:19:25] Speaker B: And uh now just let have some discussion about what is a good remote control and uh well keep in mind this this first point, it has to be original, it has to be trendy, it has to be user friendly.
+[00:19:42] Speaker B: Um, maybe someone can mention some additional uh prerequisites for a good remote control.
+[00:19:50] Speaker A: Mm-hmm.
+[00:19:55] Speaker C: Of course it should have a on off button.
+[00:19:57] Speaker A: Mm-hmm.
+[00:19:58] Speaker B: Yes, well i it should have the the the the expected functionality uh of a remote control.
+[00:20:02] Speaker A: Mm.
+[00:20:04] Speaker C: Yeah, s and it depends what application you are using it for. You might need uh
+[00:20:04] Speaker A: Yeah.
+[00:20:08] Speaker A: Mm.
+[00:20:10] Speaker B: We wer we were thinking television. Uh.
+[00:20:12] Speaker A: Mm.
+[00:20:12] Speaker C: We are targ targeting the television set. So, you need to record the channels. You need to browse the browse the channels in upward downward way,
+[00:20:15] Speaker A: Mm.
+[00:20:17] Speaker A: Yeah.
+[00:20:18] Speaker B: Mm-hmm.
+[00:20:25] Speaker B: Yes, yes. Th th that's very handy I I always miss it and on some remote controls that you can go channel up or down ins instead of retyping the number, especially when you have a lot of channels.
+[00:20:26] Speaker A: Mm.
+[00:20:29] Speaker C: Uh
+[00:20:30] Speaker C: And
+[00:20:33] Speaker A: Mm.
+[00:20:35] Speaker A: Mm.
+[00:20:36] Speaker C: Uh, and
+[00:20:37] Speaker D: And uh just before starting the detailed discussion, maybe we You are the marketing guy? Or th So you are the marketing. And you are in the u use user interface uh design. So just yeah I wanted to to be sure. And I I'm the the industrial designer okay. Because I I don't know you very well, actually, but yeah. Okay. Mael. Happy to meet you. Okay. It's very uh
+[00:20:41] Speaker A: I'm marketing.
+[00:20:42] Speaker C: Marketing.
+[00:20:44] Speaker A: Yep.
+[00:20:47] Speaker C: Yeah.
+[00:20:47] Speaker B: Yes.
+[00:20:49] Speaker C: Yeah.
+[00:20:50] Speaker C: Sure.
+[00:20:54] Speaker A: Mm-hmm.
+[00:20:54] Speaker B: Yes.
+[00:20:55] Speaker C: Oh.
+[00:20:57] Speaker C: I'm Matthew. You know. Matth s uh Anna. And um uh Matthew, yeah. I thi think you know me, yeah? right yeah.
+[00:21:01] Speaker A: Anna.
+[00:21:03] Speaker B: A and I'm Nanne.
+[00:21:06] Speaker B: So
+[00:21:06] Speaker D: Uh so yeah uh Just uh on your web page but uh yeah not uh not face to face.
+[00:21:07] Speaker B: Yes.
+[00:21:11] Speaker B: So. Um
+[00:21:16] Speaker B: S
+[00:21:16] Speaker D: So mm
+[00:21:17] Speaker C: So.
+[00:21:17] Speaker B: S s
+[00:21:18] Speaker A: Mm.
+[00:21:18] Speaker B: Are there some other very important things to to do well,
+[00:21:18] Speaker D: So I
+[00:21:19] Speaker C: So
+[00:21:25] Speaker B: to specify in this first phase of of the project. So the browse function, as you m mentioned.
+[00:21:31] Speaker A: Mm. Yeah. Oth yeah.
+[00:21:33] Speaker C: And uh,
+[00:21:35] Speaker C: you'd need the usual ones, like the changing the volume, changing the the channel and then you uh Today we have uh um teletext and all those things. Tomorrow you might have a some more functions which might come through that, so
+[00:21:43] Speaker B: Yes. Yeah.
+[00:21:52] Speaker B: Yes.
+[00:21:53] Speaker A: Mm.
+[00:21:53] Speaker D: Like what? Like internet on the on T_V_?
+[00:21:56] Speaker C: Yeah I_P_O_ or. Now we are looking for
+[00:21:56] Speaker A: Mm.
+[00:22:00] Speaker C: television things or I_P_. For example personal video recorder and all those stuffs are coming up.
+[00:22:03] Speaker D: Yeah.
+[00:22:06] Speaker A: Mm.
+[00:22:08] Speaker A: But we can't really design for something that hasn't been invented yet.
+[00:22:09] Speaker C: Yeah.
+[00:22:11] Speaker C: Ah it's it's it's it's coming up, actually. The personal video recorder and all those things it is coming up.
+[00:22:16] Speaker B: Mm, well uh I I think
+[00:22:21] Speaker D: Actually, yeah w
+[00:22:21] Speaker B: Uh w y you two should should, I think, think this over uh w espec what, what functionality.
+[00:22:22] Speaker C: Let's Let's take
+[00:22:29] Speaker D: Of course, and first before um designing the func well thinking about the functionalities, we need to know what are the user requirements. Um then if they need internet, then we would be able to to p to propose something with uh uh T_V_ over I_P_. But before
+[00:22:37] Speaker A: Mm. Yeah.
+[00:22:38] Speaker B: Mm-hmm.
+[00:22:39] Speaker A: Yeah.
+[00:22:41] Speaker A: Mm.
+[00:22:43] Speaker A: Yeah.
+[00:22:47] Speaker A: But
+[00:22:48] Speaker A: Ninety percent of the time, ninety nine percent of the time, people will be using the main functions, the volume, the different channels, so we can have all the fancy things as well but the main controls need to be very obvious and very easy to use.
+[00:22:59] Speaker B: Mm mm mm. Keep k keep in mind i it's a it's a twenty five Euro unit, so uh uh the the very fancy stuff uh
+[00:23:09] Speaker B: w we can leave that out, I think. So twenty five Euro you expect a quite, well normal but good functioning user friendly remote control.
+[00:23:11] Speaker A: Mm.
+[00:23:16] Speaker A: Mm.
+[00:23:20] Speaker C: Oh in that case you can you always hook up with uh someone who is providing that and you know, you you sell their product as well as your product with them, you know.
+[00:23:30] Speaker A: Mm.
+[00:23:32] Speaker A: So try and get T_V_ manufacturers to
+[00:23:32] Speaker D: Yeah, but w w we want to design a new one. Mm.
+[00:23:33] Speaker C: Yeah. No, it's okay, yeah I understand. So we need some numbering buttons, some teletext things and then um
+[00:23:40] Speaker D: Yeah.
+[00:23:44] Speaker D: The Yeah, the main is browsing. Yeah.
+[00:23:45] Speaker B: Yes, but but but ab about the spec the buttons, the buttons uh that will be on it. I I think we can discuss that in the in the next meeting.
+[00:23:48] Speaker C: Yeah.
+[00:23:54] Speaker C: Yeah.
+[00:23:55] Speaker B: Uh I would like to get this wrapped up and go to an end of this meeting.
+[00:24:01] Speaker C: Okay.
+[00:24:03] Speaker B: So
+[00:24:03] Speaker C: Okay, we are alread mm. Mm.
+[00:24:05] Speaker D: Okay.
+[00:24:05] Speaker B: So you know now the basic the basic things. And
+[00:24:08] Speaker C: Yeah.
+[00:24:08] Speaker A: Mm-hmm.
+[00:24:11] Speaker C: L
+[00:24:11] Speaker B: well just just for the next meeting, um
+[00:24:17] Speaker B: well, uh, you wor yes, work on a design, keep it general, I mean so w we will be still fle flexible with maybe adding some functions. So
+[00:24:29] Speaker D: Mm-hmm.
+[00:24:31] Speaker B: Um
+[00:24:34] Speaker B: you will be working on on
+[00:24:36] Speaker B: technical function design, so
+[00:24:39] Speaker C: Yeah, sure.
+[00:24:40] Speaker B: And uh you and you and uh uh uh well, think about requirements, eh? Does it need internet, or or do do we stay at
+[00:24:46] Speaker A: Mm-hmm.
+[00:24:51] Speaker B: basic basic television uh interface.
+[00:24:51] Speaker C: Stam.
+[00:24:52] Speaker A: Yeah.
+[00:24:57] Speaker B: So, uh
+[00:25:01] Speaker B: I think we should now all go work uh uh at this and uh you will be informed via email and other kind of communication.
+[00:25:05] Speaker A: Mm-hmm.
+[00:25:09] Speaker A: Yeah.
+[00:25:10] Speaker C: Okay.
+[00:25:11] Speaker D: Perfect.
+[00:25:11] Speaker B: So next meeting will be in uh in thirty minutes uh. K keep it in mind.

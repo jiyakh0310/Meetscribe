@@ -1,0 +1,456 @@
+[00:00:06] Speaker A: Afternoon guys.
+[00:00:11] Speaker A: It's gonna be.
+[00:00:13] Speaker D: Rock and roll.
+[00:00:15] Speaker A: Oh.
+[00:00:22] Speaker A: 'Kay.
+[00:00:23] Speaker D: So do we need to re-train Mike on how to put his mic on?
+[00:00:26] Speaker A: We may do.
+[00:00:26] Speaker C: Think s
+[00:00:27] Speaker D: Okay, can he get it all by himself this time?
+[00:00:29] Speaker A: I dunno, I'm feeling like a big boy.
+[00:00:29] Speaker C: Mm. Pro
+[00:00:32] Speaker C: Probably not, 'cause he's
+[00:00:38] Speaker C: 'S been listening to too much. He's getting retarded. Yay.
+[00:00:38] Speaker D: So
+[00:00:40] Speaker D: I believe I can fly.
+[00:00:42] Speaker B: Alright well we got some exciting stuff for you guys.
+[00:00:45] Speaker C: Or not.
+[00:00:47] Speaker B: Or not.
+[00:00:47] Speaker C: Yeah.
+[00:00:48] Speaker D: Just what I needed was something exciting.
+[00:00:52] Speaker D: Remember, I'm an old man.
+[00:00:55] Speaker A: 'Kay, ready to go? 'Kay so we've got our conceptual design meeting. Hopefully we've all got exciting ideas now. Uh k exciting ideas. 'Kay so here's our agenda our agenda. Um
+[00:00:57] Speaker B: All ready.
+[00:00:58] Speaker C: Apparently I'm old as well.
+[00:01:01] Speaker D: Thirty's really young, eh?
+[00:01:03] Speaker B: We do.
+[00:01:11] Speaker A: I'm gonna open. I'm gonna talk for a bit about what we're gonna do. I'm gonna take some notes. We're gonna all do a presentation, and then hopefully we're gonna make some decisions now.
+[00:01:22] Speaker A: Yep. Well when I say hopefully, we have to. So
+[00:01:24] Speaker B: Alright.
+[00:01:28] Speaker A: I'm gonna let you guys talk before we make decisions.
+[00:01:32] Speaker A: And does anyone really want to go first?
+[00:01:35] Speaker B: I guess I'll go first.
+[00:01:36] Speaker A: You p two?
+[00:01:37] Speaker B: Yeah.
+[00:01:38] Speaker A: What's
+[00:01:39] Speaker B: Component, I think. Yeah.
+[00:01:41] Speaker A: Components design.
+[00:01:43] Speaker B: Yep that's it.
+[00:01:44] Speaker C: Presented by name.
+[00:01:47] Speaker B: My name is.
+[00:01:48] Speaker D: Jose he man is.
+[00:01:48] Speaker A: Your name is name?
+[00:01:50] Speaker B: My name is name.
+[00:01:51] Speaker A: Huh hi name.
+[00:01:51] Speaker C: My name is Inigo Montoya. You killed my father. Prepare to die.
+[00:01:55] Speaker B: Sorry I did this in a bit of a rush.
+[00:01:57] Speaker A: Right.
+[00:01:58] Speaker D: N name.
+[00:01:58] Speaker B: So so here's a look inside your really old-looking remote control. Um you've got a printed a printed uh circuit board here, and you've got all these buttons which kinda press down little rubber nubbies into these little holes that activate
+[00:02:15] Speaker A: We've all broke a remote control ri um s yeah.
+[00:02:16] Speaker B: Yeah we've all broken a remote control. So you've also got um you've got your chip here, your batteries here, and some sorta electronics. Um
+[00:02:16] Speaker D: I've
+[00:02:25] Speaker D: I just love you tech guys, huh. They just
+[00:02:28] Speaker C: Yeah there's a thingy and a dingy and
+[00:02:29] Speaker A: You press this and it does th
+[00:02:29] Speaker D: Yeah y do jabber.
+[00:02:30] Speaker B: Well so you've got here's here's a transistor, and this amplifies your signal, um you've got the L_E_D_ here on the end of the uh uh on the end of the printed circuit board. Um you've got a couple diodes here for I don't know who and whatnot.
+[00:02:46] Speaker A: I dunno who and whatnot.
+[00:02:47] Speaker B: So exactly. So um we've got a i in this in this uh drawing he uh in this example here, this is a eighteen pin um uh chip I dunno. Uh it's two double A_ batteries. This is pretty standard remote.
+[00:02:49] Speaker C: Nah.
+[00:02:53] Speaker D: P
+[00:02:59] Speaker D: Yeah.
+[00:03:06] Speaker B: So here are options for our power sources. You can use a basic battery, which we've already discussed, um th our tech department also said we have the option of doing some kind of hand dynamo where maybe you crank it or something like that. I don't know if that's really I don't know we got some qu crazy guys down there in that department so
+[00:03:19] Speaker A: 'Kay.
+[00:03:20] Speaker C: I wanna change that.
+[00:03:22] Speaker D: I I gotta I gotta flashlight, and uh yeah but it's interesting 'cause you shake it like this. Like this.
+[00:03:27] Speaker A: Okay.
+[00:03:31] Speaker B: You shake it.
+[00:03:35] Speaker B: Yeah. So that's the next bullet is the um the kinetic provision of energy, so it's like that flashlight where you have to shake it. Uh we've got solar cells, which I don't think is a very good idea because um you could not use your remote at night which doesn't make a lot of sense. And finally we've got our cradle o our power cradle idea.
+[00:03:38] Speaker D: And that's on the camera.
+[00:03:44] Speaker D: Yeah.
+[00:03:45] Speaker A: 'Kay.
+[00:03:55] Speaker A: Mm 'kay.
+[00:03:59] Speaker A: Okay so we basically have battery versus cradle here?
+[00:04:00] Speaker B: M battery versus cradle I think is yeah.
+[00:04:02] Speaker A: Okay.
+[00:04:03] Speaker C: I like the kinetic.
+[00:04:05] Speaker A: So we have battery versus cradle
+[00:04:05] Speaker D: I g I I figured you would. Yes. Yeah.
+[00:04:06] Speaker B: It could be fun.
+[00:04:09] Speaker A: It's actually a novel thing because you could sell it a as a novelty, just to be actually serious for a minute here, you could
+[00:04:13] Speaker B: Yeah. Well it is it is more uh I mean it is more eco-friendly than the than the cradle 'cause you're still using power off the grid with the cradle. So um
+[00:04:20] Speaker A: Mm.
+[00:04:22] Speaker A: Hmm.
+[00:04:25] Speaker B: our case design. We have uh choices in materials and choices in the general shapes that we can do. Our material choices are a plastic latex um ty or plastic, a rubber latex type thing, uh wood, or titanium. If we go with titanium we're gonna be uh limited in the amount of shapes we can do because it's tough to shape the titanium, and uh
+[00:04:51] Speaker B: Yeah pers
+[00:04:51] Speaker A: Wood wood would ge would give us a little bit of a marketing niche, wouldn't it.
+[00:04:55] Speaker B: I think wood i I I can't see anybody wanting to use a wooden remote, it's just anti-technology really, you know.
+[00:04:57] Speaker D: It it it
+[00:04:58] Speaker A: Nah.
+[00:05:01] Speaker D: Uh.
+[00:05:02] Speaker A: Okay.
+[00:05:07] Speaker A: Hmm.
+[00:05:07] Speaker D: Uh uh to me in a marketing sense it's not it's not relative. We can we can o we can uh accentuate whatever whatever product you put in there we can find a way to accentuate it.
+[00:05:15] Speaker B: Right. And what we may be able to do, and I think this might be the best option is to combine some a couple of these. Um my recommendation personally would be to do some kind of a plastic inner shell with a like a rubber outer shell, to make it um to mak uh like a thick plastic inner shell and a t um kind of a to have that rubber outer shell to make it more durable, and also maybe i I think it feels a little better than the plastic.
+[00:05:16] Speaker A: Okay.
+[00:05:43] Speaker A: 'Kay. Do you get a good grip on the rubber? Yeah okay.
+[00:05:45] Speaker B: Yeah um
+[00:05:46] Speaker D: And if you make it from that super rubber, when you drop it on the floor it can bounce right back up in your hand. You don't even need to lean down to get it.
+[00:05:50] Speaker B: Yeah.
+[00:05:52] Speaker B: The advantages of working with plastic and rubber is w we we'll have a lot more um options just in terms of shape because you can extrude plastic in basically any shape you want. So um and then we can cover you know the breakable bits with rubber yeah so um
+[00:06:09] Speaker A: Okay.
+[00:06:09] Speaker B: But basically these are curved and double-curved I I believe that the tech department, in their um in their message to me, that they were referring to the number of th curves in the bottom. I have no idea exactly what they're talking about, but that's what they told me, uncurved, flat, curved, or double-curved.
+[00:06:25] Speaker A: Okay.
+[00:06:28] Speaker B: I would guess this like this pen would be kinda like a double-curved, where it's curved on m m multiple axes, right? I think curved means just curved in one axis and double-curved is curved in two axes
+[00:06:41] Speaker A: Okay.
+[00:06:42] Speaker B: or surfaces. I have no idea.
+[00:06:43] Speaker A: I think it might mean something like that sorta shape because a double curve rather than a yeah that's what.
+[00:06:47] Speaker D: Mm-hmm yeah that's yeah that's what I see. Yeah that's what I see also.
+[00:06:48] Speaker B: Oh okay oh like a wave, okay. Alright that makes sense okay. Um okay, with the interface we have the following options, we can u we can use push buttons, we can use a scroll wheel with an integrated push button, and L_C_D_ display, or multiple scrolling wheels.
+[00:07:02] Speaker D: Ooh.
+[00:07:07] Speaker B: Um so these are all options that the user interface guy can uh has at his disposal to put together a user interface.
+[00:07:16] Speaker A: Okay.
+[00:07:17] Speaker B: For electronics, we have these very technical um descriptions here. A simple chip, which is the least expensive, but I have no numbers to give you, a regular chip, which is like the medium porridge the medium expense uh
+[00:07:33] Speaker A: D do we have actually any concept of what the difference is between a simple chip and an advanced chip?
+[00:07:38] Speaker B: Yes the difference is, with a simple chip a simple chip will operate oh why doesn't this scroll up?
+[00:07:45] Speaker B: Previous previous, okay. A simple chip is required to operate push buttons. Um an advanced chip is required to to operate um the L_C_D_ display, and it didn't say specifically, but I I have a hunch that a regular chip is gonna be the scroll wheel and the multiple scroll wheels.
+[00:07:50] Speaker A: Okay.
+[00:08:05] Speaker A: Okay.
+[00:08:06] Speaker B: So but yeah.
+[00:08:08] Speaker A: Yeah that makes sense.
+[00:08:10] Speaker B: That's the end of my presentation.
+[00:08:11] Speaker A: So presentation from
+[00:08:15] Speaker A: I guess design would go best.
+[00:08:18] Speaker A: Next.
+[00:08:27] Speaker A: Technical functions or interface concept?
+[00:08:30] Speaker B: I think
+[00:08:31] Speaker C: Oh interface concept.
+[00:08:36] Speaker C: Very long presentation.
+[00:08:36] Speaker A: Yeah that's it.
+[00:08:41] Speaker A: Yes, but it has your name on it.
+[00:08:43] Speaker C: Well that doesn't bo bode well for it for it tats as well.
+[00:08:48] Speaker C: Um so, somehow that thing's too big, but um okay um our uh manufacturing division wanted the speech recognition. They say they could put it to work but um we don't think so.
+[00:09:01] Speaker B: No.
+[00:09:01] Speaker C: No. It it it you'll be you know be affected by the by the other speech and
+[00:09:05] Speaker B: If the T_V_ is working, yeah. That's just I mean it'll if somebody says up in the middle of a
+[00:09:12] Speaker B: television show, it's gonna change the channel.
+[00:09:15] Speaker C: Yeah and and fighting for the remote would not be fun anymore, and I think that's one of the things we wanna keep.
+[00:09:16] Speaker B: So
+[00:09:19] Speaker A: But what if you actually had to press a button to make it recognize? So if you pressed it and went, up?
+[00:09:25] Speaker C: That kinda would r d yeah. That would kind of lose it.
+[00:09:26] Speaker B: Well then why don't you just press the up button?
+[00:09:28] Speaker A: Man yeah.
+[00:09:29] Speaker A: But if it's just one thing with a button that you can just go
+[00:09:32] Speaker D: That's right.
+[00:09:33] Speaker B: Even still there's gonna be interf th there's there still will be interference from the T_V_. It might not be it might not be completely confusing, but I think you'll still y it's still I don't think it's practical at all. I think it's a bad idea frankly.
+[00:09:33] Speaker A: Up.
+[00:09:37] Speaker A: Yeah, okay.
+[00:09:48] Speaker C: Yeah so um taking that away, our uh the the the rubber but rubber buttons are the more reliable it's the the ones that would al would allow us to to market our product as being you know less prone to damage and more resistant to things like spillage of liquids over it or you know mistreat misuses
+[00:09:48] Speaker A: Okay.
+[00:09:52] Speaker A: You guys know your stuff.
+[00:10:13] Speaker C: as it happens to remote controls. Um as for the
+[00:10:18] Speaker C: point that we making about losing it. Well, we wanna small r remote control one side because uh we want it to be cool and uh designed, but um apparently um market shows that bigger s bigger um remotes get less lost, about
+[00:10:39] Speaker B: That I would believe.
+[00:10:40] Speaker D: Mm-hmm.
+[00:10:41] Speaker A: Mm.
+[00:10:41] Speaker C: But um yeah I think we we need to compromise between those two and somehow we'll do that. Somehow.
+[00:10:47] Speaker C: Um so the the what I would propose is something more or less in the uh direction of what is to yo the right of that slide uh but without with a l a less complicated um design, so the numbers, the volume control, and channel control, and teletext access. Uh the volume and channel control can just become those the the four button array as in if it was a round dial.
+[00:11:17] Speaker B: Mm-hmm.
+[00:11:17] Speaker C: And um if you just think about it as the one to the right but with the numbers and the four buttons plus maybe a centre one with teletext.
+[00:11:25] Speaker A: So we're suggesting doing a sorta scroll wheel thing for the volume?
+[00:11:28] Speaker C: Ye no it's not i i it's just four buttons that are on a cross, so that you ba basically can control all of the important tasks from that alone.
+[00:11:29] Speaker B: That's not a scroll wheel.
+[00:11:30] Speaker A: Nah.
+[00:11:32] Speaker A: Oh okay okay. I see.
+[00:11:34] Speaker B: Right.
+[00:11:36] Speaker B: Instead of play, stop, rewind, and fast forward there, that's up, down, louder, and quieter.
+[00:11:36] Speaker A: Uh, okay.
+[00:11:41] Speaker A: Okay.
+[00:11:41] Speaker C: Yeah um yeah so I think we w we go for something mid-sized, so something looks good and uh is not too prone to get lost.
+[00:11:54] Speaker C: That be it.
+[00:11:55] Speaker A: 'Kay.
+[00:11:56] Speaker A: So on to
+[00:12:05] Speaker A: Y functional requirements or trend watching?
+[00:12:08] Speaker D: I dunno. Trend watching I guess. Trend watching I believe.
+[00:12:09] Speaker B: Trend watching has a later date there.
+[00:12:13] Speaker A: forty six nineteen fifty seven. Yep.
+[00:12:14] Speaker D: See what it looks like. It's been so long.
+[00:12:18] Speaker C: .
+[00:12:21] Speaker D: Well I don't know what to say. When I s when I see the when I see the product I I I I don't wanna buy it. I see so many of 'em out there. There's nothing about that product that makes me wanna choose that product over other products that are out there. Yeah yeah.
+[00:12:35] Speaker B: Are you talking about the picture? That's not our that's not our b design, that's just a that's just something he a a graphic he used to show you the layout of what the layout of the buttons might be like.
+[00:12:39] Speaker D: Okay.
+[00:12:44] Speaker D: Okay.
+[00:12:47] Speaker D: Okay 'cause 'cause right now I don't have too much to say about how to market this product because we don't have a product to market yet. And uh from from talking to Mike is that we have we have uh we can market a more expensive product now.
+[00:12:54] Speaker A: Mm.
+[00:13:03] Speaker D: That's what I understand so, hello.
+[00:13:04] Speaker A: Upper management said yes. Uh e excuse that, that's a bit of spam.
+[00:13:08] Speaker D: And and so yeah I'm a I'm a little bit stuck right now in that what uh w what is it that I'm gonna market? Uh without special or increased marketable features I don't believe the product has a consumer demand. Uh I like the idea of of the scroll makin there are so many people making these products at this price right now. What are we gonna do to make this one special and unique?
+[00:13:33] Speaker B: What's special and unique about a scroll?
+[00:13:36] Speaker D: Uh well I don't yeah it's I I just see it as different. I don't say it's specially mm
+[00:13:37] Speaker A: It's cool.
+[00:13:43] Speaker D: I don't say it's special.
+[00:13:45] Speaker D: Uh I say that it's different I what I'm looking for as marketing is m give me something different. I give me a lower price, give me a higher price, give me some new technology, don't give me the same thing that everybody else is putting out there on the shelf it's f at the same price.
+[00:14:00] Speaker D: I need something to market about this thing. We're we're a new firm.
+[00:14:03] Speaker A: I'd I'd say though that we if we did make the decision to go with the cradle though, the then we have that as well, but wi with a similar
+[00:14:06] Speaker D: What i if when when we have yeah when we when we have something like the cradle or or something give that's as as a marketing standard I need something to market, to make this product unique.
+[00:14:16] Speaker B: Well right I think the two big th points that we have so far are the having the cradle and also having uh the um the actual design of the uh case itself having like this like rubber shell maybe with a plastic interior, having it look really nice um and also be really durable.
+[00:14:33] Speaker D: Yep.
+[00:14:39] Speaker D: Mm 'kay. Just remember when I made up this report I didn't have the information that we're discussing here. And and so so uh yeah when we have a cradle, when we have some kind of design, so what I'm saying is, from my perspective, I don't have a product to market right now.
+[00:14:43] Speaker A: Mm. Course.
+[00:14:43] Speaker B: Right yeah. Yeah.
+[00:14:54] Speaker D: Um uh my personal preference is that we make some adjustment in the cost, either lower or develop an integrated new technol technology. That's that is the next step, there's technology and then there is technology, which we're moving into the next phase.
+[00:15:07] Speaker A: Yeah 'cause that's.
+[00:15:09] Speaker D: And so uh we're gonna have some new technology to enhance the marketability. Yeah uh again I'm not sold on the product because we don't have a product in my opinion yet.
+[00:15:20] Speaker A: Mm.
+[00:15:22] Speaker D: So I need a product. I need a product to market. And I just whatever product you guys put together, we'll find a way to market it. Tha that I'm not concerned with.
+[00:15:22] Speaker A: Mm 'kay.
+[00:15:23] Speaker B: Well let's get a product then.
+[00:15:33] Speaker A: So now
+[00:15:34] Speaker D: If you if you give me if you give me a cut-out of what everybody else has then I need to I need to find a lower cost.
+[00:15:43] Speaker A: So our big questions here really are
+[00:15:48] Speaker A: cradle or not cradle? Do we go basic or do we go for features?
+[00:15:55] Speaker A: Uh d does anyone really wanna do anything with the scroll wheel or should we ditch that off-hand first?
+[00:16:00] Speaker B: Well my question is what would the scroll wheel do?
+[00:16:04] Speaker B: Function-wise, what does that do that
+[00:16:05] Speaker A: Oh but that was in your presentation so wh what would you imagine it doing?
+[00:16:09] Speaker D: Yeah wh wh what's the wh
+[00:16:10] Speaker B: Yeah. Well it's it's just another way to do the exact same thing that the buttons do.
+[00:16:16] Speaker A: Mm 'kay.
+[00:16:17] Speaker D: Okay now what I see with the scroll wheel is everybody has buttons. So from a marketing standpoint I have I have another door to walk through when we have something that's unique. If it creates something more complex or more expensive, then I don't know if that makes it uh a marketing necessity. But again, from a marketing perspective I want as much new and different about this thing as possible because we're we're co it's a very competitive market.
+[00:16:17] Speaker C: But would we
+[00:16:26] Speaker A: Yeah.
+[00:16:42] Speaker A: What I understand about scroll wheels is they're they're quite expensive to to make. So I d
+[00:16:45] Speaker B: Yeah.
+[00:16:46] Speaker B: Th they are gonna be more expensive, but on the other hand, I mean, it
+[00:16:53] Speaker B: I mean it is an alternative if if you think that's gonna sell some some uh you know if if we're gonna make up the extra cost by extra sales I think maybe it's worth it to do it, but I mean I would just use if I was gonna do this I would just use the scroll wheel for s channels up and channels down.
+[00:17:14] Speaker B: I don't think volume or do you think volume would be
+[00:17:18] Speaker C: I dunno. I'll bet first in volume maybe. I dunno.
+[00:17:20] Speaker B: No we can we can do multiple scroll wheels but
+[00:17:25] Speaker A: Well I d I like the idea of basically focusing the my personal preference is focusing the p the product on the idea of the uh the case the the uh
+[00:17:38] Speaker A: dock to put it in to to charge it. We can target like environmentally friendly ideas, that sorta things. It s i m makes it easy to market, it's easy to differentiate the product, yeah so.
+[00:17:43] Speaker D: Mm-hmm.
+[00:17:45] Speaker D: Yeah yeah. I think it's that's right. I think so.
+[00:17:49] Speaker A: And if we we keep the rest in a format that is durable because th th the whole product's gonna need to be more durable th thus because you're not going to be ditching it as often. It's gonna need to be more expensive because of the cradle.
+[00:17:58] Speaker B: Mm-hmm.
+[00:18:04] Speaker D: Mm.
+[00:18:04] Speaker A: So if we can market it in terms of that and yeah well
+[00:18:06] Speaker D: Yep. I think we got some exclusivity in that, you know, we got something that nobody else has right now, and and that means we can we can make some adjustments in the retail or wholesale price if we need to and it also can create it's own demand from it's uniqueness.
+[00:18:10] Speaker B: Yeah.
+[00:18:20] Speaker A: So our big decision then is like how do we do um like we have to decide on the details and we have to decide on well n not exactly the details, but d do we have uh
+[00:18:34] Speaker A: What type of casing? I personally like what you were saying about the plastic with the rubber.
+[00:18:38] Speaker B: Mm-hmm. I'm thinking yeah something like kinda almost like these pens, you know, where there's you have plastic bits and then it's not really rubber but just kinda like a fused the plastic with rubber on the outside.
+[00:18:51] Speaker A: Okay. Just a very thin sorta sheet for a a grip, sorta thing or for
+[00:18:53] Speaker B: Well no ma yeah maybe a bit more then th is on here but ju just as a kind of an inspiration, these pens I think are are kind of
+[00:19:02] Speaker A: Okay.
+[00:19:04] Speaker A: So then if we d d do we want to do anything more basic with the uh more advanced with the user interface in terms of do we want to go for um buttons, or do we want if we're ditching the scroll wheels do we want to go L_C_D_? Do we want to give do we want to have anything else on it?
+[00:19:28] Speaker C: It's only a T_V_.
+[00:19:30] Speaker B: Or from from my perspective I think L_C_D_ is a mistake because this is a universal remote and all you're doing I mean it's you're not gonna get any information back from the television, so the only information you can display on this remote is what channel you just sent it at last and there's just not a lot of information, you know, there. It receives no information.
+[00:19:50] Speaker C: Hmm.
+[00:19:50] Speaker A: Okay.
+[00:19:54] Speaker B: So I I don't see any reason for having an L_C_D_ 'cause it's an increased cost. Unless you can think of something interesting to do with it.
+[00:20:00] Speaker D: Yeah.
+[00:20:03] Speaker D: Yeah right now there's right now there's nothing coming out of the T_V_ to receive, so you know unless technology changes and information starts coming out of the a cable box or something there's no s I don't see the,
+[00:20:07] Speaker B: Right.
+[00:20:16] Speaker D: I don't see the necessity of an L_C_D_ either. Don't see it.
+[00:20:23] Speaker A: Okay so the question is now I guess we need t to
+[00:20:28] Speaker A: decide on well y you guys basically have to now go and
+[00:20:34] Speaker A: figure out the details of this thing. So, what we need to know in terms of marketing and uh project management are are there any other questions that we need to answer now before you guys can go and build this?
+[00:20:47] Speaker A: What what overall things have we not decided on?
+[00:20:50] Speaker B: Well we have to I think for me it's still not exactly clear exactly what the inter user interface is gonna be. There's the scroll wheel, in or out?
+[00:20:59] Speaker B: What do you guys like in the user interface?
+[00:21:02] Speaker A: I think maybe in terms of marketing, is that gonna make enough of a difference to justify the cost?
+[00:21:04] Speaker D: Again. Well I think it's it's the more uniqueness you can bring to the product, the easier it is, I believe, for me to market. Uh again the push-buttons I I see are are everywhere. And so we can go with the same thing, but we're gonna be com competing in a in a broader market than if we go with something unique.
+[00:21:24] Speaker D: You know the other thing I thought about was you know, do we go to something like this?
+[00:21:30] Speaker D: Make a remote that doesn't look like a remote.
+[00:21:35] Speaker D: It's just another it's just a an idea, and I don't know
+[00:21:38] Speaker B: Well I dunno about like the flip-phone idea, because I think, as far as durability th it's not a big well maybe when it's closed.
+[00:21:48] Speaker D: I mean what I see one of the things one of the things you brought up in an earlier presentation is, when you got children, their their stuff gets inside the circuitry, they get dirty, they get messy with drinks and stuff. This
+[00:21:50] Speaker B: Mm-hmm.
+[00:22:01] Speaker B: Mm-hmm.
+[00:22:03] Speaker D: And what I keep throwing out there I just keep throwing out ideas to try to make this thing look or act or in some way identify itself as unique or different.
+[00:22:12] Speaker C: Mm-hmm.
+[00:22:12] Speaker D: But you guys are the ones that have to c ultimately create the product within cost.
+[00:22:16] Speaker A: Yeah and I guess th th the question th th that you're being asked right now is whether is the dock enough of a unique feature to be able to go out and sell that a a as a a very different product, or do we really need the scroll wheel as well? Because the scroll wheel comes at quite a cost.
+[00:22:33] Speaker D: Oh okay phew. I think you gotta g get into cost effectiveness. I think if you can have the base station with a with a locator, I think those are two very strong features, if that's something that can be integrated without a bunch of extra cost.
+[00:22:36] Speaker B: Yeah.
+[00:22:45] Speaker B: Well
+[00:22:46] Speaker B: The
+[00:22:47] Speaker B: The locator's gonna require a radio transmitter, which will
+[00:22:50] Speaker D: Mm-hmm.
+[00:22:52] Speaker A: That's gonna n is that gonna need a better chip as well?
+[00:22:55] Speaker B: Um we're probably gonna have to go with a like a medium chip, s I would imagine.
+[00:22:56] Speaker C: No it's just different.
+[00:23:03] Speaker B: But we I we will need a receiver, an antenna.
+[00:23:07] Speaker D: Integrated, yeah. So it's just uh I I think that's
+[00:23:08] Speaker B: Yeah.
+[00:23:12] Speaker B: It should be a really simple signal though so
+[00:23:15] Speaker D: I know personally that would be a very attractive feature, is to have a uh have a button I can push to find my remote control.
+[00:23:22] Speaker A: And it's presumably gonna need a little speaker in it or something like that as well to beep.
+[00:23:26] Speaker B: That's true yeah.
+[00:23:29] Speaker A: But I guess a little tiny speaker is gonna be quite cheap, it's not gonna need q quality, is it? It's
+[00:23:33] Speaker B: Oh yeah yeah. It'll be really cheap.
+[00:23:36] Speaker D: Or maybe you can like have a a smell-o-rama, you know you push a button and it s puts out a stink. You can
+[00:23:44] Speaker C: Maybe not.
+[00:23:45] Speaker A: Makes your living room more fresh as you watch.
+[00:23:47] Speaker D: Yeah yeah yeah yeah.
+[00:23:49] Speaker A: Okay we're doing well for time here. Um we've got about another ten minutes. I think that uh
+[00:23:50] Speaker C: S
+[00:23:56] Speaker B: So the scroll wheel,
+[00:23:59] Speaker B: in or out?
+[00:24:00] Speaker A: Mm pr my personal preference is out. I don't think the cost is justified for a little bit more uniqueness when we already have that, and I don't s think it's obvious and natural how it would be used.
+[00:24:08] Speaker C: Yeah.
+[00:24:10] Speaker C: Yeah I think we have like and it's not very usable and it will bring down the robustness of the whole thing, 'cause it's it it breaks down easier.
+[00:24:16] Speaker A: Mm.
+[00:24:17] Speaker D: Yeah.
+[00:24:18] Speaker B: For me I think the scroll wheel actually might not be so bad. I don't know exactly what the increased cost is gonna be, but I think he does have a point, i it might push somebody over the edge when they're looking at our at our remote versus something else, when they see this one has a scroll wheel to go up and down on the channels. I think it might be kinda neat to be able to do it like that.
+[00:24:38] Speaker A: But then that that surely d depends a little on the T_V_ because some T_V_s are quite slow at changing channels from like so if you've got a scroll wheel and you s you have to scroll scroll it really really slowly just so that you're actually keeping in pace with the T_V_'s ability to to change channels. Or do you have to go through and you wait for it? You scroll it a bunch of times and you wait for it to
+[00:24:39] Speaker D: W
+[00:24:45] Speaker B: Sure.
+[00:24:55] Speaker D: Yeah.
+[00:24:59] Speaker B: Well I think wh what it would be is like like the m like this, where it's maybe you know a digital
+[00:25:05] Speaker B: wheel, right, where it's where it's quantized into you know certain
+[00:25:06] Speaker A: Mm.
+[00:25:09] Speaker D: Oh yeah.
+[00:25:10] Speaker A: Uh I see I see. That's where you
+[00:25:11] Speaker D: Yeah.
+[00:25:11] Speaker B: That was that was my my intuition of what the scroll wheel would be.
+[00:25:13] Speaker A: Ah I see I see what you're talking about now. Okay.
+[00:25:20] Speaker B: It's just it's basically it it's just a f look and feel thing. It has the same exact functionality as two buttons.
+[00:25:23] Speaker D: I I think there's you know that uh there are so many people today that are that are surfing are television surfers, and I see the scroll as a as a great mechanism for surfing. Instead of going button-to-bu you just j you'd j j j j j j. I really I really think that's a really cool thing for surfing.
+[00:25:37] Speaker A: Yeah if you're just sitting there going
+[00:25:40] Speaker B: Yeah.
+[00:25:41] Speaker A: That's kinda cool actually. I like that.
+[00:25:45] Speaker B: Now just just so you know though uh you did bring up a point which is very valid, is a lot of T_V_s won't re the T_V_s won't respond exactly the same. Some of them are gonna be kinda slow switching, so you may like queue up like fifteen channel changes, and it'll be like flip, flip, flip.
+[00:26:00] Speaker D: Well there's ano
+[00:26:01] Speaker B: But
+[00:26:01] Speaker A: Well not n necessarily. You could basically make it so that it'll I mean it's just gonna be sending a signal to the T_V_ yeah the T_V_'s ge so if you send about five flip channels, if you did that it's gonna flip once. If you do that.
+[00:26:07] Speaker B: Right.
+[00:26:07] Speaker D: That's right.
+[00:26:12] Speaker B: Yeah it just might be frustrating where you can't make it go as fast as you want, but I think once people get used to it I I do like the idea of the scroll wheel though.
+[00:26:14] Speaker A: Other than click click click.
+[00:26:16] Speaker A: Yeah.
+[00:26:20] Speaker A: And if we're marketing it as a high niche product, then we're gonna be selling it to people who are buying good T_V_s as well, yeah, presumably.
+[00:26:25] Speaker C: Mm-hmm.
+[00:26:26] Speaker D: Yeah I think so. I I think so. Now the the only thing I I on the interface side of it, is that I I I see the dilemma.
+[00:26:27] Speaker A: Primarily.
+[00:26:28] Speaker C: Yep.
+[00:26:36] Speaker D: But if we have the option of of scrolling at any particular speed, or the option of jumping direct, okay. So I can go uh presuming I have, on my television, something that tells me what channel I'm on, I can scroll direct from channel five to channel thirty two.
+[00:26:46] Speaker A: Mm-hmm.
+[00:26:58] Speaker D: I know what because it's on the television. The television tells me what channel it's on when I change it. So I don't know that really that's that's gonna be a a d problem, 'cause the television can go automatically from channel five to channel thirty two with the push of a button. Okay? So ca can we can we create that kind of interface within a scroll system? You understand what I'm saying?
+[00:27:13] Speaker A: Mm-hmm.
+[00:27:20] Speaker B: I think I know what you might be getting at, or or
+[00:27:21] Speaker A: Oh I see so if maybe if we had an L_C_D_ up the top that just did a number on it, right?
+[00:27:26] Speaker D: Oh no we could read it from the television.
+[00:27:27] Speaker A: And then it that basically
+[00:27:27] Speaker B: Well, what about this what about if you can programme in your favourite channels into this scroll wheel and you can just like roll through your favourite channels, and it c it
+[00:27:29] Speaker A: Mm.
+[00:27:37] Speaker A: Well that's quite cool. You'd need a display on the th the thing.
+[00:27:40] Speaker B: Why? It'll tell you when you flip the channel on the T_V_.
+[00:27:41] Speaker D: Yeah the the television can tell you. Can.
+[00:27:43] Speaker B: Yeah.
+[00:27:45] Speaker A: Oh yeah yeah no I see what you're talking about. Yeah that's kinda cool. How would you program it though?
+[00:27:48] Speaker B: Well you just it's one extra button. You say programme start, and then type in 'cause you still have the typing you know you'll still have the keypad where you can type 'em in manually. So programme start, zero, one, enter, zero, five, enter, thirty eight, enter, programme end.
+[00:27:50] Speaker D: Put
+[00:27:56] Speaker A: Okay okay.
+[00:28:04] Speaker D: And then.
+[00:28:05] Speaker A: Okay and yeah and that just basically flips between it and it'll go it sends out zero, five, and then thirty six, and then zero, one again. Yeah that's kinda cool. I like that.
+[00:28:08] Speaker B: Mm-hmm.
+[00:28:11] Speaker B: Mm-hmm.
+[00:28:15] Speaker D: And again we have another another great marketing tool. We have about three we have three or four things here.
+[00:28:19] Speaker A: That's not gonna be too expensive because that's gonna be you're gonna be able to nab that off of computer mouse manufacturers really. You could basically come up with a partnership to be able to produce that quite cheaply.
+[00:28:26] Speaker B: Mm-hmm.
+[00:28:30] Speaker D: I dunno and an maybe we maybe even have this as in-house technology. This may be something that's available through our own uh through our own services.
+[00:28:31] Speaker C: Yeah.
+[00:28:37] Speaker A: Might be, but tha that's not gonna be such a costly feature. The problem we're gonna have is making it robust.
+[00:28:44] Speaker B: Oh well we also have to determine in some manner how to switch between modes, between going through your favourites list and just hitting up one, up two.
+[00:28:44] Speaker A: Making it last.
+[00:28:52] Speaker D: Or we go directional up we go we go this we go this we go this way for one, we go this way for the other.
+[00:28:54] Speaker A: So if there's a button for each type.
+[00:28:59] Speaker B: No because you wanna be able to go up and down through the channels.
+[00:29:01] Speaker A: Yeah people are gonna have their favourite sorta, whether they do that or whether they
+[00:29:02] Speaker D: Ah-ha okay.
+[00:29:03] Speaker D: Okay, okay, well then you just have, you have a diff you have a mode switch.
+[00:29:04] Speaker B: Right.
+[00:29:06] Speaker B: I think we'll need a we'll need a mode switch, but then if we have a mode switch we're gonna need some kinda indicator
+[00:29:06] Speaker A: Yeah yeah the mode switch.
+[00:29:12] Speaker A: Just the lights behind the buttons. You could have back-lit buttons maybe.
+[00:29:12] Speaker B: to which, an L_E_ an L_E_D_ okay.
+[00:29:16] Speaker C: Yeah.
+[00:29:16] Speaker A: Would that work? Is that okay we have five minutes. So right details th that we've talked about here are that we want a scroll wheel.
+[00:29:18] Speaker B: Okay.
+[00:29:28] Speaker A: We want a mode indicator.
+[00:29:34] Speaker A: We want back-lit buttons.
+[00:29:40] Speaker A: And if we're making back-lit buttons period, do we want that just for the mode indicator or maybe to indicate what button you're pressing at the time, so that you know if it's actually pressed or not. I've seen some remotes do that.
+[00:29:49] Speaker B: Okay. Just so you know I think I mean it was my understanding that before we were gonna stay in the mid-market range. It seems we're kind of approaching a higher-end range. I wanna make sure everybody's okay with that.
+[00:29:59] Speaker D: Yeah yeah.
+[00:29:59] Speaker A: I think we are yeah.
+[00:30:00] Speaker D: Well you had acknowledged that we have more money for this. Didn't you say so?
+[00:30:03] Speaker A: Yeah well we don't have it's not that we have more money, we can push up the the price. Yeah.
+[00:30:07] Speaker D: That's what I mean. We can increase the cost.
+[00:30:09] Speaker B: Okay.
+[00:30:10] Speaker D: So I don't know I don't know whether having
+[00:30:10] Speaker A: 'Kay.
+[00:30:11] Speaker B: I just wanna make sure everybody's on board with it. So
+[00:30:14] Speaker A: Yeah.
+[00:30:16] Speaker A: So we really need to be sure as to what we can push the cost up to, though we haven't got to a stage where we're ready to pin down the price of components. But I'd say what sorta price are we looking to be able to sell something like that, and what sorta price can we make it for?
+[00:30:27] Speaker D: Well I think th I think the design and technology has to come back and say, okay to create this product we see it's gonna cost us this much for this volume, because we do have a volume target of of fifty million profit.
+[00:30:39] Speaker A: Yeah no I I think that's where we really should be more flexible than anything else because as we said in the last meeting, our management is really looking for us to push our brand. We're entering a new market here, so I think the the profit expectation for this one product is maybe not as important as being able to
+[00:30:47] Speaker B: Right.
+[00:30:55] Speaker D: Okay I'm I'm okay with that. I guess what I just want to me the next step is for these guys to come come in with the design proposal w with the cost estimate attached, and then we have to take this to the next level.
+[00:31:06] Speaker A: But th what's our ballpark as to what we'd be able to sell something like this for?
+[00:31:09] Speaker B: Well y yeah. Let's let's try and think now, how much would you pay for with all these features how much would you pay if you went to the store, and you were in the market f to replace your T_V_ remote, how much would you pay for that?
+[00:31:10] Speaker D: We have to find cost.
+[00:31:20] Speaker A: But you've gotta think who our target market is because I I'm not our target market. I'm a student, but
+[00:31:22] Speaker B: I'm just asking you.
+[00:31:26] Speaker B: If
+[00:31:27] Speaker A: on the other hand I would think,
+[00:31:30] Speaker A: mm with my Project Manager salary, I would think yeah I could probably afford this uh would I buy it? Maybe. If I had a cool new T_V_ and this was r looking really slick and it had the dock and it had the scroll wheel, which I think's a really cool idea, that would sell me on it a little. Then maybe you know. I do I don't think I'd go over a hundred Euro certainly, that would be way too much, but the I would be happy paying over forty for it, I guess, but not much
+[00:31:32] Speaker B: Then you could probably afford this.
+[00:31:51] Speaker B: Oh no no.
+[00:31:58] Speaker B: I would say thirty five to forty.
+[00:32:00] Speaker D: Yeah, I was gonna say thirty five to fifty.
+[00:32:02] Speaker A: 'Kay. Thirty five to fifty Euros is our sales bracket okay. So the question is what we ca we make it for.
+[00:32:05] Speaker B: Okay.
+[00:32:06] Speaker D: Because one of th one of the things we're marketing about this product is that this is the last one you will ever need to buy for your television. It's one of the marketing features in this.
+[00:32:11] Speaker B: Right.
+[00:32:11] Speaker A: Mm.
+[00:32:14] Speaker A: That's why the scroll needs to be really robust.
+[00:32:16] Speaker C: Okay so we'll come up with something between thirty five and fifty that is rug rubber, robust, with scroll wheel, with the new facilities of the scroll wheel like favourite stuff, favourite channels, and and with a cradle, and yeah and the locator.
+[00:32:29] Speaker D: Mm-hmm.
+[00:32:29] Speaker B: With a cradle, radio transmitters,
+[00:32:33] Speaker B: and back-lit buttons. And it's gonna look sexy.
+[00:32:37] Speaker C: Or not.
+[00:32:37] Speaker B: Or not. It might look like clay.
+[00:32:40] Speaker C: Okay so you can market pe depending on that?
+[00:32:42] Speaker D: Yeah yeah. Bas th that's that's easy. That's that's not a, it's a.
+[00:32:48] Speaker D: 'Cause we have about six, six, seven features in that alone.
+[00:32:53] Speaker A: Yep.
+[00:32:54] Speaker C: Cool.
+[00:32:54] Speaker D: Under the title of uniquenesses.
+[00:32:56] Speaker C: Hmm.
+[00:32:57] Speaker A: Okay. The next meeting starts in thirty minutes, although does it? It starts at three twenty one, the next meeting. So we've got more than a thirty minutes. Um we've got more like fifty.
+[00:33:08] Speaker D: Well I have
+[00:33:09] Speaker D: Is my three twenty one is the next meeting?
+[00:33:12] Speaker A: The the ne next meeting is three twenty one yeah.
+[00:33:14] Speaker D: That's that's almost uh fifty minutes.
+[00:33:17] Speaker A: Yeah that is. Uh they've they've changed the times from the presentations.
+[00:33:19] Speaker D: You guys can
+[00:33:21] Speaker D: You guys you guys can uh create a
+[00:33:25] Speaker D: All kinds of things.
+[00:33:25] Speaker B: Probably. We'll let you know when we're done, if we can go earlier.
+[00:33:27] Speaker D: Thanks, yeah.
+[00:33:29] Speaker A: Okay so you guys will be getting your modelling done now and uh
+[00:33:33] Speaker B: Yeah.
+[00:33:36] Speaker A: Okay are there any other questions with regards to what this thing's gonna do, look like, how it's gonna work that need to be addressed before we really look at this in a lot of detail?
+[00:33:48] Speaker B: I don't think so. If we have any questions we'll just email you I guess.
+[00:33:52] Speaker A: Okay.
+[00:33:53] Speaker C: Yeah I think it pretty much everything's covered.
+[00:33:56] Speaker A: Okay. This one was quite easy.
+[00:34:00] Speaker C: Coulda been worse.
+[00:34:01] Speaker D: Still.
+[00:34:01] Speaker A: Always the optimist. 'Kay thanks guys.
+[00:34:02] Speaker C: Yes I am.
+[00:34:05] Speaker D: Thank you.
+[00:34:07] Speaker D: I don't have any emails. This means I can go home.
+[00:34:13] Speaker D: Oh, we all leave.

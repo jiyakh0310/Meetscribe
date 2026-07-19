@@ -1,0 +1,564 @@
+[00:00:20] Speaker D: Okay.
+[00:00:25] Speaker D: Oh I totally
+[00:00:28] Speaker D: Yeah 'cause I moved it.
+[00:00:35] Speaker D: 'S put it over here. Then we don't have to worry about it.
+[00:00:38] Speaker C: Ready for this?
+[00:00:41] Speaker A: All set? Cool.
+[00:00:44] Speaker A: Alright, it is PowerPoint time.
+[00:00:48] Speaker A: I've done more PowerPoints in this particular experiment than I've ever done in my life before this experiment which is kind of fun.
+[00:00:54] Speaker B: Yeah.
+[00:00:58] Speaker C: Oh man.
+[00:01:01] Speaker A: So uh here we have our detailed design meeting where we will um look at the prototype and um right so um, I finally figured out what this whole second bullet point is about in my that my coach was sending to me. It means I'm supposed to read the minutes from the previous meeting.
+[00:01:18] Speaker B: Oh really? Okay.
+[00:01:19] Speaker A: I think. I don't know. Otherwise it's just saying I'm the secretary and I'm therefore I'm taking the minutes, s so just to go um just real briefly to go over minutes from last meeting, uh, I will open them slowly, no? Wait for it, wait for it.
+[00:01:20] Speaker D: Huh.
+[00:01:47] Speaker D: Yeah that's not you.
+[00:01:48] Speaker A: No. That's how the
+[00:01:51] Speaker A: Wait.
+[00:01:53] Speaker A: This is, this is very high-powered stuff here, double-clicking, there we go. So um basically the moral of the story from our last minute uh last meeting was that um we that we had meetings from uh we had presentations done by the Industrial Designer, uh or from Nathan, and Ron and from Sarah about what we can do here um and what
+[00:02:17] Speaker A: sort of limitations we're operating with um uh excuse me what limitations we're operating under, what kind of risk we'd be looking at with some of the various approaches we were discussing and we essentially came to the conclusion that we should develop a remote with uh voice recognition, I_E_ that had a vaguely non-remote like shape um because you didn't really need to use it as a remote since you could just use your voice. That would include some mostly just the simple design features for a television operation but with a slide or a fold-out bay for more advanced functions for users. Um, and uh the uh uh the U_I_D_ and the I_D_ were asked to go ahead and start developing a prototype for us to look at. So.
+[00:03:01] Speaker A: That's sorted, back to the main
+[00:03:07] Speaker A: meet here, um, go ahead and take it away guys.
+[00:03:11] Speaker B: Well. Uh, we have assembled our prototype, um. What's to be said about it? Um, we took into account a lot of the things that we went over in the last meeting, um. Some of the most important things to consider are that we decided not to go for the touch screen which you can see and opted for some very large buttons for the primary functions, um.
+[00:03:33] Speaker A: Mm-hmm.
+[00:03:42] Speaker B: This is going to be the on off button and we have these buttons to go through the channels um and then two volume buttons down here, d uh we decided those were the most important uh buttons. And then, for the more advanced uh functions there is a slide out panel here um and you can see that there are lots of other things going on. But this actually can slide back in and provides a very nice aesthetic when it's all put away, um.
+[00:04:14] Speaker B: As far as the uh whole visible light thing, we decided to go with the multiple colours coming out, why not?
+[00:04:18] Speaker D: Ah.
+[00:04:20] Speaker A: Nice.
+[00:04:22] Speaker D: Fair enough.
+[00:04:24] Speaker B: Of course, if that's annoying for some people that function can be turned off. Um.
+[00:04:27] Speaker A: Perfect.
+[00:04:30] Speaker C: No it's important to we talked a quite a bit about uh you know the the interchangeable uh faces and what we've done here is come up with a bit of a natural look here um f we call it fruity if you will. Um. Right, um, of course that's uh interchangeable and uh I think it would be desirable for the uh for the regular product in the in the in the in the first packaging to be something a little bit more subdued but this is kind of something that can be done um and as you can see on the television there uh we have the uh voice detector device um on the top there. Um. So that that will work quite well with with regard to finding this uh contraption.
+[00:04:31] Speaker B: Go ahead.
+[00:04:37] Speaker D: Mm.
+[00:04:41] Speaker D: Right.
+[00:04:44] Speaker D: Appropriate, okay.
+[00:04:54] Speaker D: Mm 'kay.
+[00:05:00] Speaker D: It is an option.
+[00:05:07] Speaker A: Oh, right.
+[00:05:08] Speaker B: That's this here.
+[00:05:09] Speaker D: Ah. I see.
+[00:05:17] Speaker C: Um, what other things do we see here, well, um if you give it a touch it does have actually a bit of a spongy feel, um, so I think that will work well with regards to our market. Um and uh let's see, well clearly there's gonna be some more colours and what not available. Um uh do you have anything else to add to that?
+[00:05:43] Speaker B: Um I worried about the materials, it is uh the entire thing is covered in a rubber coating so it's very durable uh, it's not gonna break like some types of plastic that's dropped.
+[00:05:58] Speaker B: Um, and of course as you can see and if you touch it it does have that nice squishy feel.
+[00:06:05] Speaker C: It's actually important to note that the television, uh you know if there's an earthquake or anything like that, that i it actually is edible inside.
+[00:06:17] Speaker B: Fact, I dunno if you noticed, but I wrote the uh the company's name on the telephone screen, I thought that was kinda nice. This was actually an apple on the inside. This
+[00:06:20] Speaker A: Oh well done yeah, yeah oh ok
+[00:06:21] Speaker D: Nice.
+[00:06:26] Speaker D: Do we need to worry about um rot factors?
+[00:06:29] Speaker C: Um it's encased in a new uh type of uh
+[00:06:33] Speaker D: Oh okay, there's preservatives involved, we don't need to worry, okay.
+[00:06:34] Speaker B: Yeah. We got a bit ahead of ourselves, I know we're not talking about making televisions at this point or anything like that, but
+[00:06:34] Speaker C: polymer yeah. It's fine.
+[00:06:37] Speaker C: Hmm.
+[00:06:37] Speaker D: Fair enough.
+[00:06:39] Speaker A: Edible televisions, it's a wave of the future.
+[00:06:40] Speaker D: No but
+[00:06:41] Speaker C: It's pos a possible new product. Um, but I think that's I think that sums up the main features of our of the remote, um I dunno if you guys have any questions or f whether that uh whether we need to worry about any uh other marketing areas or anything of that nature. Um, did we come in under budget?
+[00:06:42] Speaker D: It's a couple years off at least.
+[00:06:44] Speaker D: Okay.
+[00:06:51] Speaker A: Brilliant.
+[00:06:52] Speaker B: Right.
+[00:07:03] Speaker B: Uh we did, yeah. This cost well to put this into um production, we're looking at about what was our goal? It was twelve fifty Euro um and this actually came in at about eleven ninety nine.
+[00:07:19] Speaker B: Um, so I was quite pleased with that. One thing that we didn't do um obviously we had a choice with the buttons whether to use scroll buttons or standard rubber buttons, but we just went for a classic rubber button and um since we did that we didn't have to use as many microchips which was quite nice and that's what helped keep the cost down. So even though it has a lot of modern technology, um for example the voice recognition, in a lot of ways it's just a simple remote and um I think if we shopped around for other manufacturers um we might be able to get even cheaper.
+[00:07:21] Speaker C: Mm-hmm.
+[00:07:32] Speaker D: Mm.
+[00:07:38] Speaker A: Brilliant.
+[00:07:39] Speaker D: Mm.
+[00:07:47] Speaker D: Okay.
+[00:07:49] Speaker C: Mm.
+[00:07:58] Speaker C: Did we talk about the voice recognition uh option?
+[00:07:59] Speaker B: And
+[00:08:03] Speaker B: Oh no, we haven't talked about that yet have we?
+[00:08:04] Speaker C: So uh so uh yeah on the back here you all noticed this area here which is actually the voice recognition uh uh console and uh I think it's nicely designed into the into the overall look. Um, but basically the voice recognition uh incorporates um the latest designs that our research team has been able to cufw uh come up with. Basically uh quite similar to the coffee maker um design that we were talking about earlier and um, I think that uh has given a proven um ease of use and what not. And uh allows features like the remote actually talking back to the user um, so.
+[00:08:11] Speaker D: Okay.
+[00:08:18] Speaker D: Yeah.
+[00:08:30] Speaker D: Mm 'kay.
+[00:08:40] Speaker B: Hmm. Yeah.
+[00:08:48] Speaker D: Right.
+[00:08:52] Speaker A: Cool.
+[00:08:52] Speaker B: Any questions?
+[00:08:54] Speaker A: No, no I think that's
+[00:08:54] Speaker D: Do we have um other, for lack of a better word, skins? Covers? In play now or are those ones gonna be developed later once we see how the couple we have g go or?
+[00:09:05] Speaker B: Um, do you wanna answer this one or do you want me to answer it?
+[00:09:06] Speaker D: Do we know where we stand on that yet?
+[00:09:07] Speaker C: Well we didn't quite have enough material uh.
+[00:09:11] Speaker D: Oh I wasn't expecting a prototype I just didn't know if you guys had any in mind yet.
+[00:09:12] Speaker B: Yeah, yeah.
+[00:09:12] Speaker C: Oh I see, right, um.
+[00:09:14] Speaker B: Um, well as you can see this is just a most superficial layer and um it'd be very easy to put another layer of something else like
+[00:09:22] Speaker D: Okay.
+[00:09:24] Speaker D: Just veneer really, yeah. Okay.
+[00:09:26] Speaker C: Right. Actually this bottom red ring here just unclips and then you put a a new a new uh a new plate on top of that. So I mean there are I we definitely priced out a spongy even spongier non-natural look um materials which I think worked out fine. We also continued on with the ideas that f following uh Apple's colour schemes with the kind of the uh light orange and the green.
+[00:09:30] Speaker D: Mm-hmm.
+[00:09:31] Speaker D: And the whole thing
+[00:09:33] Speaker D: Okay.
+[00:09:37] Speaker D: Right.
+[00:09:39] Speaker D: Yeah. There's
+[00:09:44] Speaker D: Okay.
+[00:09:47] Speaker D: Mm 'kay.
+[00:09:52] Speaker D: Okay, very cool.
+[00:09:55] Speaker B: It's not it's not quite a a face plate, it's more like a pseudo-face plate because it's simple enough that in the factory it could we could very easily put a different one on it, it locks into place such that, you know, it's pretty permanent but at the same time, if we wanna go the other way it's just a matter of a couple of adjustments and we could go the face plate way if you know what I mean.
+[00:10:00] Speaker D: Okay.
+[00:10:17] Speaker D: Okay.
+[00:10:19] Speaker D: Yep. It's still an option if we need it. Very cool, nice job.
+[00:10:20] Speaker B: Yeah.
+[00:10:24] Speaker A: Right, yeah thanks guys that's very, very good work. I like it, brilliant.
+[00:10:29] Speaker A: Um, what we need to discuss now is the finance of it, um I got me you've got you provided a number that actually sounds quite nice. Um the trouble is I was just given this by finance. Um, it's a spreadsheet of the parts and I've just tentatively put in what it's going to look like um. I'm just gonna clear this out real quickly, but it looks like
+[00:10:44] Speaker B: Oh.
+[00:10:49] Speaker B: Ooh.
+[00:10:59] Speaker A: So we'll just if we can just itemize what's in here, we've got this it's a solar cell thing right?
+[00:11:05] Speaker B: Right uh we didn't really touch on that but it it's in there, yep.
+[00:11:07] Speaker A: With a back-up battery?
+[00:11:10] Speaker A: With the ba okay. Um and
+[00:11:12] Speaker C: The voice recognition area actually doubles as uh as the solar cell area. Yeah.
+[00:11:17] Speaker A: Clever, clever, well done. Um so I guess that would mean we've got a bit of a um
+[00:11:24] Speaker A: It's a s a speaker and a sensor at the same time isn't it?
+[00:11:28] Speaker B: Yeah, yeah. It's just making use of the same space and the same materials, but
+[00:11:31] Speaker D: Mm-hmm.
+[00:11:31] Speaker A: Okay.
+[00:11:33] Speaker A: Um and the case, it's more of a single-curved case, I guess would be that be the general
+[00:11:38] Speaker B: Yeah, one big curve I guess you could say.
+[00:11:39] Speaker D: Mm-hmm.
+[00:11:41] Speaker A: Um and we've got a rubber skin material basically throughout. Um. Push button interface
+[00:11:51] Speaker A: um with this other drop-down so maybe we've got two push button interfaces don't we?
+[00:11:55] Speaker B: Yeah, mm-hmm.
+[00:11:56] Speaker A: Um.
+[00:11:59] Speaker A: And um a special
+[00:12:02] Speaker A: I guess it's uh we've got a sort of a wood materi a rubbery type material that throughout, yeah.
+[00:12:07] Speaker B: Yeah, special. And s I guess you have to mark special colour and special form as well, don't you? 'Cause it i it is very unconventional, I like to think of it as unconventional.
+[00:12:16] Speaker A: Yeah, it's it's quite unique. I like it, yeah it's
+[00:12:19] Speaker A: So it looks like
+[00:12:22] Speaker D: M come in at sixteen?
+[00:12:23] Speaker A: a bit over budget, um.
+[00:12:23] Speaker B: Oh. Huh, doesn't match up does it?
+[00:12:28] Speaker A: So what we could do perhaps, a simple fix would maybe to switch away from the solar cells
+[00:12:35] Speaker A: um or take out the back-up battery. Uh
+[00:12:39] Speaker B: How do you feel about that?
+[00:12:40] Speaker C: I mean I think that uh if we're talking about it being one of our main selling features, being environmental and without the batteries and what not, although it does still have a battery so I'm not sure that you know what the sell is on that.
+[00:12:52] Speaker D: Yeah.
+[00:12:53] Speaker B: I mean we could take we could take the battery out of it you see and it'd probably work ninety nine per cent of the time but you're gonna have to set up a call centre for that one per cent of the time when people are calling and saying oh look my remote isn't working what am I gonna do? People'd be real upset. I think in the long-run it's better to keep the battery, it's hard to scrap the whole cell battery idea 'cause that's so integral to the theme that we have.
+[00:13:05] Speaker A: Mm-hmm. Mm-hmm.
+[00:13:06] Speaker D: Mm k.
+[00:13:08] Speaker D: True.
+[00:13:20] Speaker A: Hmm.
+[00:13:29] Speaker A: What's difficult, we have all these things integral to the um to the design of it that we just can't back out of now, it would have to be seems like we'd have to go back to
+[00:13:33] Speaker D: Nah.
+[00:13:40] Speaker A: square one
+[00:13:44] Speaker A: in a way. Um if we were gonna try to undo one bit we'd probably have to undo most of it, um
+[00:13:50] Speaker B: Yeah.
+[00:13:51] Speaker D: Although we don't wanna get rid of the whole environmental I mean obviously the solar cell is a big piece of the way we're marketing this as like a natural, new thing, but honestly if we cut that one piece out we're actually coming in under budget if I've done my math correctly.
+[00:14:11] Speaker B: Hmm.
+[00:14:11] Speaker C: I mean you might be able to sway me on the idea that we our main selling point could be already this voice recognition thing I mean that's what sets us apart right?
+[00:14:12] Speaker D: I mean
+[00:14:19] Speaker D: Which, it's yeah that's what setting us into this young market, I mean that's where we started from, so
+[00:14:27] Speaker D: I don't know, and I mean you know perhaps when the cell technology comes down in price we can bring that back into the game but it looks like at this point that may be out of our league.
+[00:14:37] Speaker B: Right.
+[00:14:37] Speaker C: And the reality is you know, for me from an ideological stand point, I'd like to stick with the uh the solar cell, but I h kind of have to throw myself in the in the business structure model here and uh you know I think I think that I think that we need to come to a compromise here and maybe move ahead with the project, without the solar cell.
+[00:14:47] Speaker D: Right.
+[00:14:49] Speaker D: Yeah.
+[00:14:50] Speaker B: Right.
+[00:14:51] Speaker A: It's either or.
+[00:14:53] Speaker D: Yeah.
+[00:15:01] Speaker B: Yeah. I guess we might have to do that. It's the only way we're gonna get below our uh goal isn't it? Of twelve fifty.
+[00:15:02] Speaker D: I think unfortunately that's our best option.
+[00:15:07] Speaker D: Mm.
+[00:15:09] Speaker A: 'Cause we can't remove the push buttons 'cause they're um and we can't get rid of the uh I mean removing the changing the case wouldn't be so much of a
+[00:15:12] Speaker D: It kind of yeah.
+[00:15:12] Speaker B: Yeah,.
+[00:15:22] Speaker C: Savings.
+[00:15:22] Speaker A: mm-mm, um, nor would changing the case materials.
+[00:15:24] Speaker D: Mm-mm.
+[00:15:27] Speaker A: Um. So yeah that looks like to be the only thing. So that would be the it's a major change but
+[00:15:32] Speaker D: Yeah.
+[00:15:36] Speaker A: Yeah.
+[00:15:39] Speaker A: Alright, so we're in agreement on that.
+[00:15:39] Speaker B: Gotta do what you gotta do.
+[00:15:42] Speaker D: Unfortunately I think we are.
+[00:15:46] Speaker C: No, I think that was a good compromise you brought forward Sarah.
+[00:15:55] Speaker A: Right.
+[00:15:59] Speaker A: Moving along swiftly. Um, so I guess now we just go to the project evaluation
+[00:16:07] Speaker A: which I will allow Sarah to take over.
+[00:16:09] Speaker D: That would be me. Um cord?
+[00:16:12] Speaker A: Ah of course, sorry.
+[00:16:13] Speaker D: No problem.
+[00:16:14] Speaker A: Whoosh.
+[00:16:17] Speaker D: Can you reach, that would be great, thank you.
+[00:16:17] Speaker C: Yep.
+[00:16:19] Speaker A: That'd be great
+[00:16:21] Speaker D: I didn't even do that one on purpose either, damn. Okay, um, basically I was just evaluating um from what we know of how our product's working right now with the criteria that we set at the beginning of these are the things we needed to do, these are the things that look like we feel they're important. Um so I was looking at basic design things, does it fulfil its functions as a remote? Is the design what we wanted it to do? I are technologies up to where we hoped they would be and does it fulfil the aesthetic qualities that our original market research was looking for? Um.
+[00:16:53] Speaker D: Basic questions like, you know, does it turn on? Does it respond to voice recognition? And overall, in general, it looks like it's coming up to par. Um, the only thing is with with the pull-out panel, that is, can it take some adjusting because it's a new sort of interface, um that looked like it was coming up rough, but then, once you get used to it, it does make a lot of sense. So I think overall we're headed in the right direction.
+[00:17:02] Speaker B: Mm.
+[00:17:18] Speaker B: Really good.
+[00:17:18] Speaker D: So.
+[00:17:19] Speaker C: They like that spongy feel.
+[00:17:21] Speaker D: Yeah. It looks like it's going over well, so
+[00:17:23] Speaker C: And the paging function works well, that's good to hear, we worked hard on that one.
+[00:17:24] Speaker B: Six?
+[00:17:25] Speaker D: we're we're good yeah. Yeah. It's I think eventually if we do um branch out with this product maybe we do have a higher budget options and if it goes over with this model we can look into um wider range voice recognition like from other rooms of the house and stuff, but for now, what we've got is working in the range we need it for, so it's all good.
+[00:17:27] Speaker B: We did.
+[00:17:46] Speaker A: Brilliant.
+[00:17:46] Speaker B: I am bit disappointed about losing the solar panel but it's okay.
+[00:17:46] Speaker D: That's everything from me.
+[00:17:49] Speaker D: Yeah.
+[00:17:49] Speaker A: Hmm.
+[00:17:51] Speaker D: Yeah, it is a set-back, but
+[00:17:51] Speaker B: Mm.
+[00:17:55] Speaker D: Okay, do you need the cord back?
+[00:17:57] Speaker C: W we might have uh we might have lost that granola market again that we're
+[00:17:57] Speaker A: Um yeah, I was just go on.
+[00:18:00] Speaker B: I know.
+[00:18:02] Speaker A: Well they don't own tellys anyway do they?
+[00:18:04] Speaker C: I guess that's true.
+[00:18:04] Speaker B: True.
+[00:18:08] Speaker A: Right. So, um, this one's a bit unclear to me to be perfectly fair, um. I got this slide from the coach and I'm not sure what it's connected to. Um so I guess we are going to discuss um our project process um and that is gonna go into my report. So I guess this is the point where we go um uh out of role it looks like and talk about our satisfaction for room for creativity and so forth and how that all worked, I guess, um.
+[00:18:44] Speaker B: Okay.
+[00:18:45] Speaker D: As in within the team or?
+[00:18:48] Speaker A: I think so yeah.
+[00:18:48] Speaker B: Right so it's just kind of a open mic kind of thing or
+[00:18:49] Speaker D: Okay.
+[00:18:50] Speaker A: I think it's
+[00:18:52] Speaker A: I mm-hmm, I think so.
+[00:18:54] Speaker B: 'Kay.
+[00:18:54] Speaker A: I think hope I'm not screwing up an experiment.
+[00:18:55] Speaker D: It is now, you're in charge so there you go.
+[00:19:03] Speaker A: But I trust that she would jump in if I was so okay fair enough. Um right, um so any thoughts?
+[00:19:05] Speaker B: Yeah.
+[00:19:05] Speaker D: Whatever.
+[00:19:12] Speaker B: Are we considering these points here? Okay.
+[00:19:13] Speaker D: Um.
+[00:19:14] Speaker A: Yeah.
+[00:19:15] Speaker D: I think they're starting blocks yeah.
+[00:19:18] Speaker A: What do you guys feel about the process?
+[00:19:22] Speaker D: Um, you know I think in general, for a day's worth of work we actually were relatively productive, considering the little amount of input we had going in. Um, and the technology has definitely been a help, it's really been interesting to try out all this new stuff.
+[00:19:30] Speaker A: Mm-hmm.
+[00:19:37] Speaker C: We didn't use the whiteboard at all.
+[00:19:39] Speaker D: No, we didn't. We could now if that'd make up for it but really and I feel like if you guys had been designing in here perhaps that would have changed but because of room constraints, doesn't really matter.
+[00:19:39] Speaker B: No.
+[00:19:39] Speaker A: No, no whiteboard.
+[00:19:43] Speaker C: And
+[00:19:52] Speaker C: Um, also had I not been intrigued about the pen, I don't think I woulda used it at all, I didn't write barely anything.
+[00:20:00] Speaker D: Yeah I think I was taking notes more often than usual just 'cause I liked the pen, yeah.
+[00:20:03] Speaker B: Yeah, it's true.
+[00:20:08] Speaker B: Mm.
+[00:20:08] Speaker C: Uh.
+[00:20:10] Speaker A: Was pretty cool tack though.
+[00:20:12] Speaker C: Yeah.
+[00:20:13] Speaker B: Definitely.
+[00:20:13] Speaker D: Mm. I am disappointed I didn't get a note back from my personal coach.
+[00:20:17] Speaker B: As you write your personal coach.
+[00:20:19] Speaker D: Yeah, but I didn't get a response so we'll see.
+[00:20:20] Speaker B: What if you get a response two or three months from now? That'd be weird.
+[00:20:26] Speaker D: Okay that would be kinda creepy.
+[00:20:28] Speaker A: Attempts to contact coach ineffective.
+[00:20:29] Speaker D: Well what kind of coaching is that really? What if I really needed something.
+[00:20:37] Speaker C: I so I don't n I think there was a lot of room for creativity, we could do whatever basically what we wanted until the budget came down on us, um.
+[00:20:43] Speaker D: I think so.
+[00:20:48] Speaker D: And even then we did get a decent product turned out although it's not everything we wanted it to be.
+[00:20:52] Speaker C: With the natural look.
+[00:20:52] Speaker B: Yeah.
+[00:20:54] Speaker B: That's very natural.
+[00:20:55] Speaker A: Very natural look.
+[00:20:55] Speaker D: Organic, really. And highly resourceful team mates might I add which is always a plus.
+[00:20:58] Speaker A: That's the brilliance of they had a p they had a peeler in here.
+[00:21:06] Speaker B: Yeah.
+[00:21:08] Speaker A: Yeah, I think, yeah re I thought it was like really creative actually, I mean.
+[00:21:11] Speaker C: I think the teamwork was good as well.
+[00:21:11] Speaker D: Mm yeah, I'm impressed.
+[00:21:15] Speaker B: And to prove that we weren't wasteful we didn't waste a single bit of Play-Doh, we used every bit.
+[00:21:19] Speaker D: Nice. All four of those little containers.
+[00:21:22] Speaker A: Including the s the multi-coloured wave pattern.
+[00:21:23] Speaker B: Yeah, I guess
+[00:21:26] Speaker B: My one my one criticism is that we didn't have enough colours to work with, we only had four, wasn't enough.
+[00:21:29] Speaker D: Yeah. You could have developed multiple skins really had you had more colours.
+[00:21:35] Speaker B: I know it could have been amazing.
+[00:21:37] Speaker D: Oh well.
+[00:21:39] Speaker A: What did you guys think about the the the roles?
+[00:21:44] Speaker B: Hmm.
+[00:21:48] Speaker D: They were good.
+[00:21:50] Speaker B: Yeah it's f kind of fun, it was
+[00:21:52] Speaker D: Yeah.
+[00:21:55] Speaker B: I think it was pretty clever 'cause we were never able to get too far off track because the information came in at the right time and kind of filled in the gaps enough. At the same time you had enough room to kind of just make things up, which was kind of fun.
+[00:22:04] Speaker D: True.
+[00:22:10] Speaker D: Do your own. Though I did feel like th the level of information dropped off severely over the course of the day.
+[00:22:16] Speaker B: Yeah.
+[00:22:17] Speaker D: I mean maybe it's just me but I didn't actually get any information for the last presentation at all. Nothing, I didn't even get an email, like that was it.
+[00:22:22] Speaker A: That's true, I I got this spreadsheet.
+[00:22:28] Speaker D: So, yeah, I feel like that was slightly lacking but then you know, fill in the blanks on your own, level of creativity upped. Whatever.
+[00:22:36] Speaker C: Well I think that was I think that was an issue I kept finding with regard to well no but also yeah when I was reporting about what each of us was doing I was often confused as to what you were doing um and then I also felt like you know a lot of our discussion would centre around n specifically what my task was because that was kind of the interface portion which was what the whole project was about uh but and then in the end I think our jobs kind of melded together a little bit more, which was fine.
+[00:22:39] Speaker A: Of what to do.
+[00:22:44] Speaker B: Mm.
+[00:22:44] Speaker D: Mm-hmm.
+[00:22:46] Speaker D: Uh-huh, that wasn't very much.
+[00:22:48] Speaker B: You know
+[00:22:50] Speaker D: Mm.
+[00:22:57] Speaker B: Yeah.
+[00:22:58] Speaker D: Yes.
+[00:23:00] Speaker A: Mm, mm.
+[00:23:00] Speaker D: Hmm, very much so.
+[00:23:04] Speaker B: Yeah. That was fun. I think the most helpful thing out of everything was getting the the PowerPoint slides already put together for you 'cause if we didn't have that there's no way we could have got all that done in time.
+[00:23:14] Speaker C: Mm-hmm.
+[00:23:14] Speaker D: Yeah, already having the formatted stuff helped a lot.
+[00:23:18] Speaker D: Very much so.
+[00:23:20] Speaker A: Cool.
+[00:23:22] Speaker C: And I think your leadership was quite good.
+[00:23:23] Speaker D: Hmm.
+[00:23:24] Speaker B: It was really good yeah.
+[00:23:25] Speaker A: She said I I I she actually made a comment off boy you're getting into this and I really I think it's true I did get I I felt like I got way too into it.
+[00:23:30] Speaker D: Yeah.
+[00:23:32] Speaker D: That's kind of a good thing though, you know, give the rest of us some structure to work with so hey.
+[00:23:33] Speaker A: I felt like I slipped into it a lot.
+[00:23:33] Speaker B: It's kinda fun.
+[00:23:37] Speaker A: I dunno.
+[00:23:37] Speaker C: An so is that the first time you've taken on that kind of role?
+[00:23:40] Speaker A: The first time I've ever done anything like yeah project project management. I usually organise crap, it's one thing to do, you know set up a party with your friends, you know?
+[00:23:44] Speaker D: Hmm.
+[00:23:47] Speaker B: Yeah.
+[00:23:48] Speaker D: Yeah.
+[00:23:49] Speaker B: Little different.
+[00:23:50] Speaker A: But you guys felt that you could keep the, yeah, suspension of disbelief kind of like like the role and the okay?
+[00:23:56] Speaker D: Yeah. I except for a couple moments where it just got out of hand and I knew we were all lying through our teeth, other than that
+[00:23:57] Speaker B: Yeah.
+[00:24:00] Speaker B: Yeah.
+[00:24:02] Speaker C: I had to admit, as soon as w we started I mean as soon as we got the Play-Doh, th you know the whole concept of really trying to stick with reality went out the window.
+[00:24:07] Speaker D: I could only imagine.
+[00:24:13] Speaker A: Yeah, yeah.
+[00:24:16] Speaker A: Maybe in in Legos you know? Be fun with Legos too, like make a remote control or spaceship, we used to have spaceship Legos did you guys ever used to build spaceships with Legos everybody knows best spaceships ever. Um you guys felt like there was enough teamwork in all?
+[00:24:19] Speaker C: Possibly.
+[00:24:25] Speaker C: Oh yeah, still have 'em.
+[00:24:26] Speaker D: Yeah.
+[00:24:28] Speaker D: Totally.
+[00:24:33] Speaker B: Yeah?
+[00:24:33] Speaker D: I think so.
+[00:24:36] Speaker C: Yep.
+[00:24:37] Speaker A: Hmm.
+[00:24:39] Speaker B: You don't.
+[00:24:40] Speaker A: No I, no I dunno, I d I I dunno, I don't I I was just I
+[00:24:43] Speaker D: Though we didn't actually I mean other than minor discussion at meetings there wasn't except for the actual building, but I feel like if this was a team project there actually would have been much more of the collaborative like brainstorming, use the board well and this would have been six months' worth of work, not like three hours' worth of meetings.
+[00:24:48] Speaker B: Yeah.
+[00:24:49] Speaker A: It's true huh?
+[00:24:59] Speaker A: Yeah.
+[00:25:02] Speaker C: I mean I think had the issue been more serious we probably woulda brainstormed more during our meetings as a team.
+[00:25:06] Speaker D: That's true.
+[00:25:06] Speaker B: Yeah.
+[00:25:09] Speaker A: Yeah. Course I'm I'm conscious of the idea of the Project Manager asking if you guys feel like there's a team you know it's like, kind of like, like hmm. It d
+[00:25:20] Speaker D: Yeah that is kind of
+[00:25:22] Speaker A: But yeah. Interesting. It's kind of fascinating wasn't it? I mean the whole process of
+[00:25:27] Speaker B: Wonder why is there anything about the way that we got so much inform what was it that kept us from going to the the board?
+[00:25:34] Speaker A: I don't know. I I don't know if there was a ri I th
+[00:25:36] Speaker D: Mine was the mics. I didn't feel like getting up and down and dealing with all these wires, I was afraid I was gonna break something actually.
+[00:25:39] Speaker B: Yeah, that's it 'cause the mics are loose and each time you get up it's s a possibility of tripping over something or getting tangled or.
+[00:25:43] Speaker D: Yeah.
+[00:25:44] Speaker A: Mm.
+[00:25:45] Speaker D: Yeah.
+[00:25:47] Speaker C: Well I dunno what I woulda shown on that board.
+[00:25:47] Speaker D: Yeah.
+[00:25:50] Speaker D: True, but it didn't even occur to me as an option, I mean I don't know that I would have but I know that I consciously didn't.
+[00:25:52] Speaker A: Nor I.
+[00:25:56] Speaker C: I mean it's just like the paper I don't know what I really needed the paper for. Um, because I've got this laptop. Standard, I just used it 'cause it's literally right in front of me.
+[00:25:59] Speaker D: True.
+[00:26:02] Speaker D: Yeah.
+[00:26:08] Speaker D: Yeah.
+[00:26:08] Speaker A: I wanna see the output files from these um, from the digital paper. I wanna see wh wh what my my handwriting looks like digitized because my handwriting is crap. I mean, just to see what it looks like in P_D_F_ format or something.
+[00:26:09] Speaker D: Well it looks really professional.
+[00:26:13] Speaker D: I know.
+[00:26:17] Speaker B: Yeah, that's it.
+[00:26:23] Speaker B: Usually I would do a lot more doodling too but I didn't because
+[00:26:24] Speaker D: I know, I felt like I needed to be professional so I didn't like draw all over my paper and stuff. Okay, well not entirely, but still, I doodled less than I usually do.
+[00:26:37] Speaker A: T I I'm curious about what the de-briefing is gonna be like. You know, like what is the uh
+[00:26:43] Speaker A: what exactly we're looking for here.
+[00:26:45] Speaker C: So is this all we need to get through?
+[00:26:47] Speaker D: I guess.
+[00:26:47] Speaker A: I dunno, I'm not sure what the new ideas found i is about.
+[00:26:50] Speaker D: Um. It did it just say in an email that we need to discuss that?
+[00:26:50] Speaker B: New ideas.
+[00:26:52] Speaker C: Is it
+[00:26:55] Speaker A: Well, that's the thing I got i in the email I got this PowerPoint file but this slide was just there, mm-hmm. I didn't change this one at all.
+[00:27:01] Speaker D: That slide was like that?
+[00:27:04] Speaker B: Hmm.
+[00:27:05] Speaker D: Well.
+[00:27:06] Speaker B: I guess we're on the right track.
+[00:27:06] Speaker A: Um ch
+[00:27:09] Speaker A: Yeah well.
+[00:27:10] Speaker C: Any new ideas with regard to remote control concepts?
+[00:27:13] Speaker A: W I kinda like th
+[00:27:15] Speaker B: No, none.
+[00:27:16] Speaker D: Uh I think they still do their job.
+[00:27:19] Speaker B: I think they're fine actually.
+[00:27:19] Speaker A: Yeah you can't
+[00:27:20] Speaker D: I am thinking outside the little square box though, with literally in like form I don't
+[00:27:23] Speaker A: Yeah.
+[00:27:25] Speaker B: Yeah, maybe a s a circle would be alright, different.
+[00:27:27] Speaker D: Yeah.
+[00:27:28] Speaker A: Does kinda make you wonder, I mean, how much can you do with a remote control? It's like inventing a new car. Yeah yeah, you can
+[00:27:34] Speaker D: It's still gotta be technically car shaped or it won't fit on the road, you know?
+[00:27:37] Speaker A: Yeah.
+[00:27:41] Speaker D: Don't know.
+[00:27:42] Speaker A: Hmm.
+[00:27:44] Speaker A: Um. 'Kay.
+[00:27:45] Speaker C: What is that? Our limited ability to think outside the box?
+[00:27:46] Speaker D: Kind of.
+[00:27:46] Speaker A: So this was other costs.
+[00:27:47] Speaker B: Are we back into project mood?
+[00:27:48] Speaker A: I dunno. I think this is
+[00:27:50] Speaker D: Oh, how long was our meeting supposed to be? How much time do we have left?
+[00:27:52] Speaker A: forty ish I I I mm we should go on a bit yeah about the project eval, um.
+[00:27:59] Speaker A: I dunno about you guys but I felt like
+[00:28:02] Speaker A: a bit
+[00:28:05] Speaker A: under-stimulated on the whole thing. Like, what like you know what am I really doing, you know what is
+[00:28:07] Speaker D: Mm.
+[00:28:10] Speaker D: Yeah, at the beginning it started out and I felt actually like under pressure like the first couple were taking a lot of work and I was like had like all this brainstorming I was doing and then suddenly I was like well it's just another two minute presentation that you guys don't really care about anyway so type away. You know, you know what I mean like we all sort of knew where we were headed with it so it didn't feel like it mattered anymore.
+[00:28:15] Speaker A: Yep.
+[00:28:17] Speaker B: Yeah.
+[00:28:23] Speaker C: Why? Huh I think it was the real.
+[00:28:24] Speaker A: Hey.
+[00:28:28] Speaker B: Yeah.
+[00:28:30] Speaker C: Yeah.
+[00:28:30] Speaker B: Definitely when when I first filled out the questionnaire I was marking it probably higher in terms of how much I had to how much I stressed over it and then by the time I got to the last one I was like, you know, not very much.
+[00:28:35] Speaker D: Mm-hmm.
+[00:28:40] Speaker D: Whatever. Yeah.
+[00:28:41] Speaker A: Mm.
+[00:28:42] Speaker C: Think it was also realisation of you basically just copy and paste what's given to you into your presentation which uh wasn't so clear to me at the beginning.
+[00:28:47] Speaker B: Yeah.
+[00:28:47] Speaker D: Very much, yeah.
+[00:28:51] Speaker A: I actually didn't do that at all though, every single one I a all the presentations I either added slides or edited 'em. I di
+[00:28:52] Speaker B: Mm-hmm.
+[00:28:58] Speaker C: Oh I added like five slides too, but I
+[00:28:59] Speaker D: See I only got blank ones.
+[00:29:00] Speaker A: Oh.
+[00:29:00] Speaker B: Did you really? I just got blank ones and
+[00:29:02] Speaker A: What? Really?
+[00:29:03] Speaker D: My slides were all blank, they'd have a title maybe and they were just empty.
+[00:29:05] Speaker C: Yeah, mine too.
+[00:29:07] Speaker B: Me too.
+[00:29:07] Speaker A: Did they not have they didn't like uh mine yeah they didn't come like this? Like with this was what it looks like. This is what that looked like, literally, just like that. Interesting.
+[00:29:12] Speaker D: Like with those words already on it?
+[00:29:14] Speaker D: No.
+[00:29:14] Speaker C: No.
+[00:29:15] Speaker D: I wondered why yours always looked so more complicated.
+[00:29:18] Speaker A: Uh-huh huh huh.
+[00:29:19] Speaker B: I deleted slides.
+[00:29:23] Speaker D: I think I added a slide one time.
+[00:29:25] Speaker C: I added many slides every time Yeah.
+[00:29:27] Speaker D: Hey with the whole new background being innovative, yeah that was class.
+[00:29:30] Speaker B: That was pretty cool, it was a high moment of the whole experiment.
+[00:29:32] Speaker D: Mm.
+[00:29:33] Speaker C: Um.
+[00:29:35] Speaker A: Interesting.
+[00:29:41] Speaker A: Any other thoughts come to mind?
+[00:29:42] Speaker D: I wanna know how our product would fare. I can't just leave it there. I think it would take extensive marketing, okay, an apple with a red button on top, even I am sceptical. But you know the whole
+[00:29:45] Speaker B: I think it would fail, I think
+[00:29:48] Speaker B: it'd be a huge disaster, especially if it looks like that.
+[00:30:00] Speaker C: Even you.
+[00:30:02] Speaker D: Yeah.
+[00:30:02] Speaker B: I don't we kind of designed it to look little bit like a face.
+[00:30:05] Speaker D: I know it is.
+[00:30:05] Speaker A: Yeah but
+[00:30:08] Speaker B: It's a happy face.
+[00:30:09] Speaker C: Actually that looked a lot more like a tongue from previous to uh fr some other design uh modifications.
+[00:30:10] Speaker D: Mm.
+[00:30:14] Speaker A: Builds.
+[00:30:20] Speaker A: Mm.
+[00:30:22] Speaker C: I hope you appreciate the uh incorporation of some tin foil from a uh random Kit-Kat bar that happened to be consumed.
+[00:30:27] Speaker D: I I noticed that. By accident.
+[00:30:32] Speaker A: Interesting.
+[00:30:36] Speaker D: Well huh. An interesting day all in all I would say.
+[00:30:38] Speaker B: Yeah, it's uh
+[00:30:38] Speaker A: Uh, yeah, I'd say so.
+[00:30:40] Speaker C: So again I reiterate my question of how different we are comp compared to the other groups, especially between culture groups and what not.
+[00:30:47] Speaker D: I know.
+[00:30:48] Speaker A: Mm, I know.
+[00:30:51] Speaker C: Mm.
+[00:30:52] Speaker A: It seemed like everything flowed pretty logically. You know from the the the basics to the conce although the whole concepts thing, the whole concepts phase, I don't think I really understood like the concept. Well the id okay the notion of yeah I mean i it's not like I have a concept of a mug's material, it's just it is what it is. You know, maybe i rather than concepts i it should be th thought of we sh I I thought of I thought of rather than in terms of concepts I thought of it in terms of um like
+[00:30:52] Speaker B: I wanna see a
+[00:30:53] Speaker D: I
+[00:30:56] Speaker D: Yeah.
+[00:31:05] Speaker D: 'Cause it's such a functional item.
+[00:31:13] Speaker B: Yeah.
+[00:31:24] Speaker A: proposed idea. And then the final would be like th the actual specified prototype or whatever, I dunno. But.
+[00:31:26] Speaker D: Mm.
+[00:31:36] Speaker B: Hmm.
+[00:31:36] Speaker A: All in all it's kinda interesting.
+[00:31:38] Speaker D: Mm.
+[00:31:40] Speaker B: So we have more slides or?
+[00:31:42] Speaker A: No just this closing one. No we've established that the costs weren't really within budget, but we could s you know do it
+[00:31:48] Speaker D: We got it to be.
+[00:31:50] Speaker A: We did the project evaluation based on um Sarah's evaluation of on off switches and
+[00:31:50] Speaker D: Like cutting corners.
+[00:31:56] Speaker D: Kind of, though it was really technically an evaluation of the product, not the project in general.
+[00:32:02] Speaker A: Mm. True.
+[00:32:03] Speaker B: Mm.
+[00:32:03] Speaker D: Which I'm not sure is the same thing, at the time that just i made more sense, but I could see if they were really asking about us.
+[00:32:11] Speaker A: Yeah.
+[00:32:14] Speaker A: 'Cause we di we had a thu think about it. Um.
+[00:32:19] Speaker A: Yeah.
+[00:32:23] Speaker A: And it's all recorded, woo-hoo. Yeah what I'm gonna I'm gonna put um I'm supposed to do this final report thing at the end so I'll put all that into the final report as well, or as much as seems like maybe not like the articles and stuff, like because and if and so forth, but I'll put most of it in the reports.
+[00:32:24] Speaker D: Yay.
+[00:32:24] Speaker B: Hmm.
+[00:32:35] Speaker B: I
+[00:32:38] Speaker D: Make it sound eloquent.
+[00:32:38] Speaker B: It'd be so cool if we get a copy of the recording.
+[00:32:43] Speaker D: Oh, I have to done I've I've done transcription before and it's really ridiculous how many words people say like just in the middle of their sentences like that that mean nothing.
+[00:32:45] Speaker A: Nice.
+[00:32:50] Speaker A: Oh yeah.
+[00:32:54] Speaker A: There's a whole branch of psychology that looks into that, psycholinguistics.
+[00:32:56] Speaker B: Really.
+[00:32:57] Speaker C: What the uhs and the
+[00:32:57] Speaker D: There's a guy studying it here, yeah, he's studying ums and ahs or something. Yeah.
+[00:32:59] Speaker B: Filler words or?
+[00:33:00] Speaker A: Yep, they're called um disfluencies.
+[00:33:03] Speaker B: Disfluencies.
+[00:33:04] Speaker D: That's a good word for it.
+[00:33:05] Speaker A: Yeah we like our fancy phrases and terminologies for things.
+[00:33:09] Speaker D: Just add some prefixes, sounds classier.
+[00:33:11] Speaker A: Exactly uh I will save this into the
+[00:33:19] Speaker A: project documents.
+[00:33:20] Speaker B: I find myself hitting the send and receive button on the email a lot, just out of boredom, like c come on gimme something.
+[00:33:23] Speaker A: Yeah. Oh yeah. Yeah I know. Come on give me some information. Well to be fair we're we're hooked we're all hooked on the internet, so I mean I do the
+[00:33:23] Speaker C: Mm.
+[00:33:23] Speaker D: I, yeah, pretty compulsively during meetings, like, yeah.
+[00:33:31] Speaker D: Yeah, we are addicts.
+[00:33:34] Speaker C: That's scary yeah?
+[00:33:36] Speaker B: It is scary.
+[00:33:36] Speaker D: Mm.
+[00:33:37] Speaker C: Well just around that eight or or nine people that are
+[00:33:38] Speaker A: I know, imagine we went the first ten y fifteen years of our lives without the internet. It's only in the last ten that we're like where's the internet? I mean, you know, it just in the past five we've gone from twenty eight eight modems to broadband all the time.
+[00:33:45] Speaker D: Yeah.
+[00:33:48] Speaker D: I yeah.
+[00:33:52] Speaker C: Dude, I think we've had internet for like eighteen years.
+[00:33:52] Speaker D: True.
+[00:33:55] Speaker A: No we have but I not in the sense that it's so un you know uh ubiquitous
+[00:33:56] Speaker D: I yeah.
+[00:33:58] Speaker B: Yeah.
+[00:33:59] Speaker D: But it's not regular I mean my grandparents had it in the eighties and I got it in ninety four, but still.
+[00:34:04] Speaker B: It's crazy. So
+[00:34:05] Speaker D: Uh-huh.
+[00:34:06] Speaker C: In the eighties?
+[00:34:08] Speaker D: My um grammy does computer science back in the States and so they had um an E_D_U_ and gov network. There's basically the fundamental structures, but it wasn't uh household to household yet because it hadn't been
+[00:34:14] Speaker A: Mm.
+[00:34:20] Speaker C: Right.
+[00:34:22] Speaker C: Yeah, it was to the like seven universities or something.
+[00:34:23] Speaker D: partitioned off and stuff, yeah that was him.
+[00:34:29] Speaker C: You guys ready to celebrate?
+[00:34:31] Speaker A: Yeah that's our last step. Celebration.
+[00:34:31] Speaker D: Apparently, does that include like champagne or something exciting?
+[00:34:34] Speaker B: Should.
+[00:34:36] Speaker D: I think so.
+[00:34:36] Speaker A: 'Kay I guess we can probably call that meeting to an end for the most part. Cool.
+[00:34:38] Speaker D: I think that's a closer.
+[00:34:40] Speaker B: Has it been forty minutes or whatever? this has been long enough.
+[00:34:44] Speaker C: Celebrate.
+[00:34:47] Speaker A: Where do you find that?
+[00:34:48] Speaker D: I have no idea.
+[00:34:50] Speaker B: Is that the only song you have?
+[00:34:51] Speaker C: There is another one.
+[00:34:53] Speaker A: Is this one of those media player?
+[00:34:55] Speaker C: Huh? Yep.
+[00:34:55] Speaker A: W oh. The default track. I thought it was David Burns, look into the eyeball. That's one that seems to be shipping with it uh shipped with for a while, maybe this is the new version.
+[00:34:55] Speaker B: That's awesome.
+[00:34:57] Speaker B: Maybe I have a different one.
+[00:35:05] Speaker D: So is that a close?
+[00:35:07] Speaker A: Yeah, I guess we'll call that a a doner. Fab.
+[00:35:07] Speaker D: Okay, that's the end of the meeting.
+[00:35:11] Speaker D: Thank you gentlemen.
+[00:35:13] Speaker D: I feel like I'm signing off.

@@ -1,0 +1,275 @@
+[00:00:19] Speaker B: Oops.
+[00:00:20] Speaker A: So, hello everyone. We're here to have a kick-off meeting for the design of a f for the beginning of new project um uh remote control for the design for a new remote control. I'm the Project Manager Christa Pavlov and okay let's begin.
+[00:00:45] Speaker A: So
+[00:00:47] Speaker A: I'm first going to do an opening then we get used to one anothers and we speak about this tool we're going to design and try to make a project plan, some discussion and then we talk of uh the next meeting.
+[00:01:13] Speaker A: So um we want to to do a new remote control. It has to be original, trendy and user friendly.
+[00:01:26] Speaker A: Um I think the important points we have to t talk about are uh it's functional design, it's conceptual design, and desail detailed design.
+[00:01:40] Speaker A: and for that we're going um all to work individually and then have meeting during the whole day.
+[00:01:51] Speaker A: Um, so let's try the whiteboard. Um so any of you who want to go.
+[00:01:56] Speaker D: Wow.
+[00:02:04] Speaker B: Yeah, for favourite animals. It's gonna be not my favourite one but the one I can draw. And it's gonna be you'll try to guess.
+[00:02:17] Speaker D: Wow.
+[00:02:25] Speaker D: Complex.
+[00:02:26] Speaker A: Wow.
+[00:02:30] Speaker D: Huh?
+[00:02:33] Speaker D: A cat.
+[00:02:34] Speaker C: No.
+[00:02:35] Speaker B: No.
+[00:02:36] Speaker D: No. Darn.
+[00:02:39] Speaker D: Uh.
+[00:02:40] Speaker A: A rabbit.
+[00:02:41] Speaker B: Yes, that's a rabbit. That's my favourite one.
+[00:02:43] Speaker D: A what?
+[00:02:43] Speaker A: A rabbit.
+[00:02:44] Speaker D: A r a rabbit, oh oh yeah, where is the carrot? Okay mm-hmm.
+[00:02:44] Speaker C: Rabbit.
+[00:02:49] Speaker B: That's it.
+[00:02:53] Speaker A: You want to go?
+[00:02:54] Speaker D: I am not very good at uh this kind of stuff. My favourite animal is
+[00:02:55] Speaker B: Hmm.
+[00:03:05] Speaker C: You wa
+[00:03:05] Speaker B: Wow.
+[00:03:08] Speaker A: A human ah.
+[00:03:09] Speaker D: Guess. A human, yay. It's a very complex animal and um yeah. Characteristics of this this animal is dangerous.
+[00:03:16] Speaker B: No.
+[00:03:28] Speaker A: Mm I think you're supposed to, yeah.
+[00:03:28] Speaker C: Is the white okay.
+[00:03:45] Speaker A: Hmm.
+[00:03:45] Speaker C: I guess you can.
+[00:03:48] Speaker B: Wow. That's cobra.
+[00:03:50] Speaker D: Ah, a kind of uh snake? Cobra? Exactly.
+[00:03:54] Speaker C: Yeah uh not really. Small cobra.
+[00:03:56] Speaker B: No, it just small cobra, yeah.
+[00:03:58] Speaker D: Uh-huh.
+[00:03:58] Speaker A: Is that a worm? Or
+[00:03:59] Speaker B: It's co c quite recognisable.
+[00:04:05] Speaker D: What about you uh Christa?
+[00:04:06] Speaker A: Uh yeah Christa Pavlov Mm.
+[00:04:09] Speaker C: Chris.
+[00:04:09] Speaker B: Christa Christa.
+[00:04:19] Speaker D: A fish.
+[00:04:21] Speaker C: Mm.
+[00:04:21] Speaker B: Hmm.
+[00:04:22] Speaker A: Smiling fish.
+[00:04:22] Speaker C: Smile fish.
+[00:04:23] Speaker B: Okay.
+[00:04:23] Speaker D: A smiling fish. Mm-hmm. So, w whiteboard is working? Good. Next.
+[00:04:27] Speaker A: Mm-hmm.
+[00:04:30] Speaker A: Yeah. Next. Let's talk about money.
+[00:04:30] Speaker C: Yeah.
+[00:04:34] Speaker B: Just tr try to guess who is a User Interface Designer. According to the drawings. Okay.
+[00:04:37] Speaker D: Yeah, well.
+[00:04:40] Speaker C: Yeah, you're
+[00:04:42] Speaker D: Not me.
+[00:04:47] Speaker A: So.
+[00:04:47] Speaker D: So. Twenty five Euro for a remote control.
+[00:04:51] Speaker A: Yeah, mm that's the price we want to that's the aim for the price for the remote control. We aim to do this profit.
+[00:04:53] Speaker C: Hmm.
+[00:04:55] Speaker D: Okay.
+[00:05:04] Speaker D: 'tis big number.
+[00:05:05] Speaker B: On the international market.
+[00:05:07] Speaker A: Yeah. Mm-hmm.
+[00:05:09] Speaker C: Yeah, we're to sell two million then.
+[00:05:11] Speaker B: Wow.
+[00:05:12] Speaker D: Mm-hmm.
+[00:05:13] Speaker A: Mm for a production cost of mm twelve fifty Euros maximum.
+[00:05:22] Speaker A: 'Kay.
+[00:05:27] Speaker A: So any of you have experience in remote controls?
+[00:05:31] Speaker D: Uh yes, we have plenty at home. In fact, my daughter likes l remote controls. To eat? Yeah, mainly, and to break.
+[00:05:32] Speaker C: Mm yeah.
+[00:05:38] Speaker A: That
+[00:05:38] Speaker B: Mm. To eat?
+[00:05:44] Speaker A: So that could be a great um application. Remote controls children proof. Mm mm-hmm.
+[00:05:50] Speaker D: Mm-hmm. Yeah. Ye ye yeah.
+[00:05:51] Speaker B: Children proof.
+[00:05:53] Speaker B: Hmm.
+[00:05:54] Speaker D: So she likes uh buttons which make click, so it has to click.
+[00:05:56] Speaker C: Yeah, pret
+[00:05:56] Speaker A: Okay.
+[00:06:01] Speaker A: So they have to be waterproof maybe? 'Cause they eat she ate it.
+[00:06:04] Speaker D: It has to be uh wha baby proof yeah but mainly it has to be very robust because even if she's not very tall she's uh high enough so that uh when she throw it away it's uh
+[00:06:12] Speaker A: Mm-hmm.
+[00:06:12] Speaker C: Yeah.
+[00:06:20] Speaker C: Ah.
+[00:06:21] Speaker D: So it has to be very robust.
+[00:06:22] Speaker B: Okay, unbreakable.
+[00:06:24] Speaker D: Unbreakable, yeah.
+[00:06:24] Speaker C: Yeah, we have some child lock or something, yeah.
+[00:06:24] Speaker B: Uh-huh.
+[00:06:28] Speaker D: Mm-hmm.
+[00:06:29] Speaker A: Mm-hmm.
+[00:06:30] Speaker D: And uh
+[00:06:32] Speaker D: it has to be nice looking,
+[00:06:36] Speaker C: Yeah.
+[00:06:36] Speaker D: colourful, maybe
+[00:06:37] Speaker A: Colourful, yeah mm.
+[00:06:38] Speaker B: Colourful? That's not practical.
+[00:06:39] Speaker D: colourful, because uh nobody has colourful remote control, they're always black, yeah, but this one could be I dunno, purple or b
+[00:06:40] Speaker C: Yeah.
+[00:06:41] Speaker A: No, that's a good idea.
+[00:06:42] Speaker C: Yeah, it's always black or yeah.
+[00:06:43] Speaker A: Mm mm-mm.
+[00:06:44] Speaker B: No.
+[00:06:48] Speaker B: But how gonna okay, just uh but it's uh monochrome it's n it's not like
+[00:06:48] Speaker A: Yeah.
+[00:06:51] Speaker C: Yeah.
+[00:06:52] Speaker D: Yeah, yeah.
+[00:06:53] Speaker A: No, because you think, why not.
+[00:06:53] Speaker C: Yeah.
+[00:06:55] Speaker D: One colour.
+[00:06:55] Speaker B: Otherwise you will never find it.
+[00:06:56] Speaker C: Yeah.
+[00:06:57] Speaker D: Yeah, yeah.
+[00:06:58] Speaker C: Yeah even we can change colours, no? Like the uh like the phones and these things we c yeah. At least for children like one colour and.
+[00:07:00] Speaker D: Oh like the phones, yeah, it could change colours, yeah.
+[00:07:02] Speaker B: Cool.
+[00:07:03] Speaker A: Mm-hmm.
+[00:07:04] Speaker B: Ch
+[00:07:06] Speaker D: Yeah.
+[00:07:08] Speaker D: Good.
+[00:07:08] Speaker A: Good idea.
+[00:07:10] Speaker C: And it should be really small and.
+[00:07:13] Speaker A: Small also? Don't you think
+[00:07:14] Speaker C: Huh not so big like yeah.
+[00:07:17] Speaker A: No uh, not too much buttons or mm.
+[00:07:19] Speaker C: Yeah, not too much buttons and
+[00:07:21] Speaker D: Should it be, y you know these uh remote controls where um they are what they call a universal ret remote control so y you can decide that now it's the remote control for the television, then it's the remote control for the the sound system, or for your refrigerator whatever I dunno if it's
+[00:07:28] Speaker A: Mm-hmm.
+[00:07:34] Speaker C: Uh.
+[00:07:35] Speaker C: Yeah.
+[00:07:37] Speaker A: Yeah, that's
+[00:07:42] Speaker D: Or if we should have a targeted re remote control.
+[00:07:46] Speaker A: Okay.
+[00:07:47] Speaker D: So colour, robustness, easy to use, size, yeah, size matters, yeah.
+[00:07:48] Speaker A: So, I think there's
+[00:07:54] Speaker C: Yeah. Colour, size, sh
+[00:07:55] Speaker A: So you you think it's better if small
+[00:07:59] Speaker A: than bigger.
+[00:08:00] Speaker C: Yeah, maybe at least n not bigger than this I guess.
+[00:08:00] Speaker D: Mm.
+[00:08:03] Speaker B: Yeah, but without any extremes like n not of this size, not too large. Okay.
+[00:08:06] Speaker A: No, not too small, yeah.
+[00:08:07] Speaker C: Yeah yeah, at least it should hold in your hand n properly, like.
+[00:08:08] Speaker D: Yeah.
+[00:08:11] Speaker A: Hmm.
+[00:08:12] Speaker B: Yeah, like a palm sized.
+[00:08:13] Speaker C: Yeah.
+[00:08:13] Speaker D: Mm.
+[00:08:14] Speaker B: Just to hold it.
+[00:08:15] Speaker A: Okay.
+[00:08:18] Speaker D: But uh what would be different from this, from the others? I dunno if
+[00:08:24] Speaker C: Uh maybe we can change the colours that at least the frame. Mm. S so then it depends you are to
+[00:08:29] Speaker D: Yeah, at least the colour would be different.
+[00:08:33] Speaker A: Mm.
+[00:08:33] Speaker C: Mm I mean you c you can easily remove the frame.
+[00:08:36] Speaker D: I think one thing important for instance in this remote control if you remember when people use it they're they never find a good button in the right place.
+[00:08:42] Speaker C: Yeah, yeah.
+[00:08:43] Speaker A: Mm-hmm.
+[00:08:43] Speaker D: For some reason they they they click the off button when they want to use the
+[00:08:44] Speaker C: Yeah.
+[00:08:47] Speaker C: Yeah.
+[00:08:48] Speaker D: So there's a problem in the design of that kind of remote control somehow, I dunno.
+[00:08:51] Speaker A: Mm. So, some kind of idea uh with um um cellular phone with a a screen that will tell you what no.
+[00:09:02] Speaker B: No, no screens, it's too complex.
+[00:09:04] Speaker A: Okay.
+[00:09:04] Speaker D: Too expensive for twelve Euro?
+[00:09:05] Speaker C: Mm. Too expensive, yeah.
+[00:09:06] Speaker B: And n maybe not too expensive, well it's not my problem, but well okay. But no screens on remote controls.
+[00:09:07] Speaker A: And too expensive.
+[00:09:11] Speaker D: Ah.
+[00:09:14] Speaker D: Mm-hmm. I thought it could be only a screen which would change depending on uh uh the use or even the user.
+[00:09:14] Speaker A: Mm.
+[00:09:23] Speaker D: So ma I prefer to have the off button at the top right, so I would have my own design of the remote control because it's in fact just a a full touch screen remote control, if you if you like.
+[00:09:23] Speaker B: Mm-hmm.
+[00:09:27] Speaker C: Ye yeah.
+[00:09:32] Speaker C: Hmm.
+[00:09:36] Speaker C: I mean it it's like it's like two types no? people are right handed or left handed so y because I am left handed I use like this, say if you're right handed you use like this or so tha your switch on and off should be on yeah.
+[00:09:36] Speaker D: I don't know if it makes sense, but
+[00:09:38] Speaker A: Mm-mm.
+[00:09:42] Speaker D: Yeah, for instance, mm.
+[00:09:45] Speaker B: Mm-hmm, mm-hmm.
+[00:09:46] Speaker A: Mm-hmm. Mm mm mm.
+[00:09:46] Speaker D: Mm.
+[00:09:50] Speaker A: So adaptable yeah something yeah.
+[00:09:52] Speaker B: Adaptable. Alright, good, so how many actions do we need to implement in it?
+[00:09:52] Speaker D: Maybe, if if it's possible, yeah.
+[00:09:53] Speaker C: Mm huh.
+[00:09:58] Speaker B: On off?
+[00:09:58] Speaker C: Maybe I think even we can keep two switches and then we can uh only make one working.
+[00:10:00] Speaker D: Yeah.
+[00:10:03] Speaker C: We can adapt only one switch, suppose here like we can make two switches and if I'm left-hander I use this switch to follow the main operations.
+[00:10:12] Speaker B: I mean if it's less than three uh then we can make it uh like a
+[00:10:17] Speaker C: Two.
+[00:10:17] Speaker D: Three buttons you mean?
+[00:10:18] Speaker B: like three mental states, yeah you know what I mean, we can just make it uh
+[00:10:19] Speaker A: Three option.
+[00:10:21] Speaker D: Ah.
+[00:10:23] Speaker C: Yeah.
+[00:10:24] Speaker C: Yeah.
+[00:10:25] Speaker A: Um.
+[00:10:25] Speaker B: controlled by a brain, huh?
+[00:10:27] Speaker A: Mm-hmm. Maybe if it's more, if there is a software inside that ask you three
+[00:10:28] Speaker D: Mm-hmm, yeah, sure.
+[00:10:39] Speaker B: Mm-hmm.
+[00:10:41] Speaker A: Hmm. If it if we want a r universal remote control that we sa like we say before it may
+[00:10:50] Speaker A: may need more than three mm three button, three mm possibilities, ye yeah.
+[00:10:54] Speaker B: Sh sure, sure.
+[00:10:54] Speaker D: Yeah, more than three actions that you may want to do at a given time.
+[00:10:55] Speaker C: Mm yeah.
+[00:10:57] Speaker C: Yeah.
+[00:10:59] Speaker B: But for standard actions you usually what do you do, you change channels, you adjust volume, and nothing else.
+[00:11:07] Speaker D: Yeah but for instance when you change channels you can have you can just go to the next one or go to channel twenty five.
+[00:11:13] Speaker C: Mm.
+[00:11:15] Speaker C: Yeah.
+[00:11:15] Speaker A: Mm.
+[00:11:16] Speaker D: And that's already more complex to go to channel twenty five.
+[00:11:19] Speaker B: Mm-hmm. You do this?
+[00:11:21] Speaker C: Yeah.
+[00:11:22] Speaker D: Uh no. Because I'm only using three or four channels but
+[00:11:23] Speaker B: I usually just change channels.
+[00:11:27] Speaker C: Yeah. But they keep generally their t slash slash uh this thing and then the dash dash and then you can put yeah, you can only have one bit.
+[00:11:36] Speaker A: Yeah. I change channel like this, m uh I want to go to twenty five, and then to ten, uh-huh mm yeah.
+[00:11:39] Speaker C: Dash.
+[00:11:42] Speaker D: And then back to the one I was before, so there's whichever it was.
+[00:11:45] Speaker A: Also we can be here yeah, that would be cool.
+[00:11:45] Speaker B: Uh-huh. Go back button is good. I once had it.
+[00:11:46] Speaker C: Yeah you can yeah.
+[00:11:47] Speaker C: Yeah.
+[00:11:48] Speaker D: Yeah. Uh uh we had that in in other countries. Yeah e even the history so you could like uh undo previous of the previous.
+[00:11:49] Speaker C: Yeah yeah, the previous button is.
+[00:11:51] Speaker A: Mm yeah.
+[00:11:52] Speaker B: Mm-hmm.
+[00:11:54] Speaker C: Uh, okay.
+[00:11:55] Speaker B: History.
+[00:11:56] Speaker C: Oh uh.
+[00:11:59] Speaker D: Then you can watch what your ah you could also record your record your sequence of actions, that becomes more complex, but you could look at what uh the other people have used there or remote controls. Yeah maybe it's a
+[00:12:01] Speaker C: Uh.
+[00:12:03] Speaker C: Yeah.
+[00:12:12] Speaker C: Yeah yeah, what the which channels the viewer
+[00:12:14] Speaker A: Mm-mm.
+[00:12:18] Speaker A: Okay. So I think we have full of idea.
+[00:12:20] Speaker D: Okay.
+[00:12:22] Speaker A: Um we're going to meet again in thirty minutes and uh I want you to mm
+[00:12:33] Speaker A: work on these ideas and try to make a
+[00:12:37] Speaker A: uh the ones, make um to decide what what are the ones important and what are the one that we don't want.
+[00:12:47] Speaker A: And um m maybe more in the technical parts what uh do we want to do.
+[00:12:55] Speaker A: Um.
+[00:12:58] Speaker A: So um your personal coach will send you some instruction for for this thirty minutes.
+[00:13:05] Speaker D: So what does M_E_ means? M_E_ the user requirements? Or that's uh that's for us?
+[00:13:10] Speaker B: Market Expert.
+[00:13:11] Speaker C: Marketing yeah.
+[00:13:11] Speaker D: Uh that's me. Oh, of course yeah, the user requirement specifications, uh-huh, yeah.
+[00:13:11] Speaker A: Mm.
+[00:13:19] Speaker A: Mm-hmm.
+[00:13:21] Speaker D: Okay. I'll think of that.
+[00:13:22] Speaker A: Mm okay.
+[00:13:30] Speaker A: So.
+[00:13:31] Speaker D: So?
+[00:13:32] Speaker A: I think that's all.
+[00:13:33] Speaker D: Meeting's over? Great.
+[00:13:34] Speaker A: Yeah.
+[00:13:34] Speaker B: Okay.
+[00:13:37] Speaker C: Thank you.
+[00:13:38] Speaker D: Thank you.
+[00:13:38] Speaker B: Thank you everybody.
+[00:13:38] Speaker A: See you in thirty minutes.

@@ -1,0 +1,373 @@
+[00:00:37] Speaker A: So um nice to see you again. Uh. So, uh.
+[00:00:46] Speaker A: Tod uh for this meeting I will take the notes and do the minutes.
+[00:00:52] Speaker A: Uh so we will see our three presentations.
+[00:00:58] Speaker A: Um we will start with the uh Manager Expert wi who will talk about uh user re requirements, whats user needs and what it desire for this devi device.
+[00:01:14] Speaker D: Okay, can I have the laptop over here, or? Okay. Have to get up.
+[00:01:17] Speaker A: Yep. Oh, I don't think so. I think you have to come here.
+[00:01:21] Speaker A: I dunno.
+[00:01:23] Speaker A: I think it should stay.
+[00:01:24] Speaker D: Excuse me. Okay.
+[00:01:25] Speaker B: Yeah, that's it.
+[00:01:32] Speaker A: Should stay in the square here.
+[00:01:33] Speaker D: Okay.
+[00:01:45] Speaker A: Oh, maybe.
+[00:01:57] Speaker D: Okay, so basically I'm gonna present some findings of a study we conducted uh into uh what users want in this remote control. Um so first of all we what we did is we um conducted a an experiment with a hundred test subjects. Um we put them in a in our um usability laboratory and got them to, you know, um play with remote controls, and also to complete, after they'd done that, to complete a questionnaire uh to tell us what they like and what they don't like in remote controls.
+[00:01:59] Speaker A: Oh, you can put it here. Oh that's okay, it's jus
+[00:02:36] Speaker D: So basically um the major things we found out was that um basically users don't like the look and feel of of most remote controls that are currently on the market. Um they, you know, seventy five percent of the people we we uh did the experiments on, found that rem remote the remote controls that they'd used in the past were ugly. Completely ugly. Um they they didn't match the operating behaviour of the user, that is, you know, the the way users use remote controls when they're watching T_V_. Um, that the layout of the remote controls didn't match they way that they used it. Um and
+[00:03:18] Speaker D: thirdly they say that w half of the users that we um tested said that they only used ten percent of the buttons that uh are on remote controls. Um so we collect we also some collected some usage statistics uh based on how these test subjects were using their remote control. And from this we basically came up with the figure that
+[00:03:44] Speaker D: the channel buttons, the channel selection buttons are the most by far the most used buttons on the remote control. Um and you can see they're used a hundred and sixty eight times per hour on average, um, while the user's watching T_V_. Um the closest button that was used, well the cl the button that was used that was closest to the channel button was the teletext button, um which was used fourteen times per hour, followed by the volume button, which was four times per hour, um,
+[00:04:16] Speaker D: all the other, all the other um buttons, such as ch um audio and picture selection um configuration buttons and things were used, you know, l approx well less than or equal to one times per hour. Um we also asked users um which buttons had the most importance to them, you know, which which buttons they felt were the most important buttons on on the remote control.
+[00:04:39] Speaker D: And basically they came they said the channel, volume, and power buttons had the highest relevance to users, um note that only power was very infrequently used, it only had a b a a fr usage frequency of about one times per hour, but users ranked it as having a very very high relevance. Um and the audio and picture settings had a very that well the users thought that um w the audio and picture settings were very uh weren't very important to them um, and they used them very infrequently a as well.
+[00:05:13] Speaker D: So we asked users what what um frustrates them the most about um current remote controls. And
+[00:05:24] Speaker D: fifty percent of the users said that uh what frustrates them is losing the remote control um somewhere in the room and not being able to find it. Um they also said that it um it takes a lot of time to learn a new remote control, especially when there's many buttons and it's a, you know, a c a a unintuitive interface. Um and then thirdly, they some users commented on the fact that the the you know the way that you have to hold and press buttons on a remote control ar are bad and um cause u repetitive strain injury.
+[00:06:03] Speaker D: We also asked some users about some specific features that they'd like to see in the on the remote control. In particular, do they want an L_C_D_ d display, and secondly, do they think speech recognition uh is a useful feature to have on a remote control. Um basically our findings are that um amongst a younger age groups uh the answer is umv overwhelmingly yes. They want these features, they want these high technology features. Um for instance, ninety one percent of pe of people aged between fifteen and twenty five said yes, they want these features.
+[00:06:36] Speaker D: Whereas um the the trend was as users as users um became older and older uh they were less likely to want these sort of features in a um in a remote control. So I guess it depends on where we're focusing our our market. Um and as our company motto is putting fashion in electronics, um I think we're focusing on the younger younger um target demographic, and so maybe we should think about adding these sort of high technology features into our remote control. That's my dic that's my presentation. Thank you.
+[00:07:08] Speaker A: Hmm.
+[00:07:12] Speaker A: Thank you.
+[00:07:21] Speaker C: Okay.
+[00:07:23] Speaker A: So, um
+[00:07:28] Speaker A: maybe now we can talk about a user interface and uh about the technical function of this device. So uh Pet Peter, can you talk say something about that?
+[00:07:41] Speaker B: Well, okay, yeah. Yeah, but the user user interface is responsible.
+[00:07:44] Speaker A: No.
+[00:07:44] Speaker C: B you think uh I I'm User Interface Manager. Okay. Okay. If I could go there with this cable.
+[00:07:47] Speaker A: Ah. Sorry, I'm Sorry. Sorry.
+[00:07:47] Speaker B: Okay, so.
+[00:08:01] Speaker B: You're scaring me with L_C_D_ man. And speech recognition in remote unit, it will be very e expensive.
+[00:08:07] Speaker D: Yeah, it's true, but, you know, they're features that users want, so it's And our production cost of twelve fifty Euros per per unit is fairly high I think, so I think we can afford to to add these sort of features into our remote.
+[00:08:14] Speaker B: Yeah.
+[00:08:21] Speaker B: Yeah.
+[00:08:25] Speaker B: At least we have couple of months t to work on it so so it will be cheaper finally.
+[00:08:28] Speaker C: Sh okay.
+[00:08:29] Speaker D: It is true.
+[00:08:32] Speaker C: Where's delete button? Okay.
+[00:08:36] Speaker C: Oh I'm sorry.
+[00:08:59] Speaker C: Okay.
+[00:08:59] Speaker D: That's the wrong one, I think.
+[00:09:01] Speaker A: Yeah, it's still Bob Morris. Yeah you should have put yes.
+[00:09:02] Speaker C: Oh. Presentation three?
+[00:09:04] Speaker B: Because you cancelled it.
+[00:09:07] Speaker B: Yeah.
+[00:09:07] Speaker C: Oh.
+[00:09:07] Speaker A: Click on yes.
+[00:09:12] Speaker A: yeah.
+[00:09:12] Speaker B: Yep.
+[00:09:21] Speaker C: Okay, so here is my presentation about technical function design. I will talk about different components and s of system and how they react together. Okay, uh, first what is a remote control? Simply it's a device, as you know, for uh, for sending some commands by some waves to uh another device to to tell different commands uh with this device. And the main idea we don't use any cable and we can rec react simpler with the device. Uh i it has different blocks, different blocks. Uh first is remote control have sh ha should have some electric circuits uh making interface with uh keyboard and uh r reading uh keyboard and reading the keyboard uh commands.
+[00:10:13] Speaker C: And then inter then make uh these keyboard commands, uh in interpret these int uh keyboard commands. And then there should be uh an electronic circuit making uh electronic signals according to these commands and uh finally there is a transmitter which is a cord or a a diode making uh making uh waves to transmit through the air and uh uh this air this uh wave uh will be received by the by the other device like a television or whatever, to uh r to realise the command.
+[00:10:53] Speaker C: Okay, uh about what I found about uh different uh these different blocks are uh, usually there are two different methods uh to for designing a remote control. They are based on infra-red uh waves or uh uh radio waves. There are two different uh uh solutions I mean. This is uh this can be uh uh the the differences the th between different kind of waves, infra-red or radio waves.
+[00:11:10] Speaker B: You still want me the presentation.
+[00:11:23] Speaker C: And uh also as uh I understood, and uh I think it was a part of uh Bob, uh uh presentation, people prefer to have uh to have uh the remote control with less button. So for the electronic part, working and interfacing, with button, we should we should try to t try to design a remote control having uh some some simpler buttons or some rolling buttons to just to just to search between different options, and showing o something on T_V_ and putting less lesser stuff on the uh on the remote control.
+[00:12:05] Speaker C: And uh personal preferences, uh uh uh uh certainly a remote control with uh working with radio waves is uh preferred because uh you can pr you can take it in any direction and you don't need to tune it any way. And uh uh again, using bigger buttons and less number of buttons are also preferred, as I see. Okay. That was my presentation.
+[00:12:34] Speaker D: Okay.
+[00:12:44] Speaker D: I have a question.
+[00:12:45] Speaker C: Uh-huh.
+[00:12:46] Speaker D: Do you think radio waves um will interfere with other appliances in the home?
+[00:12:52] Speaker C: Uh, I don't think so, because uh we can make uh we ca we can make this wave in a specific frequency. So they can be in a range which is not inter interfering with the with other devices inside the home.
+[00:13:08] Speaker D: Okay.
+[00:13:09] Speaker A: So can we use any any frequency? We have the right to use any frequency?
+[00:13:09] Speaker B: Yeah, it should be okay.
+[00:13:14] Speaker C: Uh no but as I know, there is a range for uh for this uh f for for uh for this stuff, for designing this circuit. We can we can we can tune our uh transmitter to work in this range, and for this range we don't need to ask any permission.
+[00:13:32] Speaker A: Okay. And what happen with uh radio waves when two neighbours have the same have our remote control, for example? And so do they have the same frequency, or?
+[00:13:44] Speaker C: Uh for this I'm not uh I I don't know the solution, but one solution can be something like putting uh p password or something inside the wave, so the only your T_V_ can understand it Yeah, identification code inside the
+[00:13:58] Speaker A: Okay. A kind of identification, okay.
+[00:14:00] Speaker B: Yeah f uh I know about this, since it's my it's exactly my field, so. It's uh kind of handshaking, uh, when starting to uh when you start to communicate with the your T_V_ then then it's like an handshaking protocol with your your remote. So so if two two devices are trying to go to communicate with the T_V_ set then the the the one which has the more energy in the wave is chosen. Well it can be a problem sometimes, but most of the time it works okay.
+[00:14:02] Speaker A: So
+[00:14:12] Speaker A: Yeah.
+[00:14:14] Speaker A: So
+[00:14:34] Speaker A: Okay.
+[00:14:34] Speaker C: The password may simply uh or uh i identification code may simply solve this problem. A specific uh remote control has a specific f
+[00:14:44] Speaker B: Yeah but we we don't have to think uh about this because I think as a function designer that we will use the already made uh circuits which we probably bu buy. It's worth to buy. And they have these problems solved so. So we don't have to think about these.
+[00:14:56] Speaker A: Hmm.
+[00:15:00] Speaker D: Okay.
+[00:15:00] Speaker C: Mm.
+[00:15:01] Speaker C: Mm-hmm.
+[00:15:01] Speaker A: Okay. So, maybe you can talk about the function, and
+[00:15:02] Speaker D: Okay.
+[00:15:05] Speaker B: Yes. I have only a couple of things because I had I struggled a bit with the software that I'm supposed to use in this uh
+[00:15:17] Speaker B: uh
+[00:15:19] Speaker B: in this company. I was used to use Linux before, so. But I tried to
+[00:15:25] Speaker B: tried to break through this too, I guess.
+[00:15:35] Speaker A: Open.
+[00:15:35] Speaker B: Mm. Ah.
+[00:15:37] Speaker B: Okay.
+[00:15:40] Speaker B: How to make it big?
+[00:15:44] Speaker A: Slide show.
+[00:15:44] Speaker C: Five.
+[00:15:45] Speaker B: Slide show. Okay, thanks.
+[00:15:46] Speaker A: It should work, so you can.
+[00:15:50] Speaker B: Okay. Oh so I will speak about working design. That's the first slide. Uh what uh I have to do? A look at what the other company Okay so uh presently I am looking what is possible to use, what circuits to use and stuff like that because uh I didn't work uh with these uh circuits so far so I have to look what what is a v a v available on the market for for the communication for the I_R_ circuits and so on, so I'm currently looking what is available on the web. And uh I wanted to ask you m maybe afterwards, after after our discussion, if we have some contacts in some companies, so, which can report on what is going on there, so, I would be glad if you can tell me about them. So, you know.
+[00:16:41] Speaker A: Mm.
+[00:16:42] Speaker A: Yeah.
+[00:16:46] Speaker B: Uh, okay findings, that's the point that I'm working on currently but uh so far I I was uh looking what what are the blue circuit, I mean radio wave radio frequency circuits are available now, but the prices I read are high. So, I know that uh the user interface people and these speak about radio frequency waves because you can you can uh you can make the T_V_ do what you want even if you are in the bathroom or so on, but you know, when you are not close to the T_V_ you probably won't need to to change the program and so on and so I am I am voting for s to stick to the um infra-red control instead of R_W_ but we will discuss it later maybe.
+[00:17:01] Speaker D: Mm-hmm.
+[00:17:17] Speaker C: Mm-hmm.
+[00:17:21] Speaker A: Hmm.
+[00:17:41] Speaker B: Uh. Components to use, I'm not exactly sure what I will use for the design of the circuit. It depends uh on whether we will use the L_C_D_ and mainly the speech recognition, because the speech rec Yeah?
+[00:17:57] Speaker D: Are we um are we planning to take an off the shelf an O_E_M_ component for the radio wave circuit, or are we planning to construct our own circuit board?
+[00:18:05] Speaker B: No no no no no. This we this we buy I think, because it's rather cheap nowadays and it's not worth to construct ourselves.
+[00:18:11] Speaker D: Okay s
+[00:18:12] Speaker D: So we just buy a circuit board and Okay.
+[00:18:14] Speaker B: Exactly.
+[00:18:17] Speaker B: But I'm not sure about the circuit which is responsible for speech recognition. This I prefer that we should make ourselves.
+[00:18:23] Speaker D: Okay.
+[00:18:24] Speaker B: But it depends whether we take a decision to use it. Same thing. It's fairly expensive to use these circuits. So, speech recognition well, L_C_D_ it's okay because it's common nowadays to use L_C_D_, so I agree on using any kind of L_C_D_, less buttons good for me as a as a designer of the circuit. But the speech recognition we have to compare whether the price and the what does it offer, you know.
+[00:18:44] Speaker A: Yeah.
+[00:18:49] Speaker C: Mm.
+[00:18:51] Speaker A: Yeah.
+[00:18:52] Speaker A: So what do you think would be the price, it would be out of range? Or it would be maybe feasible?
+[00:18:54] Speaker B: Yeah, I'm
+[00:18:59] Speaker B: Oh. I was not thinking too much about the price. But if we use the L_C_D_ uh even the radio frequency communication with the T_V_ set and the backlight and uh related things like the photo diodes and stuff, it should be okay. If we decide to use the speech recognition, then we probably could struggle but we'll see afterwards. It depends of you if if the M_E_ or U_I_D_, I'm sorry about the names, I don't really know, uh want to have it like in metal or in plastic, these things, it it depends on you not Because the the the electronic device's price is not not so big in comparison to to the overall shape and stuff like that, so. We will discuss it afterwards.
+[00:19:26] Speaker A: Okay.
+[00:19:33] Speaker A: Mm.
+[00:19:51] Speaker D: Okay.
+[00:19:54] Speaker B: Oh, this is nothing. This is just my notes on what to use. And uh my personal preference is yes, I would like also preferably to use R_W_ circuit, but from the point of view uh of the design and price, I would stick to I_R_s. That's my opinion. Uh I mean if infra-red uh circuit not not the radio frequency.
+[00:20:19] Speaker A: Why? Because it's simpler?
+[00:20:21] Speaker B: Because because the the range where you can use it is fair. It's okay I think. And the price is fairly cheap for this. Well, depends.
+[00:20:25] Speaker A: Yeah.
+[00:20:28] Speaker A: Mm.
+[00:20:31] Speaker A: Okay. It's a a price matter.
+[00:20:35] Speaker A: Yeah.
+[00:20:36] Speaker B: Jus just the price. Otherwise I don't care what I put there because it's the chip which I buy or which we buy.
+[00:20:38] Speaker A: Mm.
+[00:20:42] Speaker A: Okay.
+[00:20:45] Speaker B: So I I I think it's o y o. Well, three to three to five. N not ten times, but it depends what what we
+[00:20:47] Speaker D: What how much more expensive? Are we talking three times more expensive? Or ten times more expensive? Or
+[00:20:54] Speaker D: Okay.
+[00:20:56] Speaker D: Yeah yeah. That's still a lot. I think it's it's probably not worth spending the extra money, because I mean all the other remote controls on the market have infra-red, so people don't expect anything other than infra-red. So it's not worth spending the extra money.
+[00:21:00] Speaker A: Hmm.
+[00:21:03] Speaker A: Yeah.
+[00:21:10] Speaker A: Yeah. Well I, oh
+[00:21:11] Speaker B: Yeah. Th they are used to use it when they can see the T_V_ so, I don't know.
+[00:21:15] Speaker D: Yeah.
+[00:21:15] Speaker A: On the other side, we want to have something new. You know, where
+[00:21:19] Speaker D: Yeah.
+[00:21:21] Speaker A: we want to
+[00:21:23] Speaker A: to have something new and So we I think we should still thinking about it. But maybe.
+[00:21:28] Speaker D: But I think, based on my usability studies I th I feel that users are prioritise the look and the feel and the trendiness above, you know, the difference between infra-red or radio waves. So I think we're better off spending money in the usability phase.
+[00:21:35] Speaker A: Okay.
+[00:21:43] Speaker B: You the user interface, and management man, uh
+[00:21:46] Speaker A: Okay.
+[00:21:47] Speaker C: Mm.
+[00:21:47] Speaker A: Yeah.
+[00:21:49] Speaker D: Okay.
+[00:21:51] Speaker B: Uh okay, that's it for me.
+[00:21:54] Speaker A: Okay, thank you Peter. So um I have to inform you I receive an email from the management bon board today and they have new requirements for the for the remote control. Um
+[00:21:57] Speaker B: 'Kay.
+[00:22:11] Speaker D: Mm.
+[00:22:14] Speaker A: first um, they say that's uh about something about t teletext. Uh apparently it becomes from according to them it becomes out of date. Out-dated. And uh
+[00:22:29] Speaker A: Because of the internet popularity and everybody has internet at home, and
+[00:22:35] Speaker A: actually it's not useful to have teletext.
+[00:22:39] Speaker A: Um.
+[00:22:43] Speaker A: So I think we can avoid the teletext. Um the second thing is uh
+[00:22:51] Speaker A: they suggest that that we should uh use the remote control only for T_V_, not for D_V_D_ and other devices, because it make it it makes it's too complex and uh because we have not much time for this project we should stay on T_V_ on the only specific T_V_ remote control.
+[00:23:12] Speaker B: I agree.
+[00:23:14] Speaker A: The third the third one is uh about the the the image of the company. So um uh we should we should keep uh The the product should be recognisable. Uh, uh
+[00:23:35] Speaker A: It's That mean we should use the colour of our company and maybe put somewhere the s the slogan of the company, which is uh, we put fashion of in electronics.
+[00:23:46] Speaker A: So, when people see the the remote control, they should say oh it's from Real Reaction and he s they should recognise the company.
+[00:23:58] Speaker A: So, um
+[00:24:04] Speaker A: So now we we should take the decision what we are going to what function we will have on this uh on this remote control. So, mm, are we going to use L_C_D_, speech recognition?
+[00:24:22] Speaker A: Uh.
+[00:24:24] Speaker D: Well, should we start with just the core, the basic functions that we need.
+[00:24:29] Speaker A: Yeah.
+[00:24:29] Speaker D: And then we can move on to the more advanced features.
+[00:24:30] Speaker C: Mm. Yes.
+[00:24:30] Speaker A: Maybe, maybe.
+[00:24:32] Speaker B: Okay, so the available things are L_C_D_, the buttons and everything. Uh radio frequency depends. And, well the recognition it depends on you guys. You should probably speak.
+[00:24:44] Speaker A: Yeah but first maybe what is what are the usual function of a standard remote control? I mean
+[00:24:52] Speaker B: Okay.
+[00:24:53] Speaker A: what do
+[00:24:55] Speaker D: Okay, well, I mean the obvious one is changing channels.
+[00:24:56] Speaker A: Yeah.
+[00:24:57] Speaker A: Yeah.
+[00:24:58] Speaker C: Yeah.
+[00:25:07] Speaker A: I think we should stick on very useful functions, because we want less button. So, yeah.
+[00:25:10] Speaker D: Yeah.
+[00:25:13] Speaker D: Yeah, okay.
+[00:25:16] Speaker A: So, turning channel, of course. Volume setting.
+[00:25:22] Speaker B: Uh just one note to the chan channel changing. Do we will we use only two buttons, or or like numbered buttons? I mean those nine plus one or two?
+[00:25:33] Speaker A: Yeah.
+[00:25:35] Speaker C: Mm-hmm.
+[00:25:35] Speaker A: I think it would be a b
+[00:25:38] Speaker B: Because it's many buttons and we were speaking about lowering the number.
+[00:25:42] Speaker C: Mm.
+[00:25:42] Speaker A: Yeah. On the other side we have more and more channels, and if you want to pass through all the channels to get the channel you want, it's
+[00:25:42] Speaker D: Yeah, I
+[00:25:47] Speaker C: Yeah.
+[00:25:51] Speaker B: Okay so so we keep all these all these buttons.
+[00:25:53] Speaker C: Yeah yeah, at least nine, ten button.
+[00:25:53] Speaker A: Maybe maybe we could think of something more betweens, like
+[00:25:58] Speaker A: uh
+[00:25:58] Speaker B: Like ten plus, five plus, one plus, one minus or something.
+[00:26:01] Speaker A: Yeah. Maybe something like that.
+[00:26:03] Speaker B: Or using the names and the keyboard I dunno.
+[00:26:04] Speaker D: Ah yeah.
+[00:26:05] Speaker A: Uh.
+[00:26:08] Speaker C: Or
+[00:26:11] Speaker C: Or something.
+[00:26:11] Speaker A: Maybe Oh I don't know.
+[00:26:14] Speaker A: Oh.
+[00:26:17] Speaker A: Maybe we could have key buttons, like uh discovery channe like documentary channel, and movies channel and
+[00:26:26] Speaker C: Mm-hmm.
+[00:26:26] Speaker B: You mean like hierarchical structure.
+[00:26:27] Speaker A: And inside this this thing you can move, maybe switch. If you want to see a movie you click on the movie button so you have all the movie channels and after you've you plus plus plus. I It just an idea. I don't know what you think about that but.
+[00:26:28] Speaker C: Okay. Like categorising channels.
+[00:26:35] Speaker B: Okay, so s Oh sorry.
+[00:26:36] Speaker C: Mm-hmm.
+[00:26:38] Speaker C: Okay.
+[00:26:41] Speaker B: So it requires the use of L_C_D_ probably, to to tell you
+[00:26:44] Speaker D: To have some feedback. Yeah.
+[00:26:45] Speaker A: Yeah, probably, yeah, yeah.
+[00:26:46] Speaker B: Okay, so I'll make a note on L_C_D_.
+[00:26:46] Speaker C: Mm-hmm.
+[00:26:51] Speaker D: We could maybe also c um incorporate Petre's idea of the um slider for the volume, with the channel. So we c you could quickly just through many channels. For the channels, perhaps.
+[00:26:57] Speaker C: Okay.
+[00:26:59] Speaker A: Okay.
+[00:27:02] Speaker B: Yeah. Like roller for the Yeah. Okay.
+[00:27:21] Speaker A: Anything else?
+[00:27:23] Speaker D: So we've got channel and volume. Um.
+[00:27:25] Speaker A: Yeah.
+[00:27:26] Speaker B: So we are still s speaking about the common devices or we are inviting the new one?
+[00:27:31] Speaker D: I think so. I think basically the core functions we want, and then more advanced ones.
+[00:27:32] Speaker A: Yeah.
+[00:27:37] Speaker A: What about the settings of the T_V_? Because it's button we don't use very often, but
+[00:27:43] Speaker A: it's we need it anyway. So
+[00:27:44] Speaker D: Yeah.
+[00:27:44] Speaker C: So uh we don't have any uh we don't have uh we should just design the remote control and we sh we don't have any access to the to the T_V_ design or we can change some design. Because one solution for this um uh uh ch changing channels is to see a summary of all channels, some some preview of all channels and then you can Yeah. Yeah b Not on the control, on the screen, on the T_V_ screen. And then
+[00:28:07] Speaker B: On the screen, you mean? Not on the control, but on the screen.
+[00:28:12] Speaker B: Well, this would avoid L_C_D_, then.
+[00:28:13] Speaker D: I don't
+[00:28:14] Speaker D: Oh, I don't but I don't think we're we're the ones. I mean this remote control we're developing is a generic control for all T_V_s, I think.
+[00:28:21] Speaker A: Yeah, yeah. I don't know if it's possible to to watch something on T_V_
+[00:28:22] Speaker C: Mm-hmm.
+[00:28:23] Speaker B: Oh.
+[00:28:26] Speaker B: W I I think it it would be better to to stick to the remote control and not to bother the T_V_ to to to print these things. Well it wi it will be still more expensive, but for the L_C_D_ and this stuff is no problem in the price.
+[00:28:30] Speaker A: Yeah.
+[00:28:33] Speaker A: Yeah.
+[00:28:33] Speaker C: Mm-hmm.
+[00:28:39] Speaker C: Mm-hmm.
+[00:28:41] Speaker A: So, what are we doing with the settings? Because settings if we want to do settings we need buttons for that and we want less buttons, so. Maybe with the L_C_D_ we can do something with less buttons, but
+[00:28:41] Speaker D: Okay.
+[00:28:53] Speaker C: Yeah.
+[00:28:57] Speaker D: But then you don't want to make the L_C_D_ display too complicated at the same time.
+[00:29:00] Speaker A: Mm.
+[00:29:01] Speaker B: Two T_V_s.
+[00:29:04] Speaker D: I mean there's always we can always have these l less often used functions hidden somewhere, under a cover or at the back of under a slide or some
+[00:29:12] Speaker A: Yeah. Oh yeah. Oh, the.
+[00:29:13] Speaker B: Like ma
+[00:29:15] Speaker B: We we could have for example two buttons like simple mode and advanced mode. Or I dunno. Or like children and grandfather's mode, and the, well the the user
+[00:29:19] Speaker D: Yeah. Yeah.
+[00:29:24] Speaker C: Mm.
+[00:29:29] Speaker B: not the user, the man mana T_V_ manager mode. Ah, I dunno.
+[00:29:32] Speaker D: Okay.
+[00:29:33] Speaker C: Mm-hmm.
+[00:29:34] Speaker D: So we have five minutes left. Um.
+[00:29:35] Speaker A: Yeah.
+[00:29:37] Speaker B: Uh.
+[00:29:37] Speaker D: So I think s the settings we th we are agreeing are agreed that they're required. It's just how to a
+[00:29:43] Speaker C: Mm-hmm.
+[00:29:43] Speaker A: Yeah.
+[00:29:43] Speaker B: Yeah.
+[00:29:45] Speaker A: We should hide them somewhere. In the menus of the L_C_D_ or in the back of the remote control, or something like that.
+[00:29:48] Speaker B: Hide them, okay.
+[00:29:49] Speaker D: Yeah.
+[00:29:51] Speaker D: Okay.
+[00:29:54] Speaker D: Yeah.
+[00:29:56] Speaker D: Uh, okay, what else?
+[00:30:01] Speaker B: Um.
+[00:30:06] Speaker D: I mean a power button's obviously
+[00:30:06] Speaker B: Yes. This I was thinking. Do we need a power button at all? Should should shouldn't we do it like sleep mode after five minutes of not using it? Because generally
+[00:30:09] Speaker D: uh required.
+[00:30:18] Speaker A: It's it's a kind of setting, I think. It should fit in those settings functions. Because it's not a very current useful function.
+[00:30:21] Speaker C: Mm.
+[00:30:23] Speaker C: Settings.
+[00:30:28] Speaker D: Uh, well I think when they say power button they mean to turn the T_V_ on and off.
+[00:30:34] Speaker B: Yes.
+[00:30:34] Speaker A: No, I think it's after after five minutes or something a timer I I think, no?
+[00:30:36] Speaker B: Well I I uh
+[00:30:38] Speaker D: But if you're watching T_V_ for two hours, you don't want your T_V_ to turn off after five five minute
+[00:30:41] Speaker B: You don't need to every five minutes to keep it alive. Uh probably. Okay, so we should keep this button.
+[00:30:48] Speaker D: I mean based on our usability studies again, um pe um people said that the power button was v a very relevant button. Um, you know, it was nine out of ten
+[00:30:48] Speaker C: Yeah.
+[00:30:54] Speaker A: Oh okay, yeah.
+[00:30:56] Speaker C: Mm-hmm.
+[00:30:58] Speaker B: Okay, so we we could p what we could probably do is to keep also to keep uh keep the L_C_D_ and all the buttons and stuff, we could make it like a opening opening style that if you open it you are you just turn on the T_V_ and if you close it, it will
+[00:30:59] Speaker D: re relevance.
+[00:31:11] Speaker A: Yeah.
+[00:31:17] Speaker A: Yeah.
+[00:31:18] Speaker B: turn off the T_V_. If if you like this,
+[00:31:20] Speaker D: Okay.
+[00:31:21] Speaker D: B Okay.
+[00:31:23] Speaker B: Because, well it's maybe question for you t
+[00:31:25] Speaker D: I think we need to concentrate on the, you know, the major usage of the th of the control, which is you sit down, you turn on your T_V_, you change channels, you change the volume, you turn the T_V_ off. Um and all the other f functionality is
+[00:31:27] Speaker C: Mm-hmm.
+[00:31:30] Speaker A: Yeah.
+[00:31:37] Speaker A: Yeah. So s yeah.
+[00:31:43] Speaker C: Yeah, they can yeah they can be hide somewhere by a cover or something like this. Like covering cu. Yeah, like mobile phone covering.
+[00:31:43] Speaker D: not used very often.
+[00:31:47] Speaker A: Yeah.
+[00:31:48] Speaker D: Yeah.
+[00:31:50] Speaker A: On the back, or
+[00:31:50] Speaker B: Yeah. I mean like the
+[00:31:53] Speaker B: Yeah but since we have the L_C_D_, we didn't need too much button too many buttons.
+[00:32:01] Speaker B: Um, okay, just um the decision of the power button. Should we make it a button, or some some something which would be
+[00:32:11] Speaker A: For what?
+[00:32:12] Speaker B: Uh power button.
+[00:32:12] Speaker D: I think a button.
+[00:32:13] Speaker C: A button is better.
+[00:32:14] Speaker D: I think it should be a bu
+[00:32:15] Speaker A: Ah oh yeah, yeah. Yeah a button, yeah I guess so.
+[00:32:15] Speaker B: If it if it's a button or Okay.
+[00:32:16] Speaker C: Yeah.
+[00:32:17] Speaker D: Its own button on the front.
+[00:32:18] Speaker C: Mm.
+[00:32:20] Speaker B: Okay, one nice big button. Old fashioned button, to satisfy the grandmothers.
+[00:32:29] Speaker B: Hmm.
+[00:32:32] Speaker D: Okay.
+[00:32:34] Speaker B: Mm.
+[00:32:34] Speaker D: S
+[00:32:34] Speaker A: So, any other suggestions or functions?
+[00:32:48] Speaker D: What about things like the clock and um timers?
+[00:32:54] Speaker B: Do we still have the time? I I just wonder.
+[00:32:56] Speaker A: Yeah, we have still one or two minutes to talk, yeah.
+[00:32:58] Speaker B: Okay.
+[00:32:59] Speaker B: Oh. Well what w what was the question?
+[00:33:01] Speaker C: Clock or
+[00:33:01] Speaker D: Uh um, you know, some func some features on the control to display a time, or t to display
+[00:33:07] Speaker A: Usually it's already on T_V_ or something like that.
+[00:33:10] Speaker C: Yes.
+[00:33:11] Speaker B: Yeah but since we want to control all the televisions,
+[00:33:17] Speaker B: and and it would probably be worth to to set the timing on the remote, no?
+[00:33:17] Speaker A: Yeah.
+[00:33:24] Speaker B: Because if if the T_V_ turns on itself, it well you know, if the time The timer should be there.
+[00:33:24] Speaker C: Mm.
+[00:33:26] Speaker A: Yeah.
+[00:33:29] Speaker A: Yeah. If we if we add the time, we have to have maybe a bigger display or something like that, and is it very useful? I mean, are users wants to have the time on the on the remote?
+[00:33:44] Speaker C: Mm.
+[00:33:44] Speaker D: Probably not. It's a questi yeah, it's a trade-off.
+[00:33:44] Speaker A: This is the question. Is it useful?
+[00:33:46] Speaker C: Yes.
+[00:33:47] Speaker A: W In my opinion we should have only useful thing and Because apparently they want The simpler it's is better.
+[00:33:52] Speaker D: 'Kay.
+[00:33:54] Speaker B: Ah, yeah.
+[00:33:55] Speaker D: Okay simple.
+[00:33:56] Speaker B: Did you did you ever use the like the timing of turning on the T_V_, well And based on your
+[00:34:03] Speaker D: Very, yeah okay, very occasionally. But I do use the I do use the display of the time quite often, but
+[00:34:09] Speaker C: Mm.
+[00:34:09] Speaker B: Yeah but it can be on the display in in a corner all the time on the remote.
+[00:34:12] Speaker D: Yeah.
+[00:34:14] Speaker D: Yeah that's okay, that's true. Okay, so no time button. Okay.
+[00:34:17] Speaker A: No time on.
+[00:34:18] Speaker C: And uh do we need to include anything about the speech recognition and the speech commands, or?
+[00:34:22] Speaker B: Yes yes.
+[00:34:24] Speaker A: I think
+[00:34:25] Speaker C: I I thin I think it will not take lots of place, we just need a microphone and the software, so, and it sh and it will be a little bit new and interesting, so people may be attracted to buy this stuff and it's not very difficult to uh put a software inside the the electronic device and put a microphone. It doesn't take that much place and also that much It doesn't cost that much.
+[00:34:52] Speaker B: Yeah but we we should be careful about the battery life, then. If we use the speech recognition.
+[00:34:52] Speaker A: Yeah.
+[00:34:57] Speaker A: So maybe we think we can think more about that, and discuss that maybe last time next time. And uh yeah, now the meeting room is busy. Somebody booked the meeting room just for at one P_M_, and so we should leave.
+[00:35:02] Speaker C: Mm-hmm.
+[00:35:03] Speaker B: Yeah.
+[00:35:13] Speaker A: Uh.
+[00:35:16] Speaker A: So, um. So now we are going for for a small lunch. It's uh funded by the company. And uh after we have uh thirteen minutes to to do indevel individual works. And uh I will do the minutes. And uh
+[00:35:38] Speaker A: you are going to work on your individual works. And uh you will receive as usual your specific instruction and so on. Thank you everybody.
+[00:35:47] Speaker D: Okay, cool. Okay
+[00:35:51] Speaker C: Thanks.
+[00:35:52] Speaker D: Thank you.

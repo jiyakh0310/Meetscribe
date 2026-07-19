@@ -1,0 +1,483 @@
+[00:00:23] Speaker A: Okay, so now we are on the conceptual design meeting.
+[00:00:28] Speaker D: Mm-hmm.
+[00:00:28] Speaker A: Uh y getting close to the last is the penultim meeting.
+[00:00:36] Speaker B: How was lunch?
+[00:00:37] Speaker D: Thanks Don't be sarcastic. Mark.
+[00:00:37] Speaker A: Mm great.
+[00:00:48] Speaker A: So um I will again do the secretary part uh we will have three presentation first um uh the industrial design, first Rama then Mark and then Sammy. Um um we have to take a decision on the control remote control concepts and we have forty minutes.
+[00:00:58] Speaker D: Uh Rama.
+[00:00:59] Speaker C: Ramaro.
+[00:01:17] Speaker B: Mm.
+[00:01:17] Speaker A: So what we want to the decision we want to take on this meeting are on the um first on the component concept, so what kind of energy we use uh what kind of chip on print and one ki kind of case. And also on user interface concept uh what kind of interface we use and if there is some supplements. And at the end um Sammy will give um a trend watching on what he's he's been doing. It's
+[00:01:55] Speaker A: So, let's go. First
+[00:02:00] Speaker A: with Rama.
+[00:02:08] Speaker A: Participant two.
+[00:02:10] Speaker C: Yeah, participant two.
+[00:02:13] Speaker C: Component.
+[00:02:14] Speaker A: Mm-hmm.
+[00:02:19] Speaker C: Yep.
+[00:02:21] Speaker C: So we're to mainly design f mainly need to know which components we'll use for energy, and the material and interface. For energy there are maybe two or three possibilities. First one, we can use simple battery, or we can use traditional solar cells or mm and the material we can have plastic, rubber which is good for this R_S_A_ and then uh titanium, which can be which have very good look an and then interface we're to use push buttons or liquid crystal d L_C_D_ display. And we can use some, moving kind of thing.
+[00:02:50] Speaker D: Ah.
+[00:03:17] Speaker C: So, as we discussed before, we need to we would like to have some speech recognition s chip in our remote control.
+[00:03:29] Speaker C: So this can be simple kind of programmable chip and which can use microphone sensors. And we also want to look at our remote control, so. Still we are looking for possible uh technical uh specifications and how w easy we can do and within our pri range, like we're to in our twelve Euros or around that. So we are looking for simple devices or simple technology to do the location of remote control in a room or in a house.
+[00:04:10] Speaker A: Mm-hmm, okay.
+[00:04:14] Speaker C: So uh we discussed an
+[00:04:20] Speaker C: Excuse me.
+[00:04:26] Speaker C: So we would like to propose battery instead of solar cells and it would be problematic uh to have enough energy with the solar cells and so we would like to just use simple battery. And also we want to go for titanium design instead of rubber or and well the problem is with this design we found that we can't use double-curved shapes.
+[00:04:32] Speaker D: Mm-hmm.
+[00:04:52] Speaker D: What is a double-curved shape?
+[00:04:54] Speaker C: Like you can have two curves.
+[00:04:57] Speaker D: Uh-huh.
+[00:04:59] Speaker B: Why?
+[00:05:00] Speaker C: Uh it's I think in manufacturing I guess it's problematic.
+[00:05:09] Speaker C: So, we want to go for simple push buttons because it need a simple chip and it's really lesser uh re really less expensive compared to L_C_D_ which are uh which needs advanced chip technology and it's more expensive, since we want to put some other features such as speech recognition we want to reduce uh cost.
+[00:05:26] Speaker B: Mm-hmm.
+[00:05:30] Speaker A: Um I want to know why it b uh just uh sorry but for the point before uh why not the rubber, if it is something that it seems to be light.
+[00:05:30] Speaker D: The cost.
+[00:05:36] Speaker C: Uh
+[00:05:38] Speaker C: Uh
+[00:05:41] Speaker C: And also like in if you put a it's be difficult to do all the moulding of buttons and these things and
+[00:05:47] Speaker A: Okay. You m titanium it's more uh
+[00:05:50] Speaker C: Yeah.
+[00:05:50] Speaker B: W we can use something like you know the whole body's titanium but there are some rubber or I dunno some rubber parts like to make it feel better and to you know
+[00:06:01] Speaker D: Mm like this?
+[00:06:02] Speaker C: Yeah.
+[00:06:03] Speaker A: Yes so mm
+[00:06:05] Speaker C: Like in cell phones recently these you can with the rubber in four directions and yeah. But full assembly
+[00:06:07] Speaker D: Mm-hmm.
+[00:06:07] Speaker B: Yeah. Yeah.
+[00:06:07] Speaker A: Uh-huh.
+[00:06:10] Speaker A: Okay.
+[00:06:16] Speaker C: We'll use mainly for titanium rubber is expensive and also it's bit difficult to do all the shapes uh. And this push buttons we we would like to use push buttons instead of L_C_D_s and so we want to mo I mean we're we want to put speech recognition so we want to reduce price on this technology and so that we can have enough space or enough money for
+[00:06:18] Speaker A: Okay.
+[00:06:20] Speaker A: Okay.
+[00:06:23] Speaker A: Okay.
+[00:06:28] Speaker A: Uh yeah so
+[00:06:44] Speaker A: Okay, s so simple button and uh speech recognition for the more complicated.
+[00:06:47] Speaker C: S S
+[00:06:48] Speaker D: Speech
+[00:06:49] Speaker C: Y yeah we have simple buttons and speech recognition technology, so
+[00:06:51] Speaker B: Mm-hmm.
+[00:06:55] Speaker A: Okay.
+[00:06:55] Speaker B: Okay, and still we have mm can we still include the L_ L_S_D_ display? L_C_D_ yeah L_C_D_.
+[00:07:00] Speaker D: L_C_D_.
+[00:07:02] Speaker C: Uh l
+[00:07:02] Speaker D: Seems not, it's either L_C_D_ or push-button.
+[00:07:03] Speaker C: So uh it's like a
+[00:07:04] Speaker B: No, it's not gonna be a t no touchable but still like a source of information or source for menus.
+[00:07:11] Speaker D: Ah.
+[00:07:11] Speaker C: Yeah maybe maybe we can see depending on how we'll come up with our full design then if we have enough money or like for and because the speech recognition technology will take at least five Euros or or something so we want to reduce the cost on display or this inter
+[00:07:20] Speaker B: Okay, so let's try it, let's t
+[00:07:27] Speaker D: The L_C_D_ would
+[00:07:31] Speaker D: The display would only be display and not uh touch sensitive you mean. Just uh for output, yeah.
+[00:07:33] Speaker B: Yeah, yeah, it's it's not gonna be a touch pad, uh just a display for giving you information.
+[00:07:38] Speaker C: Ok
+[00:07:38] Speaker D: Yeah.
+[00:07:40] Speaker C: Yeah, that can we we can consider, because like it won't take much money I guess, because
+[00:07:40] Speaker A: Mm-hmm.
+[00:07:44] Speaker B: Mm-hmm.
+[00:07:48] Speaker A: Okay.
+[00:07:50] Speaker C: Okay, yep. You have any further questions or?
+[00:07:52] Speaker A: Mm.
+[00:07:55] Speaker D: I guess no um. So the batteries uh are going to be very light.
+[00:07:59] Speaker C: Yeah.
+[00:08:02] Speaker C: Yeah, we're to go for li and now I think we have many options in the market so we can go for small nickel or alkaline batteries for
+[00:08:08] Speaker D: Okay.
+[00:08:09] Speaker B: Mm-hmm. Mm-hmm.
+[00:08:13] Speaker C: really light batteries and with uh good price.
+[00:08:17] Speaker D: So this device on n that can be used for speech recognition could also be used for just uh the finding it basically, instead of clapping why not just be ask.
+[00:08:28] Speaker C: Yeah, that's then the the one thing we want to know is like because remote control is used for like in the household so it it it will be it m maybe at least five, six people want to use it so so how to uh uh how to define our re speech recognition whether we want to do s speaker independent or speaker dependent. If we're going for more speaker independent then it would be like again cumbersome and we need really m more technology and so
+[00:08:43] Speaker D: Mm-hmm.
+[00:09:01] Speaker A: Okay, for the location.
+[00:09:03] Speaker A: Hmm.
+[00:09:03] Speaker C: Yeah, if if everybody in the house n to locate then we're to go for some speaker independent technology or something.
+[00:09:10] Speaker D: Okay.
+[00:09:16] Speaker A: Okay.
+[00:09:18] Speaker A: So let's now go to the you don't have more question? Um mm thank you mm.
+[00:09:21] Speaker D: No, it's okay. Puts less of constraint on what we can do but
+[00:09:21] Speaker B: No more questions.
+[00:09:22] Speaker C: Yep. Thank you.
+[00:09:25] Speaker B: Mm yeah, yeah.
+[00:09:25] Speaker A: Yeah.
+[00:09:25] Speaker C: Yeah.
+[00:09:27] Speaker D: it's always like that. We have dreams and the in the end we find out that it's not feasible.
+[00:09:32] Speaker A: Yeah, but mm.
+[00:09:33] Speaker C: Oh. We have uh some limitations.
+[00:09:33] Speaker D: Anyway.
+[00:09:35] Speaker D: Yeah.
+[00:09:36] Speaker B: But still uh L_S_D_'s already quite nice, L_C_ I'm an artist, sorry. So uh, that's not I hope that's not too much. Okay. Uh participant number three.
+[00:09:38] Speaker D: L_C_D_. L_S_D_ is something else, and it's quite nice as well. So, go on uh artist.
+[00:09:39] Speaker A: Okay. Um yeah. Now let's talk about uh interface.
+[00:09:58] Speaker A: Three.
+[00:09:58] Speaker C: Three.
+[00:10:00] Speaker B: Uh
+[00:10:01] Speaker A: Which one?
+[00:10:02] Speaker D: Hmm.
+[00:10:03] Speaker B: mm
+[00:10:05] Speaker B: mm uh have a look at this no it's yeah.
+[00:10:11] Speaker A: Okay.
+[00:10:11] Speaker B: Uh so the concept of the interface. Generally I developed quite a broad concept not only for the interface, but for
+[00:10:24] Speaker B: possible instruction or user's manual and uh all the complex things that come together with your T_V_ and remote controls. So let's start with this. We got our perfect remote control with a lot of buttons and uh we got explanation for every button and you can use your time and uh it will take i some days to learn all this buttons and um the L_C_D_ is going to be somewhere here
+[00:10:56] Speaker B: and uh go back button, I don't know really where it is, maybe one of this buttons, and um power on and off mm I I don't remember so uh it it it should be maybe this button is power on and off? Or no? I can see nothing. So that's our concept. It's called the millennium remote control.
+[00:11:05] Speaker A: Mm.
+[00:11:22] Speaker D: Let's change millenniums.
+[00:11:24] Speaker C: So maybe you can use in the end and
+[00:11:24] Speaker B: Yeah.
+[00:11:27] Speaker D: doesn't make sense. This is very ugly.
+[00:11:30] Speaker B: Really? I thought you like it. Ah okay just press the button, please uh.
+[00:11:33] Speaker D: Oh no, too much concept.
+[00:11:37] Speaker D: Ah.
+[00:11:38] Speaker A: No.
+[00:11:39] Speaker C: Uh
+[00:11:40] Speaker B: Yeah, we will not use this. We will not use this. But instead of this I will devise That's our concept.
+[00:11:48] Speaker D: Ah, back today.
+[00:11:51] Speaker B: And it's got just few buttons, quite low looking, and all this stuff we already
+[00:11:59] Speaker B: we already discussed. And uh what will people say?
+[00:12:00] Speaker A: Mm-hmm. 'Kay.
+[00:12:05] Speaker B: They'll say it's perfect. Or what will say? Uh they will say it's splendid. And uh e everyone will say I'll buy it. And everyone's gonna be satisfied.
+[00:12:16] Speaker A: Mm-hmm.
+[00:12:21] Speaker D: Do you think it can come in several colours?
+[00:12:25] Speaker D: Or did the
+[00:12:25] Speaker B: I would make a backlight of the L_C_D_ screen with different colours.
+[00:12:32] Speaker D: Um but not the case.
+[00:12:33] Speaker B: Not the case.
+[00:12:34] Speaker D: Uh the case would only be in that uh aluminium uh titanium stuff, like
+[00:12:39] Speaker B: Yeah.
+[00:12:39] Speaker C: Mm.
+[00:12:39] Speaker A: Because apparently from your survey people like colours, no?
+[00:12:43] Speaker D: Yeah, well they like uh something which is uh
+[00:12:44] Speaker C: Yeah.
+[00:12:48] Speaker B: Okay, so let's remember there's a Nokia phone which changeable panels.
+[00:12:53] Speaker D: Mm yeah, okay, so that would be the option. I don't know I don't have a Nokia phone, but
+[00:12:54] Speaker B: Do you like it?
+[00:12:57] Speaker C: But it's uh
+[00:12:59] Speaker D: I don't use that but again, uh I might
+[00:13:00] Speaker B: That's why you don't have it. That's why, 'cause it's nasty.
+[00:13:03] Speaker D: Yeah, bu but
+[00:13:05] Speaker C: But it would be expensive, no? If you use colour L_C_D_.
+[00:13:11] Speaker B: No.
+[00:13:14] Speaker C: Uh instead of that maybe we can change the colour of the assembler. Maybe we can just if users want more colours they can pay more money to get this
+[00:13:18] Speaker D: Mm-hmm.
+[00:13:26] Speaker C: uh the shapes and they can have different assembly.
+[00:13:31] Speaker B: Um, I am here.
+[00:13:33] Speaker C: So users have different I mean they have their own interests, colour interests and so
+[00:13:33] Speaker A: Okay.
+[00:13:40] Speaker A: So?
+[00:13:40] Speaker B: Mm-hmm.
+[00:13:40] Speaker C: So we can just if they want they can just pay another
+[00:13:44] Speaker A: Uh-huh, okay, so you you propose something with option i that increase the price if we if you want o more colours on L_C_D_, yeah.
+[00:13:44] Speaker B: 'Kay.
+[00:13:44] Speaker C: two Euro.
+[00:13:47] Speaker C: Yeah.
+[00:13:49] Speaker C: Yeah yeah yes. If they want like uh so that we can yeah.
+[00:13:53] Speaker D: Kind of upgradable uh remote control. Wow, wow.
+[00:13:55] Speaker C: Yeah.
+[00:13:57] Speaker A: Okay.
+[00:13:57] Speaker C: Just they'll get few more
+[00:14:00] Speaker C: things and few more colours.
+[00:14:01] Speaker B: Okay, what uh there's one more decisi uh one more solution in fact, um 'cause there are some some paints that can change colour according to where they are, like they can reflect different colours
+[00:14:15] Speaker C: Lights, yeah.
+[00:14:16] Speaker D: Mm.
+[00:14:17] Speaker A: And thermodynamic also. Mm-hmm.
+[00:14:17] Speaker B: depending on what is around, like what colour is around, and depending on the temperature, yeah.
+[00:14:19] Speaker C: Yeah.
+[00:14:20] Speaker D: Like a chameleon.
+[00:14:22] Speaker A: Mm-hmm.
+[00:14:22] Speaker C: Yeah yeah.
+[00:14:24] Speaker B: We can make it in fact. If if if the okay.
+[00:14:25] Speaker A: Yeah but that's maybe mo too much expensive, yeah. But uh it can be in uh maybe in an a gradable version, but
+[00:14:25] Speaker C: Mm.
+[00:14:28] Speaker D: Mm-hmm.
+[00:14:32] Speaker B: Mm-hmm, mm-hmm, so
+[00:14:33] Speaker C: Yeah.
+[00:14:33] Speaker D: Because uh I think there are two kinds of people. Those for which the remote control is uh
+[00:14:39] Speaker D: is to be uh something useful uh I'm going to talk about this later but and those for which is something that that that uh is uh specific to them so it it's like a signature. My remote control is pink. Nobody else than me has a pink remote control. And that makes me special.
+[00:14:58] Speaker A: Mm-hmm.
+[00:14:58] Speaker B: Uh-huh.
+[00:15:03] Speaker A: Okay and you think that we don't have to make to make them pay more because of uh o or this is
+[00:15:09] Speaker D: I think I think they would be ready p ready to pay more for that.
+[00:15:12] Speaker A: Okay, so
+[00:15:14] Speaker D: Those who wanted to have it pink.
+[00:15:15] Speaker A: so i it's not uh a s base service it's a
+[00:15:15] Speaker C: Uh
+[00:15:18] Speaker D: No mm no.
+[00:15:18] Speaker C: Mm.
+[00:15:19] Speaker B: So, be an option, yeah.
+[00:15:20] Speaker A: Mm.
+[00:15:20] Speaker D: It might be optional, yeah.
+[00:15:21] Speaker A: Okay.
+[00:15:21] Speaker C: But those people will be really few, no? So like we can those
+[00:15:24] Speaker D: The the young people the young people want to be different from their friends. Although similar but have something just slightly better. Pink
+[00:15:28] Speaker C: Ah.
+[00:15:30] Speaker A: Mm-hmm.
+[00:15:30] Speaker C: Yeah.
+[00:15:32] Speaker A: So m so maybe that's if that it's a selling point maybe it has to be the base.
+[00:15:32] Speaker C: Mm.
+[00:15:34] Speaker B: Yeah, yeah, yeah. But you know if you want to be different you just take your remote control with you all the time.
+[00:15:37] Speaker D: Mm. Yeah.
+[00:15:45] Speaker A: And you'll be different. Uh in the train uh, hello uh no. Want to change my neighbour.
+[00:15:46] Speaker D: Yeah, yeah. You always have your remote. Oh, you don't? Yeah. You don't have your remo
+[00:15:46] Speaker B: And it makes you different, you know? Anyone has their remote controls here? No?
+[00:15:55] Speaker D: Wh you you know like for instance take the iPod. It's a kind of remote control. Uh it's white and it's so white that you see it from any anywhere. It has this distinctive look and feel and look which people seems to like just because it's a colour that we don't usually see in a remote control. White.
+[00:16:01] Speaker B: Mm-hmm.
+[00:16:04] Speaker A: Mm.
+[00:16:11] Speaker B: Okay.
+[00:16:18] Speaker B: Uh-huh, uh-huh. Could we integrate something into our remote control, something like light?
+[00:16:18] Speaker A: Mm-hmm.
+[00:16:19] Speaker D: Seems important.
+[00:16:22] Speaker C: Hmm.
+[00:16:24] Speaker B: That they can use it in darkness, like.
+[00:16:26] Speaker D: Mm glow in the dark, so
+[00:16:27] Speaker B: Hand light, yeah.
+[00:16:28] Speaker C: Yeah maybe like the infrared like we can put some
+[00:16:30] Speaker B: Mm-hmm.
+[00:16:33] Speaker C: radium chips or something so that like at least um yeah. Yeah, that
+[00:16:36] Speaker A: Iradium? Ah sorry. Mm.
+[00:16:38] Speaker B: Okay. Okay.
+[00:16:46] Speaker A: Okay.
+[00:16:48] Speaker D: Okay.
+[00:16:49] Speaker B: Okay. S well, let's go on maybe with the presentation. And um the remote control's going to be smart but how smart should it be to not to complicate things too much?
+[00:16:49] Speaker A: So mm
+[00:16:52] Speaker D: Yeah. Uh-huh, yeah sure.
+[00:16:53] Speaker A: Mm-hmm.
+[00:16:55] Speaker C: Oh.
+[00:17:04] Speaker B: And uh
+[00:17:08] Speaker B: I dunno that's a question to you and to mm to
+[00:17:13] Speaker D: Well so I heard that uh it seems that speech recognition is something that can be done uh so that's the smartness of the thing. Currently we don't have guns with speech recognition or uh beer cans with speech recognition but we may have remote controls with speech recognition.
+[00:17:21] Speaker B: Mm-hmm.
+[00:17:31] Speaker B: Okay, okay.
+[00:17:32] Speaker D: I dunno.
+[00:17:33] Speaker A: Mm, that's a nice world.
+[00:17:33] Speaker B: So just just just just think about it um.
+[00:17:37] Speaker B: Thank you.
+[00:17:37] Speaker D: Don't touch the remote. But yeah. Are are you saying here that uh the remote controls should be aware of who is using it? So for instance the young guy would not be able to use it because his father doesn't want. Like with some
+[00:17:39] Speaker A: Okay.
+[00:17:53] Speaker B: Uh yeah I just want to say it should be real smart.
+[00:17:55] Speaker D: Maybe fingerprint recognition or
+[00:17:57] Speaker B: Voice recognition is quite tough. I say don't use it, and the control just looks.
+[00:18:04] Speaker D: Mm.
+[00:18:04] Speaker C: Yeah.
+[00:18:06] Speaker D: Um
+[00:18:06] Speaker B: 'Cause I ordered jus
+[00:18:09] Speaker D: Mm.
+[00:18:09] Speaker B: To l to l lock it.
+[00:18:09] Speaker C: Uh that mm that could be feasible I guess, like
+[00:18:14] Speaker D: Okay.
+[00:18:14] Speaker C: So since we have we want to do some speaker dependent speech recognition uh so we can use yeah.
+[00:18:20] Speaker D: So it could be
+[00:18:21] Speaker D: smart in that way.
+[00:18:22] Speaker C: Yeah, yeah.
+[00:18:24] Speaker A: Mm.
+[00:18:26] Speaker A: Okay.
+[00:18:27] Speaker D: But for instance th I I'm thinking about the other uh uh particularity that the the remote control could have. S since it it knows who is using it, it might also record the kind of uh channels you are u more often using and uh levels of volumes that you're more often uh things like that and provide you ways of using them, I dunno, somehow, I dunno, that might be expensive but
+[00:18:44] Speaker C: Yeah.
+[00:18:48] Speaker B: Yeah, sure.
+[00:18:48] Speaker A: Mm.
+[00:18:49] Speaker C: Yeah.
+[00:18:54] Speaker C: Yeah.
+[00:18:56] Speaker A: Mm-hmm.
+[00:18:56] Speaker C: Uh it's
+[00:18:57] Speaker D: that might also be a good sales pitch again. The remote that knows you.
+[00:18:59] Speaker C: Hmm.
+[00:19:02] Speaker B: Mm-hmm.
+[00:19:06] Speaker A: Okay.
+[00:19:07] Speaker B: Okay, thanks.
+[00:19:09] Speaker A: So it's yeah, Marketing Expert.
+[00:19:11] Speaker D: My turn?
+[00:19:19] Speaker D: Okay, it's alright.
+[00:19:20] Speaker A: Participant two? Four, sorry.
+[00:19:21] Speaker C: Four.
+[00:19:22] Speaker D: Four, I think. Trend, yeah.
+[00:19:29] Speaker D: No uh yes.
+[00:19:35] Speaker D: Okay, so I'm going to talk about trends and um I hope this can help us to to understand l how we should design our remote control. So, next slide please. So first maybe just a small recap on how how do we watch trends so it's not so uh simple you might think that it's easy but uh it's not so simple. Anyway these days uh the best uh source of information is the web as you know, so have to
+[00:20:06] Speaker D: to go often on the web and look at uh what the others are doing, and ask real people who are using real remote controls every day uh or any other tool that is similar to a remote control which basically is a small device that people have with them, always, like a phone. We can we can use the phone as a as a good uh uh example of where to in be inspired.
+[00:20:36] Speaker D: Of course those tha d who are watching the trends are also have also to be inspired because in fact they're not only watching the trends, they're inventing it, they're creating the trend. I hope I'm going to try to help you on that. This is more risky because you're not following the trend, you try to invent it, which means either you succeed and you make a lot of money or you don't and you're out of business. So anyway uh next slide please.
+[00:21:06] Speaker D: Uh to be to be quick there's a lot of words here but uh basically there are uh in in the market of of remote controls there are three aspects that we should very pay much attention to. The first one, which seems to be the most important one, is that it has to be fancy, it has to have a fancy look and feel. And uh interestingly this is the very most important thing. It has to be fancy.
+[00:21:33] Speaker D: Strangely enough it's more important to be fancy than to be wi and now that's the second thing it has to be, it has to be technologically i innovative, it has to be new with some of uh new uh technology inside and uh and this is also uh more important than the last thing which we w may think that would have been the most important, which is that it should be easy to use and it should be easy to use as a remote control. So as you see uh it first have to be very nice, s something that people are proud of uh uh that i uh they can be id identified with uh and and then uh something that um contains very novel stuff that they can talk about with their friends, huh, mine has this and not yours.
+[00:22:25] Speaker D: And finally of course it has to be useful as a remote control but it seems that it's not so important that it's useful as a remote control. Next slide please.
+[00:22:35] Speaker A: Mm.
+[00:22:36] Speaker D: Uh and now in a more uh general uh uh broad way of seeing th uh the thing. If we look back and not uh look at only remote controls I think it's important to see that the trends are quite the same in many areas so currently the the trends that we see in l in l big cities like Paris and Milan, well, it seems that this year things should have uh a fruit and vegetable uh way of of look or feel or so. And I think of course uh i it applies to everything. That's the thing with trends. It it can travel f from clothe to furniture same idea. Fruit and vegetable. Think fruit and vegetable. And uh if we co we compare to last year, now it has to be spongy, yeah. Well this so so I think uh uh i
+[00:23:34] Speaker C: Mm.
+[00:23:34] Speaker B: What is spongy?
+[00:23:36] Speaker C: Yeah kind of um maybe
+[00:23:43] Speaker D: When we were talking about rubber, I think uh the rubber aspect might be important because it's what is probably more feasible in terms of sponginess.
+[00:23:45] Speaker C: Yeah it
+[00:23:49] Speaker A: Mm-hmm.
+[00:23:50] Speaker C: Yeah.
+[00:23:51] Speaker A: S
+[00:23:53] Speaker C: Yeah.
+[00:23:53] Speaker A: So maybe titanium it's not a good idea.
+[00:23:56] Speaker D: Seems not, seems not.
+[00:23:58] Speaker C: We need to think about mm mm.
+[00:23:59] Speaker A: Mm-hmm.
+[00:24:00] Speaker D: Yeah.
+[00:24:02] Speaker D: So
+[00:24:03] Speaker A: Um sorry Mark. It seems to be
+[00:24:05] Speaker D: Think more of uh something in the colours of uh like fruit and vegetables and spongy, as a even in the shape it has to be more round and uh
+[00:24:09] Speaker C: Fruit.
+[00:24:12] Speaker C: Even shape?
+[00:24:15] Speaker C: More yeah.
+[00:24:18] Speaker D: more uh uh look natural somehow. I mean
+[00:24:18] Speaker A: Mm-mm.
+[00:24:22] Speaker C: Yeah.
+[00:24:24] Speaker D: And not those futuristic uh remote control with angles and uh and titanium like.
+[00:24:28] Speaker A: Mm-hmm.
+[00:24:31] Speaker C: Mm.
+[00:24:31] Speaker D: So that's what people seem to yeah i I know it's quite far from what you thought but that's that's fashion and
+[00:24:31] Speaker A: Hmm. You're old-fashioned. Sorry.
+[00:24:42] Speaker B: Okay.
+[00:24:45] Speaker A: Okay.
+[00:24:46] Speaker D: Okay that's all I have to say.
+[00:24:48] Speaker A: Mm you have questions?
+[00:24:49] Speaker C: So these abilities are mainly ad addressed by young people? Or it's
+[00:24:56] Speaker D: These I'm sorry.
+[00:24:57] Speaker C: This you you so did you
+[00:25:00] Speaker D: Yeah, yeah we have people uh uh listening to the trends everywhere in the world, of course, as you know our company is quite big and uh so I'm just asking them what are the current trends according to them when they go in the stores and when they ask uh their uh friends that are also well.
+[00:25:03] Speaker C: Where?
+[00:25:05] Speaker C: Oh. Oh, okay, mm-hmm. It's not from mm.
+[00:25:11] Speaker C: Mm-hmm.
+[00:25:14] Speaker C: Yeah.
+[00:25:18] Speaker C: Yeah. It's more general trend it's not particular to the remote control.
+[00:25:21] Speaker D: No, it's not it's not this this is very general, yeah. But it seems that trends travel across things. The what we
+[00:25:26] Speaker C: Mm.
+[00:25:28] Speaker C: Yeah.
+[00:25:30] Speaker C: Yeah but some materials n they're to be
+[00:25:34] Speaker C: uh they're to be something like solid like they can't be really spongy or yeah yeah.
+[00:25:37] Speaker D: Sure. Yeah. We have to I think we have to have the look of fruit and vegetables but we still have to put our chips inside, so of course. This is your problem. This is not mine.
+[00:25:41] Speaker C: yeah, yeah sponge, yeah yeah at least that's
+[00:25:45] Speaker C: Yeah yeah that yeah yeah. Yeah.
+[00:25:53] Speaker C: Yeah, looking yeah fruit. These things can be easily incorporated. We can have t colours or this shape or at least yeah.
+[00:25:57] Speaker D: Yeah, I think in the colours and in the uh the kind of material. If if it's something like rubber made or I think it it's also going to be good.
+[00:26:04] Speaker C: Yeah.
+[00:26:05] Speaker A: Mm.
+[00:26:06] Speaker C: Mm.
+[00:26:07] Speaker A: Mm-hmm.
+[00:26:08] Speaker D: Okay?
+[00:26:09] Speaker A: Okay.
+[00:26:09] Speaker C: Yeah.
+[00:26:12] Speaker A: No more question?
+[00:26:15] Speaker A: Okay.
+[00:26:16] Speaker D: Yep. Thanks.
+[00:26:18] Speaker A: So
+[00:26:21] Speaker A: Mm-hmm.
+[00:26:30] Speaker A: Okay, so we will have uh next meeting in thirty minutes again. Um now you have to go straight on this individual action which i which are for Rama uh wil design, um Mark the user interface design, and uh Sammy uh the product evaluation. Uh you will work together uh on a new on on a prototype using modelling clay.
+[00:26:42] Speaker C: Look and feel de
+[00:26:54] Speaker D: Mm-hmm.
+[00:26:56] Speaker C: Hmm.
+[00:27:01] Speaker C: Hmm.
+[00:27:03] Speaker C: Mm sounds interesting.
+[00:27:03] Speaker A: Mm-hmm um
+[00:27:07] Speaker A: and I as always your personal coach will send you specific instruction.
+[00:27:15] Speaker D: Okay.
+[00:27:16] Speaker B: Okay.
+[00:27:19] Speaker D: Thanks.
+[00:27:20] Speaker C: So, can we highlight the specific features of our yeah, so so we want the speech recogniser and we want some kind of buttons and we want some themes like fruits or vegetables, that's we want to follow general trend.
+[00:27:23] Speaker A: Yeah you're right, you have to
+[00:27:36] Speaker A: So you say s
+[00:27:38] Speaker D: Spongy.
+[00:27:40] Speaker A: S do we agree on that? Yeah.
+[00:27:40] Speaker C: Yeah.
+[00:27:45] Speaker A: We have to.
+[00:27:46] Speaker C: So, do you think
+[00:27:46] Speaker D: No, we don't have to, but seems it's the trend. Again, as I said we can also try to make it, to create the trend. So there's no
+[00:27:47] Speaker B: So we have to uh for
+[00:27:50] Speaker A: No.
+[00:27:51] Speaker C: Hmm. Yeah.
+[00:27:55] Speaker B: yeah so are we confident enough on creating trends?
+[00:27:56] Speaker C: Yeah.
+[00:28:00] Speaker D: Well, that's you t can try to convince us.
+[00:28:04] Speaker B: Well, we can make it smell like fruit. Yeah.
+[00:28:08] Speaker D: Okay. that's a good idea, I
+[00:28:09] Speaker A: Okay, that's a good idea. So titanium smell like fruit. Mm-hmm.
+[00:28:09] Speaker C: That's
+[00:28:17] Speaker C: So what about location and these things, people are really interesting on those features? Or they really like
+[00:28:25] Speaker D: Uh
+[00:28:26] Speaker C: They more want these fancy features like
+[00:28:28] Speaker D: I think i yeah i it's again in this uh what I said first it has to be fancy so I think if nobody else pro provides currently a remote control with that kind of stuff and if we can provide it I think it's a good sell for us because we have it and others don't. It's fancy. Whether it's useful or not doesn't seem to be very important.
+[00:28:34] Speaker A: Mm-hmm.
+[00:28:38] Speaker C: Feature
+[00:28:43] Speaker C: Yeah.
+[00:28:44] Speaker C: Yeah.
+[00:28:45] Speaker A: Okay.
+[00:28:49] Speaker C: Yeah.
+[00:28:50] Speaker A: I I agree with uh this uh
+[00:28:51] Speaker C: Yeah.
+[00:28:56] Speaker A: Now we have to decide on what kind of fanciness. Do we take titanium smelling like fruit, or do we make spongy
+[00:29:04] Speaker A: uh fruity-like
+[00:29:04] Speaker C: Yeah.
+[00:29:06] Speaker C: Uh we will try to explore these two options and yeah yeah.
+[00:29:07] Speaker D: Maybe you could explore the two option.
+[00:29:08] Speaker A: Mm. Yeah, yeah.
+[00:29:09] Speaker B: Mm-hmm, mm-hmm. Could we make a titanium shape?
+[00:29:13] Speaker C: Uh yeah at least like we can make banana or
+[00:29:14] Speaker B: I mean fruit-shaped.
+[00:29:17] Speaker A: Don't you say that you cannot do double shape uh curved shape yeah.
+[00:29:18] Speaker B: But
+[00:29:22] Speaker B: Doub double-curved.
+[00:29:22] Speaker D: Mm. Seems to be.
+[00:29:22] Speaker C: yeah it's it's yeah that's a we're to look for and and s we're to see the whether rubber is expensive and d
+[00:29:26] Speaker A: Mm-hmm. Okay.
+[00:29:28] Speaker B: Okay, okay.
+[00:29:33] Speaker B: In fact I just agreed to make uh
+[00:29:36] Speaker B: to make the like titanium panels
+[00:29:39] Speaker B: on a whole
+[00:29:42] Speaker B: rubber body.
+[00:29:44] Speaker C: Hmm.
+[00:29:45] Speaker B: Well, okay w we'll see.
+[00:29:45] Speaker A: Mm-mm. Okay, so you explore now that you're going to work together these these two. Or or spongy an yeah.
+[00:29:50] Speaker B: Yeah
+[00:29:50] Speaker C: Mm.
+[00:29:54] Speaker C: Yeah. Maybe we can have two different assembly also like one spongy and one kind of titanium. we have only the plastic or the the chippy yeah fibre chips or
+[00:30:01] Speaker A: Mm.
+[00:30:05] Speaker B: We'll see. We'll see.
+[00:30:05] Speaker D: If you have time.
+[00:30:06] Speaker A: Mm.
+[00:30:08] Speaker A: Yeah I don't think w I think we have to choose.
+[00:30:11] Speaker A: If we choose uh titanium or if we choose spongy but uh it cannot be both.
+[00:30:11] Speaker C: Uh.
+[00:30:14] Speaker B: We'll see. I I really don't like this modelling clay 'cause you know it makes some for for I dunno uh yeah um we'll look.
+[00:30:17] Speaker C: Yeah.
+[00:30:18] Speaker D: For creation.
+[00:30:22] Speaker C: Yeah.
+[00:30:24] Speaker C: Yeah.
+[00:30:26] Speaker A: Ah you can pretend that it's uh titanium.
+[00:30:27] Speaker C: Even design.
+[00:30:30] Speaker D: You can paint it afterward. No problem. We have a very large department of paint. You will do it.
+[00:30:32] Speaker B: Okay, okay.
+[00:30:37] Speaker A: Yeah, do don't worry, you you you speak with mm mm.
+[00:30:40] Speaker B: Alright, alright.
+[00:30:43] Speaker A: Okay. So explore a shape.
+[00:30:51] Speaker C: So still we want to keep L_C_D_? Or
+[00:30:54] Speaker A: Mm I think it's what we say, that we have an uh an L_C_D_ with uh information. Not uh
+[00:30:56] Speaker D: Yeah.
+[00:31:00] Speaker D: The thing is that uh if we want to have as he says if we want to have uh a small number of buttons we need to have a kind of output that says currently what their actions are.
+[00:31:00] Speaker C: Okay.
+[00:31:06] Speaker C: Yeah, then we can
+[00:31:08] Speaker A: Mm-hmm.
+[00:31:09] Speaker C: yeah, yeah, that user friendly or
+[00:31:12] Speaker D: Yeah.
+[00:31:13] Speaker A: Mm.
+[00:31:14] Speaker D: That's the converse to having zillions of button where each button does only one thing.
+[00:31:14] Speaker C: Mm.
+[00:31:16] Speaker C: Yeah.
+[00:31:18] Speaker A: Mm.
+[00:31:19] Speaker C: Yeah.
+[00:31:24] Speaker A: Okay.
+[00:31:24] Speaker C: and we just stick with two batteries so it's not any solar or yeah yeah j yeah, because
+[00:31:27] Speaker D: Yeah. Classical, we stay classical in that we don't reinvent uh the wheel. Anyway it's very in general I think people uh change T_V_ more often than batteries of their remote control. So. Because the trend goes faster than the life of the
+[00:31:29] Speaker A: Yeah, yeah, yeah.
+[00:31:32] Speaker C: Yeah.
+[00:31:32] Speaker A: Mm.
+[00:31:40] Speaker A: Yeah.
+[00:31:45] Speaker A: Mm-hmm.
+[00:31:46] Speaker B: Mm-hmm.
+[00:31:49] Speaker D: So it's very
+[00:31:50] Speaker A: Okay.
+[00:31:53] Speaker A: So are we mm.
+[00:31:53] Speaker D: Okay.
+[00:31:53] Speaker C: Yeah.
+[00:31:54] Speaker B: Yeah.
+[00:31:55] Speaker D: We're done.
+[00:31:55] Speaker C: Yeah, we're done.
+[00:31:57] Speaker A: Okay. So see you in thirty minutes.
+[00:32:00] Speaker C: Yep.

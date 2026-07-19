@@ -1,0 +1,513 @@
+[00:00:05] Speaker D: Oh right okay.
+[00:00:08] Speaker D: I cover myself up.
+[00:00:13] Speaker A: I feel like Madonna with one of these on. I said I feel like Madonna with one of these on.
+[00:00:18] Speaker D: .
+[00:00:22] Speaker D: I've always wanted one of these, I really have. Where do you buy 'em from?
+[00:00:38] Speaker D: They're.
+[00:01:17] Speaker A: Right. Hello everybody. Back again for another wonderful meeting. Is uh everyone ready? Okay, we c we can hold on for a minute.
+[00:01:18] Speaker C: Hello.
+[00:01:19] Speaker B: .
+[00:01:27] Speaker C: Yeah.
+[00:01:28] Speaker D: Yeah.
+[00:01:29] Speaker B: Almost.
+[00:01:50] Speaker D: Oh my gosh.
+[00:02:00] Speaker A: I figured with the spam thing, if you can't beat it, join in.
+[00:02:06] Speaker C: That's the kind of spam that everybody likes to receive.
+[00:02:21] Speaker B: Mm 'kay.
+[00:02:23] Speaker A: Are you ready?
+[00:02:39] Speaker A: Okay, right, well, I take it that you are all ready now. Um alright first off we'll just uh recap from our last meeting. Um which was we got together just to basically decide on well to talk about what it is that we were actually uh supposed to be doing, and who we all are and stuff like that, mm get bit more of an idea together of what's going on.
+[00:03:12] Speaker A: Um what we are gonna talk about in this meeting is um
+[00:03:18] Speaker A: now that we know what it is that we are doing, now we know that it's a T_V_ remote and stuff and you guys have just been off doing some some uh R_ and D_ for that, that's research and development for those that haven't heard that before, see I'm learning all sorts of new technologi terms in technology today. Um yeah, we're gonna hear your uh th three little presentations, whether they be on computer or on the whiteboard or whatever you want.
+[00:03:31] Speaker D: Mm-hmm.
+[00:03:44] Speaker C: Hmm.
+[00:03:50] Speaker C: Do you have any preference uh of order?
+[00:03:52] Speaker A: Um I'd like to um hear o I'd like to hear who's g who's on the um from from uh Catherine actually first. I want what I'd like to hear about is uh if we've finally decided on um what sort of energy we're gonna be using and
+[00:04:16] Speaker D: Batteries.
+[00:04:18] Speaker C: I think she is still finishing her.
+[00:04:19] Speaker B: No no no no, it's fine I'm just preparing.
+[00:04:21] Speaker A: It's just that yeah, let's let's hear from you first.
+[00:04:23] Speaker C: Hmm.
+[00:04:23] Speaker B: Okay. Where is that thing? Oh sorry, couldn't see.
+[00:04:27] Speaker C: Okay, it's uh
+[00:04:28] Speaker D: It's here.
+[00:04:37] Speaker B: Would that work?
+[00:04:39] Speaker A: Get yourself in position.
+[00:04:41] Speaker B: Okay, so that's me again. Um so um for the energy sources we can have a basic battery, a hand dynamo which is which was used uh in the fifties for torches, if you remember that kind of which wouldn't be v wouldn't be v v yeah, yeah. It wouldn't be very fancy. You can have a kinetic provision of energy, which is used on some watches these days. So if you have just a bit of gentle movement that it will give it the energy to work. Or you can use solar cells, but I'm not sure about that indoors, really, but
+[00:04:44] Speaker D: Ah.
+[00:05:02] Speaker A: I don't think any of us remember the fifties.
+[00:05:04] Speaker C: Is it like a crank thing or something.
+[00:05:15] Speaker D: Mm.
+[00:05:22] Speaker C: Well, there's sometimes combinations, I mean, like calculators do combinations of battery with but also using some solar power.
+[00:05:24] Speaker B: Yeah.
+[00:05:29] Speaker A: Do sol solar panel things, do they have to work from the sun or can they work from a light bulb?
+[00:05:30] Speaker D: Mm.
+[00:05:37] Speaker B: I dunno actually.
+[00:05:37] Speaker A: Does anybody know?
+[00:05:39] Speaker C: Uh I think, it has to be on the on the solar energy, but I don't know.
+[00:05:43] Speaker B: I dunno.
+[00:05:45] Speaker B: Um.
+[00:05:47] Speaker B: Think the the uh what would cost the less would be the basic battery, really. And uh if we want something fancier, I think the kinetic provision of energy could be nice, but I don't know if it's worth the cost. So we've got to discuss that.
+[00:05:49] Speaker A: Okay.
+[00:05:53] Speaker D: Mm.
+[00:06:06] Speaker A: Mm.
+[00:06:08] Speaker A: Okay, jolly good.
+[00:06:10] Speaker B: For the case of the remotes itself, um they can be a general case, which is just a flat one. You can have uh a curved one or a double curved one, if you know what I mean, so
+[00:06:24] Speaker A: What's a double curved one?
+[00:06:26] Speaker B: You know, kind of more ergonomic, that kind of suits the palm of your hand, that kind of thing.
+[00:06:33] Speaker B: So
+[00:06:33] Speaker A: Okay.
+[00:06:38] Speaker B: Um then the case material itself, so it can be uh uh either plastic or latex,
+[00:06:49] Speaker B: uh rubber, wood, or titanium. And th for each of them you have uh cases where for example titanium, you can't use it for if you if we're choosing a double curved case, we can't choose titanium. And if we are choosing um solar cells then we can't choose latex for the case material, so we just have to take that into account. But if we're choosing just the flat case then we can go for anything. And I think we discussed earlier on the R_ S_ I_ problem thing, so we could uh
+[00:07:23] Speaker A: So that might be an idea of using the rubber, but then it should, you know yeah.
+[00:07:25] Speaker B: Yeah.
+[00:07:28] Speaker C: Let's have a squeezable remote.
+[00:07:30] Speaker B: Yeah. And also it doesn't break as easily maybe, I dunno
+[00:07:33] Speaker A: when a T_V_ programme's got one watching the match and your team's just lost, you can fuzz it across the room and it'll bounce off the wall back at you. Yeah, I like that idea.
+[00:07:41] Speaker D: Yeah.
+[00:07:45] Speaker D: Mm.
+[00:07:47] Speaker B: So rubber would be
+[00:07:49] Speaker B: Okay.
+[00:07:50] Speaker D: I think rubber's
+[00:07:52] Speaker A: Rubber, we're all we're all going we're all liking that idea? You think you can market that?
+[00:07:56] Speaker D: But after my after my fashion thing, I think you'll realise that rubber is more
+[00:08:02] Speaker A: Ooh, we like rubber, ooh.
+[00:08:02] Speaker B: Uh s so if d okay.
+[00:08:03] Speaker D: People.
+[00:08:07] Speaker B: And then there are the push-buttons, so you can have basic push-buttons or a scroll-wheels, like you have on a mouse, um or you could have um L_C_D_, which gives you a display.
+[00:08:21] Speaker B: Um scroll buttons, as well.
+[00:08:26] Speaker A: Uh-huh.
+[00:08:26] Speaker B: So if you use a rubber double curved case, you must use rubber push-buttons. So if we're going for rubber then we have to decide for the case. Um and if we choose double curved then we have to go for rubber push-buttons. So it's a constraint.
+[00:08:42] Speaker A: Well, we're gonna go with I think we've decided that it's gonna be a rubber case so
+[00:08:45] Speaker B: Yeah, but is it a double curved one or not? If it's not a double curved, then we've got the choice for the push-buttons, if it's a double curve, we've gotta go for rubber push-buttons.
+[00:08:55] Speaker B: If that makes sense.
+[00:08:57] Speaker A: push buttons instead of the wheel?
+[00:09:01] Speaker B: Yeah..
+[00:09:01] Speaker C: If it's rubber, isn't it malleable anyway, it doesn't matter if it's double I mean isn't a rubber case, mean it's completely flexed, I mean, it it flexes to whatever they want it to? Mean so what's the difference between a normal rubber case and a rubble doub double rubber double curved case?
+[00:09:15] Speaker A: rubble double double.
+[00:09:15] Speaker B: No, but na le you see, you've got, okay, the energy that's one thing,
+[00:09:19] Speaker A: I'll have a Big Mac, please.
+[00:09:21] Speaker B: then you have the case is uh, whether it's flat or curved. And that's we don't care if it's rub rubber or not, but then we've decided that we going for rubber for the case material. So if we've chosen rub rubber and if now we have the choice for the case whether it's flat, single curved or double curved. And I'm just saying if it if we choose it to be double curved then we need to go I dunno why, but we need to go for uh rubber push-buttons.
+[00:09:53] Speaker C: Okay.
+[00:09:53] Speaker B: So, either
+[00:09:57] Speaker B: I dunno we just need to decide on the on the case.
+[00:09:59] Speaker A: Let's have rubber push buttons, hey.
+[00:10:01] Speaker C: Okay. Go rubber. Go rubber the whole way.
+[00:10:03] Speaker B: Let's go crazy. And then, do I have a last slide? Yes, I do. Um so the push-buttons themselves they can be just simple or they can be so that's just the electronics between the but behind the push-buttons. Um and the price that go with it with it, so the simple push-buttons are gonna be the cheapest. Uh if we get a scroll-wheel, that's a higher price range. If we get an advanced chip which is um used for the L_C_D_, the display thing, then that's even more expensive.
+[00:10:17] Speaker A: Yeah.
+[00:10:43] Speaker A: Simple, yeah.
+[00:10:46] Speaker A: Chip on print. It's a bit.
+[00:11:02] Speaker A: Okay, uh what I'm not understanding here
+[00:11:05] Speaker B: Mm.
+[00:11:06] Speaker A: is uh, okay, advanced chip on print, which I presume is like one P_C_B_ and that's got all the electronics on one board including the um infra-red sender?
+[00:11:14] Speaker B: .
+[00:11:16] Speaker B: Yeah.
+[00:11:19] Speaker B: The infra-red.
+[00:11:20] Speaker B: Yeah.
+[00:11:21] Speaker A: Right. Um what a what alternatives do we have to that?
+[00:11:29] Speaker A: Y um what alternatives do we have to the chip on print?
+[00:11:32] Speaker B: Well, if if it's not chip on print then, I guess, you get different chip components, and you build them separately and doesn't include the infra-red. It's less expensive mm
+[00:11:44] Speaker A: so it sounds
+[00:11:45] Speaker B: Technically speaking, it's not as advanced, but it does the job, too.
+[00:11:49] Speaker A: So, why would we not go for that? If it's something that's inside the the unit. I it doesn't affects whether the customer's gonna buy it or not. Um we wanna go for an i i all so long as it works,
+[00:11:53] Speaker B: Fo
+[00:11:56] Speaker B: It doesn't, yeah, yeah, yeah.
+[00:11:58] Speaker B: Totally.
+[00:12:00] Speaker B: Yeah.
+[00:12:03] Speaker B: So let's not go for the
+[00:12:07] Speaker B: Yeah, yeah. I agree.
+[00:12:08] Speaker A: you know. So let's not let's uh not bother with the chip on print.
+[00:12:13] Speaker B: So it's either um the scroll-wheel or the push-buttons.
+[00:12:19] Speaker A: Yeah.
+[00:12:21] Speaker A: S yeah, push buttons.
+[00:12:23] Speaker D: What about the just developed uh sample sensor?
+[00:12:23] Speaker C: I think push-buttons is
+[00:12:27] Speaker A: What about what?
+[00:12:28] Speaker D: G there, the sample sensor, sample speaker thing.
+[00:12:31] Speaker B: Well
+[00:12:32] Speaker A: Well, what do we need a speaker for in a remote control unit?
+[00:12:35] Speaker D: Mm, I dunno.
+[00:12:37] Speaker D: Be cool. Channel two.
+[00:12:38] Speaker B: It'd be it'd be cool, but they are saying they've just developed it, I'm just guessing. But it's gonna be the most expensive option, probably and
+[00:12:39] Speaker C: Yeah.
+[00:12:43] Speaker A: S
+[00:12:46] Speaker C: Th the the speech recognition um option is it doesn't seem really very promising for us uh, 'cause uh
+[00:12:52] Speaker A: Yeah. It's not something that we wanna t go into with this product.
+[00:12:55] Speaker C: The yeah the example that they're already using it for is with the coffee machine, where, basically, you can program a sample wi um
+[00:13:04] Speaker C: That when you say something it will give a response, and you program the response as well. Just uh clips of tha that you record yourself. So you can program your coffee-maker that when you say, good morning, to it it says, hello Rick, or whatever. But, I mean, it's not it would be one thing if it was speech recognition where you say something and it turns the T_V_ on like, turn the T_V_ on, and i turns comes on, but it's not that. It just gives you a it just gives you a verbal response. So, yeah, I mean, like what's the point of saying, Hello remote, I mean, hello, how how are you? Yeah, if you're really lonely, it is it's
+[00:13:16] Speaker A: Yeah.
+[00:13:17] Speaker B: Hm.
+[00:13:25] Speaker D: Oh, it just gives an answer.
+[00:13:28] Speaker D: Oh, then then
+[00:13:29] Speaker A: Yeah.
+[00:13:31] Speaker A: Yeah.
+[00:13:32] Speaker D: I thought I thought it was when they said
+[00:13:32] Speaker B: Just if you are really lonely, maybe.
+[00:13:36] Speaker D: I thought when they said, voice recognition, they meant um like, channel five, and it will change. Like you talk to it. Can I have channel five? Oh, then forget about it. Oh right okay.
+[00:13:40] Speaker B: Channel five. And then it switches on.
+[00:13:42] Speaker C: No, tha that w that w that would be more promising. It it's just a remote that talks to you. Uh. I mean to certain cues.
+[00:13:44] Speaker A: Yeah.
+[00:13:47] Speaker A: Yeah. Yeah.
+[00:13:50] Speaker A: Yeah.
+[00:13:51] Speaker B: Okay, so I'll go back, maybe, to the previous slide and we can decide for each problem, what we should choose. So for the energy source, do we go for the battery or the
+[00:13:57] Speaker C: 'Kay.
+[00:14:02] Speaker C: Yeah, I'm fine with the basic battery.
+[00:14:04] Speaker A: Basic battery. It's cheap, it's cheerful, it's worked, does work.
+[00:14:04] Speaker D: Mm.
+[00:14:09] Speaker C: Hmm.
+[00:14:10] Speaker B: Cheaper option. Are you happy with that? Okay. So we'll go for the battery.
+[00:14:10] Speaker D: Mm. Yeah.
+[00:14:18] Speaker B: Then the case, do you want it flat or curved or sing or double curved?
+[00:14:22] Speaker A: We were go we were going with the late with the the R_S_I_ rubber, weren't we?
+[00:14:26] Speaker C: Yeah, so we want it rub rubber double curved.
+[00:14:29] Speaker A: The the
+[00:14:30] Speaker D: So it will look like something like this.
+[00:14:31] Speaker B: Double?
+[00:14:31] Speaker A: The double whopper, please.
+[00:14:33] Speaker B: Okay, so then if we use double curved case, then we have to u choose rubber push-buttons, and that's fine?
+[00:14:36] Speaker A: Yep, but we're going for the simple buttons.
+[00:14:40] Speaker C: So rubber rubber keys, yeah.
+[00:14:41] Speaker A: Yeah. And it's cheapest all round, it sounds kinda funky, and we can also market it as i 'cause we were s saying earl you were saying earlier in your research that um the the people have the R_ people were getting the complaining about R_S_I_, and this is anti-R_S_I_.
+[00:14:46] Speaker B: P
+[00:14:46] Speaker C: Yeah.
+[00:14:52] Speaker D: .
+[00:14:59] Speaker D: Yeah.
+[00:14:59] Speaker B: Yeah.
+[00:15:00] Speaker A: So that's another marketing point that we can use.
+[00:15:02] Speaker D: Well the rubber push-buttons.
+[00:15:06] Speaker D: Don't you have to move your
+[00:15:06] Speaker A: But anything is gonna have buttons.
+[00:15:09] Speaker D: Mm.
+[00:15:10] Speaker A: Even if it's a jog wheel, it's still repetitive.
+[00:15:14] Speaker B: I thought they would give an option of flat buttons or a
+[00:15:14] Speaker A: You
+[00:15:17] Speaker A: You see, you can still get it does you still get repetitive strain injury, whether you are pressing a button or pressing a flat bit of screen. It's the v it's the fact that you are pressing the same doing the same movement. It's not actually what you are doing.
+[00:15:18] Speaker B: That they don't.
+[00:15:25] Speaker B: Mm.
+[00:15:25] Speaker C: .
+[00:15:33] Speaker A: But the fact that this this rubber i is actually used in these anti-R_S_I_ ps specific
+[00:15:39] Speaker D: Mm. Yeah, the rubber's good.
+[00:15:40] Speaker C: Yeah. We're giving them a way to burn off steam, basically, yeah.
+[00:15:44] Speaker A: Yeah.
+[00:15:45] Speaker D: Yeah, so they can sit there and go like
+[00:15:46] Speaker C: Not that watching T_V_ should be that stressful.
+[00:15:49] Speaker A: And you know, yeah, you can fuzz it across the room and throw it at throw it at your children yeah.
+[00:15:52] Speaker C: Oh yeah, I guess T_V_ can be stressful, yeah, if you're watching sports.
+[00:15:56] Speaker B: Alright, that's me done.
+[00:15:58] Speaker A: Okay, Gabriel. Let's um let's let's hear from you about the um it's the interface.
+[00:15:58] Speaker C: Alright.
+[00:16:00] Speaker C: Alright.
+[00:16:05] Speaker C: Yeah, some of what I have to say ties into what Catherine was just talking about.
+[00:16:09] Speaker A: Great.
+[00:16:10] Speaker B: Sorry.
+[00:16:30] Speaker C: Okay, so I'm continuing with the user interface uh topic. And so basically I consulted with our manufacturing division. It sounded like Catherine was also speaking with them. Uh I also took uh Reissa's marketing findings from the last meeting into consideration um, 'cause I think that's that's crucial as far as uh what keys we're going to inc inclu what buttons we are going to include and and how they're laid out. Uh and so the manufacturing division uh sent some some samples of of uh interface components that we might be interested in using that have been used in other products, uh like the coffee machine.
+[00:17:00] Speaker A: Mm.
+[00:17:14] Speaker C: So I already mentioned the speech recognition interface. I guess, we we basically vetoed that idea. It's it's pointless.
+[00:17:22] Speaker A: Mm.
+[00:17:23] Speaker C: Uh it's just a sample sensor sample output. It would just be probably the most expensive part of our remote without any actual interesting functionality as far as operating the T_V_. Uh so yeah, they they also give the uh they they suggested the idea of using a spinning wheel like you use on the side of an M_P_ three player like iPod. Um so we've already addressed that and I think that would actually be worse for something like R_S_I_ I mean you got that thumb movement that you're constantly doing. Um the other suggestion, and I I have a feeling that
+[00:17:42] Speaker D: Mm.
+[00:17:42] Speaker A: Mm.
+[00:17:49] Speaker A: Yeah.
+[00:17:50] Speaker D: Mm.
+[00:17:52] Speaker D: That does get annoying.
+[00:17:58] Speaker C: we're interested in in something more general, but they suggested uh, you know, going i a little bit into a a niche, like either gearing our remote towards kids, where you could have lot of colours um, the keys might be you know, funny or or, or uh something for the elderly, where the remote's very large and the buttons are very large and there's only a few buttons. But you know we can we can discuss this, but it sounded like from our last meeting we really wanted something that was general, but done well. Uh um
+[00:18:14] Speaker A: Mm-hmm.
+[00:18:28] Speaker A: Yeah.
+[00:18:31] Speaker C: So, the key layout and design are really crucial. You don't want uh you want people to be able to quickly access the buttons that they use a lot without uh always pressing the wrong one um. And I didn't mention that we need a power button in our last I can give you an example here of uh, good layout and bad layout
+[00:18:51] Speaker C: uh
+[00:18:53] Speaker C: from our manufacturing department. So this would be an example of bad layout, where you have volume up and volume down, but they have a V_ on both of them, so uh
+[00:18:59] Speaker A: Yeah.
+[00:19:02] Speaker A: Yeah.
+[00:19:03] Speaker C: it's sort of confusing for the user. Uh this is the example of the giant remote that's impossible to lose. And for something for kids.
+[00:19:08] Speaker A: Do we have an uh example of a good one?
+[00:19:13] Speaker D: Uh-huh.
+[00:19:13] Speaker A: Brilliant.
+[00:19:16] Speaker D: Well
+[00:19:20] Speaker C: Yeah. Um.
+[00:19:22] Speaker A: Yeah.
+[00:19:25] Speaker C: And so,
+[00:19:27] Speaker C: yeah, I th I think my personal preferences of we've all kind of talked about and seemed to be on the same page um. Uh so I was against the speech recognition and against going uh towards anything in in a niche sense. I think it should be more general. I didn't I didn't think the spinning-wheel or the uh L_C_ display were were crucial for us. And, yeah, that's it for me.
+[00:19:42] Speaker A: Mm-hmm.
+[00:19:51] Speaker A: Okay. Well let's um so w what are our definite decisions on this then as a team? The um
+[00:20:01] Speaker A: The the um the interface type we're going for
+[00:20:07] Speaker C: So we're we're not gonna have any sort of display I think uh. So, yeah, it's just gonna be just gonna be push-buttons. Um.
+[00:20:11] Speaker A: Just the simple s simple straight set of buttons.
+[00:20:17] Speaker C: I think we shall have a limited number of buttons, ideally, I mean a a power, channel up, channel down, volume up, volume down, and a numerical keypad.
+[00:20:20] Speaker A: Yeah.
+[00:20:23] Speaker A: Yeah.
+[00:20:26] Speaker C: Uh.
+[00:20:28] Speaker C: And some sort of it will either have a a lock button like we mentioned or or a cover or something like that. I guess it's to the point where we need to decide about that.
+[00:20:33] Speaker A: Yeah.
+[00:20:36] Speaker A: Okay, and we're not yeah. Are we gonna hav hav an are we d have we decided on whether
+[00:20:38] Speaker C: Well now that we've decided on our
+[00:20:46] Speaker A: w we're gonna s supplement it with anything, you know, colours or particular gimmicky bits to it, we're not we're just gonna go for something
+[00:20:57] Speaker C: Um it seems like we wouldn't wanna make it too busy and too sort of gaudy, but um
+[00:20:57] Speaker A: We're
+[00:20:58] Speaker D: Maybe we can
+[00:21:05] Speaker C: Yeah, I would say mayb maybe a couple of colours like uh like a black with with yellow and somewhere, like maybe the R_R_ can be yellow, or something like that.
+[00:21:11] Speaker A: Yeah.
+[00:21:14] Speaker A: Yeah. Okay. Okey-dokey.
+[00:21:20] Speaker A: Yeah, I don't have any other questions on this.
+[00:21:24] Speaker A: Let's move over to
+[00:21:25] Speaker C: I I guess the fact uh also that we are having a rubber case uh would prevent us from having the cover function that we thought of before. I mean, 'cause uh s so if we wanna have a lock of some sort it would have to be a button. But I think that should be I mean um, I can speak with the button department, but uh I think that it should be easy to have a button that just prevents prevents the other uh the other buttons from operating. So that should be simple.
+[00:21:35] Speaker A: Yeah, sure.
+[00:21:38] Speaker A: .
+[00:21:48] Speaker A: Yeah, the button that just does that, yeah.
+[00:21:55] Speaker A: Cool.
+[00:22:08] Speaker D: Right.
+[00:22:13] Speaker D: Well, I'm just basically letting you know what's happening in the markets
+[00:22:19] Speaker A: Mm yeah.
+[00:22:20] Speaker D: and what the fashions are for next year. Um.
+[00:22:26] Speaker D: So yes, so from looking at this year's trends and fashions and also recent investigation that we've done in the remote control market, we have found that for the remote control market these are like most important aspects like that we really need to which we've already probably discussed. Um the most important aspect is look and feel. So the remote control has to look and feel fancier than the ones that already that we already have. So it has to be
+[00:22:30] Speaker A: Mm-hmm.
+[00:22:55] Speaker A: Yeah, why should people buy this when they're already got a remote that came with the T_V_?
+[00:22:56] Speaker D: Yep.
+[00:22:57] Speaker C: Mm.
+[00:22:57] Speaker D: Exactly. Um second, uh it should be technologically innovative innovative. So
+[00:22:59] Speaker C: Yeah.
+[00:23:08] Speaker A: What's that mean?
+[00:23:09] Speaker D: Technologically it should be like um work, basically, I guess. It should work.
+[00:23:19] Speaker C: Well it should be it should be maybe cutting edge in some sense, I mean have something that's little more technologically advanced than what's on the market.
+[00:23:20] Speaker D: Should
+[00:23:23] Speaker D: That's new.
+[00:23:24] Speaker A: Okay, now the trouble is is we've already decided that we're going with the stuff that works already, that's cheap.
+[00:23:25] Speaker D: Yeah.
+[00:23:26] Speaker C: Yeah.
+[00:23:30] Speaker C: Yeah. Actually, I mean, these first two points we've already sort of gone away from, 'cause our rubber one is not fancy I mean it's different, but I wouldn't say like a rubber remote is fancy. If that's what people want then we maybe we're going in the wrong direction. And it's it's not technologically innovative either.
+[00:23:31] Speaker D: Yeah.
+[00:23:34] Speaker D: Mm.
+[00:23:34] Speaker A: Yeah.
+[00:23:45] Speaker D: So, no loose
+[00:23:45] Speaker A: Maybe we could um
+[00:23:45] Speaker C: Mm.
+[00:23:48] Speaker D: That's why I was thinking, Bluetooth, 'cause if you like put up Bluetooth, and it's like a Bluetooth remote control, everybody's gonna like, oh, 'cause Bluetooth is the in thing nowadays, like it really is, like people and um when it comes to marketing like that's what people go for, they don't really care whether, you know,
+[00:24:06] Speaker D: at the end of the day whether it works properly or not.
+[00:24:10] Speaker A: Of course, they do. One hundred per cent, that's your first thing, you go, oh I'm not gonna buy that, 'cause I dunno if it works or not.
+[00:24:10] Speaker D: Well, they do, but it's like it's not
+[00:24:16] Speaker D: Yeah, but it looks good. If it looks good and it's it can just be there for decoration.
+[00:24:23] Speaker A: Okay, well, what do you two think about this?
+[00:24:27] Speaker C: So is is the advantage of Bluetooth that you can just like synchronise it with other
+[00:24:27] Speaker D: But like
+[00:24:31] Speaker C: electronics?
+[00:24:31] Speaker A: Yeah, what I don't understand what m
+[00:24:32] Speaker D: You could always insert, yeah.
+[00:24:35] Speaker C: Yeah, that's basically what it allows you to do, right?
+[00:24:36] Speaker A: Yeah, and it this is just gonna all this is being used for is your television.
+[00:24:42] Speaker D: Yeah, but, I mean, people like
+[00:24:45] Speaker A: It would that would mean you'd need a television that has Bluetooth in it, which no no television does, does it?
+[00:24:49] Speaker D: Well, if you're looking at if you looking at something that's going to be bought by people, you have to make it new, you have to make it state of the art.
+[00:24:49] Speaker B: Well
+[00:24:58] Speaker A: That would mean we'd have to make a television as well.
+[00:25:03] Speaker B: Bluetooth would, for example, enable you, I think, to um um connect for example you if you get a w call on your mobile phone, but your mobile phone is downstairs or something, you would get on your television you're being called by this person right now.
+[00:25:18] Speaker B: Things like that.
+[00:25:19] Speaker A: No, that would be your telephone in with your television.
+[00:25:22] Speaker B: No i
+[00:25:22] Speaker C: Yeah, the that wouldn't be the remote so much, I mean
+[00:25:23] Speaker A: Yeah, and i
+[00:25:25] Speaker B: No, but if you get Bluetooth on the remote, you'd be able to
+[00:25:30] Speaker A: Nah, the televi the television would have to be a Bluetooth compatible, basically. An and there is no there is no such thing.
+[00:25:30] Speaker B: I with the television, yeah. I was just trying to find an advantage. Wha what w what advantage would you get for the
+[00:25:35] Speaker C: Mm.
+[00:25:36] Speaker D: Well, it doesn't
+[00:25:39] Speaker D: Like it doesn't have to be, you know, Bluetooth, that was just an idea, but like it needs do something that, you know, is new. Whether it's a battery it could be something really
+[00:25:53] Speaker D: really minor, you know, like but I think we are really keeping to what is already out there, and people've already seen it, people've already got it. If we want something new, we need to move away from what we already have
+[00:26:03] Speaker A: Okay.
+[00:26:09] Speaker D: and um just go creative.
+[00:26:10] Speaker B: Maybe the kinetic mo provision of energy then. It's been done for watches, but I haven't seen that for remotes, yet.
+[00:26:17] Speaker A: Okay. Yeah, this that's that's very good.
+[00:26:20] Speaker D: And then you can market it. Never have to change a battery again.
+[00:26:22] Speaker B: Change the batteries ever again.
+[00:26:24] Speaker A: And and this is all tying in very nicely. The fact that it's made out of this rubber, we can throw it about. Th we should encourage people to throw their remote controls about, because it charges itself up by doing it.
+[00:26:35] Speaker B: Yeah, well, and in little characters you say, yeah, but not too much.
+[00:26:38] Speaker C: Yes, so can
+[00:26:42] Speaker D: I think, safety s
+[00:26:42] Speaker A: But yeah, by the squeezing it the
+[00:26:43] Speaker C: Yeah, we can make the squeezing of the rubber be the be the generating like the energy generator.
+[00:26:47] Speaker A: Yeah, that's a great idea. Well done.
+[00:26:48] Speaker D: Yeah.
+[00:26:50] Speaker D: Third most important aspect uh is it's easy to use. And I think we've all um worked that out. Um okay, in the fashion, how it's supposed to look. Next year's fashion i very much in fruit and vegetables are thm are like the theme for cloths, shoes and furniture. So next year people will be buying, I found this really funny, you know, strawberry shaped chairs,
+[00:26:56] Speaker C: we're all about that.
+[00:27:20] Speaker C: Okay, so we could have keys that are like a b like a broccoli key and a uh and an avocado key on them.
+[00:27:20] Speaker D: and things.
+[00:27:23] Speaker A: Yeah.
+[00:27:24] Speaker D: Yeah. Rubber things.
+[00:27:25] Speaker A: I wanna watch the pineapple channel.
+[00:27:27] Speaker D: Um and as it's rubber the feel which is in this year is spongy, so it's it's not quite spongy, but spongy, I would say is yeah, so we're in.
+[00:27:35] Speaker C: .
+[00:27:36] Speaker A: Well spongy, that's where. Yeah, we're we're ahead of the game there.
+[00:27:38] Speaker C: Yeah, that's great for us.
+[00:27:40] Speaker D: Yeah. And so personal what I was just saying like move away from the current remote controls uh like the look and the feel of the current ones and change the look and feel, while still keeping to the company's image, basically.
+[00:27:56] Speaker D: So yeah.
+[00:28:00] Speaker A: Okay.
+[00:28:01] Speaker D: .
+[00:28:03] Speaker D: I had to say
+[00:28:05] Speaker D: So we're moving in the right direction like
+[00:28:05] Speaker C: Right.
+[00:28:07] Speaker A: Alright, yeah, no, this i this is good, so through all that we've we go we're right, we're gonna go go back to um going with the kinetic thing, that's great, using the spongy rubber that we were talking about that anti-R_S_I_ you can as you squeeze it you are not only therapeuticising yourself, you are charging the batteries, and um I'm not sure about the buttons being in the shape of fruit though.
+[00:28:07] Speaker C: Yeah.
+[00:28:15] Speaker B: Yep.
+[00:28:16] Speaker C: Yeah, that's great.
+[00:28:28] Speaker D: Mm.
+[00:28:34] Speaker B: No vegetables.
+[00:28:35] Speaker C: Yeah, I don't know how we incorporate
+[00:28:36] Speaker A: .
+[00:28:40] Speaker C: We don't have to follow every trend, I guess.
+[00:28:40] Speaker D: Maybe make it like fruity colours or something.
+[00:28:44] Speaker D: Some sort.
+[00:28:44] Speaker C: Uh-huh.
+[00:28:48] Speaker D: Or
+[00:28:49] Speaker C: The power button could be like a big apple or something.
+[00:28:50] Speaker D: Mm.
+[00:28:53] Speaker B: Well yeah, but Apple would sue you for that.
+[00:28:56] Speaker A: Yeah, this is true.
+[00:28:57] Speaker C: They don they don't own all images of apples.
+[00:29:00] Speaker B: sued the Beatles so
+[00:29:03] Speaker C: Okay, we'll make it a uh pomegranate, a big pomegranate.
+[00:29:06] Speaker A: Well, okay, it seems like the only thing that we haven't really finally um agreed on is
+[00:29:18] Speaker A: its image.
+[00:29:20] Speaker C: .
+[00:29:20] Speaker A: Like, yeah, we're we're saying no we don't want it to be fruit and vegetables, but we dunno what it should be, or like are we going yeah it looks slick, but what do what do we mean by slick sort of thing?
+[00:29:27] Speaker D: Well
+[00:29:32] Speaker D: I think, if it's rubber
+[00:29:36] Speaker D: it needs to be
+[00:29:37] Speaker A: I mean you said earlier on i it should be funky.
+[00:29:39] Speaker D: different. I think, it's it should be I mean, what do you associate with rubber? You know like
+[00:29:46] Speaker A: L keep it clean, keep it clean.
+[00:29:46] Speaker D: really different colours basically. Okay, sor I sorry, I used the wrong word, what do you associate with the mate the material that material? Um Um like I'm just thinking bright colours.
+[00:30:05] Speaker C: Yeah.
+[00:30:05] Speaker D: Bright natural colours, nothing
+[00:30:08] Speaker D: too
+[00:30:10] Speaker A: Bright, but not too bright.
+[00:30:11] Speaker D: Bright, but too not yeah. Like no lime green or bright yellow or bright pink. Wanna make it different colours so anybody can choo like like
+[00:30:12] Speaker C: Yeah.
+[00:30:20] Speaker A: Like the volume buttons should be the all the same colour and the d and the the channel buttons should be one colour and stuff like that, do you mean?
+[00:30:24] Speaker C: Mm.
+[00:30:27] Speaker D: Yeah. And on the back of it have the logo.
+[00:30:36] Speaker A: Okay, what?
+[00:30:38] Speaker B: Yeah.
+[00:30:39] Speaker C: Sure.
+[00:30:40] Speaker B: Why not?
+[00:30:41] Speaker A: Okay.
+[00:30:43] Speaker A: Tha
+[00:30:43] Speaker C: The one thing I'm wondering about, I hope that we're not going like too much down a gimmicky road of of having I mean if somebody go goes into the store they're gonna see like three or four normal remotes, and then a big spongy pink t tomato uh remote. I mean what are ninety per cent of people gonna take?
+[00:30:49] Speaker A: Yeah, I mean we that's we we
+[00:30:57] Speaker A: Yeah.
+[00:30:59] Speaker A: This is the remote control tomato.
+[00:31:01] Speaker D: Well
+[00:31:03] Speaker D: I can say in this country, you'll get, you know, lots of people wanting something really funky and cool.
+[00:31:13] Speaker D: Like and kids will be walking in with their parents saying, Mummy I wanna buy that one. And uh parents will see the will see the pro as well, because it's um
+[00:31:27] Speaker D: like kids won't break it, it's not breakable if you throw it around. Especially with younger kids, you know they can pick it up and and
+[00:31:31] Speaker A: Yeah.
+[00:31:37] Speaker D: Yeah. The only thing is is that really small kids might chew on it, but
+[00:31:40] Speaker A: Well, it's it's gotta be chew proof.
+[00:31:43] Speaker D: Yeah. So so it's rea it's quite it's quite like um user friendly and also for different families, like like family use as well, so for little kids and for old ki like teenagers will like it, I think. Especially maybe younger girls if it's in pink they'll be like pink remote control for their room something.
+[00:31:44] Speaker B: I'm gonna write that down.
+[00:32:06] Speaker A: So, what are you saying, maybe we should market it in different colours for different so we could do like the pink range, the blue range, the green range, the
+[00:32:10] Speaker D: Yeah.
+[00:32:11] Speaker B: That's yeah.
+[00:32:11] Speaker C: Mm.
+[00:32:15] Speaker D: So like you walk in, you're like, oh I like that remote control, because it's so bright, and then, and then the shop assistant comes up and says, oh what colour would you like? and then they go like, oh I can choose the colour wow. So it puts, I think, even the customer into more control over what they're buying instead of, you've got all colour it's either that or nothing. So they also get to pick.
+[00:32:34] Speaker D: Well, personally I like walking into a shop and choosing a colour.
+[00:32:37] Speaker C: Yeah I mean, that that seems to work well with for products like iPod, where, you know, you have a variety of colours, that people feel like they're customising it when they buy it, even, you know, just just by the fact of choosing.
+[00:32:38] Speaker D: It's um
+[00:32:41] Speaker A: Mm.
+[00:32:41] Speaker D: Yeah.
+[00:32:43] Speaker D: Mm.
+[00:32:44] Speaker B: Although I'd be curious to see how many uh
+[00:32:45] Speaker D: D you've got the
+[00:32:49] Speaker B: You know, there are some colours that I wouldn I would never choose, and I would be curious how many people choose that colour.
+[00:32:54] Speaker C: Right.
+[00:32:54] Speaker A: Well that's that can be down to bit of market researching you know, if that's easy enough to find out what colours are more popular.
+[00:32:57] Speaker B: Mm.
+[00:32:57] Speaker C: Yeah.
+[00:33:00] Speaker B: And produce less of the silly colours, maybe.
+[00:33:03] Speaker A: Mm.
+[00:33:06] Speaker A: Okay. Alright. Well um, we'll alright let's what we're gonna aim to get together by the next meeting then um
+[00:33:20] Speaker A: is
+[00:33:24] Speaker A: from you Catherine wi your y y you know you're gonna be working on the the look and feel design.
+[00:33:29] Speaker B: Yep.
+[00:33:30] Speaker A: Um Gabriel, you're gonna be working on, you know come up with the the user interface design. Then basically, you two are gonna be working together on this. You won't be going off to your separate offices.
+[00:33:42] Speaker B: Alright.
+[00:33:44] Speaker C: Okay.
+[00:33:45] Speaker A: Um and I think you are gonna get a chance to play with some clay.
+[00:33:50] Speaker C: Oh right.
+[00:33:51] Speaker A: I think, yeah, it's gonna you know, come up ki you know, be ab for the next meeting be able to come in and show us some some i some physical ideas. 'Cause at the moment, uh you know, it's it's hard. We were kinda going, yeah, it's gotta feel nice, it's gotta look cool and that it's you know now we can actually start,
+[00:33:51] Speaker B: Mm.
+[00:34:01] Speaker B: Cool.
+[00:34:03] Speaker C: Yeah.
+[00:34:03] Speaker B: It is.
+[00:34:12] Speaker A: you know, s some sort of physical something or other.
+[00:34:16] Speaker C: That sounds good.
+[00:34:18] Speaker A: Um and you're gonna be working on the product evaluation.
+[00:34:23] Speaker D: Evaluation.
+[00:34:27] Speaker A: Um.
+[00:34:31] Speaker A: And I
+[00:34:34] Speaker A: will be uh
+[00:34:38] Speaker A: talking to the bosses, basically, and uh
+[00:34:43] Speaker A: f fielding off some more spam and
+[00:34:47] Speaker A: uh
+[00:34:50] Speaker B: Great.
+[00:34:50] Speaker A: that's it really.
+[00:34:53] Speaker A: Keeping things t well, uh you know, ho hopefully uh keeping things together. Um.
+[00:35:03] Speaker A: Yeah, that's
+[00:35:06] Speaker A: This is this is uh good. So we know for definite we know we've we've now got some definite things going on. We definitely know how it's powered, we definitely know that um it's gonna be a simple buttons, we're not gonna be going for the new technological chip on print expensive things, so we've we're keeping the costs down. It's this rubber casing that we can sell as um fun and funky. Don't know of any other remote controls that are made out of this stuff. People, you know, people are saying, oh, standard stuff gives you repetitive strain injury, well this remote control is designed to do the complete opposite,
+[00:35:14] Speaker C: Mm.
+[00:35:37] Speaker D: Mm.
+[00:35:47] Speaker D: Yeah.
+[00:35:47] Speaker A: It's supposed to fix it rather than cause it. Um.
+[00:35:55] Speaker A: you know, we're gonna we we're gonna as a sort of extra something on it, you know what what extra things are there extra things this product have? We'll look into this lock key
+[00:36:05] Speaker C: Right.
+[00:36:06] Speaker A: facility, although whether or not it happens, or is possible, I don't know, but something to look into.
+[00:36:16] Speaker A: Okay. I think that's um well done everybody.
+[00:36:21] Speaker C: Alright.
+[00:36:21] Speaker A: Anyone have any uh
+[00:36:24] Speaker A: any questions, everyone know what they're doing? 'Cause if you don't, you'll I'm sure you'll soon get an e-mail about it.
+[00:36:26] Speaker C: Yeah.
+[00:36:29] Speaker C: Yeah.
+[00:36:31] Speaker C: Mm, I think we all know what we need to do now.
+[00:36:32] Speaker D: S
+[00:36:33] Speaker D: This gives you all the details?
+[00:36:36] Speaker A: Okay. right well. It's um we're we've still couple of minutes until our meeting's due to finish.
+[00:36:37] Speaker C: Okay.
+[00:36:44] Speaker A: But um
+[00:36:47] Speaker A: I got a note saying that you two who are gonna be working together so bef before you all disappear off just
+[00:36:52] Speaker C: Okay, I'll stay in here.
+[00:36:54] Speaker D: um.
+[00:36:59] Speaker A: hold hold fire. Um.
+[00:37:03] Speaker C: Does the pay-raise immediately come into effect on our next pay-check, or is that
+[00:37:06] Speaker A: Um I think, it's uh, yeah, I think, it's gonna be par part more of a profit sharing on the product.
+[00:37:15] Speaker C: So we're buying fut I mean, we're getting futures in the company.
+[00:37:18] Speaker A: Yeah, I think i I think that's I think that's the way it's gonna happen at the moment.
+[00:37:21] Speaker C: So we really have a incentive to make this remote work.
+[00:37:26] Speaker A: Yeah. Yeah.
+[00:37:28] Speaker C: I'd like to share in the coffee machine profits, because that's really doing well.
+[00:37:31] Speaker A: I want a share in the space rocket. Did you see that this k that this company we've made a spaceship.
+[00:37:34] Speaker C: Yeah..
+[00:37:37] Speaker D: Yeah.
+[00:37:38] Speaker C: This company has its its fingers in a lot of different pots.
+[00:37:41] Speaker A: Yeah.
+[00:37:43] Speaker A: Yeah.
+[00:37:43] Speaker D: Mm.
+[00:37:47] Speaker C: Yeah, we're definitely not in the money making department.
+[00:37:54] Speaker A: .
+[00:38:05] Speaker C: Well I I did notice looking at I mean, they told you that they wanted whatev our product to represent the the R_R_ brand and and to be immediately noticeable.
+[00:38:14] Speaker A: Yeah.
+[00:38:16] Speaker C: I mean, if you look like at the coffee maker at the at the corporate web page, it's not obvious.
+[00:38:20] Speaker D: Mm.
+[00:38:23] Speaker C: R_R_. Well it is to us, because we we worked worked here for years and we use that coffee machine, but it's doesn't have the colour scheme of of the of the company anywhere on it obviously it's just sil silver and black.
+[00:38:35] Speaker A: Mm.
+[00:38:37] Speaker B: That's true.
+[00:38:40] Speaker A: And the spaceship doesn't have the R_ have a massive R_ and R_ down the side of it but I still want one.
+[00:38:42] Speaker C: No.
+[00:38:43] Speaker B: Doesn't
+[00:38:45] Speaker C: Mm.
+[00:38:52] Speaker A: Okay. Um I've just had a sign flashing up saying, finish the meeting.
+[00:38:57] Speaker B: Yeah.
+[00:38:58] Speaker A: Uh.
+[00:38:59] Speaker C: Okay.
+[00:39:10] Speaker A: Yeah.
+[00:39:10] Speaker C: Right, well, I guess that's us.
+[00:39:13] Speaker A: Yeah. It's not telling it's not saying do anything in particular just yet. So maybe you should go back to your own offices.
+[00:39:22] Speaker C: Okay. Right.
+[00:39:26] Speaker B: Are we taking these off?
+[00:39:29] Speaker A: Yeah.
+[00:39:36] Speaker A: Yeah, it says you two

@@ -1,0 +1,243 @@
+[00:01:14] Speaker A: So we can start?
+[00:01:16] Speaker D: Yeah.
+[00:01:18] Speaker A: Suppose I have to do my presentation. Eh um
+[00:01:20] Speaker C: Ah okay.
+[00:01:23] Speaker C: It's Ada Longmund?
+[00:01:25] Speaker A: So, I'll present myself, I'm Ada Longmund, and as you may know it, I'm the pr project manager.
+[00:01:34] Speaker A: So um we will have to
+[00:01:41] Speaker A: um speak about m the project. Our project project is to create um a new remote control and as you may know there's lot of industrials interesting in creating a remote control, so the remote control has to be original, trendy and um user-friendly.
+[00:02:07] Speaker A: Record.
+[00:02:11] Speaker A: So the project method is the following.
+[00:02:15] Speaker A: So if we're um the functional design, you have to do uh any individual work and uh also work with uh meetings talking with each other. Uh it will be the same for the conceptual design and also the same for the detailed design.
+[00:02:38] Speaker A: Uh.
+[00:02:44] Speaker A: The tool training is to try out the white board, so
+[00:02:47] Speaker D: Mm-hmm.
+[00:02:48] Speaker C: Maybe someone ha we have to this whiteboard, yeah?
+[00:02:52] Speaker A: Maybe you can draw your favourite animal
+[00:02:55] Speaker A: and make a list of its favourite characteristics.
+[00:02:56] Speaker D: So right now?
+[00:03:01] Speaker A: I don't know if we have to do it now, maybe later later.
+[00:03:02] Speaker B: So yeah I think you can do it.
+[00:03:03] Speaker C: Yeah, I don't know.
+[00:03:08] Speaker A: So the selling price of the product will be twenty five Euros. Yeah. Yeah. I think it's quite good price, yeah. And uh
+[00:03:12] Speaker B: Twenty five Euros?
+[00:03:13] Speaker D: Mm.
+[00:03:16] Speaker C: I it's it's reasonable, s quite yeah. Twenty five.
+[00:03:18] Speaker D: It's reasonable, I think, yeah.
+[00:03:24] Speaker C: Is
+[00:03:24] Speaker A: it will uh be a
+[00:03:27] Speaker A: an international remote control, as we want to sell it in the entire world, and the product costs will be not more than twelve Euros and fifty centimes. So, as you will discuss about the remote control you will have to experience your um with the remote control. Um just uh maybe be imaginative with remote const con controls, try to create something new and people would like to to buy.
+[00:04:06] Speaker A: And and the next meeting will start in thirty minutes,
+[00:04:14] Speaker A: so you'll ha all have your spethisfispis specif specific role and you know I suppose you know what you have to do. And uh you will have to work on the design and also to work on the design of th technical fun functions of the remote control and think of the user requirement specifications.
+[00:04:21] Speaker C: Yeah. I I hope so
+[00:04:39] Speaker D: Those things just refer to each of each of us, I think. AMI and okay.
+[00:04:42] Speaker B: Yep.
+[00:04:43] Speaker A: Yeah.
+[00:04:44] Speaker A: I_D_, yeah.
+[00:04:46] Speaker B: Yeah.
+[00:04:47] Speaker A: So
+[00:04:47] Speaker C: I_D_ is for the Industrial Design, yeah?
+[00:04:49] Speaker D: Okay.
+[00:04:50] Speaker C: And U_I_D_, it's for the User Interface Designer, yeah?
+[00:04:52] Speaker B: That's me.
+[00:04:53] Speaker D: Okay, and Marketing Expert, it's me.
+[00:04:55] Speaker C: AMI yeah project.
+[00:04:56] Speaker A: So I will manage all all the group.
+[00:04:57] Speaker C: you will be the manager yeah.
+[00:04:58] Speaker D: You can manage all this, yeah.
+[00:05:00] Speaker B: Okay.
+[00:05:01] Speaker D: Good.
+[00:05:02] Speaker A: So you have questions?
+[00:05:06] Speaker D: Um.
+[00:05:08] Speaker D: Not really.
+[00:05:09] Speaker A: So you all know what the parts of the work you have to do.
+[00:05:15] Speaker B: Yeah.
+[00:05:15] Speaker D: So which you, the Industrial Designer.
+[00:05:17] Speaker B: No I'm user interf I'm user interface design.
+[00:05:18] Speaker C: I am the Industrial Design, yeah
+[00:05:21] Speaker D: Okay.
+[00:05:21] Speaker A: Mm-hmm. And you?
+[00:05:23] Speaker C: I am the Industrial Designer so.
+[00:05:25] Speaker A: Mm okay.
+[00:05:26] Speaker B: Okay. So what's the difference between
+[00:05:26] Speaker D: Yeah.
+[00:05:30] Speaker B: user interface design d industrial design?
+[00:05:31] Speaker A: Hmm.
+[00:05:32] Speaker D: I mean, you have to know. Ah, you have to know it.
+[00:05:33] Speaker C: It's difficult.
+[00:05:35] Speaker D: It's your job, so I hope you you know what it is.
+[00:05:39] Speaker C: You know very soon.
+[00:05:40] Speaker B: Yeah, I think so.
+[00:05:42] Speaker C: So
+[00:05:43] Speaker D: Mm.
+[00:05:43] Speaker A: I suppose you have to design it and you have to take care of the industrial way to transform it.
+[00:05:48] Speaker B: Okay, so I make uh u user interface. You you de you implement the core functions in the
+[00:05:49] Speaker D: Yeah.
+[00:05:53] Speaker A: And i maybe you will transform it.
+[00:05:55] Speaker C: I I think the user the user interface design is he will design how the user will you know the relation between the user and you know the remote control so
+[00:06:00] Speaker B: Use it.
+[00:06:02] Speaker B: Make make yeah.
+[00:06:05] Speaker C: And the uh industrial design, it is how the object will look like.
+[00:06:09] Speaker B: Maybe I think uh uh i industrial design's uh, it's the function design. I design the user f user interface, you design the function.
+[00:06:10] Speaker C: Yeah. So the materi
+[00:06:18] Speaker A: Maybe, it is the outside and the inside.
+[00:06:19] Speaker B: Yeah.
+[00:06:24] Speaker D: Okay.
+[00:06:25] Speaker B: Okay.
+[00:06:25] Speaker C: Okay right. But I was thinking that he's a user 'cause the user interface to design for example where the but button will be, you know.
+[00:06:32] Speaker B: Yeah yeah.
+[00:06:32] Speaker C: But I don't know. Okay.
+[00:06:34] Speaker D: Well. You know.
+[00:06:36] Speaker C: I'm the industrial designer.
+[00:06:37] Speaker D: Oh, okay, okay. Not the other one.
+[00:06:39] Speaker C: So.
+[00:06:40] Speaker B: Okay.
+[00:06:41] Speaker C: Okay.
+[00:06:42] Speaker C: So and the marketing expert will
+[00:06:45] Speaker D: Yeah, I'm just go I'm trying to give you some trends about what should be done and what the users would like to have and then thi this would I guess converged to the User Interface Designer wi and then Industrial Designer.
+[00:06:52] Speaker A: And yeah.
+[00:06:58] Speaker C: Ok Okay.
+[00:06:59] Speaker A: And when designing y the remote control just remember that uh it has to be a kind of international product. So you don't have to do something really specific, as everybody everybody will have to use it, it's sor the same as keyboards. You know, you have Qwerty, Azerty, French and U_K_ keyboard, so really the remote control to be international. And not too expensive.
+[00:07:06] Speaker B: Okay.
+[00:07:09] Speaker B: Mm-hmm.
+[00:07:09] Speaker D: Mm.
+[00:07:13] Speaker B: Yeah.
+[00:07:16] Speaker B: Mm.
+[00:07:17] Speaker B: Yeah.
+[00:07:21] Speaker B: Okay.
+[00:07:22] Speaker D: Mm-hmm.
+[00:07:23] Speaker B: Yeah. And uh simple.
+[00:07:25] Speaker A: As we want to maximise the benefit.
+[00:07:26] Speaker B: And easy to use.
+[00:07:27] Speaker D: And you have to keep it under twelve Euros and f fifty, so.
+[00:07:30] Speaker A: Yeah, you have to keep in mind that the product cost won't be maxim more than twelve dot fifty Euros.
+[00:07:30] Speaker B: Ah, yeah.
+[00:07:32] Speaker D: That's the problem.
+[00:07:32] Speaker C: It should be
+[00:07:35] Speaker B: Okay.
+[00:07:38] Speaker B: Okay.
+[00:07:40] Speaker A: And to be sure that really people will be interested in buying a new remote control with maybe new functionalities that don't exist in the mm existing remote controls now.
+[00:07:51] Speaker B: Okay.
+[00:07:53] Speaker A: So, is it okay?
+[00:07:55] Speaker D: Mm. It's clear.
+[00:07:56] Speaker B: Yeah.
+[00:08:01] Speaker C: There was a step about drawing something in the in the board, I don't know.
+[00:08:04] Speaker D: Yeah, maybe should go and draw an animal.
+[00:08:06] Speaker C: Is it? Are we supposed to do right now?
+[00:08:08] Speaker B: Yeah yeah, you try. Try first.
+[00:08:10] Speaker C: Oh right it's it's from the left to the ri It's
+[00:08:13] Speaker A: So you think we have to do it now?
+[00:08:15] Speaker C: I d I was thinking but I n I'm not sure now.
+[00:08:20] Speaker B: You can draw something which is very simple.
+[00:08:24] Speaker C: Oh
+[00:08:24] Speaker A: You want me to draw something? Product manager okay, let's go, I will try.
+[00:08:27] Speaker C: Everybody
+[00:08:27] Speaker B: Oh, maybe we should bring Kemy here. Kemy is really good at drawing.
+[00:08:29] Speaker D: Many
+[00:08:31] Speaker C: I think everybody should do it, so.
+[00:08:33] Speaker D: Yeah.
+[00:08:34] Speaker C: It's not matter
+[00:08:38] Speaker C: So.
+[00:08:42] Speaker B: You're going to draw?
+[00:08:47] Speaker B: Okay.
+[00:08:52] Speaker D: Uh it's the same as mine.
+[00:08:54] Speaker C: yeah. It's a It's a cat.
+[00:08:56] Speaker B: What's this?
+[00:09:01] Speaker B: It's a fat cat.
+[00:09:02] Speaker C: It is not a fat cat.
+[00:09:08] Speaker D: It's the fat cat, okay.
+[00:09:10] Speaker C: Yeah, it is a
+[00:09:11] Speaker B: Can you draw uh um rabbit? Oh, hat ha rat.
+[00:09:17] Speaker D: A rat? That's difficult.
+[00:09:17] Speaker B: Yeah.
+[00:09:19] Speaker C: Yes you have to draw a rat if you want a rat. It's your rat.
+[00:09:20] Speaker A: No. A mouse is not too difficult. Mouse is okay.
+[00:09:23] Speaker B: Yeah, it's okay.
+[00:09:25] Speaker D: Yeah.
+[00:09:27] Speaker D: Just go, you you the closest to the whiteboard.
+[00:09:28] Speaker C: Okay, go
+[00:09:29] Speaker C: right, but in grow, it's everybody has to grow
+[00:09:30] Speaker D: Jus
+[00:09:30] Speaker B: Mm.
+[00:09:31] Speaker B: Okay.
+[00:09:32] Speaker D: Yeah.
+[00:09:35] Speaker B: Oh. Okay, I draw. The only thing I can draw is like this.
+[00:09:44] Speaker B: Oh.
+[00:09:46] Speaker B: Oh. Oh.
+[00:09:50] Speaker D: A duck.
+[00:09:51] Speaker B: No. What's this?
+[00:09:51] Speaker A: You love the eyes.
+[00:09:52] Speaker C: What are you I don no idea, so
+[00:09:58] Speaker A: Yeah, that was the eyes.
+[00:09:59] Speaker B: Okay.
+[00:10:01] Speaker A: A clown. Rabbit.
+[00:10:03] Speaker C: It's a rabbit.
+[00:10:05] Speaker D: Pikachu.
+[00:10:12] Speaker A: It's a rabbit.
+[00:10:14] Speaker D: Oh yeah.
+[00:10:17] Speaker D: Bugs Bunny one.
+[00:10:18] Speaker A: Yeah.
+[00:10:20] Speaker B: Okay.
+[00:10:22] Speaker C: It's not so bad so.
+[00:10:25] Speaker B: The only thing I can draw, because it's very simple.
+[00:10:28] Speaker D: Okay. I go.
+[00:10:39] Speaker D: What? Oh. So what else? This was my favourite one, but
+[00:10:45] Speaker C: So you don't have a
+[00:10:46] Speaker A: Thank you.
+[00:10:54] Speaker C: A fish.
+[00:10:55] Speaker D: Right. A fish.
+[00:10:56] Speaker C: That's a that's a fish? Okay, let's try to draw something.
+[00:11:00] Speaker A: You forgot the chips.
+[00:11:02] Speaker D: Oh yeah, doesn't look so fine.
+[00:11:07] Speaker C: Have to be really careful.
+[00:11:09] Speaker A: Fish and chips.
+[00:11:10] Speaker D: Okay, it's your turn.
+[00:11:13] Speaker C: Ah it's my turn.
+[00:11:15] Speaker B: Oh.
+[00:11:17] Speaker B: Okay, be careful.
+[00:11:17] Speaker C: Okay.
+[00:11:19] Speaker C: So.
+[00:11:23] Speaker C: It's ok So, what can I draw some more?
+[00:11:27] Speaker A: Of
+[00:11:28] Speaker B: No problem, no problem.
+[00:11:43] Speaker A: Oh.?
+[00:11:45] Speaker C: ? No.
+[00:11:54] Speaker C: Mm
+[00:12:10] Speaker B: .
+[00:12:12] Speaker C: Yeah, it's it's a se it's my priority this one.
+[00:12:17] Speaker C: Yeah.
+[00:12:24] Speaker D: Mm.
+[00:12:26] Speaker B: A person?
+[00:12:27] Speaker C: No.
+[00:12:30] Speaker C: It's a really crazy dog
+[00:12:32] Speaker A: Oh yeah.
+[00:12:32] Speaker B: Dog.
+[00:12:36] Speaker C: Okay. Transfer. It's a dog in a village.
+[00:12:36] Speaker D: Good.
+[00:12:40] Speaker B: Okay.
+[00:12:52] Speaker C: So what are you sug going to do now?
+[00:12:55] Speaker D: I think it's done.
+[00:12:56] Speaker A: Yeah, I think yeah.
+[00:12:56] Speaker C: It's done?
+[00:12:57] Speaker D: Yeah.
+[00:12:58] Speaker B: Okay.
+[00:12:59] Speaker A: Just have to
+[00:13:01] Speaker B: So we have break.
+[00:13:01] Speaker A: present project, discuss a little bit about it.
+[00:13:04] Speaker C: Oh my God.
+[00:13:08] Speaker D: Oh, we have twenty five minutes for the meeting.
+[00:13:10] Speaker A: Yeah.
+[00:13:11] Speaker D: Okay.
+[00:13:12] Speaker A: So, if you have questions.
+[00:13:12] Speaker B: Oh.
+[00:13:14] Speaker B: Hmm.
+[00:13:15] Speaker D: Know what time is it?
+[00:13:21] Speaker D: No.
+[00:13:22] Speaker B: No.
+[00:13:24] Speaker A: It's okay? You know your job? you know your job?
+[00:13:25] Speaker C: Yeah, it's okay.
+[00:13:28] Speaker C: We have an idea yeah. I have an idea of my job so yeah so. Yeah.
+[00:13:29] Speaker A: You know your job?
+[00:13:32] Speaker A: Okay.
+[00:13:36] Speaker B: Okay.
+[00:13:39] Speaker D: Good.

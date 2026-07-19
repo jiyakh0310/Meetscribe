@@ -1,0 +1,791 @@
+[00:00:37] Speaker A: Okay. Uh door is closed. Well, let's begin. Because if we have as much time as the last uh meeting, we'll have to hurry up. Um well I'll start with the presentation again, the agenda.
+[00:00:43] Speaker D: I'm listening.
+[00:00:46] Speaker D: Right.
+[00:00:51] Speaker D: Great.
+[00:00:57] Speaker A: Yo.
+[00:01:01] Speaker A: So. Uh This one I think. Uh yeah. Well alright.
+[00:01:13] Speaker A: Um well, I'll show you the notes. It's not as uh interesting as it should be because we just uh had the meeting, but I'll show them. We'll get your presentations again on the conceptual design. Um
+[00:01:27] Speaker A: Then we'll have to dec decide about the control, the remote control concepts. I've put a f uh a file in the project management folder, which says exactly uh what kind of decisions we should take. So this time we exactly know what to decide about. And then we'll close again.
+[00:01:31] Speaker C: Mm-hmm.
+[00:01:42] Speaker D: Alright, great.
+[00:01:46] Speaker C: Alright.
+[00:01:47] Speaker A: Uh
+[00:01:49] Speaker A: Well these are some examples, but we'll talk about them later. We'll first look at your uh presentations. Alright?
+[00:01:53] Speaker C: Mm-hmm.
+[00:01:56] Speaker A: Walter will uh start again this time?
+[00:01:57] Speaker D: Yeah, great.
+[00:02:00] Speaker A: Yo.
+[00:02:00] Speaker D: Alright, Trendwatch.
+[00:02:03] Speaker A: 'Kay.
+[00:02:17] Speaker D: Right.
+[00:02:21] Speaker D: I will speak about uh latest trends trends, latest fashion updates, and uh things we must not do. Uh the trends. It's very important that uh the control is fancy looking and good uh feeling.
+[00:02:28] Speaker A: 'Kay.
+[00:02:36] Speaker D: Uh this because of our last model was very functional, but it uh people didn't like that, so our new mo model must be very good-looking. That's uh something you uh have to take a look at. And uh the feeling has to be very great. Also the menus and things like that they have to they have to feel great.
+[00:02:50] Speaker C: Mm-hmm. Alright.
+[00:02:58] Speaker C: Alright.
+[00:02:58] Speaker D: Um there's a minus uh two times here, because this is the most important point. This is uh two times as less important, and uh same for this one. Um, technological technological innovations, that's uh regarded very highly too.
+[00:03:05] Speaker A: Less.
+[00:03:16] Speaker D: Uh such as an uh L_C_D_ screen, uh speech uh acknowledgement, as we uh talked about earlier. So we have to have uh something like that, like we uh
+[00:03:22] Speaker A: Well, yeah.
+[00:03:27] Speaker A: L_C_D_ and our uh our fronts.
+[00:03:31] Speaker D: Right. Uh the last point is easy to use. Well I think that uh speaks for s for itself. I don't know who's uh who's going to look at that. Yeah?
+[00:03:40] Speaker C: Easy to use? I think that's your ta
+[00:03:41] Speaker A: Well, easy to use uh s is a bit uh contradictionary with the first uh Functional is not an issue, and then easy to use. Well we have to choose one of them.
+[00:03:48] Speaker D: Yeah, I know.
+[00:03:52] Speaker D: I think we have to go for the first one. It's the most important one. So we have to uh take that one.
+[00:03:53] Speaker A: Yeah.
+[00:03:54] Speaker C: Mm.
+[00:03:58] Speaker A: Okay.
+[00:03:59] Speaker D: So it it it isn't very important that that it works easy. But it has to look great.
+[00:04:04] Speaker B: Well something fancy looking can be can be easy to use.
+[00:04:08] Speaker A: Yeah. We'll we'll look at uh.
+[00:04:11] Speaker D: We'll see.
+[00:04:11] Speaker C: You Yeah. Yeah, yeah, you can make a very complicated uh uh remote anyway, so ease of use It's not a very comp complicated device.
+[00:04:17] Speaker D: Yeah, right.
+[00:04:19] Speaker D: But the most important thing is that it looks great and people say wow, that's real great uh great concept. Alright. Uh these are the new colours of this year. So it must be very bright, very colourful. People like this.
+[00:04:26] Speaker C: Alright.
+[00:04:26] Speaker A: 'Kay.
+[00:04:35] Speaker D: So we we have to think uh in this direction. So i set your mind to it. Findings? Fashion update? Fruit and vegetables are cool. I am told.
+[00:04:38] Speaker A: So
+[00:04:41] Speaker A: Well
+[00:04:47] Speaker C: Uh you think?
+[00:04:50] Speaker D: The group we are targeting is uh very pleased with fruit and vegetables. So we we we might cons consider in front of uh in in that sort of uh way. Uh furthermore uh material, that's your part, should be very strong. I was thinking of something like uh well uh iron plate over it, maybe in a colour or something, that looks so f really flashy but it it is also strong. And that's uh also for the younger public.
+[00:05:01] Speaker A: Yeah, well
+[00:05:02] Speaker B: Bananas.
+[00:05:12] Speaker C: Mm.
+[00:05:13] Speaker A: Yeah.
+[00:05:17] Speaker A: B
+[00:05:20] Speaker A: Well the the handy thing about our fronts is that we can follow these trends e ev every year. Th this year it's fruits but next year it's it's something totally different.
+[00:05:26] Speaker D: Yeah, that's great. But I think we can all make the the fronts of titanium or something uh really thin. So it looks very heavy but you can still uh use it very easily.
+[00:05:28] Speaker B: Yeah.
+[00:05:32] Speaker A: Yes.
+[00:05:38] Speaker C: Mm.
+[00:05:38] Speaker A: Yep, alright.
+[00:05:39] Speaker D: Well, the don'ts. Older people like dark colours and simple shapes. Well we don't want uh older people, we want young people. So uh we're gonna turn that around. We're gonna have real uh cool shapes and lots of colours. Right? Okay.
+[00:05:50] Speaker C: Alright.
+[00:05:55] Speaker A: Wood is popular. Aha.
+[00:05:57] Speaker D: We don't want wood.
+[00:05:58] Speaker C: Yeah, among the old people, yeah.
+[00:05:58] Speaker A: Yeah yeah yeah.
+[00:06:00] Speaker D: Old people. So, that's it for me.
+[00:06:03] Speaker A: Alright. Nice, uh well show us.
+[00:06:17] Speaker C: Right, I am going to tell you something about the components design.
+[00:06:24] Speaker C: Uh again I have uh put up the specification properties. This uh so um uh the different uh components of the of of the device. And the materials? Um I have heard several things, so I uh I'll have to change that on the way.
+[00:06:40] Speaker C: But uh the case? Uh I suggested uh in the previous meeting hard plastic. But uh as you indicated uh it should be strong. It should feel strong. So maybe plastic is not uh sufficient. We should move to uh something
+[00:06:45] Speaker D: Yeah, we should change that.
+[00:06:51] Speaker A: Well maybe it it it is, but it doesn't look strong. So maybe
+[00:06:55] Speaker C: Well yeah. Y Hard plastic i is of course uh pretty pretty tough, but it doesn't have a really really tough look. So
+[00:07:01] Speaker D: No no no.
+[00:07:02] Speaker A: But we still have to look at our price of course. Because uh if we want an L_C_D_ uh window etcetera uh
+[00:07:04] Speaker C: Yeah. Also Yeah.
+[00:07:07] Speaker C: Mm-hmm. But we'll return to that. Uh the buttons of course rubber, I think everyone agrees. And electrical cables, copper is all pretty basic stuff. The chips made of silicon, I guess. I think that's the best uh way to do it. And infra infrared l LED is uh just a simple bulb.
+[00:07:08] Speaker A: Yeah?
+[00:07:24] Speaker C: Then I've uh had a few findings, made a few findings. Uh the target audience product style. Um it's uh um generally the case that uh senior and wealthy people above uh forty five years old uh like, as you said, uh particularly the traditional materials as such as wood and materials such as that.
+[00:07:45] Speaker C: They also like straightforward shapes and luxurious style. But of course that's not our uh things this. So this is things we must not do. And then we have uh young uh and dynamic uh people, which is of course our uh group, the people we aim at. Um under forty five years old. Uh they like soft materials uh with primary colours.
+[00:07:53] Speaker A: Yes.
+[00:08:08] Speaker C: Soft materials is of course uh agai again a bit a contradiction with uh our uh material choice of what you said, that uh it should be hard an and and and and strong looking. But they like soft materials, uh so we might uh we have to consider that. And
+[00:08:18] Speaker D: Mm. Yeah.
+[00:08:19] Speaker B: Yeah.
+[00:08:24] Speaker C: also they like curved round shapes. So not uh too formal like like uh the older people want. And if uh also a finding but not very ap applicable here, that sports and gaming devices such as uh
+[00:08:39] Speaker C: discmans for jogging and that those kind of devices, gaming devices, should define the characteristics of the device. But uh since we don't have a really a sports or gaming device, so we don't really have to consider that.
+[00:08:48] Speaker A: Sports uh, they're uh that uh are accessible on on your L_C_D_ uh window uh Huh? That's nice.
+[00:08:52] Speaker B: Soccer fronts. Mm.
+[00:08:55] Speaker C: Mm.
+[00:08:58] Speaker B: Hmm.
+[00:08:59] Speaker C: Well I also have um
+[00:08:59] Speaker A: All the results?
+[00:09:01] Speaker D: We keep coming back to the fronts.
+[00:09:02] Speaker B: Yeah.
+[00:09:03] Speaker C: several examples of uh styles, so you can get a clear picture of uh what I mean.
+[00:09:08] Speaker A: Yeah.
+[00:09:10] Speaker C: Uh these are the basic uh older older peoples' stuff.
+[00:09:16] Speaker A: Yeah.
+[00:09:16] Speaker D: Yeah.
+[00:09:17] Speaker C: It was not very uh interesting uh, very classical looking, but that's n that's not what we want. We have these kind of things. I don't know what exactly they are. It looks like Well you know uh you recognise the shapes, it's very primary colours, uh bright colours and uh round shapes. You also uh see uh this device, it's not very round and Fruity of course. Yeah, it uh That's true.
+[00:09:21] Speaker A: Mm-hmm. Nai. Uh no.
+[00:09:22] Speaker B: Hmm.
+[00:09:23] Speaker D: Fruity. Fruity.
+[00:09:40] Speaker A: It's t terrible. Alright.
+[00:09:42] Speaker C: And uh well round shapes, primary colours. You can see it all here. And of course uh this famous device. I think as you know something uh some devices like this. So to give you an idea of uh
+[00:09:46] Speaker A: Hmm?
+[00:09:50] Speaker A: Yeah, alright.
+[00:09:52] Speaker D: Well it's got a strong look, this. Yeah.
+[00:09:55] Speaker C: This has a strong look. Although it's plastic, it's it's grey to to to give it iron look. That's uh
+[00:09:57] Speaker D: Yeah, it still has a strong look.
+[00:09:59] Speaker A: Yeah. And it's round.
+[00:10:01] Speaker D: But then you are losing your fruity colours.
+[00:10:03] Speaker C: Yeah. Well we have to make a
+[00:10:04] Speaker A: Well you can make th th th that middle ring can you you can make another colour. So uh those kind of things you can you can combine.
+[00:10:09] Speaker D: That's true.
+[00:10:10] Speaker C: Well we can't really make a round uh a round remote control. I don't think that's very practical, but But uh it's important to to uh to think about the colour. Because if we make it grey or or silvery looking, it it does make it a lot more uh does make it looking a lot more stronger. 'Cause if you look at this, it it doesn't look very very strong, becau But this is plastic, and and this too, but
+[00:10:15] Speaker A: No, it isn't.
+[00:10:19] Speaker A: Okay.
+[00:10:27] Speaker D: Yeah but the
+[00:10:27] Speaker A: Yes.
+[00:10:32] Speaker D: But it doesn't have to look strong. The the results are, the feel of the material is expected to be strongy. The feel.
+[00:10:38] Speaker C: The feel? Uh alright. Well
+[00:10:41] Speaker A: So, if you ti
+[00:10:42] Speaker B: And it it doesn't have to be strong, also. Only the feel.
+[00:10:44] Speaker A: Well
+[00:10:44] Speaker D: Nah yeah the feel
+[00:10:46] Speaker A: You you Maybe you should have uh some some coloured titanium or something. So it it looks pretty but it feels strong.
+[00:10:52] Speaker D: Right.
+[00:10:53] Speaker C: Mm-hmm.
+[00:10:53] Speaker B: Oh.
+[00:10:54] Speaker D: I agree.
+[00:10:55] Speaker C: And I Then I have some more findings. Um uh about the energy energy source of the of the device, uh I uh suggest uh the basic battery. I uh got some other um uh uh energy sources of course. But solar energy is not very practical inside a house, because you don't have a have a lot of uh sun.
+[00:11:12] Speaker C: And uh kinetic and and and dynamos are are not very practical, I think, for uh for a simple remote, that's a bit, oh, that's a bit uh
+[00:11:20] Speaker A: No titanium.
+[00:11:23] Speaker C: That's a bit uh much. And I also suggest uh as a shape uh a double curved case. Uh the disadvantage of that that you can use no titanium. That that's the information I received. If you use the curved case, uh a curved case, double curved then you
+[00:11:41] Speaker A: What do you exactly mean with double curved?
+[00:11:41] Speaker C: can't use titanium. Now uh this uh to give it a more modern look. And uh now the the shape, yeah, a curved case. Um yeah I think uh sort of triangle-shaped bottom or something. Uh a more modern look not plain, long box style, but
+[00:12:00] Speaker D: I dunno.
+[00:12:01] Speaker A: Double curved?
+[00:12:02] Speaker C: I'll draw it, but maybe later. And it makes uh it gives it a more u user friendly shape, than if you have uh. Um anyway
+[00:12:02] Speaker B: Yeah. Yeah.
+[00:12:03] Speaker A: It it mean Yeah, well okay.
+[00:12:12] Speaker C: Um f as uh for the buttons, simple push buttons. No uh otherwi uh no um difficult scroll things or some uh things like that, because it makes more complex and expensive.
+[00:12:23] Speaker C: And, uh as we agreed, we don't use a speaker or a sensor or um uh speak uh speech uh controlled device. Because it makes it also more complex and expensive. But we do use an L_C_D_ screen, so we uh we do have to consider uh of we have to use a more advanced chip, which is more complex and expensive. But
+[00:12:31] Speaker D: Yeah right.
+[00:12:45] Speaker A: Well
+[00:12:45] Speaker C: It's worth the trouble I think, because
+[00:12:46] Speaker B: The buttons can be made of an uh a soft material.
+[00:12:50] Speaker B: Because people like that.
+[00:12:52] Speaker A: This soft material thing from uh Yeah.
+[00:12:52] Speaker C: Uh rubber is a soft material, I guess. Uh soft enough. So that's uh basically what I want to talk about.
+[00:12:54] Speaker D: Yeah. Right.
+[00:12:54] Speaker B: Yeah. Right. Yeah.
+[00:12:57] Speaker A: Alright. Okay. We will take that. And then uh Mike?
+[00:13:14] Speaker A: Okay.
+[00:13:20] Speaker B: Yeah.
+[00:13:24] Speaker B: Well um nah the method um we will um include the buttons as we discussed uh earlier.
+[00:13:32] Speaker B: Um an L_C_D_ s screen will be implemented. Um we must decide where, this meeting. Um there are new developments in speech recognition um systems, um and they are already being uh used on uh coffee machines. And um well they're cheap, so we could use them now.
+[00:13:53] Speaker A: Oh
+[00:13:55] Speaker B: Um it's not really speech recognition, it's more um like you can um talk to the chip, uh record the message and record an answer, and then once you uh talk to the remote, then um he will a answer with the
+[00:13:56] Speaker A: That's interesting.
+[00:14:14] Speaker B: the prerecorded message that you left. So if I say hi Mike, and you have recorded uh hi Mike back, then you will get that.
+[00:14:16] Speaker C: Oh, yeah, I understand. Yeah.
+[00:14:16] Speaker D: Oh okay.
+[00:14:22] Speaker A: Okay. But you can also say that, when you say something, it does some function.
+[00:14:23] Speaker D: Right.
+[00:14:27] Speaker B: No it doesn't does not do anything. But i it's just a Yeah it's it's cheap.
+[00:14:27] Speaker D: No.
+[00:14:28] Speaker A: Oh.
+[00:14:30] Speaker D: But that that makes it cheap. It's it's just a an extra function, and it's cheap.
+[00:14:30] Speaker A: That's a bit uh
+[00:14:32] Speaker C: Yeah.
+[00:14:32] Speaker A: Yes. I understand. But it has no functionality for our remote at all.
+[00:14:35] Speaker D: No but
+[00:14:36] Speaker B: No but that's the gadget they want, or the gimmicks.
+[00:14:37] Speaker D: Yeah, right. Young people love them.
+[00:14:38] Speaker C: But it it's n nice for young people. They like gadgets. Yeah.
+[00:14:40] Speaker B: Yes, we we should really uh include that one, I think. Um
+[00:14:41] Speaker D: Yeah, ple
+[00:14:43] Speaker D: Right.
+[00:14:44] Speaker C: If it's cheap. Yeah.
+[00:14:44] Speaker A: Hmm.
+[00:14:46] Speaker B: Well, as I said uh earlier I think the uh L_C_D_ screen should be uh positioned at the lower end of the remote. Um the buttons for screen width and general settings and uh and that kind of stuff
+[00:14:59] Speaker B: um we can also do let that kind of functions um be shown in the L_C_D_ screen, uh instead of uh extra buttons. I think young people and yeah w well every user would like that.
+[00:15:07] Speaker A: So you put a menu in the L_C_D_?
+[00:15:18] Speaker B: Um the buttons um should be positioned uh positioned the same way as they are on a, well, conventional remote, I think. For the learnability and uh well to keep it recognisable. A voice recognition can be uh implemented.
+[00:15:37] Speaker B: And uh I drew an example, but it did not work quite the well uh the way I wanted it to do. Hmm? Well I have the I can draw it again, and I know what I did wrong. I didn't tick the note bo box in the. Um
+[00:15:40] Speaker D: Alright. How How
+[00:15:42] Speaker C: Can you draw it now of uh Can you draw it now?
+[00:15:44] Speaker A: Ah.
+[00:15:50] Speaker C: Mm. Alright.
+[00:15:52] Speaker D: How do you uh uh give input to the menu on the L_C_D_ screen?
+[00:15:57] Speaker B: Um with the uh the up and down and and well buttons and the
+[00:16:01] Speaker D: Alright. So you have a menu button, and then you can go up and down.
+[00:16:04] Speaker B: Well I will draw what I had drawn on the screen.
+[00:16:04] Speaker A: But then we should also have an uh an Okay button.
+[00:16:08] Speaker D: Yeah right.
+[00:16:08] Speaker B: Yes. Um I shall draw this. If it uh works.
+[00:16:10] Speaker C: button, yeah.
+[00:16:16] Speaker A: Just uh There is already a blank. Yes? So Yeah.
+[00:16:18] Speaker D: Yeah.
+[00:16:20] Speaker B: Mm so have I.
+[00:16:25] Speaker B: Nah.
+[00:16:26] Speaker D: .
+[00:16:31] Speaker D: You have to push hard.
+[00:16:45] Speaker C: I suggest a banana shape.
+[00:16:48] Speaker C: Because of the fruity uh fashion.
+[00:16:48] Speaker D: Yeah.
+[00:16:50] Speaker D: Yeah.
+[00:16:51] Speaker A: No m Next year that's out.
+[00:16:52] Speaker C: Yellow and
+[00:16:54] Speaker C: Yeah alright, yeah. Just a hunch.
+[00:17:00] Speaker B: Well these little buttons are a bit difficult to uh draw uh
+[00:17:04] Speaker A: Yeah.
+[00:17:06] Speaker C: Those are the the cha the channel buttons of course?
+[00:17:06] Speaker B: correct.
+[00:17:08] Speaker B: Yeah just uh the numbers.
+[00:17:13] Speaker C: And then below is the L_C_D_ screen?
+[00:17:19] Speaker B: These these will be bigger in the the real design.
+[00:17:21] Speaker C: Alright, yeah.
+[00:17:24] Speaker B: This must be the Okay button used to uh interact with the L_C_D_ screen. And with this you can uh, yes, go to through the menus and that can
+[00:17:28] Speaker C: Mm-hmm.
+[00:17:30] Speaker A: Yeah.
+[00:17:34] Speaker B: Um the video button should be uh an apart button, because you want it to uh t, yeah, to use it fast within one uh click.
+[00:17:35] Speaker D: You've
+[00:17:38] Speaker A: Yes.
+[00:17:41] Speaker D: Right.
+[00:17:44] Speaker D: And you you need a you need a speaker.
+[00:17:45] Speaker A: And what's the menu button?
+[00:17:45] Speaker B: Um it's
+[00:17:48] Speaker B: Hmm?
+[00:17:48] Speaker D: For the
+[00:17:50] Speaker B: This button can also be the Menu button, we use in the menus Well we we can add another button here, but
+[00:17:53] Speaker A: But how did How do you get out of the menu then? Yeah.
+[00:17:57] Speaker A: Maybe I you could j just do an an exit with Okay. Uh
+[00:17:58] Speaker C: Uh by pe pressing the menu button again. By pressing the menu button again, you go uh out. It's usual the the the d kind of the way it works.
+[00:18:02] Speaker D: Yeah. Yeah.
+[00:18:02] Speaker B: Yeah.
+[00:18:05] Speaker A: Yes, well but bec because when you push Menu you get in, and then you have to push Okay when you get to a choice. And
+[00:18:07] Speaker C: Yeah? Yeah?
+[00:18:11] Speaker B: Ah right. Well you you
+[00:18:11] Speaker C: Yeah. But you can men you can press menu again to get out.
+[00:18:15] Speaker A: Well that's also the Okay button. That's you you should have uh
+[00:18:17] Speaker B: No no, we we we should uh add uh a extra Menu button and this the Okay button.
+[00:18:17] Speaker C: No.
+[00:18:21] Speaker A: Or you can put in the L_C_D_'s uh window an option Get Out.
+[00:18:26] Speaker D: Exit.
+[00:18:27] Speaker A: Exit.
+[00:18:27] Speaker B: Ah once you have an extra Menu button, you don't need that that extra option. You have uh redundancy.
+[00:18:32] Speaker A: Well, it's just a choice.
+[00:18:32] Speaker D: But we need a we need a a recording recording button for the speech uh part. Or don't
+[00:18:39] Speaker B: Yeah, if we decide to uh to implement that, maybe we should.
+[00:18:41] Speaker C: Why would you put it uh then, and where is the recording uh the microphone? Where would you put it?
+[00:18:46] Speaker B: Well they that could be anywhere. That's very small. It could be uh down here.
+[00:18:52] Speaker C: Uh-huh.
+[00:18:53] Speaker B: Um. Well, not here. I yeah I suggest here. But that's just a little gap. Yeah.
+[00:18:59] Speaker D: Right, and spea speaker at the back, or something.
+[00:18:59] Speaker C: Microphone, yeah.
+[00:19:01] Speaker B: Well the speaker and the microphone, I think, are the same uh little hole thingy.
+[00:19:07] Speaker C: Yeah I understand. Uh but uh we could uh d do, but it's perhaps more expensive, uh the speaker on the back or something.
+[00:19:08] Speaker D: Alright.
+[00:19:08] Speaker B: Yeah.
+[00:19:14] Speaker B: Well i
+[00:19:16] Speaker B: Um there are a all already being implemented in in coffee machines, so they won't be uh very expensive. But
+[00:19:24] Speaker A: Huh?
+[00:19:24] Speaker C: Alright.
+[00:19:25] Speaker D: Alright.
+[00:19:26] Speaker A: Yeah? Okay.
+[00:19:27] Speaker B: This is my suggested design. Um Yes.
+[00:19:28] Speaker A: Well, okay, alright. Um then let's have a look at the decisions we are going to have to make.
+[00:19:35] Speaker B: And oh I think as you can see so, the L_C_D_ screen does look better uh at the lower end, or at the bottom. But
+[00:19:42] Speaker A: I'd I agree.
+[00:19:44] Speaker D: Yeah, fine. Move on.
+[00:19:45] Speaker A: Fine.
+[00:19:47] Speaker C: Well yeah yeah yeah.
+[00:19:49] Speaker A: Yeah.
+[00:19:50] Speaker B: Oh, um I had some uh examples. You can uh
+[00:19:52] Speaker C: I can live with it.
+[00:19:53] Speaker A: Yes?
+[00:19:54] Speaker B: But
+[00:19:57] Speaker B: I did not like it very much, but
+[00:20:01] Speaker B: Well these are
+[00:20:03] Speaker A: Too big.
+[00:20:03] Speaker B: quite obvious, very ugly remote. Um
+[00:20:06] Speaker D: Yeah.
+[00:20:07] Speaker C: They do they don't look fruity enough.
+[00:20:09] Speaker D: Nei They're n they're not trendy.
+[00:20:09] Speaker B: No, well th
+[00:20:10] Speaker A: They're all black.
+[00:20:12] Speaker B: Yeah. Well not all.
+[00:20:16] Speaker A: Hey, that one I like.
+[00:20:18] Speaker B: Uh this is for children but th
+[00:20:18] Speaker C: Tho Yeah those
+[00:20:19] Speaker D: It doesn't look strong.
+[00:20:21] Speaker A: No.
+[00:20:21] Speaker B: No.
+[00:20:22] Speaker C: But it doesn't uh the
+[00:20:23] Speaker B: W but with the colours i it's a bit the way we're going to.
+[00:20:23] Speaker A: The remote.
+[00:20:26] Speaker D: Yeah right.
+[00:20:26] Speaker C: Yeah, ok Yeah.
+[00:20:27] Speaker B: Well this is a terrible
+[00:20:28] Speaker A: Terrible.
+[00:20:29] Speaker D: This is just crazy.
+[00:20:31] Speaker C: But it it must not look too childish of course huh?
+[00:20:31] Speaker A: It's it's all too much buttons. Too many buttons. That's
+[00:20:31] Speaker B: Um this looks Yeah. This uh these are the L_C_D_ screens. I think we should, if it's um possible, uh one with colours, but
+[00:20:42] Speaker D: Nah th It's too expensive. Yeah.
+[00:20:43] Speaker B: I don't know uh Too expensive? Alright.
+[00:20:43] Speaker A: Well, that's too expensive I think.
+[00:20:47] Speaker B: Well Nah.
+[00:20:47] Speaker C: But it Yeah.
+[00:20:48] Speaker A: Alright. Yeah.
+[00:20:50] Speaker A: Okay.
+[00:20:52] Speaker B: Ha, even more. N
+[00:20:52] Speaker A: Huh.
+[00:20:54] Speaker A: Mm no.
+[00:20:57] Speaker D: But are we going for a strange uh form?
+[00:20:57] Speaker A: 'Kay.
+[00:21:01] Speaker A: No, not very strange.
+[00:21:01] Speaker D: 'Cause people like that.
+[00:21:02] Speaker C: Not not too strange. No.
+[00:21:03] Speaker D: Not too strange. You can make the the underside, you can make it more round, where the L_C_D_ is.
+[00:21:04] Speaker A: It still has t
+[00:21:07] Speaker A: Yes. Th a a kind of bridge. So it f falls over the hand.
+[00:21:10] Speaker B: Well
+[00:21:10] Speaker D: I dunno if you know the No Nokia telephone, with uh the round uh thing at at the bottoms, s something like that.
+[00:21:14] Speaker A: Yeah? Yeah?
+[00:21:18] Speaker A: Yeah.
+[00:21:18] Speaker D: You know?
+[00:21:19] Speaker A: Well I have at home a remote with a bridge. It's just a half round half half circle at And then it falls exactly over the hand, and that's very nice. That's It feels comfortable.
+[00:21:31] Speaker D: Yeah, but people like something uh new you know. Yeah, different. Y yis
+[00:21:34] Speaker C: Exotic yeah. We have t Yeah, yeah. I will design it, we design it later. So we'll get to that later I guess.
+[00:21:36] Speaker A: Yeah.
+[00:21:39] Speaker D: Alright. Great.
+[00:21:40] Speaker A: Yeah, alright. Um where did I put it? Um conceptual phase, I think this is it.
+[00:21:43] Speaker C: The specific shape. The
+[00:21:49] Speaker A: I got this from our friends. So Uh yeah the conceptual design.
+[00:21:54] Speaker C: Our sources.
+[00:21:59] Speaker A: These are a few examples which we have to decide about. All the the materials from the case, uh the electric cable that's all your uh your side of the story.
+[00:22:11] Speaker A: Um
+[00:22:11] Speaker D: Your bag.
+[00:22:12] Speaker A: Yeah. Um now from the user interface, your uh package? Um where No well, that's more like the buttons where they have to come. And um
+[00:22:25] Speaker A: B a bit of, yeah well, a bit of uh design.
+[00:22:29] Speaker B: Yeah, this is what we've just done. Right?
+[00:22:32] Speaker C: But uh we should decide now.
+[00:22:32] Speaker A: Yes, but we have to decide about these now. And uh the trend-watching. So as you said, fruity is in, well sells good. Wow. Uh these things.
+[00:22:34] Speaker B: Ah right.
+[00:22:34] Speaker D: Yeah. Materials are the most, most impor
+[00:22:41] Speaker D: Yeah.
+[00:22:43] Speaker C: So we have to uh put it in one uh document.
+[00:22:46] Speaker A: Uh yes. Um so if we uh go through them
+[00:22:49] Speaker C: Copy paste uh this story into a into a Word document, and then uh put the answers after the subjects. Yeah.
+[00:23:00] Speaker B: Not everything.
+[00:23:02] Speaker C: Well we have to decide all these things?
+[00:23:03] Speaker B: Yeah but all these examples are uh of a coffee machine.
+[00:23:07] Speaker A: Yeah well uh
+[00:23:09] Speaker C: W we can uh override them?
+[00:23:10] Speaker A: Why should I uh
+[00:23:12] Speaker A: Yeah.
+[00:23:14] Speaker A: So
+[00:23:15] Speaker C: Well a case? Uh that's me. Uh I suggest Well what do I suggest actually?
+[00:23:19] Speaker A: What what kind of properties should it have? Well we just listened.
+[00:23:22] Speaker C: Uh s solid, yeah. Yeah.
+[00:23:23] Speaker B: I think we Why don't we um use uh titanium or or a hard, yeah, some kind of metal for the uh the the whole remote except the front. That
+[00:23:33] Speaker D: Do you know the new uh
+[00:23:37] Speaker B: Just like um most cell phones are.
+[00:23:38] Speaker C: Yeah, I understand. Yeah. So we have titanium.
+[00:23:38] Speaker D: No no
+[00:23:42] Speaker D: The front is the most important.
+[00:23:44] Speaker C: Yeah but the non-removable elements of the of the remote, so not the front, could be titanium, to give that uh strong look. And then the front is made of plastic. And you can put that on and off, and switch it.
+[00:23:52] Speaker B: Yeah.
+[00:23:53] Speaker A: You know what?
+[00:24:00] Speaker B: Yeah.
+[00:24:01] Speaker D: But the feel of plastic isn't strong.
+[00:24:03] Speaker C: No but you have titanium of course. Uh you have the best of both worlds.
+[00:24:03] Speaker B: No but you you have this Yeah.
+[00:24:06] Speaker D: Yeah alright, alright. 'Kay.
+[00:24:08] Speaker B: Yeah, you have the re remote in your hand like this. So you feel titanium.
+[00:24:13] Speaker C: And of course, yeah, you have the the the plastic front end. But you also have the titanium.
+[00:24:16] Speaker D: Yeah. Fronts are are cheaper than when they're from plas
+[00:24:19] Speaker B: Yeah.
+[00:24:19] Speaker C: Yeah of course, but yeah you have to make a
+[00:24:23] Speaker B: And I don't know if you can make steel just any way you want it to.
+[00:24:23] Speaker C: decision.
+[00:24:27] Speaker D: Yeah, but it it's expensive.
+[00:24:29] Speaker C: I guess so. Uh titanium I sh I think uh
+[00:24:29] Speaker B: Yeah.
+[00:24:31] Speaker D: Bendable. Bendable.
+[00:24:32] Speaker C: Huh? Well, well the
+[00:24:34] Speaker B: Well any colour
+[00:24:36] Speaker C: According to my sources, uh it's it's totally possible to make an entire uh uh uh Titanium is available, and uh we can uh make uh an entire remote out of it, if we want.
+[00:24:45] Speaker B: Yeah, then you you paint it in the colour you want it. The plastic is is the colour you want it.
+[00:24:48] Speaker D: Yeah.
+[00:24:48] Speaker C: Mm.
+[00:24:50] Speaker D: Paint spray.
+[00:24:51] Speaker C: Mm.
+[00:24:52] Speaker D: Yeah alright.
+[00:24:54] Speaker B: So Yeah.
+[00:24:55] Speaker D: So, we're going for a titanium back and a plastic front?
+[00:24:55] Speaker A: Alright.
+[00:24:57] Speaker A: I've uh
+[00:24:58] Speaker C: Yeah, I think that's a nice trade-off.
+[00:24:59] Speaker B: Mm.
+[00:24:59] Speaker A: Titanium back, plastic front. Okay. Um well I am going to put it in here, uh because we can uh look. I Um solid feel and trendy look. So material, um hard plastic for the front?
+[00:25:05] Speaker D: Yeah, great.
+[00:25:06] Speaker B: Yeah.
+[00:25:07] Speaker C: Alright.
+[00:25:18] Speaker C: Yeah, for the front and then titanium for the back.
+[00:25:19] Speaker D: Yeah.
+[00:25:22] Speaker C: For the non-removable uh part.
+[00:25:24] Speaker D: But then you have the problem, when you have a titanium back, you can't switch it. When you want an other colour on the front, it doesn't match. You know?
+[00:25:33] Speaker C: Well but
+[00:25:34] Speaker B: Well titanium is neutral.
+[00:25:35] Speaker C: The titan titanium isn't isn't v very Yeah, i it doesn't uh curves. No uh I nei. Titanium is very No no no, but you know b Titanium is very basic colour, and it doesn't really matter if we have a purple front on it or a orange front. I dunno if if you disagree, but I think it's doesn't matter very much.
+[00:25:41] Speaker D: I understand. Yeah, yeah, yeah. Yeah.
+[00:25:47] Speaker B: Hmm.
+[00:25:49] Speaker B: Yeah.
+[00:25:50] Speaker D: Alright.
+[00:25:51] Speaker B: Well
+[00:25:52] Speaker D: Yeah. Alright.
+[00:25:53] Speaker B: Our customers will use those uh funky uh trendy colours, and they don't use uh wood.
+[00:25:56] Speaker D: Funky customers. Alright.
+[00:25:57] Speaker C: And even if it does uh doesn't match, it will uh People like mm colours that don't match.
+[00:26:00] Speaker B: Mm. Yeah.
+[00:26:01] Speaker A: Okay. And well the the electrical cable is just normal uh.
+[00:26:06] Speaker C: Cop copper uh material.
+[00:26:11] Speaker C: Excuse me?
+[00:26:11] Speaker B: Yeah.
+[00:26:14] Speaker B: The electrical cable uh does
+[00:26:15] Speaker A: It's uh from uh our coffee uh
+[00:26:16] Speaker C: Yeah copper i just a ba basic uh
+[00:26:17] Speaker B: No we don't use an electrical cable. Yeah inside, but this is for the coffee uh machine.
+[00:26:20] Speaker C: Yeah in
+[00:26:22] Speaker C: Yeah well inside the remote control we use a couple of uh
+[00:26:24] Speaker A: Of course.
+[00:26:24] Speaker B: Yeah, but that's not what's meant here, I think.
+[00:26:27] Speaker D: Nei.
+[00:26:29] Speaker D: So external.
+[00:26:31] Speaker C: Oh external? Well A coffee grind doesn't have Na ja. Never mind the coffee grind.
+[00:26:32] Speaker D: Yeah.
+[00:26:32] Speaker B: Yeah.
+[00:26:38] Speaker A: Well uh all the all the inside work of our remote is uh standard
+[00:26:44] Speaker A: work. So
+[00:26:45] Speaker C: Right?
+[00:26:48] Speaker A: The chip is normal silicon. Uh the buttons are normal, etcetera. Okay? So that's just easy. Uh we decide about that just by looking at our competitors and our earlier uh remotes. The conceptual specification of the user interface?
+[00:26:53] Speaker C: Alright. Mm-hmm.
+[00:27:05] Speaker A: Um well we have our beautiful drawing.
+[00:27:09] Speaker D: Alright.
+[00:27:09] Speaker B: Well I got a better one here and I will um
+[00:27:11] Speaker A: Well you can put that in uh into the shared folder, and then I'll put it in our end report.
+[00:27:13] Speaker B: The shared folder.
+[00:27:16] Speaker B: I will work this out uh for the uh next meeting.
+[00:27:18] Speaker A: Yes, you can
+[00:27:20] Speaker A: Mm yeah. You can uh put some uh which button is what. Okay. Um the trend-watching
+[00:27:23] Speaker B: Yeah yeah yeah.
+[00:27:28] Speaker A: included these days. And what do we? We thing that fruit and bright colours are
+[00:27:35] Speaker C: Yeah the the the front w
+[00:27:36] Speaker D: I think we can launch a couple of packages. You can buy a different kind of of of machine, but it's the same thing, but with another front. So
+[00:27:40] Speaker B: Yeah.
+[00:27:47] Speaker C: Mm-hmm.
+[00:27:47] Speaker A: Yes. We can also uh implement um we can also implement fronts from um movies that are very hot. Uh those kind of things.
+[00:27:49] Speaker B: Yeah that's the whole idea of the front.
+[00:27:49] Speaker D: And you can you can
+[00:27:50] Speaker C: Yeah. Yeah.
+[00:27:55] Speaker B: Yes. But that's for later on. The fronts y you can do anything with them.
+[00:27:55] Speaker D: Yeah right.
+[00:27:58] Speaker A: Yeah.
+[00:27:59] Speaker D: Yeah but if you if you launch uh five different packages like iPod mini
+[00:28:02] Speaker B: Yeah, right For the uh initiative uh launch.
+[00:28:06] Speaker D: Yeah.
+[00:28:07] Speaker C: For the for the launch, yeah.
+[00:28:08] Speaker D: It's good marketing.
+[00:28:08] Speaker B: Mm.
+[00:28:11] Speaker C: So e th then a c couple of basic colours. Not not very uh sim Not
+[00:28:11] Speaker A: Launch different lines at once.
+[00:28:15] Speaker D: Yeah, n not too heavy. You can always take another pick.
+[00:28:20] Speaker C: Yeah.
+[00:28:20] Speaker A: We should not give them the m the most lovely front
+[00:28:23] Speaker D: They have to buy it later on. Yeah right. More basic. Yeah.
+[00:28:25] Speaker A: when they buy it for the first time. Yeah. Come on. We still have to make those fifty million, yeah?.
+[00:28:26] Speaker C: Yeah.
+[00:28:26] Speaker B: Oh yeah. Yeah. Yeah.
+[00:28:31] Speaker C: Very boring, yeah. The most boring fronts possible.
+[00:28:32] Speaker B: Well you can you can give them uh s s three or so, so that they can uh experiment with it and that they want more. Yeah.
+[00:28:34] Speaker A: The most ugly.
+[00:28:38] Speaker D: Yeah, right.
+[00:28:39] Speaker A: Two.
+[00:28:40] Speaker C: Yeah but you you can have some basic colours, and then we come with the special patterns on them, and and uh And uh
+[00:28:43] Speaker B: Red red, blue and green you give them or something, and then you can give them uh other ones.
+[00:28:43] Speaker A: Yeah.
+[00:28:44] Speaker D: Yeah.
+[00:28:47] Speaker A: Yeah. Alright.
+[00:28:49] Speaker A: Um well the buttons etcetera, we get from Mike. Uh this fruit and bright colours, yeah well I think we'll have to in the next uh half an hour, we'll have to uh s s specify the different uh types we want to launch, when we uh well introduce our remote.
+[00:29:12] Speaker C: Uh we still have to make We have still have to make the es the the real basic design. Because yeah we have the sketch but
+[00:29:16] Speaker D: Yeah. But we we must remember that fancy look-and-feel is the most important thing. Else it w won't sell. So
+[00:29:21] Speaker A: Yes.
+[00:29:25] Speaker C: Alright, yeah.
+[00:29:25] Speaker A: Yes. Well I'll have to, before I get another warning for five minutes, I'm going to get
+[00:29:32] Speaker A: Where is my mouse? Uh where is my mouse?
+[00:29:34] Speaker D: Lost my mouse.
+[00:29:38] Speaker A: Oh yeah. Um this is it.
+[00:29:44] Speaker D: Unbelievable.
+[00:29:52] Speaker A: Well, um this we have. Uh basic stuff. Interface we have. Supplements, L_C_D_. Maybe a a cheap voice recording.
+[00:29:54] Speaker D: Yeah.
+[00:30:05] Speaker B: Yeah we should do that.
+[00:30:05] Speaker A: Well Yes. Alright. Individual actions.
+[00:30:05] Speaker C: The price?
+[00:30:09] Speaker C: We all agree on that. Yeah.
+[00:30:10] Speaker B: Mm.
+[00:30:11] Speaker A: Industry designer,. User Interface, Mike. You're going to work together
+[00:30:17] Speaker A: on a prototype drawing on the SMARTboard.
+[00:30:20] Speaker B: Yeah, we can do that.
+[00:30:21] Speaker C: Together or uh Yeah together. How Yeah yeah, but how do I
+[00:30:23] Speaker D: Yeah togeth
+[00:30:24] Speaker A: That's what I got uh to hear.
+[00:30:25] Speaker B: But bu we stay we stay here or something?
+[00:30:28] Speaker A: Yes well we'll get it to hear that I think. But I think so. Th they're saying SMARTboard and that's it
+[00:30:31] Speaker D: You can take the SMARTboard.
+[00:30:34] Speaker B: Ah right. And take it to our rooms and uh
+[00:30:34] Speaker A: This is the SMARTboard, so
+[00:30:38] Speaker A: Um so you can uh you you are going to make a prototype, and y Well that's includes uh specifying the buttons etcetera.
+[00:30:44] Speaker B: Ah, specific instructions will be sent to you by your personal coach.
+[00:30:47] Speaker A: Yeah. So you'll get it on your em on your laptop. Um well you will go and do something else uh on the project yeah project evaluation. So um
+[00:30:53] Speaker D: Have fun. 'Kay.
+[00:30:53] Speaker C: Some
+[00:30:58] Speaker C: Some non functional tasks.
+[00:31:02] Speaker A: , what are you going to do? Uh I don't know what product evaluation exactly means, but uh you'll get uh the specifications.
+[00:31:08] Speaker D: We don't have produ product yet, so kind of difficult.
+[00:31:11] Speaker A: Yeah. That's why I uh
+[00:31:13] Speaker A: But uh
+[00:31:13] Speaker C: You're fired. No but
+[00:31:16] Speaker A: How long do we still have?
+[00:31:18] Speaker C: Well, can we talk about something else? Uh
+[00:31:20] Speaker A: Yeah.
+[00:31:22] Speaker C: Uh no I don't know anything, but maybe uh anyone else uh Yeah?
+[00:31:23] Speaker D: Ajax. Nah.
+[00:31:24] Speaker B: Yeah. Um
+[00:31:26] Speaker B: Will we use uh round buttons or square ones for the for the numbers? Yeah I I I also uh thought Yeah.
+[00:31:29] Speaker D: Um round. Yeah. Round.
+[00:31:30] Speaker C: Round I think.
+[00:31:32] Speaker C: To make it as uh as round as possible.
+[00:31:35] Speaker B: And these uh these s these buttons uh are more uh triangle-ish shaped with a square one in the middle. Yeah. Yeah.
+[00:31:39] Speaker A: Why does
+[00:31:41] Speaker D: Curvy. Yeah. So you can see you have to up or down.
+[00:31:44] Speaker A: Ah f fuck you.
+[00:31:47] Speaker C: But now I see the
+[00:31:48] Speaker D: And this must be uh volume I think, and this programme.
+[00:31:50] Speaker A: Heh?
+[00:31:54] Speaker B: Mm.
+[00:31:56] Speaker A: We can't get
+[00:31:57] Speaker B: Well most of the time uh up and down is programme and left and right are volume, I think.
+[00:32:03] Speaker C: Well th th th th th that depends uh.
+[00:32:04] Speaker D: Yeah.
+[00:32:04] Speaker B: Yeah, it depends, but
+[00:32:08] Speaker C: Well we uh
+[00:32:08] Speaker B: If you turn up the volume, you always see this thingy go up.
+[00:32:11] Speaker C: We we j we'll just give them an uh We'll design it, and then they can give comments on it.
+[00:32:12] Speaker D: Yeah, that's right.
+[00:32:14] Speaker B: Yeah. Yeah alright.
+[00:32:15] Speaker D: Yeah. Okay.
+[00:32:15] Speaker A: Ts It doesn't work any more. We can't save them. So we'll just have them uh standing there.
+[00:32:21] Speaker D: Yeah, I noticed.
+[00:32:22] Speaker D: You can't uh click the corners.
+[00:32:24] Speaker A: No. It's a bit uh bit a pity. Well we still have uh more than five minutes. Um
+[00:32:27] Speaker D: It's a real real great thing.
+[00:32:34] Speaker A: So what are we going to do?
+[00:32:39] Speaker A: I as Project Manager ha don't have a clue. Oh we can uh decide how we implement the feeling from our company into the remote.
+[00:32:39] Speaker D: Let's start the design.
+[00:32:50] Speaker B: Mm.
+[00:32:50] Speaker C: Well yeah. Um I think um a logo, our company logo, and the slogan should be or could be Yeah, why not? If there's enough space, you can put uh We'll we'll
+[00:32:55] Speaker A: Also the slogan? On the
+[00:33:00] Speaker B: Uh I I'd say only the logo.
+[00:33:00] Speaker D: O
+[00:33:02] Speaker D: Yeah. Me too.
+[00:33:03] Speaker B: Too much text and it gets too too busy.
+[00:33:05] Speaker C: Well, our slogan is not very long. It's just a simple What is it?
+[00:33:08] Speaker B: Well it's quite a long phrase.
+[00:33:08] Speaker A: We put the fashion in electronics.
+[00:33:11] Speaker A: We put the fashion in electronics.
+[00:33:11] Speaker D: But we kree we keep adjusting to the fashion
+[00:33:13] Speaker C: You c
+[00:33:16] Speaker D: with our fronts. So
+[00:33:18] Speaker C: But you can put it on the back, on the titanium part. The logo and the and the
+[00:33:23] Speaker D: Yeah, right.
+[00:33:23] Speaker B: Ah the logo should be on the top I think.
+[00:33:24] Speaker D: The logo
+[00:33:26] Speaker A: On the top. Yeah. Well in in in the right top corner? And well you c On the back, you can put uh h At the bottom, you can put the logo with the
+[00:33:28] Speaker C: Yeah they do. Well yeah.
+[00:33:28] Speaker D: Yeah.
+[00:33:30] Speaker B: Right corner, yes.
+[00:33:31] Speaker C: Right corner, or maybe here in the middle?
+[00:33:38] Speaker B: uh the text? Yeah. Uh yeah, at the back?
+[00:33:40] Speaker A: Yeah. Just just small.
+[00:33:40] Speaker D: But the logo the logo shouldn't be exchangeable, when you get off the front.
+[00:33:44] Speaker C: Yeah it it should be hard on the on the on the board, and you can remove the front.
+[00:33:44] Speaker B: Well you c Well uh Yes. You can The logo can be on on every uh front.
+[00:33:45] Speaker A: Yeah well
+[00:33:46] Speaker D: Yeah. Yeah.
+[00:33:50] Speaker D: Yeah, but you can scratch it off or something. It's better if you have it uh
+[00:33:54] Speaker B: Yeah, but then you must uh really uh yeah push it in or something.
+[00:33:55] Speaker A: Carved into the material.
+[00:33:58] Speaker A: No, you you can carve it into the titanium at the back.
+[00:34:02] Speaker C: I l I like the idea of the of the slogan on the on the on the thing. But am I the only one, or uh
+[00:34:06] Speaker B: Yeah, on the backside. Well n n not not on the front side, I think. On the back Yes, you you can, yeah, push that in, so that it is always be there.
+[00:34:08] Speaker A: Well, management would like it.
+[00:34:11] Speaker A: The front side, no no l no slogan.
+[00:34:11] Speaker C: No not on the front, but on the backside. Uh
+[00:34:15] Speaker A: Sorry.
+[00:34:16] Speaker C: I think it's a nice idea, to make it more recognisable, that the next to the logo you have the slogan.
+[00:34:19] Speaker D: Yeah.
+[00:34:20] Speaker B: Yeah.
+[00:34:24] Speaker D: I agree.
+[00:34:25] Speaker C: To make more uh of an impression.
+[00:34:25] Speaker D: But not too big.
+[00:34:27] Speaker D: Just uh Yeah.
+[00:34:27] Speaker C: Not too big. No, very small. Not on the entire back, but uh just very small. But readable enough of course.
+[00:34:35] Speaker D: Okay.
+[00:34:36] Speaker A: Yes, slogan from
+[00:34:37] Speaker C: But we'll uh we'll take that uh with us into the design.
+[00:34:39] Speaker B: Yeah I think over here the logo.
+[00:34:39] Speaker A: company
+[00:34:42] Speaker C: Lo Uh yeah. Or maybe here in the middle, but we'll decide later.
+[00:34:43] Speaker A: on the back
+[00:34:45] Speaker A: with logo and
+[00:34:49] Speaker A: logo also on
+[00:34:53] Speaker A: the front but not exchange uh
+[00:35:03] Speaker A: Uh? Hmm? Uh when
+[00:35:13] Speaker A: changing fronts.
+[00:35:17] Speaker C: Do you do you see a bit of the of the um
+[00:35:17] Speaker A: Alright, that's decided.
+[00:35:20] Speaker A: Five minutes left.
+[00:35:22] Speaker C: of the uh titanium? O on the front? Uh maybe if we make this this this lower part titanium, the front is the the upper part, and the the bit with the with the L_C_D_ screen. So
+[00:35:25] Speaker B: Yes we could
+[00:35:34] Speaker A: So a bit of titanium between?
+[00:35:36] Speaker D: Yeah.
+[00:35:36] Speaker C: Yeah. No no betwe of between we can do but But then you have two parts of front, two fronts that
+[00:35:37] Speaker A: That's a bit Oh that that's that's pretty cool.
+[00:35:40] Speaker B: No, they have two fronts, that. You you can Yeah. Yeah. Yeah.
+[00:35:40] Speaker D: No no no no. You have to make this titanium too.
+[00:35:42] Speaker A: No?
+[00:35:44] Speaker C: This enti entire bottom?
+[00:35:44] Speaker D: Else you you get problems with the L_C_D_. Like dust in it and so things like that. When you exchange all the fronts and it's open.
+[00:35:47] Speaker B: Yeah.
+[00:35:47] Speaker A: Yes.
+[00:35:48] Speaker B: Yeah.
+[00:35:52] Speaker A: I already have uh all kinds of uh
+[00:35:52] Speaker B: No, you can you can just And then not a straight line but uh some sort of wave or something. This is titanium. And this is uh
+[00:35:55] Speaker A: filth between the mobile.
+[00:35:58] Speaker C: And then the lower part is titanium?
+[00:36:01] Speaker C: I think that's nice, yeah.
+[00:36:01] Speaker D: Yeah. Some some kind of wei weight in it. Yeah.
+[00:36:04] Speaker A: Yeah. Round forms.
+[00:36:05] Speaker B: F front.
+[00:36:07] Speaker C: Yeah.
+[00:36:08] Speaker C: I like that bit of uh titanium also on the uh
+[00:36:10] Speaker B: Yeah. With the with the curved edge.
+[00:36:11] Speaker D: Yeah.
+[00:36:12] Speaker A: Yep.
+[00:36:13] Speaker C: A bit like uh a bit like your mobile phone. Maybe you can show it. It also has the those two distinct uh
+[00:36:15] Speaker B: Yeah.
+[00:36:17] Speaker B: Yeah. Tada.
+[00:36:21] Speaker C: Mm bit like this. Uh it's uh
+[00:36:21] Speaker B: Yeah.
+[00:36:22] Speaker A: Yeah.
+[00:36:22] Speaker D: Yeah, you can make it go
+[00:36:26] Speaker D: round this corner too where the logo is. Because it has to be uh there all the time you know.
+[00:36:29] Speaker A: What?
+[00:36:31] Speaker C: Yeah yeah. That uh Yeah. Maybe a nice touch, yeah.
+[00:36:32] Speaker B: Ah.
+[00:36:33] Speaker A: So round where?
+[00:36:33] Speaker D: So uh a little corner of titanium.
+[00:36:35] Speaker B: Yeah, that's nice finishing touch you need.
+[00:36:36] Speaker A: Oh, yeah.
+[00:36:38] Speaker A: Yes, that also sounds uh pretty uh neat.
+[00:36:41] Speaker D: So this this is the exchangeable part.
+[00:36:42] Speaker C: I think I'm going to buy it.
+[00:36:43] Speaker A: We want it. And it's only f twenty five Euros. Come on. No that's nothing.
+[00:36:44] Speaker B: Yeah, this is the front.
+[00:36:48] Speaker B: This is the
+[00:36:48] Speaker C: That's a bit too much, but No, no no no, but I think uh this looks uh pretty nice actually. Of course, because it's my design but No our d our design, alright.
+[00:36:51] Speaker A: The Phillips remote uh costs more.
+[00:36:55] Speaker D: Right.
+[00:36:57] Speaker B: My design.
+[00:36:59] Speaker D: Taking all the credit.
+[00:37:00] Speaker A: Well uh you two are going to work together. You'll get your uh specifications on your uh laptop, and then uh you uh
+[00:37:04] Speaker B: Yeah. We'll stay here I guess?
+[00:37:06] Speaker D: But there's a problem. We can't uh take a blank one. Or can we?
+[00:37:10] Speaker A: Well I think we can, I just It's
+[00:37:12] Speaker B: Well we can uh erase an animal I guess. Uh the fourth one.
+[00:37:15] Speaker D: Yeah. Nah that's alright, that's alright.
+[00:37:16] Speaker C: But don't erase my cat.
+[00:37:19] Speaker A: Yeah, o
+[00:37:19] Speaker B: Uh the fourth one is empty, isn't it? Yeah.
+[00:37:21] Speaker A: Oh
+[00:37:22] Speaker C: I want to preserve it.
+[00:37:25] Speaker D: This one is empty.
+[00:37:27] Speaker B: Yeah.
+[00:37:29] Speaker D: You have to empty one huh?
+[00:37:30] Speaker A: Oh, we have a one.
+[00:37:33] Speaker C: What are you doing chief?
+[00:37:35] Speaker A: So, you can uh draw a Yeah.
+[00:37:36] Speaker D: Alright.
+[00:37:37] Speaker B: Yeah I think we have to wait?
+[00:37:40] Speaker C: Yeah until the until the beep goes. But I don't uh Do we have to stay here, or I think we have to return first.
+[00:37:40] Speaker D: No
+[00:37:40] Speaker A: Well I'll get a I'll get the message.
+[00:37:45] Speaker A: No, I think uh Well you'll Maybe you can uh keep your uh laptop here.
+[00:37:46] Speaker D: Yeah.
+[00:37:51] Speaker B: Maybe.
+[00:37:52] Speaker A: Or get your mouse. Because it's little bit uh hard to work with these uh plates.
+[00:37:53] Speaker C: The high powers from above will have to tell us, yeah.
+[00:37:57] Speaker D: Yeah. It's not relaxing.
+[00:38:00] Speaker A: I always have a mouse next to my laptop. I hate these
+[00:38:03] Speaker D: I I don't have a laptop.
+[00:38:04] Speaker C: Yeah, touch-pads, yeah.
+[00:38:05] Speaker A: Ugh.
+[00:38:06] Speaker C: We can uh do a touch-pad on our remote. No just kidding. Well we have uh b you have to have a bit of humour in the in the discussions too, because it becomes too too too too stressy.
+[00:38:09] Speaker D: Yeah right. Dream on.
+[00:38:10] Speaker B: Yeah.
+[00:38:17] Speaker A: And in your remote control. So we put a touch pad on it, and say ha ha. Yeah. We know you'll you'll you'll hate it but
+[00:38:21] Speaker B: Aha. This has no function.
+[00:38:21] Speaker D: Half
+[00:38:28] Speaker C: But uh th youth doesn't care about functio functionality, so
+[00:38:31] Speaker D: No.
+[00:38:32] Speaker A: But they do want some gadgets. So that's wha what we're doing.
+[00:38:34] Speaker D: It's all about cool things.
+[00:38:37] Speaker C: Yeah.
+[00:38:37] Speaker D: And it will sell.
+[00:38:41] Speaker D: We will be rich.
+[00:38:42] Speaker C: Bless you.
+[00:38:43] Speaker A: Well we won't. Our bosses will be rich.
+[00:38:46] Speaker C: Mm.
+[00:38:47] Speaker B: We've done too much in the previous meetings.
+[00:38:50] Speaker C: Too much?
+[00:38:51] Speaker B: Yes, we've got nothing to do now.
+[00:38:53] Speaker C: Well they uh
+[00:38:53] Speaker A: Well, that's not bad, is it?
+[00:38:55] Speaker D: No.
+[00:38:56] Speaker C: I think that's good. We all had uh our talk and
+[00:39:01] Speaker C: we agree I guess on uh several thing, on most uh on things.
+[00:39:07] Speaker A: Mm.
+[00:39:10] Speaker B: Its the best remote ever.
+[00:39:13] Speaker A: So
+[00:39:17] Speaker B: Pinball.
+[00:39:19] Speaker A: Oh. Oh he's totally off again.
+[00:39:26] Speaker A: Well
+[00:39:27] Speaker D: No man. You just have to push harder.
+[00:39:32] Speaker C: Yeah you have to push harder.
+[00:39:33] Speaker A: But when I start here,
+[00:39:36] Speaker C: Mm.
+[00:39:36] Speaker D: Yeah.
+[00:39:37] Speaker A: it's here. So is it
+[00:39:38] Speaker B: Yes, but you you get really close to the screen with your hand, and I don't think that's
+[00:39:44] Speaker D: Mm.
+[00:39:44] Speaker B: Hmm.
+[00:39:48] Speaker D: Recalibrate it.
+[00:39:48] Speaker A: Nope.
+[00:39:56] Speaker C: Where's the good old chalk board with the
+[00:39:58] Speaker D: Yeah.
+[00:40:01] Speaker C: the green board with the, how do you call it, chalk, yeah.
+[00:40:09] Speaker B: We can better uh draw a design on this.
+[00:40:12] Speaker C: Yeah, maybe.
+[00:40:13] Speaker B: Yeah, but we can't.
+[00:40:15] Speaker C: Maybe if i if that thing is recalibrated, we can draw a thing quick, and then before it uh
+[00:40:20] Speaker A: Yeah.
+[00:40:23] Speaker C: goes off again.
+[00:40:23] Speaker A: Let's go.
+[00:40:25] Speaker B: Well
+[00:40:26] Speaker D: Finish meeting now.
+[00:40:27] Speaker A: Finish the meeting now. Alright now we know what to do, so
+[00:40:30] Speaker B: We'll stay here?
+[00:40:32] Speaker A: Um
+[00:40:34] Speaker D: Yeah. Oh.
+[00:40:37] Speaker B: Or we'll get the email.
+[00:40:38] Speaker C: Maybe w maybe we maybe w m Can we get email here? Huh? Yeah. Guess so.
+[00:40:38] Speaker A: Message? No, get away.
+[00:40:42] Speaker B: Yeah.
+[00:40:45] Speaker A: Um I I'm not sure. Maybe you Yeah. Well you'll have to work on this one.
+[00:40:48] Speaker B: Well we'll wait a few seconds and then we'll get an email.
+[00:40:49] Speaker A: Yeah.
+[00:40:51] Speaker A: That's a good idea.
+[00:40:52] Speaker D: Alright. Have fun lads.
+[00:40:53] Speaker A: Well
+[00:40:54] Speaker B: Yeah.
+[00:40:54] Speaker C: A happy hol happy holidays.
+[00:40:55] Speaker A: Good luck.

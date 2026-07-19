@@ -1,0 +1,554 @@
+[00:00:06] Speaker B: Here we go again.
+[00:00:25] Speaker C: My mouse is not working anymore. He's uh when I put it in, is is going to beep beep beep.
+[00:00:27] Speaker B: Oh.
+[00:00:28] Speaker D: Oh.
+[00:00:29] Speaker B: Okay.
+[00:00:34] Speaker D: Oh, I got a nice little screen here over here.
+[00:00:38] Speaker D: I got like this big black border uh on every side.
+[00:00:46] Speaker A: Okay.
+[00:00:48] Speaker B: Mm, okay.
+[00:00:48] Speaker D: I'll I'll fix it. Yeah, whatever.
+[00:00:48] Speaker A: Everybody ready?
+[00:00:50] Speaker B: Yeah, it's okay.
+[00:00:50] Speaker A: Welcome at the functional design meeting, again presented by Maarten.
+[00:00:57] Speaker A: Uh this is the agenda, the opening. Uh, we've got three presentations. And I'm gonna show you some of the new projects requirements that were sent to me. And we're gonna make a decision on the remote control functions. We have uh forty minutes.
+[00:01:13] Speaker D: Yes.
+[00:01:14] Speaker A: Oh, well this is the the closing already. So uh well we start off with the th the first presentation then.
+[00:01:21] Speaker A: Uh, I think um in uh we have to do it in uh in right order. Maybe the
+[00:01:22] Speaker B: Okay.
+[00:01:28] Speaker D: I don't know what the right order is. So
+[00:01:29] Speaker B: No.
+[00:01:29] Speaker A: Well, it
+[00:01:30] Speaker C: Huh.
+[00:01:32] Speaker A: Oh that. It won't doesn't Maybe we should start with the the technical functions.
+[00:01:36] Speaker C: Okay, how can I get this on the whiteboard?
+[00:01:36] Speaker A: Yeah?
+[00:01:38] Speaker A: Well it's you dumped the file in the uh in the sh in the project document folder. You've already done that?
+[00:01:40] Speaker B: In project.
+[00:01:41] Speaker C: Okay, I've done that.
+[00:01:44] Speaker B: No can that open.
+[00:01:44] Speaker C: Yes.
+[00:01:48] Speaker A: Well let's close this one. We'll just uh open a new one.
+[00:01:50] Speaker B: Open it there.
+[00:01:53] Speaker A: Uh, well. Yes.
+[00:01:58] Speaker A: Uh-oh. New thing.
+[00:02:02] Speaker A: Oh yeah, uh I have to say something. Uh, due to some uh technical problems I haven't uh digitized the last uh the meeting minutes. But I'll uh make sure that uh happens next time.
+[00:02:12] Speaker D: Mm-hmm.
+[00:02:14] Speaker B: Okay.
+[00:02:16] Speaker B: About the get
+[00:02:17] Speaker A: And I'll get this one uh in digital uh form too.
+[00:02:22] Speaker C: 'Kay, we're going to um
+[00:02:25] Speaker C: uh talk about working design. Um, the method of the remote control is uh electrical energy, it activates a chip uh in the remote. It's an electrical circuit
+[00:02:39] Speaker C: which compose uh messages in the form of uh uh infrared signals to control the television.
+[00:02:49] Speaker C: Mm, it's a nowadays very uh known, a known uh uh technology.
+[00:02:58] Speaker C: Um, the known technology can make a cost very low. Uh, it's a wild uh a wide sale uh of uh remote controls in the world. And and the components are very uh very cheap. Um,
+[00:03:16] Speaker C: Uh, diodes, uh bat batteries and uh uh LED lights, they're needed and they're uh everywhere available. Uh, again, it's a fair price. It's a common uh technology uh, like I told um Uh, the circuit board, it's the most um important uh
+[00:03:35] Speaker C: um part of the remote control. Uh, we can use for that uh fibreglass with copper wires, it's it is uh
+[00:03:47] Speaker C: can be made as fast as printing paper. It's uh it's all very uh
+[00:03:51] Speaker A: Okay.
+[00:03:55] Speaker C: Yeah, they're making it uh all the time. Uh,
+[00:03:59] Speaker A: Okay.
+[00:04:00] Speaker C: and it's not uh very specialised uh technology.
+[00:04:06] Speaker C: I haven't come to here, but
+[00:04:10] Speaker C: um I've got uh some uh images of uh remote controls. They were not uh very uh trendy or just uh
+[00:04:21] Speaker C: just a remote control like everyone knows. So I don't know uh why I should put it here.
+[00:04:31] Speaker C: Uh
+[00:04:32] Speaker A: Okay. But it's the technical side of the remote control.
+[00:04:36] Speaker C: Yes, but uh I uh haven't made it because uh of the time. But
+[00:04:39] Speaker A: Oh.
+[00:04:41] Speaker A: Okay. Well, we'll we'll have to skip that part then.
+[00:04:44] Speaker C: What?
+[00:04:46] Speaker B: Okay.
+[00:04:49] Speaker A: But you don't think it's a problem um to design uh the technical part of the remote control? It's gonna be easy?
+[00:04:54] Speaker C: No.
+[00:04:56] Speaker C: Yes.
+[00:04:56] Speaker A: Okay.
+[00:04:57] Speaker B: But nothing restricted for user interface?
+[00:05:01] Speaker A: Yeah. M
+[00:05:01] Speaker B: With technical
+[00:05:01] Speaker C: Um, no, it's uh it's just a part of uh a known technology, yeah.
+[00:05:02] Speaker B: I don't know.
+[00:05:04] Speaker A: Okay.
+[00:05:09] Speaker B: 'Kay.
+[00:05:09] Speaker C: Remote control is nothing special nowadays.
+[00:05:12] Speaker A: R regardless of what type of functions we want to implement. Doesn't really matter.
+[00:05:12] Speaker B: Okay.
+[00:05:17] Speaker C: Um
+[00:05:19] Speaker B: But I kind of uh
+[00:05:19] Speaker C: I don't think so, because of the all the televisions uh there are a few maybe a couple of televisions with the new functions, but is it useful to put them on a on a standard uh remote?
+[00:05:20] Speaker A: Okay. Yeah, okay.
+[00:05:21] Speaker B: Yes.
+[00:05:24] Speaker B: Uh
+[00:05:30] Speaker A: Okay.
+[00:05:35] Speaker A: Well, we'll see. We'll see later on.
+[00:05:38] Speaker B: Well, the technical functions. Um, well I don't know if you got the same uh pictures as I got, but uh I got these two, and I think they're we have to focus uh on uh the uh one hand the expert view or the novice user.
+[00:05:45] Speaker A: No.
+[00:05:46] Speaker C: No.
+[00:05:59] Speaker B: th I think it's it's very much uh depending on the user requirements, I don't s uh know who's doing t
+[00:06:05] Speaker A: Well, uh will there be some uh user requirements later on? The ones I I've uh received from the account manager. Yeah.
+[00:06:09] Speaker B: Yeah, but it I think that's very important to watch uh what kind of functions there we want to uh put in a remote control.
+[00:06:17] Speaker A: Well, we'll keep this in mind, and then discuss it later on.
+[00:06:19] Speaker B: Yeah, well y we can put functions in it when uh yeah, when we uh get the user requirements uh and we can update it.
+[00:06:26] Speaker A: Uh-huh.
+[00:06:28] Speaker A: Okay, but this real this uh big d uh distinction between this type of remote. we should we should choose one uh we should not compromise but uh really choose for uh expert viewer or novice v Yeah? Well, what that's what you want trying to say.
+[00:06:38] Speaker D: Yes, I agree. Yeah.
+[00:06:42] Speaker B: Well, yeah w if you want try a a a huge market, if you want to reach a huge market, uh like elderly people and we have to choose for novice user. But I don't know. It's it's really um depending on how how how far the the the remote controls are already in n um in use.
+[00:06:52] Speaker A: Okay.
+[00:06:53] Speaker A: Okay.
+[00:06:56] Speaker A: Yeah, well some of these Uh, yeah.
+[00:07:04] Speaker A: Well, some of that will Yeah, but i but it will be more clear when we come to the uh u uh some of the new requirements.
+[00:07:10] Speaker B: Yeah, probably, yeah.
+[00:07:10] Speaker D: Yes.
+[00:07:11] Speaker A: So
+[00:07:13] Speaker B: Uh well, there are l at least uh basic functions, uh like just th the channels uh one till nine, uh on and off switch, which must be clear with a red button or something like that. Um, most standard uh have volume, of course, and a mute function, and, of course, the next and previous channel. I think that's just basic what we need. And from that on we can user requirements what we need more.
+[00:07:37] Speaker A: Mm-hmm.
+[00:07:44] Speaker B: Uh
+[00:07:48] Speaker B: Yeah, I just um um I thought Joost was looking at the trendy the trends in the markets, and I don't know if there uh are any um uh if you put more functions, more buttons, maybe it's com becoming less trendy or something like that.
+[00:07:56] Speaker D: Yes.
+[00:08:08] Speaker D: I haven't really found a conclusion like that.
+[00:08:08] Speaker B: M you can just you can k you can keep it in mind that. I don't know. Uh, I th I thought the the with less buttons you can make a more trendier uh yeah, more trendier design, I think. I think.
+[00:08:12] Speaker D: Yeah.
+[00:08:20] Speaker D: Design.
+[00:08:24] Speaker D: Sounds interesting.
+[00:08:26] Speaker B: Yeah?
+[00:08:27] Speaker B: Uh, well, that's all I have to say, I think.
+[00:08:29] Speaker A: Okay.
+[00:08:30] Speaker B: Yeah, that was it.
+[00:08:30] Speaker D: Alright.
+[00:08:32] Speaker A: Well, then the Marketing expert can uh tell us something about the current market.
+[00:08:33] Speaker D: Yes.
+[00:08:36] Speaker B: .
+[00:08:36] Speaker D: Yeah. It's alright. Um
+[00:08:47] Speaker D: Alright, I've done some research for functional requirements. Um yes.
+[00:08:54] Speaker D: The working method um there were hundred uh uh w h one hundred people, uh
+[00:09:02] Speaker D: how do you say uh, f watched using remote controls in the usability lab and they also uh filled out a questionnaire uh with a few questions. Uh, I've lined them up here. Uh, ask whether um common remote control looks good or not, about willingness to spend money on remote control, about zapping behaviour, and uh and stuff like that. I uh have found some interesting things. We do we do got a market. Um, three out of four people claim m uh to find remote controls ugly. So if we make a trendy design, we sure have seventy fi seventy five percent of the market, which you can reach.
+[00:09:48] Speaker D: Um, three out of four users uh zaps a lot, as I uh quoted here from the uh results. Zap buttons are used one hundred and sixty eight times per hour. That's quite a lot. Um,
+[00:10:04] Speaker D: relevant options are, of course, power buttons. Although, only used once per hour. Uh, channel selection, volume and buttons for text, and the more um, yeah, other functions, like audio settings, video settings, sound settings are not said to be very important and uh very much used. Furthermore, fifty percent says
+[00:10:33] Speaker D: uh they only use ten percent of the buttons on a remote control. That doesn't say we got we can leave ninety percent off. But
+[00:10:42] Speaker D: it sure um says we shouldn't make it too uh complicated. Fifty percent also claims uh to have lost a remote control very often in the room. And um an important thing here, the most important customers uh, which is over seventy percent of our market, is in the age range of thirty six to sixty five years old. And uh elderly people, our market, are less interested in uh nice features, but more willingly to spend more money on remote controls.
+[00:11:22] Speaker D: So, what I was thinking oh, wrong side. We shouldn't implement too much features on uh on our remote control, because elderly people will get th lost. Group features for a higher usability, uh what I was claiming in the previous meeting. Um, all the settings, about audio settings, video settings and channel settings, which are not very often used,
+[00:11:51] Speaker D: we could group them uh on one button
+[00:11:55] Speaker D: and make them accessible uh in one menu button or whatever, because they are used very rarely and well, it uh there are a lot of options there, so we can really make uh yeah, how do you say,
+[00:12:12] Speaker D: we can spare at buttons over there. And um, if you want to implement V_C_R_ and D_V_D_ options, group them in the button, not too uh
+[00:12:14] Speaker A: Okay.
+[00:12:24] Speaker D: Yeah.
+[00:12:26] Speaker D: Small buttons, so they won't be very um, how do you say
+[00:12:30] Speaker A: Visually presents.
+[00:12:32] Speaker D: Yes, won't be very present, thank you. And a trendy look, well uh, although seventy percent of the market is uh consists of elderly people uh who don't really care for trendy looks or whatever, I guess it can do no harm to make it trendy for the other thirty percent.
+[00:12:51] Speaker D: That was kind of what I found.
+[00:12:53] Speaker A: Okay. Well, then we I'm gonna show you some of the new project requirements and then we gonna discuss on uh what features we find important. Uh, well some of the uh new requirements make some of your findings quite uh irrelevant, I think.
+[00:12:54] Speaker B: Okay.
+[00:12:54] Speaker D: Okay.
+[00:13:00] Speaker D: Yes.
+[00:13:16] Speaker A: Because um
+[00:13:20] Speaker A: uh s decided to put They have decide to put two additional requirements forward.
+[00:13:25] Speaker A: Well, now I see four. That's kinda strange.
+[00:13:25] Speaker D: Two?
+[00:13:29] Speaker A: Well, they say tele teletext becomes outdated since the popularity of the internet. Well, I think that may be so, but well, we can't just leave the teletext button off. It's impossible, I think. So the compromise we could make is just to make one teletext button, you know, like on and off, and don't make a lot of special put a lot of special features on it to make it transparent or You know, it's just you want you want to be able to make use of teletext, but not to play with it that much. So we have to think of that. The remote control should only be used for television. Otherwise, the project becomes more complex, which endangers the time t t ma uh the time to market. So maybe we should leave all D_V_D_ and V_C_R_ related features off completely.
+[00:13:34] Speaker B: Well
+[00:13:39] Speaker D: No uh, I agree, I agree.
+[00:13:39] Speaker B: No way.
+[00:13:52] Speaker D: Not too much, no.
+[00:14:01] Speaker D: Yeah.
+[00:14:16] Speaker B: Yeah.
+[00:14:18] Speaker D: Okay.
+[00:14:19] Speaker A: I don't know. I think that uh
+[00:14:21] Speaker A: that's what they're trying to say. Uh, our current customers are within the age group of forty plus. New products should reach a new market with customers that are younger than forty. So you uh talked about the elderly who were willing to spend more on a remote control and who were interested. But, well, they're not relevant because we are aiming at a younger
+[00:14:33] Speaker D: Mm-hmm.
+[00:14:41] Speaker D: I don't really agree actually, to be honest. It's a very small market which we will approach then if we uh want to reach customers younger than forty. It's only like thirty percent of the total market. Mayb yeah?
+[00:14:54] Speaker A: Yeah, but it is it's is a dif it's a fact that the th th that bigger market you're talking about, we already cover that. Our company already sells remote control to the older people, but we we also want, you know, a new customer group. That's the one we haven't covered yet. So I think that's
+[00:15:12] Speaker A: what the problem is. We haven't got remote controls for uh Well I think, yeah.
+[00:15:13] Speaker D: Okay.
+[00:15:15] Speaker D: Maybe maybe we can compromise a little bit. Not too much then, bu alright.
+[00:15:17] Speaker A: Yeah, I think so. Maybe if it's no no, but I think we have to just keep in mind what the older age group wants. So maybe we can
+[00:15:26] Speaker A: make a remote control that's primarily interesting for the younger group, but isn't that bad for an older person either. Uh, our corporate image sh should stay recognisable in our products. Our product's corporate colour and slogan must be implemented in the new design. Okay, something else nice to know.
+[00:15:32] Speaker D: Yes.
+[00:15:43] Speaker B: But what's our slogan?
+[00:15:45] Speaker A: Sorry? Yeah, you will have to look that up.
+[00:15:45] Speaker B: The slogan uh
+[00:15:48] Speaker D: Yeah, I'll have a look.
+[00:15:53] Speaker D: We put the fashion in electronics.
+[00:15:53] Speaker A: I think it's something about the Oh, okay. I thought it w might be, let's make things better or something, but
+[00:15:53] Speaker B: Puts fashion in electronics.
+[00:15:59] Speaker B: Sense simplicity.
+[00:15:59] Speaker D: Sense and simplicity.
+[00:16:03] Speaker A: Okay well, let's go back to the
+[00:16:08] Speaker A: the agenda.
+[00:16:11] Speaker A: So we've now had to the three presentations. We know about the new project requirements.
+[00:16:15] Speaker A: That means we can uh well d yeah, discuss on the remote control functions. Well, if I can uh make a start, I think it's becoming more clear what kind of remote control it's gonna be, and I already talked about the maybe you have a f familiar with the rem remote control that has the the can opener underneath it. I think we're we're looking for some Yeah, we we're looking for a really simple remote control with only basic T_V_ functions. Y well, that
+[00:16:40] Speaker B: Yeah.
+[00:16:41] Speaker D: Well, to be honest, if um our uh aim group is uh till forty, not older than forty, maybe that's not very uh yeah, we don't really need to have a simple remote control. I think we can implement more functions then, because um basically uh the younger people are more able to adapt to new technology and therefore will be a more
+[00:16:48] Speaker A: Yeah.
+[00:16:53] Speaker A: Yeah.
+[00:17:01] Speaker B: Yeah, but wha
+[00:17:06] Speaker A: Yeah, yeah. M yeah, that's why um well a lot of um the use the requirements the the account manager sent me, I think they are are c are contradicting each other, because they want a simpler design, and no uh other uh s functions than just T_V_, but they s do aim at a younger Well, ma
+[00:17:08] Speaker B: But
+[00:17:19] Speaker D: Yes.
+[00:17:23] Speaker B: Yeah, but you sai you said that that a lot of functions aren't used. So why should j we put this function in? I think more I think uh people younger people are more looking for just a trendy look than uh more functions.
+[00:17:24] Speaker D: Yeah.
+[00:17:30] Speaker D: Well, I think
+[00:17:38] Speaker A: But I think uh you we can make some discuss uh distinctions in uh what kin in the, know, th th in functions you have
+[00:17:44] Speaker A: Y
+[00:17:45] Speaker A: Well you have different kind of uh equipment in your room, like a t T_V_ and a D_V_D_ player. You can uh, know, you you can make very d you can put very detailed functions regarding the T_V_ set on your remote control uh with the with uh the, you know, audio settings and uh v uh screen settings. We don't want that. I think that was that became clear. We don't want. But w maybe we should put some func uh, I know that the younger people will most likely have a D_V_D_ player they want to,
+[00:17:48] Speaker D: Yes.
+[00:18:15] Speaker A: you know, they want to uh
+[00:18:15] Speaker D: Yeah, control.
+[00:18:16] Speaker B: Yeah, but uh you said Yeah, d yeah, but th the functions are not in the remote control we're making.
+[00:18:17] Speaker A: control, remotely.
+[00:18:24] Speaker A: No, yeah, th th the user requirements of the the The new project requirements told us not to But maybe w Yeah. I think we maybe should
+[00:18:24] Speaker B: It's n
+[00:18:28] Speaker B: Yeah.
+[00:18:31] Speaker B: Yeah.
+[00:18:34] Speaker A: Yeah, well we should uh put some functions for other maybe for other equipment on it. But just the basic functions. Maybe like rewind and wind, or n what d what do you guys think?
+[00:18:43] Speaker C: But you can put them under the same button.
+[00:18:43] Speaker D: Not much more than that.
+[00:18:46] Speaker A: Yeah, if as far as possible.
+[00:18:46] Speaker D: Yep.
+[00:18:48] Speaker D: Or we can u u we could put 'em behind the flip-flap or whatever.
+[00:18:52] Speaker D: So t
+[00:18:52] Speaker A: But what do you think? Do th should we implement features that uh uh or functions that to control other devices? No, you don't think so? Yeah, the new requirements say so.
+[00:18:59] Speaker B: No.
+[00:19:00] Speaker B: No, new requirements say no.
+[00:19:03] Speaker B: So
+[00:19:04] Speaker C: But you can put a play and stop and and rewind.
+[00:19:06] Speaker A: Well, maybe it's maybe there there there is something th m most of the time these functions don't support the particular device as well as their their own remote control. You know, a lot of D_V_D_ players have some tricky settings with
+[00:19:06] Speaker D: Yeah.
+[00:19:07] Speaker B: Yeah, but
+[00:19:17] Speaker C: Yes, but we
+[00:19:17] Speaker D: Y yes.
+[00:19:18] Speaker B: I i if it's too simple uh th they won't use the remote control, they use their own th th with lot more functions.
+[00:19:21] Speaker A: Yep, exactly.
+[00:19:23] Speaker A: That's that's wha
+[00:19:24] Speaker D: But but for for example, V_C_R_, that's better example in this case. I think on a remote control for television you don't need to be able to programme uh the V_C_R_ to start recording at three P_M_ or whatever, just play, stop, rewind and uh fast forward.
+[00:19:35] Speaker A: No no, you don't No no, you don't need it. No, no.
+[00:19:35] Speaker B: No, no. Exactly.
+[00:19:36] Speaker C: Huh.
+[00:19:40] Speaker A: Okay, but we have to think uh w we have to think D_V_D_ I th uh, I guess, so um but uh from my experience it's kinda a lot of D_V_D_ players, you know, like forwarding, goes differently. Uh, you get two speed or eight speed or sixteen speed. It's c sometimes a bit difficult. Maybe if we just leave the D_V_D_ functional m uh Well, I was thinking about putting it in, but concerning the project requirements and what you just said, I think we m should focus on the T_V_ then.
+[00:19:43] Speaker D: Yeah, I know, but uh
+[00:19:53] Speaker B: Mm, yeah.
+[00:20:05] Speaker D: Yes.
+[00:20:05] Speaker B: Yeah, but just
+[00:20:08] Speaker B: keep it simple and look more at th
+[00:20:10] Speaker A: And uh and it's just an uh a complimentary remote and not a universal one. If you want to keep it simple, you can make a universal remote. Okay. It's just a s it it should be something that is like a gadget on your coffee table, and it's just for when you you you jump on the couch, you pick up the the the nice remote, the simple one, just to put on the television, nothing more.
+[00:20:15] Speaker B: No.
+[00:20:17] Speaker B: It's only for television. So
+[00:20:18] Speaker C: Yes, but there are there are
+[00:20:26] Speaker B: Yeah.
+[00:20:28] Speaker D: Yeah.
+[00:20:29] Speaker B: Yeah, nothing more. Exactly.
+[00:20:31] Speaker A: Okay.
+[00:20:32] Speaker D: Alright.
+[00:20:33] Speaker A: Um, but what televis
+[00:20:34] Speaker C: But how wi how will you be able to handle a whole market? There are uh a dozen of uh dozens of of remote controls that have
+[00:20:42] Speaker A: Yeah, we we'll make w this one trendy. And simple. Well, we we will come to that, but ju first on the on the functions. So we should put uh zap buttons on it. Um, also numbers, to uh to go to the specific channels.
+[00:20:44] Speaker B: Yeah. The user interface is easy.
+[00:20:54] Speaker B: And the basic yeah, basic functions, yeah.
+[00:20:57] Speaker D: Yes, definitely, yeah.
+[00:20:59] Speaker A: Uh,
+[00:20:59] Speaker B: It's too much integrated in the other.
+[00:21:00] Speaker A: Okay, a t a teletext button should be there. But just one big teletext button, on and off.
+[00:21:03] Speaker B: Yeah.
+[00:21:06] Speaker A: Probably.
+[00:21:06] Speaker D: Yeah, and maybe two or three other options, but not nothing more than that. I think stop function is very useful. If you have a uh a page which consists of more pages, and you are not a very quick reader,
+[00:21:19] Speaker A: Oh, okay.
+[00:21:19] Speaker D: then I think it's very irritating if the next page shows up, but
+[00:21:21] Speaker A: Yeah, but uh I think that becomes too difficult, it's not a very common function and people will have to read up on their remote then.
+[00:21:25] Speaker D: Well, I use it very regularly, the action. I re I use it quite often.
+[00:21:30] Speaker A: Yeah, yeah, but maybe you s yeah yeah, maybe y you do, but I've never heard of it in the first place. And
+[00:21:33] Speaker B: Will you look
+[00:21:36] Speaker A: we have to well t yeah, and t and teletext is becoming outdated. We just want to see what programmes are on and what time it is probably. Yeah. I don't know. I think that that's kin getting too complex for our remote. I don't know what you th guys think.
+[00:21:37] Speaker B: Look at the market.
+[00:21:49] Speaker B: Well
+[00:21:50] Speaker D: Might be. Might be.
+[00:21:51] Speaker B: Yeah, I uh, it's Sunday I always use it for the uh yeah, for the soccer uh
+[00:21:58] Speaker A: Yeah, but do you like to have a such a s stop button? Or do you think it uh
+[00:22:02] Speaker A: I think it's a kind of uh uh very rare and special function.
+[00:22:04] Speaker B: Well, uh when you uh uh when you look uh for example um, a couple of weeks ago I looked at the for the flights, and there are a lot of flights in one page, so if if th
+[00:22:14] Speaker A: Yeah.
+[00:22:15] Speaker A: Okay, it goes Yeah, but that's kind of stuff we should do on the internet right now. That's why it was uh said in the in the use in the r new requirements.
+[00:22:19] Speaker C: Yes, but you could put
+[00:22:20] Speaker B: Yeah, but
+[00:22:22] Speaker C: on the z on the zap buttons you can put it to uh to uh access all the same pages. If you have seven pages, you can go up and down.
+[00:22:27] Speaker A: Well yeah uh, lots of new televisions can store pages, you know, and then you can just skip manually through them using I think we should just put one teletext button on it. Then we meet uh the new requirements.
+[00:22:31] Speaker C: Yes.
+[00:22:34] Speaker B: True.
+[00:22:41] Speaker A: we also meet the other thin y you sh you just re we have to choose for the the simple design, I guess.
+[00:22:46] Speaker B: A simple yeah.
+[00:22:49] Speaker A: Okay. Um, well, what functions do we have to decide on?
+[00:22:57] Speaker A: Or do we uh I dunno if we have t stif specifically name all the functions we n we want.
+[00:23:05] Speaker A: We have the zap and uh the volume. Should we do m make them very big? The the the zap button. D d
+[00:23:10] Speaker D: I think the plus and the minus button should be uh quite present, yep.
+[00:23:10] Speaker C: Yes.
+[00:23:11] Speaker A: Th that's that's that's considered to be trendy also.
+[00:23:13] Speaker B: But trendy, yeah. I don't know.
+[00:23:15] Speaker A: Or maybe you should place them on a uh, in a special way?
+[00:23:17] Speaker C: Maybe we can make uh a kind of a joystick.
+[00:23:20] Speaker A: Yeah, something or uh somethin special way to to zap through the it has to s it has to be yeah, and quick. You have to use it very quickly.
+[00:23:27] Speaker B: Original. It was uh
+[00:23:30] Speaker D: Yep.
+[00:23:31] Speaker D: If you grab the remote, your hands should be on top of the plus.
+[00:23:31] Speaker B: True.
+[00:23:35] Speaker A: Yeah, and it the buttons should make it um possible to to zap through your channels in a rapid at a rapid pace.
+[00:23:44] Speaker D: Yes.
+[00:23:45] Speaker A: Oh, what should we decide on then?
+[00:23:50] Speaker C: But
+[00:23:50] Speaker A: I think in a in a case of this simple remote control, the technical aspects which uh weren't worked out already, but it w shouldn't be a problem then.
+[00:23:51] Speaker B: Yeah.
+[00:23:58] Speaker C: No, it's o just signals uh and the television d uh does the rest.
+[00:24:01] Speaker A: Yep.
+[00:24:01] Speaker B: Maybe uh
+[00:24:04] Speaker A: No, okay, but we don't have to uh, when we don't want to uh control other devices, I think it makes it even more simple.
+[00:24:10] Speaker C: No.
+[00:24:11] Speaker B: Uh maybe we uh uh the batteries maybe. If you use large batteries or small batter batteries.
+[00:24:17] Speaker C: The most standard batteries.
+[00:24:17] Speaker A: I think
+[00:24:19] Speaker A: I think that we should use uh d yeah, not not uh the b the watch kind th the most uh Well, it has to be simple, and I wi
+[00:24:19] Speaker D: I think double A_.
+[00:24:19] Speaker B: Yeah?
+[00:24:22] Speaker D: Yep.
+[00:24:27] Speaker B: Yeah.
+[00:24:27] Speaker D: The most ordinary uh batteries.
+[00:24:28] Speaker A: Which are most likely to be found somewhere in the house, you know.
+[00:24:31] Speaker B: Okay.
+[00:24:32] Speaker D: Yep.
+[00:24:34] Speaker A: Oh. How much time do we ha we have left uh? M m m more than thirty minutes? Uh ten twenty minutes. Well, uh these these shouldn't
+[00:24:36] Speaker D: I think about twenty minutes.
+[00:24:40] Speaker C: But i in a way we have to be uh uh special.
+[00:24:41] Speaker B: Early break.
+[00:24:45] Speaker A: Yeah. Yeah, okay. But that's that's
+[00:24:48] Speaker A: Do you uh have you have you think about tha thought about that? How we can what the extra touch can be. Do you suggest design or the shape or some gadget f f kind of feature or Well, it was something about how we lose them. Maybe it should be a remote control when you you clap you hands it makes some noise or some gadget kind of thing.
+[00:24:53] Speaker C: Maybe th m
+[00:25:06] Speaker D: I think that's n that's more for a for an age range or uh ten to twelve or whatever.
+[00:25:08] Speaker B: To find him. That's maybe yeah.
+[00:25:09] Speaker A: Yeah.
+[00:25:12] Speaker A: I don't know. I don't know. Nah, um a lot of people like to have such kind kind of kind of gay kind of things. It w it w should be like a birthday present or something that you give someone, and it is i has something nice. Or maybe it w should have a big uh light that can flash or something on it, or maybe it should or an or the like the the can opener. Maybe it contains some feature that you don't normally link to a remote control. I think it's very impor because we're gonna make such a basic remote control, we have to do something to make it special. It's gonna cost twenty five Euros.
+[00:25:23] Speaker D: Yeah, yeah, that's good one, yep.
+[00:25:26] Speaker B: Yeah.
+[00:25:43] Speaker B: Yeah.
+[00:25:48] Speaker D: Ye I think the can opener i is a brilliant idea actually, because television and beer is not a rare combination.
+[00:25:51] Speaker A: Yeah, but the well, it's already been done.
+[00:25:52] Speaker B: Yeah, but that's yeah.
+[00:25:55] Speaker A: Nah. Yeah, that's true. But and I think it's gonna be uh very uh it has to be sturdy or something, so maybe with with bouncing pads so that you can just throw it on the floor or something. it has to be used something special, and you really it has to, you know y not s people, when they buy it, they have to think, well this one lasts for a long time. We're really gonna use them. Not some thing you you throw away next week, you know.
+[00:26:02] Speaker D: Yes.
+[00:26:06] Speaker B: Yeah.
+[00:26:09] Speaker D: Yep.
+[00:26:20] Speaker D: No, that's true.
+[00:26:22] Speaker A: So maybe uh that's i I think that's when uh when we decide on these type of functions, know, basic functions, uh it's very important to find something like this. So there's a very important task for you. And maybe we can all think about it. Uh, also for you maybe, when t you it's very nice when you can be entra when you can be trendy, and and uh and al as in a friend use friendly as well, you know. So big buttons, flashy design, and maybe some kind of gadget kind of thing.
+[00:26:34] Speaker B: Be original, yeah.
+[00:26:40] Speaker B: Mm-hmm. And use friendly, yeah.
+[00:26:43] Speaker B: Yeah.
+[00:26:47] Speaker D: Yeah.
+[00:26:51] Speaker B: Must brain-storm.
+[00:26:51] Speaker A: Uh-huh.
+[00:26:51] Speaker D: Yeah, a swapable front or whatever.
+[00:26:53] Speaker A: Yeah, or just different colours would be uh I don't know if people also wanna spend more money on fronts for their uh remote control. It could be be Yeah, you never know, but
+[00:27:00] Speaker B: Well
+[00:27:00] Speaker C: For the remote control.
+[00:27:01] Speaker B: Why not?
+[00:27:03] Speaker D: Yeah.
+[00:27:04] Speaker B: More money for us.
+[00:27:07] Speaker A: But it and I think we have to make it quite big.
+[00:27:07] Speaker B: Yeah.
+[00:27:10] Speaker B: Quite big. Yeah, you think?
+[00:27:10] Speaker D: Yes, definitely, definitely.
+[00:27:11] Speaker A: Yeah, people
+[00:27:12] Speaker C: That's to be uh a formed for your hand.
+[00:27:14] Speaker A: So, and and also because uh it is expensive. If you want it to be something, you know, it's ha doesn't have much functions want to be you don't want to get it l make it
+[00:27:20] Speaker D: Yes, it it it should be f be visible nearly anywhere in the room. As I uh as I said during my presentation, fifty percent uh o
+[00:27:26] Speaker A: Mm-hmm.
+[00:27:28] Speaker A: And shou and should ni look nice when you put it on a table. I I think you m might wanna put it uh yeah, that it it it it stands up. Yeah, you have to put it on its So it's like a vase or uh something you put on a table. no no, put stuff inside it. But, it's like like a statue or something
+[00:27:33] Speaker B: A standard or something.
+[00:27:35] Speaker D: Yeah.
+[00:27:39] Speaker D: A face? Or uh yeah, yeah. Yeah.
+[00:27:41] Speaker C: More like a joystick then.
+[00:27:44] Speaker D: Yeah, yeah, I see what you mean, yep.
+[00:27:46] Speaker B: It's like you have uh four phones. Something like that.
+[00:27:47] Speaker A: Yeah yeah, but yeah, but you also can put it somewhere near the window in
+[00:27:49] Speaker D: If you do that, but I don't know if that's possible within the production cost of twelve and a half Euros. I in in the base we could like make uh a button, and if you push it, the remote control itself s makes noise. That's probably stupid, but uh as I found here uh, fifty percent, was it fifty? Uh fifty percent
+[00:27:52] Speaker A: That it's it's fashionable.
+[00:27:55] Speaker A: I I don't
+[00:28:04] Speaker A: Oh, yeah.
+[00:28:11] Speaker C: But that's that's fun for the first time, and then the second
+[00:28:14] Speaker D: fifty percent often loses remote control.
+[00:28:16] Speaker A: Yeah, but but when you when it gets lost, how can you press the button to make it
+[00:28:21] Speaker D: No uh, of the base the the the the the the the thing you put it in.
+[00:28:23] Speaker A: Oh, okay.
+[00:28:23] Speaker B: On the television.
+[00:28:26] Speaker B: Oh, like this.
+[00:28:26] Speaker A: Uh, that's kind of nice.
+[00:28:27] Speaker D: If an a button in in that uh
+[00:28:29] Speaker C: Or you can
+[00:28:29] Speaker A: And then also you don't even need batteries, because you can make it uh chargeable.
+[00:28:33] Speaker B: A char chargeable. Yeah.
+[00:28:33] Speaker D: Yeah, you can ma make rechargeable one, yeah. Why not.
+[00:28:33] Speaker C: Yeah.
+[00:28:36] Speaker A: Yeah, that w yeah, but yeah, the pro No, well I think that it might be t p Well, nee but we don't Yeah. Maybe you, but we don't know much about production cost, but when you you can imagine that when you spend twenty five Euros on a remote control and it's a basic remote control, then the then the money there must be money to spend on that kind of st you know, rechargeable units.
+[00:28:39] Speaker B: Why not.
+[00:28:50] Speaker C: With recharger.
+[00:28:56] Speaker D: It should only cost twelve and a half Euros, of course. Aye?
+[00:28:59] Speaker A: Yeah, but we would d ma we'd do it in Taiwan and So, it's not gonna be that expen
+[00:29:00] Speaker B: Production.
+[00:29:03] Speaker D: Yeah, okay.
+[00:29:06] Speaker B: It should be possible. I think it's a good idea.
+[00:29:06] Speaker A: Uh I I think it's a great idea.
+[00:29:09] Speaker D: Yeah.
+[00:29:09] Speaker A: S some kind of be I've never seen that before, and you make it uh um be uh, you see it with uh the mo the mouses nowadays.
+[00:29:10] Speaker B: To make a base or something?
+[00:29:16] Speaker D: Yes. Yes, definitely. Yeah.
+[00:29:18] Speaker C: Yes, but is that handy?
+[00:29:20] Speaker A: Well, I well it's really ch you can recharge it, so you ha never have the battery problem. That's one. And uh you can always find your remote control up
+[00:29:24] Speaker B: It's it's it's it's
+[00:29:26] Speaker C: But but remote controls remote controls nowadays can can last uh two years, three years, with with t two batteries.
+[00:29:26] Speaker B: it's not the purpose to be handy, it's
+[00:29:34] Speaker A: Uh, okay. Well, maybe yeah, you could when that's when it's too costly, you could probably skip the recharger, but you will you do need uh also an uh, also you would need a battery in the the base unit as well, you know. Does it makes it kinda
+[00:29:36] Speaker C: And then you
+[00:29:47] Speaker C: Yes. Or
+[00:29:47] Speaker D: Well y you you could connect that to two hundred to twenty volts, of course. I don't know.
+[00:29:50] Speaker B: Mm. Yeah, but that's not it's ugly, I think.
+[00:29:51] Speaker A: Yeah, yeah. Okay. Yeah.
+[00:29:54] Speaker A: Yeah, but then it's very easy to make it also a rechargeab I don't think that is gonna cost much to make it also a recharge function in it.
+[00:30:00] Speaker B: No.
+[00:30:02] Speaker D: On the other hand, if you don't do it, we can also make a nice bay. I mean, it looks trendy and still still put a bleep function in it, but um I think the bay is definitely uh
+[00:30:09] Speaker A: Yeah.
+[00:30:14] Speaker A: I think it's a good idea. And make it, you know, we we um
+[00:30:18] Speaker A: Well, we uh it's it isn't a t a most uh costly uh remote control. We can save on the on the functions. We just put some simple button in, make it big and sturdy, nothing more, and just make s sure there's some noise that it can make, or probably some kind of cheap light thing around it or that it uh that it lights up, it's also nice. And if you put it away, I think it's uh w we have to we uh that's uh it's not a easy market. We have to something special. And for twenty five Euros people want something remote c special from your mote control, and we can't deliver that in r with uh regards to the functions, because we aren't gonna put
+[00:30:36] Speaker D: Sure, why not. Yep.
+[00:30:41] Speaker D: Yeah.
+[00:30:43] Speaker B: Yeah.
+[00:30:45] Speaker D: Yeah.
+[00:30:46] Speaker B: True.
+[00:30:50] Speaker B: Yeah.
+[00:30:50] Speaker D: Definitely.
+[00:30:54] Speaker D: With eye candy, ear candy, whatever. Yeah, definitely.
+[00:30:57] Speaker A: Yeah. And then uh when make it, you know, nice looking shape and this and then you also you got the stand-up thing.
+[00:31:04] Speaker A: Yeah. I think I think it's a good idea.
+[00:31:05] Speaker D: Yeah.
+[00:31:06] Speaker B: Yeah, it must be must be a gadget to have.
+[00:31:08] Speaker A: Yeah. Oh, if it let's well, we will see what's possible concerning the the costs, and if it's possible we'll do that. And we even try to save up on other stuff to make sure we can do such a thing. And the first thing we the most likeable thing to to n to skip is then probably the recharge function or something. If that's too expensive, we won't do that. But it would be nice.
+[00:31:09] Speaker D: Definitely, yeah.
+[00:31:16] Speaker B: Yeah.
+[00:31:29] Speaker B: Yeah, we c
+[00:31:31] Speaker D: It would be nice, yes.
+[00:31:32] Speaker A: It's the idea. I know that batteries last long nowadays. And and what people just think about, well, I'll never have to buy any r batteries again, so y b because it's very annoying when your battery is empty. And you know then when you haven't batteries around, and probably for two weeks, your remo I've experienced that that
+[00:31:46] Speaker D: Most televisions break down before the battery pack is empty, so yes.
+[00:31:49] Speaker A: Yeah, okay.
+[00:31:52] Speaker A: So, easy functions. Well, we will we will I think we'll work that out, zapping, numbers on it, bi
+[00:31:58] Speaker B: Or just give a beep when the battery's out or uh down.
+[00:32:02] Speaker D: Yeah, why not.
+[00:32:02] Speaker A: Yeah. But it's also annoying. 'cause as long as it stays as it ke keeps working, you're not very motivated to do something about it. Then it beeps all the time and. You don't want to have ever have those problems, and you won't have if if you have the rechargeable. And you don't have to use the unit, you can also put it on the side if people don't like it. Uh, i i in the in the ma Yeah, but it w I mean, if if they pay for it because they think, oh, that's a great idea, I'm gonna use it. And when it, you know, when time goes by and they think, well, I'll never put him in the recharger, I think last long enough, then they put it on side and they can use it now and then. Then when they look get m I I I know for sure that everybody who buys this remote control, within a couple of months of they will be in the situation that they they're seeking for the remote control, they wanna see something quick and uh just push the button and th uh, I think it's brilliant. Yeah, I've never it's so simple, but I've never seen it.
+[00:32:07] Speaker D: Hmm.
+[00:32:09] Speaker B: Yeah.
+[00:32:11] Speaker B: true.
+[00:32:12] Speaker D: No, that's true.
+[00:32:24] Speaker D: Why not.
+[00:32:24] Speaker C: But you pay for it.
+[00:32:48] Speaker B: Yeah.
+[00:32:51] Speaker D: Bleep bleep bleep, oh there it is, yeah. Yeah.
+[00:32:53] Speaker B: Yeah.
+[00:32:56] Speaker D: No. Nearly.
+[00:32:56] Speaker B: And you can leave it just there.
+[00:32:57] Speaker A: M maybe we should really do this. Okay now, well, how much time have we got left? These clocks aren't uh synched. Oh, now I've put uh well, it is twenty p Okay, so we have ten minutes or something?
+[00:32:59] Speaker D: Yeah.
+[00:32:59] Speaker B: Yeah.
+[00:33:07] Speaker B: Yes.
+[00:33:10] Speaker B: Yeah, I'll
+[00:33:12] Speaker D: Something like that, yeah.
+[00:33:14] Speaker A: Yeah, but we're uh we're done. I think.
+[00:33:16] Speaker B: Uh fifteen minutes.
+[00:33:19] Speaker A: We've decided on the functions. Well, there is some oh.
+[00:33:25] Speaker A: There is a closing sheet.
+[00:33:28] Speaker A: We have lunch break, and then we have thirty minutes of individual work.
+[00:33:31] Speaker D: Oh.
+[00:33:33] Speaker A: Oh okay, I'll make sure I'll I had some problems with uh the digitising the the first minutes, the the s the next minutes won't be a problem, but I'll try to make sure the first one will be in the folder too, but maybe it won't work, but you'll see. I think these are more important than the first ones, so
+[00:33:46] Speaker D: We'll see.
+[00:33:49] Speaker B: Can you make an uh uh
+[00:33:52] Speaker B: a part of f folder for the minutes maybe? That not not everything in one one uh folder.
+[00:33:55] Speaker A: .
+[00:33:56] Speaker D: Maarten, five minutes.
+[00:33:58] Speaker A: Oh, five minutes. Yeah, because uh I I d I did uh the first minutes I did were were were a bit scratchy, you know. Then I did a s second one with a nicer layout, which I could uh, know, use for the other ones well, but uh I d think uh I forgot to do put done under the first one, and when you go write a second uh it's get it's not working when you try to write second uh paper or something. And then you you had to overwrite it or someth I don't know. Becau I d uh, it was not my uh pen.
+[00:34:15] Speaker B: Yeah.
+[00:34:19] Speaker B: Maybe.
+[00:34:20] Speaker D: No, that's true uh, yeah.
+[00:34:27] Speaker D: Should we by the way draw um
+[00:34:30] Speaker A: this kind of looks you like.
+[00:34:31] Speaker D: on our nice whiteboard, um a little uh idea of yeah.
+[00:34:35] Speaker A: Of the shape.
+[00:34:37] Speaker B: Or the sh
+[00:34:37] Speaker A: Yeah, probably, it would be nice.
+[00:34:37] Speaker D: I dunno. Has anyone got um a little bit detailed ideas about the shape? I don't, for one.
+[00:34:41] Speaker B: Do you get an idea of the shape?
+[00:34:45] Speaker C: Maybe like this pen.
+[00:34:47] Speaker D: A bit bigger I guess, but
+[00:34:48] Speaker A: No, bigger.
+[00:34:50] Speaker B: A little bit bigger, yeah but
+[00:34:52] Speaker D: The shape is nice, it's um
+[00:34:54] Speaker D: something different, and we want we want that. Yeah.
+[00:34:56] Speaker C: It has to feel nice in your hand.
+[00:34:57] Speaker A: Well, I I I have to say, I have this uh can opening remote control in my head most of all, or I think some maybe we should no, that will be too costly. We shou we could also, that was a would also be an idea, but I don't think it I don't know if it exists already, you should like make Alessi or something design it.
+[00:35:06] Speaker B: Oh, uh look uh look at the pictures.
+[00:35:15] Speaker D: Okay, yeah.
+[00:35:17] Speaker A: That would also be nice.
+[00:35:19] Speaker A: But that's gonna then you c then you don't
+[00:35:19] Speaker D: Yeah, but twelve and a half Euros? Uh
+[00:35:21] Speaker A: Yeah, but then you don't have t yeah it that's not something i that's in the production cost a one it's a one time, you know s was it's a single cost. Yeah, m but but then you can nah, I don't thin I think that it would be more expensive, because I've bought the Alessi stuff more often and even small pencil holders or something are more expensive.
+[00:35:29] Speaker D: Yeah.
+[00:35:42] Speaker D: Yeah, that's true.
+[00:35:44] Speaker A: Would be a nice idea though.
+[00:35:47] Speaker A: I don't know. I think it uh has to be a r it has to have round forms or something.
+[00:35:53] Speaker A: Like something like that or so or so
+[00:35:55] Speaker D: Something like that is very ergonomic.
+[00:35:57] Speaker A: And on th and then uh s a base unit underneath it. It's also round.
+[00:35:59] Speaker D: So
+[00:36:04] Speaker A: Put it in there uh wire on it.
+[00:36:07] Speaker D: Yeah.
+[00:36:07] Speaker A: Maybe uh, I don't know, some some lights, a big but well.
+[00:36:13] Speaker B: Yeah, flash lights at the side. At the side, or something like that.
+[00:36:15] Speaker A: Volume and programme, yeah.
+[00:36:16] Speaker D: Yes, volume and programme should be there I guess, because you hands wi uh y your hands will be in the smaller part.
+[00:36:20] Speaker A: And some of the extra funct
+[00:36:22] Speaker A: Some of the extra functions over here. Numbers.
+[00:36:23] Speaker B: Yeah.
+[00:36:24] Speaker D: Yeah, and the numbers on top, I guess.
+[00:36:26] Speaker B: Yeah.
+[00:36:26] Speaker A: And and lights? How we're g well, maybe uh s a ring of no, no, you have to Maybe on the side of it.
+[00:36:32] Speaker D: Maybe ro roun rounds uh uh l sorry.
+[00:36:34] Speaker B: Yeah, side of it. Just two LEDs or something on the side. Yeah.
+[00:36:35] Speaker A: Along the side uh strip of yeah.
+[00:36:37] Speaker D: Maybe lights also around the volume and the p the plus minus programme buttons.
+[00:36:43] Speaker A: Yeah, but I also meant the the blinking li w you know, the ones that also blink when you try to uh uh locate your remote.
+[00:36:44] Speaker D: Oh.
+[00:36:51] Speaker D: Okay.
+[00:36:52] Speaker B: Yeah.
+[00:36:53] Speaker D: Yeah.
+[00:36:54] Speaker A: Well, theys have to be
+[00:36:54] Speaker B: Well, uh probably at the side.
+[00:36:58] Speaker B: You know look at the front, but
+[00:36:58] Speaker A: Yeah. Yeah, yeah. Exactly. When you you see it from the side, then it would look just like that.
+[00:37:05] Speaker B: Yeah, exactly, and then there is yeah.
+[00:37:05] Speaker A: And then you have
+[00:37:07] Speaker A: a strip of uh lights or something.
+[00:37:08] Speaker B: Yeah, something like that, yeah.
+[00:37:08] Speaker D: Okay, yeah.
+[00:37:12] Speaker A: Well, uh I think it's nice, for one thing. maybe put something on top of it or, you know, like that's looks funny. I don't know.
+[00:37:17] Speaker B: No. No.
+[00:37:21] Speaker A: Or some bump. Maybe some Yeah?
+[00:37:21] Speaker D: I think I think that'll be too big tha too big then.
+[00:37:25] Speaker B: Bumper or something.
+[00:37:26] Speaker A: We'll have to think about it. I think we're we're done.
+[00:37:28] Speaker D: Yeah.
+[00:37:28] Speaker B: Yeah.
+[00:37:29] Speaker D: Yes, we are.
+[00:37:31] Speaker A: We can save this one.
+[00:37:31] Speaker D: Alright. Yes, I guess it's lunch time.
+[00:37:31] Speaker B: Lunch break.
+[00:37:33] Speaker B: Okay then.
+[00:37:37] Speaker A: Mm mm.
+[00:37:41] Speaker D: I don't know.
+[00:37:43] Speaker D: Half and hour? I thought our next uh next individual round was half an hour.
+[00:37:45] Speaker B: Okay, five uh
+[00:37:48] Speaker A: Yeah, that was what uh
+[00:37:49] Speaker D: I don't know about the lunch break.
+[00:37:51] Speaker A: Mm, we'll hear about it.
+[00:37:54] Speaker D: Well
+[00:38:01] Speaker B: Oh.
+[00:38:05] Speaker B: .

@@ -1,0 +1,894 @@
+[00:01:15] Speaker A: Okay, welcome to the detailed design meeting.
+[00:01:23] Speaker A: Again, I'm gonna take minutes. Oh, we're gonna have a prototype presentation first. Uh, who's gonna give the prototype presentation? You two guys? Okay. Go ahead.
+[00:01:34] Speaker C: Yes.
+[00:01:37] Speaker B: .
+[00:01:39] Speaker D: .
+[00:01:42] Speaker B: coffee.
+[00:02:05] Speaker C: 'Kay, we've made a prototype. Um, we've got uh
+[00:02:11] Speaker C: uh our aspects from the last meeting. Uh, especially we looked at the form, material and the colour. Um, we've uh drawn here the p prototype. The logo is uh
+[00:02:25] Speaker C: is uh
+[00:02:27] Speaker C: is pretty uh obvious to see on the on the remote control, but
+[00:02:34] Speaker C: it is necessary when you want to build your uh company f to a level higher.
+[00:02:42] Speaker C: Um,
+[00:02:44] Speaker C: our interface elements, there are shown in the in the drawing. Maybe you can uh point them uh
+[00:02:51] Speaker B: Uh, well the uh all the functions are discussed uh I think the most of the functions are uh uh obvious. Uh, it's a little bit. Uh, power button.
+[00:02:51] Speaker C: The functions.
+[00:03:04] Speaker B: Uh then the the the nine uh channels.
+[00:03:09] Speaker B: Uh the volume uh
+[00:03:13] Speaker B: uh at the side, and the other side is the programmes. And then we had uh just uh two buttons, we place them in the middle, uh the menu, and for the teletext I thought that was th
+[00:03:25] Speaker A: Oh no, the the the mute button misses now. Do y do you did we want to have a m mute button?
+[00:03:26] Speaker D: Alright, I
+[00:03:27] Speaker B: Oh, the mute button.
+[00:03:28] Speaker D: Yeah.
+[00:03:28] Speaker C: But uh that It's uh here then, in the middle.
+[00:03:30] Speaker B: Yeah.
+[00:03:31] Speaker A: Huh.
+[00:03:31] Speaker D: Alright, and uh you gotta point out which is the volume um uh button and which is the programme button.
+[00:03:35] Speaker C: Yes, um
+[00:03:37] Speaker C: we've disc
+[00:03:37] Speaker B: Well, yeah mo uh mo Yeah, well most of them are right-handed.
+[00:03:42] Speaker D: Yeah, but you you gotta make it clear on the on
+[00:03:42] Speaker C: Most of the users
+[00:03:45] Speaker C: Yes, y there there will be a p a little a little P_ on that and a little uh yeah.
+[00:03:45] Speaker B: Yeah well, I don't have time in uh anymore on the
+[00:03:49] Speaker D: Yeah, and a and a triangle on that.
+[00:03:49] Speaker B: Oh yeah, just progr programme above, I think.
+[00:03:52] Speaker D: Yes. Next to that I kinda miss a zero actually.
+[00:03:57] Speaker A: Wait, there's was one thing I wanted to ask. Uh, there are different ways for remote controls to uh do uh like
+[00:04:08] Speaker A: uh d I call it teens and twenties. Uh, y th th th the two numbers.
+[00:04:12] Speaker C: Yes.
+[00:04:13] Speaker D: All n no, that's um kinda dependent on the television.
+[00:04:14] Speaker B: Yeah, true, yeah.
+[00:04:15] Speaker C: It's a television. Yes.
+[00:04:18] Speaker B: Uh
+[00:04:18] Speaker A: Yeah, but do we have do we need extra buttons, for example some uh some have to
+[00:04:21] Speaker D: I think
+[00:04:21] Speaker B: Uh I think so.
+[00:04:22] Speaker C: Yes, yes, you have you have a lot of standard buttons that has to be uh on it, uh th with the one and a double uh uh yes.
+[00:04:26] Speaker D: Yeah, I think you should add
+[00:04:28] Speaker B: Zero?
+[00:04:29] Speaker D: A cross, or whatever. Yeah, line.
+[00:04:30] Speaker B: May maybe here?
+[00:04:30] Speaker A: Yeah, but you don't you don't actually need them, becau b l a lot of remote controls work that y when y that you when you fir you push the one first, then you have a couple of seconds No, I don't think so.
+[00:04:36] Speaker B: Yeah.
+[00:04:37] Speaker B: And then a second.
+[00:04:38] Speaker D: No, that's dependent on the television.
+[00:04:41] Speaker C: Yes, you have televisions, then you have to, you know, you have to uh press
+[00:04:41] Speaker D: I do know so.
+[00:04:43] Speaker B: Is it depending on television?
+[00:04:44] Speaker A: Nah, I don't think so really, because you have a I know some remote controls that don't have these buttons, but you still can, know, obviously you can still select the twenty uh a number in the twenty or in the ten.
+[00:04:44] Speaker D: Yeah.
+[00:04:52] Speaker C: Yes, but but a lot uh
+[00:04:54] Speaker D: Yes, but uh uh no uh remote control nowadays are um they come with the television. Or actually, the other way around. But
+[00:05:02] Speaker A: No, I think uh I really think it's n because you can when when you put a button on it with like one and uh then a dash, it's the same thing as when you just push the one, because it i it first gives you the functionality of that that uh separate button you also had to uh apply.
+[00:05:10] Speaker D: Yeah.
+[00:05:14] Speaker C: Yes, but
+[00:05:19] Speaker D: Yeah, well but su If
+[00:05:20] Speaker C: some televisions don't accept uh that that
+[00:05:22] Speaker A: Yeah, because that's i it's for television. It's exact the same thing.
+[00:05:25] Speaker C: No, no, but s
+[00:05:26] Speaker D: No no no. So some television respond differently. Look, if uh i i
+[00:05:29] Speaker A: No, listen listen. When you push the button, the remote control gives a signal. I in th in the first place it gives a signal which it would also send when you put a separate button on it. The one with dash, that signal gi and when y whe when you don't push another button on the remote control within five seconds, then the remote control gives a signal for channel one.
+[00:05:34] Speaker D: Yes.
+[00:05:39] Speaker D: Yes, that's true.
+[00:05:46] Speaker B: Yeah.
+[00:05:48] Speaker B: True.
+[00:05:49] Speaker D: No
+[00:05:50] Speaker A: I think it works that way, really.
+[00:05:51] Speaker D: No, it it it works uh if you haven't got uh a special button for it, uh if you push a one, then on your television there will appear a one and a a line, which is an empty space.
+[00:06:01] Speaker A: Yeah, but it's exact the same that w would appear when you put a separate button push a separate button.
+[00:06:02] Speaker C: Yes, but some some old televisions uh you have to uh click on uh a special button, uh then you go to a a next level, you can push two buttons.
+[00:06:13] Speaker A: Yeah, but you don't underst uh you don't understand my point. I think it's exact the same thing when y
+[00:06:13] Speaker D: Yep. True.
+[00:06:16] Speaker C: You want
+[00:06:18] Speaker C: Yes, but some television don't support it.
+[00:06:19] Speaker A: No, but then they would a would also support that button, because it's the same thing. Listen, with that that's that special but button you're talking about, eh? That's just a signal to recei ju they send a t signal to the v tv T_V_ that they have to put a one in on your screen and a dash, which you can pu so you can uh still put another number on it. When you don't have that separate button, and you push y one, it's exactly the same thing. Do y you the remote control gives that same signal as it would give when you only had
+[00:06:20] Speaker B: But the ex
+[00:06:45] Speaker D: No, s some some televisions need the input first uh and and you c
+[00:06:46] Speaker C: No, a remote can
+[00:06:50] Speaker A: Yeah.
+[00:06:50] Speaker C: Yes, so they need no, they need
+[00:06:51] Speaker A: But you give the input. You push the one. That's the same thing as the button with the one and it yes it it is. Think about it.
+[00:06:55] Speaker D: No, that's not true. It's simply not true. It's simply not true. Uh
+[00:06:58] Speaker B: Yeah. You uh you can wai when you push the one you can show on the telly a one and just a dash, and then wait uh two uh seconds or something
+[00:06:58] Speaker C: No, but uh
+[00:07:03] Speaker A: And it's the same thing what happens and a g remote control gives another signal after five seconds that is just one.
+[00:07:09] Speaker D: No, remote control doesn't give signal after five seconds. Remote control is a stupid thing. If you push a button, it sends it immediately to to the television.
+[00:07:15] Speaker A: Yeah, that's true. Yeah, but I m uh but it's I I know for sure that some televisions that w th th the remote control supplied, only ha has the c these buttons with a one and a dash and a two and a dash, but when you use a bu a n remote control that doesn't sport these buttons, it still works. But okay, we we'll impl
+[00:07:21] Speaker C: Yeah, it
+[00:07:30] Speaker D: No, definitely not. Definitely not.
+[00:07:32] Speaker B: We'll discuss them in the usability lab.
+[00:07:34] Speaker A: No, we'll apply them then for now.
+[00:07:35] Speaker B: Uh eva evaluation. I don't know uh I don't know if if it's it's necessary.
+[00:07:38] Speaker A: Yeah, app just apply them next to the zero, the one and the two. Yeah, I think so. Yeah, for now, if we don't know for sure whether
+[00:07:41] Speaker B: Yeah?
+[00:07:45] Speaker B: Okay.
+[00:07:48] Speaker C: And the button for the SCART uh audio video uh external input.
+[00:07:49] Speaker D: Yes.
+[00:07:51] Speaker B: Ach.
+[00:07:54] Speaker A: Yeah but okay. What I said about uh the remote control sending another signal, that that might not be true, but I still think i it it all T_V_s in some ways support it, I don't know. I think it's more c is m maybe we don't uh we both don't really understand how it i how it really works, but I think there's more to in than wha than what you just said.
+[00:07:54] Speaker D: Uh, you can access that uh via zero, and then minus, I guess. Yeah.
+[00:07:59] Speaker B: Yeah.
+[00:08:05] Speaker C: No, no.
+[00:08:14] Speaker C: Uh, remote control sends one signal at one button uh press.
+[00:08:18] Speaker A: I do think that uh m T_V_s support mur multiple kind of remote controls. M
+[00:08:20] Speaker C: Uh, some
+[00:08:22] Speaker C: N some televisions when when you want to go further than uh ten
+[00:08:25] Speaker A: Th won't work wi with uh to have that special button.
+[00:08:27] Speaker C: No, you have to you have to uh give the television uh two or more signals. When you uh press one button, you give one signal. And the older televisions need more signals to go a level higher.
+[00:08:41] Speaker C: But
+[00:08:42] Speaker D: Yep.
+[00:08:42] Speaker A: Okay, well we'll see.
+[00:08:43] Speaker C: When you make the technology that that it will uh give more signals,
+[00:08:49] Speaker C: it could work, but
+[00:08:52] Speaker C: Just a basic idea of of of the most uh most y
+[00:08:59] Speaker C: most common uh and simple uh operations on the remote.
+[00:09:03] Speaker D: Okay. I kinda miss the docking station.
+[00:09:06] Speaker B: Yeah.
+[00:09:07] Speaker C: Yes. It's here on the
+[00:09:13] Speaker B: Well it yeah, uh there's nothing I think it's pretty basic, the the there's no fu there's one there's one button, that's wha there's there's there's one function and that's n the one button when you want to find it.
+[00:09:17] Speaker C: We came uh
+[00:09:21] Speaker C: Yes.
+[00:09:21] Speaker D: No nothing really trendy about it.
+[00:09:26] Speaker C: But maybe we can maybe we can make the docking station uh uh a bit standard for for uh the other products we sell, because Real Real Reaction sells more products than only remote controls. So maybe we can uh use the docking station, for example, uh M_P_ three players or or uh
+[00:09:26] Speaker D: The button.
+[00:09:42] Speaker D: Yep.
+[00:09:50] Speaker C: uh hearing devices.
+[00:09:51] Speaker D: I think that's very difficult, because of different shapes of uh uh devices.
+[00:09:55] Speaker C: Yes, but when you put that same volt voltages on it, you can put uh when the when the when uh o the the the lowest part of it, when it's o the same as the other products, you can put it all on the same uh
+[00:09:59] Speaker D: Yeah, of course.
+[00:10:05] Speaker D: Mm-hmm.
+[00:10:10] Speaker D: Well it it got it it has got to fit into the shape, of course.
+[00:10:14] Speaker C: Yes, but we can make
+[00:10:15] Speaker D: The technology and the voltage can be the same. That's uh that's true. But uh i if you all make the m having a bottom like this, then they all fit.
+[00:10:23] Speaker C: No, we can make uh make the most lowest part all the same.
+[00:10:27] Speaker D: Yeah, that's true, but uh
+[00:10:30] Speaker C: When when the the recharger has a has a bit what points out, we can place all on top of it.
+[00:10:40] Speaker D: Yes, but uh I I g
+[00:10:40] Speaker C: Just have to be big enough for the biggest
+[00:10:42] Speaker D: Shouldn't it fall then? It isn't going to fall down? That's a bit uh yeah, I think
+[00:10:48] Speaker C: No, when you make it large enough no it it will not. But then it's a little bit
+[00:10:51] Speaker D: No, but if if like this, I'll I'll point it out, if you got uh a a a base a base like this, I won't draw it really. If you got a base which is uh as big as this
+[00:10:55] Speaker C: But it's just an idea.
+[00:11:00] Speaker C: But it's flat it's flat as as this, so we can p make all the products as flat as this.
+[00:11:04] Speaker B: You can.
+[00:11:05] Speaker D: Yeah sure, but if you got if you got a tiny player, it can
+[00:11:05] Speaker B: But i i i it's backwards.
+[00:11:10] Speaker C: Yes, but when you make uh uh a bit of big
+[00:11:11] Speaker B: But it's it's backwards. It's leaning. It's leaning backwards, I think, in the in the docking station.
+[00:11:15] Speaker D: Yeah. Uh, wha what you could do if you uh from the bottom oh, right, help. Uh, you could make like a hole in it, you know, of uh in in the
+[00:11:19] Speaker B: That's text.
+[00:11:21] Speaker A: But
+[00:11:23] Speaker C: Yes, little holer littler Uh, little products go deeper in it.
+[00:11:27] Speaker D: Yeah. That i that is possible, yep.
+[00:11:28] Speaker A: Well let's ha let's talk about the docking station later, because uh maybe we have we have to uh consider the docking station anyway, because we have some uh cost issues still to come. But we have to look n I don't know.
+[00:11:32] Speaker D: Yeah, sure, you're right.
+[00:11:35] Speaker C: Yes. And uh uh
+[00:11:38] Speaker D: Oh.
+[00:11:39] Speaker C: the f the look and feel would be great on this uh remote control, because uh you always uh will uh pick up the remote control in the in the smallest uh area. Then your uh left thumb of uh your right thumb is uh near the programme uh button,
+[00:11:42] Speaker D: I don't like the colours.
+[00:11:48] Speaker D: Mm-hmm.
+[00:11:51] Speaker A: Yeah.
+[00:11:58] Speaker C: which is the most common used uh function, and all the other buttons are available for your uh thumb.
+[00:12:05] Speaker C: So it's it's it's really good design.
+[00:12:06] Speaker A: Okay.
+[00:12:08] Speaker D: Yeah. Alright.
+[00:12:09] Speaker A: Yes. That's it?
+[00:12:11] Speaker C: Yes, uh on the side uh there will be a strip of rubber, and in the middle uh there is uh a hard uh a hard material, a bit hard plastic with a light uh behind it.
+[00:12:18] Speaker D: The light.
+[00:12:24] Speaker D: Okay. And other lights?
+[00:12:25] Speaker A: I think added lights are gonna be a problem too.
+[00:12:27] Speaker C: Yes, we can make also n neon lights on it, or or the buttons that can make uh light on it.
+[00:12:30] Speaker D: No, o on the on the front.
+[00:12:32] Speaker D: Yeah, okay. Maybe the uh the logo.
+[00:12:36] Speaker C: Yes.
+[00:12:37] Speaker B: lights?
+[00:12:37] Speaker C: But, it will also uh uh use batteries, and do we want to
+[00:12:38] Speaker D: Yeah, why not?
+[00:12:42] Speaker D: Of course.
+[00:12:43] Speaker A: Okay. For now, uh this is uh is good enough.
+[00:12:43] Speaker B: Mm.
+[00:12:47] Speaker D: Okay.
+[00:12:48] Speaker A: Yeah, what was uh on the
+[00:12:50] Speaker C: The all the aspects of the interface buttons were uh
+[00:12:54] Speaker A: Okay, but in the oh yeah, the colour, because we're gonna use uh one colour for the the plastic enclosure and one colour for the rubber, isn't it? Then we're gonna do the buttons in the i are we're gonna have rubber buttons. And they're be a they'll be in the same colour as the rubber on the side. Okay. And I think we should use a a darker colour for the um plastic, and maybe some more m brighter and flashy stuff
+[00:13:02] Speaker C: Yes.
+[00:13:06] Speaker C: Yes.
+[00:13:07] Speaker B: Yeah.
+[00:13:07] Speaker D: Uh, in the same colour as the side.
+[00:13:09] Speaker B: Yeah. Yeah. Yeah.
+[00:13:10] Speaker D: Yeah, I think I think that'll be good.
+[00:13:17] Speaker C: Yes, maybe we can use on the on the lights on the side we can use uh uh multiple uh lights, so it will uh
+[00:13:18] Speaker D: Yes.
+[00:13:26] Speaker A: Yeah, we'll talk about the lights later. 'Cause I also don yeah, it's depends on the costs and such. But uh, and we have to agree uh upon the exact colours, but may I dunno if that's important, but we'll talk about that later. Okay, for now this is this is okay. Um, the next p y you gonna give a presentation too? Uh, I have to see the agenda.
+[00:13:27] Speaker C: Yes.
+[00:13:27] Speaker D: Yep.
+[00:13:31] Speaker D: Yeah.
+[00:13:38] Speaker D: We will.
+[00:13:46] Speaker D: Well, uh yeah, I I'm gonna do something right there, yeah.
+[00:13:46] Speaker C: No.
+[00:13:50] Speaker A: Detail design.
+[00:13:51] Speaker D: We gotta do that on the right the most right-most screen, because the leftmost
+[00:13:56] Speaker A: Evaluation criteria.
+[00:13:59] Speaker D: Yep, that's me.
+[00:14:01] Speaker A: Okay.
+[00:14:02] Speaker B: Okay.
+[00:14:03] Speaker D: Alright. I will be needing that image, so leave it please. Um
+[00:14:13] Speaker D: Go away.
+[00:14:18] Speaker D: Right, we're gonna evaluate that design according to a few points. Um, we g the four of us are going to do that um together. I wanna have a colour over here, come on. Right, the remote is not ugly, a bit weird sentence, but
+[00:14:40] Speaker D: the positive things has to be on the left, so I said not ugly instead of ugly. Uh, what would you say, we we gotta give points to uh to all of these to evaluate uh that design, and please forget the drawing skills of these guys. The remote control is not ugly. How do you feel?
+[00:14:58] Speaker A: Okay.
+[00:15:03] Speaker A: Yeah, I think four maybe would be appropriate, because it's
+[00:15:07] Speaker A: Yeah, maybe it really depends on taste. Uh, I mean it's kind of, our design. It's so if maybe a lot of people find it really ugly, you know, o other people find it really cool. I don't know or uh I don't know how you
+[00:15:12] Speaker D: Yes.
+[00:15:13] Speaker C: Yeah.
+[00:15:17] Speaker D: Background colour.
+[00:15:20] Speaker D: How do you guys feel?
+[00:15:20] Speaker C: I think I think the the fronts will give it a more uh uh uh less uglier uh side, because you can uh make it in your own yes, you can make it in your own uh
+[00:15:20] Speaker A: Casting. Yeah.
+[00:15:30] Speaker D: The different designs. Yes.
+[00:15:33] Speaker B: Yeah.
+[00:15:34] Speaker D: Okay.
+[00:15:34] Speaker C: more to your own personality or or house style.
+[00:15:37] Speaker A: Yeah, but we d we didn't we're we're not planning to use fronts, I believe. With a colour a co a colours. Oh, okay.
+[00:15:41] Speaker D: No, not not fronts, but different designs.
+[00:15:42] Speaker B: No, not fronts. Different designs. Different colours maybe, yeah.
+[00:15:43] Speaker C: Yes.
+[00:15:44] Speaker D: And that's still uh uh, yeah, is is uh is a little personal touch, I guess. What?
+[00:15:48] Speaker A: Okay, but
+[00:15:49] Speaker A: Oh, maybe we should do three or something that w you know, our
+[00:15:52] Speaker D: Yeah, wha wha what would you uh guys uh think? Personally.
+[00:15:54] Speaker C: Or forty.
+[00:15:54] Speaker A: Yeah.
+[00:15:57] Speaker B: We can make it a one.
+[00:15:57] Speaker D: Personally.
+[00:15:59] Speaker D: Yes, but what is it?
+[00:16:02] Speaker C: I think two or three.
+[00:16:04] Speaker B: Mm yeah.
+[00:16:04] Speaker D: Guido?
+[00:16:06] Speaker B: I agree.
+[00:16:07] Speaker D: Two or three.
+[00:16:08] Speaker B: Um, I uh I go for the positive. So I go for two.
+[00:16:09] Speaker D: I was
+[00:16:14] Speaker D: I was thinking about three, so I guess
+[00:16:15] Speaker A: Uh, I was thinking about four, so I think three is uh
+[00:16:17] Speaker D: three is uh a bit uh oh, what am I doing? I'll mark it. The remote control's uh uh that n makes uh zapping easy.
+[00:16:17] Speaker B: Okay, three.
+[00:16:29] Speaker B: Yeah.
+[00:16:29] Speaker A: Yeah well, let that let's make that a one.
+[00:16:30] Speaker C: Yes.
+[00:16:30] Speaker B: Two.
+[00:16:32] Speaker D: Yeah? Antek, you agree?
+[00:16:32] Speaker B: One. One. Okay yeah, I'll I'll agree.
+[00:16:32] Speaker C: Yes.
+[00:16:34] Speaker C: Yes.
+[00:16:35] Speaker D: Yeah. You're not Antek.
+[00:16:35] Speaker A: That's one thing for sure.
+[00:16:36] Speaker B: I'm the I'm the usability, so
+[00:16:37] Speaker D: I totally agree. The remote control the remote control's relevant buttons are prominently visible.
+[00:16:44] Speaker C: Yes.
+[00:16:45] Speaker B: Yeah.
+[00:16:46] Speaker A: Yeah, two or a one, I guess. It's something we really put work into.
+[00:16:46] Speaker B: The
+[00:16:49] Speaker D: Yeah, I yeah. I would say a one because uh every button is uh uh relevant. And our oh yeah, it's a b yeah. Yeah? Alright. That's a one? You agree?
+[00:16:51] Speaker C: It's all about the buttons.
+[00:17:02] Speaker A: Yeah.
+[00:17:04] Speaker D: The remote control hasn't got too much redundant or unneeded buttons. I think we totally succeeded there. Oh
+[00:17:08] Speaker A: But
+[00:17:09] Speaker B: Well
+[00:17:10] Speaker A: Well maybe a two, because of the menu button or something. And telete
+[00:17:12] Speaker B: Yeah, well menu Yeah, maybe.
+[00:17:12] Speaker D: Yeah, that's true. That's true.
+[00:17:13] Speaker C: Also, the the the buttons of the one, the two, the the digits, o they're used uh uh
+[00:17:16] Speaker A: Yeah, we don't know if the uh they're necessary.
+[00:17:18] Speaker D: the the yeah, m well, you d you've got a point.
+[00:17:21] Speaker A: I think a two.
+[00:17:22] Speaker B: Yeah, true. Yeah, I agree.
+[00:17:22] Speaker C: Can yes, three, two.
+[00:17:24] Speaker A: Came a long way, but not we didn't not uh
+[00:17:24] Speaker D: Two or three?
+[00:17:26] Speaker B: Mm two.
+[00:17:28] Speaker D: Two? Antek.
+[00:17:28] Speaker C: But you can't make a remote control without them, because
+[00:17:31] Speaker B: Because we got
+[00:17:31] Speaker D: Nay that that that's true, that's true. They're definitely needed. So
+[00:17:33] Speaker A: No, w w it can also always be more simplistic, but two is yeah.
+[00:17:35] Speaker D: we put it on a two?
+[00:17:37] Speaker C: Yes.
+[00:17:38] Speaker D: The remote control has got a really trendy look.
+[00:17:41] Speaker C: Yes. A one.
+[00:17:44] Speaker D: Maarten.
+[00:17:44] Speaker A: Yeah, uh a t I think a two. Yeah yeah, y i it's hard to say from this picture.
+[00:17:45] Speaker B: Well.
+[00:17:49] Speaker D: Yeah.
+[00:17:50] Speaker C: We we've tried to make it uh the the best trendy look uh ever.
+[00:17:53] Speaker B: Yeah.
+[00:17:55] Speaker D: Ever, yeah. Guido.
+[00:17:57] Speaker A: But I do think it's more
+[00:17:57] Speaker B: Uh, I will I will make it a three, because uh yeah. I I th
+[00:18:01] Speaker A: But I do think that it's more trendy than beautiful.
+[00:18:04] Speaker D: Yeah, uh I agree. I agree.
+[00:18:04] Speaker C: Yes.
+[00:18:05] Speaker A: So so I think maybe it has to score higher uh on this than on the
+[00:18:06] Speaker B: Yeah. True, yeah.
+[00:18:08] Speaker D: I was planning to give it a two, uh where I give the not ugly uh oh, yeah, that's true. You agree on the two?
+[00:18:11] Speaker A: A th a three.
+[00:18:16] Speaker B: Yeah.
+[00:18:16] Speaker C: Yes.
+[00:18:16] Speaker A: I i uh when you compare to the
+[00:18:19] Speaker D: Great. Remote control hasn't got too much redundant or unneeded buttons.
+[00:18:23] Speaker A: Uh uh what's the difference with
+[00:18:25] Speaker D: Uh, I copied that one.
+[00:18:27] Speaker D: Well, uh forget that. Um
+[00:18:29] Speaker A: Okay.
+[00:18:33] Speaker D: Go away. Remote control has got innovative technology implanted.
+[00:18:38] Speaker B: No. We're not well, maybe the the the on the side.
+[00:18:38] Speaker C: No.
+[00:18:38] Speaker A: No.
+[00:18:40] Speaker C: No, not L_C_D_, so.
+[00:18:42] Speaker A: Yeah, but we uh you mean the rubber stuff? Yeah, but we have t we have to talk about the lights uh. And I don't u also it's also really not innovative, it's more
+[00:18:45] Speaker D: Yeah, and the light.
+[00:18:46] Speaker B: And the light maybe.
+[00:18:47] Speaker C: But that that's not innovative. Lights lights are
+[00:18:48] Speaker B: But
+[00:18:49] Speaker D: Well, I g
+[00:18:52] Speaker D: It's not seven?
+[00:18:54] Speaker A: No, six. Or seven maybe, yeah. Or six.
+[00:18:55] Speaker B: Well, six.
+[00:18:56] Speaker B: No, six.
+[00:18:57] Speaker C: Six.
+[00:18:58] Speaker D: Why uh why not a seven?
+[00:18:58] Speaker B: Six.
+[00:18:59] Speaker A: Yeah, mine is seven.
+[00:19:00] Speaker C: Because we've tried to make it a little bit innovative, but it but it
+[00:19:03] Speaker B: Yeah.
+[00:19:04] Speaker D: How?
+[00:19:05] Speaker A: Uh it's uh depends on the on the maybe
+[00:19:06] Speaker C: With the lights it it's it's kind of future
+[00:19:09] Speaker A: No, I think I think actually it's a seven maybe, but there's nothing innovative about it.
+[00:19:09] Speaker D: Yeah, you think the lights are innovative?
+[00:19:13] Speaker D: Well, it's n true. Uh, I agree, m but
+[00:19:16] Speaker C: But still you can retrieve it when it's when it's gone, with the with
+[00:19:19] Speaker B: Innovative in generally or just f original for
+[00:19:20] Speaker D: I'll
+[00:19:21] Speaker D: Yeah, you you didn't draw the docking station.
+[00:19:23] Speaker C: Yes. The docking station is a is a little bit innovative. It's a part of the remote. And with the speaker on the there's also a speaker.
+[00:19:24] Speaker A: N no no, t.
+[00:19:24] Speaker D: Yeah, it it's I think I think with its
+[00:19:25] Speaker B: A docking station is innova
+[00:19:26] Speaker A: Yeah, I mean the dock station, but but uh, I think the the docking station, it's gonna be a kind of a problem. But
+[00:19:29] Speaker D: I think more m
+[00:19:32] Speaker B: Okay.
+[00:19:34] Speaker D: Uh that that's n
+[00:19:35] Speaker A: Well, let's leave it open for uh for us later to see what, because we have to reevaluate anyway. Well I i yeah. No?
+[00:19:40] Speaker C: Okay.
+[00:19:41] Speaker D: No uh, well, the agenda says evaluate now, so I think we
+[00:19:44] Speaker A: Okay, for now it's a six or a seven uh, sev six maybe, because
+[00:19:46] Speaker D: It's it's a six.
+[00:19:47] Speaker B: Six.
+[00:19:48] Speaker C: But the retrieval or the
+[00:19:48] Speaker D: That m f Yeah, for the retrieval function.
+[00:19:49] Speaker A: Yeah, but I don't I don't know if it's very inno yeah.
+[00:19:52] Speaker D: Yeah. I think that's very innovative for a remote control.
+[00:19:54] Speaker C: Yes, how would you innovate a remote control more?
+[00:19:54] Speaker A: Yeah, v
+[00:19:58] Speaker A: Yeah, more through uh like function T_V_ functionalities and no no, you know what I mean. You have must be innovative technology for remote controls, but more in how you control stuff, not in how you find your yeah. Yeah, it's that's that's think about it la later on and uh
+[00:20:01] Speaker C: To put it on your head.
+[00:20:08] Speaker D: Yeah sure, but
+[00:20:12] Speaker D: But I d I definitely don't think it's a five, but
+[00:20:17] Speaker D: Remote control is easy to use.
+[00:20:18] Speaker A: Yeah, as a a one or a two ma uh at least.
+[00:20:19] Speaker C: Yes.
+[00:20:20] Speaker B: Yeah, a two.
+[00:20:21] Speaker C: Yes.
+[00:20:22] Speaker D: I think a two. Yeah?
+[00:20:23] Speaker A: Yeah, it's good.
+[00:20:25] Speaker B: More two.
+[00:20:25] Speaker D: Come on. The remote control hasn't got uh.
+[00:20:29] Speaker A: No, I would have seen that one before. Oh, you skipped one uh
+[00:20:32] Speaker D: I've just filled uh
+[00:20:34] Speaker A: Uh, here.
+[00:20:35] Speaker D: Go away.
+[00:20:36] Speaker C: You like the buttons.
+[00:20:37] Speaker D: I found twelve questions so much, but it still is ten.
+[00:20:41] Speaker A: Remote control will be bought by
+[00:20:43] Speaker D: It will be bought by people under the age of forty.
+[00:20:45] Speaker C: Yes.
+[00:20:45] Speaker A: Yeah. Definitely.
+[00:20:46] Speaker B: Yes.
+[00:20:48] Speaker A: Well
+[00:20:48] Speaker C: In in and comparing with uh people of th of the age above?
+[00:20:51] Speaker D: No no no. No, just if they if they buy it.
+[00:20:51] Speaker A: Uh, just in general. Yeah, a two.
+[00:20:54] Speaker C: We don't know. But
+[00:20:55] Speaker A: Yeah, but I think I think two.
+[00:20:55] Speaker D: Yeah, what do you think?
+[00:20:56] Speaker B: Yeah, I think two, yeah. I agree. Two.
+[00:20:59] Speaker D: Antek?
+[00:21:00] Speaker C: Yes, two, but only in c when you compare it with with elderly.
+[00:21:04] Speaker A: Uh, that is not the question. It's just w it will be bought by people under forty.
+[00:21:04] Speaker D: No, that's no comparison.
+[00:21:10] Speaker A: Yeah, you can yeah, you can be very picky about it.
+[00:21:12] Speaker D: And I don't mean two people.
+[00:21:12] Speaker C: This is just guessing.
+[00:21:14] Speaker A: Ah yeah, just make it we'll make it a two.
+[00:21:15] Speaker C: Make it a two.
+[00:21:15] Speaker D: W w
+[00:21:17] Speaker C: When it succeeds, uh it can get a two, mu
+[00:21:20] Speaker D: Right, the rem
+[00:21:22] Speaker D: The remote control has recognisable corporate image, colour, logo or slogan.
+[00:21:24] Speaker A: Oh no.
+[00:21:26] Speaker A: Yeah. Yeah, you have make an slogan is quite obvious.
+[00:21:28] Speaker B: We don't have the slogan though.
+[00:21:32] Speaker D: Oh, the slogan. Can we see the slogan?
+[00:21:33] Speaker A: Oh the oh sorry, no, not not the slogan. Yeah, you can put that on the side if if we would like to.
+[00:21:34] Speaker B: The logo.
+[00:21:35] Speaker C: A logo.
+[00:21:37] Speaker B: Underneath it or something.
+[00:21:37] Speaker C: Yes, uh encrypted uh with
+[00:21:40] Speaker A: Yeah, and I will I th still think it's gonna be a two or a three. Maybe a three this time.
+[00:21:41] Speaker D: Are we gonna do that?
+[00:21:44] Speaker B: A three. Three.
+[00:21:46] Speaker B: Yeah, a three.
+[00:21:46] Speaker C: Yes.
+[00:21:47] Speaker D: Three? I agree.
+[00:21:50] Speaker D: Because of the slogan Remote control's got a basic design intended uh for novice users.
+[00:21:51] Speaker A: And uh
+[00:21:54] Speaker A: Uh, it's a one or a two.
+[00:21:55] Speaker B: Yeah, two.
+[00:21:57] Speaker C: Yes.
+[00:21:58] Speaker D: Two? Two. Alright.
+[00:21:58] Speaker A: Yeah, make it a two.
+[00:21:58] Speaker B: Two.
+[00:22:02] Speaker D: We gotta add up the scores now to see our total average. Four, five, seven, nine. Forget that. Fifteen, seventeen, twenty one, twenty four, twenty six.
+[00:22:17] Speaker D: Twenty six.
+[00:22:21] Speaker D: It's a two point six.
+[00:22:25] Speaker A: It's not that bad. Yeah, and that's mostly the inno when we uh score higher on innovative technology, we would score two,
+[00:22:26] Speaker D: Alright, we yeah.
+[00:22:34] Speaker D: Yeah. True.
+[00:22:34] Speaker A: which is uh quite a great score. Okay. Uh, this is was uh the evaluation?
+[00:22:39] Speaker D: This was my evaluation. So
+[00:22:41] Speaker A: Because I I still think that the most important part of this meeting still has
+[00:22:43] Speaker D: We did a pretty nice job until now.
+[00:22:47] Speaker A: Yeah.
+[00:22:48] Speaker D: Um, is this your
+[00:22:50] Speaker C: Is there something after this uh meeting? Or
+[00:22:51] Speaker D: Whatever.
+[00:22:54] Speaker D: Well, I think we gotta fill out another questionnaire.
+[00:22:54] Speaker B: No.
+[00:22:56] Speaker C: Okay.
+[00:22:57] Speaker B: Okay, yeah.
+[00:23:05] Speaker A: Still opened or uh
+[00:23:08] Speaker A: Yeah.
+[00:23:08] Speaker D: Yeah.
+[00:23:11] Speaker A: Okay, finance. Because um
+[00:23:13] Speaker B: Shoot.
+[00:23:15] Speaker A: I received uh a spreadsheet.
+[00:23:15] Speaker D: A five. A five.
+[00:23:19] Speaker A: Yeah, but I uh actually don't need this presentation, I guess. Oh.
+[00:23:24] Speaker D: Doesn't matter.
+[00:23:26] Speaker A: I'm gonna open the spreadsheet and we're gonna work this out together, because I didn't really fin uh I have a.
+[00:23:35] Speaker A: Didn't really finish it.
+[00:23:37] Speaker A: Well, we uh We'll see. We'll stumble upon some problems.
+[00:23:42] Speaker D: We probably will.
+[00:23:43] Speaker A: I probably have already opened it here.
+[00:23:51] Speaker A: try it again. First of all, the mm all the docking station and costs and such are not included in this list.
+[00:24:04] Speaker A: But let's let's st start with beginning. We include one battery. I i uh I'll explain its Uh, the the components are listed over here. Uh, price is given. We um yeah, we we uh indicate the amount of components of the specif specific component, how much we need of them. And then uh, we'll uh calcula Don't watch the number yet. I don't know if it's filled in properly. Okay, we need one battery. One battery. I think one battery is enough. We don't need kinetic, solar cells, hand dynamo. A s okay, this this is a p first problem. Uh, I think
+[00:24:14] Speaker D: The amount, yeah.
+[00:24:29] Speaker C: Yes.
+[00:24:39] Speaker A: we should know how many
+[00:24:41] Speaker A: simple chips, regular chips
+[00:24:43] Speaker C: Uh it's it's one one chip, but but you have to choose one from it.
+[00:24:47] Speaker A: Okay.
+[00:24:49] Speaker A: But
+[00:24:50] Speaker C: The simple chip is e enough I I think, but with the lights with the lights and the retrieval, it can be uh
+[00:24:53] Speaker D: I don't know
+[00:24:55] Speaker A: Where did we find this information? Was it
+[00:24:57] Speaker D: I haven't got an idea on on which we need to use, really.
+[00:25:00] Speaker C: No, uh I
+[00:25:00] Speaker A: I think it was uh your job in the first uh meet Uh, f your first presentation to make this clear, but then you had some t time problems. But do you th you do you know what chip we need?
+[00:25:00] Speaker B: No.
+[00:25:08] Speaker C: Yes, my my my uh
+[00:25:08] Speaker D: Yeah.
+[00:25:13] Speaker C: The the email I got said uh simple chip, but when we put in the speaker and the retriever uh device, it will uh cost a a bit more, like I think the advanced chip maybe.
+[00:25:21] Speaker D: Yeah.
+[00:25:30] Speaker D: And how do you know? I mean, you got that email. Did it point out what to use them for?
+[00:25:32] Speaker C: Bec No, the they didn't know about a retriever or a speaker uh in it.
+[00:25:34] Speaker A: Maybe you can uh look it up right now.
+[00:25:38] Speaker A: Okay, but okay. When we don't when we leave the uh retriever and such aside, what then it would be a simple chip. And with the retriever, it would be an advanced chip.
+[00:25:43] Speaker C: Then it's a simple chip.
+[00:25:49] Speaker C: Yes, I I I s I
+[00:25:49] Speaker D: Alright, well, point out the advanced chip for now, I guess.
+[00:25:53] Speaker A: Okay. Yeah, but it will it will it will be cause a lot of problems. The sample sensor sample speaker. What is it m is that the speaker we were t I don't know what it is.
+[00:25:53] Speaker C: That will be enough for future uh recommendations.
+[00:26:04] Speaker C: I don't know it uh either.
+[00:26:06] Speaker D: I don't know.
+[00:26:11] Speaker A: Okay, we went for the double-curved case
+[00:26:15] Speaker C: Yes.
+[00:26:15] Speaker A: made out of plastic
+[00:26:18] Speaker A: and rubber.
+[00:26:20] Speaker A: And with a special colour.
+[00:26:22] Speaker A: I guess that's what we were
+[00:26:23] Speaker B: Well, special colour..
+[00:26:25] Speaker A: Yeah, I don't know about the special colour, but I think w uh
+[00:26:26] Speaker C: Otherwise, you get uh a standard uh plastic colour.
+[00:26:26] Speaker D: I don't know if it's very special.
+[00:26:26] Speaker B: I don't
+[00:26:29] Speaker A: Yeah, I think we uh we have special colours.
+[00:26:30] Speaker B: Mm okay.
+[00:26:30] Speaker C: Standard rubber.
+[00:26:31] Speaker D: Alright, that's okay.
+[00:26:33] Speaker A: Okay, then the push-button, I was just counting them. Uh, I think you have to indicate the amount of push-buttons we want to use, isn't it?
+[00:26:33] Speaker C: St
+[00:26:40] Speaker B: Whoa, it's a little
+[00:26:42] Speaker C: Yes.
+[00:26:42] Speaker A: Well that's bit of a problem, because I re but I really don't understand that, because I can imagine a remote control with far more push-buttons, and it wouldn't be possible according to this uh sheet.
+[00:26:43] Speaker B: That's huge.
+[00:26:52] Speaker B: No. We have the simplest buttons.
+[00:26:55] Speaker D: No.
+[00:26:57] Speaker C: No, it's only uh when you use push-buttons, it will cost that much. If you use a scroll-wheel
+[00:26:57] Speaker A: Yeah.
+[00:27:02] Speaker D: I don't think so, because it says amount. The the the yellow row is the amount of
+[00:27:03] Speaker A: Ah.
+[00:27:04] Speaker A: Yeah, it wouldn't
+[00:27:06] Speaker A: Fill in the number of components you plan to use in the and the total cost I don't know.
+[00:27:10] Speaker C: Maybe it's the kind of push-buttons. You can have f four kind of push-buttons.
+[00:27:10] Speaker A: I
+[00:27:15] Speaker B: Uh, one til nine. Is that one or is that nine buttons?
+[00:27:15] Speaker C: Rubber. You can have uh
+[00:27:19] Speaker A: And I count them like this.
+[00:27:22] Speaker A: One two three uh four five six seven eight nine ten eleven twelve and thirteen. Because Oh, this is oh, this is one, okay. Twelve, okay, then it would be eighteen, because uh, I uh rated them as uh um
+[00:27:25] Speaker B: Yeah.
+[00:27:36] Speaker D: To n that's total of four buttons.
+[00:27:37] Speaker A: as uh uh uh separate buttons. Yes. And plus these two, f uh plus the mute button, and it's will be uh eighteen.
+[00:27:37] Speaker C: Different, yes.
+[00:27:40] Speaker D: I think that
+[00:27:45] Speaker D: Eighteen. One two three four five, si
+[00:27:48] Speaker C: Why is that so uh expensive.
+[00:27:50] Speaker A: Yeah, I don't understand. Y I do I don't get the point, because it's would be
+[00:27:55] Speaker A: s relatively so expensive, just these m small buttons.
+[00:28:00] Speaker B: Is it cents, the the the fifty cents a button?
+[00:28:02] Speaker D: Fifty cents for one single stupid button.
+[00:28:05] Speaker C: So, whe when you so then it
+[00:28:05] Speaker B: No way.
+[00:28:07] Speaker A: Well, okay, well well let's make it just one.
+[00:28:08] Speaker C: It's eighty percent of the price of the of the amount of
+[00:28:11] Speaker A: Here, now it's now it's already s shall we just
+[00:28:12] Speaker D: Yeah, exactly. Yeah.
+[00:28:17] Speaker A: give our own interpretation to, because else we would really have a problem. It would be impossible to make it
+[00:28:22] Speaker D: I can't I I I couldn't understand it if it was fifty cents per uh uh per button. Really.
+[00:28:22] Speaker B: It's way
+[00:28:27] Speaker C: When you have the same amount of button, you have to put in wi in your carton. Board. And then throw it
+[00:28:31] Speaker A: And and less buttons than this isn't possible. This is the most simple yeah, it is possible, but I've never seen one before.
+[00:28:31] Speaker D: Yeah, yeah,
+[00:28:34] Speaker B: No, no no.
+[00:28:36] Speaker C: But whe
+[00:28:38] Speaker C: I've seen one uh one remote control with only the pu yeah, only with uh page up, page down and volume, but but
+[00:28:39] Speaker D: No, really.
+[00:28:40] Speaker A: Yeah, without the numbers. That's possible.
+[00:28:44] Speaker B: Yeah, uh
+[00:28:45] Speaker A: Yeah, we could skip the numbers.
+[00:28:46] Speaker D: Yeah, but I d I wouldn't want to own that. Really.
+[00:28:49] Speaker B: That's still four.
+[00:28:49] Speaker C: Uh, it's it's still for little children. They can handle that remote control, but but it isn't fo
+[00:28:52] Speaker D: Yeah.
+[00:28:53] Speaker A: Then uh, teletext would also be im impossible.
+[00:28:56] Speaker C: Yes, it's for it's li uh it's just for a little
+[00:28:57] Speaker B: Yeah, that's no option, that's no option.
+[00:28:58] Speaker A: Okay, we'll we'll just okay. But then still, when we there's no room for a docking station or something. Tha w Le let's see th we have uh oh yeah, button supplements. We'll give the buttons special colour. We'll give them a special form. Uh, I think we should mark the special form thing, because it this will be some special forms incorporated in these big buttons, I guess.
+[00:29:19] Speaker B: A special colour, why a special colour?
+[00:29:21] Speaker A: Because the buttons will be uh d will be matching colour between the buttons and the rubber surroundings. I think that's the what they mean by a special colour. I think all the special colour things have to be marked over here, because that's what we were planning to do, making it
+[00:29:23] Speaker B: But wha what s what special?
+[00:29:26] Speaker C: Otherwise, it
+[00:29:26] Speaker B: Okay, yeah.
+[00:29:28] Speaker D: I don't think the special form is really true.
+[00:29:28] Speaker C: Otherwise it would be the
+[00:29:28] Speaker B: Uh, yeah.
+[00:29:35] Speaker C: Special form also, it says.
+[00:29:37] Speaker A: Yeah, special material r also, because i has rubber. And the buttons have to be rubber.
+[00:29:37] Speaker D: Is it?
+[00:29:43] Speaker C: What is the normal material?
+[00:29:45] Speaker D: Yeah, I dunno.
+[00:29:46] Speaker B: Plastic.
+[00:29:46] Speaker C: Sh yeah.
+[00:29:47] Speaker B: Plastic, I think.
+[00:29:49] Speaker C: Classic? Oh, plastic.
+[00:29:50] Speaker B: Plastic.
+[00:29:50] Speaker D: Plastic.
+[00:29:51] Speaker A: 'Kay, but the problem now is that the
+[00:29:56] Speaker A: There's no such thing as a docking station in this list, but we can all imagine that it would be impossible to make a docking station for thirty cents.
+[00:30:01] Speaker B: Yeah.
+[00:30:04] Speaker C: But we can uh sell the remote control and uh sell the docking station yes. And and but we don't have to tell it, but what we can say of can um almost make it impossible to buy a remote control without the docking station.
+[00:30:11] Speaker A: Separately.
+[00:30:11] Speaker B: Se no no no.
+[00:30:22] Speaker A: Yeah, yeah. Yeah, but I do like the idea, but we yeah. It uh but it then the docking station isn't relevant for this project anymore, but we can but then you still have to use we have to find out what chip we u need.
+[00:30:31] Speaker D: No.
+[00:30:32] Speaker C: No, but you otherwise you can't retrieve it.
+[00:30:38] Speaker D: Yeah, I really don't get it. I mean if it's a simple chip, then we suddenly got two Euros and thirty cents.
+[00:30:41] Speaker A: I think we can agree on this. I I think the special colour thing has to be uh marked.
+[00:30:46] Speaker A: 'Cause I think we uh Yeah, I think that's what what what they uh mean
+[00:30:47] Speaker D: Yeah, yep.
+[00:30:50] Speaker C: But for two Euros and thirty cents, we uh we don't get a docking station.
+[00:30:51] Speaker D: I think so, too.
+[00:30:54] Speaker D: Oh, I don't know.
+[00:30:56] Speaker A: But can we find out uh about uh this chips? Because when we don't need a d a docking station, then probably we also have only we also need a simple chip.
+[00:31:05] Speaker B: And then we can get a docking station.
+[00:31:06] Speaker A: And maybe then we can do something extra. Oh, n uh oh, still oh, it's gonna get more expensive with. Two. Then we have some money left. We can put then
+[00:31:09] Speaker C: For
+[00:31:16] Speaker C: For two Euros.
+[00:31:17] Speaker A: We can put a scroll-wheel on it or something.
+[00:31:20] Speaker D: Uh why? I mean i i if you if it would cost two Euros, that had a total a total thing, it would be nice too, I mean uh we're not gonna add uh a trip to Hawaii to it.
+[00:31:20] Speaker A: Yeah, well who knows. Or a little bit of tin titanium.
+[00:31:30] Speaker B: But what what can we do
+[00:31:31] Speaker A: Yeah, or we can ki do the kinetic cells. That's also maybe an idea.
+[00:31:35] Speaker B: But uh what can we do with the simple chip and what's difference with a regular chip and a advanced chip?
+[00:31:37] Speaker A: Yeah that's what then what he has to find out. Maybe you can uh find it in your email right now, then we know then we exactly know what it will cost us. Maybe is that that's nice to know.
+[00:31:43] Speaker B: If if i
+[00:31:49] Speaker B: Regular chip and because we don't have uh special functions to use uh in advanced chip, for example.
+[00:31:54] Speaker A: Yeah, bu bu but when we yeah, but when we skip when we um when we don't use the do we're not gonna make the docking station, then we still yeah, we need something else maybe to make it kind of special, because that was our our special feature.
+[00:31:56] Speaker D: I like the hand dynamo part.
+[00:32:11] Speaker D: We can make a plain docking station for two Euros. I mean
+[00:32:12] Speaker B: Yeah.
+[00:32:13] Speaker B: We'll go back uh tomorrow.
+[00:32:14] Speaker A: Yeah, okay, you can also do that, but maybe
+[00:32:16] Speaker D: Wi wi without recharge
+[00:32:17] Speaker A: It still is a special remote control cons uh you know, wi its form is special and material.
+[00:32:22] Speaker D: Yeah, but but we can make a docking station for two Euros uh if you don't put the recharge function in it. I mean,
+[00:32:31] Speaker D: it has a shape. Of course it has a shape, but i i
+[00:32:32] Speaker A: Yeah, but for two Euros, then we have still maybe we have to use the advanced chip, then two Euros isn't even possible.
+[00:32:41] Speaker D: Why should that not be possible?
+[00:32:43] Speaker A: Yeah, then because then we'd thirty cents left.
+[00:32:47] Speaker D: No, for for the uh for the docking station if you do if you choose the simple chip.
+[00:32:51] Speaker A: Yeah, but yeah, I don't know, because maybe d uh yeah, we have to find out with the simple chip.
+[00:32:56] Speaker B: That's the question. If we do i do we need an advanced chip, or is it okay f
+[00:33:00] Speaker D: Yes.
+[00:33:00] Speaker A: Yeah, and w and and we uh need f and what is this? Sample sensor sample speaker.
+[00:33:01] Speaker C: It isn't in my information, so I don't know it uh either. It isn't in my information, I uh I I've got a
+[00:33:11] Speaker C: schematic view of the remote control, but nothing about uh advanced chips or
+[00:33:19] Speaker A: You can look at it for s presentation.
+[00:33:25] Speaker A: S technical functions?
+[00:33:26] Speaker B: No.
+[00:33:27] Speaker C: Uh I've got here in uh I will put a I will put a page on it.
+[00:33:28] Speaker B: No no, they were uh mine, yeah.
+[00:33:30] Speaker A: Oh.
+[00:33:33] Speaker C: When my mouse works again.
+[00:33:41] Speaker A: Oh, oh oh.
+[00:33:46] Speaker A: Hey.
+[00:33:48] Speaker A: Oh.
+[00:33:50] Speaker C: My mouse is uh
+[00:33:52] Speaker D: Dead.
+[00:33:53] Speaker C: Yes.
+[00:33:53] Speaker D: Reanimate it.
+[00:33:54] Speaker C: Oh.
+[00:33:55] Speaker B: Died.
+[00:33:58] Speaker C: Ah, I've got it. I will put uh
+[00:34:01] Speaker C: my email on the
+[00:34:05] Speaker C: the network.
+[00:34:14] Speaker D: What the hell are these?
+[00:34:15] Speaker C: It's on it.
+[00:34:18] Speaker D: Oh, whatever.
+[00:34:21] Speaker B: Yeah, it's open.
+[00:34:40] Speaker A: Mm.
+[00:34:42] Speaker A: I don't think here it's in here already.
+[00:34:43] Speaker B: It's circuit board.
+[00:35:04] Speaker B: It's only just basics for for
+[00:35:06] Speaker A: It's nothing about s yeah.
+[00:35:09] Speaker C: Yes.
+[00:35:10] Speaker B: At the end circuit there is an infrared LED.
+[00:35:10] Speaker D: This isn't helpful.
+[00:35:12] Speaker A: No.
+[00:35:15] Speaker A: But i in the presentation of yours, there was also something about different components. Which one was it?
+[00:35:21] Speaker B: Components design.
+[00:35:22] Speaker A: Functional requirements?
+[00:35:24] Speaker C: Um
+[00:35:25] Speaker D: No, that was my presentation.
+[00:35:26] Speaker B: Components design maybe.
+[00:35:28] Speaker B: N on top.
+[00:35:28] Speaker C: Yes, that was mine.
+[00:35:29] Speaker A: Ah.
+[00:35:31] Speaker A: Ah yes, it was the second one.
+[00:35:33] Speaker C: But that was my second
+[00:35:35] Speaker D: It's already open.
+[00:35:35] Speaker A: Yeah, it was your second your first presentation.
+[00:35:38] Speaker D: It's at the bottom.
+[00:35:40] Speaker B: Working design.
+[00:35:40] Speaker A: Sorry?
+[00:35:41] Speaker D: It's uh at your task bar.
+[00:35:43] Speaker B: Yeah, but it's the the other one.
+[00:35:46] Speaker D: Oh.
+[00:35:46] Speaker C: Mm
+[00:35:47] Speaker B: Was it working design or components design?
+[00:35:47] Speaker A: Uh, this is n this is not this n that's not the right one. I don't oh.
+[00:35:48] Speaker D: Sorry.
+[00:35:52] Speaker D: Okay, sorry.
+[00:35:56] Speaker A: No, this is the other one. Or maybe something is uh maybe there's something abo in in these
+[00:36:05] Speaker B: Chip set.
+[00:36:06] Speaker C: But this is the same uh
+[00:36:09] Speaker C: This is o only the possibilities.
+[00:36:12] Speaker A: Here.
+[00:36:15] Speaker C: Yeah.
+[00:36:16] Speaker C: We can use a simple, a regular, or advanced chip.
+[00:36:19] Speaker D: Yeah, nice. I it doesn't say anything.
+[00:36:22] Speaker B: The display requires an advanced chip.
+[00:36:23] Speaker A: You know that a push-button requires a simple chip, but a scroll-wheel, it it me requires Okay, so we only need a simple chip.
+[00:36:27] Speaker C: Ah, okay.
+[00:36:30] Speaker B: Requires.
+[00:36:33] Speaker C: With the light.
+[00:36:35] Speaker B: Little lights. Yeah, but that that's just the same as the the LED.
+[00:36:39] Speaker A: No no, that's just a simple chip.
+[00:36:41] Speaker D: That's not needed.
+[00:36:42] Speaker A: A scroll-wheel it s uh only states that a scroll-wheel requires a regular chip, and that a display requires an advanced chip. So, we don't need any of them.
+[00:36:49] Speaker D: A display uh is, of course, uh for showing letters. For showing text. I don't think that uh just a l a little light
+[00:36:52] Speaker C: L_C_D_.
+[00:36:54] Speaker B: Yeah.
+[00:36:55] Speaker B: No.
+[00:36:59] Speaker B: I think uh the uh normal uh simple chip will be okay.
+[00:37:02] Speaker D: Yeah, I agree.
+[00:37:03] Speaker A: And what's the sample sensor slash sample speaker?
+[00:37:10] Speaker C: Maybe you can say against the remote uh page uh f uh page up, page down.
+[00:37:14] Speaker B: Yeah.
+[00:37:15] Speaker D: Yeah, I guess so too.
+[00:37:17] Speaker B: Yeah, true.
+[00:37:19] Speaker D: Next channel.
+[00:37:19] Speaker B: Well, that's not too what we want.
+[00:37:21] Speaker D: No. Well, we might want it, but
+[00:37:25] Speaker A: Okay.
+[00:37:25] Speaker C: All in twelve Euros.
+[00:37:27] Speaker A: Back to the costs.
+[00:37:30] Speaker D: Yeah.
+[00:37:30] Speaker C: Twelve Euros and fifty cents.
+[00:37:32] Speaker A: So we're gonna use the simple chip.
+[00:37:33] Speaker B: So, simple chip is okay.
+[00:37:35] Speaker D: Great. Delete. Yeah.
+[00:37:37] Speaker C: And the lights. Where uh are the lights?
+[00:37:39] Speaker B: Yeah, lights, yeah, there's no
+[00:37:41] Speaker D: Well, there're three, I guess.
+[00:37:42] Speaker B: category.
+[00:37:47] Speaker A: Nah, there is some money left to be spent.
+[00:37:50] Speaker B: Can we do it wi within two two Euro?
+[00:37:51] Speaker D: I think we can make a docking station. Yeah.
+[00:37:53] Speaker A: Okay, but what we have to think about now is that is is it still a special remote control? But I mean it isn't it hasn't got any innovative technology, we aren't gonna apply any uh innovated innovative te technology anyway, I think. I don't I don't see any possibility to do so, because it would wouldn't fit our defi design philosophy. But what w is there some extra maybe I think maybe the kinetic thing is something.
+[00:38:09] Speaker B: Mm-hmm.
+[00:38:13] Speaker B: But it's original.
+[00:38:16] Speaker D: No, that's true.
+[00:38:22] Speaker A: Instead of the rechargeable the rechargeable thing was something to um know, so y so people wouldn't have to worry about their batteries anymore. Maybe we if we put the kinetic thing in it
+[00:38:29] Speaker D: M bu
+[00:38:33] Speaker C: But but sometimes you put a
+[00:38:35] Speaker A: Yeah, you leave the p yeah, I know, but still I they will think about that. I mean if you u
+[00:38:40] Speaker C: Kinetics aren't uh nowadays only used in watches and that's because you're always walking.
+[00:38:43] Speaker A: The uh it's made for s people well, the they don't if it was uh uh r useless technology, they wouldn't put it uh as a possibility. And i it it th th the the target the target uh group are people who zap regularly and throw with their remote control as a matter of speaking. Because I think it when when there w was a remote control where it was useful to have a kinetic uh uh power source, then it would be this one. Because it's one it gets thrown around thrown around a lot and it gets used a lot
+[00:38:51] Speaker C: Uh solar cells are useless.
+[00:38:52] Speaker D: Or the hand dynamo dynamo
+[00:39:02] Speaker D: Yeah.
+[00:39:21] Speaker A: Hey that maybe that's cool that's a cool thing about it, you know. You don't use batteries. I've never seen it before in a remote control.
+[00:39:22] Speaker D: Yeah, but but if we ca
+[00:39:29] Speaker D: I don't know if
+[00:39:29] Speaker B: But then we could make a docking station.
+[00:39:33] Speaker D: Five minutes.
+[00:39:33] Speaker A: No, we we we can't make a docking station anyway.
+[00:39:37] Speaker D: That's not true.
+[00:39:38] Speaker A: Yeah, we can als or uh also m we we can make one we can still make
+[00:39:40] Speaker D: We can make a docking station for two thirty.
+[00:39:40] Speaker B: Wow, w why no li Look at now, we got two
+[00:39:44] Speaker D: Two thirty.
+[00:39:44] Speaker C: Fo for a docking station. With a cable, with uh buttons on it, with retrieval uh device in it.
+[00:39:45] Speaker B: two thirty left. Ca can't we make a docking station of that?
+[00:39:46] Speaker D: We can make a docking station. Sure.
+[00:39:51] Speaker D: Sure.
+[00:39:53] Speaker B: I don't know.
+[00:39:53] Speaker D: The power device is is i i is very cheap. That's just a regular uh power cable and whatever.
+[00:39:58] Speaker A: Yeah, but be serious, then uh the docking station will be a fifth of the price of the remote control.
+[00:39:59] Speaker C: Wi with a button to
+[00:40:01] Speaker B: Well, we we uh
+[00:40:03] Speaker D: So.
+[00:40:03] Speaker C: wi with a button to retrieve it, so it will beep. Uh, so it's uh wireless technology.
+[00:40:07] Speaker D: Yeah.
+[00:40:09] Speaker A: Yeah, but we uh we don't inc we haven't looked at the these costs of the speaker and other stuff.
+[00:40:17] Speaker A: I don't think it's realistic for you to do so.
+[00:40:19] Speaker D: Well then it's a useless project.
+[00:40:22] Speaker C: Look at the case, the case the case of of uh of uh
+[00:40:23] Speaker A: Oh, because we
+[00:40:25] Speaker B: Yeah, then we don't have any innovation things.
+[00:40:26] Speaker A: We well look at all the special stuff we have. Colour a the colours are special, the form is special. It th this is whole concept. Uh maybe it with the kinetic thing, I think we could do uh do a compromise uh with the kim kinetic thing.
+[00:40:34] Speaker D: Can't we uh
+[00:40:38] Speaker D: Can't we say fifteen Euros?
+[00:40:40] Speaker A: Uh, no.
+[00:40:42] Speaker D: No, sta yeah I mean
+[00:40:44] Speaker C: No, then we have to sell it for thirty Euros.
+[00:40:46] Speaker D: No.
+[00:40:48] Speaker B: No, we only make less profit of it.
+[00:40:48] Speaker C: It's the
+[00:40:51] Speaker D: You can sell for twenty seven and a half.
+[00:40:54] Speaker D: Then you make as much profit as you would with twelve and a half production costs.
+[00:40:55] Speaker B: No.
+[00:40:59] Speaker A: Yeah, I don my suggestion is to just forget about the whole docking station thing and make it uh like a
+[00:41:06] Speaker A: Uh uh I I I I still fee I also feel this concept of making it kinetic,
+[00:41:11] Speaker A: because of the you know, it g it gives something dynamic to the remote control.
+[00:41:12] Speaker D: I don't think
+[00:41:13] Speaker C: Maybe we can uh can do it both. Maybe we can do it both uh in the in the in the remote. Battery and kinetic.
+[00:41:21] Speaker D: No.
+[00:41:21] Speaker A: No, that wouldn't n no.
+[00:41:23] Speaker D: Thirteen twenty.
+[00:41:27] Speaker A: Yeah, and it is also not a good it's not you have to really do it only kinetic, you don't want it to think about batteries anymore.
+[00:41:29] Speaker D: And I think only
+[00:41:32] Speaker C: Yes, but when it's then when it then you have to shake it uh and all when it's when it's empty.
+[00:41:33] Speaker D: Yeah, but only kinetic, then you gotta
+[00:41:34] Speaker A: No no.
+[00:41:38] Speaker A: Yeah, it's great.
+[00:41:38] Speaker D: You you gotta throw uh throw it through the room like twenty times an hour, really.
+[00:41:42] Speaker A: No no no. No no, this is very sophisticated technology technology. When you use it your remote like once a day, or maybe even less i i it
+[00:41:46] Speaker C: You asked for three d
+[00:41:50] Speaker C: No, that's n that's not true. Uh, a watch is uh kinetic because you walk all the time.
+[00:41:52] Speaker D: No.
+[00:41:53] Speaker A: It We can make it yeah no. Becau be but a remote control gets why do they state that this technology can be used if it
+[00:42:00] Speaker C: Yes, solar cells are also stated.
+[00:42:02] Speaker A: Yeah, m but a w uh uh n uh a calculator also works on r on solar cells.
+[00:42:07] Speaker C: Why don't we use solar cells then?
+[00:42:09] Speaker A: Because I think the d whole dynamic part, do you know, appeals to me qui uh thinking of our design philosophy, you know, with the rubber parts and uh sturdiness of the thing, and y when you move it around a lot, then people find the idea funny that when I move my remote control around and
+[00:42:25] Speaker C: That's true.
+[00:42:26] Speaker D: Yeah, it's funny for a week. I guess something like that, where you have to move it around very frequently, is demotivating.
+[00:42:33] Speaker A: Yeah, but you don't have to. Trust me. The idea of this technology is that you don't think about it, it just happens.
+[00:42:40] Speaker D: No, I I don't move my uh my remote control very much, seriously.
+[00:42:42] Speaker A: Okay, then we d Okay, well y we don't have to do it, but what that would just have a lack of key features, you know. You m have to put something on your box. You have to make people buy it and uh
+[00:42:42] Speaker C: Oui.
+[00:42:54] Speaker A: We can really can do the docking thing, uh it's not yeah, uh we can do it, but it's would be a easy way out.
+[00:42:58] Speaker C: You can do it for fifty cents.
+[00:43:02] Speaker D: Well, we've got more than fifty Cents.
+[00:43:03] Speaker C: The c The case the case alone is is is uh
+[00:43:04] Speaker A: Okay, but we have to grou to agree upon something, because uh we only have a minute left or so.
+[00:43:08] Speaker C: the case alone for uh remote control is at least one Euro.
+[00:43:14] Speaker C: Then we have one Euro thirty for the whole docking station.
+[00:43:16] Speaker A: No no, it's not possible.
+[00:43:18] Speaker A: Okay, w b we can s we can leave it on be well then then th it's this is then then our concept is ready.
+[00:43:26] Speaker B: Cheap remote control.
+[00:43:29] Speaker A: Yeah, we make some extra profit of it.
+[00:43:32] Speaker D: Yeah. No, we won't, but that's um something else. No, this not gonna sell. No.
+[00:43:34] Speaker C: But now
+[00:43:35] Speaker B: It w it won't tell, but
+[00:43:38] Speaker A: Huh, any ideas?
+[00:43:40] Speaker D: Of course not.
+[00:43:43] Speaker B: No, uh, n no
+[00:43:44] Speaker C: Great. It's great.
+[00:43:47] Speaker B: Yeah, we just have to go all what we did today again. You have to do it over.
+[00:43:47] Speaker C: Our remote control.
+[00:43:53] Speaker D: We come back tomorrow, okay?
+[00:43:54] Speaker B: Yeah. the
+[00:43:55] Speaker A: No no uh there's still there's still someth concept and something special left. I mean we're gonna it's gonna excel in in on in the the range in the field of design and and uh looks and feel.
+[00:43:55] Speaker C: Yes.
+[00:43:56] Speaker C: Seventy Euros.
+[00:44:01] Speaker B: No, but no.
+[00:44:08] Speaker A: That's what it's makes it special.
+[00:44:12] Speaker A: Yeah, and I would li I would have liked a kinetic part as well, to give it some
+[00:44:17] Speaker A: just to give it some extra special feature, and uh I know it will work, but uh it's it's an They're they're not putting technologies on this, but if it if it was impossible to
+[00:44:28] Speaker A: to make it happen.
+[00:44:29] Speaker C: Why not a hand dynamo then?
+[00:44:35] Speaker A: Okay, well we leave it like this. Then it's c then we're yeah.
+[00:44:37] Speaker B: Yeah, yeah.
+[00:44:38] Speaker D: We can't do anything else. Warning, finish meeting now.
+[00:44:42] Speaker C: We're done.
+[00:44:47] Speaker A: Okay, project e uh well, we were gonna what look take a look at the last sheet.
+[00:44:48] Speaker C: Is this it?
+[00:44:49] Speaker D: Yeah, sure.
+[00:44:51] Speaker C: Okay.
+[00:44:53] Speaker D: No, we can't.
+[00:44:55] Speaker A: Yeah, we have to Yeah, it's
+[00:44:57] Speaker B: No.
+[00:45:03] Speaker D: Yes, yes. Celebration. I don't see why, but
+[00:45:03] Speaker C: Yes.
+[00:45:06] Speaker C: Where's the champagne?
+[00:45:08] Speaker D: I think we gotta fill out another questionnaire, to be honest.
+[00:45:10] Speaker B: Yeah?
+[00:45:11] Speaker C: I don't uh hear a bell.
+[00:45:13] Speaker D: No, not yet.
+[00:45:19] Speaker D: Alright, I'll see you guys in a minute.
+[00:45:19] Speaker B: We can do it here then.
+[00:45:21] Speaker C: Bye.
+[00:45:23] Speaker D: I don't think so.
+[00:45:23] Speaker B: Can we can't we do it here?
+[00:45:24] Speaker D: I don't know. I don't I don't think so.
+[00:45:36] Speaker C: Uh-huh.
+[00:45:38] Speaker C: Just fill that one in.
+[00:45:53] Speaker B: Yeah, we're doing now. But it's.
+[00:45:59] Speaker B: Oh, okay.
+[00:46:05] Speaker A: Uh, I don't know.
+[00:46:06] Speaker B: Nice.

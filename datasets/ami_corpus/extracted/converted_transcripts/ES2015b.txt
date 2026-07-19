@@ -1,0 +1,487 @@
+[00:00:25] Speaker B: Okay.
+[00:00:28] Speaker B: Yeah. That's okay. That's okay.
+[00:00:47] Speaker B: Okay.
+[00:00:53] Speaker A: Am I starting now?
+[00:00:55] Speaker A: Anytime? Oh sorry. 'Kay, um. Alright, welcome back fro to the second meeting. And um I hope you had a productive last thirty minutes. Um, and um, I'll be taking minutes on this one, and um Being hooked up to the PowerPoint for this meeting isn't very necessary for uh myself, because it'll be more about uh, what you guys are bringing to the meeting today. Um, so, the first presentation we'll be looking at is Poppy's presentation. And, um
+[00:01:33] Speaker A: So, sorry? So, um, take it away Poppy.
+[00:01:37] Speaker B: Okay. Um, do I need to plugged in.
+[00:01:40] Speaker A: It's, it's plugged in. So, um
+[00:01:43] Speaker C: F_ eight, w. Function F_ eight.
+[00:01:45] Speaker B: F_ okay. Function F_ eight. Sorry about this guys.
+[00:01:48] Speaker A: No problem.
+[00:01:52] Speaker B: 'Kay. is on.
+[00:01:57] Speaker B: Right.
+[00:02:02] Speaker B: Okay. I will take this time just to apologise. I, I only, uh, received my emails later on. 'Cause I was too busy carried away doing my own thing, which is not obviously not a very good part of a team-working thing. But there we go. Um, so I was looking at how we're going to go about the working design, and what we actually need to do, and what the remote control needs to do. And it needs to um allow a person to have a portable desi device, so they can control the television from wherever they are. They don't need to actually manually touch the television set. So, it gives them much more flexibility, and allows them to be where they want to be.
+[00:02:16] Speaker A: I'm sure it's fine.
+[00:02:46] Speaker B: Um, from
+[00:02:49] Speaker B: Uh, on a functional side of things, we found out that wh from our previous meeting, we decided that there're certain points that will make our product unique. Um, one is the visibility in the dark, which was um Genevieve's idea. So we need to think about how we could bring this in um technically. And we could use illuminated buttons, which we are all familiar with when we're using a mobile phone, or um something fam familiar. A automatically, um lights up at first touch. Or we could use fluorescent materials which would just um take in the light during the day, and then as soon as they go off they would glow in the dark.
+[00:03:29] Speaker B: Um, also we could use um an alarm. So if we lost the um remote control, perhaps there could be a button on the television set itself, which you could press, and then an alarm from the handset would sound where it was, hopefully in the room. Maybe behind a cushion or somewhere. Um, so that would work. Um, oop. Go back there.
+[00:03:54] Speaker B: Um, another thing I think we d missed out on on the last meeting was the fact that we should consider the environmental impact of our design. Um, from previous researches I've carried out on other projects, um we've learnt about smart materials where um um specific alloys of metals have a shape memory. So they can be heated and um and cooled, and they change the shape of um the metal. So, for example, a screw that's holding something together could expand and it would force all the components apart.
+[00:04:30] Speaker B: So um, the benefits of this for our product would be that when it came to the end of its product life, if it was heated, um everything would spring apart. So, all the um individual components could be easily separated, and then some could be reused, some could be recycled, and I think that would be very important for products now. Especially 'cause there's much uh responsibility for all the um companies who are coming up with like new designs. 'Cause all, we all know that our resources are being limited, and we have to be very environmentally conscious.
+[00:05:01] Speaker A: Right, um, one question. This, um, self-destructible uh metal, it allows for recycling materials? So that, um, someone could have this product for as long as they felt that they wanted it, and then once they contribute it, then that company can break down the part, the parts better?
+[00:05:03] Speaker B: Yeah.
+[00:05:09] Speaker B: Um
+[00:05:16] Speaker B: And then
+[00:05:19] Speaker B: Yeah.
+[00:05:21] Speaker B: Yeah they would, um you would make the, the product as you normally would, apart from the, the bits that hold it all together would be made out of this shape-memory alloy. And that's the part that would um allow all the other parts to be separated at the end. I mean, the user would return the p product to the company, 'cause it's the product's responsibility to get rid of what they've made. Um, and then the company could then just use, make use of this shape-memory alloys to split up the components, and then either reuse some bits, and other bits which are obviously gonna wear out with time, or not usable, they might be like be able to put into scrap metal. Something like the case, if it's scratched or something, you would want to reuse it, but you might be able to melt it down and reuse it again somewhere else.
+[00:05:59] Speaker A: Yeah.
+[00:06:13] Speaker A: Mm-hmm.
+[00:06:15] Speaker A: Would we be the company that would break down these, or uh metals? Or would we contribute to another group?
+[00:06:20] Speaker B: You could we could probably empl em employ a, a side company or something to do that for us. But it would be our responsibility to get that done and to dispose of the products that we made. For a certain percentage at least. Not every, not a hundred percent of everything we produce, but
+[00:06:35] Speaker A: Alright.
+[00:06:38] Speaker A: Okay. This sounds like a really great idea. One thing we have to consider is our uh one hundred percent um turnover goal that we have for our financial sector. Um, so we'll have to investigate how much that will cost us, cost the company, um 'cause it sounds very labour-intensive. You would have to hire a number of people, and it might be more expensive.
+[00:06:46] Speaker B: Yeah. Yeah.
+[00:06:52] Speaker B: Yeah.
+[00:07:00] Speaker B: Well I the fact of the shape-memory alloys is that they, they don't need to be manually de um deconstructed. Like, you don't have to individually um unscrew all the screws. Because of this, their properties are smart material. All you need is just the heat, so they self-destruct themselves. So I suppose it does need like high contact, yeah, you know high uh quality machinery, and very specific machinery, but
+[00:07:16] Speaker A: Mm-hmm.
+[00:07:20] Speaker A: Alright. We'll still have to investigate the financial implications.
+[00:07:28] Speaker A: Alright. I like the environmental approach. Um, we'll have to see if that can meet our financial goals as well.
+[00:07:30] Speaker B: Yeah.
+[00:07:32] Speaker B: Okay.
+[00:07:34] Speaker B: Um also
+[00:07:37] Speaker B: there is um components. This'll be how it uh will actually work. But I haven't put this plan together yet.
+[00:07:45] Speaker B: There we go. Sorry, should I go back.
+[00:07:45] Speaker A: I'm sorry, could you Those were um
+[00:07:48] Speaker B: This would actually show the circuit diagram. Although I haven't come up with the final circuit yet. So I just put all those components in.
+[00:07:55] Speaker A: Okay.
+[00:07:58] Speaker A: So those are what, um, we'll c construct the remote. Those are all the
+[00:08:03] Speaker B: Yeah. I it just shows what sort of energy source. It could be a battery, like rechargeable probably. Um, an' yeah, well how the infrared will actually be sent through the chip to be received by the chip on the television set itself. Okay?
+[00:08:18] Speaker A: Alright. Great.
+[00:08:20] Speaker B: So, now is it F_ eight again to escape? Or escape?
+[00:08:25] Speaker B: There we go.
+[00:08:27] Speaker B: Okay.
+[00:08:28] Speaker A: Alright. Thank you very much.
+[00:08:30] Speaker B: Thank you.
+[00:08:31] Speaker A: And, um, the next presenter will be Tara.
+[00:08:37] Speaker B: There you go Tara.
+[00:08:38] Speaker C: Thanks.
+[00:08:44] Speaker C: Can you see?
+[00:08:45] Speaker D: Oh,
+[00:09:11] Speaker C: Do you think
+[00:09:18] Speaker C: Is it uh, function eight yeah?
+[00:09:20] Speaker B: Function F_ eight. The one at the top.
+[00:09:20] Speaker D: Function F_ eight.
+[00:09:20] Speaker A: Yeah. Function F_ eight. Sorry.
+[00:09:22] Speaker C: Oh right. Okay.
+[00:09:27] Speaker D: That looks right.
+[00:09:29] Speaker A: Yeah.
+[00:09:39] Speaker C: Okay.
+[00:09:43] Speaker C: I'm the User um
+[00:09:48] Speaker C: User Interface Designer. Uh, the technical functions design of the apparatus is the effect the apparatus should have. Um, in this case it's the function of the remote control, which is to send messages to the television, television set. By taking inspiration from other similar designs, we'll try and come up with an original trendy remote control, which is sellable international. There're two functional design options. A multifunctional remote control, which can be used for several entertainment devices. And a single function remote control, used specifically for the television.
+[00:10:27] Speaker D: I'm sorry, what was that last one. Multifunctional and
+[00:10:30] Speaker C: Sorry. Um, a single function just for the television itself.
+[00:10:33] Speaker D: Ch Oh, I see.
+[00:10:35] Speaker C: Yeah.
+[00:10:37] Speaker C: Um, multifunctional controls can be difficult to use, as the multitude of buttons can be confusing.
+[00:10:46] Speaker C: A single function remote control is simpler to use, but it means you have to have other remote controls for your other entertainment devices.
+[00:11:08] Speaker D: 'Kay.
+[00:11:08] Speaker C: Um, I think that a single function remote control would be preferable, because it's easier to use. It'd be more compatible with a range of television sets, making it more internationally sellable.
+[00:11:25] Speaker C: Um, it will make an original design more obtainable, as we have less functional necessities to include in the design. And it would be more profitable as it would be more simplistic. And less functions would have to be included.
+[00:11:41] Speaker C: So it would be cheaper to make. And probably more sellable just because it's more compatible with a r a wider range of devices.
+[00:11:52] Speaker C: Does anyone have any questions?
+[00:11:57] Speaker D: So as far as we know, um, a single function television remote control is us usable internationally?
+[00:12:05] Speaker C: Well, it's just that, when we're creating it, we're, we have to make it um compatible with different brands of devices. And it would be easier to make it compatible with just different brands of television devices rather than other ent, yeah, other entertainment devices.
+[00:12:16] Speaker D: Right.
+[00:12:23] Speaker D: D_V_D_s and V_C_R_? Okay.
+[00:12:25] Speaker A: Right.
+[00:12:27] Speaker A: Does everyone agree with this? Does anyone object and, and find the multifunctional might be a better way to go?
+[00:12:35] Speaker B: Um, I was just wondering about the, what, what Genevieve said before, about having like some hidden controls like having the outer casing. And that would probably, um, I d, well well what you said before about it being a more profitable simplistic design. I suppose having that would complicate it a lot more. And limit the design. Do you think?
+[00:12:51] Speaker C: Yeah.
+[00:12:53] Speaker C: Yeah.
+[00:12:58] Speaker D: Yeah, I think I agree with the single design thing for now, because we're trying to do so much, that if we're trying to make a unique, user-friendly, dadada, and it's also multi also multifunctional, um, we're gonna go over budget for one thing. So
+[00:13:03] Speaker B: Yeah.
+[00:13:09] Speaker C: Yeah. Yeah.
+[00:13:09] Speaker B: Yeah. That's true. Yeah.
+[00:13:10] Speaker A: Mm-hmm.
+[00:13:12] Speaker C: And with this we'll have more room in the budget probably to make a more original design. We'll have more money to go into the design side of it.
+[00:13:16] Speaker B: Yeah.
+[00:13:17] Speaker D: Mm-hmm.
+[00:13:20] Speaker A: Yeah.
+[00:13:22] Speaker B: Okay. Yeah.
+[00:13:24] Speaker A: Alright. Sounds great.
+[00:13:25] Speaker D: Mm, 'kay.
+[00:13:26] Speaker A: Alright, well, um, are you ready for your presentation Genevieve?
+[00:13:31] Speaker D: Yes I am.
+[00:13:32] Speaker A: Fabulous. Except you're not hooked up to the Great.
+[00:13:34] Speaker D: Oh, I'm not hooked up, but other than that, completely ready.
+[00:13:47] Speaker D: Okay.
+[00:13:58] Speaker D: Okay.
+[00:14:05] Speaker D: Oh. I just lost my microphone.
+[00:14:08] Speaker A: No problem, we can
+[00:14:09] Speaker D: Just a moment. Okay. So I'll be discussing the functional requirements of this remote control. Um, and I'll give you a little briefing on what that means exactly. Um, if you all remember from the email we got before our very first uh kick-off meeting, with the coffee machine? The functional requirements of that was to produce hot coffee quickly. Um, so what I'll be talking about now is the equivalent for a remote control. Um, so basically what needs and desires are to be fulfilled. Um, I've done some marketing research, a lot of interviews with remote control users, um, and some internet research. And I'll show you my findings.
+[00:14:49] Speaker D: Oh, and firstly I wanted to remind you about our company motto and purpose. So we believe in providing international market with fashionable products. Um, hence our motto, we put the fashion in electronics. So I think that should be our priority here. Um, and we should also be looking to trends in clothing and interior design. Not just in electronic fashion. So that it's something that fits in the household.
+[00:15:11] Speaker A: I'm sorry, what was that last thing that you just said?
+[00:15:14] Speaker D: Um, we should be looking towards trends in both clothing and interior design. Any trends that are going on in, in the public, even media, you know who's famous, what T_V_ shows are being watched, um, to influence our remote control.
+[00:15:18] Speaker A: Mm-hmm.
+[00:15:19] Speaker B: Mm.
+[00:15:22] Speaker B: Yeah.
+[00:15:29] Speaker D: Okay, so the findings. Um, seventy five percent of users of remote controls find them ugly. Which is a, quite a significant number. Um, the other twenty five percent didn't specify if they love them or found them, you know, neutral. Eighty percent of users would spend more money when a remote control would look fancy. Current remote controls do not match well the operating behaviour of the user.
+[00:15:49] Speaker A: I'm sorry, that eighty percent of users would spend more money when a remote control would look fancy. You mean that they would spend more money on a fancy-looking remote control?
+[00:15:56] Speaker D: Yeah, they're willing, they're willing to spend money on a remote control with personality. As opposed to your basic, you know, oval black, all same size button remote control. Um, so it is something that people care about. It's not, it's not ignored in the household. Um, seventy five percent of remote control users said that they zap a lot. Zapping meaning they go through channels a lot. They're you know thumb-masters. Um, and fifty percent of users say they only use ten percent of the buttons. That A very small amount. Thought that was interesting.
+[00:15:59] Speaker A: Okay.
+[00:16:01] Speaker B: Mm. Yeah.
+[00:16:15] Speaker B: Mm-hmm.
+[00:16:25] Speaker A: Alright, so it might be very appealing if, um, we have very concise buttons. And another thing with um lots of surfing, we'd probably have to work on something that could be um a lot more durable, because I find with um channel-changers that, um, a lot of the numbers get rubbed down if they're printed on the button.
+[00:16:26] Speaker B: Mm.
+[00:16:28] Speaker B: the single function. Yeah.
+[00:16:41] Speaker D: Yes.
+[00:16:43] Speaker C: Yeah. Yeah.
+[00:16:43] Speaker B: Yeah that's a good point.
+[00:16:45] Speaker D: And actually to go with that, I'm gonna give you some statistics on the uh relevancy of the buttons, how much they're used. And uh how important the uh users find them. So the power button, obviously, in an hour is only used once. Hopefully the person's not turning on and off the T_V_. Um, but the relevance of that button is nine out of ten. So people wanna be able to turn on the T_V_ with the remote control. Um, as opposed to standing up and turning on the television set.
+[00:17:09] Speaker D: Channel selection is used a hundred and sixty eight times on average per hour. That's a huge amount. This is the most important button. Um, so obviously when commercials come on they're changing it, so as you said we want a durable button that's not gonna run down. Relevance of that button, our users found was uh ten, ten out of ten. Uh, ditto for volume selection, so ten out of ten. And it's used on average four times an hour. Not as much as channel selection, but still significant.
+[00:17:33] Speaker D: Um, audio settings is used on average zero point eight times an hour. Relevance is two. Screen settings, which means brightness, colour etcetera, zero point five times an hour. Um, and relevance of one point five. We're getting to specific statistics here. Teletext, um, now I'm not too clear on what that is. I don't know if you can help me. Flipping pages.
+[00:17:54] Speaker C: It's um
+[00:17:54] Speaker D: Is that
+[00:17:55] Speaker B: It's like the news. Or like information.
+[00:17:56] Speaker C: It has T_V_ has like information, it has information on holidays, the news, entertainment. No, li Yeah.
+[00:18:03] Speaker B: The and what's on.
+[00:18:03] Speaker A: Yeah. It's um No it's a button that you press, and then you, uh, like a menu pops up. I haven't used it before but
+[00:18:03] Speaker D: So like a running banner, underneath
+[00:18:09] Speaker C: Yeah.
+[00:18:09] Speaker D: Oh.
+[00:18:10] Speaker C: And you have page numbers like for the menu, and you press the page numbers with your remote, and it, it'll come up.
+[00:18:11] Speaker B: It's like
+[00:18:17] Speaker B: It's like very basic internet. Sort of, um
+[00:18:17] Speaker D: Okay.
+[00:18:19] Speaker C: Very basic internet, yeah. But you have Yeah. But you have no interaction back with it, you know. Like the internet you can send emails and You've no interaction.
+[00:18:21] Speaker D: Okay. Like tells you the weather, and Okay.
+[00:18:27] Speaker B: Yeah, it's just information that um, like television timetables, what's on, what's on now, what's on next, on every channel, and
+[00:18:27] Speaker D: Right.
+[00:18:34] Speaker C: Yeah.
+[00:18:35] Speaker D: Alright. Well I guess I'm not with it, because I wasn't But it's, it's being used fourteen times an hour. Um, and has a r a high relevance of six point five. So it looks like something that we're gonna want to do some research on and include on our remote control. Um, channel settings. Zero point zero one times an hour. Relevance of three. Channel settings.
+[00:18:44] Speaker C: Yeah.
+[00:18:44] Speaker B: Yeah.
+[00:18:53] Speaker C: Uh, probably just tuning in the channels, would it be? Tuning them in at the very start. You know if you get a new T_V_ set, you tune in all the channels, do you th do you think? Yeah. Yeah.
+[00:18:56] Speaker D: P Sorry. Changing the channels?
+[00:19:01] Speaker D: Oh, okay.
+[00:19:02] Speaker B: To get the right reception and picture, I suppose.
+[00:19:04] Speaker D: Yeah. Okay.
+[00:19:05] Speaker A: Mm.
+[00:19:07] Speaker D: Um, so it's not used very often, but people still find it relevant. Okay.
+[00:19:12] Speaker D: Um, biggest frustrations of uh the people that we interviewed. Remote controls are often lost somewhere. So that was already discussed by Poppy. How we could have a, an alarm system so that people can find it. Um, takes too much time to learn how to use a new remote control. So it should be very user-friendly, you know. People know what to do very quickly. Um, remote controls are bad for R_S_I_.
+[00:19:35] Speaker B: Repetitive strain injury.
+[00:19:35] Speaker C: Repeti Uh.
+[00:19:37] Speaker D: Ah. Is that what it is? People with arthritis and such?
+[00:19:38] Speaker B: I think.
+[00:19:40] Speaker A: That's rather sad.
+[00:19:43] Speaker D: Um, maybe our
+[00:19:43] Speaker B: Oh, I'm guessing that's what it is. I'm not
+[00:19:45] Speaker C: Yeah, yeah. I think it is.
+[00:19:46] Speaker D: designers can look into that. Um, buttons that don't require, you know, very firm pushing, if they respond. But we'll have to also avoid, you know, buttons responding to the slightest touch as well. That's a problem.
+[00:19:48] Speaker B: Mm.
+[00:19:51] Speaker B: Yeah.
+[00:19:57] Speaker B: Yeah. It is.
+[00:20:00] Speaker D: Okay. Did you guys uh get that one down?
+[00:20:02] Speaker B: Mm-hmm.
+[00:20:03] Speaker A: Yep.
+[00:20:05] Speaker D: Um okay, here's some ideas for you. A large percentage of the public would pay for voice recognition on the remote controls. So I'll show you some numbers here.
+[00:20:18] Speaker D: Um, so the youngest age group, fifteen to twenty five. Ninety one point two percent said that they would pay extra money to have voice recogni voice recognition included on their remote control. Um, and you can see that number decreases a bit with ol s Interestingly enough, twenty five to thirty five is the lowest amount.
+[00:20:34] Speaker D: Um, that would, are willing to pay extra. So I guess we're gonna have to figure out what age group we're, we're targeting, and if and if voice recognition is something we wanna look into. And if we have the budget for it. Um, if we are targeting young adults, it looks like something that would pay off. Seeing as ninety percent, over ninety percent would pay for it.
+[00:20:51] Speaker A: I agree with um if we're targeting young adults then it would be something we should look into. Um, financially and and functionally. Um, and especially if we are um trying to be trendy, go with fashions, things like that. Um, ages like from thirty five to sixty five which show lower numbers probably won't be as concerned.
+[00:20:56] Speaker D: Mm-hmm.
+[00:21:03] Speaker B: Mm.
+[00:21:13] Speaker D: So that, that's a whole other field of research. I don't know if it'd be, if we'd still have a remote, or if you're talking to your television and saying change channel. Um and depending on how many members you have in households. So it m it may be too complicated for us, but it's something to keep in mind anyway.
+[00:21:20] Speaker A: Mm-hmm.
+[00:21:21] Speaker B: Yeah.
+[00:21:24] Speaker A: Yeah. And something that might further complicate it is that the T_V_ makes noise itself. Wonder if it would have
+[00:21:29] Speaker D: Right.
+[00:21:30] Speaker C: Yeah.
+[00:21:31] Speaker B: And if there was conversation in the room at the same time, although in theory it doesn't tend to be when you're watching television, but could be very difficult to get the specific uh design. Yeah.
+[00:21:35] Speaker D: Mm-hmm.
+[00:21:35] Speaker A: Yeah.
+[00:21:48] Speaker A: Yeah. If we're looking for a simplistic design, if We need to decide if that is our um intention is, is a simplistic design. Um, because if, if it is then I think voice, um voice-activated
+[00:21:49] Speaker D: Mm-hmm.
+[00:21:53] Speaker B: Mm.
+[00:22:01] Speaker D: It looks like
+[00:22:02] Speaker A: Yeah, and that would sort of negate the whole remote control thing, because if people can activate the television with their voice then they won't be using a, they won't be talking into a remote, I'm sure.
+[00:22:05] Speaker D: Mm-hmm.
+[00:22:08] Speaker D: It'd be like the ultimate remote.
+[00:22:13] Speaker D: Um okay. And th the last thing here was a, an L_C_D_ screen. So, I mean voice recognition might be a little too extreme for us. Not practical. Um an L_C_D_ screen though might be something that, you know, you can shift through pages kind of li the way this PowerPoint is working. So that you don't have so many buttons to deal with.
+[00:22:27] Speaker B: Yeah.
+[00:22:29] Speaker A: Um, I don't know what an L_C_D_ screen is.
+[00:22:31] Speaker D: Oh sorry, just, just a screen, like a computer screen. S Or like um
+[00:22:35] Speaker C: Mobile phone. Yeah.
+[00:22:36] Speaker D: Yeah. Or Like an alarm clock. You'd have an L_C_D_ versus just a, a normal clock.
+[00:22:37] Speaker B: Mm.
+[00:22:40] Speaker B: What, what would appear on the screen?
+[00:22:42] Speaker A: I have no idea still. I'm sorry.
+[00:22:44] Speaker D: Oh just like an electronic screen. As opposed to just buttons. There would be like a little, like on Yeah. Like on the top of a cellphone, the the little L_C_D_ screen. Um, now that's, I, I dunno exactly what exactly we'd put on there. I guess the channel that you're on, the v the volume setting.
+[00:22:48] Speaker A: Oh, on the remote. Okay.
+[00:22:51] Speaker A: Yeah.
+[00:22:57] Speaker C: Yeah.
+[00:22:59] Speaker C: Could it it It would be good if it had the actual programme that was on, and what was next. But that would probably be
+[00:23:05] Speaker B: Like linked in with the teletext, or sort of like an
+[00:23:06] Speaker D: Mm-hmm.
+[00:23:06] Speaker C: Yeah. That would be good, yeah.
+[00:23:10] Speaker B: teletext at your fingers, without having to access that through the television.
+[00:23:12] Speaker C: Yeah.
+[00:23:17] Speaker C: Might be quite expensive to do that though.
+[00:23:21] Speaker B: Mm, Yeah.
+[00:23:25] Speaker B: Could be.
+[00:23:25] Speaker D: Well I guess that's something we can all take back to our respective research. Um, and finally, whoops, my personal preferences and thoughts. Um, I think our priority really should be unique design. Um, we want something that people want in their home. Every remote control looks the same, so uh in my opinion it should be, um, user-friendly and unique.
+[00:23:26] Speaker A: Right.
+[00:23:30] Speaker B: Mm-hmm.
+[00:23:47] Speaker D: So the other stuff might be a little too, a little too gadgety for some people. Um, I th myself, voice recognition kind of scares me off. So if we're, if we're aiming to make this an international university, universally accepted product Um, and for all, the other thing is like age market. I mean if we wanted to concentrate on fifteen to twenty five years olds, we could go for the fancy stuff. But if we wanna make fifty million, and and have everyone want this remote control, we should maybe
+[00:23:52] Speaker B: Yeah.
+[00:23:56] Speaker B: Mm.
+[00:24:13] Speaker D: stick to the basics.
+[00:24:14] Speaker A: Mm-hmm.
+[00:24:14] Speaker C: And we should keep in mind that fifteen to twenty five year olds might not have twenty five Euros to spend on a remote control. Like their priorities might not be a fancy remote control, when they're just starting out and, yeah.
+[00:24:20] Speaker D: Mm-hmm.
+[00:24:27] Speaker D: Right. And we have to keep in mind the, the reliability of our research. I mean, you know, a sixteen year old boy would say, yeah I'd pay extra for voice recognition, until they realise that's three months allowance. Um, so I I think, I think the older generations we should be catering to a bit more.
+[00:24:32] Speaker C: Yeah. Yeah.
+[00:24:41] Speaker C: Early twenties, that's the kind of age group. Twenties.
+[00:24:43] Speaker A: Yeah.
+[00:24:45] Speaker A: And if one of the largest, uh, or most complained about thing is that it takes so long to get to know how to use a remote control, I'm sure that something like an L_C_D_ screen or remote control would be just furthering that problem.
+[00:24:51] Speaker D: Yeah.
+[00:24:52] Speaker B: Yeah.
+[00:25:00] Speaker B: Yeah. Complicated jus complicating things even fo Mm. Okay.
+[00:25:00] Speaker D: Yep.
+[00:25:01] Speaker A: Yeah.
+[00:25:01] Speaker C: Yeah.
+[00:25:04] Speaker A: Alright.
+[00:25:04] Speaker D: Okay. That's it for the market research.
+[00:25:07] Speaker A: Okay. Before we go into uh more discussion on we want this design to look like, I've received some information from the management that will affect some of our decisions. Um, for one thing, because Having controls with D_V_D_, V_C_R_, that sort of thing, would really complicate the design of the remote control. Um, we've decided not to include them and make it a specific, just a specific television um function. Which is good as, as we've sort of decided that we would like to go with that anyway. Um, for many reasons. So um we have that decision sort of made for us. Another thing that might um affect other decisions is that um the management feels that teletext is outdated, because more people are using the internet now. And so uh we won't concern ourselves with um navigating the teletext option. Yep.
+[00:26:06] Speaker B: Can I just interrupt?
+[00:26:09] Speaker B: Would you like to plug in your Have you got a PowerPoint or not? Okay. Thanks.
+[00:26:10] Speaker D: Yeah. Maybe we can do the
+[00:26:12] Speaker A: Okay, sure.
+[00:26:14] Speaker A: Yeah I do. I'm looking at looking at it right now.
+[00:26:17] Speaker D: There you go.
+[00:26:19] Speaker A: thank you.
+[00:26:22] Speaker D: Oh, come back screen.
+[00:26:28] Speaker D: Hmm.
+[00:26:33] Speaker B: Were they, was the management suggesting use of the internet rather than teletext, or just avoiding both altogether?
+[00:26:41] Speaker A: Um, well, I mean we don't have the resources or or possibility of using the internet with the remote control, but um they were just pretty much saying that the teletext would not be used.
+[00:26:45] Speaker B: Yeah. Yeah.
+[00:26:51] Speaker B: Okay.
+[00:26:53] Speaker B: Yeah. Okay.
+[00:26:56] Speaker A: Alright, and another thing. This is for the design, the design of the product is that um we wanna create, um
+[00:27:06] Speaker A: more of a sense that people know that this is from our company. So, um, all the remote controls must have our um We'll incorporate our logo and colour in in some way. So, um, perhaps um our logo on the bottom, or wherever you feel like it would look good. Um, it doesn't have to be the colour of our um of our company but, another thing is that, um
+[00:27:10] Speaker B: Right.
+[00:27:16] Speaker B: Yeah. Yeah.
+[00:27:23] Speaker B: Okay.
+[00:27:28] Speaker B: Just
+[00:27:33] Speaker A: we need to, we probably would have to have that colour and, and logo decided upon. Um, I'm assuming that we already have one, but for the purposes of this meeting I, I wasn't offered a, like a type of logo or colour, so if that could be um somewhere on the design so that we can be recognisable.
+[00:27:49] Speaker B: Okay. Work on that.
+[00:27:53] Speaker D: It's probably R_ R_R_ in yellow.
+[00:27:55] Speaker C: Yeah.
+[00:27:56] Speaker B: Yeah.
+[00:27:57] Speaker A: The little R_ R_ yellow thing? Okay. Real Reaction?
+[00:27:58] Speaker D: Yeah, I think.
+[00:27:58] Speaker B: Mm-hmm.
+[00:27:58] Speaker C: Yeah.
+[00:28:02] Speaker A: Okay. Um, yes, those are the changes. Um, so, now we need to discuss, um
+[00:28:13] Speaker A: and come to a decision on our remote control functions, of, of how this is going to be. I'm just going to look at my notes for a second. Um, we have to decide on a target group and the functions of the remote control. So, um, we already know that it'll just be for the television. It'll It won't have teletext. But um, you know, we could discuss um those other options that you brought up, Genevieve.
+[00:28:25] Speaker B: Okay.
+[00:28:39] Speaker D: Okay, so I Are we going to write off the L_C_D_ option? Yeah?
+[00:28:42] Speaker B: Yeah.
+[00:28:43] Speaker A: Is that how most people feel about that? Okay.
+[00:28:43] Speaker C: Yeah.
+[00:28:45] Speaker B: Yeah.
+[00:28:45] Speaker D: Okay. So no L_C_D_, no teletext, and no voice recognition.
+[00:28:51] Speaker C: I think it would be annoying though if I don't use teletext that much, but if it was on your T_V_, you'd want to be able to use it, if
+[00:29:00] Speaker A: Yeah, but another thing is that if we're reaching an international crowd, um, I know for one that in North America there is no such thing as teletext, so it'd be really superfluous.
+[00:29:00] Speaker C: You'd Yeah.
+[00:29:05] Speaker D: Yeah. Never heard of it.
+[00:29:06] Speaker C: So is it just Okay. Alright. Right.
+[00:29:07] Speaker B: Yeah.
+[00:29:10] Speaker A: Yeah. I don't know about other countries besides the U_K_. Do you know if anywhere else has it?
+[00:29:13] Speaker C: I don't know.
+[00:29:13] Speaker B: I don't know. More research required, I think. But if Was it a management decision that we're having Okay. So
+[00:29:15] Speaker C: I don't know.
+[00:29:18] Speaker A: Alright.
+[00:29:21] Speaker A: It was a management decision, so it's, it's pretty much out of our hands at this point.
+[00:29:22] Speaker C: Yeah.
+[00:29:24] Speaker B: Okay.
+[00:29:24] Speaker C: Okay then.
+[00:29:25] Speaker A: 'Kay.
+[00:29:27] Speaker A: So, I guess we're looking at something rather simple.
+[00:29:31] Speaker D: Um, well I guess, just from my findings it looks like we wanna minimise buttons.
+[00:29:36] Speaker B: 'Kay.
+[00:29:37] Speaker D: Um.
+[00:29:38] Speaker B: Minimal
+[00:29:41] Speaker D: And the What was the word they used? F findability is important.
+[00:29:47] Speaker A: Yeah. I think we should definitely go ahead with the alarm system idea that you had. 'Cause I'm sure that could be inex inexpensive because we could use the same kind of infrared
+[00:29:51] Speaker B: Yeah okay.
+[00:29:51] Speaker D: Mm-hmm.
+[00:29:52] Speaker C: Yeah.
+[00:29:56] Speaker B: Yeah. The same signalling. I mean
+[00:29:57] Speaker A: the same signal through that and it could just like make a little beeping noise. It's not that expensive to do.
+[00:30:01] Speaker B: Or vibrate just the same as a mobile phone. Like you just a, a buzz or something. Yeah.
+[00:30:06] Speaker A: Yeah.
+[00:30:07] Speaker D: Mm-hmm.
+[00:30:07] Speaker A: Yeah. Okay. I like that idea.
+[00:30:09] Speaker C: Would you be able to, um, put the little device anywhere? 'Cause uh isn't our remote control for
+[00:30:18] Speaker C: all T_V_s, so
+[00:30:21] Speaker C: you'd ha
+[00:30:21] Speaker B: If Do you mean the the link between the Well, if the button was actually on
+[00:30:24] Speaker C: Yeah, with the button that you pressed. Yeah.
+[00:30:24] Speaker A: Yeah. The button Oh.
+[00:30:29] Speaker B: Oh, yeah.
+[00:30:29] Speaker C: C 'cause then it would only be a applicable to one T_V_ set, so it would need to be something that you could stick somewhere, or something.
+[00:30:29] Speaker A: Minor detail there.
+[00:30:34] Speaker B: Maybe Yeah, yeah. Maybe something adhesive that you could like stick onto the back of any set that would be um yeah not very obtrusive. Obviously something small that's Yeah, that's a good point.
+[00:30:36] Speaker A: Yeah, it would have t
+[00:30:40] Speaker C: Yeah.
+[00:30:41] Speaker A: Mm-hmm.
+[00:30:45] Speaker C: Yeah.
+[00:30:47] Speaker A: Yeah. Then it wouldn't, it probably wouldn't be able to use It would be able to use the same reception on the remote c control I guess, but the actual device would have to have its own infrared signaller. Okay.
+[00:30:54] Speaker B: Yeah.
+[00:30:55] Speaker C: Yeah.
+[00:30:56] Speaker B: Yeah, okay.
+[00:30:58] Speaker C: Would it need a battery then?
+[00:31:00] Speaker A: Maybe, um
+[00:31:02] Speaker B: Pr probably. Unless it could be Okay. Um, unless some way, it could have some universal connection to like the socket, the same socket that the T_V_'s supplied from. I mean the power for the T_V_. So, mm, more research into that one. Yeah.
+[00:31:03] Speaker A: Probably, I mean. That's your department you'll have to sort that out.
+[00:31:06] Speaker D: Mm.
+[00:31:20] Speaker C: Yeah.
+[00:31:21] Speaker A: Yeah, you'll have to Yeah, you'll have to investi Do some research on that, alright? Great. Um, alright, and I'm sure that, um
+[00:31:24] Speaker D: Mm.
+[00:31:32] Speaker A: um, the glow-in-the-dark, fluorescent, whatever, system, um is a go ahead. Is everyone interested in that?
+[00:31:39] Speaker B: Y
+[00:31:39] Speaker D: On the buttons?
+[00:31:41] Speaker C: I I like the light up suggestion. I think that would be better. 'Cause you know the way fluorescent lights lose their brightness after certain time, so
+[00:31:43] Speaker B: Yeah.
+[00:31:44] Speaker A: Yeah.
+[00:31:48] Speaker B: Yeah. Yeah.
+[00:31:49] Speaker A: Yeah.
+[00:31:50] Speaker B: Yeah.
+[00:31:51] Speaker D: it doesn't It could it could be a tactile thing as well. Um right, if w if we're minimising buttons, we might be able to make them actually larger. And there's something on it. S you know like up arrow down arrow for, for volume. Um, and I don't know what we could do for, for channels. S
+[00:31:51] Speaker C: I would go for
+[00:31:59] Speaker B: Like a raised
+[00:32:07] Speaker C: Well just the numbers could be embossed, couldn't it? Like raised.
+[00:32:11] Speaker D: The numbers themselves. But then the like up button and down button for the channel, channel changing.
+[00:32:12] Speaker C: Yeah. Could be raised.
+[00:32:16] Speaker C: Just little arrows, that you could feel, maybe?
+[00:32:18] Speaker D: Yeah.
+[00:32:19] Speaker B: Yeah
+[00:32:20] Speaker A: Hmm.
+[00:32:20] Speaker D: I just thought that it, it might be sucking more battery power, if there, if it is a light up. I'm not sure.
+[00:32:25] Speaker C: Yeah.
+[00:32:26] Speaker B: That's true. And also y, uh Heather you mentioned before, um like how it should be accessible to everybody. Um, so like big b um buttons, for people you are visually impaired. The glow-in-the-dark or light up won't make any difference anyway. So like you say tactile might be better, because it'd be more available to everybody.
+[00:32:26] Speaker A: Yeah. But I mean
+[00:32:33] Speaker A: Yeah.
+[00:32:38] Speaker C: Yeah.
+[00:32:39] Speaker D: Mm-hmm.
+[00:32:41] Speaker C: That, I think that's good, yeah.
+[00:32:45] Speaker A: Yeah.
+[00:32:47] Speaker A: Could we somehow We could, may, possibly, sorry, incorporate them both so that the buttons could maybe be in the shape of the numbers themselves and be made out of some glow-in-the-dark material. 'Cause I d I don't think that glow-in-the-dark material, um, like the actual soft plastic, um, costs that much more than other colours.
+[00:32:52] Speaker D: Mm-hmm.
+[00:32:53] Speaker B: Yeah. Yeah.
+[00:32:53] Speaker C: Yeah.
+[00:32:57] Speaker C: Yeah.
+[00:32:59] Speaker B: Mm-hmm. Yeah.
+[00:33:00] Speaker C: Yeah.
+[00:33:00] Speaker D: Mm-hmm.
+[00:33:09] Speaker B: No, it's not these days. I mean, it's quite easily accessible.
+[00:33:09] Speaker C: No, I wouldn't say so.
+[00:33:12] Speaker A: Yeah.
+[00:33:13] Speaker D: I guess the other option, referring to the battery thing is, you know how cellphones will t light up for fifteen seconds or something, when you're s and then it goes, so if, if you're like changing the volume during a movie. I know, I'm thinking of mostly when you're watching a movie you turn all the lights off right. And you don't want to turn on the lights, to turn it down, because there's suddenly an explosion, and it's gonna wake up the baby. Um, so if you touch the button, it kind of reactivates it. It lights up for
+[00:33:17] Speaker B: Yeah. Yeah.
+[00:33:18] Speaker C: That's good Yeah that a good idea.
+[00:33:23] Speaker B: Yeah.
+[00:33:25] Speaker C: Yeah.
+[00:33:25] Speaker B: Yeah.
+[00:33:29] Speaker C: Yeah.
+[00:33:33] Speaker B: Yeah. Yeah.
+[00:33:33] Speaker C: That, yeah, that's a good idea.
+[00:33:34] Speaker D: On self timer.
+[00:33:35] Speaker B: So self-timed lighting.
+[00:33:37] Speaker D: Yeah.
+[00:33:38] Speaker A: Alright we have five minutes left
+[00:33:40] Speaker B: Um, I
+[00:33:41] Speaker A: um, for the meeting, but I think we should discuss this light subject a little bit more before we close. Um, what was I missed the last moment, reading that. What were you talking about with the lighting up buttons?
+[00:33:53] Speaker D: Oh, just if it was kinda the same way that a cell You know how a cellphone will light up for about ten, fifteen seconds when you touch a button, after having not touched it for a while. Um, if instead of a constant light up on the, on the remote control, if it lights up for ten seconds when it's touched again.
+[00:33:58] Speaker A: Yeah.
+[00:34:00] Speaker A: Yeah.
+[00:34:07] Speaker A: Mm. So it could be any button that would be pressed.
+[00:34:09] Speaker B: Yeah.
+[00:34:09] Speaker D: Yeah, and you, you touch it and it just kind of lights up a bit, and it gives a faint glow. So if you have all the lights off in your living room, you'll, you'll temporarily see it. Because usually you're not fooling around for it for more than what ten seconds. So
+[00:34:11] Speaker B: So, self-timed
+[00:34:14] Speaker A: Yeah.
+[00:34:18] Speaker B: Yeah.
+[00:34:18] Speaker C: Yeah.
+[00:34:19] Speaker A: Okay, so That's probably feasible. So, do you think that we should do the lighting up thing, and the glow-in-the-dark thing, and the shape of the numbers? Do we have to kind of decide what we're gonna do with this.
+[00:34:20] Speaker B: Yeah.
+[00:34:28] Speaker B: I think the shape of the numbers is a really good idea. And I think that's un unique as well. I mean, I haven't seen that. And as you're saying like numbers can wear off if they're just sort of like painted on, you know printed.
+[00:34:28] Speaker D: Mm-hmm.
+[00:34:30] Speaker C: Yeah. For visually impaired, yeah.
+[00:34:30] Speaker A: Yeah, okay.
+[00:34:32] Speaker A: Yeah.
+[00:34:35] Speaker D: Mm-hmm.
+[00:34:39] Speaker A: Yeah, yeah. And it could, if it's that softer rubber material it'll be, maybe, um, uh, better for people with um els no what's it called, R_S_I_, what was it that we were talking about? Yeah. Yeah instead of like hard buttons. Okay. Um, did we want to go for the glow-in-the-dark look? Or did we want to go for the lighting up instantly? Like should we do both? Or we can have one or the other? Because it might, for, for our design purposes, I mean, the lighting up thing might be better because glow-in-the-dark material has a funny kinda colour. And it might not go with different like face plates that we might come up with.
+[00:34:45] Speaker B: durable.
+[00:34:49] Speaker B: Oh yeah. Yeah. Yeah. Repetitive strain injury. Mm-hmm.
+[00:34:49] Speaker D: Oh right, the
+[00:34:49] Speaker C: Yeah.
+[00:34:59] Speaker C: If
+[00:35:10] Speaker D: Mm-hmm.
+[00:35:13] Speaker D: I was gonna say,
+[00:35:16] Speaker D: Exactly. It the it might be perceived as tacky, glow-in-the-dark. It's kind of like Eighties neon-style. Um, whereas we're trying to be trendy and fashionable. So
+[00:35:17] Speaker B: Yeah.
+[00:35:20] Speaker A: Yeah.
+[00:35:21] Speaker B: Yeah, and we could Yeah there are now like loads, or a huge range of different colours that it could light up in as well, which could like link in with the company colours. Like it could be blue or green or yellow, or like we've just limited t with the, just ordinary phosphorescent so
+[00:35:31] Speaker D: Mm-hmm.
+[00:35:32] Speaker A: Right. Right.
+[00:35:36] Speaker A: Alright. So we've decided on lighting up things.
+[00:35:39] Speaker C: I was thinking though, if it was glow-in-the-dark, you could put the um Real Reaction symbol as glow-in-the-dark, and then it would be constantly advertised.
+[00:35:48] Speaker B: Yeah. Every time the, that it lit up, you c that could light up as well. Or, or the, whate
+[00:35:48] Speaker D: Mm.
+[00:35:51] Speaker A: Yeah.
+[00:35:52] Speaker C: Yeah. Yeah.
+[00:35:53] Speaker A: Yeah. But with the same thing, I mean. If you touch the button and then it could be, it could be lit up as well. Is Are you okay with that? Okay. Cool. Um
+[00:35:55] Speaker D: That's true.
+[00:35:56] Speaker B: Yeah.
+[00:35:57] Speaker C: Yeah. Okay.
+[00:36:02] Speaker C: Yeah.
+[00:36:07] Speaker A: Alright. So I think that um
+[00:36:09] Speaker A: that completes most of our um our more uh practical decisions. And now it's up to designing. And um making sure that this can be feasible. And do you have anything Do you have anything to say?
+[00:36:10] Speaker B: Is
+[00:36:19] Speaker D: What um Oh sorry.
+[00:36:23] Speaker D: Yeah well, I was just gonna throw out there the thought about um personalising the remote control. Um, it, you, 'cause you mentioned face plates. So I I dunno if there's something that
+[00:36:34] Speaker D: diff, you know like five different face plates. I dunno if this will start making it more complicated, but it could increase the popularity of the, of the remote. Um
+[00:36:40] Speaker B: Okay. Like you can have changeable um mobile covers or something. Yeah, or Okay.
+[00:36:40] Speaker C: Oh yeah. Interchangeable thing?
+[00:36:43] Speaker D: Yeah,
+[00:36:43] Speaker A: Like an iPod or something? Okay.
+[00:36:44] Speaker C: That would be good. Yeah.
+[00:36:45] Speaker D: Exactly, like an iPod. Exactly. Or, or like mobile ph. And I dunno if we'd want to go with like T_V_ show themes or something. Like a Bart Simpson faceplate. But
+[00:36:47] Speaker A: Like a cellphone? Yeah.
+[00:36:52] Speaker C: Yeah, and then that would be uh more profitable like as a sideline to the remote as well. Y Could buy extra
+[00:36:56] Speaker B: Yeah.
+[00:36:57] Speaker A: Mm-hmm. Accessories.
+[00:36:58] Speaker D: Mm-hmm. Exactly. You could start out with three, and if, if we hit it big then we can add some on.
+[00:37:00] Speaker B: Person
+[00:37:02] Speaker C: Yeah.
+[00:37:03] Speaker B: Yeah. Well, that's great.
+[00:37:04] Speaker C: That's a good idea. Yeah.
+[00:37:04] Speaker A: Yeah. I think that we should incorporate that.
+[00:37:06] Speaker B: Interchangeable. Um, als
+[00:37:08] Speaker A: 'Cause that wouldn't be very expensive at all. You'd just get one mould,
+[00:37:10] Speaker C: No.
+[00:37:11] Speaker B: Yeah. Interchan
+[00:37:12] Speaker D: Mm-hmm.
+[00:37:13] Speaker A: throw some plastic in it, you know.
+[00:37:14] Speaker B: And also possible I mean, uh, we could gain out of that by advertising certain T_V_ shows, or
+[00:37:23] Speaker C: Oh yeah.
+[00:37:24] Speaker A: Yeah. Well, that might be com problematic with um copyright issues. So, if it takes off then we'll, we'll, we'll try that out.
+[00:37:24] Speaker D: Right.
+[00:37:26] Speaker B: Yeah. But if we, there is Yeah. We could Um, the environmental factor, we didn't bring that up again.
+[00:37:28] Speaker C: If w
+[00:37:35] Speaker A: Right. We'll have to do more research. Like as of yet, that has nothing to do with, um, the way it'll look. Um, does it need to be reached a de Do we need to reach a decision on that right now? Because we need to investigate the financial implications.
+[00:37:35] Speaker D: Right.
+[00:37:42] Speaker B: Yeah.
+[00:37:46] Speaker B: Um, I've
+[00:37:49] Speaker B: Okay. Let's
+[00:37:51] Speaker A: Okay.
+[00:37:52] Speaker A: Is it Does it need to be uh decided on now? Or should we
+[00:37:55] Speaker B: I think we could probably leave that 'til later on, then.
+[00:37:57] Speaker A: Okay.
+[00:37:59] Speaker A: Good. Alright then. Anyone else have anything more to say before we close?
+[00:38:03] Speaker C: No.
+[00:38:04] Speaker B: No.
+[00:38:05] Speaker A: Alright, well.
+[00:38:06] Speaker A: Let's have lunch and we'll discuss this later. Alright?
+[00:38:07] Speaker C: Okay.
+[00:38:08] Speaker B: Okay. Thank you.

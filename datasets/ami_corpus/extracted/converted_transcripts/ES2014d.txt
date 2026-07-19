@@ -1,0 +1,696 @@
+[00:00:00] Speaker A: So is Why not save that.
+[00:00:03] Speaker D: No, you'll ha have to open it up from elsewhere.
+[00:00:09] Speaker A: Do you want to replace existing file, no.
+[00:00:18] Speaker A: I actually tried to transfer it to My Documents, but
+[00:00:21] Speaker D: Yeah, you have to you have to close that window. 'Cause that's the save one isn't it, so
+[00:00:27] Speaker D: And then find it.
+[00:00:33] Speaker A: spreadsheet.
+[00:00:47] Speaker A: Yeah, but I've ta uh right, I'll just re-do it. That's the easiest way.
+[00:01:11] Speaker A: Right.
+[00:01:16] Speaker C: Well we've made our prototype anyway.
+[00:01:19] Speaker C: We can have a good look at that.
+[00:01:20] Speaker D: You pass it round to have a look.
+[00:01:22] Speaker C: Mm-hmm. Y no, it's a slightly curved around the sides.
+[00:01:24] Speaker D: Mm very nice.
+[00:01:26] Speaker C: Um, it's almost curved like up to the main display as well. And the little line at the bottom indicates the bit the panel that you pull down. And the extra function buttons are below that panel on the little line. And we've got the stick on the button with the company logo on.
+[00:01:31] Speaker D: Mm-hmm.
+[00:01:39] Speaker D: Mm-hmm.
+[00:01:43] Speaker B: We also have a apple slash cherry design at the top.
+[00:01:43] Speaker D: Mm-hmm.
+[00:01:47] Speaker D: So it is, yeah. Cherry would be alright actually. Yeah.
+[00:01:51] Speaker C: Yeah, it's a bit more fun, isn't it? And it's kinda not really at a kind of you think apple, you think computers, like Apple Mac.
+[00:01:57] Speaker B: Yeah, yeah, we might get a
+[00:01:58] Speaker D: Mm-hmm. Copyright, yeah. What's this this one? What's that one there?
+[00:02:00] Speaker C: Yeah, and cherries are fun, summery. Ah, that's the mute.
+[00:02:04] Speaker D: Oh, okay. Right.
+[00:02:04] Speaker B: For the M_.
+[00:02:05] Speaker C: It it'd probably have to be labelled mute. But um, we didn't have anything small enough to write.
+[00:02:09] Speaker D: Uh-huh.
+[00:02:09] Speaker B: They're thinking
+[00:02:11] Speaker D: Okay.
+[00:02:11] Speaker B: For the first time, well it was hard to get the h um the actual labelling on the individual buttons.
+[00:02:17] Speaker D: Mm-hmm.
+[00:02:17] Speaker C: Yeah.
+[00:02:19] Speaker C: Uh, we just chose simple shapes for all them. Um, the important ones are the volume ones. So we made them a bit bigger. The mute could possibly be a bit smaller.
+[00:02:25] Speaker D: Mm-hmm.
+[00:02:27] Speaker B: Hum, you separate off in colour the volume related buttons from the channel related buttons, so you've got the volume in orange on design there, and the the channel is in blue.
+[00:02:35] Speaker D: Yeah.
+[00:02:38] Speaker C: Mm-hmm.
+[00:02:39] Speaker A: R right. Um, all these things have cost implications. And so when I done my thing on cost a I had assumed that the only uh button that would be a different colour would be the uh the red apple button.
+[00:02:39] Speaker C: Yeah, and we chose a V_ plus and V_ minus.
+[00:02:58] Speaker A: So However, I've now. But um, yeah so uh but there would be a cost implication on that, and uh as I suppose that so whether wanted to put in all these colours, would be uh open to debate, I suppose.
+[00:03:05] Speaker D: I'll see if I can find them.
+[00:03:15] Speaker B: Yeah, sis
+[00:03:17] Speaker C: Well the colours wouldn't like that's they wouldn't be too important, but we didn't have any white Play-Doh. So that's where the colour buttons came from.
+[00:03:17] Speaker D: Have
+[00:03:23] Speaker A: An important consideration. Right, okay so um
+[00:03:30] Speaker A: And the second one underneath would be the idea for the
+[00:03:34] Speaker B: Yes, we'll have the slide-away.
+[00:03:36] Speaker A: Right, okay. So we've got um detail design meeting.
+[00:03:38] Speaker B: Bottom.
+[00:03:44] Speaker A: Right.
+[00:03:47] Speaker A: So So, we've got
+[00:03:51] Speaker A: prototype presentation, which we've just done, evaluation criteria, um and finance, so I guess w we have to evaluate if that meets the various uh aspects that we're looking for uh from um our previous meeting. So other than the fact that it doesn't have the second layer, but um obviously obviously it would. But other than that, we got the red apple. We got the buttons and the only thing that has really changed is the is the colouration of the buttons, and the bit after the evaluation criteria is uh is the finance. And the and the cost implication. The only snag about this is that uh
+[00:04:09] Speaker D: Mm-hmm.
+[00:04:12] Speaker D: Mm-hmm.
+[00:04:15] Speaker B: Mm-hmm.
+[00:04:30] Speaker B: Yes, yes.
+[00:04:39] Speaker D: Right.
+[00:04:39] Speaker B: Okay.
+[00:04:46] Speaker A: the cost is probably kind of important. So um, and then the production evaluation, as to how easy that would be to uh to manufacture. Um,
+[00:04:57] Speaker B: Mm-hmm.
+[00:05:00] Speaker A: and whether it would uh
+[00:05:03] Speaker D: So if you had to do a presentation or will you just work it on the prototype?
+[00:05:08] Speaker C: Uh, that's it.
+[00:05:08] Speaker B: This this is a yes, this is our presentation of the prototype.
+[00:05:09] Speaker D: That's the pr
+[00:05:12] Speaker A: Right, so uh as far as the the finance of it would be concern would be to make sure that the cost aye the production cost 'cause you may remember that was one of the first uh considerations was to be in d under um uh twelve fifty or two and a half uh twelve and a half Euros.
+[00:05:12] Speaker D: Okay.
+[00:05:27] Speaker B: Mm-hmm.
+[00:05:32] Speaker A: So, there's no redesign. So that should uh Right, so, seems to me that the thing that I have to do is
+[00:05:51] Speaker A: is quickly find that uh
+[00:05:58] Speaker B: Could we get this on the board just so we can see or do you mean do you have the figures there?
+[00:06:03] Speaker D: we should plug it in. Do you wanna plu do you wanna plug it in into the the back of that one.
+[00:06:04] Speaker A: Right.
+[00:06:06] Speaker A: Okay.
+[00:06:07] Speaker B: 'Kay, Alice.
+[00:06:09] Speaker B: So, sh
+[00:06:10] Speaker D: We could do it as we d go along, the production costs, looking at the prototype.
+[00:06:14] Speaker A: Right..
+[00:06:17] Speaker B: 'Kay this should be then.
+[00:06:20] Speaker A: Okay, so, by the fact that we've got uh the simple chip and the uh kinetic energy source, we've got a single curved
+[00:06:35] Speaker A: case. We've got a rubber uh case materials supplements. So, we had decided that we're having rubber buttons and
+[00:06:44] Speaker B: Mm-hmm.
+[00:06:51] Speaker B: Have a push button interface.
+[00:06:57] Speaker A: Okay. W the button supplements. Well, originally, I thought there would just be uh one in there because it was the one red apple. But So the so the real w the real question then would come in. Do you make all the buttons
+[00:07:00] Speaker B: Um
+[00:07:09] Speaker B: Um
+[00:07:19] Speaker D: Well do we'll do it on the prototype, so do two, see how much it is.
+[00:07:20] Speaker A: O
+[00:07:23] Speaker A: Well, so we've got one special button form, which was the apple. Everything else is gonna be a standard. We've got special material, rubber, wood, titanium, et cetera and that, so, I was originally, I was thinking rubber wasn't special, but according to this, maybe it is. So
+[00:07:27] Speaker D: Yeah.
+[00:07:28] Speaker B: Yeah.
+[00:07:30] Speaker B: And then we'd have
+[00:07:33] Speaker D: Mm-hmm.
+[00:07:40] Speaker D: Mm-hmm.
+[00:07:43] Speaker A: And the r I mean effectively we've got sixteen buttons that we're gonna have on there.
+[00:07:49] Speaker D: Yeah. I think you just do one, don't you, for the
+[00:07:52] Speaker A: W I don't know is is is the sort of answer, is that meant to be all sixteen buttons, and therefore I mean, what's the op The option was maybe not to have rubber buttons, but just to have the one that was soft and spongy, and therefore
+[00:08:10] Speaker D: I think I think it's just it's just a one. Else
+[00:08:13] Speaker A: Whereas it would be the special colour would be for the So you would only have the one special button that was rubber, whereas the rest would be hard plastic.
+[00:08:24] Speaker D: I thi I think I think the button supplement i is just a supplement for all the buttons made in a different material, rather than per button.
+[00:08:31] Speaker A: Mm. I would Every design change is uh I dunno, um Okay, um,
+[00:08:33] Speaker D: I don't know though.
+[00:08:41] Speaker D: Hmm.
+[00:08:49] Speaker A: if we just had all the buttons as standard, except for the one red apple, then that would take care of that, I guess. We'd have one special colour and one special button form.
+[00:09:00] Speaker D: Mm-hmm.
+[00:09:01] Speaker A: And when
+[00:09:04] Speaker A: I plugged that in last time remember it has to be under twelve and a half.
+[00:09:10] Speaker A: As far as I know, that um that took care of the uh of the various supplements. And if What happened?
+[00:09:19] Speaker D: Mm-hmm.
+[00:09:26] Speaker D: You've just gone off the window into another one. It's on the bottom row.
+[00:09:37] Speaker C: Maybe if you just minimise that one in the top right-hand corner of the little box. Yeah.
+[00:09:43] Speaker A: Now, right. Okay, so, but the point would be that if we uh
+[00:09:51] Speaker A: if we just did special Sorry, you were saying that it would be that one, that you would put in one there.
+[00:09:57] Speaker D: Yeah. Yeah.
+[00:10:00] Speaker A: Okay.
+[00:10:03] Speaker B: So that's nine point one there so we've got some
+[00:10:06] Speaker A: So it Well, is it s is no, it's nine point seven I've got. Okay.
+[00:10:08] Speaker B: 'Kay.
+[00:10:09] Speaker D: Mm-hmm.
+[00:10:10] Speaker B: Just give us a bit of
+[00:10:12] Speaker A: So, that would
+[00:10:16] Speaker A: that would work out fine if uh
+[00:10:18] Speaker D: Mm-hmm.
+[00:10:19] Speaker A: uh as assuming your correction are are assuming that that one change covers all the buttons, then that would be fine. And there's nothing else as far as I can see that we we had uh planned to put on.
+[00:10:28] Speaker D: Mm-hmm.
+[00:10:29] Speaker C: S
+[00:10:33] Speaker B: I switching around those th um on the electronics we got the sample sensor. At the moment we've just got the simple chip, which costs one. Um, I guess the sample sens sample speaker would be the voice recognition thing, which puts up to four? We should be slightly over our budget but if we gather something else down to slightly lower standard, and maybe go with the one the special form buttons, then we could have the speech
+[00:10:41] Speaker A: Uh-huh.
+[00:10:46] Speaker D: Yeah.
+[00:10:52] Speaker D: Yeah.
+[00:10:55] Speaker A: Well, hold on. Um, if we
+[00:11:01] Speaker A: Okay, that gives us twelve point seven
+[00:11:03] Speaker B: So uh maybe if we got rid of like the maybe one of the special colours, kept them all the same colour, then we could have the voice recognition without
+[00:11:12] Speaker A: But remember that the idea was to keep it the colour of the Oh, I see, so just take out the special colour for the apple and
+[00:11:19] Speaker B: Yeah, yeah. Um
+[00:11:20] Speaker C: Um,. D wouldn't you have to keep the simple chip there as well? You know how you turn that one to a zero, wouldn't the chip and the sample speaker be separate things, so you need both of them?
+[00:11:27] Speaker D: Yeah, we have to have it
+[00:11:30] Speaker B: Oh possibly, yeah, yeah maybe. Maybe um we'd be giving up on the kinetic.
+[00:11:30] Speaker D: Yeah.
+[00:11:35] Speaker B: Um
+[00:11:37] Speaker A: And go for battery instead. That would give you one less.
+[00:11:37] Speaker D: Yeah.
+[00:11:38] Speaker B: We should Yeah, that would save us one, though we'd still be slightly ov
+[00:11:41] Speaker A: But you reckon that i I mean the thing is that you wanted to a appeal to people and not have to replace batteries.
+[00:11:49] Speaker B: Yeah, yeah. Well, since it's the through the whole technology type thing, um, you were saying in the market research that people like kind of interesting gadgets in them. Um, whether they would figure the the s uh sample senor and the sample speaker, voice recognition be sort of a worthwhile thing to have. And then still have the batteries, or whatever they would prefer not uh You know what I mean? The the problem was the battery's running out and losing the um losing the remote. So you gotta decide which of those is more important to them.
+[00:11:58] Speaker D: Mm-hmm.
+[00:12:08] Speaker D: Mm-hmm.
+[00:12:12] Speaker A: Mm-hmm.
+[00:12:15] Speaker D: Yeah.
+[00:12:19] Speaker A: But which do you think or which do we think is the more important of the options? In a sense, at the moment, we've got a total which we need to reduce down by one point two. At least. Remember that was a minimum requirement. The other option if we're planning on just going for something cheap and cheerful, would be to um make it originally, we're gonna make it a simple product.
+[00:12:24] Speaker C: I think the voice recognition.
+[00:12:42] Speaker B: Yeah.
+[00:12:43] Speaker D: Shall we shall we evaluate the prototype as we've got it now first, and then sort of make decisions about what needs to be changed after? Okay. Right um, I have a little thing. So, we've all got a note of it's thirteen point seven, isn't it, with everything we want on.
+[00:12:52] Speaker A: Mm-hmm. Makes sense.
+[00:12:53] Speaker B: Okay.
+[00:13:04] Speaker A: .
+[00:13:10] Speaker A: Sorry, do you want that back up?
+[00:13:11] Speaker D: Yeah, I just had a presentation to
+[00:13:14] Speaker A: Right.
+[00:13:16] Speaker D: do.
+[00:13:18] Speaker C: But I do think uh the v uh voice recognition thing would be more impressive than the fact that it's got no battery.
+[00:13:26] Speaker A: Okay, but remember the main the only reason we were planning on having the voice recognition was so that they could find the remote if it got lost.
+[00:13:34] Speaker D: Mm-hmm. Mm. Right okay um,
+[00:13:38] Speaker D: This is about the evaluation criteria that we use for the the prototype we've got here. And so the method is that the design team makes a prototype, and we evaluate the prototype against some criteria that we've formulated. And those ones are gonna be in response to sort of market research, and also finance, I guess.
+[00:13:59] Speaker D: And do that on a scale from say true being one and false being seven, so if it's neither true nor false, then that's four.
+[00:14:15] Speaker D: So, I got a set of criteria just based on the marketing that we need to add in a financial one as well, at the end. Um so,
+[00:14:25] Speaker D: We have to say whether it's true or false that the product looks and feels fancy.
+[00:14:30] Speaker D: Um
+[00:14:31] Speaker D: The whether the product demonstrates technical innovation. Whether it's easy to use.
+[00:14:38] Speaker D: Whether it's incorporating sort of the fashion element to attract the buyer. And whether it's a sort of recognisable Real Reaction product. And I have to go up onto the whiteboard and do this apparently, so I'll go over here.
+[00:14:49] Speaker B: Okay.
+[00:15:02] Speaker D: Right. So the first one is um, does the product look and feel fancy. So if we do a sort of a one
+[00:15:17] Speaker D: So
+[00:15:18] Speaker B: Okay, well we have a single curve, which was maybe like the feel of the product's quite good. So uh
+[00:15:22] Speaker D: Yeah.
+[00:15:25] Speaker D: Okay.
+[00:15:27] Speaker B: Um, then we have the rubber kinda spongy feel, which was in at the time.
+[00:15:30] Speaker D: Yeah.
+[00:15:32] Speaker D: Yeah. Yeah.
+[00:15:33] Speaker B: Um, sorry that'd be considered fancy.
+[00:15:36] Speaker C: Yeah, I'd maybe give it a
+[00:15:39] Speaker C: a two.
+[00:15:41] Speaker D: Of but I think What Is one false, or is t one true? I forgot. One's true, and okay. Seven's fal Four is neutral, okay. So
+[00:15:44] Speaker C: One's true.
+[00:15:47] Speaker C: And a four is neutral.
+[00:15:51] Speaker B: So maybe maybe a two.
+[00:15:53] Speaker C: Yeah, 'cause we haven't got the double curve, so we can't like say it's completely true. But it's pretty close. We've got almost everything we can.
+[00:15:55] Speaker A: Go for one. Yep.
+[00:15:56] Speaker D: Right.
+[00:16:02] Speaker D: Okay. Right. I gonna put underneath so I've got some more space.
+[00:16:02] Speaker A: Okay.
+[00:16:08] Speaker D: So, false is seven, true is one, and
+[00:16:16] Speaker D: So uh say about a two for fancy, you think? Okay.
+[00:16:19] Speaker B: Yeah.
+[00:16:19] Speaker C: Yeah.
+[00:16:20] Speaker A: Yeah, why not not, m m maybe nearer three.
+[00:16:23] Speaker D: Okay, well d you do an average at the end, I don't know. Um
+[00:16:24] Speaker A: Two three. Well, it's just that uh saying something remember that when you look down, we've got solar power, we've got uh various other things you could have, and we're not going for these options.
+[00:16:35] Speaker D: Uh-huh.
+[00:16:36] Speaker D: This this is just this is just for like the look. Does it sort of look fancy rather than functional. So
+[00:16:39] Speaker A: Mm-hmm.
+[00:16:43] Speaker C: Yeah, I suppose that might be in the technical innovation bit.
+[00:16:46] Speaker D: Yeah, so that so sh should we go for a a two on that?
+[00:16:50] Speaker A: Okay.
+[00:16:51] Speaker D: 'Kay. And I mean, how much does the product demonstrate technical innovation do you reckon?
+[00:16:57] Speaker B: Um, deciding between the kinetic power or um the speech recognition, and if we had either of those for our budget, they both show a reasonable amount of speech recognition.
+[00:17:07] Speaker D: D yeah.
+[00:17:10] Speaker D: Okay. So, what about the pr The prototype as it is, we've got we've got the speech recognition on it, haven't we.
+[00:17:14] Speaker B: Um
+[00:17:17] Speaker B: But not the kinetic.
+[00:17:19] Speaker D: But not the kinetic.
+[00:17:20] Speaker B: Like the power.
+[00:17:20] Speaker A: No. 'Cause you can't afford that w we took that out too.
+[00:17:23] Speaker B: No, we c ca yeah, we can't afford both.
+[00:17:26] Speaker D: Alright, so
+[00:17:27] Speaker A: Didn't you? Or
+[00:17:29] Speaker D: So it doesn't It's pretty The prototype as it is isn't sort of um fulfilling the
+[00:17:36] Speaker B: No may is maybe about neutral plus it it it's got something, but it hasn't got
+[00:17:37] Speaker C: Maybe a three.
+[00:17:40] Speaker D: Okay. Yeah.
+[00:17:41] Speaker A: Well, wait a minute. In thirteen point seven we do have kinetic. The problem is we have to reduce down from there to get it down to twelve point five. And one way of doing that would be to take out the kinetic. So, it's very much dependant on what you do with your options.
+[00:17:42] Speaker C: I would give it more than a four.
+[00:17:47] Speaker B: Right.
+[00:17:50] Speaker B: Okay.
+[00:18:00] Speaker D: Right, okay.
+[00:18:00] Speaker A: And if you're definitely going for the sample sensor and sample speaker, then because that the other functions we've got in are are more at the The special material, the rubber, wood, titanium, et cetera,
+[00:18:00] Speaker B: 'Kay.
+[00:18:18] Speaker A: if you go for that, th that's at the high end 'cause that's point six, whereas down at uh just special colours uh is point two. Now you're trying to lose one point two, so it seems to me that if you're going for the sample sensors speaker, you're basically then having to go for the cheaper options on everything else.
+[00:18:38] Speaker D: Mm-hmm.
+[00:18:38] Speaker B: Okay.
+[00:18:39] Speaker A: And and the simple way to do it would be to have a battery, to have your uh sample sensor speaker, and then you're looking to uh take out uh point two, which would be come from the button supplements category.
+[00:18:40] Speaker B: Um
+[00:18:49] Speaker D: S
+[00:18:51] Speaker D: I'm just gonna check my email.
+[00:18:57] Speaker D: I'm just gonna check exactly what it said in the email for um
+[00:19:02] Speaker D: the product.
+[00:19:04] Speaker C: How much of a difference would it make if we made the case in plastic?
+[00:19:11] Speaker C: Because we did say that we don't wanna follow the fashion too much. If the buttons are rubber that might be spongy enough. And then it stand the test of time better.
+[00:19:17] Speaker A: Um, interface type um, well plastic rather than rubber. That that that would make the significant difference. You could either you could have it If you have a in plastic rather than rubber, then that would uh enable you to get you could keep kinetic then, you could keep your sample sensor, and you'd be looking to take out point two. So you could uh fiddle that down your special form at the bottom, or your special colour at the bottom. And that would enable you to to do it.
+[00:19:23] Speaker D: Okay. But I
+[00:19:47] Speaker B: Mm-hmm.
+[00:19:48] Speaker C: Mm-hmm.
+[00:19:51] Speaker D: Okay.
+[00:19:51] Speaker B: So it says if we make a slightly more fancy, then we lose points innovation, and if we make it more innovative innovative, then we lose points on it being fancy, so
+[00:19:57] Speaker A: Yeah.
+[00:19:58] Speaker D: Yeah.
+[00:19:59] Speaker A: Ye
+[00:19:59] Speaker D: , I just read the email again and it sort of says it's evaluate the design sort of as it is, I think, so I think we need to think about finance after we've sort of evaluated that design. I don't know whether we're doing it in the wrong order or something or.
+[00:20:14] Speaker A: Well, okay, but
+[00:20:18] Speaker C: Well, I suppose it's rubber as it is, isn't it.
+[00:20:20] Speaker A: It's rubber as it is, yes.
+[00:20:21] Speaker D: So, I mean does this need to go up a bit or something, 'cause we've got both the
+[00:20:28] Speaker D: both the um
+[00:20:31] Speaker A: We got we've we've got thirteen point seven and we've got it in at the moment and if and basically, we're going to reduce down from that. But the current one, you'd say would be fancy, would be too
+[00:20:31] Speaker D: the speech
+[00:20:31] Speaker C: Yeah.
+[00:20:35] Speaker D: Yeah.
+[00:20:42] Speaker B: Yeah, yeah.
+[00:20:42] Speaker D: Yeah. Um, for for innovation, so we've got the speech the speech thing, and
+[00:20:47] Speaker A: Mm-hmm.
+[00:20:50] Speaker A: I would've said about a two as well.
+[00:20:52] Speaker D: Do you reckon a two?
+[00:20:52] Speaker C: Yeah, two or three. I'd be happy with a two.
+[00:20:55] Speaker D: Okay. Two. And the next one is I'll have to get it back up now.
+[00:20:56] Speaker A: Oh.
+[00:21:02] Speaker A: The next on Well, I can just sing about. Easy to use. I would've said yes. I would go for a one on that at this point in time.
+[00:21:10] Speaker C: Yeah.
+[00:21:12] Speaker D: Okay.
+[00:21:12] Speaker C: Yeah, I would say so as well.
+[00:21:16] Speaker A: Um, incorporates elements of fashion to attract buyer. Well, yeah it certainly has some.
+[00:21:22] Speaker B: Um
+[00:21:24] Speaker C: Yeah, it's got the cherry and the sponginess.
+[00:21:24] Speaker A: .
+[00:21:24] Speaker B: It does, yeah.
+[00:21:25] Speaker D: Um
+[00:21:27] Speaker A: Yep.
+[00:21:28] Speaker D: Say about a three maybe?
+[00:21:30] Speaker A: I don't know.
+[00:21:30] Speaker B: Yeah, m um Yeah, it was just doing it quite well. Um, I think we're gonna have to lose some of these, but the moment, as it stands, it's um
+[00:21:31] Speaker C: Maybe two?
+[00:21:34] Speaker A: Yep.
+[00:21:37] Speaker A: Yeah, I woulda said two would seem reasonable.
+[00:21:37] Speaker D: It's a two.
+[00:21:42] Speaker A: The product is a recognisable real
+[00:21:45] Speaker A: r uh reaction product?
+[00:21:47] Speaker D: Yeah, this is
+[00:21:49] Speaker B: Uh the sensor using all of its all of its products, all of its buttons, and it's got a fairly big label on the bottom saying
+[00:21:49] Speaker D: This
+[00:21:56] Speaker C: Yeah, that's a bit rough at the minute.
+[00:21:56] Speaker D: Yeah.
+[00:21:56] Speaker B: where it comes from.
+[00:21:58] Speaker D: So this is about sort of the corporate image of like new sort of sleek technology and all that sort of thing, as well as having the logo on and all that. So sort of
+[00:21:59] Speaker A: Oh.
+[00:22:05] Speaker B: Okay.
+[00:22:11] Speaker D: Is it sort of a recognisable product. Does it fit in with our other other products, which uh are sort of coffee makers and spacecraft.
+[00:22:18] Speaker A: S
+[00:22:21] Speaker D: What do y
+[00:22:21] Speaker C: Uh, well it's got the same um speech feature as the coffee machine.
+[00:22:25] Speaker B: Also it's kind of spongy rubberiness is maybe bit more kinda comfortable than kinda sleek and new age. Um, it depends which way you look at it.
+[00:22:31] Speaker D: Yeah.
+[00:22:33] Speaker D: Uh-huh.
+[00:22:35] Speaker A: Okay. So we're going for a
+[00:22:36] Speaker D: So
+[00:22:38] Speaker B: Maybe a kind of three? Uh d
+[00:22:39] Speaker A: two, three?
+[00:22:41] Speaker D: Two or three?
+[00:22:41] Speaker C: Yeah, two or three. Well, the logo would be more um recognisable on the actual thing. It's just that the pen wouldn't really write on that paper. But um,
+[00:22:49] Speaker A: Sure.
+[00:22:51] Speaker D: Yeah.
+[00:22:52] Speaker C: I think the logo would definitely be recognisable. And it does have attributes that other products do. Two? Aye. Go for it.
+[00:23:00] Speaker A: Right, okay.
+[00:23:01] Speaker D: Two or three.
+[00:23:03] Speaker A: Two. Right, come on. That's that decided. Right. So
+[00:23:04] Speaker D: How
+[00:23:06] Speaker D: Two. Okay.
+[00:23:10] Speaker D: Right.
+[00:23:10] Speaker A: So we're now on to changing it to get it to fit in with the budget requirements, and then
+[00:23:17] Speaker D: Yeah.
+[00:23:18] Speaker C: What does what do all them numbers mean then? Do we add them up and rate or anything?
+[00:23:21] Speaker D: Yeah we s yeah, I think we sort of add them up so sort of at an average is gonna be I'm just gonna do this in my head. One point eight isn't it or something. I think, anyway.
+[00:23:27] Speaker A: About a two.
+[00:23:29] Speaker A: Two.
+[00:23:35] Speaker D: So yeah, pretty close to a two.
+[00:23:37] Speaker B: Yeah, so it's
+[00:23:37] Speaker D: So
+[00:23:38] Speaker D: So it's I mean it's pretty good at the moment, but it's gonna get worse, isn't it. But we've gotta try and make sure it doesn't get too bad.
+[00:23:42] Speaker A: Yep.
+[00:23:44] Speaker B: So should we get So are definite Was it thirteen point seven was the definite price rule if has. Okay, so we need to
+[00:23:44] Speaker A: Two b two b two, yeah.
+[00:23:51] Speaker A: Yes.
+[00:23:51] Speaker D: Yeah.
+[00:23:54] Speaker A: Well, you can lose one point two and still meet the requirements.
+[00:23:59] Speaker D: Do you wanna plug it into yours so we can get up the
+[00:24:02] Speaker A: Okay, well I put it back on.
+[00:24:04] Speaker B: So I guess this Is this the last stage once we sort out the finances part of it?
+[00:24:04] Speaker D: the finances
+[00:24:09] Speaker D: I'm not sure.
+[00:24:11] Speaker C: we'll probably have to re-rate it.
+[00:24:13] Speaker A: Yes, I would've thought so.
+[00:24:14] Speaker B: Yeah, yeah we'll make the adjustments and then see how are rates are going.
+[00:24:14] Speaker D: Yeah.
+[00:24:18] Speaker A: Okay, so what was it, control uh F_ eight, wasn't it?
+[00:24:23] Speaker C: Ah it's on.
+[00:24:23] Speaker D: it's come on already.
+[00:24:24] Speaker A: Oh. Oh. How kind. Right, okay. So, you can see there that the If you want to keep kinetic, right, you've got a choice there of going down to battery, which would save you one. You've got
+[00:24:41] Speaker A: the sample sensor and and sample speaker, which is your big item.
+[00:24:47] Speaker B: Oh actually we just have a plastic case, then we lose two points, which gets us um
+[00:24:50] Speaker A: That's right.
+[00:24:55] Speaker D: Mm.
+[00:24:55] Speaker A: Which gets you
+[00:24:56] Speaker B: In right within the budget range.
+[00:24:58] Speaker A: Yes.
+[00:24:59] Speaker C: Yeah, I think that'd be fine. Because that was just a trend, and we do have rubber buttons anyway.
+[00:25:02] Speaker B: So that's eleven point seven, and then we could make sure we definitely had all the button supplements.
+[00:25:03] Speaker D: Yeah.
+[00:25:07] Speaker D: Different different colours, yeah. Yeah, I was I was thinking that because maybe maybe the sort of rubber case is a bit less in sort of the corporate identity than the sort of you know sleeker plastic case.
+[00:25:07] Speaker A: Alright.
+[00:25:17] Speaker B: Possibly, yeah.
+[00:25:19] Speaker B: Um
+[00:25:19] Speaker C: Yeah.
+[00:25:22] Speaker B: And that would allow us to have all the technical innovations. So we'd lose a little bit on the maybe kind of
+[00:25:22] Speaker A: Okay, so
+[00:25:27] Speaker A: So we're going for plastic, yes?
+[00:25:28] Speaker D: Lose a little bit on the fashion, yeah, but
+[00:25:30] Speaker A: Yep.
+[00:25:32] Speaker D: And then
+[00:25:32] Speaker B: Oh yeah, and that would now be Yeah, that's that's within the budget. Um
+[00:25:38] Speaker B: Do we actually have Do we just have one special uh special forms down here?
+[00:25:43] Speaker A: Well, uh w uh there was debate as to how you would count them. You got special colour. Well originally I was assuming we had the red apple, and therefore, that was the special colour.
+[00:25:47] Speaker B: Um
+[00:25:53] Speaker C: Yeah, I think we should just imagine white buttons.
+[00:25:53] Speaker B: And we we've we've got we've got enough for another we've got nought point eight left, so we've got enough for another
+[00:25:57] Speaker D: Yeah.
+[00:25:59] Speaker A: Well, we've got special form. Now that would be one button, and the question was was that all buttons or is that just one button. 'Cause our plan really was to have one button only with a special So so no matter how you look at that, that would be the same. The other thing would then be special material, rubber, wood, titanium.
+[00:26:10] Speaker B: Yeah, um
+[00:26:12] Speaker B: But the but but but the
+[00:26:17] Speaker B: I think maybe the special colour, we've got three now just because the volume buttons are different, I guess we'd have the ones which are blue at the moment would would just be the standard colour. Yeah, which I think we should Yeah, they'll still be fine for the for the price.
+[00:26:20] Speaker D: Yeah.
+[00:26:24] Speaker A: Alright. So, special colour, you want three in there.
+[00:26:29] Speaker A: Okay.
+[00:26:29] Speaker D: Well I thin I think you you you just need two for the special colour 'cause it's just two supplements, you know. One original colour and then sort of two supplements, I think maybe.
+[00:26:38] Speaker A: That makes sense.
+[00:26:39] Speaker B: Okay, uh that's probably it.
+[00:26:40] Speaker D: Okay. So we only ne we only need two for that. 'Cause I mean these these are moulded. The one colour's gonna be moulded out of a piece of plas uh of rubber, isn't it.
+[00:26:40] Speaker C: Yeah.
+[00:26:42] Speaker A: Okay.
+[00:26:49] Speaker A: Okay. Yeah, I would agree with that, I think. So special colours, two.
+[00:26:54] Speaker D: Right.
+[00:26:54] Speaker A: And we've got special form is the one apple. The rest are all standard, although you could argue that should maybe be You were making these buttons down the bottom, I was presuming, bigger than the other ones, or were you? Was that the idea?
+[00:27:08] Speaker B: Ne uh
+[00:27:09] Speaker C: Yeah, the volume ones should stand out a bit.
+[00:27:10] Speaker B: Maybe that'll be a second supplement. Then there's a spe a second special form.
+[00:27:12] Speaker D: Yeah, that
+[00:27:15] Speaker D: Yeah.
+[00:27:15] Speaker A: Uh-huh. I would have thought that's probably about r well.
+[00:27:16] Speaker B: Um
+[00:27:18] Speaker B: Well you got you got twelve.
+[00:27:26] Speaker D: Okay, so tha
+[00:27:28] Speaker B: So I think that should still be okay. Yeah, that's twelve point three, so we're still
+[00:27:29] Speaker A: Right.
+[00:27:32] Speaker B: within budget on that. Um
+[00:27:34] Speaker A: Yep, that makes sense.
+[00:27:38] Speaker B: So decide we've lost a little bit on the fashion and lost a bit on the fancy kinda side of it, but generally speaking, we've kept the other attributes to the
+[00:27:42] Speaker A: Yep.
+[00:27:46] Speaker A: I woulda said so. Yeah. So you'd maybe put fash fan uh fashion at three rather than two.
+[00:27:50] Speaker B: That's without
+[00:27:52] Speaker D: So shall we do a Well, um
+[00:27:53] Speaker B: Yeah.
+[00:27:55] Speaker B: And specially it definitely could fits the the real product What was the what's the company name?
+[00:28:04] Speaker C: Real Reactions?
+[00:28:04] Speaker A: Real Reaction produ I'm not quite sure, what does that mean?
+[00:28:05] Speaker B: R yeah. Yeah, yeah. I mean it still seems definitely fit that p so that's like if that's the new age kind of um inno innovative
+[00:28:06] Speaker D: Yeah.
+[00:28:15] Speaker D: Yeah, so
+[00:28:16] Speaker B: c type company, then um having the kinetic feature and the voice recognition is p quite high up on
+[00:28:20] Speaker D: Uh
+[00:28:21] Speaker A: Yep I would s
+[00:28:22] Speaker D: So it's w if we've if we've put in for another special form on a button, then maybe they could be a different shape. Like we got a cherry one. Maybe other ones could be something else shaped. I don't know. That would be poss seeing as seeing as it's cheaper to make them a different
+[00:28:37] Speaker B: Um
+[00:28:37] Speaker A: You mean of
+[00:28:41] Speaker D: seeing as we've got, you know, we've made it a a special form, so And that would sort of maybe keep us close on the sort of the fashion type one. And it would sort of, you know, keep it quite fancy as well, I don't know.
+[00:28:55] Speaker B: Mm-hmm.
+[00:28:55] Speaker A: Well you could argue you might do it once a year, you would change, because at the moment you're making a red apple. So next year you could make next year's model the same, but have it as a a yeah whate whatever, a lemon. Yeah, l a lemon lemon or something. And that
+[00:29:02] Speaker D: Well you could
+[00:29:02] Speaker B: Yeah so it's a
+[00:29:07] Speaker D: Yeah.
+[00:29:08] Speaker B: Whatever fruit was in fashion next year.
+[00:29:12] Speaker D: Yeah, I mean the volume buttons could be lemons or something, maybe.
+[00:29:16] Speaker A: amount
+[00:29:17] Speaker D: Okay.
+[00:29:19] Speaker D: So, we've what have we what have we rid of. We got rid of
+[00:29:23] Speaker D: the plastic.
+[00:29:25] Speaker A: Yeah, we've the main thing we've changed really is the casing isn't it? We've
+[00:29:25] Speaker D: Is it The rubber.
+[00:29:26] Speaker B: That yeah, that was uh that was just about all. I think we've saved quite a bit because we've just got the push-button interface, which is by far the cheapest.
+[00:29:28] Speaker D: Yeah.
+[00:29:34] Speaker D: Yeah.
+[00:29:34] Speaker B: Um
+[00:29:36] Speaker B: So maybe in a sense not having that, maybe we've lost some maybe lost something on the innovation side? I dunno. And that is like the most standard type of button.
+[00:29:36] Speaker D: But uh
+[00:29:48] Speaker D: So I mean, we've got we got rid of the rubber case, but
+[00:29:52] Speaker D: we've now s we now sort of got an extra form, and an extra colour for the buttons. So maybe in terms of sort of fanciness and fashionability, we're pretty much the same, maybe. So, I mean we could maybe put two again on them.
+[00:30:03] Speaker B: Yeah.
+[00:30:09] Speaker B: And everything else has stayed pretty much the same, so
+[00:30:11] Speaker A: Well, ease has certainly stayed.
+[00:30:13] Speaker B: Yeah, plus if anything that is special forms makes it slightly easier to
+[00:30:13] Speaker D: Yeah.
+[00:30:16] Speaker A: Yeah.
+[00:30:17] Speaker D: Yeah. And what about the sort of innovation?
+[00:30:18] Speaker B: to use.
+[00:30:20] Speaker D: Do you think
+[00:30:20] Speaker B: Um, well we've still got the kinetic energy. Um
+[00:30:22] Speaker D: Okay.
+[00:30:23] Speaker A: And the speech feature.
+[00:30:25] Speaker B: Yeah, the speech feature.
+[00:30:26] Speaker D: And then, the corporate identity.
+[00:30:29] Speaker B: I think we've cut just about the same. We've maybe lost
+[00:30:32] Speaker B: Hasn't it It's hard to tell how the rubber the rubber casing would really affect
+[00:30:35] Speaker A: How it would play out, yeah. Oh.
+[00:30:37] Speaker D: Yeah. Whether whether that's considered to be sort of
+[00:30:42] Speaker D: part of the corporate identity, I don't know.
+[00:30:45] Speaker B: Um
+[00:30:45] Speaker D: I mean, it's maybe not. I mean
+[00:30:46] Speaker B: But I think more the the features of the actual control will be more important than maybe than the the actual aesthetics, but
+[00:30:51] Speaker D: Yeah.
+[00:30:53] Speaker D: Yeah.
+[00:30:55] Speaker B: But either way, I think we've made it fairly close to what
+[00:30:58] Speaker D: Yeah. Okay, well I mean
+[00:30:59] Speaker C: Yeah, I don't see how we could make it any more.
+[00:31:02] Speaker D: We cou
+[00:31:02] Speaker C: Um, apart from maybe
+[00:31:05] Speaker C: doing the whole thing in the kinda light shade of blue, like the casing.
+[00:31:08] Speaker D: Mm-hmm.
+[00:31:10] Speaker C: But then what colour would you make the R_s?
+[00:31:14] Speaker B: just the the company logo. So maybe there's like a set design which we get printed off.
+[00:31:18] Speaker D: Yeah.
+[00:31:18] Speaker A: Well, but you've got the company logo on there, which would effectively be a stick-on badge. So you're in a sense, you're comparing the product without the company logo. And then y but you've got the space for it to stick it on.
+[00:31:23] Speaker B: Okay.
+[00:31:27] Speaker D: Yeah.
+[00:31:29] Speaker B: Yeah, yeah.
+[00:31:30] Speaker D: Hey, what what what's the company colour? Did you get told what the company colour is or
+[00:31:34] Speaker B: I'm still not quite sure we've established that.
+[00:31:37] Speaker C: No, I just We got the logo off the web browser.
+[00:31:37] Speaker A: Don't think so. But but i but in the sense that, as you saw with um the Windows logo badge, it doesn't really matter. There's virtually n The way that you frame, you know, the Windows badge on there, it really doesn't matter what colour it is, so long as our company's logo is framed w in the same way as that with a like a black outline. Fact, they've got black and white or black and silver. So basically, even if you had a silver the same colour of silver on your display, because you've got effectively a double edging on the uh on the logo, it means that it splits off what your logo is from the from the product. And that's actually quite a sneaky way of doing it.
+[00:31:40] Speaker D: Oh right.
+[00:31:53] Speaker D: Hmm.
+[00:31:59] Speaker D: Mm-hmm.
+[00:32:05] Speaker D: Mm.
+[00:32:21] Speaker D: Okay.
+[00:32:23] Speaker D: Uh-huh. 'Cause you've got sort of we've got point two to play with if you really wanted to.
+[00:32:28] Speaker A: You could put in another Well, in this one, you've actually got three colours of buttons. Well, we decided that the blue ones were the um the standard colour. So you were talking about uh um We're assuming that all the buttons on the second panel, the hidden away panel, would all be standard.
+[00:32:29] Speaker D: Another colour. Or would that be t
+[00:32:33] Speaker D: Yeah.
+[00:32:38] Speaker D: Okay.
+[00:32:51] Speaker B: Yeah.
+[00:32:51] Speaker D: Yeah.
+[00:32:52] Speaker A: Which
+[00:32:52] Speaker C: Mm-hmm.
+[00:32:55] Speaker A: m may or may not be the case.
+[00:32:57] Speaker D: Yeah. Shall we save the point two for profitability then?
+[00:32:58] Speaker B: Um
+[00:33:00] Speaker A: Well, yeah. Bu but but uh was the was there not a button that you were thinking of on the um on the other opt you know, on the second page, as it were, that uh you were thinking of maybe having as a different colour?
+[00:33:16] Speaker C: Um, I don't think they would really need to be. I think if they were just all small round blue buttons, it'd be fine. Needs to be an enter button, but could just be the same as well.
+[00:33:21] Speaker B: Yeah, maybe we've m
+[00:33:24] Speaker B: Maybe for the the one they're gonna see all the time, we make it look good, and um, fit the kind of idea of what they want. And then for the more functional buttons, we don't worry too much about that and just have that as like a plus it's hidden away anyway, you're not gonna see it at the start.
+[00:33:28] Speaker D: Hmm.
+[00:33:37] Speaker D: Yeah. I mean it's the sort of thing that, I mean, you wanna pick up the controller and just hit a button quickly to change the channel or volume. So, if it's dead obvious, then that's fine. But if you're opening the panel and you're looking and you're tuning, then you're paying a bit more attention. So it may be sort of different colour buttons isn't so important.
+[00:33:41] Speaker A: Yeah, well
+[00:33:53] Speaker A: Alright. Okay.
+[00:33:53] Speaker D: 'Cause you Yeah.
+[00:33:55] Speaker B: Yeah.
+[00:33:56] Speaker D: So
+[00:33:56] Speaker A: So we just add that to profitability in effect.
+[00:33:59] Speaker D: Yeah, I mean so we've dropped the cost, but
+[00:33:59] Speaker A: Right, so we're meant to finish up in five minutes.
+[00:34:00] Speaker C: Mm-hmm.
+[00:34:05] Speaker D: Same sort of function? The criteria? It's alright. Just made a load of money.
+[00:34:09] Speaker B: 'Kay.
+[00:34:22] Speaker C: Shouldn't we maybe lose a point on fashion, go to a three? 'Cause we've lost the overall spongy feel.
+[00:34:28] Speaker C: 'Cause it doesn't seem right that it just hasn't changed at all.
+[00:34:31] Speaker D: Well, but I think we said that w
+[00:34:34] Speaker D: Because you got rid of the rubber, we put an extra an extra sort of fruit um shape on one of the buttons. le lemon sh
+[00:34:41] Speaker C: Alright. Did we decide what that was, which button it was? On the volume ones?
+[00:34:43] Speaker D: I think well, we could have lemon shaped ones with the volume ones or something. Or something like that. Yeah.
+[00:34:46] Speaker C: Right.
+[00:34:48] Speaker B: Uh,. That's good.
+[00:34:55] Speaker B: Definitely lemon shaped.
+[00:35:05] Speaker D: Did did you have to have a rubber case, though, for rubber buttons? Or was it the other way around?
+[00:35:10] Speaker B: You had to have rubber buttons if you had the rubber case. So I think we can we're okay.
+[00:35:12] Speaker D: Right, okay.
+[00:35:12] Speaker A: Mm-hmm. So we're okay this way around.
+[00:35:15] Speaker D: Yeah.
+[00:35:18] Speaker D: So that so we've saved
+[00:35:19] Speaker A: Until the design team comes in and says, get off. But you are the design team.
+[00:35:23] Speaker B: Then we say it's fine, so it's all good.
+[00:35:27] Speaker D: Saved two Euros on that.
+[00:35:52] Speaker A: So what bit are we on to?
+[00:35:59] Speaker C: Um, can I just check if that's a cherry or an apple? Did we decide against the apple because of Apple Mac? And did we make it a cherry officially? Right.
+[00:36:05] Speaker A: Yeah. I th I th Oh. Right, okay.
+[00:36:06] Speaker D: Mm-hmm.
+[00:36:10] Speaker B: Just in case we need that point two for lawsuits and such like.
+[00:36:20] Speaker A: Oh drats, I've botched that, haven't I.
+[00:36:49] Speaker C: So were we aiming for a certain target on that scale?
+[00:36:53] Speaker D: Well, we're aiming for um one for all of them.
+[00:36:57] Speaker D: M but it really has to fit into the budget, so
+[00:36:57] Speaker C: Right.
+[00:37:00] Speaker D: I guess we just have to adjust things to
+[00:37:03] Speaker D: get it i in the
+[00:37:06] Speaker D: Which is fair enough.
+[00:37:07] Speaker B: And we seem to have least something in each criteria.
+[00:37:11] Speaker D: Yeah.
+[00:37:11] Speaker B: We haven't completely left anything out, so
+[00:37:13] Speaker D: Yeah, I think
+[00:37:15] Speaker D: most
+[00:37:16] Speaker B: As an overall product which has to be quite cheap, we've just about achieved
+[00:37:19] Speaker D: Yeah.
+[00:37:20] Speaker B: everything.
+[00:37:20] Speaker D: Yep.
+[00:37:31] Speaker C: So do we have anything else to discuss?
+[00:37:34] Speaker D: I don't know. What's on the agenda?
+[00:37:44] Speaker A: Right, okay um
+[00:37:48] Speaker A: What's happened here?
+[00:38:04] Speaker A: Right, okay um
+[00:38:16] Speaker A: Mm.
+[00:38:23] Speaker A: Right, okay um, Right. So we got
+[00:38:31] Speaker B: We've got the closing.
+[00:38:31] Speaker A: So we've done the
+[00:38:34] Speaker A: the finance bit and the Excel project and the We've done the redesign. So we're now on to project process.
+[00:38:40] Speaker A: Now satisfaction with, for example, room for creativity, leadership, teamwork, means, et cetera, whiteboard, digital pens, et cetera. So, we're actually now uh, in a sense, on to the evaluation of the course rather than the evaluation of the project is m my understanding of it.
+[00:38:56] Speaker D: Uh-huh.
+[00:38:58] Speaker A: So what did you and remembering that nobody's just over the curtain. So, um
+[00:39:10] Speaker D: Finish your meeting now.
+[00:39:13] Speaker B: We should just go through this quickly and then
+[00:39:14] Speaker C: Huh.
+[00:39:15] Speaker D: Yeah.
+[00:39:15] Speaker A: So
+[00:39:19] Speaker A: I suppose the easiest way of doing it is to put some notes down, which I will do.
+[00:39:26] Speaker D: Okay.
+[00:39:27] Speaker A: So, uh I think I have to finish that page. Right, okay, so
+[00:39:32] Speaker D: Oh.
+[00:39:42] Speaker A: Project evaluation. So, um
+[00:39:49] Speaker A: Creativity.
+[00:39:52] Speaker A: Did you feel you got a chance to express yourselves well enough? Well um
+[00:39:55] Speaker B: Um, yeah. Yeah.
+[00:39:56] Speaker C: Yeah.
+[00:39:57] Speaker D: I thought some of the divisions though between sort of the individual meetings were a bit arbitrary.
+[00:40:04] Speaker A: Individual meetings. How do you mean?
+[00:40:06] Speaker D: Yeah. Well, we were finding out various things in
+[00:40:10] Speaker A: In you on your own.
+[00:40:11] Speaker D: in be in-between the meetings, and they didn't the one meeting didn't always follow on for the other one, you know, sort of we had things thrown in at the second meeting where, you know, you'd looked at the remote controls and seen the curviness, but in the first one you'd also looked at some remote controls and looked at the buttons, and I don't understand why it would be in separate meetings that you'd do that. You know, you'd sort of you'd probably present it at one or something like that.
+[00:40:21] Speaker A: Um
+[00:40:38] Speaker A: Mm, The only thing you find is in a manufacturing process, you would normally, you go to a meeting, you decide, right, you do this, you do that, you do that. Then you go away. You find out information. You then come back. You then discuss it. You then go and change things around, and then go back. So
+[00:40:45] Speaker D: Yeah.
+[00:40:51] Speaker D: Uh-huh.
+[00:40:54] Speaker D: Yeah.
+[00:40:54] Speaker B: Yeah, I suppose and then be going out and finding more information each time and then diff things will be relevant.
+[00:40:58] Speaker A: Whereas, this time, you're really getting it from a database source, so it's not uh well uh Anyway, so, what do you want to put down? I've put, seemed okay. Creativity, seemed okay. Um um flow of information on on any given subject given subject um sometimes disjointed.
+[00:40:58] Speaker D: Yeah.
+[00:41:01] Speaker D: Yeah.
+[00:41:28] Speaker D: Yeah.
+[00:41:30] Speaker C: I think it maybe could have been a slightly more creative project. I mean a remote control isn't the most um
+[00:41:39] Speaker D: Yeah, the thing itself.
+[00:41:40] Speaker C: kind of fancy thing that you could imagine designing.
+[00:41:41] Speaker A: Um
+[00:41:43] Speaker D: Yeah.
+[00:41:43] Speaker C: I can't think of a better example at the minute.
+[00:41:44] Speaker A: Have could have used a different
+[00:41:52] Speaker A: example pel to increase create
+[00:41:57] Speaker D: Yeah.
+[00:41:57] Speaker B: Is this go It kinda kis fits the purpose that it was something everyone knows about and then
+[00:42:01] Speaker A: Creativity.
+[00:42:02] Speaker B: something we can at least look at and think how we can improve on.
+[00:42:04] Speaker D: Mm-hmm.
+[00:42:04] Speaker A: You have to do it within a set time frame is the other thing, so
+[00:42:07] Speaker D: Yeah. But think like it was a bit restrictive just to say that you have to design a television remote control, in a way. I mean it depends what sort of business you're in, I guess. I mean this one seems. From the website it looks it's quite innovative, but we're coming up with some bucket shop product aren't we that's, you know, fifteen quid.
+[00:42:25] Speaker B: one of those things. Like uh, companies can have like a range of products and
+[00:42:30] Speaker A: I th I uh d
+[00:42:30] Speaker B: I don't know how it works but I guess that something got sent out and have like a brief to kind of
+[00:42:35] Speaker A: But the other thing is that uh they're I'm guessing that they're trying to use this um software to to demonstrate how you could uh do a project. I mean, m my wife at the moment, for instance, is uh acting as a computer um for um you normally, you got a problem, so you go to your tutor and find out information to see how to get it fixed. So what she's doing is she's having to spend a day at the computer terminal at one end so that any student that comes along can uh ask whatever question. And then you or the idea is that the whichever uh person's at the other end can point them in the right direction, show them where to either give them directly give them help, or secondly, point them in the right direction, either at the library, or uh or or come back, or go and see Joe Bloggs, or whatever.
+[00:42:49] Speaker D: Yeah.
+[00:43:03] Speaker D: Mm-hmm.
+[00:43:39] Speaker A: So uh, and that was a project I suspect similar to this, because they they were actually trying to debug the uh computer software to enable um to enable it to work. And of course, you had the machine crashing and various things going wrong. So
+[00:43:53] Speaker D: Hmm.
+[00:43:55] Speaker B: Yeah.
+[00:43:58] Speaker B: Well, sh we look at the last slide, see if it's got anything else. I think there's one one more to go.
+[00:43:58] Speaker D: Mm-hmm.
+[00:44:01] Speaker A: Alright, so we've got uh
+[00:44:03] Speaker D: Yeah.
+[00:44:04] Speaker D: I mean if you look at their products on their website here, Real Reaction, I mean it's all pretty high-tech and cutting edge. And
+[00:44:12] Speaker A: New ideas found, did we find any, no.
+[00:44:14] Speaker B: It was quite good with this um the white board, having that and the digital pens. Like, that's something that made it a little easier.
+[00:44:18] Speaker A: Alright. Leadership, teamwork.
+[00:44:19] Speaker D: Yeah. Yeah.
+[00:44:22] Speaker D: we did find a new idea, I mean sort of a kinetic remote control. I've never seen one of them before. batteries, I think. So
+[00:44:29] Speaker B: voice recognition, especially not could
+[00:44:29] Speaker A: Does
+[00:44:32] Speaker D: Mm yeah.
+[00:44:33] Speaker A: You've got voice recognition computers, that's not remote controls.
+[00:44:35] Speaker B: Yeah.
+[00:44:37] Speaker D: Yeah.
+[00:44:37] Speaker C: Well it's a different application of it.
+[00:44:40] Speaker A: Mm-hmm. Okay,
+[00:44:42] Speaker B: Yeah, so it's just like the same products, but just put together in a different way.
+[00:44:44] Speaker D: Mm.
+[00:44:45] Speaker A: so how do you reckon teamwork went?
+[00:44:48] Speaker B: Um
+[00:44:48] Speaker D: That went okay, yeah.
+[00:44:51] Speaker B: Yeah, I guess we all had separate ideas and then discussed them.
+[00:44:53] Speaker D: Mm-hmm, yeah.
+[00:44:54] Speaker C: Yeah.
+[00:44:58] Speaker A: To uh go uh reasonably well. Okay.
+[00:45:06] Speaker D: I don't think sort of the budget um allowed us to do anything
+[00:45:11] Speaker A: Bit bit arbitrary.
+[00:45:14] Speaker D: Well, I mean I don't think it I just don't think it fitted in with the rest of their products. I mean, they've got all these sort of, you know,
+[00:45:20] Speaker A: Mm-hmm.
+[00:45:21] Speaker D: high definition D_V_D_ and
+[00:45:25] Speaker D: portable seven inch d um lightweight computer screens, and uh I'm thinking, do you know, one cheap remote control doesn't really fit in. Surely they they should produ
+[00:45:33] Speaker A: So, we're m we're meant to comment on leadership and the means, E_ G_ whiteboard, digital pens, et cetera. And and new i new ideas found was the the other thing.
+[00:45:44] Speaker C: Well leadership's a bit of a funny one, isn't it.
+[00:45:48] Speaker D: Yeah.
+[00:45:50] Speaker C: But we can't really all fairly comment on leadership because you are the Project Manager. You were the leader. So our experience of leadership wasn't really
+[00:46:02] Speaker C: as much as yours.
+[00:46:02] Speaker D: Yeah.
+[00:46:04] Speaker D: Yeah.
+[00:46:05] Speaker A: Now, I'd much rather be in marketing but I certainly didn't get this uh computer to work as well as I would have liked. However, um Alright uh means, so whiteboard um so really, it's uh equipment. Oh.
+[00:46:25] Speaker D: Yeah. It worked. Comput computers could be a bit difficult at times but
+[00:46:28] Speaker C: Yeah, very nice.
+[00:46:36] Speaker C: But I mean, I d I don't I'm not sure I see the value in these. I mean, they record what you're writing, and then what do you do with it? Where do you get the recording? Do you plug the computer or something?
+[00:46:46] Speaker D: I think there's a little there's a little um chi
+[00:46:49] Speaker B: So it's not just for us, it's for the experiment as a whole, so
+[00:46:52] Speaker D: There's a little there's a little chip, I think you must plug it into something and it produces a
+[00:46:54] Speaker B: Should we quickly look at the last slide? Sh
+[00:46:56] Speaker C: Right. I think you watch a video of it kind of.
+[00:46:59] Speaker D: I don't know. Whether it just produces a big image of sort of everything you've written or something, and Page after page.
+[00:47:03] Speaker A: Right. New ideas found, so one or two.
+[00:47:06] Speaker D: Yeah.
+[00:47:08] Speaker D: Kinetic powered remote control. Um,
+[00:47:13] Speaker D: what was the other one?
+[00:47:14] Speaker C: Voice um recognition thing.
+[00:47:15] Speaker D: Vo yeah.
+[00:47:20] Speaker A: um
+[00:47:25] Speaker A: and uh
+[00:47:28] Speaker A: voice
+[00:47:31] Speaker A: uh, was it voice activated um
+[00:47:34] Speaker D: Voice recognition, yeah. S
+[00:47:35] Speaker A: recognition.
+[00:47:43] Speaker D: Almost. To fill in these fill in these questionnaires
+[00:47:44] Speaker C: Pretty much.
+[00:47:46] Speaker A: Right, so, uh are the costs within budget, yes. Is the project evaluated, yes. Uh, don't forget to complete final questionnaire and meeting summary. Then celebration.
+[00:47:51] Speaker D: Oh no.
+[00:48:02] Speaker B: . Is that everything?
+[00:48:04] Speaker D: Hmm? I think that we've got two questionnaires and a report on the last meeting.
+[00:48:08] Speaker A: Yeah.
+[00:48:13] Speaker A: Uh, so we don't re So really
+[00:48:20] Speaker A: I tried to save this the last time at twelve point three, and it didn't seem to have saved anywhere. Mind you, the the figure last was was different, but it should be poss

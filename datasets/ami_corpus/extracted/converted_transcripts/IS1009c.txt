@@ -1,0 +1,291 @@
+[00:00:37] Speaker A: Okay.
+[00:00:42] Speaker A: Hello everyone.
+[00:00:42] Speaker C: Hi.
+[00:00:43] Speaker D: Hi.
+[00:00:43] Speaker B: Hi.
+[00:00:44] Speaker A: Um how uh how we doing?
+[00:00:48] Speaker C: Yeah, good.
+[00:00:49] Speaker A: Uh first we going uh over the minutes of the last meeting, more or less. Um in the last meeting uh the marketing manager had presented uh her method of working, meaning gathering i suggestions
+[00:00:55] Speaker B: Mm-hmm.
+[00:01:09] Speaker A: from everyone to see how she best could market uh this this product at the within the budget uh that was given.
+[00:01:21] Speaker A: Uh in general the idea is that it should be something that is not difficult to use.
+[00:01:29] Speaker A: Um it's also an item that people lose a lot. So we should address that. And, of course, it should be something
+[00:01:41] Speaker A: s s that is very simple to use.
+[00:01:45] Speaker A: In addition to that to make it sell, of course, uh the marketing manager w wishes that it be very attractive, or like she says put some sizzle into it in one way or another
+[00:01:57] Speaker A: so that the people are buying it now because, in particular with smaller items, that's a very important fact, 'cause um if they say, well, I go home and think about it, that won't work.
+[00:02:10] Speaker A: Um also mentioned was it should be uh it should have a very short learning curve.
+[00:02:18] Speaker A: And maybe it could be sold by using a slogan.
+[00:02:24] Speaker C: Hmm.
+[00:02:24] Speaker A: Our technical manager has then said that she feels it should have a chip
+[00:02:33] Speaker A: that has infra-red bits and it has an interface controls w interface that controls the chip.
+[00:02:41] Speaker A: Therefore, messages uh will be controlled in the same manner. There should be extra features like lid buttons, maybe a beep. If too many buttons are pressed,
+[00:02:53] Speaker A: mm uh uh child lock um and uh maybe a display clock so that people could um
+[00:03:04] Speaker A: you could see the time, you know, what show they want to watch. Also mentioned was uh maybe different shapes.
+[00:03:13] Speaker A: So the components of the thing should be button, bulbs, infra infra-red bulbs, battery, chips, wires, and maybe some kind of a holder
+[00:03:24] Speaker A: uh for the for the uh item.
+[00:03:30] Speaker A: Francino who is our um interface designer um uh has mentioned that the that it, of course, should have an on-off button, and also has mentioned an interesting feature that it should have maybe a channel lock.
+[00:03:33] Speaker B: Interface designer.
+[00:03:50] Speaker A: Particularly with maybe small children that they couldn't uh watch a channel that is undesirable. It should be compact. Her personal favourite was it should be T-shaped. And maybe have an anar alarm-clock. And the material should possibly be not of non-allergic nature.
+[00:04:10] Speaker A: Uh the different systems uh that exist are infra-red or radio-waves.
+[00:04:18] Speaker A: Uh maybe it should have uh electri electrici electricity saving feature.
+[00:04:25] Speaker A: And even possibly a timer to so that people can program their favourite uh uh program on th right from the remote.
+[00:04:37] Speaker B: Yes.
+[00:04:39] Speaker A: Uh are we all in agreement that that's about what we discussed last time? Okay.
+[00:04:44] Speaker C: Yeah.
+[00:04:44] Speaker B: Yes.
+[00:04:44] Speaker D: Yeah, I think that pretty much is it. Yeah. Mm-hmm.
+[00:04:46] Speaker A: Okay, then we I'm looking for three presentations. And uh I don't know whether the order matters much uh, I don't I don't think so, so whoever w wants Yeah, okay.
+[00:04:57] Speaker B: Okay, I can start first.
+[00:04:59] Speaker B: Okay.
+[00:05:05] Speaker B: Now my slide, please.
+[00:05:06] Speaker A: Okay, your slides. Okay.
+[00:05:14] Speaker A: Oh, come on, close already.
+[00:05:21] Speaker A: And that's number two, right?
+[00:05:23] Speaker B: Three.
+[00:05:24] Speaker A: Three.
+[00:05:25] Speaker B: Participant three.
+[00:05:28] Speaker B: Yes.
+[00:05:35] Speaker B: Okay.
+[00:05:36] Speaker A: Okay.
+[00:05:37] Speaker B: Now as an interface designer, I would give more emphasis on the interface, how the remote looks like so that it is sellable, it is attractive to customers.
+[00:05:48] Speaker B: Next, please.
+[00:05:51] Speaker B: Okay. Now the function of a remote is to send messages to the television. This messages could be uh switch on-off message or switch to next channel message or swapping the channels or switching onto a particular channel, like you can have the numbers one, two, three, four, up to nine.
+[00:06:13] Speaker A: Nine what? Nine channel uh switches?
+[00:06:17] Speaker B: Pardon me?
+[00:06:17] Speaker A: Nine channel switches? Is Yeah. Mm-hmm. Mm-hmm.
+[00:06:19] Speaker B: Yes, nine numbers.
+[00:06:22] Speaker B: And then you have swapping of uh button by which using which you can swap the channels if you don't want to see the third channel you can swap it to the fourth channel or vice versa.
+[00:06:25] Speaker A: Mm-hmm.
+[00:06:35] Speaker B: Then it should have a next button, and next button channel by which you can keep on uh v uh mm eh scrolling the channels one by one. Next slide, please.
+[00:06:42] Speaker C: Going to the nex next.
+[00:06:42] Speaker A: Mm-hmm.
+[00:06:45] Speaker A: Mm-hmm.
+[00:06:48] Speaker A: Mm-hmm.
+[00:06:50] Speaker B: Then you should have a button which should which ca which can be used for increasing or decreasing the volume.
+[00:06:56] Speaker A: Mm-hmm.
+[00:06:58] Speaker B: Then, there should be a button which can give subtitles for a particular program which is going on a television. For example, if you are watching a French program and you would like to have a subtitles in English, then there should be a channel which can trigger this mechanism in the television so that the user can see uh the the subtitles on the screen.
+[00:07:10] Speaker A: Mm-hmm.
+[00:07:21] Speaker B: Then there should d uh there should be some buttons which can control features like the colour, colour of the picture, the contrast, sharpness, brightness of the picture.
+[00:07:36] Speaker B: Now there should be a memory switch.
+[00:07:42] Speaker B: There should be a mute button. Suddenly if if if uh uh viewer he gets a telephone call, and if he want he doesn't want to switch off the uh T_V_, but he he can reduce the sound, he can bring the volume down and he can watch he can uh while talking he can watch the T_V_. Now the most important feature I would like to have in my remote would be the speech recognition feature.
+[00:08:10] Speaker B: It's an integrated progra programmable sample sensor speaker unit.
+[00:08:18] Speaker B: So a remote can be th can be uh designed which can have the voice recognisers, you can record your own voice
+[00:08:29] Speaker A: Mm-hmm.
+[00:08:30] Speaker B: which can be recognised by as voice recogniser in the television, for example, if you want to see we if you want to see the ninth channel if you say just say ninth channel, uh th now the the uh yeah, the remote will automatically it will switch to the ninth channel. So the T_V_ will have some recogniser which will recognise the user's voice and accordingly it will change its functionalities. So this is one of the very important feature a remote control can have.
+[00:08:44] Speaker A: Mm-hmm.
+[00:08:47] Speaker A: Mm-hmm.
+[00:08:54] Speaker A: Mm-hmm. Mm-hmm.
+[00:09:01] Speaker B: So this is one one of the interface which can be created.
+[00:09:06] Speaker A: Mm-hmm.
+[00:09:07] Speaker B: A very simple interface which has all the t uh uh important features.
+[00:09:13] Speaker B: Then, please, next slide.
+[00:09:13] Speaker A: Mm-hmm. Mm-hmm.
+[00:09:15] Speaker B: Then, these are some of the remotes which are different in shape and colour, but they have many buttons. So uh sometimes the user finds it very difficult to recognise which button is for what function and all that. So you can you can design an interface which is very simple, and which is user-friendly. Even a kid can use that. So can you go on t t uh to the next slide.
+[00:09:22] Speaker A: Mm-hmm.
+[00:09:35] Speaker A: Mm-hmm.
+[00:09:38] Speaker B: Yeah, so this is one of the interface or one of the remote which has this vi voice recogniser. And this has multi-purpose use, it can be used for T_V_, it can be used for cable-satellite, it can be used for V_C_R_, D_V_D_s and audio.
+[00:09:44] Speaker A: Mm-hmm.
+[00:09:55] Speaker B: And this has in-built voice recogniser.
+[00:10:01] Speaker B: Can you go on to the next slide? Yeah, now this is an interface for a chil uh for a remote uh uh which a child can use. Uh this is user-friendly, it's very attractive and uh children can use it as well as they can play with it. And this comes with different colours, different shapes.
+[00:10:09] Speaker A: Mm-hmm.
+[00:10:20] Speaker C: Mm.
+[00:10:26] Speaker A: Mm-hmm.
+[00:10:26] Speaker B: And this this uh child uh interface has minimum buttons and all the important uh buttons are there in this small, compact,
+[00:10:38] Speaker B: attractive child interface.
+[00:10:46] Speaker B: Next slide, please. Now this is a big over-sized remote which cannot be misplaced or it's impossible to misplace. this.
+[00:10:56] Speaker D: You don't know me. I could lose that in a minute.
+[00:11:01] Speaker B: So this is No this is a very big, you cannot misplace it anywhere. So this is a jumbo universal remote control and it's impossible to im misplace or lose.
+[00:11:12] Speaker A: Mm-hmm.
+[00:11:13] Speaker B: This i this is one such interface which can be created.
+[00:11:18] Speaker B: And the personal preference uh would be a spe uh uh to incorporate speech recognisers uh which will respond to user's voice for a particular uh function.
+[00:11:28] Speaker A: Mm-hmm.
+[00:11:30] Speaker A: Right.
+[00:11:31] Speaker B: Thank you, that's
+[00:11:33] Speaker A: Mm-hmm.
+[00:11:51] Speaker A: Okay, thank you very much. Uh any comments on uh her presentation?
+[00:12:00] Speaker D: Well, um looks like we still have quite a choice of things out there. Um what uh I'm No suggestion's bad. But uh we're gonna have to narrow it down a little more. I don't think that we can get uh The T-shape is good, the child one is good, the too big to misplace, I think it's just funny. Um I don't think that's gonna be our impulse purchase at the checkout counter. It's it's gonna be a little bit too unwieldy.
+[00:12:04] Speaker C: Mm-hmm.
+[00:12:08] Speaker B: Mm yes.
+[00:12:20] Speaker B: Okay.
+[00:12:22] Speaker A: Yeah, I I th I think
+[00:12:27] Speaker B: Okay.
+[00:12:29] Speaker A: No, I think the these are her presentations, but uh as far as the decision making we getting to that after after but if I just wanted to know whether anybody had any any anything to add to her presentation.
+[00:12:31] Speaker D: Yeah mm. Mm-hmm.
+[00:12:34] Speaker D: Have to come back to that later. Okay.
+[00:12:35] Speaker B: We can.
+[00:12:42] Speaker D: No, I think her presentation was good, and she really explored all the options. Yeah.
+[00:12:44] Speaker A: Mm right.
+[00:12:46] Speaker A: Mm-hmm. Ho who wants to go next um?
+[00:12:50] Speaker C: Yeah, maybe.
+[00:12:50] Speaker A: Mm-hmm. Okay, and you
+[00:12:51] Speaker C: Participant two.
+[00:12:56] Speaker A: Uh okay.
+[00:12:58] Speaker C: Uh the next one, sorry. It's it was the old one.
+[00:12:59] Speaker A: Oops.
+[00:13:07] Speaker C: Components.
+[00:13:07] Speaker A: The components design. Mm-hmm. Okay.
+[00:13:16] Speaker C: Um this time I'm I'm going to um concentrate more on the components and the technical side of the remote controller design. Uh, can you go on to the next slide, please.
+[00:13:23] Speaker D: Mm-hmm.
+[00:13:28] Speaker A: Mm-hmm.
+[00:13:29] Speaker C: I have just brief uh down few uh components which we require for the remote control uh construction. Uh the first one is case to keep all the components like integrated circuit, battery, etcetera, etcetera, it's like
+[00:13:44] Speaker C: Uh it can be a plastic one, hard plastic, so that it can be strong, even if you just uh uh, you know, if you if it falls down, then it doesn't break. So it should be strong. And uh uh there are no harmful materials used in that. And it should be recyclable.
+[00:13:57] Speaker A: Mm-hmm.
+[00:14:04] Speaker A: Mm-hmm.
+[00:14:05] Speaker C: Uh and uh, yeah, and also uh using of colouring compon components like uh if we want to have different colours, blue, red, green, so uh uh we have to use uh some colouring compone compone components.
+[00:14:05] Speaker D: Mm-hmm. Good point.
+[00:14:18] Speaker C: And uh the second important thing is uh uh uh integrated circuit. Uh which uh we can use a highly sophisticated one because it's like the it's like the heart of the remote controller. If it is not efficient then everything wi is going to be uh like um the lef ess less efficient so it you should we should have a highly sophisticated one. And it should be resistant to high as well as uh low temperatures. Suppose if it is thirty-eight degrees outside forty degrees outside, it should it should uh be able to re uh resist the uh temperature uh uh highs and uh high temperatures and low temperatures. And uh it should be with uh um equipped with timer and alarm facility.
+[00:15:01] Speaker C: And the uh other component we should uh we have in the remote controller is a resistor uh which is like uh uh i it is very very much important for the electricity uh flow through through through the uh remote controller and uh also a capacitor which is a b which is a m I think it's it's like a battery, capacitor. Can you go on to the next slide, please?
+[00:15:22] Speaker D: Mm-hmm.
+[00:15:23] Speaker A: Mm-hmm.
+[00:15:26] Speaker C: Uh a diode, a transistor, a resonator, these are all this uh technical uh electri electronic compons uh components which are which we have to use in a remote controller. A battery uh, I would like to suggest one thing uh if we
+[00:15:41] Speaker C: uh if we will be able to make a res rechargeable battery then we sh we need not go for a high performance battery, even if it is a low performance battery it ca it can't l it can't charge much. It it it's not a high voltage battery. Then also we can If it is a rechargeable one, then uh people can use it for a long time, so in that way we can cut cut the cost, but w uh uh that we have to make the battery as rechargeable one.
+[00:15:50] Speaker D: Mm-hmm.
+[00:16:08] Speaker C: And we we have a circuit board uh in a remote controller. Can you go to the next slide, please. And how it works, how the remote controller works. When you press a button
+[00:16:24] Speaker A: Go away.
+[00:16:26] Speaker C: Thank you. Uh when you press a button, when you do that, you complete a specific connection that means when you when you press a button there will be a s a small circuit underneath the button, and it will send some signals through the wires, and then uh the chip will send start connection and knows that which button is pressed. Suppose you have pressed channel one button, number one you have pressed, then the uh chip will know that the number one button was pressed. It pros produces a mors morse code line signal specific to that button.
+[00:16:58] Speaker C: Every button, every individual button, has its own morse code. Suppose uh the uh user has pressed butto button one, then it will have a spe the circuit will generate a specific morse code to b that that button, and the transistor will amplify the signal and send then to the L_E_D_ which translates the signal into infrared light. Like you have got a signal by pressing a button. That's a d a morse code has been generated by the integrated circuit.
+[00:17:26] Speaker C: Now, that signal, that morse code, has to be amplified by the transistor. That is the use of transist transistor we which we use in the remote controller. It will amplify the signal and it will send it to the L_E_D_ and which translates the signal into an infra infrared bits. The sensor on the T_V_ can see the infrared light, and seeing the signal seeing the signal re it reacts appropriately, that when it sees the amplified mo morse code signal, then it will uh it will uh know which uh what what action it has to uh do. Then it will do the appropriate action. So uh this is how the remote controller works.
+[00:18:03] Speaker B: It works.
+[00:18:05] Speaker C: Can you go to the next slide, please.
+[00:18:08] Speaker C: Yeah, I have few pictures. When you look at the uh um remote controller uh it's it's it this is a normal remote controller. And to the next slide, please.
+[00:18:15] Speaker D: Mm-hmm.
+[00:18:19] Speaker C: And where we had a a few buttons and all. And uh if you open the remote controller you have this circui circuit board and few electronic components, like you can see a chip there which is having eighteen pins, and also a capac uh a capacitor, three resistors and also a resonator uh um mm yeah, and di and a diode transistor.
+[00:18:26] Speaker D: Mm-hmm.
+[00:18:29] Speaker D: Mm-hmm.
+[00:18:30] Speaker A: Mm-hmm.
+[00:18:43] Speaker A: Mm-hmm.
+[00:18:44] Speaker C: The electronic components uh all of the electronic components have all those uh things like a chip and d diode transistors an
+[00:18:54] Speaker C: Yeah, di um can y uh you can see the T_A_ double one eight three five labelled uh chip um.
+[00:18:58] Speaker A: Mm-hmm. Mm-hmm.
+[00:18:59] Speaker B: Mm yes.
+[00:19:00] Speaker D: Yes.
+[00:19:02] Speaker C: Uh you can also see the uh uh the green two green things are uh these are they are they are resistors, and uh just beside that you can see a transistor, and a uh uh cylinder shape, uh that one is a capacitor. Uh and also there are uh um resistors uh sorry, ther there is a diode. Can you go go on to the next slide.
+[00:19:09] Speaker B: Mm-hmm.
+[00:19:21] Speaker A: Mm-hmm. Mm-hmm.
+[00:19:24] Speaker C: So uh this is the circuit board. The green one is a circuit board. Actually, uh building a circuit bo board is pretty pretty uh easy and also it's a it's a l l inexpensive. Uh it's it costs less than what you print on a paper, because uh uh when you when you are building uh some circuits some um uh circuits and also wires, it's it's better to go for printing, because uh you can build these kind of k circuit boards on a on a bulk and it's just printing, nothing like uh, you know, you don't need to use wires and all. It's not exactly wires we are using. It's just printing something on a board. Tha tho those prints will acti act as wires and ci uh circuits.
+[00:19:53] Speaker B: Mm-hmm.
+[00:20:06] Speaker C: So th that green uh thing is a circuit board, and also you can see uh there are b s like uh um access for buttons, like when you press a button, the circuit under the button will be activated uh th it will it will he get some signals from it and it will uh it will ch its ch se send a signal signals to the, yeah, um integrated circuit. Can you go to the next slide, please.
+[00:20:24] Speaker B: Transmit.
+[00:20:31] Speaker C: Uh so this is these are the circuits un underneath the buttons. Uh can you see the black uh, round marks? They they are the circuits.
+[00:20:37] Speaker A: Mm-hmm.
+[00:20:37] Speaker D: Yes.
+[00:20:39] Speaker C: Next, please. And um like uh we have uh designed uh before we have seen some uh few things like instead off buttons we have some scrolls. Uh b but a b a push-button requires a simple chip underneath it, but whereas a scroll wheel requires normally a regular chip which is a higher price range. Like for s scrolls we have to go for a sophisticated and and k uh uh uh full a complete chip. Uh and a as energy source we offer a basic battery, a more ingenious uh hard dynamo, um a kinetic provision of energy, more than what is that you shake casually to provide energy. So that also we can have in a battery, uh or we can use solar sells. Uh.
+[00:20:59] Speaker D: Okay.
+[00:21:03] Speaker B: Okay.
+[00:21:25] Speaker D: Hmm, that's interesting.
+[00:21:27] Speaker C: Yeah.
+[00:21:29] Speaker C: Uh yeah uh the product can be de delivered into different cases. Uh usually, the cases and card flat that w we see usually uh d uh a normal remote controller. Um.
+[00:21:37] Speaker B: Okay.
+[00:21:42] Speaker A: Okay. And you have more pictures. Uh we have five minutes to the end of the meeting.
+[00:21:43] Speaker C: Yeah.
+[00:21:46] Speaker C: Yeah, maybe d uh I have just one more slide, I think. Um.
+[00:21:52] Speaker C: Like we can have a ma material such as plastic, rubber, wood, titanium, but titanium we can't use. Um and also for electronics we can use a simple and regular um re or an advanced chip on the print, um also infra it includes the infrared se sender. Um yeah the uh for the movie just to j develop uh samples and so spe sample speaker.
+[00:22:15] Speaker C: An Yeah, that's it.
+[00:22:19] Speaker C: It's all for me now, thank you.
+[00:22:20] Speaker A: Okay, well thank you.
+[00:22:22] Speaker A: Any particular comments by anybody?
+[00:22:26] Speaker D: Uh yeah, on the scroll and the push-button, um ca you can achieve scrolling by repeatedly pushing a button?
+[00:22:33] Speaker C: No, no, no, th the the the scrolling wheels are different, like you can go for a sw switches like buttons or scrolls, uh which which we used to do before ten ten years before, I think. Now, nobody uses that because you need you need a a k sophisticated chip and all. So I think it's better we go for uh um ordinary buttons. Yeah uh yeah, push-buttons. Yeah. Yeah.
+[00:22:39] Speaker D: Mm-hmm.
+[00:22:48] Speaker D: Um.
+[00:22:51] Speaker D: We'll just go for push buttons for in the interest of cost. Okay.
+[00:22:52] Speaker B: Push-buttons.
+[00:22:54] Speaker A: We don't have a lot of time left and we will still have to make a decision, and the marketing expert has to present her her thing.
+[00:23:01] Speaker D: Okay. Go right to my first my next slide.
+[00:23:03] Speaker A: Uh okay.
+[00:23:06] Speaker D: Um alright, my method is uh I'm interested in what the competition is doing, and wanna see how we can make ourselves different from the competition, so I've really been looking at the press and the ads that are out there for other remote controllers. I s I spend a lot of time on the internet um surfing around doing the same thing. And then when I'm out um in people's houses or at meetings or anything like that, I try to notice what kind of remote controls people have, and if it's convenient in the conversation I ask about it. And I would encourage you all to do the same. Um and my findings from this is that, you know, small is beautiful. Um people like something that really fits in their hand. Simple is beautiful. They don't want to have to squint at small print um, they want buttons whose functions are obvious, and they want um as few buttons as possible, and they don't care for the mode thing. They want each button to do something. And eye-catching is important. It's gotta look cute, it's gotta look appealing. Go ahead, I'm trying to finish fast for you. Um and our preference is, as far as I'm concerned, are we got to get to the market before the competition. Ours has to be look really great and it has to come out before the others, so that we have a leg up on time to sell it and push it before other people get out their Christmas item. And we should develop one or two features we can really dwell on in our ad campaign. If we try to tell people it has too many great features, um the consumer just gets confused and we don't get anywhere. So we've gotta narrow our selection down to li two things, I think, that we gonna say are really great about our our our new product. And I've been looking around um at what designs every year different things are popular. And in my research this year I found out that fruit and vegetable shapes are really popular. And people are tired of hard plastic and hard metal. They are more back into soft feel, spongy feeling things, things with maybe a little cloth on them. So those are things maybe we wanna look at as far as saleability of the item.
+[00:23:49] Speaker B: 'Kay.
+[00:25:14] Speaker B: Mm-hmm.
+[00:25:17] Speaker A: Okay. Uh that
+[00:25:21] Speaker A: concludes the presentation of everyone. And what we really have to decide in this meeting is um the concept of the remote.
+[00:25:32] Speaker D: Mm-hmm.
+[00:25:33] Speaker A: And uh so what do we think on the concept
+[00:25:41] Speaker A: of the remote?
+[00:25:45] Speaker D: You wanna try to come back to yours, and limit yours a bit?
+[00:25:47] Speaker B: Uh yes, I would like to include this feature which is called as voice recogniser.
+[00:25:47] Speaker A: Y
+[00:25:52] Speaker D: Okay.
+[00:25:52] Speaker A: Okay. Mm-hmm.
+[00:25:54] Speaker C: Mm-hmm.
+[00:25:56] Speaker D: So speech recognition is most important as far as you're concerned?
+[00:25:59] Speaker C: Yeah, but w
+[00:25:59] Speaker B: This could be uh one feature which could be sellable.
+[00:26:02] Speaker D: Yeah h that could that could that could be our star feature. That that be really good, yeah, I agree with that.
+[00:26:03] Speaker C: Yeah.
+[00:26:03] Speaker A: I think that's
+[00:26:06] Speaker C: Yeah, but but I what I'm uh very very much doubtful how how uh far it will work, because a speech recogniser like i it it has its own uh uh problems, issues.
+[00:26:06] Speaker A: Mm-hmm.
+[00:26:17] Speaker D: Distance problem?
+[00:26:18] Speaker C: Yeah, it's not distance problem it it's recognising a person's voice, like maybe different people will be having different voices, so it like it's uh everything so i
+[00:26:20] Speaker B: Mm-hmm.
+[00:26:24] Speaker D: Uh.
+[00:26:26] Speaker A: Well, you you teach You have to teach uh
+[00:26:28] Speaker C: So to get a good recogni recognising system, it's a costly thing, I think.
+[00:26:31] Speaker B: No, it's it's, uh yeah, it it's like your recording of uh all uh um a question already, and then you're expecting an answer from th For example, you have a T_V_ system, I'm the user and my family members are the user, I will already record uh a question like, uh good morning, like around eight o'clock I want to see the news in the television. So I'll say just good morning and the T_V_ will switch on. It will recognise my voice and will switch on.
+[00:26:43] Speaker C: Mm-hmm.
+[00:26:47] Speaker C: Yeah, but Yeah.
+[00:26:48] Speaker C: Mm-hmm.
+[00:26:52] Speaker C: Mm-hmm.
+[00:26:57] Speaker C: Mm-hmm.
+[00:26:59] Speaker C: Yeah.
+[00:26:59] Speaker A: Okay, before we get too far off here um, the components of the concept is the energy. What kind of energy do we foresee?
+[00:27:10] Speaker D: I think I think battery, and I think we all agreed on that. That that's that's gonna be most cost-effective and the best thing.
+[00:27:10] Speaker A: Battery. Battery.
+[00:27:11] Speaker B: Battery.
+[00:27:13] Speaker B: Yes.
+[00:27:13] Speaker C: Yeah. Yeah.
+[00:27:16] Speaker A: Okay then chip on print.
+[00:27:19] Speaker C: Yeah.
+[00:27:19] Speaker D: Yep.
+[00:27:19] Speaker B: Yes.
+[00:27:20] Speaker A: Okay. And the case. And I think we all agree on the case, we wanna have something uh maybe bright, colourful.
+[00:27:27] Speaker C: Yeah.
+[00:27:28] Speaker D: Bright, colourful, trendy trendy design, and strong.
+[00:27:28] Speaker B: And compact.
+[00:27:29] Speaker C: And also strong.
+[00:27:30] Speaker C: Trendy, yeah.
+[00:27:31] Speaker B: Trendy design and compact.
+[00:27:32] Speaker A: Mm-hmm.
+[00:27:34] Speaker A: Trendy design, compact and strong.
+[00:27:37] Speaker D: Mm-hmm.
+[00:27:37] Speaker B: Yes.
+[00:27:40] Speaker A: User interface concept, uh interface type, supplements.
+[00:27:49] Speaker A: That will be your area I think, right, Jana.
+[00:27:50] Speaker C: Uh.
+[00:27:54] Speaker C: Um like the switches, like we use buttons for user interface.
+[00:27:58] Speaker B: Push-buttons.
+[00:27:59] Speaker A: Put uh k I guess uh for yeah.
+[00:27:59] Speaker C: Push-buttons.
+[00:28:05] Speaker A: And
+[00:28:07] Speaker A: Not sure what they mean by supplements.
+[00:28:07] Speaker B: And
+[00:28:09] Speaker C: Yeah.
+[00:28:09] Speaker D: Well, I think that
+[00:28:09] Speaker B: Supplements like different types of features buttons, like can have a f mute button or a swapping button.
+[00:28:12] Speaker D: Yeah, or or like her speech recognition would also be a supplement. Her speech recognition feature would be a supplement.
+[00:28:13] Speaker A: Oh, like
+[00:28:14] Speaker A: Oh.
+[00:28:16] Speaker A: A what? Right, right, right, mm-hmm.
+[00:28:18] Speaker B: Recogniser. Yes.
+[00:28:18] Speaker C: Mm yeah.
+[00:28:20] Speaker D: Okay, so why don't we put down speech recognition if possible pending some more research from our industrial engineer on how expensive that is.
+[00:28:22] Speaker C: Hmm.
+[00:28:26] Speaker C: Mm-hmm. Yeah.
+[00:28:27] Speaker A: Right.
+[00:28:27] Speaker B: Yes.
+[00:28:31] Speaker A: Okay. Uh our next meeting will be in thirty minutes, and the uh I_D_ is to this is the individual actions to be taken until then, to have the look and feel design,
+[00:28:48] Speaker A: and uh the U_I_D_ is supposed to uh come up with the user interface design,
+[00:28:57] Speaker C: Mm-hmm.
+[00:28:58] Speaker A: and the marketing expert with the product evaluation. In this phase, the two of you, Jana and Francine, have to work together on a prototype using modelling clay, it says here. You will receive specific instructions will be sent to you by your coaches.
+[00:29:02] Speaker D: Okay.
+[00:29:08] Speaker B: Okay.
+[00:29:13] Speaker C: Mm-hmm.
+[00:29:18] Speaker B: Okay.
+[00:29:19] Speaker A: Um if you have any questions, you know, you you can always uh contact me um or uh or your coach, I suppose.
+[00:29:29] Speaker D: Wherever they're hiding?
+[00:29:33] Speaker A: Um so um I think we conclude the meeting here and we come back in uh uh thirty minutes, according to our timetable here.
+[00:29:41] Speaker C: Yeah.
+[00:29:41] Speaker B: Okay.
+[00:29:47] Speaker A: Thank you very much.
+[00:29:48] Speaker C: Thank you.
+[00:29:48] Speaker B: Thank you.

@@ -1,0 +1,606 @@
+[00:00:26] Speaker C: With the lapel.
+[00:00:31] Speaker A: .
+[00:00:49] Speaker C: So we I think we organise uh just to to discuss uh
+[00:00:54] Speaker B: Sorry. I don't have my presentation.
+[00:01:02] Speaker C: To discuss uh, yeah, the project Alexandre and uh Jean-Marc uh proposed
+[00:01:02] Speaker B: Um
+[00:01:09] Speaker C: a about uh capturing uh audio, video and slide uh in a synchronized way. And so we will start with uh an introduction. Uh I think Olivier prepared some slides about uh reviewing uh
+[00:01:24] Speaker B: Yeah.
+[00:01:27] Speaker C: current systems. And um
+[00:01:32] Speaker C: And then, even if we don't have many things to to talk about, just to to start discussing about clearly the project and also um dealing with our kind of timing constraints. And uh
+[00:01:46] Speaker D: Mm-hmm.
+[00:01:47] Speaker B: So they're on my they're on a.
+[00:01:54] Speaker C: The U_ U_S_ U_ uh U_S_B_ cord doesn't work? And you didn't put on the
+[00:01:58] Speaker B: No no. They are.
+[00:02:00] Speaker C: Maybe you can access through the network.
+[00:02:04] Speaker C: If it's on your H_.
+[00:02:07] Speaker B: Yeah. No, no. My D_ machine.
+[00:02:07] Speaker C: Or it's on uh your D_ machine.
+[00:02:12] Speaker C: So maybe we wi we will be able to.
+[00:02:14] Speaker B: Yeah.
+[00:02:16] Speaker B: Okay.
+[00:02:18] Speaker C: Should work. What?
+[00:02:19] Speaker B: Just going
+[00:02:22] Speaker D: Keep going.
+[00:02:25] Speaker C: So um w yeah, we had like five slides y uh presenting different systems. And mayb maybe you we can do that at the white-board. I it's a bit stupid. But uh y you know. I think you remember well the different uh parts. And uh I'm sure uh we can do that at the white-board. Yeah, it would be great to use the white-board.
+[00:02:26] Speaker A: The show must go on.
+[00:02:36] Speaker B: Mm-hmm.
+[00:02:43] Speaker B: Okay.
+[00:02:46] Speaker B: Okay. So uh uh yeah. I will do something like that.
+[00:02:52] Speaker B: Okay. So uh I would like just to review at the different project regarding acquisition system. So basically there are five systems. The first one is called SMAC, which is developed by Fribourg and CERN. The second one i is your system. Uh I would to say the cheap meeting room system. The third one yeah, maybe I can share that with you.
+[00:03:16] Speaker C: So the the the first one is uh SMAC. Okay.
+[00:03:19] Speaker B: The SMAC, yeah. Should I write?
+[00:03:21] Speaker C: Yeah, maybe yeah.
+[00:03:25] Speaker B: Okay.
+[00:03:27] Speaker C: Just a review of current systems uh to introduce.
+[00:03:29] Speaker D: Yeah, yeah. Sure, that's interest us.
+[00:03:30] Speaker B: The first one is yeah, I will call that A_.
+[00:03:38] Speaker B: SMAC, which is develop by Fribourg and CERN. The second one, B_,
+[00:03:44] Speaker B: which is uh I would like to che say uh cheap uh meeting room or I don't know.
+[00:03:51] Speaker D: It's okay. It should.
+[00:03:52] Speaker C: Well, cheap meeting room is the, you know, mm it's a conference room? Or
+[00:03:55] Speaker D: But for the moment just for the purpose well, f for the moment it's just to understand each other so we know we know that the uh
+[00:03:55] Speaker B: Okay.
+[00:03:56] Speaker A: You can say then you
+[00:04:01] Speaker A: It I th I thought it was called PAS, so I think just use this.
+[00:04:03] Speaker C: Yeah. PAS. Alexandre. PAS. Yeah.
+[00:04:04] Speaker D: Yeah for with PAS. It's okay. Yeah, good idea.
+[00:04:06] Speaker B: P_A_S_.
+[00:04:07] Speaker A: PAS. Yeah, yeah.
+[00:04:09] Speaker B: Okay, P_A_S_. The third one is um
+[00:04:11] Speaker D: Uh this sounds like Alexandre pas. Yeah that's not that
+[00:04:14] Speaker C: P PAS project.
+[00:04:14] Speaker B: Okay. The third one is called uh the s um this is uh the smart meeting room develop at Fribourg which is called the smart
+[00:04:27] Speaker C: Smart mediat uh Smart Minutes, but uh I thi Diva. Because a Sma yeah, Smart Minute is all the process of capturing the minutes automatically. But it's Diva we can say.
+[00:04:28] Speaker D: It's Diva. N'est-ce pas? Something like this. Yeah.
+[00:04:32] Speaker B: It's DIVA.
+[00:04:36] Speaker B: Okay.
+[00:04:38] Speaker B: The p DIVA.
+[00:04:41] Speaker B: D_I_V_A_, something like that. The third one is call uh the third one is uh the project that I have to improve the current smart meeting room at IDIAP. Uh for that we will use um uh
+[00:04:46] Speaker D: Mm-hmm.
+[00:05:00] Speaker B: Yeah, a tape three uh okay, let's call that.
+[00:05:08] Speaker C: Free.
+[00:05:17] Speaker B: And the last one I would like just mention just to for the meeting and this is uh the fire-wire. Um I don't know if you saw my presentation during my turn. You did you? Uh okay. E_, which is firewire.
+[00:05:27] Speaker D: Mm-hmm.
+[00:05:29] Speaker D: Yeah.
+[00:05:41] Speaker B: Okay. So I will start just with the SMAC. So maybe I draw line here. So the SMAC
+[00:05:52] Speaker B: The SMAC project the SMAC project is a project which aims to do the acquisition of audio, video and slide uh for presentation. Yeah, this project is done with Fribourg and CERN. But I'm just going to make a very short um graphic. In fact, they use um
+[00:06:17] Speaker B: a card, a video card which is call um I_V_C_ mm yeah. I just write I_V_C_. In fact, this is a video card with four um inputs.
+[00:06:24] Speaker C: Mm. Doesn't matter. Yeah.
+[00:06:35] Speaker B: On these four inputs you can have only video. But uh they want to make also the slide acquisition. So on one input they put um a conversion box, a converter, which converts from slide
+[00:06:54] Speaker B: to video. So that mean that we decrease uh the the quality. We have a high quality in slide and we go to low quality to lower quality with uh video. Um so this one is just for the SMAC. Now I will just move. D
+[00:07:11] Speaker C: And this the three of those are the v the the video
+[00:07:14] Speaker B: Yeah. These one are just for video and audio. You can use uh them. And this board does uh the DivX compression on the fly. This is uh the box that we have on the table. The the card that we have on the table.
+[00:07:26] Speaker D: Mm-hmm.
+[00:07:28] Speaker C: And uh I'd like to add that this c I think it's quite ambitious project because it's with uh the CERN. And they w they uh already worked on uh a European project called InDiCo, where they they have uh release, deliver, a full um kind of conference uh uh software. And uh to to manage uh all the the conference aspects uh uh we have in a conference automatically. And uh I know that at Fribourg they installed uh already in in a in a big uh amphitheatre for students. And I guess it's currently working.
+[00:08:07] Speaker C: Ah no. Either just to uh in parentheses uh we didn't choose that um that solution because they had no um the the slides were not captured very uh in a very uh precise way. That's the point. Okay. Otherwise they uh it's fully automatic? Or have have you discussed with them? Did you discuss that? Is it fully automatic? You don't know?
+[00:08:23] Speaker A: Mm-hmm. Mm.
+[00:08:24] Speaker D: Mm-hmm.
+[00:08:35] Speaker D: I don't know.
+[00:08:37] Speaker C: Okay.
+[00:08:38] Speaker A: Well I suppose uh I suppose they can capture things, right. I mean don't s I don't see why you could not capture the videos I mean with a card like this.
+[00:08:40] Speaker B: Uh I think
+[00:08:42] Speaker C: But the p i
+[00:08:48] Speaker C: But i i it all synchronize and i is it doing all what we want but without the slide uh precision?
+[00:08:53] Speaker D: Mm-hmm.
+[00:08:58] Speaker A: I don't know. I mean I don't know.
+[00:08:59] Speaker D: But l let be careful. There's one important point. The technical aspects of the way you acquire things should be driven by the kind of processing you want to have. So in our case we need to have a good processing of slides that in our case it means to transcribe with an O_C_R_ and then make indexing. We need to have high resolution image. I guess that's what you mean by precision, right? So in a sense that's the point. For us we need to have uh this sufficient resolution images of slides to do what we want to do. So that's why I guess we don't follow that solution. Because apparently yeah.
+[00:09:00] Speaker C: Okay, yeah.
+[00:09:20] Speaker C: Yeah.
+[00:09:36] Speaker C: And uh okay. And we are su and we are sure that in that uh context of SMAC project with uh um Fribourg working on document analysis uh there were not enough precision un enough resolution in the slides?
+[00:09:46] Speaker D: Mm-hmm.
+[00:09:49] Speaker D: As far as I know so far uh they did similar works on meetings, document centred meetings. They always worked on manual transcriptions of documents. So they never really took into account a possibility of actually performing processing on the document they talk about during the meeting during in this case the uh the talk, the conference, the the th the presentation. As far as I know. As far as they published I kn I know the results they published uh so far.
+[00:09:59] Speaker C: Mm yeah.
+[00:10:05] Speaker C: Okay.
+[00:10:11] Speaker C: Talk conference..
+[00:10:20] Speaker D: So essentially they n never took into account I mean the work at the high level, which means basically we have the information coming from here and there. And we n created techniques that allow to starts from the text there and the things that are said and w if we find context, I mean they make some kind of processing. But as they don't work on the low level so low level it means basically okay, take the speech and extract the transcription. I take the image uh of the document and I take the transcription. They basically don't really care of this aspect, as far as I understand, mm. As far as I know.
+[00:10:38] Speaker C: Mm-hmm.
+[00:10:52] Speaker C: Okay.
+[00:10:54] Speaker A: Well as far as I as far as I know, I mean they do of course they can do of course slide detection. Change slide change detections which uh of course what I understood is also they try to recover the layout somehow. I mean given the slides but they are in no case they are extracting the text from the slides. So with in uh in uh all the cases what I've seen, in all the cases I've seen I mean they s assume that at least you have like a P_D_F_ version of the document or what. And basically they try to match what is displayed
+[00:11:01] Speaker D: Mm-hmm.
+[00:11:01] Speaker C: Mm-hmm.
+[00:11:07] Speaker D: Yeah.
+[00:11:08] Speaker C: .
+[00:11:21] Speaker D: Exactly.
+[00:11:26] Speaker A: to the document. So first they need to extract the information from the document, which is not does not seem to be so trivial, at least for uh because they're also working with uh maybe more complex documents with images and text and so on. Maybe with slides it's ea it's easier to extract uh the information. I assume it's ea it's easier indeed. But they uh assume basically uh that they have this document, which is something somehow we would like to relax uh because uh people uh like in it's you may not want each time to ask the person. Maybe the person has a point point, not the not a P_D_F_ version. Or maybe he's using Excel to do a demonstration or something like this and we'll want to avoid this.
+[00:11:28] Speaker C: Okay.
+[00:11:28] Speaker D: Exactly.
+[00:11:39] Speaker D: Yeah.
+[00:11:46] Speaker D: Yeah.
+[00:11:54] Speaker B: Mm.
+[00:12:05] Speaker C: Mm-hmm.
+[00:12:07] Speaker D: Let's say that it makes uh less automatic in the sense that at point you need someone giving the file and putting the file upload in somewhere, et cetera. And it is a different kind of processing. Some way is always driven by w what you're able to do. They work a lot on layout analysis. I know they match uh uh the layout in two X_M_L_ files, et cetera. So it's a different way of approaching the problem, which means a different way of capturing different exigencies in in capturing the the documents, yeah.
+[00:12:07] Speaker C: To c to capture
+[00:12:11] Speaker A: Mm.
+[00:12:17] Speaker C: Mm-hmm. Yeah, yeah.
+[00:12:26] Speaker A: Mm.
+[00:12:26] Speaker C: .
+[00:12:34] Speaker C: Yeah, different requirements.
+[00:12:36] Speaker A: But but most you would say most most of the points for us I mean would be valid. I mean slide transition we would use slide uh need to do it slide transition. To some extent we would like to extract some elements of the layout to disting to have a more high analysis. But we would like to do this more automatically and in particular for the text recognition to do to be able to do retrieval uh of slides or points. I mean of parts of presentation. We would like not to have to rely, yeah, to a first P_D_F_ version or any version of the document. So yeah.
+[00:12:42] Speaker D: Yep.
+[00:12:43] Speaker D: Yeah. Yep.
+[00:12:49] Speaker D: Yeah.
+[00:12:50] Speaker C: Mm-hmm.
+[00:13:10] Speaker B: Okay. So the solution to that low quality is uh solved b by you project, the PAS project. Uh uh I make a tick here and I clean up this is just to to solve that pro that problem regarding the slide and the slide resolution. So we remove uh that part.
+[00:13:37] Speaker B: And we call that the PAS.
+[00:13:43] Speaker B: And in that case we use um a frame grabber here. And we go with the slide here.
+[00:13:52] Speaker B: And um of course these two cards will be on the same machine. And uh we have to develop a solution here. The main critical point is here. The synchronisation between these two uh these two cards. And with that this is the card that we use in the smart meeting room and this is uh the card the um
+[00:14:15] Speaker A: So the c you have bought this card, right? I mean you say this is a card. No no.
+[00:14:15] Speaker B: .
+[00:14:17] Speaker B: Yeah, these one no no. Th uh this one is and this one the video card. And this one, this is uh the card that we have already at IDIAP for the sli
+[00:14:25] Speaker D: Mm-hmm.
+[00:14:26] Speaker A: Yeah. But I mean this one is the I_V_C_. Okay. So what I want to say is on this card there are four inputs, right? Okay. Not n so enough uh well, yeah, yeah. I was thinking to some extent nothing would would prevent us uh from also acquiring the slide, but really the slide stream from from this card indeed. Right? Or
+[00:14:26] Speaker C: Hmm.
+[00:14:27] Speaker D: I it's the same as as you have in the picture, yeah.
+[00:14:28] Speaker B: Yeah, yeah.
+[00:14:30] Speaker B: Yep.
+[00:14:33] Speaker B: Yeah.
+[00:14:35] Speaker B: Yeah. So
+[00:14:49] Speaker B: Okay. Yeah, yeah. Yeah. So we can have both. We can have the slide from the slide capture and we can just use uh a video signal to to capture that also. To have two t uh mm you wants to ha do you have two quality h high quality and
+[00:14:55] Speaker A: Yeah.
+[00:14:59] Speaker A: Okay. To capture the slide. Yeah. Okay.
+[00:15:07] Speaker A: Well, I mean just because we cannot rec uh we can w something we cannot do with uh it seems for with the high q quality uh capture uh device is to have a stream. I mean the stream. Right, the full stream.
+[00:15:21] Speaker B: Yeah, we can just take some snapshots. Yeah.
+[00:15:22] Speaker A: So we can tape snapshots. So basically it might be interesting to have still um uh the s uh the slide stream so that for instance if we detect there is a new video that is displayed also on, to some extent we could just cut this videos to keep it and to be able to replay it uh later on and so on. And maybe indeed if for instance the slide stream on the on the right is automatically synchronized with the other parts of the video, it may be easier to s to uh synchronize directly by some some matching process. The slides, the high quality measures we have here, we've directly yeah, yeah. Yeah.
+[00:15:34] Speaker D: Yeah.
+[00:15:37] Speaker B: Yeah.
+[00:15:40] Speaker B: Yeah. Yeah.
+[00:15:49] Speaker B: Yeah.
+[00:15:57] Speaker B: Yeah. With um this one. So yeah you won't yeah.
+[00:16:01] Speaker C: So you you would you c you can uh link like this? Mm-hmm, mm-hmm.
+[00:16:02] Speaker B: Yeah. Yeah. Something like like say something like that.
+[00:16:07] Speaker A: Yeah, exactly. Yeah.
+[00:16:07] Speaker D: Yeah. Yep.
+[00:16:10] Speaker A: So at least uh this is not at the electronic level. But you would say as a contents from the content level, doing an alignment from the slide stream and from the snap-shots we would have on the other side w is something that might be possible. Of course if we have some, you know, some constraints given by the electronic, I mean it's that's better. Uh because of course first the process is going to be easier and it may be just a few signals that we have to align on the other parts. But I think I could see I could imagine that this could be a reasonable process to do. And it especially because this would solve some of the issues regarding I mean like the possibility of d of displaying videos after from from what we record. So yeah.
+[00:16:22] Speaker B: Yeah.
+[00:16:35] Speaker B: Yep.
+[00:16:42] Speaker B: Yeah, yeah. Ch yeah.
+[00:16:46] Speaker B: Video.
+[00:16:49] Speaker D: Yeah. Yep. Definitely.
+[00:16:49] Speaker B: Yeah.
+[00:16:51] Speaker C: Mm-hmm.
+[00:16:53] Speaker B: Okay. So uh I was just talking about the PAS project. Maybe I would like just now to talk about the DIVA project. So I clean up.
+[00:17:08] Speaker B: Yeah.
+[00:17:10] Speaker B: I.
+[00:17:11] Speaker B: There.
+[00:17:13] Speaker B: Um did you read something regarding the DIVA project?
+[00:17:18] Speaker A: Well, this is more or less what we just discussed, right, if I understand
+[00:17:21] Speaker B: In fa yeah, uh we just remember that here we we still have only one machine to do uh the slide, video and audio acquisition. And the DIVA it was uh something different. Fact we have a master machine that's um
+[00:17:26] Speaker D: Mm-hmm.
+[00:17:38] Speaker B: We have a master machine here. And we have some slaves machine here.
+[00:17:55] Speaker B: We have some connection and here we have some input. We have audio. Usually we have audio. And
+[00:18:04] Speaker B: And the same for this one. And um basically on the slave machine we have two cards, one for audio and one for video. So they develop something to synchronize these two cards together and th uh this is something which is it's more, w which is call uh direct show,
+[00:18:27] Speaker B: uh which allows you to to synchronize uh these two cards together. And but of course you want these two streams to be synchronize. But you want also these two streams to be synchronized. So they have a synchronization between two slaves which is done by the master. Here we just use uh the et ethernet network to synchronize uh these two um these two device. Um I just write.
+[00:18:49] Speaker D: Mm-hmm.
+[00:18:59] Speaker B: Internet, something like that. And uh they do only audio and video. Uh they don't do any slide. Um
+[00:19:11] Speaker D: Acquisition. Mm-hmm.
+[00:19:11] Speaker B: Slide acquisition, yeah. Okay? So Yves asked for the DIVA. I would like just to talk now regarding uh the the fire-free smart meeting room at IDIAP. Do you have any question? Or uh. What yeah, tape free, sorry. Tape free smart meeting room. So for that I
+[00:19:24] Speaker C: Tape free.
+[00:19:25] Speaker D: Tape free.
+[00:19:27] Speaker C: Tape free. D_V_ tape free.
+[00:19:36] Speaker A: So like the Diva project is a tape free, already smart meeting room, huh?
+[00:19:39] Speaker C: Yes.
+[00:19:40] Speaker B: Yeah. It's yeah. It's a tape free but also video. Uh and the acquisition is done in raw video. So the file is huge and they really need uh um they have a long post-processing to convert raw file to uh DivX or to our own files.
+[00:19:51] Speaker C: Mm-hmm.
+[00:19:59] Speaker A: Okay. But this can be done automatically, right? I mean is the okay.
+[00:20:02] Speaker B: Yeah, but it takes time. It it's just just to mention that. Uh so
+[00:20:10] Speaker B: I will write.
+[00:20:17] Speaker C: And that's what you they use more or less in T_N_O_ also. They didn't have uh tapes.
+[00:20:23] Speaker C: But with different cards.
+[00:20:25] Speaker B: Yeah. Yeah, yeah.
+[00:20:26] Speaker A: So at T_N_O_ they have something?
+[00:20:27] Speaker C: They had something.
+[00:20:28] Speaker A: Ah, okay. Okay. Yeah, okay. No. No, that's what I was thinking.
+[00:20:30] Speaker B: Okay. So maybe first I will just describe the ma the smart meeting room that we have at IDIAP. In fact we have uh also a master slave architecture. Um I clean a little bit.
+[00:20:31] Speaker C: For the AMI project.
+[00:20:37] Speaker C: Hmm.
+[00:20:49] Speaker B: We have the master P_C_, which take ks uh which takes care about the audio.
+[00:20:59] Speaker B: I clean that. And we have the slave P_C_ which take cares about the white board and the slides.
+[00:21:12] Speaker B: Now if we look at the video
+[00:21:19] Speaker B: If we look at the video in fact um yeah, maybe first I should mention that. Between the master and the slave we have um the mm a synchronization signal which is call time MIDI time code. I just write MIDI.
+[00:21:31] Speaker C: Yeah.
+[00:21:38] Speaker B: And for the video, we have the video input here. We re-use the um MIDI signal
+[00:21:47] Speaker B: uh with um to insert the time code on each frame. And we save that to D_V_ recorder.
+[00:22:01] Speaker B: Uh I I have video.
+[00:22:04] Speaker B: Okay. Uh we know the problem of that that uh this is that after each meeting somebody has to take care about the D_V_ tapes and to t convert them into DivX. So my idea is to d do something like that, is to develop a s um
+[00:22:05] Speaker C: Mm-hmm.
+[00:22:24] Speaker B: um uh a video slave machine. May I say something like that, yeah, a video slave machine uh which use the MIDI um which use also the MIDI time code.
+[00:22:29] Speaker D: Mm-hmm.
+[00:22:41] Speaker B: No, sorry. Sorry, I'm doing something wrong.
+[00:22:48] Speaker B: We have the video here. We just have the time code inserter. So we take that signal here and we move to this uh machine here, which is in fact just uh the I_V_C_ video card. This just an acquisition card. And we com and we s and we convert file directly to DivX. And um so we will have here video.
+[00:23:03] Speaker D: Mm-hmm.
+[00:23:18] Speaker B: And also because we want to control that machine we use also the MIDI time code the MIDI time code to start and to stop the machine. This is just something uh that uh this just to remove the D_V_ recordings. But um yeah. Just uh this just an improvement of the smart meeting room. Okay. Uh do you have any question uh regarding uh that?
+[00:23:44] Speaker A: Yeah, so currently because there is a time code, uh video time code, you don't care about the frame dropping I mean because anyway, in each in the video signal, it is encoded the time, right?
+[00:23:56] Speaker B: Yeah. We don't have to care about the synchronization in that case because the time code is ins serted here. And we take after the time code insertion we take the video signal and we pass through the machine. So uh this is uh a simple solution, but um where we don't have to care about the synchronization.
+[00:24:04] Speaker A: Yeah.
+[00:24:06] Speaker A: Yeah. Yeah, yeah. Yeah. Mm.
+[00:24:17] Speaker A: Okay.
+[00:24:19] Speaker C: Because the synchronization problem comes from the the grabbing from the D_V_ tape in in d in D_ Vix. So it's afterwards.
+[00:24:22] Speaker B: Co yeah. The synchronization is yeah.
+[00:24:29] Speaker A: Well, but you don't I mean at this point you don't really care because
+[00:24:34] Speaker A: I mean in the signal you can extract the time. I mean the time stamp is i in the signal. So if you drop some frame, which happens sometimes when you do compression or acquisition uh you you uh ev you will automatically find this in uh the signal, right? I mean it's encoded in the in the image. So you can you can do it. Otherwise uh if there is some frame dropping, you have to rely on the number of frames you are counting more or less I suppose to to assess it. Uh so you have you have some problems then, yeah. Okay.
+[00:24:37] Speaker C: Mm.
+[00:24:43] Speaker B: Yeah.
+[00:24:53] Speaker B: Yeah.
+[00:25:01] Speaker B: Yeah.
+[00:25:03] Speaker C: Oh no, it's impossible, yeah.
+[00:25:07] Speaker B: Okay. So the f last one is uh the fire-wire acquisition. Uh I just
+[00:25:16] Speaker A: Which i which was more or less T_N_O_
+[00:25:20] Speaker A: S problem
+[00:25:20] Speaker B: Okay.
+[00:25:22] Speaker A: with respect to frame dropping, right?
+[00:25:25] Speaker C: Mm they didn't have too much fun grabbing. The problem is was that it was not synchronized. So the time code was wrong for for the different videos. They had the uh uh at the beginning of the video, you if you saw the time code, it was six hours ni uh fifty minutes. And h there four hours thirty two minutes. So it's it was a problem with the time code.
+[00:25:43] Speaker A: Yeah.
+[00:25:47] Speaker A: Well I think if it was not a problem of frame dropping, the alignment would have been quite easy to to do. And the
+[00:25:53] Speaker C: Well, that's what they did uh manually after the afterwards. But they didn't have too much frame drops in fact. No, they d yeah, yeah, yeah, I'm sure. Because
+[00:25:59] Speaker A: Really? Well, so it was not such a difficult process then.
+[00:26:05] Speaker C: Well, it's manual to to synchronize it, the frame.
+[00:26:08] Speaker A: Yeah, but if it's only to find uh one of set, you have to find some exa some examples. But I I had the feeling that they had also some frame dropping that was uh no?
+[00:26:11] Speaker C: Yeah, that's what they did.
+[00:26:18] Speaker C: No no, because uh we did the software here and it they didn't choo no our uh software.
+[00:26:21] Speaker A: Okay. Okay. Then that's fine.
+[00:26:32] Speaker B: Okay. Um in fact the the major problem regarding acquisition system is always the synchronization. And for that fire-wire is good. I mean fire-wire was a project. Now the project is uh stand-by. Uh we don't move to that project. I am but I am just going to talk about this one. Um so with acquisition with acquisition systems uh the major problem the major problem is uh the synchronization. And fire-wire gives you some um some way to be synchronize in fact.
+[00:27:10] Speaker B: Uh this is uh I just want to to describe here the bus. This uh yeah, this is of the bus where you can send you can send some package. And any device we which wants to send a package a p a packet, sorry, should ask um there is a manager of that bus. This just of the bus. Any device which wants to send a packet has to r to r
+[00:27:25] Speaker C: Packet.
+[00:27:41] Speaker B: uh require some uh band-width on the bus on the bus. And so after that he will have that band-width. And he will always have that band-width. So um yeah, he will always have that band-width. And so we are sure that we will have a synchronize acquisition with fire-wire. And so so that mean that um
+[00:28:12] Speaker C: And this is no no no.. And this is done at the um you have libraries, et et cetera to to choo well uh a all you you are saying about uh asking about band-width, et cetera. It th when y uh you use a system um hardware. Yeah, yeah. So we don't have to code all the communication process, et cetera. So just for explanation.
+[00:28:13] Speaker B: Yeah. Yeah. Sorry, sorry. Uh yeah.
+[00:28:17] Speaker B: Hardware.
+[00:28:27] Speaker B: It's i it's done by it's done by hardware. It's done by hardware. No no no no no. And in fact yeah. I I as I mentioned before, we have a bus manager and the bus manager send just a flag to say now it's time to give me you data, and all devices which have uh required some band-width will send the data. So I'm just drawing something like that. This is this kind of signal that the th bus manager is sending. And just after that bus just after that uh signal all device will send uh the data. So we will have the data from A_, from B_ and from C_ and so on. And after the next one we will have again the um
+[00:28:36] Speaker D: Hmm.
+[00:29:19] Speaker B: the data from A_, B_ and C_ and so on and so on. And so with fire-wire we are sure to have a um an acquisition system. Now the major problem with fire-wire is that that fire-wire is just an kind of intelligent, uh a smart pipe. A synchronized pipe. We can put what we want inside. So we can put raw data, or we can send a DivX data, or we can send also uh what I uh was presenting in my term presentation was a H_ two six four. But in that case we need something uh hardware here to uncode raw data to a given format. Of course uh the idea is to reduce um the band-width on the bus also. And all data are sent through the master.
+[00:30:16] Speaker B: Do you have any quest
+[00:30:19] Speaker D: Mm yeah. Now basically we have all this kind of general view about all the systems maybe we can take this opportunity to come back to our system. Because you know we had there are mm we had the long discussion and finally we decided for for one approach. And maybe take the opportunity to look just a moment uh at what point we are and w when we plan basically to get something uh done and working. I can add to that list of project is something that Jean-Marc and me we have found in the literature. There is F_X_ that is doing something very similar to to what we do here basically.
+[00:30:28] Speaker B: Yeah.
+[00:30:32] Speaker C: Mm-hmm.
+[00:30:49] Speaker C: Yes.
+[00:30:54] Speaker D: A capture through the projector signal of the slides and they for the moment they just plan to use the slides as a as a way to index the presentations. But but uh roughly is is an idea that is very similar to to our idea. So well essentially now we have the material as far I'm as I'm understood. Uh and it's up to you to tell us roughly when do you think uh we're gonna have something working.
+[00:31:20] Speaker C: Okay. Yeah. So we need uh well, this is will be done together t like in to to try to divide the time uh what do we do. Um we we don't want today to to put deadlines, you know. But um what we have, what we can do and how we will be able to do, I was thinking uh for instance uh in th in what we have um uh because I don't know a lot about um using uh like uh D_L_L_, M_F_C_, uh uh Microsoft software. But I'm very happy to to go with that. And uh so what we have until now is the software that Darren did for the frame grabbing. And and actually I c um I can start playing and uh looking at the this uh in detail.
+[00:31:34] Speaker B: Mm-hmm.
+[00:32:08] Speaker B: Mm-hmm.
+[00:32:19] Speaker D: Mm-hmm.
+[00:32:20] Speaker C: So Darren software
+[00:32:24] Speaker C: About um frame grabbing.
+[00:32:31] Speaker C: Sup I suppose M_F_C_C_ no uh, not M_F_C_C_ but M_ e M_F_C_. You heard of that. And uh D_L_L_, et cetera. The all the Windows uh uh pro programming. Um so this is one uh step. Then um the audio video card um so so uh first uh we need to look at this, to look at the demos that are uh i with the what they call the S_D_K_ uh software development kit.
+[00:32:36] Speaker B: Mm-hmm.
+[00:32:43] Speaker D: Issues, yeah.
+[00:32:54] Speaker B: .
+[00:33:02] Speaker B: Yeah.
+[00:33:08] Speaker C: Uh demos, test. Um testing the card with uh only one audio for instance and then only one video.
+[00:33:16] Speaker B: Mm-hmm.
+[00:33:21] Speaker C: And e even uh testing with only the slides uh to capture all the uh like what you were saying, the the s uh the video s uh stream. Well, slide stream.
+[00:33:28] Speaker B: Yeah.
+[00:33:32] Speaker B: Uh in fact the um slide card l sorry. The slide card and the video card are both S_D_K_. So what
+[00:33:38] Speaker C: The frame
+[00:33:42] Speaker C: You mean the frame grabbing card? Yeah.
+[00:33:44] Speaker B: Yeah. Both are S_D_K_.
+[00:33:47] Speaker C: They have S_D_K_ uh software development kit that is based on uh M_F_C_ libraries and C_ plus plus libraries.
+[00:33:50] Speaker B: Yeah.
+[00:33:53] Speaker B: Yeah, y yeah.
+[00:33:56] Speaker B: Yeah, this for that you uh I don't remember by how. No. But
+[00:33:59] Speaker C: Okay. Okay. So once you we've tested the individually the card, we can test to synchronize the audio and the video together? Or is it no, it's synchronized? Or okay.
+[00:34:10] Speaker B: Usually audio audio and video should be synchronized. Because uh this just an on an audio video channel. So uh they are synchronize. Um so we can play with the video. We can play with the slide. Uh and after that and the major point is to m combine both.
+[00:34:18] Speaker C: Okay.
+[00:34:28] Speaker C: Okay. And the i th now we are, as you said uh what not now but uh the next point would be to use that card with the other card and to merge the slide signal with the, well, um the s uh yeah, the synchronization signal coming from the frame grabbing card. It's uh it's it's not a synchronization signal, it's a slide with a t
+[00:34:40] Speaker B: Yep.
+[00:34:55] Speaker B: We we don't have synchronization.
+[00:34:58] Speaker C: Oui oui. Yeah, we will.
+[00:34:59] Speaker B: We have to find a solution, and for that might be we can use uh direct show, which is a syn which is a technique to synchronize different device.
+[00:35:10] Speaker C: And is is it external to this card? It's external? Or it's i
+[00:35:12] Speaker B: No no. This is just uh an application, which i
+[00:35:15] Speaker C: So it's external. It's not in this uh card.
+[00:35:18] Speaker B: No, no, no, no, no. No. This not on the card. This just an application that runs on the machine.
+[00:35:25] Speaker C: And we don't have to buy that? Or well uh to to uh at least the basic.
+[00:35:27] Speaker B: Um f I think direct show you can download for free. I'm I'm not sure. M I should check. Or
+[00:35:36] Speaker C: Okay. And that will will uh will be will help us to synchronize the this frame grabbing card and this video card.
+[00:35:44] Speaker B: Yeah, it m yeah.
+[00:35:48] Speaker C: So uh t yeah, we need to do some tests. Reading and yeah. Okay. And then when we have okay.
+[00:36:00] Speaker C: Where do we do that? He we don't know yet with Frank if we install this card maybe here.
+[00:36:05] Speaker B: I think the best thing to do is to have a machine just which is only dedicated to to that. Because uh if you if you if you if you use a machine which has been already used for something else sometimes you have plenty of libraries. And so you you don't know exactly. Maybe it would be better to have just a dedicated machine just for that.
+[00:36:13] Speaker C: Okay, and at IDIAP it's possible there.
+[00:36:22] Speaker C: Okay.
+[00:36:27] Speaker D: Mm careful because the uh I listened to Frank, and apparently don't want to buy a new machine before we show that this works. So we have to use material that is already available.
+[00:36:32] Speaker C: Mm-hmm.
+[00:36:33] Speaker B: Just for
+[00:36:36] Speaker B: Okay.
+[00:36:40] Speaker B: Okay.
+[00:36:40] Speaker A: Yeah, but maybe there are already some machines, you know, uh uh.
+[00:36:43] Speaker D: Maybe there is some free ma machine that is not
+[00:36:44] Speaker C: Well on my machine, his machine or this machine maybe.
+[00:36:47] Speaker A: Uh
+[00:36:47] Speaker D: Okay, s so it is possible to use other machines actually, yeah.
+[00:36:47] Speaker B: Mm.
+[00:36:49] Speaker A: Yeah, I mean just that, you know, if of course you don't want to have a c other libraries that may, you know, conflict with the one you are trying to use. At the same time, yo see, if you crash a machine I mean because you are doing some test, you may not want to have what's on your machine I mean to uh to be to be uh de erased or whats whatever. So I think it's so maybe there is a machine I don't know whether for this you need, you know, a very powerful machine and so on. But maybe there is a possibility to use a current machine which is only u yeah, that's is withdrawn from the network or yeah.
+[00:36:57] Speaker D: Mm-hmm.
+[00:37:03] Speaker C: Yeah.
+[00:37:05] Speaker C: Yeah.
+[00:37:05] Speaker B: Yeah.
+[00:37:09] Speaker C: Okay.
+[00:37:11] Speaker C: issue.
+[00:37:14] Speaker D: Mm.
+[00:37:21] Speaker B: Yeah, yeah. I I Oui. Because
+[00:37:21] Speaker D: Some of uh some other machine, yeah.
+[00:37:27] Speaker B: Because I think um the video is done the video compression is done on the on that card and uh I'm not hundred percent sure, but I think the J_ PEG the J_ PEG conversion for the slide capture is done also on the card. So we don't need
+[00:37:34] Speaker A: The card.
+[00:37:35] Speaker D: Mm-hmm.
+[00:37:50] Speaker A: Yeah. But still, I mean even if it's done on the card, you need to basic thing you need to check is um is a bus, right? I mean the bus writing, I mean the speed of uh the bus.
+[00:37:58] Speaker B: Ah yeah. Yeah. But I mean yeah. I was just thinking about the the speed of the computer could be lower.
+[00:38:08] Speaker A: Yeah, yeah. Yeah, yeah, yeah. So C_P_U_ itself may not be so.
+[00:38:13] Speaker A: The access, yeah.
+[00:38:14] Speaker D: So mm in terms of time what we can think?
+[00:38:15] Speaker C: So yeah. Uh uh mm.
+[00:38:21] Speaker D: When we can expect to see
+[00:38:23] Speaker A: So can we expect a Christmas uh gift? Uh
+[00:38:25] Speaker C: Yeah, Christmas two seven. No no. Um yeah, that's good question.
+[00:38:25] Speaker D: Christmas gift or
+[00:38:29] Speaker D: early New Year gift. Uh
+[00:38:34] Speaker B: Maybe a first so solution will be just to start w with. Because we need to start with something. We have the slide capture from Darren. We have um I will work on the video acquisition for the inpu the tape free smart meeting room. So I will start with that to develop some knowledge regarding that board, uh that video board, and after that we can combine both.
+[00:38:49] Speaker A: Mm.
+[00:38:59] Speaker D: But the way of course I'm I I don't know exactly what uh the work involves. So is this uh no that's not that I don't care. But uh I d I don't understand some way exactly. I think the the the real point is when.
+[00:39:03] Speaker C: Yeah, Alexandre did not care too much about the way uh you i no no no, but uh you are more in research.
+[00:39:13] Speaker C: Mm-hmm. Okay, I said at the beginning of the meeting that mm uh well we're not d doing deadlines. But uh yeah. Mm yeah. No, no. Yeah, yeah, yeah.
+[00:39:18] Speaker D: roughly. I mean I I don't say well no, no, no. I don't wanna put a deadline. Uh but uh given the current uh material we have um mm given your activities because I know that you both are involve in many other things. So it's something that you yeah, as Jean-Marc said, is Christmas and uh so we're happy with the Christmas gift. Or is something that you say is Christmas two thousand six. So I I I definitely just want to know something very rough on when you expect to finish this.
+[00:39:27] Speaker C: Mm-hmm.
+[00:39:29] Speaker C: Mm-hmm. Mm-hmm.
+[00:39:51] Speaker A: For instance I mean the test of looking at their entry goes point by point. So looking at their code I mean uh so you said you would look at this, right? Or is it okay.
+[00:39:56] Speaker C: Yeah.
+[00:40:03] Speaker C: Ye well, we would look both at. Because we are also both uh quite busy with other projects of course. Uh e H_F_E_S_ database uh with J_ Ferret uh
+[00:40:12] Speaker D: That's problem. Uh that's that's a problem. I mean do you think it's something for the very next months? Do you think it's something for the end of next year? Do you think sp
+[00:40:20] Speaker C: Okay, this is between both.
+[00:40:21] Speaker B: No. For not for no no. This not for end of next year. It's too long. And it it's uh it's too long, it's too long.
+[00:40:25] Speaker C: Yeah, of course, yeah.
+[00:40:26] Speaker D: Mm. So is for so half next year.
+[00:40:33] Speaker D: So June June June two thousand six.
+[00:40:33] Speaker B: For myself I would like to say uh April, May. April, May we should have results.
+[00:40:39] Speaker D: Re results, what does it mean? The end of this? So it works, it doesn't work.
+[00:40:42] Speaker B: Uh no no no. Uh I mean the um
+[00:40:47] Speaker B: Uh not al almost uh the uh the the uh the complete application. Maybe some minor will appears.
+[00:40:47] Speaker C: Ready to be used.
+[00:40:53] Speaker D: You know, for for me what is important is when it is ready to be use. So when I can say start collecting data, uh I start using. I start playing with this. Basically the process is ready and we can start having our demo. And also because there is a risk that uh we submitted a project, maybe it will be rejected we don't know, but potentially we are going to have a student supposed to work in this. It will be no not before April two thousand six anyway. But uh you know, mm some way we we we we cannot have a students and make him wait one year before he has uh the material to work. So my point is when.
+[00:40:57] Speaker C: Yeah. So uh
+[00:40:59] Speaker C: Data.
+[00:41:20] Speaker C: Mm-hmm.
+[00:41:24] Speaker C: Yeah, we yeah.
+[00:41:28] Speaker C: Yeah.
+[00:41:30] Speaker B: Yeah.
+[00:41:32] Speaker C: Mm-hmm.
+[00:41:33] Speaker B: Yeah.
+[00:41:34] Speaker A: 'Kay.
+[00:41:37] Speaker D: Reasonably. Uh roughly, I don't don't don't wanna have and it's not a deadlines, oui. But when do you expect to have the system ready to work uh working. Yep.
+[00:41:38] Speaker C: Mm-hmm.
+[00:41:39] Speaker A: Well uh
+[00:41:42] Speaker C: Mm-hmm.
+[00:41:46] Speaker A: Because I mean I mean the I_V_C_ system, I mean it's uh i so my feeling is that I mean people have expertise in this, like in Fribourg also. So I mean I don't think it should take a lot of time I mean just to look at this, right. I mean at least one month seems to be uh quite enough for this, right.
+[00:41:54] Speaker B: Yeah, yeah. Uh they have.
+[00:42:02] Speaker B: Yeah, th it's a yeah. But we start with the I_V_C_. We start with the data path. Uh the the slide frame grabber. And after that is and the question is how to synchroni to to to make both card working together.
+[00:42:09] Speaker A: Yeah? Yeah.
+[00:42:14] Speaker D: Mm-hmm.
+[00:42:17] Speaker D: Together. So this seems to be the main problem as far as as I understand.
+[00:42:18] Speaker A: Yeah.
+[00:42:20] Speaker B: Yeah.
+[00:42:21] Speaker C: So yeah. Let's see. From fro for checking Darren's code, et cetera we can expect until uh
+[00:42:30] Speaker C: And yeah, for o one months or so, then uh the uh the i uh I_V_C_ uh w with the people at Fribourg have uh yeah, okay, so uh at Fribourg we we have
+[00:42:33] Speaker A: Yeah.
+[00:42:37] Speaker B: Uh I_V_C_ I_V_C_ should go faster.
+[00:42:41] Speaker A: Yeah. Because anyway, this is what you are working on, right? Is the I_V_C_, but using the signals that are coming I mean so basically it's using the I_V_C_ okay.
+[00:42:51] Speaker B: Yeah. I will uh I'm not currently working on it. I will start to work on January on that point. So uh but I think
+[00:42:54] Speaker C: Mm-hmm.
+[00:42:57] Speaker C: Okay. And then the direct show. Or yeah.
+[00:42:58] Speaker D: Mm-hmm.
+[00:42:59] Speaker A: Okay, so currently you are not working on this.
+[00:43:01] Speaker B: No no. I'm not working.
+[00:43:03] Speaker A: Okay, then we need
+[00:43:03] Speaker B: I schedule to to work on that from m
+[00:43:07] Speaker C: So we can say we try to to make something for April.
+[00:43:10] Speaker B: Yeah. But I have also a que
+[00:43:11] Speaker D: Uh make something re that you are using very vague expression. Result, make something. Just just uh just tell me when it is ready. And if you think it's it's not before uh but but must be reasonable I m I mean if you think it will be not before December two thousand six, say December two thousand six. So don't try to tell me March or April i w if you already know that it is unrealistic to say that. Must be realistic. you say June two thousand six we know it is June two thousand six. Uh I know.
+[00:43:11] Speaker C: But uh well I I want this to to work in the for the time uh in the mm-hmm. Mm.
+[00:43:19] Speaker B: Mayb
+[00:43:27] Speaker C: Mm.
+[00:43:37] Speaker C: Mm-hmm.
+[00:43:42] Speaker B: But I would like to say uh there is many unknown in that project. But I would like to say we can make uh uh a schedule of that project to just to track to just to see if we track the time table. If we don't we we asks for more people, maybe H_E_V_S_ people, to to to be slightly involved in that project, to be to to respect the date.
+[00:43:43] Speaker C: Uh i mm-hmm.
+[00:43:47] Speaker C: The
+[00:43:48] Speaker D: Sure. Sure. But
+[00:43:50] Speaker C: Mm-hmm.
+[00:43:53] Speaker D: Mm-hmm.
+[00:43:55] Speaker C: Mm-hmm.
+[00:43:56] Speaker D: Mm-hmm.
+[00:44:00] Speaker C: O one student or yeah.
+[00:44:02] Speaker D: Yeah. Well but there is no day to respect. It's just to know I mean and if you can have early early warnings in the sense that if you see that there is a major uh problem somewhere. But is just to know in the sense that really uh this p this mm thing has been stop now for quite a long time. Uh uh it n it took a long time to decide what kind of material. Now we have it. It's something that uh is a pretty good idea. We see that other people are working, et cetera. We are going to lose it some way if uh if we don't put some and very honestly yeah.
+[00:44:05] Speaker B: Yeah. N
+[00:44:11] Speaker C: Mm-hmm.
+[00:44:21] Speaker B: Yeah.
+[00:44:22] Speaker C: Mm-hmm.
+[00:44:36] Speaker A: Yeah, that that's that's so that's one of the issue I mean that uh maybe uh,I don't know w whether you realise, but of course if we have this in two years, maybe okay, it's good we have it. But of course it's it's on the it's too long I mean in terms of in term of research, in terms uh maybe even in terms of innovation I mean if you think about this, which is, you know, what uh they said. I mean he was speaking about innovation. This is probably one, an innovation.
+[00:44:36] Speaker C: And we can ask help uh
+[00:44:40] Speaker C: Mm-hmm.
+[00:44:48] Speaker C: I it's too late in terms of research uh mm.
+[00:44:49] Speaker B: It's too long.
+[00:44:49] Speaker D: I i it'll it'll not be
+[00:44:56] Speaker C: Mm-hmm.
+[00:44:56] Speaker B: No.
+[00:45:00] Speaker C: Mm-hmm.
+[00:45:02] Speaker D: This is innovation, yeah.
+[00:45:04] Speaker B: Yeah.
+[00:45:04] Speaker A: And the the I know I'm we we see quite well why is working on this, right. But in two years, you know, if we want to do if we want to build a C_T_I_ or transfer technology and something like this, you know, maybe you c of course, okay, people will say yeah, but there is already something that people have started to put on the market and so on. So it maybe not the it's it's too late uh to to do it. So I think this is really so this is one of the points, respect to research of course, it's I think it's going to appear more more and more, and uh
+[00:45:05] Speaker C: Mm.
+[00:45:21] Speaker B: Yeah, yeah.
+[00:45:23] Speaker B: Yeah.
+[00:45:37] Speaker D: Uh you know in a sense I never tried for example eventually to ask for one person dedicated to this because I always had the feeling that you are very interested, you wanted to do it, it's something you some way you uh I mean it seems to be something that is interesting to you. But uh if you have not the time and the possibility to do it because you you both are involved in many other things, we can eventually try to ask to have one person, to involve one person that will be dedicated strictly to this. We can try. I mean we can ask uh uh in the sense that if it is a priority for IDIAP so far we would get very good signals from that point of view, I I don't know. But uh please, if you think you don't have the time or the energy to do it, uh or it involves too many things that you cannot keep under control given the other things you have to do,
+[00:45:43] Speaker C: Hmm.
+[00:45:51] Speaker C: Mm-hmm.
+[00:45:52] Speaker B: Mm-hmm.
+[00:45:58] Speaker C: Mm-hmm.
+[00:46:03] Speaker C: Hmm.
+[00:46:07] Speaker A: Yeah.
+[00:46:11] Speaker C: Mm-hmm.
+[00:46:19] Speaker C: Mm-hmm.
+[00:46:26] Speaker D: uh don't think that okay, something nice we we can wait or sooner or later it will happen. Uh yeah. Exactly. So I think it's the moment uh for you to really realise try to to have a realistic uh date. And if you think there are too many things that you risk to lose control, uh tell it now. And we can try to say well we want to do it, but uh basically Mael and Olivier were the person mm-hmm. No, no. But but you can be involve in a different way. I mean you can eventually have uh a supervision role in the sense that you think that I I know how to do it, I like to do it, but I have no time. Because at a certain point it's a matter of time. We can try to to ask. Uh but uh please just don't keep this as a kind of thing, yeah, I like to do it, I like it, it's nice, et cetera.
+[00:46:30] Speaker C: No no no no. We understand that you we cannot wait uh we were here one year ago uh, I don't know, and also when it's was uh going uh the idea was appearing and
+[00:46:42] Speaker C: Mm-hmm.
+[00:46:51] Speaker C: Mm-hmm.
+[00:46:53] Speaker C: Mm-hmm.
+[00:46:55] Speaker B: Mm-hmm.
+[00:46:56] Speaker A: Mm.
+[00:46:56] Speaker C: Okay. Personally I want to be involve in that project. A acquisi uh some mm.
+[00:47:05] Speaker C: Mm.
+[00:47:09] Speaker C: Mm-hmm.
+[00:47:12] Speaker C: Mm-hmm.
+[00:47:12] Speaker B: Mm-hmm.
+[00:47:18] Speaker B: Yeah, yeah. Yeah.
+[00:47:20] Speaker A: Yeah. Because when when you say here now no, I'm not going to start to working on this before January, for me this surprises me to some extent, you know, I'm uh I thought I mean you would you would be working on this. So if you say okay, now it's uh yeah.
+[00:47:27] Speaker D: Yeah.
+[00:47:31] Speaker B: Yeah. But uh at the same time I have some other project I I want to finish uh those project first.
+[00:47:36] Speaker D: Yeah, bu but but here you have to take a responsibility. You can't say I like to do it and but then ah but I will do it when I can.
+[00:47:40] Speaker A: No, uh oui.
+[00:47:43] Speaker A: No, I mean the point is that Olivier will r you have I mean s since one year uh you have always been saying that you want to be involved in this and so on. So it seems that it has never been a priority. So that that's uh that's the point. So if you have no time to put priority at some points and this seems to have been the case during one year on this project, I mean you need to say it now. I mean that's the point now.
+[00:47:44] Speaker C: Mm.
+[00:47:53] Speaker D: Exactly.
+[00:48:03] Speaker B: But for example, I have uh I receive some new project. I said that I have no time yet. I say I have no time gi now currently I um I say some for some project you say that you don't have time. But people will stay will continue to say no no, you will find time just to do that project. The
+[00:48:03] Speaker C: Mm.
+[00:48:10] Speaker D: Mm-hmm. Uh yeah yeah yeah..
+[00:48:12] Speaker C: Mm-hmm.
+[00:48:14] Speaker D: Okay, this is yeah.
+[00:48:20] Speaker D: No, no.
+[00:48:23] Speaker D: Okay so now is your responsibility to say I cannot find time. If you can't find time, you have to say it now. And this is also for you. I mean i it's not an accusation. We we are all in the same condition.
+[00:48:24] Speaker C: Mm-hmm.
+[00:48:25] Speaker A: So this is Franck
+[00:48:31] Speaker A: At least uh say this to us and we'll see uh with Franck. And again, I mean this is a question. So now you are saying you have no time. So now you say to us. So now we understand and we are maybe after, when we if we discuss with Franck uh Franck Crittin or uh uh Frank uh Formaz and we'll see okay and go and try to see. Okay apparently uh he has no time to to work on this. So we think it's important and we'd like to to do something. So what kind of solution, as Alexandre mentions, i do we need to take somebody, do we want to do we need to take some intern to work on this, uh and so on and so on. Do we take to have uh somebody uh for contract, even if it's not an intern but take somebody for six months to work on this.
+[00:48:31] Speaker C: Hmm.
+[00:48:44] Speaker D: Mm-hmm.
+[00:48:59] Speaker D: Exactly.
+[00:49:02] Speaker C: Mm-hmm.
+[00:49:09] Speaker D: Mm-hmm.
+[00:49:09] Speaker C: Mm-hmm.
+[00:49:14] Speaker A: I mean but so this a point. I mean uh y I don't know about the other projects you have to do. I don't know with who you are discussing about the time you are you can s uh s spend on each of the project. But if y because now you are just telling us you have no time indeed to work on this, right? Okay, so so okay. Yeah, but I mean c it's yeah, but
+[00:49:21] Speaker C: Mm-hmm.
+[00:49:26] Speaker C: Mm-hmm.
+[00:49:31] Speaker B: Yeah.
+[00:49:32] Speaker C: Mm-hmm.
+[00:49:33] Speaker D: S s
+[00:49:33] Speaker B: Currently but uh up to December I don't have time to work on it. But I plan already. I I um with I_M_ two I I I did uh I mention that I will have from January two thousand six I will have time for that. Uh I have a
+[00:49:41] Speaker C: With I_M_ two, I_P_ one. Mm-hmm.
+[00:49:50] Speaker C: Fifty percent on on I_M_ two, that's it.
+[00:49:54] Speaker B: No, I will work fully on that on this point. From January two thousand six I wi
+[00:49:59] Speaker C: It's fifty percent, no? On I_M_ two I_P_ one? Okay, maybe in fifty percent uh on that.
+[00:50:05] Speaker D: So let me pose the question very broadly. Do you think that we have a person that has this will help you? We can ask, we can try to ask maybe if some person for six months so that your role is simply to help and advise.
+[00:50:08] Speaker C: Mm-hmm.
+[00:50:22] Speaker C: Mm-hmm.
+[00:50:24] Speaker C: Why this was, yeah, mo yeah w I don't want to talk too much maybe. Uh but uh with Sebastien, sorry this was maybe uh his concern. And yeah, Bastien is busy with uh annotations plus all kind of things. Uh maybe we can in the process we can ask for
+[00:50:24] Speaker D: We can try to ask.
+[00:50:43] Speaker D: I mean
+[00:50:49] Speaker C: someone more.
+[00:50:52] Speaker B: Maybe a good thing will be to make a plan to to we say we we won't set the deadline here. We are here. We split that part in different segments. Uh y
+[00:50:52] Speaker C: To work on that.
+[00:50:56] Speaker C: Well uh uh that's what I I was
+[00:50:57] Speaker D: .
+[00:50:58] Speaker D: S
+[00:51:00] Speaker C: Y
+[00:51:02] Speaker C: That's what I was trying to do and I before coming here I just tried to to make uh uh a plan. But I don't answer, yeah. W well the let's say uh April O_ six and uh we do uh our best with uh trying to keep you inform with the advancements. And if we see early that clearly uh there i
+[00:51:08] Speaker D: I'm sorry, but you still don't answer to my my question. You are not answering my question. Yeah.
+[00:51:14] Speaker B: Yeah.
+[00:51:26] Speaker D: Let me pose again the question very clearly. If I go to Herve, I can try and say we are in this situation apparently. Why don't we take one person three months, six months, four months that directly advised by Olivier and uh and we can speed up.
+[00:51:33] Speaker C: Mm-hmm.
+[00:51:42] Speaker C: And it should be someone with experience in C_ plus plus M_F_C_. Uh
+[00:51:48] Speaker D: Consider that it can be difficult of course to find them et cetera and so on. Do you think it's an option?
+[00:51:51] Speaker C: Yeah. Or a student.
+[00:51:51] Speaker A: Well I mean uh I mean you have people that are aware of uh M_F_C_, I mean I mean people uh I suppose at H_U_V_ there are some people uh where I was in Le Mans in the U_ B_ uh I mean there uh would be obviously some some students uh that would be aware of and that could be able to handle this. I mean they are working with software and hard both our software and hardware. Uh I'm I'm sure the s se
+[00:51:56] Speaker D: Mm-hmm.
+[00:51:57] Speaker C: Mm-hmm.
+[00:52:00] Speaker D: At each. Yeah, I think there are people yeah.
+[00:52:01] Speaker B: Yeah, the yeah.
+[00:52:03] Speaker C: Mm-hmm.
+[00:52:11] Speaker C: Mm-hmm.
+[00:52:14] Speaker C: Mm-hmm.
+[00:52:15] Speaker D: Do you think it's a reasonable option? Do you think it's something that uh can help you? Because that's just a matter of responsibility for you guys to but there is nothing bad if you say you have other things to do. Because we are all uh full of work. This is something that is added on the top. Uh if you don't have time you don't have time, guys. I mean this is uh but please just tell me. We will find the time however. So April O_ six you will have your system. Or no we are not sure. We don't really know.
+[00:52:31] Speaker C: Mm-hmm.
+[00:52:46] Speaker D: Uh it can happen that we don't. We don't know what you are going to find on the way. Maybe we think it takes one week and then it takes one month. Uh w we don't know. Uh maybe we will s we wi will not able to be continuous. Because one of the wrongest thing is to work one week, then one month, no, et cetera. That's it's something that breaks. I mean difficult, huh? Mm so that's the point. So that which doesn't mean you are excluded f from the thing in the sense that in any case someone will ask will have to advise the person eventually. And it can't be him, it can't be me. It can be you that basically follow, advise, helps. But at least the mass of the work will be done by someone else that can spend a hundred percent of time on that.
+[00:52:55] Speaker B: Mm-hmm.
+[00:53:02] Speaker C: Mm-hmm.
+[00:53:02] Speaker B: Mm-hmm.
+[00:53:10] Speaker C: No, no, no.
+[00:53:12] Speaker C: Mm-hmm.
+[00:53:29] Speaker D: Now it's not even guaranteed in the sense that I can ask this. I can say that well this is the situation and uh you are. Or eventually yeah, someone can say okay now this become your priority. Forget about everything else and go with that. I don't know. Or will tell you okay, uh January two thousand six, but from January two thousand six you do nothing else than this. You know, w we can find the time, whether it is your time, whether it is the time of someone else. But uh I really would like to stop with this because this has been for several months that you say we like, we want. And I'm sure, I believe you. But then it is always something that must be done outside uh the uh normal activity. Um I'm uh I'm sorry. Yeah. But but uh otherwise I mean, as you say, to do it in two years p
+[00:53:32] Speaker C: Mm-hmm.
+[00:53:34] Speaker C: Hmm.
+[00:53:54] Speaker B: No.
+[00:54:11] Speaker B: No, no, no. Yeah. Yeah. Which is really bad. Yeah. I I understand exactly. Yeah, yeah, yeah. No, I understand. Yeah.
+[00:54:13] Speaker C: .
+[00:54:18] Speaker C: Mm-hmm.
+[00:54:23] Speaker B: Yeah, yeah.
+[00:54:25] Speaker D: So what do you think? You like that I try to to to solve this problem and try to say that there is a time problem and you don't have the time to do it?
+[00:54:26] Speaker B: What
+[00:54:35] Speaker A: Because uh so so Olivier says it's not before January on his side. So I'm not sure about uh on your side, whe what's your yeah.
+[00:54:42] Speaker C: Well I would like to to to work on p kind of part time uh uh w o yeah. Yeah.
+[00:54:46] Speaker A: Like what? One day a week, uh something like this?
+[00:54:51] Speaker C: And one full day a week. And I would okay, maybe you won't like my answer but I would say that um we ch we we start but we h we really have to start on working wi uh reading all the code from Darren. Then this um card with the code, I_V_C_ card, and to to try this. Then we try a little bit direct show to see um uh to to have an idea of how how long uh that could be. And then at the moment we can say okay we need someone to help us.
+[00:55:29] Speaker D: Okay. But that can be. But uh
+[00:55:31] Speaker B: Yeah. But I think yeah, that will be good, just to have a plan and to have some deadline in that plan. And as soon as we we we as soon as we we we are not in time, we we we con
+[00:55:32] Speaker A: But
+[00:55:36] Speaker C: Well, w uh let's do that. Let's do that. Okay. Fo
+[00:55:41] Speaker A: Because uh because there are there are several issues I would say. Like if there would be a machine like this, with the two cards separated as I mention. I mean if we record le the flow of the video for instance and the snap-shots from the slides to some extent there is some possibility of doing some automatic alignment without having a special, you know, synchron so this means that to some extent we could have a device which would not yet be fully synchronized and, I don't know, we've uh you know very well done uh code in terms of sending signals and so on. But that might be sufficient, because I mean it synchronize up to, don't know, five seconds. And you would say five seconds may seem a lot for audio and video. But maybe f respect to slides and the rest is not is something that may be tolerable. So still we would be able to start doing some recordings and maybe uh doing even the automatic alignment, or at least we would have an idea about,
+[00:56:16] Speaker D: Yeah. Yeah. Yeah.
+[00:56:24] Speaker D: It can be tolerable, yeah. Yeah.
+[00:56:30] Speaker D: Exactly.
+[00:56:35] Speaker A: you know, what are the problems in terms of alignments. Uh do do because it's not like with microphone arrays where you would need micro-second alignments, of course. Uh or even maybe with we want video where it may be one or two frames, I don't know. So this is really some somehow I mean the uh the the issue, I mean I'm sure that there are plenty of possibilities to do things. And the goal would be that indeed we could start uh rec doing some of the recordings of the time so that indeed we would already we uh we would have uh something where uh we could uh start getting the data. Because after, I mean even if it there, we cannot put all the times in one week, right. I mean so and uh so I mean this is uh this is one of the issue as well, which is to have it so that we can play and we can make a nice demo and so on with the full uh thing and something. So f the other part is to have a system which from which we can already record data and with some approximation.
+[00:56:43] Speaker B: Yeah.
+[00:56:52] Speaker D: It's a very good idea, yeah.
+[00:57:04] Speaker B: Yeah, and to improve the system like
+[00:57:06] Speaker D: Mm-hmm.
+[00:57:09] Speaker B: Mm-hmm.
+[00:57:16] Speaker B: Yeah.
+[00:57:18] Speaker D: Mm-hmm.
+[00:57:26] Speaker C: Mm-hmm.
+[00:57:36] Speaker A: And I have the feeling, given the descriptions that you made, that to have such a system wouldn't require a six months of work because basically their own code is there to some extent and uh the I_V_C_ is something quite standard from which we could ask I mean even we could even pay maybe pro some people from Fribourg, I don't know, I mean to come here and to and to help us with the installation on a computer and uh and uh to to to get the so I have more the feeling that this is something that could be done almost in one month. Again, I'm not speaking about the synchronization I mean as
+[00:57:36] Speaker B: Yeah.
+[00:57:55] Speaker B: Yeah.
+[00:57:58] Speaker C: Mm-hmm. Mm-hmm, yeah.
+[00:58:00] Speaker C: To
+[00:58:11] Speaker C: So without direct show you mean the frame grabbing signal and time alignment? Uh wi that would be done uh in like in common software that we have uh afterwards?
+[00:58:11] Speaker D: Yep.
+[00:58:13] Speaker A: Yeah, I mean the two yeah, yeah.
+[00:58:17] Speaker B: Yeah. And we
+[00:58:23] Speaker A: Yeah, the for instance a simple question maybe you can are we sure that it can work on a single computer? I don't know.
+[00:58:34] Speaker A: I don't know. I mean is there any uh issues with respect to this? So this is yeah. So it doesn't require it it's more testing it does not require so for this we I mean if you put the two cards on the computer, you put the two then you you basically you say play on the both sides and you look whether at the end you have uh a recorded signals which is is is uh the time that it should uh be and uh or whether I mean the fact that whenever I mean the slides is doing some uh processing uh it there is some and there is some frame drops or things like this.
+[00:58:35] Speaker C: Okay th and this point is about testing and uh yeah. Okay.
+[00:58:37] Speaker D: Uh i no. Let me
+[00:58:57] Speaker B: Yeah.
+[00:59:05] Speaker B: Yeah.
+[00:59:06] Speaker C: So you could say okay, let's for Christmas let's try this without the all the synchronization. Uh with direct show issue. Okay oh yeah, you are you cannot or o l uh by doing one one day a week, mm you know just I think the cards.
+[00:59:09] Speaker A: So this is uh
+[00:59:15] Speaker B: Yeah.
+[00:59:24] Speaker D: That seems to me clear. Until January is uh is busy. So
+[00:59:27] Speaker B: Yeah. Uh if I if I say until January this is just to finish. Uh I want to have the deadline at end of December to finish all my project. I want to finish all these project when everything is finished. After that I can move to another one. But I don't want to
+[00:59:36] Speaker C: Okay.
+[00:59:37] Speaker A: Ah.
+[00:59:38] Speaker D: So yeah. Just to go to a conclusion, because apparently yeah. So it can't work uh yeah, exactly. Can't work uh until January. So it's up to you. It's up to you to evaluate, yeah.
+[00:59:42] Speaker A: Mm-hmm.
+[00:59:44] Speaker C: Anyway, the recording is finished, I think.
+[00:59:45] Speaker B: Yeah.
+[00:59:46] Speaker C: Yeah.
+[00:59:48] Speaker B: No. No.
+[00:59:48] Speaker C: So I try my best until January. And um and I try to do what Jean-Marc uh described to give you a first feedback on the different cards. Uh and uh and from there it would m yeah.
+[00:59:58] Speaker D: Mm-hmm.
+[01:00:11] Speaker D: And then we d make a decision in the sense whether you continue working or we try to find the time in a different way or we try to eliminate your other priorities you're under. Hmm?
+[01:00:12] Speaker C: Yeah.
+[01:00:15] Speaker C: Yeah.
+[01:00:20] Speaker C: Mm-hmm.
+[01:00:21] Speaker A: I'm I'm wondering whether still we could ask for to get an intern for this.
+[01:00:25] Speaker D: Yep.
+[01:00:25] Speaker B: Uh I I don't know regarding H_E_V_S_. I don't know if this is uh still in time. But you can have you can ask for a student, a d a diploma work.
+[01:00:26] Speaker A: I mean uh
+[01:00:39] Speaker A: Yeah, this is uh still uh even even the non-diploma work. I mean the things we could ask uh but I would yeah. Yeah.
+[01:00:44] Speaker D: I think that's that's a different problem. The problem is really up to you guys, whether you think it's good to have one person.
+[01:00:54] Speaker D: Try to have that because uh I cannot say we have tried to have
+[01:00:56] Speaker C: I would say uh let's let's yeah, let's try to have one uh students uh to help us on that. I don't know. That is very well, we have to choose whether the students it's too it'd be stupid. But uh uh the the student should have knowledge about M_F_C_ with oh okay. Yeah. Mm-hmm.
+[01:00:56] Speaker A: Yeah.
+[01:01:02] Speaker A: Mm.
+[01:01:04] Speaker A: Well you
+[01:01:06] Speaker D: W exactly, it wi but better no person than a bad person anyway. Yeah. Okay.
+[01:01:07] Speaker A: Yeah, that's that's the issue. Yeah. Well, but yeah.
+[01:01:14] Speaker A: Yeah.
+[01:01:16] Speaker A: Okay.
+[01:01:18] Speaker C: Doesn't mean that we d we have to to stop talking yet. But uh the recording has finished.
+[01:01:18] Speaker A: I think it's
+[01:01:26] Speaker A: Uh

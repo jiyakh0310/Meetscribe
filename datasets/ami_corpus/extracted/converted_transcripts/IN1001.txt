@@ -1,0 +1,759 @@
+[00:00:32] Speaker B: Oh yeah.
+[00:00:41] Speaker B: You don't put your headset microphone?
+[00:01:17] Speaker A: So we are here to just make the point. Well make the point, yeah.
+[00:01:25] Speaker A: Make the status about the shot detection.
+[00:01:28] Speaker B: Okay.
+[00:01:29] Speaker A: To so you have applied the shot detector to some of the CINETIS video, or at least one, and uh so we can basically maybe just comment on on this, maybe quickly remind what the shot detector is how the shot detector is working, basically. Uh we might be able anyway to give you some reference. I mean your report it's it should be described there or yeah, yeah. You have the report? Okay.
+[00:01:34] Speaker B: Yeah.
+[00:01:46] Speaker C: Hmm.
+[00:01:55] Speaker B: Yeah.
+[00:01:57] Speaker B: Yeah, I have actually yeah, the we can see the report here and the demo, and the goal of uh this meeting is to present the video shot detector to Olivier, okay.
+[00:02:10] Speaker A: To Olivier, yeah.
+[00:02:12] Speaker C: Yes.
+[00:02:14] Speaker B: Okay. So yeah, it was my project um during my internship at IDIAP under the supervision of Jean-Marc. And as you saw as you saw in the email I sent uh okay. I didn't send this video is the new one. I just um uh processed from your images. Yeah. But uh let's let's start by the video from Friday. CINETIS demo one.
+[00:02:42] Speaker A: Ah, okay, yes, the kayak wi I was not even with the other one, okay.
+[00:02:51] Speaker A: By the way, I was uh going to ask, so I had seen the video, i you uh did um a downsampling of the video, right? I mean
+[00:03:00] Speaker A: For uh browsing I mean. Okay, yeah.
+[00:03:01] Speaker B: Yeah.
+[00:03:07] Speaker B: So this was uh
+[00:03:11] Speaker B: Okay.
+[00:03:11] Speaker A: So this is hierarchical normally, so you have scenes and shots, but
+[00:03:14] Speaker B: Yeah, here on the left you have different things, but uh as applied
+[00:03:15] Speaker C: Mm 'kay.
+[00:03:17] Speaker A: Because for instance we could probably, you know, like group all the initial ones into one scene and maybe after, when there's some things inside, it s should be another scene, so.
+[00:03:18] Speaker C: Okay, this is.
+[00:03:27] Speaker C: Okay.
+[00:03:29] Speaker B: So this detector uh detected the thirty shots, and if you click on uh plus button you can expand it and see the key frames that are in fact uh five extracted frames from the shot. But I think th uh as it is, it's t extracted uh without uh using sub-shots, uh it's simply uh five down-sam yeah, down-sampling. Um so I we can see the video actually, uh the entire video, can open with Real Player. I hope it will work.
+[00:03:39] Speaker C: Mm-hmm.
+[00:03:45] Speaker C: Okay.
+[00:03:45] Speaker A: Which are extracted I think uh
+[00:03:54] Speaker A: Downsampling.
+[00:03:56] Speaker C: Okay.
+[00:04:02] Speaker A: Yeah.
+[00:04:15] Speaker B: So we don't have the the sound, and it won't be grabbed the video won't uh I don't know if uh
+[00:04:25] Speaker B: Okay, it's not good quality.
+[00:04:27] Speaker A: Yeah, the quality is that's why I was asking that. It it's not this that you processed, right? Okay, okay.
+[00:04:31] Speaker B: Oh yeah, yeah, yeah.
+[00:04:33] Speaker B: No no no no no no. It's in Real Media, so it's very compressed.
+[00:04:37] Speaker A: So here we see that we the shot at eighteenth and after twenty twos and after again. And uh if we go down, I mean maybe in terms of shot here, we can see that
+[00:04:37] Speaker C: Okay.
+[00:04:43] Speaker C: 'Kay.
+[00:04:49] Speaker A: Right, I mean so now we see shot seven I suppose, yeah.
+[00:04:59] Speaker C: Okay.
+[00:05:02] Speaker A: Uh yeah, okay, shot nine currently, shot ten probably.
+[00:05:03] Speaker B: Uh okay.
+[00:05:08] Speaker A: Eleven or twelve. No, eleven. Or no this is ten indeed, okay. Yeah.
+[00:05:12] Speaker B: Uh ten yeah. And then there's um
+[00:05:17] Speaker A: Yeah, this one, it's eleven, twelve
+[00:05:17] Speaker C: Mm-hmm.
+[00:05:19] Speaker B: Okay.
+[00:05:22] Speaker A: or fourteen seconds.
+[00:05:27] Speaker C: Okay.
+[00:05:30] Speaker A: Yeah, okay. Okay. Yeah, it's inside and yeah. It's really a dissolve or is it really like is you have the feeling that it's both
+[00:05:32] Speaker B: Yes. And this one, yeah, it's a dissolve it's a dissolve, so it doesn't detect yeah, when I saw the M_ with M_ Player, it's a dissolve, yeah.
+[00:05:37] Speaker C: Okay.
+[00:05:42] Speaker A: Okay.
+[00:05:47] Speaker A: But it's it's it's not standard man-made movies, because I would say most of the time people couldn didn't do any dissolve. Yeah, I could see here, I mean, that it was like horse it was only one single one.
+[00:05:54] Speaker C: Hmm.
+[00:05:56] Speaker C: Mm.
+[00:06:00] Speaker B: Yeah. Okay.
+[00:06:03] Speaker B: Yeah. I don't know if this one if we see was correctly uh, you see? Yeah.
+[00:06:09] Speaker A: N yeah, yeah. This is the one I I had seen, yeah. But as I said, I mean uh with even the motion detector, when it's black it's there is not s no structure, so you don't esti yeah, but you don't really estimate motion.
+[00:06:12] Speaker B: Yeah.
+[00:06:18] Speaker B: But there is a moon. But okay, because there is no motion in fact between the two shots.
+[00:06:24] Speaker A: Well, there is no structure. There is no texture, if you want to say so, and this is this is not so good for the motion. Uh but for instance of course between the horse and uh and um the c the c uh uh yeah. Uh the cows, yeah, maybe we could have detected things. But it's not even sure, because the background is quite similar and uh it's it's it's not that sure.
+[00:06:27] Speaker B: Yeah, okay, okay.
+[00:06:43] Speaker B: The cow? Yeah.
+[00:06:48] Speaker B: Mm-hmm.
+[00:06:54] Speaker B: Yeah, maybe to explain this method was using uh a simple uh uh distance between uh consecutive histograms, and we didn't use motion features at all for that, that's why i we
+[00:07:03] Speaker C: Okay.
+[00:07:06] Speaker C: Mm.
+[00:07:07] Speaker A: So it's yeah. The histogram, so we have experience with it. So it's it's scrambled, so you can scramble the image and you get the same histogram. So there is no structure indeed, so of course when you look the horse and then you can see as a cow the cows, of course you have a black in the top and uh you have also uh maybe eighty percent of like green uh, which is even not green there but uh uh grass. You have stones and uh so there of course are differences, because on the one hand you have horse, but it's black, so you have more sky, which is black on the right, so you don't care about this. So it's a glo it's global it's a global histogram, so yeah.
+[00:07:11] Speaker C: Yeah. Yeah.
+[00:07:11] Speaker B: Yeah, okay.
+[00:07:16] Speaker C: Okay.
+[00:07:19] Speaker C: Yeah.
+[00:07:20] Speaker C: Okay.
+[00:07:33] Speaker C: Mm-hmm.
+[00:07:47] Speaker C: Okay.
+[00:07:53] Speaker C: 'Kay.
+[00:07:55] Speaker A: But it's when for this I would for this application I could imagine that it would were quite high. Uh and it's a threshold but still it's adaptive, right, if I remember well, yeah.
+[00:08:00] Speaker C: Hmm.
+[00:08:00] Speaker B: Enough
+[00:08:05] Speaker B: Yeah. Yeah. With a sliding window.
+[00:08:08] Speaker C: Yeah. Okay.
+[00:08:09] Speaker A: So. Because of course if you just compute the yeah, if you have the report because if you compute the um distance between the two histograms, I think this was Bhattacharya? Right. So now we know.
+[00:08:13] Speaker B: I can show you uh
+[00:08:21] Speaker B: Yeah.
+[00:08:22] Speaker C: Hmm. Okay.
+[00:08:25] Speaker A: And uh so if you take uh these two with the with the Bhattacharya uh then of course you should just do a threshold. When there is motion you will see a lot of things changing, so by using an L_R_T_T_ threshold, if you see that there is a continuous change of the d distance, you don't do a threshold. It's only if you have an identified peak, which is m fifty percent or maybe uh two times higher than the the next second value in the window, then you say it's it's a shot. Right, I don't know.
+[00:08:39] Speaker C: Okay.
+[00:08:48] Speaker C: Okay.
+[00:09:01] Speaker B: Yeah. I don't know if we c we want to make uh use the whiteboard or here it's uh it was uh to dis it's infra only the this part about uh shot boundary detection is in French unfortunately, but uh the this image shows the results using motion when you s use the motion features, and here on the right is when using the histogram uh distance. And the the motion features can better show what's going on when there is such a difficult uh transition, while with the histogram um, yeah, it just shows that there is a shot uh change at the end, but even for dissolves, I don't have examples here, but um there is not a strict uh transition. Uh it's continuous for dissolves. Dissolves is uh yeah.
+[00:09:13] Speaker A: Yeah, yeah.
+[00:09:17] Speaker A: Yeah.
+[00:09:33] Speaker C: Okay.
+[00:09:58] Speaker C: Mm-hmm.
+[00:09:59] Speaker A: It's continuous for dissolve, yeah. But an anyway it's difficult, I mean in th in in in general, because sometimes you have some dissolve you could imagine they are part of of of a scene and uh so, but of course when you have cuts you can see they are easy to detect, right, I mean like something yeah.
+[00:10:01] Speaker C: Okay. Yeah, okay. Yeah, I understand. Okay.
+[00:10:14] Speaker C: Yeah.
+[00:10:19] Speaker C: Yeah, okay.
+[00:10:19] Speaker B: Yeah.
+[00:10:21] Speaker A: So uh yeah, so with the motion basically the motion tried to estimate well the motion between two frames, right, if my image is there but after it's there, and it looks at how many points c are well matched. So you can see that like somebody speaking and so and so before the sh before the shot you can see that usually there are like ninety percent of the points at least, right, who have some motion, so uh
+[00:10:24] Speaker C: Okay.
+[00:10:29] Speaker C: Okay.
+[00:10:34] Speaker C: Okay.
+[00:10:43] Speaker C: Hmm.
+[00:10:47] Speaker A: But then after suddenly if you go from one frame and you try to match all the points here with like a translation, plus the zoom plus maybe some rotation, you c you can find anything well, right, so basically you would see that the number of points maybe only ten percent of the points you can match well, so it's easy to detect.
+[00:10:52] Speaker C: Mm-hmm.
+[00:10:54] Speaker C: Mm-hmm.
+[00:10:56] Speaker C: Hmm.
+[00:11:02] Speaker C: Okay.
+[00:11:04] Speaker A: And uh after you can see that indeed because it's a long shot and it's almost like a flat plane, you can do a very good registration through the number of points. Is very high, I mean the number of points that are matching. Uh and here you basically here with a histogram uh you can see it very flat, but of course you should go from this histogram to this which is essentially green. You have this big uh measure, which is here uh the chi two I don't know whether this is what you implement is used in the no it's
+[00:11:10] Speaker C: Yeah.
+[00:11:14] Speaker C: Okay. We'll see. Okay.
+[00:11:28] Speaker C: see the cut.
+[00:11:34] Speaker B: No no, now it's uh well for the video you saw it wa it's Bhattacharya.
+[00:11:39] Speaker A: It's Bhattacharya. Okay.
+[00:11:40] Speaker C: Okay.
+[00:11:42] Speaker A: Yeah, so yeah, and you have maybe a one image with a um adaptive threshold, I think. You had something like this, right? Just to explain uh how
+[00:11:48] Speaker B: Yeah.
+[00:11:52] Speaker B: Okay, set the beginning.
+[00:11:53] Speaker A: Yeah, uh
+[00:11:57] Speaker A: Yeah, you see like here. Yeah.
+[00:12:00] Speaker B: So there is the idea is having a sliding window. Um we have already all the data that is on the graph. And then to detect uh the the the the changes, we we do a calculation um with points under this sliding window within this sliding window. And uh we calculate so what do we here? Um
+[00:12:05] Speaker C: Mm-hmm.
+[00:12:11] Speaker C: Okay.
+[00:12:34] Speaker B: In fa we want to detect that uh this points in the middle is higher than uh
+[00:12:45] Speaker A: Alpha times the maximum of the other ones. Of the other ones.
+[00:12:45] Speaker B: Th
+[00:12:47] Speaker C: Okay.
+[00:12:48] Speaker B: Exactly, yeah. Alpha. Alpha times the maximum of the other ones.
+[00:12:50] Speaker C: Okay.
+[00:12:52] Speaker A: So the of course if it's you are not a maximum, you are not going i inside the window you are not the max, anyway you are not going to be to be above uh alpha times the max of the others, right, uh because alpha is low lower than one. Uh.
+[00:13:00] Speaker B: The c
+[00:13:04] Speaker C: Okay.
+[00:13:07] Speaker B: But if you are in the maximum already and at this point we check simply if uh this value is alpha times the the max of the other points, let's say these points here.
+[00:13:19] Speaker A: Like for instance yeah. Like for instance here I I see six, but I don't know whether this was for Bhattacharya or for uh chi s chi two.
+[00:13:21] Speaker C: Okay. Okay.
+[00:13:27] Speaker B: Um i maybe for chi it's it six but uh, yeah, but uh for Bhattacharya it's for the tests I did it two point four. Yeah.
+[00:13:29] Speaker A: Yeah.
+[00:13:37] Speaker A: Yeah, yeah, yeah. Two point four, yeah, so it's a bit less because the amplitude is much smaller, yeah. uh yeah. So you can uh it was not so just I mean because the motion I mean it was uh in the shot we've seen, f because f especially with chi two square it r the amplitude it's much bigger than with Bhattacharya, right. Uh you can see that it could go to seven hundred, and when it's there is nothing, it's can be zero. With Bhattacharya it's between zero and one, so you have not so much amplitude. Um but uh still uh in some of the v these videos for instance even if we gon go now if we want to, but now for the kayak case, I don't know. Uh at some point targeting two kayaks and it's moving quite fast towards to other people. I don't know what happened there, if it was detected as a shot transition or
+[00:13:42] Speaker B: Yeah.
+[00:13:43] Speaker C: Hmm.
+[00:13:45] Speaker B: Okay.
+[00:13:49] Speaker B: No
+[00:13:57] Speaker C: Yeah, okay.
+[00:14:01] Speaker B: Mm.
+[00:14:06] Speaker C: Okay.
+[00:14:26] Speaker B: Uh i in the the first shot? Yeah, I saw that it was detected as a shot, yeah. You want to see now? Okay. But he didn't okay.
+[00:14:29] Speaker A: Yeah, yeah.
+[00:14:31] Speaker A: It was it as a shot, okay. I was uh wondering yeah yeah, maybe.
+[00:14:37] Speaker A: But here for instance you understand so we can show this tomorrow to uh to the people at the ci CINETIS meeting, I mean to
+[00:14:42] Speaker C: Yeah, okay.
+[00:14:44] Speaker C: Okay. I will look to have a connection. Okay. Yeah. And we need a laptop or you have yours?
+[00:14:45] Speaker A: Right.
+[00:14:47] Speaker A: Yeah, okay, yeah, we need a connection, that's true.
+[00:14:50] Speaker A: Yeah, that's true. Yeah, I can bring my laptop if necessary, yeah, yeah. I'll I'll bring it, okay, so it's it's done.
+[00:14:54] Speaker C: Okay.
+[00:14:57] Speaker C: Okay.
+[00:14:57] Speaker B: It is uh okay. This is IDIAP laptop, so you can u okay. So here in fact after twelve um I don't know if it's I think it's twelve frames.
+[00:15:02] Speaker C: Yeah.
+[00:15:11] Speaker A: Well yeah, but normally there is a a burning if you c maybe you can play the shot or
+[00:15:12] Speaker C: Uh okay.
+[00:15:16] Speaker B: Yeah.
+[00:15:17] Speaker A: It's strange I mean, maybe you play yeah, if you play the the video well, insi at the beginning, I don't know what's happening.
+[00:15:18] Speaker B: Oh yeah, maybe you're burning, but
+[00:15:26] Speaker B: Oh, there is no ha ha. I didn't uh ha I didn't have time to the the Real Media. But um yeah, it's complicated.
+[00:15:31] Speaker A: Ah, you didn't generate the okay, the Real Media. Okay.
+[00:15:37] Speaker A: Well no, I mean here I can see that it was it was detected as a single shot. Okay. I was because here you can see that the motion uh here is uh, you know, he is uh doing a zoom on the two kayaks here.
+[00:15:42] Speaker B: Yeah, here we can see that, yeah.
+[00:15:45] Speaker B: At two point four.
+[00:15:48] Speaker B: Mm.
+[00:15:50] Speaker C: Yeah.
+[00:15:51] Speaker B: And then there is translation on the right, yeah.
+[00:15:52] Speaker A: Yeah, and then he's doing quite a fast transition from these to another one, and I was wondering whether so if you well though of course it's true that it's mainly water, so maybe the colour is indeed uh quite but you know, as a kayak is entering quite fast, I mean you can have quite maybe good distance. But I see that it seems to be how many shots do you have indeed de de detected?
+[00:15:56] Speaker B: Mm mm mm.
+[00:15:56] Speaker C: Mm 'kay.
+[00:16:08] Speaker C: Hmm.
+[00:16:10] Speaker B: I can see uh there is another programme that can see
+[00:16:10] Speaker C: Hmm.
+[00:16:16] Speaker B: Uh the N_ uh
+[00:16:20] Speaker B: It's I think it's f there there are five normally.
+[00:16:21] Speaker A: Six, yeah, the one is uh maybe so you did it with with what by the way? It's with the images I gave you or okay.
+[00:16:24] Speaker B: If we put expand all
+[00:16:26] Speaker C: Okay.
+[00:16:30] Speaker B: Yeah.
+[00:16:32] Speaker B: The other one I had problems converting uh uh the video into D_V_X_, and then uh so I used the programme from uh software from Sebastien, P_ P_A_P_M_ to A_V_I_. Because yeah, one thing uh maybe we will talk about that is the library uh, it's uh it doesn't uh compile anymore on Debian machines and, yeah, some maybe some work has to be done on this. I don't know why this uh image doesn't appear, this is the um um the frame that is uh uh extracted to be the shot key frame here. This one is this one, the middle one. So I don't know what why it doesn't appear, but it just uh a simple problem in the get frame. But what I can show you now is a little programme if we want to be um very precise about so it's ma get frames
+[00:16:39] Speaker C: Hmm. Yeah.
+[00:16:46] Speaker A: Ah, to regenerate an A_V_I_ file, okay, yeah, yeah.
+[00:16:48] Speaker C: Hmm.
+[00:17:00] Speaker A: Okay.
+[00:17:01] Speaker C: Hmm.
+[00:17:21] Speaker A: Okay, yeah.
+[00:17:23] Speaker A: Yeah.
+[00:17:44] Speaker B: Okay, C_G_I_ here.
+[00:17:49] Speaker B: And we were interested in around what di do you want? Around six, seven seconds?
+[00:17:57] Speaker A: Yeah, I mean initially I don't know why there is a a shot detected.
+[00:18:00] Speaker B: Okay. Uh if we do next.
+[00:18:06] Speaker B: Oh. Yeah. There is something wrong. So it detects
+[00:18:08] Speaker C: Yeah, yeah. Oh yeah.
+[00:18:11] Speaker A: Ah okay, so the okay so the here is an image number. In your programme. Ah okay, okay, yeah. Okay, okay so then this
+[00:18:11] Speaker C: There was some burning
+[00:18:16] Speaker B: Yeah, in fact, yeah, that's why I said it's it's a frame number. Uh w I don't know why, yeah yeah yeah. It's a frame number. This is a frame number, this is in second, but I I kept the frame number.
+[00:18:26] Speaker A: So, but it's in seconds or it's
+[00:18:29] Speaker B: It's twelve frames, zero seconds.
+[00:18:31] Speaker A: Okay. Okay, yeah, okay, okay, seconds plus number. Okay, so basically what has been uh yeah, extracted is yeah, this point rather than okay, so this is normal, okay.
+[00:18:33] Speaker C: Okay.
+[00:18:36] Speaker C: And the next is eleven seconds and twelve frames.
+[00:18:36] Speaker B: Yeah.
+[00:18:42] Speaker B: Yeah. Yeah. So if we do every second uh I d the middle frame is uh this one thousand
+[00:18:42] Speaker C: Hmm.
+[00:18:59] Speaker B: Okay. Do you thi it's another kind of browsing page, but uh to be more precise about uh to to check maybe the this yeah, exactly, yeah, yeah. Anyway, you go back to one frame around f one sixty for instance, I don't know.
+[00:19:03] Speaker C: Okay.
+[00:19:05] Speaker A: Okay.
+[00:19:08] Speaker A: Okay, like transition, something that is okay.
+[00:19:11] Speaker C: Hmm.
+[00:19:20] Speaker B: And and there is yeah, that's it, you know. Prev
+[00:19:21] Speaker C: Okay. Ah, okay. Understand.
+[00:19:26] Speaker B: Okay. You see that there is uh okay, it's not a shot change, it's a motion actually here. Yeah, yeah, yeah, yeah, yeah.
+[00:19:32] Speaker A: Yeah, it's motion yeah, it's not a cut. Yeah, but I was thinking that maybe it could have been. But it's true that it's mainly water when we see things, so it's, yeah, it's not such a big uh but yeah, sometimes I mean you can have various things hap I mean just think about more action movie and thing like this.
+[00:19:36] Speaker B: Yeah, I s yeah.
+[00:19:47] Speaker C: Mm 'kay.
+[00:19:48] Speaker A: Well sometimes it's very difficult, so focus, usually there is no problem, people say this is a cut, this is not a cut, but like for dissolve even sometimes, you know, people may it's people may have some trouble I mean this is a dissolve this is not this should this should be labelled as a transition or not. Some people will say yeah, but it's part of the thing, or uh for instance in like in um also in uh, come on, uh advertising usually. Because the shots are very short in advertising, usually it's uh very fast and so sometimes, yeah, when you have an incrustation like last time, what what should you say, it's it's, yeah, it's a change of
+[00:19:55] Speaker C: Mm.
+[00:20:02] Speaker C: Yeah. Mm-hmm.
+[00:20:15] Speaker B: Yeah.
+[00:20:18] Speaker C: Okay, mm-hmm. Yeah.
+[00:20:29] Speaker B: When you have yeah, the the goal results uh then yeah, in fact it's not a shot change. Yeah.
+[00:20:29] Speaker A: But uh
+[00:20:31] Speaker C: Hmm.
+[00:20:34] Speaker C: Yeah.
+[00:20:39] Speaker A: Yeah, I mean it's a so sometimes very difficult. A at least what I can see that currently like for CINETIS uh for instance if it's to do colour correction or for instance if it's too black, too a bit whiter, I think this type of things should be fine.
+[00:20:40] Speaker C: Yeah.
+[00:20:51] Speaker C: Hmm.
+[00:20:54] Speaker C: Hmm.
+[00:20:55] Speaker A: Because basically it's even if they are not real shots, they are not so interested if it's not real shot. Maybe after they have this and they may say okay, just by looking at least the summary, so maybe for the summary we could do better uh key frame extraction for instance, but by just looking at the key frames and so on they may say okay, from this shot to this shot we apply like uh specific um colour enhancement algorithm or restoration algorithm or uh to improve uh the brightness and something like this right. And uh so I think for them this is fine um after i yeah.
+[00:20:59] Speaker B: Yeah.
+[00:21:21] Speaker C: Yeah.
+[00:21:28] Speaker C: Hmm.
+[00:21:31] Speaker B: So this would ma be made uh manually actually. When you say from this shot to this shot is using a graphical user interface someone who would do manually for each video.
+[00:21:36] Speaker C: Hmm.
+[00:21:41] Speaker A: Well, maybe after I mean they would sh okay, uh they would go directly and say select the shots from here to here, and they would say you apply this algorithm, yeah.
+[00:21:49] Speaker B: Method, yeah.
+[00:21:51] Speaker C: Hmm.
+[00:21:53] Speaker A: So of course we could try to make scene clustering and so on, but I'm not even sure that this is necessary for them at this point, because uh if they have a six minute movie, if they have thirty shots, for them it might be easier to look at from here to here I apply this, and they can do it quite quickly. And they have to do it an to do it anyway, because what's going to take time might be uh to select the type of restoration algorithm or the type of things. So this might take more time than having to click two times on two shots rather tha tha than uh having directly a scene, right? So so I think for them uh this type of things is going to be useful uh, at least for this task.
+[00:21:57] Speaker C: Hmm.
+[00:22:03] Speaker B: Yeah, mm.
+[00:22:07] Speaker B: Yeah.
+[00:22:17] Speaker B: Ah, okay.
+[00:22:17] Speaker C: Hmm.
+[00:22:20] Speaker B: Yeah, yeah, yeah. Mm.
+[00:22:23] Speaker B: Okay.
+[00:22:35] Speaker C: Okay.
+[00:22:36] Speaker A: If they want to do stabilisation, it may not be sure of that. Uh this is the right segmentation for some of these, but so but this is another point which for motion stabilisation, as I said several time, we are not we did not commit to provide anything, but of course if we can provide things, we'll do it, but uh yeah. So do you have uh more question or uh do you have a
+[00:22:39] Speaker C: Hmm. Hmm.
+[00:22:41] Speaker C: Hmm.
+[00:22:58] Speaker C: Hmm.
+[00:23:02] Speaker C: No. Uh I have look at the demo film, and it's about uh
+[00:23:12] Speaker C: forty minutes and about uh
+[00:23:18] Speaker C: hundred and seventy three different shots, so it's yeah.
+[00:23:23] Speaker B: This is the one in the D_V_D_? Maybe okay, we can uh see a little bit if you want, to play the
+[00:23:30] Speaker C: Yes. And uh I don't know if this is a real sample D_V_D_, because uh this will make about uh five seconds for each shot, so I think it's very short. No? I if this is to r to to to make a change in the colour, light and uh they have a lot of uh shots.
+[00:23:44] Speaker B: Well no, it's okay.
+[00:23:45] Speaker A: Well I just i i i it's I think this is
+[00:23:56] Speaker A: Yeah, but after I mean it may be more like a guy um i int i in an interface, a guy interface. I mean where I mean if second select from shot one to seven, uh this is a same seg they may do the grouping by themselves quite by looking at this it may take w w less one one minutes. And I think it's anyway, if it's too summarised after they may want to go inside uh to see whether there is not special things I mean, so. Uh because after it depends, I mean if you give only one key frame per shot, after I mean it's one hundred seventy images, it's quite fast, right, and so I think and the hierarchical thing is good, because still you can check if you have some ambiguities you are not sure, you could
+[00:24:01] Speaker C: Hmm.
+[00:24:06] Speaker C: Yeah, okay.
+[00:24:08] Speaker C: Ah, okay. Yeah, okay.
+[00:24:16] Speaker C: Okay, understand.
+[00:24:27] Speaker C: Yeah.
+[00:24:29] Speaker C: Okay.
+[00:24:36] Speaker C: Hmm.
+[00:24:43] Speaker B: Okay, uh in fact I didn't understand that, but now I understand better that CINETIS wants this kind of method to help them to restore and to apply the algori some algorithms to to to make a better movie, okay. It's not for the client, for the user who will uh maybe okay. Okay. Also but okay.
+[00:24:43] Speaker C: Okay.
+[00:24:50] Speaker A: Yeah. Yeah. Yeah, at least yeah, yeah, yeah.
+[00:24:52] Speaker C: Yeah, yes.
+[00:24:58] Speaker A: Yeah, yeah, yeah.
+[00:24:58] Speaker C: Yeah.
+[00:25:00] Speaker C: Hmm. Oh. Maybe they can
+[00:25:01] Speaker A: Well, ultim ultimately I think this is the type of things, but at this point we uh yeah. I I hope uh that uh if it's a big success uh they will ask IDIAP to to provide something like this of course with some money or at least to pay a student or somebody for doing it, but uh yeah, of course this was ultimately I think one way of uh if you could provide like chapters or something like this, indeed you could provide like the A_V_I_ to the clients, and he may ask for special services or uh and even to just to watch the movie, to have direct access to different parts and so on. But it's uh I mean uh this labelling might be more easy to do for the client by the client, because he knows what they're I mean he we wants to have this and this and uh right, so.
+[00:25:08] Speaker C: Hmm.
+[00:25:16] Speaker B: Okay.
+[00:25:21] Speaker B: Mm-hmm.
+[00:25:29] Speaker B: Mm-hmm.
+[00:25:39] Speaker C: Hmm.
+[00:25:41] Speaker B: Mm-hmm. Yeah, uh okay.
+[00:25:48] Speaker B: Okay. Ah, okay, yeah yeah yeah. Because he did the movie, so he wants t okay, to archive, he wants to okay.
+[00:25:48] Speaker C: Mm-hmm.
+[00:25:51] Speaker C: Mm.
+[00:25:54] Speaker A: Yeah, yeah, he may want to organi yeah, yeah. Otherwise, I mean this but of but of course it might be easy to do a very simple software, which would allow the user to select just the shots and give names, and after it would generate automatically some index and uh as a I suppose the client might be interested in such a such a things if he could uh generate automatically on the D_V_D_. But for and you could imagine that before sending in the D_V_D_, you could allow him to l to watch this type of interface, and he would be able to do the selection, say this is this, this is this, this is this, this is this, and when he would receive the D_V_D_, he would indeed uh get already the chapters that he decided to put there.
+[00:25:54] Speaker C: Mm.
+[00:25:58] Speaker B: This is yeah, another mm.
+[00:26:07] Speaker C: Mm.
+[00:26:11] Speaker B: Yeah. Yeah.
+[00:26:12] Speaker C: Mm.
+[00:26:14] Speaker B: Yeah. Okay.
+[00:26:15] Speaker C: Mm.
+[00:26:26] Speaker B: Mm-hmm.
+[00:26:29] Speaker C: Mm.
+[00:26:32] Speaker C: Yeah. Yeah.
+[00:26:37] Speaker B: And this could be done by through internet.
+[00:26:40] Speaker A: Yeah, yeah, yeah. And I think this may it it's good that this is a demo like this, because I'm sure that they might be interested indeed, because I imagine that some people
+[00:26:42] Speaker C: Mm-hmm.
+[00:26:44] Speaker B: Mm.
+[00:26:45] Speaker C: Mm.
+[00:26:46] Speaker B: Mm-hmm.
+[00:26:48] Speaker C: Yes.
+[00:26:48] Speaker B: From the client point of view and from the preparation of the movie D_V_D_, mm.
+[00:26:51] Speaker A: Yeah. Yeah, yeah, yeah.
+[00:26:55] Speaker A: Uh yeah, so I think this is uh this is a very good uh and a yeah.
+[00:27:02] Speaker A: But uh
+[00:27:04] Speaker B: Okay, I will play, yeah.
+[00:27:09] Speaker A: So this is a kind of service, I don't know, either they give it for free and uh
+[00:27:15] Speaker A: But uh
+[00:27:15] Speaker B: We had an arrow here or what? It's
+[00:27:17] Speaker C: Sorry?
+[00:27:18] Speaker A: But you see that sometimes even here it's a bit like uh it's for instance if people would like to have like some motion compensation, uh you i it could be proposed. But for instance here it I wou it would be problematic to have motion. So i here it's fine to do motion compensation, but stabilisation rather than yeah.
+[00:27:19] Speaker B: Th
+[00:27:26] Speaker C: Yeah.
+[00:27:28] Speaker C: Mm-hmm.
+[00:27:45] Speaker A: But
+[00:27:47] Speaker A: For instance here it's it's it's it's
+[00:27:53] Speaker C: Mm.
+[00:27:56] Speaker C: Yeah, uh I think I think they made some uh special effect in this D_V_D_. Uh there is two or three time uh you see you see the same uh same kind of uh scene, uh just uh two or three seconds
+[00:27:59] Speaker A: Effects? Okay.
+[00:28:05] Speaker B: If I go to menu there is something?
+[00:28:12] Speaker A: Ah okay, so maybe like here for instance it is a just reproduced two times uh.
+[00:28:16] Speaker C: Yeah.
+[00:28:18] Speaker C: Hmm.
+[00:28:19] Speaker B: Do you know what this is? No, old menu uh there is no menu in the D_V_D_? Okay. Okay.
+[00:28:22] Speaker C: No, there's no menu.
+[00:28:25] Speaker C: There is just one uh one chapter and no menu.
+[00:28:29] Speaker B: Okay.
+[00:28:30] Speaker B: So this is the same video a the the A_V_I_ number one?
+[00:28:34] Speaker C: Yeah, yes. Yes. Uh
+[00:28:35] Speaker A: Yeah.
+[00:28:36] Speaker B: And on the on the D_V_D_ I saw that there are some other stuff.
+[00:28:42] Speaker B: I dunno.
+[00:28:44] Speaker B: This one?
+[00:28:45] Speaker C: Uh I think in the video there's two there's two video, one is a real video and the other is a just uh introduction when you have the menu.
+[00:28:46] Speaker B: The same.
+[00:28:57] Speaker B: Okay.
+[00:29:00] Speaker B: Oops.
+[00:29:02] Speaker A: So this is vi okay. This video is about four minutes, five minutes, right?
+[00:29:06] Speaker C: No, it's uh thirteen minutes.
+[00:29:09] Speaker A: Ah okay, so this is not the one that has been uh
+[00:29:10] Speaker C: No, but yes, this is the same, but uh there was a problem when do the grab from the D_V_D_ to the files. So this is why they have make two two files. But now I have one file also in the so you can process again one time.
+[00:29:20] Speaker B: Ah, okay. Uh. There are two files. Okay, I understand.
+[00:29:20] Speaker A: Okay.
+[00:29:28] Speaker B: Okay.
+[00:29:30] Speaker B: Run the okay.
+[00:29:32] Speaker A: Okay.
+[00:29:34] Speaker A: It's it's it's real time, right? I mean the processing. Yeah.
+[00:29:34] Speaker B: Um
+[00:29:37] Speaker C: Mm.
+[00:29:38] Speaker B: Yeah, almost. I would maybe a less a little bit less than uh a bit more than real time maybe.
+[00:29:44] Speaker A: A bit more than real time? Well anyway, yeah.
+[00:29:46] Speaker B: I will have to check, but if it's five minutes videos, it's like done in yeah, quickly.
+[00:29:47] Speaker C: Yeah.
+[00:29:50] Speaker A: Yeah, normally it could it could go faster. But i probably it's probable that even for the project you would do some of the reprogramming, I mean to especially if uh we need to interface new uh um yeah, or for just reading, I mean the the D_V_X_ and thing like this, so it's uh uh so tomor anyway for this we don't know exactly yet, because it's not sure what they want to what the user's tools for reading D_V_D_ and so on, so. And s because I don't think this is so difficult, now you have um already looked at the histograms and open C_V_ computing distances and so on. So if we want to do a special thing that probably runs fast, it may be easier to do it directly and uh yeah.
+[00:29:58] Speaker C: Yeah.
+[00:30:00] Speaker C: Yes.
+[00:30:01] Speaker B: Okay.
+[00:30:03] Speaker C: Hmm.
+[00:30:05] Speaker B: Components open C_V_.
+[00:30:10] Speaker B: Yeah. Yeah.
+[00:30:11] Speaker C: Yeah.
+[00:30:17] Speaker B: Okay.
+[00:30:17] Speaker C: Yeah.
+[00:30:21] Speaker C: Yes.
+[00:30:26] Speaker C: Hmm.
+[00:30:32] Speaker B: Open C_ yeah.
+[00:30:33] Speaker C: Hmm. Hmm.
+[00:30:41] Speaker C: Yeah.
+[00:30:49] Speaker A: But uh but yeah, the interface is very so the interface uses the output of your programme. Essentially, okay.
+[00:30:55] Speaker B: Yeah. So that we'll use the whiteboard. So in fact, yeah, the interface is quite is quite simple to use. Um for instance you see um on the uh on the U_R_L_ I put okay, I I disco there is M_M_M_ dot IDIAP dot C_H_ slash V_C_G_I_ bin
+[00:30:58] Speaker A: Okay.
+[00:31:22] Speaker B: slash video browser.
+[00:31:27] Speaker B: Okay, uh slash video browser three frames,
+[00:31:33] Speaker B: three frames dot H_T_M_L_. And then this C_G_I_ programme ask the mm parameter C_ video and M_ equals CINETIS okay, demo one.
+[00:31:52] Speaker B: In fact um I just explain how to put the data on M_M_M_, but it's quite simple.
+[00:31:57] Speaker A: Mm.
+[00:31:59] Speaker B: When you log into M_M_M_ as with a C_ C_ S_S_H_ for instance, um so you just put it's working like this, M_M_M_ data
+[00:32:13] Speaker B: video browser.
+[00:32:22] Speaker B: Uh okay, slash. And then
+[00:32:26] Speaker B: This is the name of the new directory you will create.
+[00:32:33] Speaker B: Demo one.
+[00:32:36] Speaker B: And there stands there is couple of things well it's uh
+[00:32:43] Speaker B: this name so I will say this is video name, so video name
+[00:32:50] Speaker B: dot A_V_I_, you just because we need the A_V_I_ so that we can uh
+[00:32:59] Speaker A: You can do the get frame.
+[00:33:00] Speaker B: Yeah, we can do the the get frame
+[00:33:03] Speaker A: But otherwise it's not necessary. Oh yeah, no no no. Ye okay. Oh no no, you need you need to generate these images, right? Okay.
+[00:33:05] Speaker B: Otherwise it's not necessary. Oh, uh f and also for the
+[00:33:12] Speaker B: Yeah, and this is no no no, uh this is done on the fly. With get frame. So you need that, you need uh the X_M_L_ v so it's video name
+[00:33:15] Speaker A: Okay. Okay, yeah.
+[00:33:17] Speaker C: Mm.
+[00:33:19] Speaker C: Okay.
+[00:33:27] Speaker B: And I could data dot X_M_L_, but in fact it's just a simple convention, I w could have put nothing, but I just put data. The it's a convention. Data, and then video name.
+[00:33:38] Speaker C: Okay.
+[00:33:42] Speaker B: Okay, it's R_M_ nine dot R_M_ for other stuff. But in fact, yeah, when I think now, we could have uh
+[00:33:45] Speaker C: Okay. Okay. Yeah.
+[00:33:52] Speaker B: Only with uh extension you can you can see.
+[00:33:53] Speaker A: Yeah.
+[00:33:53] Speaker C: Yeah, okay. But the the name of the video file is video name is uh it's the same as a directory. Okay. Okay.
+[00:33:58] Speaker B: The name is no of in fact yeah, is is yeah. Yeah, is the same as the directory. It could have been video naming also, but it's the same as a directory. And that's it actually. When you you u you do that
+[00:34:00] Speaker A: As a directory, yeah, yeah.
+[00:34:05] Speaker A: Yeah.
+[00:34:12] Speaker B: I did the same for kayak you say kayak in fact now it's kayak, and then you can see. And this output yeah, as your this output uh this file is an output from the mm the software, the shot boundary detection software.
+[00:34:16] Speaker A: Yeah, yeah. Yeah.
+[00:34:16] Speaker C: Okay.
+[00:34:20] Speaker A: X_M_L_, yeah.
+[00:34:29] Speaker A: On the shot.
+[00:34:31] Speaker C: Okay. Okay.
+[00:34:34] Speaker A: And it's a simple format I suppose, like uh like you have scenes and shots and uh key s some time stamps. Yeah.
+[00:34:37] Speaker B: It's a very simple format, yeah. Yeah, uh actually we
+[00:34:42] Speaker C: Yeah, okay. Okay.
+[00:34:45] Speaker B: Uh yeah, I don't yeah, we cannot see. It's, yeah, it's uh tha video, scene, shot, it's hierarchical in X_M_L_ and key frame time stamp and the and from the time stamp and the video location he knows how to get the frame. Each of these frames. And if we do in fact I don't know yeah, it's Mozilla Firefox view page source okay, view frame source.
+[00:34:50] Speaker C: Okay, yes, okay.
+[00:34:52] Speaker A: So but you're yeah. Yeah, I mean it it might be good to
+[00:34:56] Speaker C: Yeah, okay.
+[00:35:02] Speaker C: Yeah, okay.
+[00:35:09] Speaker C: Okay. Mm.
+[00:35:12] Speaker C: Okay, okay. So every every frame on the f page is uh online.
+[00:35:22] Speaker B: And every frame is stored into uh a b a backup in fact every frame um it's M_M_M_ who manage this automatically, so that um when uh you ask for this frame, in fact we can okay, I just view frame source
+[00:35:25] Speaker C: Is is a
+[00:35:35] Speaker C: Okay.
+[00:35:45] Speaker B: When I view image, when I say view image,
+[00:35:49] Speaker B: when I say view image on this frame, up we go there and this is um in fact it's a Perl programme that outputs in fa instead of outputting H_T_M_L_ or text, it outputs uh J_ PEG.
+[00:35:50] Speaker C: Yeah. Yes.
+[00:35:55] Speaker C: Okay.
+[00:35:59] Speaker C: Okay.
+[00:36:02] Speaker C: Okay.
+[00:36:07] Speaker C: Okay, understand.
+[00:36:08] Speaker B: From the video with a time stamp it outputs a J_ PEG. This is quite uh nice.
+[00:36:09] Speaker C: Yes, okay. Okay. But on the on the on the server the original is a f video film. Okay.
+[00:36:16] Speaker B: And
+[00:36:19] Speaker B: Yeah. And this image is i this image is output uh outputted to the client.
+[00:36:23] Speaker C: So for example you can change you can change a number to take which one, okay. Okay, understand. In the other yeah yeah. Okay, perfect.
+[00:36:26] Speaker B: Yeah, exactly, yeah, yeah. That's what I did uh
+[00:36:31] Speaker B: here. In the other application, yeah. Yeah, I dunno.
+[00:36:36] Speaker A: And who has a right to put who has a right to put data on the M_M_M_?
+[00:36:37] Speaker B: Yeah, here.
+[00:36:37] Speaker C: In this one, okay.
+[00:36:42] Speaker B: I f there are, yeah, the M_M_M_ developers, so I'm part of that, but uh we could we could uh yeah, it's not a problem. Um I wanted to saw to see to do s say something else. Um oh yeah, and the images are sent to your browser, the client, to this browser, but also kept in uh a directory in uh on M_M_M_.
+[00:36:47] Speaker A: Okay.
+[00:36:50] Speaker C: Yeah, I think it's not well done, yeah.
+[00:36:52] Speaker A: Okay, yeah.
+[00:36:55] Speaker C: Yeah.
+[00:37:02] Speaker C: Okay.
+[00:37:04] Speaker C: But um.
+[00:37:07] Speaker C: Yeah.
+[00:37:12] Speaker C: Okay, okay, there is li local cache. Okay, okay. Okay, okay. Okay.
+[00:37:15] Speaker B: Exactly, a cache. I say backup, but it's a cache.
+[00:37:19] Speaker B: Um that's that's how it works.
+[00:37:23] Speaker C: So if we for example now we have the c the the case that this video is not correct, because uh I have make uh event grabbing. So uh we need to remove the cache for this video or this is automatic?
+[00:37:38] Speaker B: No no no, it's okay. Um for the cache uh
+[00:37:46] Speaker B: We have plenty of space on M_M_M_, so the this is not a problem ah, yeah for a new window.
+[00:37:49] Speaker C: Yeah.
+[00:37:51] Speaker C: Yeah, but what I mean is i i i i i if I if I put the same video with the same name instead of this one, they should uh different
+[00:37:56] Speaker B: Yeah, exactly, yeah.
+[00:37:59] Speaker B: And it detects okay. Yeah. So you go inside the get frame function, you see where it i it saves it, and then there is a special naming convention, and you can remove the but i it's c yeah, it's true.
+[00:38:07] Speaker C: Ah, okay. We need to remove them.
+[00:38:11] Speaker C: Yeah, okay. Okay, understand. Okay. Yeah, it's not a real uh usi usage. Okay.
+[00:38:18] Speaker B: No.
+[00:38:21] Speaker B: Because there it's in cache, so that if I put another video with the same name, they th they will happen again. They will uh appear, this frames will appear.
+[00:38:22] Speaker C: Okay. Yes, understand. Okay.
+[00:38:23] Speaker A: Yes.
+[00:38:27] Speaker A: Ah, okay, yeah.
+[00:38:29] Speaker C: Yeah.
+[00:38:32] Speaker C: Yes, bec because this one i was uh
+[00:38:32] Speaker A: Yeah, if yo
+[00:38:34] Speaker A: If you have the same uh decomposition right? Yeah. Yeah, but it may happen that uh for ninety fra ninety percent of the frame it's different, so you see it fine, but suddenly you have one other frame, they don't know what it is and where it comes from.
+[00:38:36] Speaker C: Th this one was
+[00:38:36] Speaker B: Yeah, yeah ex if you have the same decomposition, but
+[00:38:39] Speaker C: Yeah.
+[00:38:46] Speaker C: Right, okay. Okay, but it's okay. It's okay.
+[00:38:48] Speaker B: But uh yeah, on M_M_M_ f now we don't have such many videos, so. But if you put yeah, in another directory, uh then it would work or or a new naming convention with uh special uh, yeah, code uh.
+[00:38:51] Speaker C: Okay.
+[00:38:51] Speaker A: Yeah, yeah. Yeah, yeah.
+[00:38:56] Speaker C: Yeah, yeah.
+[00:39:00] Speaker C: Hmm. Hmm.
+[00:39:02] Speaker A: Oh, you mean bac because it's it's it's the M_M_M_ cache? Okay. So this means that when it's done, if I go on my computer and I do the same, it's not going to enter in my cache, but it's going to be already there, in M_M_M_, okay. So it's th it's so it's not done on it's so it's not done online.
+[00:39:06] Speaker B: Yeah, M_M_M_ cache.
+[00:39:07] Speaker C: Mm.
+[00:39:15] Speaker B: Yeah.
+[00:39:16] Speaker C: On the M_M_M_, yeah.
+[00:39:18] Speaker B: But it it can go in the browser cache also.
+[00:39:20] Speaker C: Mm.
+[00:39:23] Speaker B: The first time is done online.
+[00:39:24] Speaker A: The first time, yeah, but after it's it take okay. Okay, okay. I thought it was everything was generated on the fly th so
+[00:39:25] Speaker C: Hmm. Hmm.
+[00:39:26] Speaker B: Yeah, you can see here, yeah. Uh the first time is done o
+[00:39:32] Speaker B: You know, you see that. Well here it's it was cache, because I already pressed preview, but now it's on the fly. So it's quite quick.
+[00:39:36] Speaker C: Yeah.
+[00:39:39] Speaker C: Yeah, okay. Oh, it's Greek, but uh okay.
+[00:39:39] Speaker A: Okay.
+[00:39:44] Speaker B: This.
+[00:39:44] Speaker C: Okay, so i if you come back now, you
+[00:39:47] Speaker B: And then if you come yeah. Because the images are already generated. And maybe they are on the cache of this browser, this computer. So okay. That's why it's yeah, it was uh used with uh yeah, Sebastien uh did the C_ function, and uh, yeah, and uh the the is calling this uh C_ uh executable and it was used with M_M_M_ server with Pierre, a and the beginning when, yeah.
+[00:39:49] Speaker C: Yeah, yeah. Okay, but now you have s you have both cache. Yeah, okay.
+[00:39:56] Speaker C: Yes, computer too, yes to uh but okay. But it's fast.
+[00:40:10] Speaker C: Okay.
+[00:40:16] Speaker C: Yeah, understand.
+[00:40:21] Speaker A: Okay, yeah.
+[00:40:22] Speaker C: Okay.
+[00:40:24] Speaker A: Okay, so
+[00:40:25] Speaker C: Okay. Uh i ju just uh a question on the the organisation of the M_M_M_. So you don't have uh a part for specific uh project. Every for example if we make a lot of uh film uh for CINETIS uh all are on the top
+[00:40:26] Speaker B: Um yeah, yeah.
+[00:40:50] Speaker A: Yeah.
+[00:40:52] Speaker C: I mean uh all the film are y you you don't have a separation for the film for CINETIS or for the project and s
+[00:40:54] Speaker B: Oh, the movies or
+[00:40:55] Speaker A: Yeah, yeah, yeah.
+[00:41:02] Speaker B: In fact uh we we we could, you know okay, you know all these graphical user interface that you see uh okay. In fact okay. Mm yes. Yes, we could do that. We could put uh CINETIS slash here, and then a CINETIS slash is the sa yeah, it works. But the uh th the point is this interface is uh I think six or seven files only, X_M_L_ uh well it's per C_G_I_, that output, X_M_L_ and X_S_L_.
+[00:41:03] Speaker C: Well you say video name equal, all are on the same level.
+[00:41:11] Speaker A: So could you say uh video name CINETIS slash something? Or not?
+[00:41:18] Speaker C: Okay. Okay.
+[00:41:24] Speaker C: Okay. Okay.
+[00:41:24] Speaker A: You th okay. You think it would work, okay.
+[00:41:34] Speaker C: Yeah, okay.
+[00:41:38] Speaker B: So it's it's not a big deal to to to make a new, like a CINETIS browser or, you know, video browser. Yeah, we w we copy all the files and there is uh just one um one parameter, one uh string, that we need to know where this data is, and we could pr create a M_M_M_ data video browser uh CINETIS or something else. Y it's uh ex extensible and uh is
+[00:41:40] Speaker C: Ah. okay. To make
+[00:41:44] Speaker C: Okay. If we need to make some special thing on the browser, it's t
+[00:41:50] Speaker A: Hmm.
+[00:41:57] Speaker C: Okay.
+[00:42:05] Speaker C: Yeah, okay, it's okay.
+[00:42:10] Speaker C: Okay, great.
+[00:42:10] Speaker A: Mm even if you would r change a C_G_I_ for instance. Let's assume that we say we don't do any scene thing, then we could remove like for instance the scenes, right? I was thinking that here it says that you have online video structure correction. Uh which means that
+[00:42:14] Speaker B: Yeah.
+[00:42:18] Speaker C: Okay. Mm.
+[00:42:19] Speaker B: Yeah, exactly, yeah. Yeah.
+[00:42:21] Speaker C: Okay.
+[00:42:27] Speaker B: Yeah, but i it's not uh it was uh, you know, thi this is working, the expand all but uh this is uh
+[00:42:31] Speaker A: Okay.
+[00:42:33] Speaker A: Yeah.
+[00:42:36] Speaker A: Uh. This is wish wishable uh functions. Okay, to do this.
+[00:42:37] Speaker C: Work in progress.
+[00:42:40] Speaker B: Yeah, to do list or something. On a video annotation, on a video structure co correction. But i it's not easy on the web with H_ H_T_M_L_ pages to to do uh such corrections like uh video structure corrections for instance. For that you need it's possible maybe uh on interfaces like Flash or Java, uh but still uh i i i there is uh it takes bas more work and but i yeah yeah, I mean it's good good point.
+[00:42:46] Speaker A: Okay.
+[00:42:49] Speaker C: Yeah.
+[00:42:54] Speaker C: Input.
+[00:42:57] Speaker A: Okay.
+[00:42:57] Speaker C: No.
+[00:43:07] Speaker C: Yeah uh. Mm.
+[00:43:09] Speaker A: Okay.
+[00:43:10] Speaker C: Yeah, mainly the t webpage or for output.
+[00:43:11] Speaker A: Okay. No, I was thinking
+[00:43:16] Speaker A: No, because I was thinking if it's there, I mean we could use it uh uh we could uh you see but uh yeah.
+[00:43:19] Speaker C: Yeah. Okay.
+[00:43:23] Speaker C: And all these uh file are only uh internal.
+[00:43:29] Speaker C: This mean uh if I go t on uh C CINTETIS CINETIS uh
+[00:43:35] Speaker A: No, no. Fro from outside we can view them.
+[00:43:37] Speaker C: From outside of IDIAP we can access this.
+[00:43:40] Speaker A: Yeah, from home I was able to access them.
+[00:43:43] Speaker C: With a password or
+[00:43:44] Speaker A: No.
+[00:43:44] Speaker B: Well uh you we can make for for instance for T_S_R_ T_S_R_ uh videos. Alessandro uh asked me to do the same thing, and we I put uh we had uh like a password convention. So this is possible to make for these videos. So it's not uh
+[00:43:50] Speaker C: Mm.
+[00:43:53] Speaker C: Yeah.
+[00:43:55] Speaker C: Yeah.
+[00:44:00] Speaker C: Okay, yes, okay. Okay.
+[00:44:01] Speaker A: Okay.
+[00:44:07] Speaker A: Nobody actually it has been downloaded several times and people there are some lawyers that are putting no.
+[00:44:11] Speaker C: Yeah.
+[00:44:13] Speaker B: Well if yeah, it is there is no possible productions for these videos. Maybe what I say I'm very tired. But uh if po yeah, it's demo and uh one can say you have to guess the name to but uh yeah.
+[00:44:16] Speaker A: But yeah. Y
+[00:44:18] Speaker C: Yeah, okay.
+[00:44:27] Speaker C: Yeah, okay.
+[00:44:30] Speaker C: Yeah, yes, yeah, okay.
+[00:44:30] Speaker A: Yeah yeah, yeah yeah, no no, yeah.
+[00:44:33] Speaker C: Okay.
+[00:44:33] Speaker A: No. But yeah, it's good to
+[00:44:35] Speaker B: Bu y yeah, a good point uh about password protection issues uh or the privacy issues uh
+[00:44:37] Speaker C: Hmm.
+[00:44:38] Speaker C: Yeah, okay.
+[00:44:38] Speaker A: Yeah, if we i yeah. It might be good indeed if we start d building some experiments like this still to have a password. Right, yeah, yeah.
+[00:44:46] Speaker B: Okay. Uh ha yeah, all the framework is ready with a T_R_S_ T_S_R_ videos, so.
+[00:44:49] Speaker C: Uh.
+[00:44:52] Speaker C: Yeah, yeah. Yeah, yeah, I understand, yeah, yeah. Okay.
+[00:44:55] Speaker B: Usually what we do sometimes uh okay, just to say something about password protections. Sometimes
+[00:45:16] Speaker B: Instead of having um
+[00:45:20] Speaker B: a purely secure directory we p we we put a co code number like uh so that it's quite impossible to guess instead of video m uh name equals kayak then we would have uh zero six seven uh five or, you know, two. And then this directory from outside we have to take care that okay, not only the video name this U_R_L_ is not accessible, but also we should take care that in fact M_M_M_ it's in M_M_M_ data video browser and this is accessible from outside. We should take care that this directory or in fact this directory is not listable, you know, you cannot list from outside uh with uh F_T_P_ or H_T_T_P_.
+[00:45:30] Speaker C: Yeah.
+[00:45:38] Speaker C: Yeah, okay.
+[00:45:38] Speaker A: Yeah yeah, yeah yeah.
+[00:46:07] Speaker C: Right, okay. Yeah.
+[00:46:07] Speaker A: Hmm. Yeah, yeah what's, yeah, yeah.
+[00:46:11] Speaker A: Hmm.
+[00:46:12] Speaker C: Okay.
+[00:46:13] Speaker B: Yeah, simple things with privacy issues, but uh i there are some methods and everything is possible to make things private. I yeah, I don't know if you want to add anything, but I would say that for the C_ code uh, yeah, I I I just want would like to stress something, is that um, yeah, if you want want to use the new versions, etcetera, I think uh we need to go a little bit through the code and I would be happy to to to help to to for instance the classes about video structure, etcetera, to put them yeah. And
+[00:46:19] Speaker C: Hmm.
+[00:46:21] Speaker C: Okay.
+[00:46:45] Speaker C: Yeah.
+[00:46:47] Speaker C: Yes.
+[00:46:51] Speaker C: Hmm. Okay, yeah.
+[00:46:54] Speaker A: Yeah, it was done indeed f to be more general than just to do the shot detection, so that's why the code is a bit more complex, I think, currently. Uh but uh
+[00:46:59] Speaker C: Hmm.
+[00:47:00] Speaker C: Yes.
+[00:47:03] Speaker C: Yeah, okay. And the code is based on open C_V_.
+[00:47:09] Speaker B: Yeah, in fact it's not there is no tosh i it was called vision lib to read uh to to extract one frame each frame of a video, you know. So it wa from Sebastien it was in the tosh library, but uh it's nothing w to do with tosh and it's using uh uh the open C_V_ and uh some classes from uh Jean-Marc uh for, yeah, Bhattacharya distance, etcetera.
+[00:47:13] Speaker A: Yeah.
+[00:47:18] Speaker C: Oh okay.
+[00:47:23] Speaker A: Yeah, yeah.
+[00:47:24] Speaker C: Okay.
+[00:47:26] Speaker A: Just
+[00:47:27] Speaker C: Okay.
+[00:47:30] Speaker A: Yeah.
+[00:47:33] Speaker C: Bhattacharya okay, and so on, okay. Okay.
+[00:47:35] Speaker A: Ah okay, yeah yeah. Yeah, it was the same the same ones as the one you saw uh in my code, yeah.
+[00:47:36] Speaker B: Image processing.
+[00:47:37] Speaker C: Okay, okay.
+[00:47:39] Speaker B: Image processing and stuff.
+[00:47:40] Speaker C: So we can forget tosh and uh use uh input se the input reader for the the M_ PEG we can re lo use uh open C_V_.
+[00:47:43] Speaker A: Yeah, yeah. Yeah.
+[00:47:44] Speaker B: We can forget tosh yeah.
+[00:47:49] Speaker B: Yeah.
+[00:47:51] Speaker A: Yeah, yeah, yeah, yeah, yeah, definitely, yeah.
+[00:47:53] Speaker C: Okay.
+[00:47:54] Speaker C: Okay.
+[00:47:56] Speaker C: Hmm.
+[00:47:57] Speaker A: Yeah, uh okay.
+[00:47:58] Speaker B: Um so it's four thirty, so we need one hour, it's it's good. Just if you want yeah. This is the parameters of the of the C_ programme but uh usage. Video in, okay. Uh the output file X_M_L_. Output file dist, it's the distance um between each histogram, so that if the X_M_L_ uh you feel there is not enough um uh shots, you can instead of reprocessing the video, you you reprocess this file. And also some other stuff s for instance alpha threshold we talked about is set to two point four and uh yeah, so the uh the the step we always use one and it should be one, because otherwise it's stuck between consecutive frames.
+[00:48:07] Speaker A: Yeah, I think it's it's good, yeah.
+[00:48:09] Speaker C: It's good.
+[00:48:11] Speaker C: Yeah.
+[00:48:14] Speaker C: Yeah.
+[00:48:19] Speaker C: Yes.
+[00:48:21] Speaker C: Output, hmm.
+[00:48:28] Speaker C: Uh yeah.
+[00:48:40] Speaker A: Okay, that's good, yeah.
+[00:48:41] Speaker C: Okay.
+[00:48:44] Speaker C: Okay.
+[00:48:49] Speaker C: Okay. Yeah.
+[00:48:52] Speaker C: Yeah, yeah, okay.
+[00:48:58] Speaker C: Ah, okay.
+[00:49:00] Speaker C: Okay. We can skip some frames. Okay. Yeah.
+[00:49:02] Speaker A: Yeah.
+[00:49:03] Speaker B: Yeah, but uh it doesn't w yeah, it it's better to to keep it one. Yeah. So detection latency is about the um it's half of the windows tha yeah, sliding window,.
+[00:49:06] Speaker C: Okay.
+[00:49:08] Speaker A: Yeah, but why is after, I mean if there is a shot you don't know between because you dropped one frame, you don't know where is the sh uh the d the shot.
+[00:49:13] Speaker C: Yeah, yeah, yeah.
+[00:49:19] Speaker A: Sliding window.
+[00:49:22] Speaker C: Mm-hmm.
+[00:49:25] Speaker B: Option for key frame extraction, okay. Uh sub-threshold, yeah. Leave it to one, yeah.
+[00:49:29] Speaker C: Okay. Okay, it's perfect.
+[00:49:29] Speaker A: Yeah, right.
+[00:49:33] Speaker B: Uh yeah. Maybe, I I will uh I will give you this file in uh as a rhy it's a kind of rhythmia, yeah. I just for preparing this uh nice discussion.
+[00:49:34] Speaker C: Hmm.
+[00:49:45] Speaker C: Yes.
+[00:49:49] Speaker A: Yeah.
+[00:49:53] Speaker B: M um I'm quite happy to to to do that i it's good when you do uh something that there is someone using it. But uh but
+[00:50:01] Speaker A: I don't know, I'm I'm sure that they will be well I hope they will be a of something like this, yeah.
+[00:50:01] Speaker C: Yes. Yes.
+[00:50:05] Speaker C: Yeah.
+[00:50:07] Speaker C: Mm.
+[00:50:10] Speaker B: At least, yeah, with the interface it's quite funny to to see um d that the q quickly you can do something in in, yeah, in thirty t if the video i ten is ten minutes, in thirty minutes 'cause it's no not a lot of things to change. Or even it can do it uh it can we can do it quite automatically. It can be done, yeah.
+[00:50:15] Speaker A: The output.
+[00:50:21] Speaker A: Yeah.
+[00:50:23] Speaker C: Yeah, the the browser. Hmm. Hmm.
+[00:50:30] Speaker C: Yes. Yes. Uh so just uh last question maybe, uh so this makes a X_M_L_ file. Okay. This is the the programme to to generating the X_M_L_ file and the the shot. And uh with the kayak you have one problems, you don't have the Real Media, so this is another thing.
+[00:50:35] Speaker B: Yeah.
+[00:50:39] Speaker A: This generates yeah.
+[00:50:42] Speaker B: Yeah. Yeah.
+[00:50:52] Speaker A: Ho how do you generate the Real Media, yeah.
+[00:50:52] Speaker B: Oh yeah, it
+[00:50:54] Speaker B: So the Real Media is uh, yeah, a parallel thing that from the A_V_I_ you convert it into Real Media, and it is done on Windows.
+[00:50:59] Speaker C: Okay.
+[00:51:02] Speaker C: Okay.
+[00:51:05] Speaker C: Okay.
+[00:51:06] Speaker A: Okay.
+[00:51:07] Speaker C: So you have some special tools from uh from Real Media. Okay.
+[00:51:07] Speaker B: Uh
+[00:51:11] Speaker B: Yeah. Mm there is a a the free one is okay. You can use the free we have a license here at IDIAP, but uh the if you want to pay, you pay for options such as uh resize or cropping, but in fact maybe we don't need that, and uh it's called Elix producer.
+[00:51:20] Speaker C: Hmm.
+[00:51:23] Speaker C: Mm.
+[00:51:29] Speaker C: Okay. Hmm.
+[00:51:33] Speaker C: Hmm, okay, okay.
+[00:51:38] Speaker C: Okay, I heard it.
+[00:51:43] Speaker B: Yeah, I forgot yeah, yeah uh, Elix producer and and that's it. You can you can i it it i
+[00:51:46] Speaker C: Okay.
+[00:51:48] Speaker C: But uh anyway you need you need to have Windows to make these.
+[00:51:52] Speaker B: Yes.
+[00:51:53] Speaker C: So I will ask you or someone else, okay.
+[00:51:55] Speaker B: Yeah. Uh yeah.
+[00:52:00] Speaker C: Okay, okay, understand.
+[00:52:03] Speaker B: And yeah, with Real Media
+[00:52:04] Speaker C: Okay. But this is this is made by a programme done outside IDIAP. Okay.
+[00:52:10] Speaker B: Well this is you can buy or you can order for free on internet. No, no no no, for the Real Media. And um you didn't see, but the Re the Real Media um is called via a real server, so it's R_T_S_P_ the connection, and i it's streaming video streaming, so it's not H_T_T_P_. So that it can play uh smoothly and but we are still uh investigating for the video formats, because um i it's not supported for instance uh uh in Java, in Java applications uh etcetera.
+[00:52:10] Speaker C: This is yes, right, okay. This not uh IDIAP programme. Okay, okay.
+[00:52:26] Speaker C: Hmm.
+[00:52:28] Speaker C: Yeah.
+[00:52:30] Speaker C: Yeah, okay.
+[00:52:32] Speaker C: Yeah. Mm.
+[00:52:39] Speaker C: Um.
+[00:52:44] Speaker C: Hmm.
+[00:52:46] Speaker C: Hmm.
+[00:52:50] Speaker C: Hmm.
+[00:52:50] Speaker A: Oh o o, oh yeah, you mean the Java framework, uh what uh Mike presented. We cannot play uh Real Media, okay.
+[00:52:51] Speaker B: Real Media.
+[00:52:55] Speaker B: Yeah. Real Media, so there are many issues about that, but yeah.
+[00:52:58] Speaker C: Hmm.
+[00:53:01] Speaker C: Okay.
+[00:53:01] Speaker A: Okay.
+[00:53:03] Speaker B: It's another problem. Yeah.
+[00:53:04] Speaker A: Formats, formats, yeah.
+[00:53:04] Speaker C: Mm.
+[00:53:07] Speaker A: Okay, so I think this was good to see the the tool and uh tomorrow we are going to re-say most of the things, but shorter I f I believe, right, I mean it's bad to explain. And I think maybe later w yeah, we we can start doing simple
+[00:53:09] Speaker C: Okay. Thank you.
+[00:53:18] Speaker C: Okay. Yes.
+[00:53:24] Speaker C: I think for test I can take the real demo and make the the full processing.
+[00:53:27] Speaker A: Yeah, yeah, yeah. Yeah, the full uh
+[00:53:33] Speaker A: Yeah, mi this might be interesting to see tomorrow. Of course maybe there was the ah, one hundred seventy shots, or it's a lot, but uh after I mean at this point we do we have nothing we can do unless they know what they want to do with it, right?
+[00:53:33] Speaker C: So I will
+[00:53:39] Speaker C: Yeah.
+[00:53:44] Speaker C: Yeah.
+[00:53:48] Speaker C: Yeah.
+[00:53:50] Speaker C: Okay.
+[00:53:51] Speaker B: Yeah, that was a single video structuring, but it's uh other level uh it can uh it's quite uh it's researched, yeah.
+[00:53:56] Speaker A: Yeah, yeah. Yeah, but I think I think is it's too it's going very be very to be very good for them to visualise how you can organise things and maybe what they can do, how they and so this is important.
+[00:53:57] Speaker C: Hmm.
+[00:54:04] Speaker B: Yeah.
+[00:54:10] Speaker B: Yeah, last thing uh this is a kind of uh X_M_L_ that is outputted, so so it's uh the structure is such as uh vi video segmentation with uh videos in begin and then for each shot you have an I_D_ well this is the terms from M_ PEG seven convention, but anyway. Shot begin and end. Uh a sh the shot key frame that is the middle here. Uh sub-shot
+[00:54:19] Speaker C: Okay.
+[00:54:24] Speaker C: Mm okay.
+[00:54:27] Speaker C: I have some informations.
+[00:54:41] Speaker C: Okay. And uh in this in this the begin and end the number is the for example the end is zero dot twelve twelve is uh this frame too, yeah. Okay.
+[00:54:51] Speaker B: Yeah, you're right. Twelve frames.
+[00:54:57] Speaker B: And in fact that's what I output in uh on the yeah, I think y on the interface. And there is only one sub-shot because uh w yeah.
+[00:54:59] Speaker C: Okay. Okay.
+[00:55:03] Speaker A: Mm-hmm, yeah.
+[00:55:05] Speaker C: Okay.
+[00:55:10] Speaker C: Okay.
+[00:55:11] Speaker B: There was there was problems with detecting the sub-shots, etcetera. But uh yeah well. Yeah, I tr well uh not with this one, but yeah, I tried to code some stuff uh it but uh I'm not so confident in the way uh it is uh coded.
+[00:55:11] Speaker A: Yeah, initially yeah.
+[00:55:14] Speaker C: What what
+[00:55:15] Speaker A: Well, we didn't because you tried to do something
+[00:55:26] Speaker A: Okay. Yeah, like for instance if we need to find sub-shots, usually it it for instance is better to have the whole shot to decide on how to build the sub-shots. But it's true that maybe I if you store all the distance at that the distances we could do some basic stuff.
+[00:55:36] Speaker B: Yeah.
+[00:55:40] Speaker B: Yeah.
+[00:55:43] Speaker B: But we yeah, even we should uh for instance for the videos uh for the spectral clustering, for the clustering. Here uh I store the consecutive the distance between consecutive histograms, but we could uh store the matrix that's yeah. And then uh yeah. And I think i there are many possible things with uh spectral clustering, but but the uh with um there is one parameter that is very c wha I can't remember, what is the parameter uh
+[00:55:44] Speaker C: Okay.
+[00:56:00] Speaker A: Okay. Yeah yeah, yeah. Yeah yeah, yeah. Yeah, yeah. That's the thing, yeah.
+[00:56:04] Speaker C: Uh. Okay.
+[00:56:08] Speaker C: Mm.
+[00:56:09] Speaker C: Just what what
+[00:56:17] Speaker A: Ah, th the gap you mean or no? Oh no, you mean in the Bhattacharya distance.
+[00:56:21] Speaker B: Yeah.
+[00:56:23] Speaker B: No no no no, the in the the gap to find the the good number of clusters is so sensitive uh
+[00:56:27] Speaker A: Yeah. Yeah, yeah. Yeah.
+[00:56:30] Speaker A: Yeah. Yeah.
+[00:56:33] Speaker C: Hmm.
+[00:56:33] Speaker B: Yeah, anyway. It's it's a bit later in the in the report.
+[00:56:40] Speaker A: Okay.
+[00:56:45] Speaker B: So anytimes, yeah, I would be happy to to to help you with that.
+[00:56:47] Speaker C: Yeah, okay. Okay.
+[00:56:53] Speaker A: So.
+[00:56:54] Speaker C: It's okay.
+[00:56:55] Speaker A: It's okay.
+[00:57:21] Speaker B: Yeah, yeah, you can we can go.

@@ -1,0 +1,239 @@
+[00:00:10] Speaker B: Good morning, Flores.
+[00:00:10] Speaker A: G good morning.
+[00:00:15] Speaker B: Marketing Expert.
+[00:00:16] Speaker A: Oh yeah.
+[00:00:22] Speaker B: Right.
+[00:00:23] Speaker A: Are you ready? You should put the laptop uh right into the square. For i for the cameras, yes. Good morning, Sebastian.
+[00:00:28] Speaker B: For the cameras
+[00:00:30] Speaker B: Alright.
+[00:00:33] Speaker C: Good morning, Mister P_M_. How are you today? How was your business trip to Boston?
+[00:00:37] Speaker A: I'm fine.
+[00:00:40] Speaker A: Um well, actually I didn't go, didn't feel like it. So Do you want to open it as read-only. Um I guess I should close it here.
+[00:00:42] Speaker B: Geez.
+[00:00:54] Speaker B: You have the same message of uh Windows cannot um
+[00:00:59] Speaker B: sen oh stand-by. Close the the window.
+[00:01:00] Speaker D: Okay.
+[00:01:01] Speaker A: Okay, the waiting is for our Marketing Expert, Ruud. Um project kick-off.
+[00:01:02] Speaker B: So
+[00:01:04] Speaker B: That's right. Ruud.
+[00:01:11] Speaker C: Is there a schedule for this meeting?
+[00:01:13] Speaker A: Yes, there is actually. Um I will li list the agenda for today. For this meeting.
+[00:01:24] Speaker A: Good morning, Ruud.
+[00:01:27] Speaker D: Good morning.
+[00:01:29] Speaker A: Uh it's important um yeah, great. It's important that the laptops are um exactly on the square, um for the cameras.
+[00:01:31] Speaker C: I shall close the door.
+[00:01:45] Speaker A: Okay.
+[00:01:56] Speaker A: Okay. Um we're here to develop uh a new product. Um I'm sure you've had a mail from our account manager about it. Um and um this is the first meeting to to generate some uh uh some ideas about it. Um you are here in a specific role. Uh Ruud is here as the Marketing Expert, Roo is here as the User Interface Designer and Sebastian is here uh in the role of Industrial Designer. Is that correct? Okay. Um we're going to do um uh uh a little tool training uh for the tools we are going to use uh during uh the meetings we are going to have here. Um then I will tell you a little bit about my idea of the project plan, uh and we will have a discussion. Uh this meeting should take no more than twenty five minutes, so we should keep that in mind.
+[00:02:05] Speaker B: Mm-hmm.
+[00:02:28] Speaker C: That's correct.
+[00:02:29] Speaker B: Mm-hmm.
+[00:02:55] Speaker B: Alright.
+[00:02:55] Speaker C: Okay. Um is there any room for a little presentation? Uh maybe during the discussion uh section?
+[00:03:02] Speaker A: There is? Yeah, there is.
+[00:03:04] Speaker C: Okay.
+[00:03:05] Speaker A: No problem. Um okay, this new product we are are g are going to develop, um
+[00:03:13] Speaker A: it's a remote control, a television remote control. Um and first of all it should be original, it should be trendy and user-friendly. Those are kind of easy um uh uh goals, um and I'm sure we can find more goals for the for the product we are going to develop. Um we will discuss uh later on more ideas about uh how the remote should look and how it sh it should function and all those kind of things. The market, we should have a look at the market. Um we are going to use a a pred a project method uh during uh this development, um which consists of three different design stages.
+[00:03:41] Speaker B: Okay.
+[00:03:58] Speaker A: Uh the functional design, the conceptual design and the detailed design, um all of these stages um um mean that we do some individual work, prepare, and then uh meet to discuss our uh uh the the the progressions, yes. Um the first stage, the functional design um we are going to search for the user requirements, and we will um make a specific uh specification of that. Um the second is the technical functional design, um what effect should the remote have? Well in this case control t the the television I think.
+[00:04:19] Speaker B: Progressions.
+[00:04:48] Speaker B: It's for the vision. Yeah.
+[00:04:49] Speaker A: Um and the last one is the working design. How exactly does it work in the technical sense. Um the other design stages, uh we will discuss that later. So we'll kop it keep it with the functional design. Okay, um before we think about remote control we will um work with some of the tools we have uh here. Um as you see now I can give a presentation. Um it's also possible to use this one as well. You can uh uh display pr uh two presentations if you want to. Um
+[00:05:28] Speaker A: to um presentate, to show us uh a file you'll need to uh place it in your project documents folder, which is on your desktop, at least it should be. Um then we have this electronic white-board system. Um
+[00:05:48] Speaker A: yeah, I will show that now. Um
+[00:05:52] Speaker A: you can draw on the board using this pen. There are little um uh sensors, so do not grab it here, but a lit more a little bit more to the uh to the end. Um
+[00:05:57] Speaker B: Sensors.
+[00:06:06] Speaker A: well, it it's on the um eraser now, so we click the pen button.
+[00:06:20] Speaker A: Okay, so not too fast writing. Um
+[00:06:25] Speaker A: you can insert a new um slide or or white-board uh uh file um by either using the insert function or by clicking the next button or the blank button. It's quite the same. Um all our um whi um uh SMARTboard um notes should be kept in the same file. So do not m make a new file. Just use this one uh during the day. Um you can use the eraser to
+[00:07:00] Speaker A: make something go away.
+[00:07:01] Speaker B: But we all use the same white-board file
+[00:07:04] Speaker A: Yes.
+[00:07:05] Speaker B: So we can work together on it while we're or should we only use it in the in the meetings?
+[00:07:08] Speaker A: Yeah.
+[00:07:12] Speaker A: Yeah, in the meetings, only in the meetings. It's really like like a regu regular whiteboard. Um you can choose the format, um sorry. Uh
+[00:07:13] Speaker B: Yeah, okay.
+[00:07:15] Speaker B: Yeah, alright. Yep.
+[00:07:24] Speaker A: Let me see.
+[00:07:26] Speaker A: Um
+[00:07:33] Speaker A: Well
+[00:07:37] Speaker A: I guess it's maybe because I'm not s uh pen selected.
+[00:07:41] Speaker A: Yep. Current colour, you can choose another colour. And um for example
+[00:07:50] Speaker A: black, and you c I can choose the line width. Um so now I d have a different
+[00:07:58] Speaker A: line width and uh colour. Okay. Quite easy, if you uh do have any questions, just c ask me. Um to um oh well, I'm I wrote down the documents uh should be in the project documents folder if you want to uh discuss it with us. Um as a little training um I will ask Ruud first to draw uh uh your own animal on a new slide uh with uh a different colour and a different line width than the one uh now selected.
+[00:08:34] Speaker D: Okay.
+[00:08:48] Speaker D: Um green.
+[00:08:57] Speaker D: An animal. Okay. Um
+[00:09:12] Speaker D: Uh a wee rabbit.
+[00:09:13] Speaker B: It's a bunny.
+[00:09:14] Speaker A: A rabbit. Okay, well great. Um Roo, could you do the same please? But a different animal with a different colour and a different line width.
+[00:09:15] Speaker C: Alright.
+[00:09:21] Speaker B: But of course, Flores.
+[00:09:28] Speaker B: Blank.
+[00:09:29] Speaker A: Sebastian is thinking about the animal.
+[00:09:31] Speaker C: I'm just uh guessing what should be my favourite animal.
+[00:09:34] Speaker A: Okay.
+[00:09:34] Speaker B: Yeah, I'm think about it too. Format.
+[00:10:03] Speaker B: Well, it looked more than a bunny than a cat, but it works, right?
+[00:10:06] Speaker C: Well, I'll give it a try.
+[00:10:06] Speaker D: Yeah.
+[00:10:07] Speaker A: It it should be a cat. Okay?
+[00:10:29] Speaker C: Mm.
+[00:10:45] Speaker A: I'm guessing a horse.
+[00:10:48] Speaker C: Very good.
+[00:10:55] Speaker B: With a very small legs.
+[00:11:01] Speaker C: I was very good in drawing.
+[00:11:02] Speaker B: You should feed that uh that animal.
+[00:11:14] Speaker C: Well, I guess you uh get the idea.
+[00:11:18] Speaker A: Yes, okay.
+[00:11:21] Speaker C: Beautiful.
+[00:11:21] Speaker A: Beautiful.
+[00:11:24] Speaker A: Okay, so um you can use this at any time during the presentation if you want to. Um any questions well, just just let me know. Um okay, back to our project. Um the remote control we are going to develop um will have a selling price of about twenty five Euros. Uh the profit we are looking for for this product is fifty million Euros,
+[00:11:55] Speaker A: which is quite a number. Um we uh we will focus this internationally, so the product will be sold um, if there is market uh interest, uh in in more than one country. And um the production costs should not be more than uh twelve Euro fifty, so we should keep that in mind by uh w w during the development, um because uh, well, those are important numbers. Um then the discussion, maybe the time for Sebastian to show his presentation.
+[00:12:30] Speaker C: Yes, um I have some technical uh issues which I would like to present to you uh before we start the discussion, because uh there might be some uh influations influences. Okay?
+[00:12:41] Speaker A: Limitations.
+[00:12:43] Speaker A: Okay.
+[00:12:43] Speaker B: Okay.
+[00:12:44] Speaker A: Okay, great.
+[00:13:07] Speaker C: Okay.
+[00:13:10] Speaker C: Um first about my role, role of the Industrial Designer. I would like to think about uh the implementation of uh of things, and the technical possibilities and impossibilities. So if someone of you comes up with uh ideas, uh I'll try to translate them in technical functions, but uh there might be some impossibilities. So that's one. Uh I also will propose some uh um
+[00:13:41] Speaker C: uh some implementations for that, but well, these are quite the same. Sorry about that. Um and I also will remind people of some new technical possibilities which are available and which might be interesting to implement in our product.
+[00:13:58] Speaker B: Okay.
+[00:13:59] Speaker C: I have some uh initial ideas about some things um which are maybe nice to take with you in the upcoming uh discussion. One thing about uh interopera operability. Um I think a modern uh remote control should uh control a device diverse subset of equipment. Uh for instance, uh D_V_D_ players, cell phones, video and audio equipment. So one re uh one remote control for all your equipment.
+[00:14:33] Speaker B: And for a cell phone?
+[00:14:35] Speaker C: Well, there should be some interoperabi interoperability between them.
+[00:14:38] Speaker B: Yeah, okay.
+[00:14:40] Speaker B: Yeah.
+[00:14:41] Speaker C: I think it could come in handy. We should discuss that. Um and we should think about the way how these things uh should communicate with each other. We're not uh living in the uh nineteen eighties anymore, so infrared is not uh
+[00:14:57] Speaker C: is not really uh hot uh technical stuff anymore. But you should uh think about the things like uh Bluetooth.
+[00:15:02] Speaker B: But
+[00:15:04] Speaker B: Yeah, but the infrared, it's uh, well, a little bit old-fashioned, if you would call it like that. But all the T_V_s are uh equipped with infrared, so
+[00:15:08] Speaker C: Mm-hmm.
+[00:15:10] Speaker C: But it's cost-effective.
+[00:15:12] Speaker C: Yes.
+[00:15:14] Speaker C: Mm-hmm. Well, not all, not all. So that's the point. So
+[00:15:15] Speaker B: y you you can
+[00:15:17] Speaker B: Most of them. Or you shou sh use a you should equip infrared and Bluetooth together in one remote.
+[00:15:22] Speaker C: Maybe, but that's uh something we should discuss and uh about every everybody should think about it. So that's just my role, I'll just uh give you uh everybody some technical input, and I think now the time is to have a little discussion about what uh the product should be and how it should look, but take these things into account when you start the discussion.
+[00:15:25] Speaker B: Yeah.
+[00:15:40] Speaker A: Yeah.
+[00:15:44] Speaker A: Okay, so the the main por uh the main points you are uh telling us are focus on the inter uh operability, and
+[00:15:52] Speaker C: Yes, so one thing uh one remote control should uh control one or more uh pieces of equipment, and the way of communicating with these equipments.
+[00:15:58] Speaker A: Okay, and and uh
+[00:16:01] Speaker A: Okay. Okay, good. Um that was your presentation? Okay, okay. Um okay. Great. Um
+[00:16:03] Speaker C: Okay.
+[00:16:06] Speaker C: That's it.
+[00:16:15] Speaker A: I'll go back to my own presentation. Um
+[00:16:24] Speaker A: Mm. Okay. Um I I do think it's time now to to discuss uh mm some things. Um Sebastian told us a few things about the technical implemen uh implications. Um there are other things like um how to make it trendy, which is I think uh um most uh Ru uh Ruud's uh role. Um the way how it should be controlled by the user, which is uh Roo uh r uh during this part. Um so let's start with you. H how do you think the remote should um function for the user?
+[00:17:00] Speaker B: Mm-hmm.
+[00:17:07] Speaker B: Well, I had a few uh things in mind. Um well, the interoperability, just like uh Sebastian said, um the remote should work on different T_V_s or even different uh um
+[00:17:25] Speaker B: Yeah uh, what is it, devices?
+[00:17:27] Speaker A: Yep.
+[00:17:29] Speaker B: Um so i i I think it's a universal remote control for customers to buy just new in uh a store. It's not for uh for uh for uh Philips or whatever to buy our remote for their own product, right?
+[00:17:37] Speaker C: Yes, I think it should be something like that.
+[00:17:47] Speaker A: Okay, so we're we're going business to consumer, not we're we're it's not a
+[00:17:50] Speaker B: Yeah, I do I don't know that. It's no I have uh don't have the information for it.
+[00:17:53] Speaker C: We're not developing this product for a specific vendor, are we? No, we're just developing this product, and we want to sell it to a very broad uh public, so it should fit to every device.
+[00:17:56] Speaker A: No. No.
+[00:17:56] Speaker B: No, okay.
+[00:18:02] Speaker A: Yeah.
+[00:18:02] Speaker B: Yeah.
+[00:18:04] Speaker A: Uh Ruud, y do you agree? Okay. Okay.
+[00:18:05] Speaker D: Yeah, I think I think they're right, yeah.
+[00:18:07] Speaker B: Um
+[00:18:11] Speaker B: Well, the techni fu technical function uh what you said is just by pressing the button you should change the state of the T_V_. That's just the basic f technical function. So that was my really my part for uh this session. Um
+[00:18:22] Speaker A: Yeah.
+[00:18:27] Speaker A: So is that ease of use or uh is that more like um
+[00:18:27] Speaker C: Yeah.
+[00:18:30] Speaker B: Well, that's just the fu the technical function is pure what should the remote control do, wh what is his task uh as an uh as an uh device. It just should change the T_V_'s state. So that's it. Um but furthermore
+[00:18:38] Speaker C: Mm-hmm.
+[00:18:44] Speaker A: Okay.
+[00:18:48] Speaker C: And you you see uh the buttons as a as a means of doing this? Or are there any o other controls? Are there only any other cont
+[00:18:51] Speaker B: Yeah. Yeah, with buttons. Yeah, or maybe you want a touch-screen or
+[00:18:57] Speaker C: Well, I I've seen these remote controls with uh this little stick uh which you can move forward, sidewords. You know these things. And um it's very easy for a user to to switch w yes, to to switch b uh between uh channels or uh change uh between tracks on a on a C_D_, on on a chapters, you know, on a D_V_D_ player. So maybe that's an idea, I don't know.
+[00:18:58] Speaker B: But
+[00:19:03] Speaker B: Yeah.
+[00:19:05] Speaker A: Uh-huh.
+[00:19:07] Speaker B: They're very vu vulnerable.
+[00:19:10] Speaker B: Yeah.
+[00:19:21] Speaker B: Yeah. And for other user interface I had um, well, it's more industrial thing. Uh point at a T_V_, I think it's it's quite disturbing when you always have to point directly to the T_V_, so you must point everywhere, so maybe infrared is
+[00:19:32] Speaker C: Mm-hmm.
+[00:19:37] Speaker C: Okay.
+[00:19:38] Speaker A: Maybe not even pointed. Yeah.
+[00:19:39] Speaker B: Yeah, just don't even point it, so in that case infrared should uh maybe uh be restriction to that.
+[00:19:45] Speaker C: Mm-hmm. Uh is that uh are there restriction for the range, the operating range too? So when you're not able to point at the device um the range is very limited.
+[00:19:46] Speaker A: Okay Uh
+[00:19:55] Speaker B: Yeah, if you g if you go to radio or or yeah. For T_V_, you're always in in the neighbourhood of a T_V_, so I don't think think
+[00:20:03] Speaker B: the range should be a problem to that, but if you want to uh get it working with a radio, and you're in outside your garden with just one uh speaker, then maybe the range should be uh
+[00:20:03] Speaker C: Mm-hmm. Mm-hmm.
+[00:20:12] Speaker C: Mm-hmm.
+[00:20:15] Speaker C: Okay.
+[00:20:16] Speaker A: Okay, gentlemen, um uh just a reminder, we d we have five minutes left for this meeting um okay.
+[00:20:16] Speaker B: But
+[00:20:20] Speaker C: Okay.
+[00:20:20] Speaker B: Yeah.
+[00:20:22] Speaker B: Two more things. Um
+[00:20:25] Speaker B: You should able to feel the buttons without uh it mis um you have to know what you do without looking at the buttons, so it should be as user interface um for feeling should be uh good to understand. You must feel the buttons for volume or whatever, I think. And of course you don't always know where all buttons are, so it should be visible al um in dark too. So when it's dark
+[00:20:44] Speaker A: Okay, s yeah.
+[00:20:48] Speaker A: Yeah.
+[00:20:56] Speaker A: Okay.
+[00:20:58] Speaker B: Those are two really uh user interface
+[00:21:01] Speaker A: Uh I'll write down glow in the dark. Is tha Okay. Okay, um uh I just want to hear uh Ruud's um input for this meeting. Um do you have anything already w um ab idea about how the market uh will respond to the such a product? Or what we should take um in account when developing such a product?
+[00:21:03] Speaker B: Yeah. That's perfect.
+[00:21:05] Speaker C: Okay. Do do you
+[00:21:23] Speaker D: Uh I think most most things have already been said, like uh control multiple devices.
+[00:21:28] Speaker A: Mm-hmm.
+[00:21:30] Speaker D: And uh, yeah, infrared might be an issue.
+[00:21:33] Speaker A: Because?
+[00:21:35] Speaker D: Uh well, he said about n abo what he said about pointing. But uh lots of devices already use infrared. So
+[00:21:38] Speaker A: Mm-hmm.
+[00:21:44] Speaker D: we'll probably have to implement that.
+[00:21:45] Speaker A: Okay.
+[00:21:48] Speaker A: Okay.
+[00:21:57] Speaker A: Okay, Sebastian, did you have any other ideas?
+[00:22:00] Speaker C: Um well yes, I had, uh about three minutes ago, but I've seem to forget them forgot them. Um oh yes, I remember. Um you said something about visibility in the dark. Um
+[00:22:12] Speaker B: Yeah.
+[00:22:14] Speaker C: uh would it be nice for a user to have display on this uh remote control, on which you can see functions?
+[00:22:23] Speaker C: Which makes it easier to operate it.
+[00:22:24] Speaker B: Yeah. Well, maybe I um but it it can be quite simple, you can just have white buttons with a black mark on it. The uh the the digits in black. Uh then it's already visible in dark. So it it don't have to be a lightning or or a fancy well, it can be for design, of course.
+[00:22:27] Speaker C: I I don't know.
+[00:22:30] Speaker C: Mm-hmm.
+[00:22:32] Speaker C: Okay.
+[00:22:34] Speaker C: Mm-hmm.
+[00:22:37] Speaker C: Okay.
+[00:22:41] Speaker C: Okay.
+[00:22:41] Speaker A: Okay. Yeah, yeah, okay, because because we wa we want to develop a trendy product. So
+[00:22:46] Speaker C: Yes, but there's a cost limitation too. Well, that's more
+[00:22:49] Speaker A: Yeah, twelve Euro fifty, yeah.
+[00:22:49] Speaker D: Yeah.
+[00:22:50] Speaker C: So that's a big problem, I think. I think the the financial part of this project uh implicates that it's not going to be a high high-end product. The cost price is very low. Um
+[00:23:02] Speaker A: Okay.
+[00:23:04] Speaker B: Just remind something. The digits of uh the the painting on the buttons should not fade. You have a m uh
+[00:23:11] Speaker C: Okay. Very good point. Yeah.
+[00:23:11] Speaker A: Okay, okay.
+[00:23:13] Speaker B: Always have s the soft buttons, always uh
+[00:23:17] Speaker B: clear the the the paint on it. The marks.
+[00:23:20] Speaker C: Okay.
+[00:23:22] Speaker A: Okay, um I ha I have one point f um which which comes in mind now. Um uh d I think the device should either be rechargeable very easily um or it should not consume too much um power. Because it's very annoying if you need to change the batteries every s uh uh every other week.
+[00:23:34] Speaker C: Mm-hmm. Okay.
+[00:23:46] Speaker B: Yeah.
+[00:23:46] Speaker C: Okay.
+[00:23:47] Speaker A: So um
+[00:23:49] Speaker A: maybe we could um for example uh only light the buttons that are um uh applicable at that moment or yeah. I dunno, it's uh that's more Sebastian's uh um
+[00:23:52] Speaker B: But um
+[00:23:55] Speaker B: Necessary, yeah.
+[00:24:01] Speaker B: Yeah. But then Bluetooth uh might be problem. 'Cause I think Bluetooth uh
+[00:24:02] Speaker C: Hmm.
+[00:24:06] Speaker C: It's use uh a lot of uh well Well, cell phones have uh integrated Bluetooth also and, well, it's it seems to work uh quite okay. So uh technically it will be possible.
+[00:24:07] Speaker B: Yeah, I know it from the cell phone.
+[00:24:08] Speaker A: Well does it? I'm not sure. Uh
+[00:24:15] Speaker A: Yeah.
+[00:24:16] Speaker B: But you can't you can't use Bluetooth all the time, twenty four hours a day. Does it
+[00:24:20] Speaker A: Okay. Gentlemen, I'm afraid we do not have any more time. Um
+[00:24:20] Speaker C: No, you cannot.
+[00:24:22] Speaker B: It's over?
+[00:24:22] Speaker C: Okay.
+[00:24:25] Speaker C: Okay.
+[00:24:27] Speaker A: so we will go back to our own uh work. Um next meeting starts in thirty minutes and um, well, you know your o your individual actions or your personal coach will probably email you about th it. Um so
+[00:24:44] Speaker A: this was it. See you in thirty minutes.
+[00:24:45] Speaker B: Okay.
+[00:24:47] Speaker B: Great.

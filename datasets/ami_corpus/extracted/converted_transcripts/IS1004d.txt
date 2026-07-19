@@ -1,0 +1,630 @@
+[00:00:25] Speaker A: Okay. Good afternoon again.
+[00:00:28] Speaker A: So we should have our final meeting about the detail designed of detail design of the product of the remote control. Um So here is the agenda for today. Uh uh just going to go quickly through the minutes of the last last uh meeting then we have a p presentation of prototype of you two, sounds interesting. And we'll have um presentation of evaluation crit criteria by ou our Marketing Experts. Then we'll have to go through finance evaluation of the of the cost of the thing and um hopefully uh we should fit the target o tw of twelve point five uh uh Euro. Okay. So let's go. Uh if I go quickly through the minutes of the last meeting.
+[00:01:27] Speaker A: So we went through th uh w we took this following decisions.
+[00:01:33] Speaker A: No L_C_D_, no speech recognition technology, okay, we went through a b to a banana look and feel for the remote control. We went through the use of wheels and but buttons. And also the use of a basis station for battery ch charging and uh also to um call the to call the mot mote remote control when it is lost. Okay. Um. Good.
+[00:02:04] Speaker A: So guys
+[00:02:07] Speaker A: let this uh wonderful thing.
+[00:02:11] Speaker C: Okay so we can go to the slides. Yeah.
+[00:02:13] Speaker A: Oh yeah. Sorry. Um.
+[00:02:17] Speaker C: Number three. Oh number two sorry.
+[00:02:22] Speaker A: Which is
+[00:02:23] Speaker C: So final design. Final design.
+[00:02:26] Speaker C: Okay so
+[00:02:28] Speaker C: Michael you can go ahead.
+[00:02:29] Speaker B: Yeah so uh following our decision to uh
+[00:02:36] Speaker B: make a yellow well to make a banana
+[00:02:38] Speaker A: Yeah can you show it to the the camera maybe.
+[00:02:40] Speaker B: remote okay so
+[00:02:44] Speaker B: we actually have a
+[00:02:45] Speaker C: You can pull it out first, maybe.
+[00:02:46] Speaker B: We've well first first of all we made a an attractive base station uh with a banana leaf uh look and feel um and uh
+[00:02:53] Speaker A: Mm-hmm.
+[00:02:58] Speaker B: bana sit the banana sits in there k you know nicely weighted so that it's not gonna tip over and um this is the remote itself, it's kind of it's it's ergonomic, it fits in the hand uh rather well. We've got the two uh
+[00:03:13] Speaker B: uh scroll wheels here which you know one on the the left for the uh volume and the one on the right for for the channel and uh underneath we have the uh the turbo button which is in like a nice uh trigger position for you know for pressing quite naturally.
+[00:03:29] Speaker A: What's the use uh of the t turbo button already?
+[00:03:33] Speaker B: This is when you when you uh are scrolling the uh through the channels you can tell it to to skip th past channels that you quickly rather th
+[00:03:40] Speaker A: Ah yeah yeah an then you stop when you stop it stops.
+[00:03:44] Speaker B: Yeah. Well when you stop scrolling the wheel it stops. But normally with uh it will just uh s stay on each station briefly so you can see the the picture.
+[00:03:47] Speaker C: Uh
+[00:03:51] Speaker A: Uh-huh.
+[00:03:52] Speaker C: And we we do have one more functionality. If you take the banana as such and uh you press the turbo button, so it switch ons the switch ons the T_V_.
+[00:04:00] Speaker B: The T_V_ yeah. The s the turbo button. So rather than having uh an extra button for um for the on off switch you just use the turbo button.
+[00:04:01] Speaker A: Which one?
+[00:04:02] Speaker C: The turbo button.
+[00:04:03] Speaker A: Okay.
+[00:04:04] Speaker C: Additional button.
+[00:04:10] Speaker D: What this button for?
+[00:04:11] Speaker B: This is a teletext button. So once you press that then you get teletext and you can use the the channel selector scroll wheel as uh
+[00:04:12] Speaker D: Okay.
+[00:04:18] Speaker D: But if you want to go to page seven hundred?
+[00:04:18] Speaker A: To navigate it through th through teletext.
+[00:04:19] Speaker B: To navigate yeah.
+[00:04:19] Speaker C: That's right, that's right.
+[00:04:23] Speaker B: Yeah.
+[00:04:24] Speaker A: with the wheel it's easy.
+[00:04:24] Speaker D: How man
+[00:04:25] Speaker B: Well then you can you you have like a little uh number selection thing, you press the the the teletext button uh to move between uh the fields and then you can just scroll the number back and forth so you have s you go you scroll to seven and then
+[00:04:40] Speaker B: zero zero and then you can uh
+[00:04:43] Speaker D: I don't understand it. Can you repeat it?
+[00:04:45] Speaker B: Well you can you can press press the teletext button and then you then you can you can f
+[00:04:50] Speaker C: So then then both the scroll buttons they are for teletext browsing.
+[00:04:50] Speaker D: Yeah.
+[00:04:55] Speaker C: And you can tele yeah, once you press the teletext button then the scroll buttons they are more for teletext, they are no more for channel or vol volume. Yeah.
+[00:04:56] Speaker D: Ah okay okay. Okay. Okay okay.
+[00:04:57] Speaker B: Mm uh
+[00:05:00] Speaker D: Okay.
+[00:05:03] Speaker D: I see. I see. Okay. Okay.
+[00:05:05] Speaker B: And this is the uh the infrared uh port.
+[00:05:09] Speaker C: That's right.
+[00:05:11] Speaker B: Also the top of the banana. So. And then we have in the uh in the base station we have the the button at the front for uh for calling the uh the banana.
+[00:05:12] Speaker C: Yeah.
+[00:05:12] Speaker A: Excellent.
+[00:05:19] Speaker A: Calling.
+[00:05:21] Speaker C: Yeah.
+[00:05:21] Speaker A: Excellent. And the the leaves plays the roles of of antennas?
+[00:05:25] Speaker B: Actually they do. That's that's yeah that's uh that's form and function in the one in the one uh object.
+[00:05:26] Speaker A: Oh.
+[00:05:28] Speaker C: Yeah.
+[00:05:30] Speaker C: So it always means, whatever the rays goes by they they get reflected and then you are having a better coverage. It's like antennas.
+[00:05:38] Speaker B: Yeah. So.
+[00:05:41] Speaker B: But yeah that's um that's just like that's an attractive um base station.
+[00:05:45] Speaker A: Great.
+[00:05:46] Speaker B: So.
+[00:05:48] Speaker A: So, what else?
+[00:05:48] Speaker B: Okay.
+[00:05:51] Speaker C: And for the power source we are having solar cells and rechargeable batteries and this and uh the basis station is going to have the input from the mm power line for for charging the batteries.
+[00:06:05] Speaker D: Is it really weight? Is it light or
+[00:06:07] Speaker C: It is very light.
+[00:06:08] Speaker A: Yeah, they're light.
+[00:06:09] Speaker D: Okay.
+[00:06:09] Speaker B: It's it's uh it's about the weight of a banana.
+[00:06:12] Speaker D: Okay.
+[00:06:13] Speaker B: You know, to give you the correct look and feel.
+[00:06:15] Speaker D: Ok
+[00:06:15] Speaker C: Yeah. And we have put these different colours so that people don't mistake them mistake it as a banana. Otherwise it's you know a child comes and so
+[00:06:22] Speaker D: Okay.
+[00:06:23] Speaker D: Yeah yeah yeah, I see. I under I understand.
+[00:06:25] Speaker B: I think a child would try to eat it anyway, so maybe we should
+[00:06:27] Speaker C: Yeah.
+[00:06:30] Speaker B: consider that. maybe health and safety aspects.
+[00:06:32] Speaker A: Ah yeah.
+[00:06:33] Speaker C: Mm-hmm.
+[00:06:34] Speaker C: Oh we didn't think of that yet. Yeah.
+[00:06:36] Speaker B: Yeah.
+[00:06:36] Speaker A: So for the power source, apparently you still you you want to use both solar cells and batteries.
+[00:06:43] Speaker C: Oh yeah that's right.
+[00:06:45] Speaker A: Uh you mean okay. So
+[00:06:46] Speaker B: I don't really know if the solar cells are actually necessary any more if you have a recharging base station.
+[00:06:48] Speaker A: Yeah, where are going to where are you are you going to place them?
+[00:06:50] Speaker C: Mm-hmm mm-hmm.
+[00:06:53] Speaker C: It'll It'll be always at top somewhere at there.
+[00:06:55] Speaker B: If I was gonna place them I'd put them on the on the top here since that's like uh the black bit but yeah I don't I really don't think it's necessary to have the solar cells anymore.
+[00:06:59] Speaker A: You have enough surface? You
+[00:07:03] Speaker C: Yeah because now we are having rechargeable batteries so that that is.
+[00:07:06] Speaker A: Okay. What will be the autonomy? Roughly?
+[00:07:06] Speaker B: Mm.
+[00:07:09] Speaker B: The what sorry?
+[00:07:10] Speaker A: The autonomy.
+[00:07:14] Speaker A: Autonomy.
+[00:07:15] Speaker B: What do you mean?
+[00:07:16] Speaker D: How long the how long the bit the batteries long.
+[00:07:16] Speaker A: Uh I mean how long does i how how how long can it be held off a station?
+[00:07:18] Speaker B: Ah.
+[00:07:20] Speaker B: Ah.
+[00:07:22] Speaker B: A long time.
+[00:07:23] Speaker A: Yeah. A long
+[00:07:24] Speaker B: No no no, it can it should be weeks.
+[00:07:24] Speaker C: Eight to ten eight to ten hours.
+[00:07:28] Speaker C: N most no most of the time it's not being used.
+[00:07:31] Speaker A: Yeah, so it's
+[00:07:32] Speaker B: Yeah but y people don't like to put it back in the base station all the time people leave wanna leave it on the couch so
+[00:07:32] Speaker C: So when when you are making it on
+[00:07:33] Speaker A: It's used only when you
+[00:07:35] Speaker C: Mm.
+[00:07:36] Speaker C: Mm-hmm. No eight or eight or ten hours of working. If you are just leaving like that it'll be much longer.
+[00:07:39] Speaker B: Ah, okay. Okay.
+[00:07:42] Speaker A: Yeah. F weeks.
+[00:07:43] Speaker C: Yeah. That's right.
+[00:07:44] Speaker B: Yeah.
+[00:07:46] Speaker A: Right.
+[00:07:48] Speaker A: Next slide?
+[00:07:49] Speaker C: Yeah.
+[00:07:53] Speaker C: And we are having the speakers regular chip for control. Pricing is was a factor so that's why we have gone for a regular chip only not the advanced chip.
+[00:08:01] Speaker C: And uh that's it.
+[00:08:05] Speaker A: Okay. Okay. Those really sounds very good. Nothing else to add?
+[00:08:08] Speaker C: That's right.
+[00:08:16] Speaker B: It seems to be falling over.
+[00:08:17] Speaker D: I l yeah.
+[00:08:18] Speaker A: Yeah.
+[00:08:19] Speaker D: I like I like it. Maybe the the thing that convince me the less is the the multifunctional buttons. Looks a bit
+[00:08:33] Speaker C: You want to have more functional buttons?
+[00:08:39] Speaker D: Looks a bit puzzled uh I dunno how to say that. You the the b the buttons change h h their function depending if y it's teletext or not
+[00:08:43] Speaker C: You are not convinced.
+[00:08:48] Speaker C: Not not many, we we want to keep it simple. So that this button fo is for teletext which is usually also the case, that usually there is a teletext button and once you press that, the channel buttons, they baco become the scrolling buttons.
+[00:09:01] Speaker D: And the volume button will will become
+[00:09:04] Speaker C: It's up to you, means. Now that
+[00:09:06] Speaker A: Well in fact b both will be could be useful, navigating through teletext.
+[00:09:08] Speaker C: Means let's say this this can move the the larger digits and this can move the smaller digits.
+[00:09:14] Speaker B: Or can move between positions in the in the number.
+[00:09:16] Speaker C: That's right.
+[00:09:17] Speaker A: Yeah.
+[00:09:17] Speaker D: And what about people who want to use digits? Butto real buttons?
+[00:09:22] Speaker C: Yeah. So there was there was a constraint that the surface area which we have on this banana on one side because of the shape.
+[00:09:22] Speaker A: Wow.
+[00:09:30] Speaker C: So we are targeting a segment which is which is just very trendy kind of thing, they they don't care about the buttons any more.
+[00:09:39] Speaker D: Okay. Because have you thought about configuration and all this kind of uh stuff?
+[00:09:39] Speaker C: And anyway
+[00:09:43] Speaker B: It's all automatic.
+[00:09:45] Speaker D: It's all automatic. Okay. Okay yeah it's fine. W we are living in a wonderful world.
+[00:09:46] Speaker B: Yep.
+[00:09:49] Speaker A: Very good uh yeah you th yeah. Bananas everywhere. Okay, so
+[00:09:52] Speaker B: Uh.
+[00:09:57] Speaker D: Automatically configure.
+[00:10:02] Speaker A: So we have to go through now evaluations.
+[00:10:04] Speaker C: Evalua yeah.
+[00:10:05] Speaker D: Yeah.
+[00:10:06] Speaker A: So your slides are ready?
+[00:10:07] Speaker D: S
+[00:10:10] Speaker A: Uh you're four I think. So this is one, which one is this one?
+[00:10:11] Speaker D: Yeah.
+[00:10:14] Speaker D: Yeah.
+[00:10:20] Speaker D: Okay. I I const I constructed a a list of criteria based on the on the general user requirements. And each criteria is will be evaluated it's uh logical criteria so we must
+[00:10:41] Speaker D: users must say i if it's true or is or if it's false in a in a scale ranging from zero to seven.
+[00:10:52] Speaker C: Why this strange factor of seven?
+[00:10:55] Speaker D: Because i
+[00:10:58] Speaker D: I'm sorry. Sorry.
+[00:11:01] Speaker C: Usually I have seen that scales are from one to ten.
+[00:11:01] Speaker D: Ah yeah. It's from sorry, it's from one to seven. It's from from one to seven sorry. Because it should be an even
+[00:11:08] Speaker D: it should be an even uh scale, and five
+[00:11:08] Speaker C: Okay.
+[00:11:10] Speaker C: Okay. Mm-hmm.
+[00:11:10] Speaker A: Num number
+[00:11:15] Speaker D: is too short and nine is too long.
+[00:11:17] Speaker C: Okay.
+[00:11:18] Speaker D: I'm a I I'm
+[00:11:19] Speaker C: Okay fine, got the idea.
+[00:11:20] Speaker A: So to have in order to have enough granularity it's in order to have enough granularity in the evaluation.
+[00:11:22] Speaker D: Sorry?
+[00:11:26] Speaker D: Yeah yeah.
+[00:11:28] Speaker C: Okay.
+[00:11:28] Speaker D: The variance is mi it's is minimal. I'm um answering your question. Okay. And that's the criteria I I found more useful. I think I sh I I could write the criteria in the on the whiteboard? And we all four could range
+[00:11:29] Speaker A: Okay.
+[00:11:30] Speaker C: Okay, okay, great.
+[00:11:32] Speaker C: Okay. Yeah yeah. Go ahead.
+[00:11:42] Speaker C: Mm-hmm. Sure.
+[00:11:46] Speaker C: Okay. Yeah yeah. Yeah.
+[00:11:47] Speaker D: could evaluate the
+[00:11:49] Speaker A: Okay.
+[00:11:59] Speaker C: So you can say fancy,
+[00:12:02] Speaker C: handy.
+[00:12:10] Speaker C: Handy.
+[00:12:11] Speaker D: Okay let's let's evaluate if it's fancy or
+[00:12:14] Speaker C: Yeah, it's fancy, according to me.
+[00:12:17] Speaker D: Seven but
+[00:12:19] Speaker A: Yeah, six.
+[00:12:21] Speaker C: Seven. Seven by me.
+[00:12:21] Speaker A: S seven. Six.
+[00:12:23] Speaker D: I would say seven. It's quite fancy.
+[00:12:24] Speaker C: Okay.
+[00:12:27] Speaker C: So you can add seven plus six plus seven plus
+[00:12:30] Speaker A: No, wait. What do you say seven? Five?
+[00:12:30] Speaker B: Yeah uh five.
+[00:12:32] Speaker C: Five.
+[00:12:32] Speaker B: Five, maybe maybe maybe six it's it's I guess it's yeah.
+[00:12:36] Speaker A: Okay, six point five.
+[00:12:40] Speaker A: Handy?
+[00:12:46] Speaker C: Again I'll give seven.
+[00:12:49] Speaker B: I'd give it a six like I'd I think it's probably more handy than my current remote, 'cause of the scroll wheels but maybe loses the point for not having you know the extra buttons when you reall if you do need them for some reason but you know you can always use your other
+[00:12:49] Speaker A: Seven.
+[00:12:50] Speaker D: Six.
+[00:12:54] Speaker C: Yep.
+[00:13:05] Speaker B: remote.
+[00:13:06] Speaker A: So seven, seven, six,
+[00:13:07] Speaker C: Seven for me.
+[00:13:08] Speaker B: Yeah.
+[00:13:09] Speaker D: Six.
+[00:13:09] Speaker A: six point five.
+[00:13:15] Speaker A: Functional.
+[00:13:21] Speaker C: I'll give five.
+[00:13:21] Speaker D: I would say
+[00:13:23] Speaker A: Four.
+[00:13:25] Speaker B: Well it depends when you say functional, do you mean it does what we want it to do, or d does what it does, you know, can it make you coffee?
+[00:13:32] Speaker D: Everything ar
+[00:13:33] Speaker A: Uh for a remote control, does he have all the
+[00:13:34] Speaker D: Mm everything
+[00:13:34] Speaker B: You know.
+[00:13:38] Speaker B: Yeah.
+[00:13:39] Speaker B: Yeah.
+[00:13:40] Speaker D: It's compared to the all
+[00:13:40] Speaker A: you could expect.
+[00:13:43] Speaker C: That's right. That's right.
+[00:13:44] Speaker D: remote controls.
+[00:13:44] Speaker B: That's before
+[00:13:47] Speaker C: The standards. What is available in the market off the shelf.
+[00:13:49] Speaker B: Yeah. I have to say four.
+[00:13:51] Speaker D: Actually I don't know what are the r the real specification of a of a universal remote contro
+[00:13:56] Speaker B: Well it's not a universal remote. Remember we're focus we're supposed to focus just on T_V_s.
+[00:13:58] Speaker C: We
+[00:13:58] Speaker D: Ah it's not an univer but it's for all kind of T_V_s?
+[00:14:02] Speaker A: Yeah.
+[00:14:03] Speaker B: Well all T_V_s but only T_ only T_V_s I guess.
+[00:14:05] Speaker A: So it's universal but for T_V_s.
+[00:14:11] Speaker D: Yeah.
+[00:14:11] Speaker A: So s uh four?
+[00:14:13] Speaker C: Five.
+[00:14:14] Speaker A: Five? Four.
+[00:14:14] Speaker B: Four.
+[00:14:15] Speaker D: Four. Four.
+[00:14:17] Speaker C: So four point two? four.
+[00:14:18] Speaker B: Just four. Obviously there are some outliers so
+[00:14:19] Speaker A: Four.
+[00:14:20] Speaker D: So four?
+[00:14:23] Speaker A: Okay cool? Cool device.
+[00:14:27] Speaker C: There I'll give it seven.
+[00:14:32] Speaker D: It means cool features, like
+[00:14:35] Speaker D: new features actually.
+[00:14:36] Speaker C: That's right.
+[00:14:38] Speaker B: Which
+[00:14:38] Speaker C: For a T_V_ the most important feature which I felt was the locator which is a cool feature. And then the scroll buttons are again cool features. We don't have L_C_D_ for it but
+[00:14:51] Speaker C: that we decided we don't want to have.
+[00:14:52] Speaker A: Yeah. Seven.
+[00:14:54] Speaker D: I would say five.
+[00:14:55] Speaker B: I'll say five.
+[00:14:56] Speaker C: Mm-hmm. Seven.
+[00:14:56] Speaker A: Six.
+[00:14:58] Speaker A: Plus six, I say I said seven. So it's six. Yeah.
+[00:14:59] Speaker B: Yeah.
+[00:15:01] Speaker D: You said seven?
+[00:15:01] Speaker B: S yeah.
+[00:15:03] Speaker B: 'Cause it's five five seven seven so
+[00:15:05] Speaker C: Okay.
+[00:15:06] Speaker B: Uh, okay, definitely easy to use.
+[00:15:08] Speaker C: Definitely seven.
+[00:15:10] Speaker B: Seven.
+[00:15:12] Speaker A: Seven.
+[00:15:14] Speaker A: Seven. And you?
+[00:15:16] Speaker A: Outl you are not lik outlier. Seven
+[00:15:16] Speaker D: Five.
+[00:15:21] Speaker A: Okay okay okay okay.
+[00:15:22] Speaker C: Okay.
+[00:15:23] Speaker D: Sorry, I have them
+[00:15:24] Speaker B: Alright, now here's the sixty million Dollar question, well, twenty five twenty five Euro question.
+[00:15:31] Speaker A: Of course I'll buy the banana.
+[00:15:36] Speaker B: What do you what do you guys reckon?
+[00:15:37] Speaker D: Of cour Of course the most difficult question for the end.
+[00:15:38] Speaker C: I'll say five.
+[00:15:38] Speaker A: Well
+[00:15:41] Speaker B: Hmm.
+[00:15:41] Speaker C: I'll say five.
+[00:15:45] Speaker A: Twenty five Euros.
+[00:15:48] Speaker A: Cheap.
+[00:15:49] Speaker D: I find it quite cheap actually. I dunno. If i i it depends, if you live in in Switzerland or you live in
+[00:15:55] Speaker A: Yeah, so the target price is for all Europe, or only for rich countries? It's more targeting U_K_ or
+[00:16:03] Speaker D: I don't know. Wha the initial specifications were for the whole all Europe or
+[00:16:08] Speaker B: Uh
+[00:16:09] Speaker A: So this is selling costs, not production costs.
+[00:16:11] Speaker B: Yeah. Yeah.
+[00:16:11] Speaker D: Yeah this is the the initial specifications.
+[00:16:14] Speaker A: Yeah yeah sure. Um
+[00:16:19] Speaker A: Five.
+[00:16:19] Speaker D: I would say six. It's quite cheap actually.
+[00:16:21] Speaker B: I'd say two. I don't want a banana on my living room table, a banana remote.
+[00:16:24] Speaker C: Why?
+[00:16:24] Speaker A: Aw, should be nice in your
+[00:16:26] Speaker C: No but it's really handy actually if you see. It's it's so handy. And then
+[00:16:32] Speaker B: It is handy, it's handy, but it it's terrible. Yeah.
+[00:16:35] Speaker A: It's kitsch.
+[00:16:35] Speaker C: Anyb anybody who comes here anybody who comes to your home he'll at least ask once what is this.
+[00:16:42] Speaker B: Yeah, but it's not a positive thing.
+[00:16:43] Speaker C: It's a very positive thing if you see like that.
+[00:16:44] Speaker B: Well, you know, it's it's handy, it's ergonomic, but it's a banana.
+[00:16:47] Speaker A: Well, don't forget well, don't for don't forget who we're targeting also who are f f who are wh yeah, youngst youngst
+[00:16:52] Speaker C: Youngsters.
+[00:16:53] Speaker D: Actually maybe
+[00:16:53] Speaker B: Yeah but it says I, I would buy this, so.
+[00:16:56] Speaker A: No well yeah I if you would be young.
+[00:16:58] Speaker D: Yeah
+[00:17:01] Speaker A: Not telling that you are young. Li li like a teenager for instance.
+[00:17:02] Speaker B: No, it's I. I would buy
+[00:17:06] Speaker A: Okay you're you're crazy teenager and you like fun things. Yeah.
+[00:17:11] Speaker C: You want to flaunt. You with your girlfriend or something.
+[00:17:13] Speaker A: Yeah, you want to show the beautiful banana you have.
+[00:17:14] Speaker B: S s
+[00:17:15] Speaker C: Or might be it does some other kind of thing but
+[00:17:18] Speaker B: Still I I'd say two. I don't think I at any stage in my life I would want a banana remote control, really.
+[00:17:23] Speaker C: Uh yeah, crazy.
+[00:17:24] Speaker A: Okay so you s you give oh yeah yeah I know I know. So you say two. F I d I say five.
+[00:17:24] Speaker B: I can say, maybe there is a market for it, I dunno. Yeah.
+[00:17:28] Speaker C: I say five.
+[00:17:32] Speaker A: You say?
+[00:17:33] Speaker D: I change the question.
+[00:17:35] Speaker A: So what's the new question?
+[00:17:38] Speaker C: And you have saved it?
+[00:17:40] Speaker D: So yeah upload the
+[00:17:42] Speaker C: You'll have to reload.
+[00:17:43] Speaker A: Uh yeah, I think so.
+[00:17:52] Speaker B: Okay, so, it depends if uh
+[00:17:55] Speaker D: Yeah it's two different situations. If you really need an universal remote control or if you
+[00:18:03] Speaker D: would change your remote control for a n for a new one.
+[00:18:05] Speaker A: Yeah that's two different question.
+[00:18:06] Speaker B: If I had t if I had to spend twenty five Euro,
+[00:18:10] Speaker B: if that was like my limit, maybe I would buy it. Because the other twenty five Euro remote controls are probably gonna look
+[00:18:17] Speaker C: They're not going to be as
+[00:18:17] Speaker A: Ugly.
+[00:18:17] Speaker B: worse than a banana.
+[00:18:19] Speaker C: And they they might not be a as easy as this yeah.
+[00:18:21] Speaker B: And it yeah this is gonna f you know handy to use.
+[00:18:24] Speaker C: Yeah.
+[00:18:26] Speaker D: So? What now? What range?
+[00:18:26] Speaker C: S
+[00:18:27] Speaker A: I stick to five.
+[00:18:28] Speaker C: I go slightly up. Six.
+[00:18:29] Speaker B: Although it still has it still has the word of course at the beginning so I dunno. Um.
+[00:18:30] Speaker D: Six.
+[00:18:36] Speaker A: W we have six, five
+[00:18:37] Speaker B: I'd give it I'd give it a
+[00:18:41] Speaker A: Three So we are
+[00:18:41] Speaker B: I give it a four now.
+[00:18:41] Speaker D: Six? Six?
+[00:18:44] Speaker C: Six, five, four.
+[00:18:45] Speaker A: six, five, four
+[00:18:46] Speaker D: Six, so it's uh five point five, or less.
+[00:18:51] Speaker A: Yeah.
+[00:18:53] Speaker A: So
+[00:19:02] Speaker C: Okay.
+[00:19:03] Speaker A: So and last question, will I change my rem change my remote control from Mando banana.
+[00:19:09] Speaker A: Um, zero. No uh we can't. So one.
+[00:19:17] Speaker D: Actually yeah, I we
+[00:19:19] Speaker A: Well if.
+[00:19:22] Speaker B: Yeah.
+[00:19:23] Speaker A: No uh let's say I'll put two.
+[00:19:25] Speaker B: I'd say three, I mean my remote control is kinda at home is pretty terrible. If it was change my remote control of my D_V_D_ player for a Mando banana then I would be more inclined to but uh 'cause it's really bad but uh I'd say a three.
+[00:19:37] Speaker A: It's for the T_V_.
+[00:19:43] Speaker C: I'll still give it five.
+[00:19:45] Speaker D: Five?
+[00:19:45] Speaker C: Yeah.
+[00:19:46] Speaker A: Two three five two three fi and two. So it's r
+[00:19:47] Speaker D: You are romantic, really. I would say two.
+[00:19:48] Speaker C: So it's somewhere three point five I think.
+[00:19:53] Speaker A: Yeah, three point five.
+[00:19:58] Speaker D: Who is the outlier? Wh wh you said five?
+[00:20:00] Speaker A: No no you say five, he is the outlier.
+[00:20:02] Speaker C: No I said five.
+[00:20:07] Speaker A: Okay just just do a sum.
+[00:20:10] Speaker D: I don't know if it's a
+[00:20:14] Speaker B: It's not very promising but you know
+[00:20:16] Speaker B: we're not young trendsetters.
+[00:20:16] Speaker D: No because there are more yeah, we shouldn't sum like that.
+[00:20:22] Speaker A: Well maybe we should we should uh have a look globally glob
+[00:20:25] Speaker D: Because the the last two questions is much more important than the rest actually. Otherwise we wouldn't we will not sell.
+[00:20:29] Speaker C: Mm-hmm.
+[00:20:31] Speaker B: Is there some some formula you're using that says you have to sum them up?
+[00:20:35] Speaker D: Uh no I didn't anything.
+[00:20:37] Speaker B: Well just leave it at that then.
+[00:20:40] Speaker A: Yeah.
+[00:20:41] Speaker C: Oops.
+[00:20:41] Speaker D: Yeah, the uh
+[00:20:42] Speaker A: So maybe maybe w we can we should stick to general feeling. We can had uh have a out of these numbers, which which is that well we should go for it.
+[00:20:46] Speaker D: Yeah.
+[00:20:57] Speaker A: Problem with connectors?
+[00:20:57] Speaker D: Do you want me to sum o I think it's not
+[00:20:58] Speaker C: Yeah it's it's funny.
+[00:20:58] Speaker B: No. I think it it kind of you just lose information if you sum it, so.
+[00:21:02] Speaker A: Okay. So let's move uh let's move on. Okay, now now we have to mm to estimate uh the cost okay. So I prepare an Excel sh uh an Excel sheet. Um well we are going to calculate the production costs. We should we should be below twelve point five.
+[00:21:06] Speaker C: Yeah, sure.
+[00:21:31] Speaker A: So I already uh put some pu some numbers here, okay. We are going to go through so this is the number the mm number of components we need for this thing. So it appears that there were things that we didn't thought about. Uh and also things that I uh I d I forget to uh to put like solar cells.
+[00:21:56] Speaker C: Mm-hmm.
+[00:21:56] Speaker B: Well we decided against the solar cells so
+[00:21:58] Speaker A: Oh yeah finally we say no. Okay so let's let's go let's go let go through all the lines. So hand dynamo. This something we didn't thought about.
+[00:21:58] Speaker C: Solar cells, yeah yeah yeah yeah yeah, we said no to that.
+[00:22:08] Speaker B: You mean, charging it by shaking the banana.
+[00:22:08] Speaker A: But
+[00:22:10] Speaker A: Yeah.
+[00:22:12] Speaker C: I think rechargeable batteries will take care of the power thing. Yeah. To bring the cost
+[00:22:15] Speaker A: Yeah. Okay so we we stick to battery, one.
+[00:22:20] Speaker C: Yeah.
+[00:22:21] Speaker A: No kinetic also. I don't I don't see the difference between kinetic and dynamo.
+[00:22:28] Speaker B: Well maybe dynamo is like you have to actually
+[00:22:32] Speaker A: Ah you have to ah okay I see so kinetic is really uh shaking the banana. Crazy. Okay. So those banana is falling.
+[00:22:35] Speaker D: S
+[00:22:37] Speaker B: Yeah.
+[00:22:37] Speaker C: Yeah.
+[00:22:41] Speaker C: Okay.
+[00:22:46] Speaker A: Let's go ahead. So we we st only have one for battery. Uh then for electronics um so I didn't put anything for the.
+[00:22:55] Speaker C: So we have the regular chip on the print, which is one.
+[00:22:57] Speaker A: Yeah.
+[00:22:59] Speaker A: Yeah.
+[00:22:59] Speaker C: And that's it.
+[00:23:00] Speaker A: Okay. No so we hin
+[00:23:03] Speaker C: And we have sample speaker. Yeah. Yeah. the cost of that is very high.
+[00:23:04] Speaker A: Yeah so one. Ooh ye ye ye the cost is increasing. So we are
+[00:23:10] Speaker B: Well actually that that no that sample speaker is not we we're not using that, we're just using the the very beep simple beep, that s that sample thing is like the voice recording and everything. So
+[00:23:16] Speaker A: The beep.
+[00:23:18] Speaker C: Uh-huh.
+[00:23:19] Speaker A: That's what
+[00:23:20] Speaker C: Mm-hmm. Mm-hmm.
+[00:23:21] Speaker A: Okay so I'll remove it.
+[00:23:23] Speaker B: Yeah. I say that
+[00:23:23] Speaker A: S
+[00:23:25] Speaker B: Yeah.
+[00:23:28] Speaker C: And we have sev
+[00:23:28] Speaker A: So don't we need a
+[00:23:34] Speaker A: Oh there is no listing for r radio frequency thing. So
+[00:23:37] Speaker C: Yeah. So we we'll put some extras, if there is something.
+[00:23:40] Speaker A: Yeah maybe. We'll see later. Okay so in for the case um
+[00:23:42] Speaker B: Mm.
+[00:23:46] Speaker A: I put single curved.
+[00:23:47] Speaker C: Okay. To reduce the cost, it's okay.
+[00:23:49] Speaker B: Well, wait a second, no, it's it's double curved, it's got a c, it's uh
+[00:23:51] Speaker A: Because we have two things.
+[00:23:55] Speaker C: Oh it's got all the directions so don't worry.
+[00:23:55] Speaker A: No.
+[00:23:58] Speaker B: Well d yeah it's monotonic but
+[00:24:02] Speaker C: It's got a direction.
+[00:24:03] Speaker B: it's got but if you hold it
+[00:24:06] Speaker B: if you hold it that way that's two curved,
+[00:24:10] Speaker B: one on this side, one on that side, but they're opposite sides.
+[00:24:13] Speaker A: Well.
+[00:24:18] Speaker D: Actually what's the differen
+[00:24:18] Speaker A: What a what i if I put one here.
+[00:24:18] Speaker B: This is actually I mean this probably
+[00:24:21] Speaker B: this probably actually costs more than three if you
+[00:24:22] Speaker A: Yeah so let's put one here in the then instead of single oka all right. So we stick to plastic, it cost nothing.
+[00:24:26] Speaker C: Okay. Okay.
+[00:24:28] Speaker B: Yeah.
+[00:24:30] Speaker C: Yeah. That's right.
+[00:24:31] Speaker B: Well no didn't we say we wanted to do a rubber
+[00:24:34] Speaker A: No, it's too no.
+[00:24:36] Speaker D: Too expensive.
+[00:24:36] Speaker B: if you drop it?
+[00:24:37] Speaker A: It's too expensive.
+[00:24:39] Speaker B: Well when okay. Well we we'll come back we'll come back and see if we can fit it in.
+[00:24:40] Speaker A: We're already at eleven.
+[00:24:44] Speaker A: Okay so I put rubber one.
+[00:24:47] Speaker A: Okay so special colour, yellow. Uh for the interface we have
+[00:24:50] Speaker B: Yeah.
+[00:24:54] Speaker C: We don't have any push buttons.
+[00:24:56] Speaker B: No, we have two push buttons.
+[00:24:57] Speaker A: We have three.
+[00:24:58] Speaker C: No that is a scroll wheel itself, it'll be put in that.
+[00:24:59] Speaker B: Huh.
+[00:25:01] Speaker A: No no. We have two scroll, and we have three push buttons.
+[00:25:02] Speaker C: Ah okay, okay.
+[00:25:03] Speaker B: Uh.
+[00:25:05] Speaker C: Okay, okay.
+[00:25:09] Speaker B: Okay it's gonna have to be plastic.
+[00:25:09] Speaker D: Actually whe whe when you wrote regular chip you should put two, because there is another chip here.
+[00:25:09] Speaker A: And
+[00:25:15] Speaker A: No it's no chip. This is just radio frequency. Th This is no chip.
+[00:25:19] Speaker C: Yeah.
+[00:25:19] Speaker D: Yeah but
+[00:25:20] Speaker C: No. There's no chip there. It just emits the signal. And the receiver accepts it and that's it.
+[00:25:21] Speaker D: you need
+[00:25:25] Speaker A: It's just
+[00:25:27] Speaker A: Yeah.
+[00:25:28] Speaker D: Fo i it does nothing actually?
+[00:25:29] Speaker A: No. Just only.
+[00:25:30] Speaker C: Just se sends the signal, that's it.
+[00:25:32] Speaker B: It's a recharger thing and uh
+[00:25:35] Speaker A: Okay w we didn't think a thought about uh integrated scroll wheel push buttons.
+[00:25:41] Speaker B: Well I actually did um
+[00:25:43] Speaker B: think about it myself but I thought you know because you could potentially you know you could be pushing it down as you scroll it for a instead of a turbo button but you know the turbo button does add that extra class.
+[00:25:52] Speaker A: Yeah, so
+[00:25:55] Speaker A: Yeah.
+[00:25:57] Speaker B: You know. So I mean if we're if we're over budget then maybe we could we could rethink that.
+[00:26:03] Speaker A: Okay. So no L_C_D_,
+[00:26:06] Speaker A: so for we have no button supplements, right?
+[00:26:09] Speaker C: Yep. No.
+[00:26:10] Speaker A: Uh
+[00:26:14] Speaker A: well in fact could we could not we consider this button as a button supplement because oh no, these are these are for colours, co and special forms, special colours and special materials. So
+[00:26:21] Speaker B: Yeah.
+[00:26:23] Speaker B: No we're not we don't need anything special for the buttons.
+[00:26:26] Speaker A: Okay so we are over budget.
+[00:26:28] Speaker C: Yeah. So first thing which we should take care of is,
+[00:26:32] Speaker B: Make it plastic instead of rubber. And then we're basically o on budget except for you know ten cents.
+[00:26:32] Speaker C: instead of rubber, let it be plastic.
+[00:26:33] Speaker A: Yeah.
+[00:26:39] Speaker C: And uh that much money will be required for the base station, which is not there.
+[00:26:43] Speaker A: Yeah.
+[00:26:44] Speaker B: Yeah.
+[00:26:47] Speaker A: So mayb in fact n we have to put two here
+[00:26:53] Speaker A: because it cost nothing.
+[00:26:56] Speaker B: Yeah well pl the base station is made out of m many units of plastic.
+[00:26:56] Speaker C: Yeah.
+[00:26:59] Speaker C: That's right. So might be ninety centimes for the the remaining things which the cord and everything which'll go
+[00:27:05] Speaker A: Exactly exactly so we have margin for that stuff.
+[00:27:08] Speaker B: Does that include charging circuitry and everything?
+[00:27:08] Speaker C: That's right.
+[00:27:11] Speaker A: Yeah maybe.
+[00:27:14] Speaker A: Okay good.
+[00:27:15] Speaker C: Yeah.
+[00:27:15] Speaker A: Wha
+[00:27:17] Speaker A: Excellent.
+[00:27:20] Speaker B: So what do we do with the extra profits?
+[00:27:22] Speaker A: Um we'll invest in R_ and D_.
+[00:27:26] Speaker B: Okay. The next fruit.
+[00:27:28] Speaker A: Yeah. So well we're under the the the cost. So we can go to through to project evaluation.
+[00:27:42] Speaker D: Okay so now we have a product which nobody would would buy. Would yeah, would buy.
+[00:27:48] Speaker B: No we have a product which none of us would buy.
+[00:27:48] Speaker A: Sorry?
+[00:27:49] Speaker D: Yeah because th th the evaluation project
+[00:27:51] Speaker A: Which is different. Which is different. None of us will buy it.
+[00:27:55] Speaker B: No it's people in in in Milan and uh in Paris that are gonna buy it. We're n yeah. We're not in Milan or Paris.
+[00:27:58] Speaker D: Ah would buy, yeah. Massively, yeah.
+[00:28:02] Speaker D: Yeah. Okay.
+[00:28:04] Speaker D: Uh you have been in Milan a couple of times, so. And you said the lowest.
+[00:28:07] Speaker B: Actually there were a lot of
+[00:28:07] Speaker A: This is a battery.
+[00:28:13] Speaker A: This is what we which you can mm
+[00:28:13] Speaker C: S
+[00:28:15] Speaker C: Detachable battery.
+[00:28:16] Speaker B: That's 'cause I'm sick of Milan.
+[00:28:16] Speaker A: It did yeah.
+[00:28:17] Speaker D: Yeah, for the batteries
+[00:28:18] Speaker A: Extra battery, yeah.
+[00:28:20] Speaker B: Okay so um project process.
+[00:28:21] Speaker A: Exac
+[00:28:28] Speaker A: Well in fact I I did not know I didn't know really what to say here. If uh if you have any ideas of what we can we can say. So
+[00:28:40] Speaker A: I don't I don't I don't understand what
+[00:28:43] Speaker A: what they mean by satisfaction um and for and for example.
+[00:28:51] Speaker A: Should it be more like um like a status of
+[00:28:55] Speaker A: of the these meetings in fact.
+[00:28:58] Speaker B: Yeah.
+[00:28:59] Speaker A: Yeah well in fact uh we we use a little bit the white board and the digital pen, not that much.
+[00:29:05] Speaker B: I dunno I think we had a fair bit of creativity.
+[00:29:07] Speaker A: Oh yeah it's really creative.
+[00:29:10] Speaker B: And uh but I think one thing we m missed out of this whole process was a um like a focus group with the actual people we're targeting. We needed some of these kind of young trendsetters to come in and play with the banana and you know see if they
+[00:29:24] Speaker A: Yeah.
+[00:29:30] Speaker C: They like that.
+[00:29:30] Speaker B: see if they like it.
+[00:29:31] Speaker C: Mm-hmm.
+[00:29:32] Speaker A: Yeah maybe we should go through, yeah an uh evaluation.
+[00:29:36] Speaker B: Because yeah the evaluation for us is is kind of
+[00:29:39] Speaker C: Biased.
+[00:29:39] Speaker B: pointless.
+[00:29:40] Speaker A: So maybe you should we should do a kinda evaluation
+[00:29:45] Speaker A: in the streets like asking to young peoples well, do you like to have a banana as a remote control.
+[00:29:48] Speaker B: Yeah.
+[00:29:50] Speaker B: Because it it would also be interesting to uh you to know find out if we have a market in really young children as well, to see you know how to how to market this thing.
+[00:29:50] Speaker C: Mm-hmm.
+[00:29:59] Speaker A: Yeah.
+[00:29:59] Speaker C: Mm-hmm.
+[00:30:00] Speaker B: 'Cause you know if well I mean maybe you don't wanna give all your kids their own remote because they'll be changing the channel all the time but you know maybe in some households where there is you know a T_V_ for each kid, then you know, banana remote control could be fun for them as well. Might have to draw a face on it.
+[00:30:15] Speaker A: Mm-hmm.
+[00:30:18] Speaker B: So but I think that's something we need to to work on next time is really finding out more about the target
+[00:30:26] Speaker B: market.
+[00:30:27] Speaker A: Yep.
+[00:30:29] Speaker A: Any any new ideas we could uh we could investigate next time? Dunno, oranges?
+[00:30:37] Speaker C: Yeah. The cost of the thing can be made more than might be. Because I think it's just the optimal, what we have done for the cost which we are looking forward to.
+[00:30:48] Speaker B: Yeah. I think there are ways we could maybe simplify the
+[00:30:51] Speaker C: Interface.
+[00:30:52] Speaker D: Mm-hmm.
+[00:30:52] Speaker B: Well just the the the circuit board that we're using inside, I'm not sure really how complicated our um
+[00:30:56] Speaker C: Mm-hmm.
+[00:31:00] Speaker B: our needs are. I mean all we have is two push buttons and two scrollers, do we really need an integrated circuit to
+[00:31:07] Speaker A: Hmm.
+[00:31:07] Speaker B: you know to process that.
+[00:31:08] Speaker C: Mm-hmm. Mm-hmm. Mm-hmm.
+[00:31:10] Speaker D: So more general remote control instead of just focusing on uh on T_V_.
+[00:31:16] Speaker C: That's right.
+[00:31:16] Speaker D: The complexity shouldn't be much higher.
+[00:31:19] Speaker C: Yeah.
+[00:31:22] Speaker D: For you said if it good for D_V_D_ then I would
+[00:31:25] Speaker B: And also fo you know for mood lighting and and stuff, that would be rather cool. I think that's actually something that should be in version two, is the ability to you know to control things other than the T_V_ and not just electronic equipment but you know the whole environment of the room.
+[00:31:36] Speaker C: Integrate.
+[00:31:39] Speaker C: Mm-hmm.
+[00:31:45] Speaker A: Okay. Very good.
+[00:31:48] Speaker C: So
+[00:31:49] Speaker A: So
+[00:31:51] Speaker C: What else?
+[00:31:52] Speaker A: Well done. I think we we can go
+[00:31:53] Speaker C: Okay.
+[00:31:56] Speaker C: Home? Happily satisfied.
+[00:31:57] Speaker A: home. Yeah. Maybe maybe we can hassle the the
+[00:32:03] Speaker A: production department to to make a a real prototype that we can use at home to to evaluate.
+[00:32:09] Speaker C: Mm-hmm.
+[00:32:12] Speaker A: Okay so thanks very much. Bye.
+[00:32:12] Speaker B: Yep.
+[00:32:14] Speaker C: Thank you.
+[00:32:14] Speaker B: Okay. Thank you.
+[00:32:15] Speaker D: Bye.
