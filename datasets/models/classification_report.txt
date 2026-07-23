@@ -1,0 +1,11 @@
+              precision    recall  f1-score   support
+
+  Discussion       0.76      0.64      0.69       193
+    Decision       0.80      0.75      0.78        53
+ Action_Item       0.68      0.75      0.71        55
+     Summary       0.89      0.87      0.88        62
+ Information       0.54      0.67      0.59       124
+
+    accuracy                           0.70       487
+   macro avg       0.73      0.74      0.73       487
+weighted avg       0.72      0.70      0.70       487

@@ -1,0 +1,723 @@
+sentence_id,turn_id,speaker,timestamp,sentence,selected_label,notes,transcript_id
+1,1.0,Date,,24 July 2026 Participants Aarav (Project Manager) Neha (ML Engineer) Rahul (Backend Developer) Priya (Frontend Developer) Ananya (QA Engineer),Information,,
+2,2.0,Aarav,32405.0,Good morning everyone.,Information,,
+3,3.0,Priya,32412.0,Morning.,Information,,
+4,4.0,Rahul,32418.0,Good morning.,Information,,
+5,5.0,Aarav,32425.0,Today's goal is to finalize the feature list for Sprint 4.,Information,,
+6,6.0,Neha,32450.0,The meeting summarization model has reached 91% evaluation accuracy.,Information,,
+7,7.0,Rahul,32475.0,The export APIs are also ready.,Information,,
+8,8.0,Aarav,32500.0,Are there any blockers before release?,Discussion,,
+9,9.0,Priya,32525.0,The PDF export layout still needs some polishing.,Information,,
+10,10.0,Ananya,32560.0,QA also found two UI alignment issues.,Information,,
+11,11.0,Aarav,32585.0,Can both be fixed by tomorrow?,Discussion,,
+12,12.0,Priya,32600.0,Yes.,Decision,,
+13,13.0,Ananya,32615.0,"Yes, I'll verify everything once the fixes are merged.",Action_Item,,
+14,14.0,Rahul,32640.0,I think transcript loading is still slightly slow.,Discussion,,
+15,15.0,Neha,32665.0,Lazy loading should solve that.,Discussion,,
+16,16.0,Aarav,32695.0,"Okay, we'll implement lazy loading in this sprint.",Decision,,
+17,17.0,Priya,32720.0,Should dark mode remain in this release?,Discussion,,
+18,18.0,Rahul,32745.0,I'd postpone it.,Discussion,,
+19,19.0,Neha,32770.0,I agree.,Decision,,
+20,20.0,Aarav,32785.0,Then dark mode moves to Sprint 5.,Decision,,
+21,21.0,Aarav,32815.0,Rahul will finish lazy loading.,Action_Item,,
+22,22.0,Rahul,32832.0,Sure.,Decision,,
+23,23.0,Aarav,32845.0,Priya will complete PDF improvements.,Action_Item,,
+24,24.0,Priya,32862.0,Done.,Decision,,
+25,25.0,Aarav,32875.0,Ananya will complete regression testing.,Action_Item,,
+26,26.0,Ananya,32892.0,I'll finish it by tomorrow evening.,Action_Item,,
+27,27.0,Aarav,32915.0,Let's summarize today's meeting.,Summary,,
+28,28.0,Aarav,32930.0,Feature list finalized.,Summary,,
+29,29.0,Aarav,32940.0,Dark mode postponed.,Summary,,
+30,30.0,Aarav,32950.0,Performance optimization added to Sprint 4.,Summary,,
+31,31.0,Aarav,32965.0,Meeting adjourned.,Summary,,
+2,2.0,Simran,39620.0,Thanks everyone for joining.,Information,,
+3,3.0,Rohan,39640.0,We want users to receive meeting summaries automatically by email.,Information,,
+4,4.0,Kunal,39665.0,That's technically possible.,Information,,
+5,5.0,Sneha,39685.0,Should users be able to customize the email template?,Discussion,,
+6,6.0,Rohan,39710.0,"Yes, customization would be useful.",Decision,,
+7,7.0,Simran,39740.0,Should summaries also include action items?,Discussion,,
+8,8.0,Rohan,39765.0,Definitely.,Decision,,
+9,9.0,Kunal,39785.0,We can also attach the transcript as a PDF.,Discussion,,
+10,10.0,Sneha,39810.0,That would improve usability.,Discussion,,
+11,11.0,Simran,39840.0,Do we need multilingual support?,Discussion,,
+12,12.0,Rohan,39860.0,Not in Phase 1.,Decision,,
+13,13.0,Simran,39885.0,"Okay, multilingual support will be moved to the next release.",Decision,,
+14,14.0,Kunal,39915.0,I'll implement automatic email delivery.,Action_Item,,
+15,15.0,Sneha,39938.0,I'll design the email template.,Action_Item,,
+16,16.0,Simran,39960.0,I'll prepare the requirement document.,Action_Item,,
+17,17.0,Rohan,39995.0,Perfect.,Summary,,
+18,18.0,Simran,40015.0,Today's decisions are finalized.,Summary,,
+19,19.0,Simran,40030.0,Meeting closed.,Summary,,
+1,1.0,Speaker 1,,That's great.,Discussion,,
+1,1.0,Rahul,,"Yeah, I checked it.",Information,,
+2,1.0,Rahul,,Overall it looks clean.,Discussion,,
+3,1.0,Rahul,,I just think the navigation bar is slightly crowded on smaller screens.,Discussion,,
+4,2.0,Priya,,That's fair.,Discussion,,
+5,2.0,Priya,,I can reduce the number of visible menu items and move the rest into a hamburger menu.,Action_Item,,
+6,2.0,Priya,,"[10:04 AM] Neha: From the backend side, we'll need to know which sections will pull dynamic data because that affects the APIs.",Discussion,,
+7,3.0,Aarav,,Good point.,Discussion,,
+8,3.0,Aarav,,"Rahul, which components are dynamic?",Discussion,,
+9,4.0,Rahul,,"The trending games section, user statistics, and recently played games.",Information,,
+11,5.0,Neha,,I'll expose APIs for those this week.,Action_Item,,
+12,5.0,Neha,,[10:09 AM] Priya: What about the announcements banner?,Discussion,,
+13,5.0,Neha,,Should it rotate automatically?,Discussion,,
+14,6.0,Aarav,,"Yes, but let's keep the timing around five seconds.",Decision,,
+15,6.0,Aarav,,Users should also be able to pause it manually.,Decision,,
+16,7.0,Rahul,,"Accessibility-wise, that's a good idea.",Discussion,,
+17,7.0,Rahul,,"[10:14 AM] Neha: One concern—if we fetch too much data on page load, performance might suffer.",Discussion,,
+18,8.0,Rahul,,We can lazy-load sections below the fold.,Discussion,,
+19,9.0,Aarav,,Let's go with that.,Decision,,
+20,9.0,Aarav,,[10:18 AM] Priya: Should we include dark mode in the first release?,Discussion,,
+21,10.0,Rahul,,"Personally, I'd postpone it.",Discussion,,
+22,11.0,Neha,,Agreed.,Decision,,
+23,11.0,Neha,,Better to stabilize the main features first.,Discussion,,
+24,12.0,Aarav,,"Okay, dark mode moves to Phase 2.",Decision,,
+25,12.0,Aarav,,[10:25 AM] Aarav: Let's summarize.,Summary,,
+26,12.0,Aarav,,Homepage finalized.,Summary,,
+27,12.0,Aarav,,Dynamic APIs this week.,Summary,,
+28,12.0,Aarav,,Lazy loading for lower sections.,Summary,,
+30,13.0,Meeting Ended,,10:32 AM,Summary,,
+1,1.0,Riya,,Thanks for joining everyone.,Information,,
+2,1.0,Riya,,"We're less than a month away from the tech fest, so today we need to lock the major responsibilities.",Information,,
+3,2.0,Karan,,"The auditorium booking is confirmed, but we still don't have approval for the seminar hall.",Information,,
+4,3.0,Mehul,,Does that affect the coding competition?,Discussion,,
+5,4.0,Karan,,Slightly.,Information,,
+6,4.0,Karan,,"If we don't get the seminar hall, we'll have to use two classrooms instead.",Discussion,,
+7,5.0,Simran,,"That's manageable, but we'll need to update the promotional posters.",Action_Item,,
+8,6.0,Riya,,Okay.,Discussion,,
+9,6.0,Riya,,What about sponsors?,Discussion,,
+10,7.0,Mehul,,I've spoken with four companies.,Information,,
+11,7.0,Mehul,,Two have already shown interest.,Information,,
+12,7.0,Mehul,,One of them wants branding on stage and social media mentions.,Information,,
+13,8.0,Simran,,That's reasonable.,Discussion,,
+14,8.0,Simran,,We usually offer that in our Gold Sponsor package.,Information,,
+15,9.0,Riya,,Great.,Discussion,,
+16,9.0,Riya,,Let's proceed.,Decision,,
+17,10.0,Karan,,We also need volunteers.,Information,,
+18,10.0,Karan,,Right now we only have 18 registrations.,Information,,
+19,11.0,Riya,,We need at least 35.,Decision,,
+20,12.0,Simran,,I'll post another recruitment announcement tonight.,Action_Item,,
+21,13.0,Mehul,,One more thing.,Discussion,,
+22,13.0,Mehul,,Should we arrange participant certificates digitally or printed?,Discussion,,
+23,14.0,Karan,,Digital would save both time and budget.,Discussion,,
+1,1.0,Vivek,,I've collected around 200 meeting transcripts.,Information,,
+2,2.0,Sana,,Are they cleaned?,Discussion,,
+3,3.0,Vivek,,Not completely.,Information,,
+4,3.0,Vivek,,Some still have filler words and timestamps.,Information,,
+5,4.0,Rohit,,"Actually, I think we should keep some filler words.",Discussion,,
+6,4.0,Rohit,,Real meetings aren't perfectly structured.,Discussion,,
+7,5.0,Ananya,,Exactly.,Discussion,,
+8,5.0,Ananya,,It'll help the model generalize better.,Information,,
+9,5.0,Ananya,,[3:06 PM] Sana: What about the output format?,Discussion,,
+10,7.0,I'm thinking,,Summary Key Decisions Action Items Participants,Discussion,,
+11,8.0,Ananya,,Sounds good.,Decision,,
+12,9.0,Vivek,,Should we fine-tune an existing model or use prompt engineering?,Discussion,,
+13,10.0,Rohit,,Initially prompt engineering.,Decision,,
+14,11.0,Sana,,Then later fine-tuning if needed.,Decision,,
+15,11.0,Sana,,[3:15 PM] Ananya: Dataset size?,Discussion,,
+16,12.0,Vivek,,"Currently around 90,000 words.",Information,,
+17,13.0,Ananya,,Let's target at least 300 transcripts.,Decision,,
+1,1.0,Aditya,,Morning everyone.,Information,,
+2,1.0,Aditya,,Let's start with weekly updates.,Information,,
+3,2.0,Sneha,,Operations have been smooth except for delayed vendor payments.,Information,,
+4,3.0,Aditya,,Any reason?,Discussion,,
+5,4.0,Sneha,,Finance approvals took longer than expected.,Information,,
+6,5.0,Aman,,"Product-wise, we've released the new dashboard.",Information,,
+7,5.0,Aman,,Users are responding positively.,Information,,
+8,6.0,Ishita,,"Yes, although several users requested export-to-PDF functionality.",Information,,
+9,7.0,Aditya,,Is that technically feasible?,Discussion,,
+10,8.0,Aman,,"Yes, probably within the next sprint.",Discussion,,
+11,9.0,Sneha,,Customer support tickets also decreased by around 18% this week.,Information,,
+12,10.0,Aditya,,That's encouraging.,Discussion,,
+13,11.0,Ishita,,Most remaining tickets are feature requests rather than bugs.,Information,,
+14,12.0,Aditya,,Excellent.,Discussion,,
+15,13.0,Let's prioritize,,Export to PDF.,Action_Item,,
+16,13.0,Let's prioritize,,Mobile optimization.,Action_Item,,
+17,13.0,Let's prioritize,,Analytics improvements.,Action_Item,,
+18,13.0,Let's prioritize,,Meeting concluded after 28 minutes.,Summary,,
+1,1.0,Kavya,,Hi everyone.,Information,,
+2,1.0,Kavya,,Let's do a quick progress check before tomorrow's mentor meeting.,Information,,
+3,2.0,Nikhil,,I've completed the data preprocessing scripts.,Information,,
+4,3.0,Arjun,,Nice.,Discussion,,
+5,3.0,Arjun,,Any missing values left?,Discussion,,
+6,4.0,Nikhil,,Around 2%.,Information,,
+7,4.0,Nikhil,,I'm handling them using median imputation.,Information,,
+8,5.0,Pooja,,I've started exploratory data analysis.,Information,,
+9,5.0,Pooja,,Some interesting correlations showed up.,Information,,
+11,6.0,Kavya,,Can you prepare visualizations as well?,Action_Item,,
+12,7.0,Pooja,,"Yes, by this evening.",Action_Item,,
+13,8.0,Arjun,,I worked on the model pipeline yesterday.,Information,,
+14,8.0,Arjun,,Random Forest is giving around 88% accuracy.,Information,,
+15,9.0,Kavya,,Did you compare it with XGBoost?,Discussion,,
+16,10.0,Arjun,,Not yet.,Information,,
+17,11.0,Kavya,,Please do that before tomorrow.,Action_Item,,
+18,12.0,Nikhil,,Should we also prepare a presentation?,Discussion,,
+20,13.0,Kavya,,Our mentor prefers concise slides.,Information,,
+21,14.0,Pooja,,I'll take care of the design.,Action_Item,,
+22,15.0,Arjun,,I'll prepare the results section.,Action_Item,,
+24,16.0,Kavya,,Let's review everything tomorrow morning before the meeting.,Summary,,
+1,1.0,Aarav,36005.0,"Good morning, everyone.",Information,,
+4,4.0,Priya,36015.0,"Morning, everyone.",Information,,
+5,5.0,Ananya,36020.0,"Hi, everyone.",Information,,
+6,6.0,Aarav,36030.0,Let's begin.,Information,,
+7,6.0,Aarav,36030.0,Today's objective is to review the progress from last week's sprint and finalize the tasks for the upcoming release.,Information,,
+8,7.0,Rahul,36055.0,"From the backend side, the transcript upload API has been completed.",Information,,
+9,7.0,Rahul,36055.0,We also fixed the authentication issue that users reported last week.,Information,,
+11,8.0,Aarav,36084.0,Were all the reported bugs resolved?,Discussion,,
+12,9.0,Rahul,36095.0,Almost all of them.,Information,,
+13,9.0,Rahul,36095.0,Two edge cases related to large file uploads are still pending.,Information,,
+14,10.0,Aarav,36118.0,"Okay, we'll come back to those.",Decision,,
+15,11.0,Neha,36135.0,The meeting summarization model is performing better after the latest prompt optimization.,Information,,
+16,11.0,Neha,36135.0,Accuracy has improved during our internal evaluation.,Information,,
+17,12.0,Aarav,36167.0,Did you test it on longer meeting transcripts?,Discussion,,
+19,13.0,Neha,36178.0,"Meetings up to thirty minutes are working well, but summaries become slightly inconsistent for recordings longer than an hour.",Information,,
+20,14.0,Priya,36215.0,Would chunking the transcript help?,Discussion,,
+21,15.0,Neha,36229.0,"Yes, that's exactly what we're planning to test this week.",Action_Item,,
+22,16.0,Aarav,36260.0,Good suggestion.,Discussion,,
+23,17.0,Ananya,36270.0,"From the QA side, we've completed testing on Chrome and Edge browsers.",Information,,
+24,18.0,Aarav,36295.0,Any issues?,Discussion,,
+25,19.0,Ananya,36302.0,Nothing major.,Information,,
+26,19.0,Ananya,36302.0,We noticed a small formatting issue in exported PDF reports.,Information,,
+27,20.0,Priya,36328.0,I can fix that today.,Action_Item,,
+29,22.0,Priya,36365.0,The dashboard redesign is almost complete.,Information,,
+30,22.0,Priya,36365.0,I added a cleaner transcript viewer and improved the navigation menu.,Information,,
+31,23.0,Rahul,36400.0,I saw the latest build yesterday.,Information,,
+32,23.0,Rahul,36400.0,It definitely feels much smoother.,Discussion,,
+33,24.0,Aarav,36425.0,Can we deploy the UI changes before Friday?,Discussion,,
+34,25.0,Priya,36440.0,"Yes, provided no new bugs are found.",Decision,,
+35,26.0,Ananya,36462.0,I'll finish regression testing by Thursday evening.,Action_Item,,
+37,28.0,Rahul,36510.0,I also think we should optimize transcript loading because larger meetings take several seconds to open.,Discussion,,
+38,29.0,Neha,36538.0,That's true.,Discussion,,
+39,29.0,Neha,36538.0,We can implement lazy loading for transcript sections.,Discussion,,
+40,30.0,Priya,36560.0,That should also improve scrolling performance.,Discussion,,
+41,31.0,Aarav,36585.0,Let's include that in this sprint.,Decision,,
+42,32.0,Aarav,36615.0,Any updates regarding multilingual support?,Discussion,,
+43,33.0,Neha,36635.0,We've started testing English-Hindi mixed conversations.,Information,,
+44,34.0,Rahul,36658.0,"Initial results look promising, although speaker separation still struggles when multiple people interrupt each other.",Information,,
+45,35.0,Ananya,36700.0,I'll include those cases in the next testing cycle.,Action_Item,,
+46,36.0,Aarav,36730.0,Good.,Discussion,,
+47,37.0,Priya,36745.0,Can we also add a dark mode option in the next release?,Discussion,,
+48,38.0,Rahul,36768.0,I'd recommend postponing it until after the performance improvements.,Discussion,,
+50,39.0,Neha,36795.0,Performance should be our priority.,Discussion,,
+51,40.0,Aarav,36815.0,Alright.,Decision,,
+52,40.0,Aarav,36815.0,We'll move dark mode to the next sprint.,Decision,,
+53,41.0,Aarav,36860.0,Let's assign responsibilities.,Decision,,
+54,42.0,Rahul,36875.0,I'll optimize the transcript loading performance.,Action_Item,,
+55,43.0,Priya,36898.0,I'll fix the PDF formatting issue and complete the dashboard redesign.,Action_Item,,
+56,44.0,Neha,36928.0,I'll continue testing transcript chunking and multilingual summarization.,Action_Item,,
+57,45.0,Ananya,36955.0,I'll complete regression testing and prepare the QA report.,Action_Item,,
+59,47.0,Aarav,37000.0,Let's target Friday evening for code freeze.,Decision,,
+60,48.0,Rahul,37018.0,That works for me.,Decision,,
+61,49.0,Priya,37028.0,Same here.,Decision,,
+62,50.0,Neha,37035.0,No issues from my side.,Information,,
+63,51.0,Ananya,37045.0,Works for QA as well.,Decision,,
+64,52.0,Aarav,37070.0,"Before we close, does anyone have any additional concerns?",Discussion,,
+65,53.0,Rahul,37090.0,Nothing from my side.,Information,,
+66,54.0,Priya,37098.0,All good.,Information,,
+67,55.0,Neha,37105.0,No additional updates.,Information,,
+68,56.0,Ananya,37120.0,Everything is covered.,Information,,
+70,57.0,Aarav,37145.0,"Thanks, everyone.",Summary,,
+71,57.0,Aarav,37145.0,We'll meet again next Monday to review the sprint outcomes.,Action_Item,,
+72,58.0,Rahul,37165.0,Thank you.,Summary,,
+74,60.0,Neha,37176.0,See you next week.,Summary,,
+75,61.0,Ananya,37185.0,Bye.,Summary,,
+47437,,Speaker D,00:18:28,"Well, t we won't support teletext which which was the third-most the second-most used function.",Information,,TS3011b
+42041,,Speaker B,00:40:38,"Oh yeah, it's not connected to the",Discussion,,TS3007b
+13926,,Speaker A,00:10:36,"Oh, have you been home yet? They'll be like, say something British, and you're like oh shut up family.",Information,,ES2009a
+36313,,Speaker D,00:04:54,I can see it now.,Discussion,,TS3004a
+18795,,Speaker D,00:40:06,"Yeah. Well, we were finding out various things in",Discussion,,ES2014d
+47248,,Speaker B,00:19:07,They're very vu vulnerable.,Discussion,,TS3011a
+23189,,Speaker D,00:36:38,"Okay, me I put two to American Beauty",Discussion,,IB4011
+21167,,Speaker C,00:07:13,"Yes, I'm doing a P_H_D_. Yes. Officially. .",Discussion,,IB4002
+39857,,Speaker A,00:16:19,we can go ahead with what we have. I will summarise the things we discussed and put it in the project folder.,Discussion,,TS3006a
+26793,,Speaker B,00:03:22,"So I see all everybody's here, 'kay.",Discussion,,IS1000b
+9047,,Speaker B,00:00:10,Are we we're not allowed to dim the lights so people can see that a bit better?,Information,,ES2004a
+45507,,Speaker B,00:20:27,Well this is a terrible,Information,,TS3009c
+36616,,Speaker B,00:14:59,I dunno. I don't have I did,Discussion,,TS3004b
+14271,,Speaker B,00:15:47,I know. It's fun.,Discussion,,ES2009c
+16802,,Speaker A,00:28:28,Oh no that well there's the sim my my idea was something a b probably you know a bit fatter than this but sort of tha that sorta shape so that you can just sort of ho hold it.,Information,,ES2012c
+16065,,Speaker A,00:26:11,"talk about? Oh when we move on, you two are going to be playing with play-dough.",Action_Item,,ES2011c
+27484,,Speaker A,00:23:32,Give it a one? Yep.,Discussion,,IS1000d
+13608,,Speaker B,00:22:50,"Well, are we talking about on each colour combination or are we, you know, we'll like we'll have yellow and black. Is that two special colours?",Information,,ES2008d
+3685,,Speaker A,00:19:36,I mean I think the Informatics are definitely worth asking. th there's there's C_S_T_R_ and H_C_R_C_.,Discussion,,EN2003a
+15022,,Speaker C,00:27:22,And then add a,Discussion,,ES2010b
+12255,,Speaker D,00:25:59,"But if it's a R_R_, it would be Real Reaction, like if it had a symbol on it.",Action_Item,,ES2007b
+41750,,Speaker A,00:21:39,"But we have to keep an eye that it's at the beginning of such a project, it's it's it's very cool to talk about, well, this would be cool, that would be cool. but we must not lose sight of the the user friendly",Action_Item,,TS3007a
+18327,,Speaker A,00:26:53,"Was that in the sort of fashion sense that this Or was the spongy feel was that sort of fashion? It was, wasn't it? So the",Information,,ES2014c
+3482,,Speaker B,00:28:44,"But at the beginning, it when you haven't searched yet, is it is it just is it still divided into two and the bottom half is just just empty? Okay.",Information,,EN2002d
+35111,,Speaker D,00:11:37,And this brings the menu up on the screen? This brings the menu up on the screen and the orange ones are,Information,,IS1009d
+38662,,Speaker C,00:21:43,"Yeah, three quarters. So so you don't have to put your oh.",Discussion,,TS3005c
+40963,,Speaker A,00:09:28,"Yeah, and even if we drop three buttons from here, we still have to make some adjustments around here. So",Discussion,,TS3006d
+38583,,Speaker B,00:13:19,"I forgot that one. I thought I forgot something, but . And and the numbers, that should be a bit larger I think it's not really on scale and and so forth. an options button. And I thought the the button for teletext apar apart because it's not really options, I think. It's options is the settings of the remote and of the T_V_ and that kind of thing. So could call it settings or something. But this is a bit how I thought it. And the L_C_D_ somewhere on the remote. Perhaps we could be more curvy the remote perhaps should,",Discussion,,TS3005c
+22716,,Speaker D,00:38:36,"Yeah, it's his family name and actually Jeffrey Lebowski and he's he's the there is a a story with another Lebowski that yeah.",Information,,IB4010
+32237,,Speaker B,00:17:22,According to the distance. Yeah yeah yeah.,Information,,IS1006b
+5750,,Speaker B,00:29:04,That's not a separate source.,Discussion,,EN2006b
+21760,,Speaker A,00:10:50,"Okay, so we would prefer the names. Okay I I don't want to influence you too much, but mm I'm perfectly happy to start with this as the basis and then change things.",Information,,IB4004
+8162,,Speaker B,00:27:34,Very good. what about leadership?,Discussion,,ES2002d
+32908,,Speaker C,00:21:58,"Yeah. Then it automatically we can just do like you feel, it goes. And it will activate , plus, yeah, it's price is really",Information,,IS1006d
+27578,,Speaker B,00:29:13,"Yes, exactly like it. , so",Discussion,,IS1000d
+35625,,Speaker D,00:31:32,"And it wouldn't have to be touchscreen or a very expensive screen, but",Discussion,,TS3003b
+25244,,Speaker B,00:26:34,"Oh well, it's it has been used for speech coding. Nob nobody use it for recognition stuff I think, I never heard that.",Discussion,,IN1012
+20316,,Speaker A,00:05:55,Marketing? We're watching trends. I suppose that you can have this.,Information,,ES2016c
+31483,,Speaker A,00:01:28,"So I dunno, you can starts.",Discussion,,IS1005a
+11816,,Speaker A,00:26:11,I think it mm,Discussion,,ES2006d
+3863,,Speaker B,00:14:20,"Yeah. Well, I wouldn't bother to mark all of those instances though.",Discussion,,EN2004a
+14632,,Speaker A,00:27:59,I dunno about you guys but I felt like,Discussion,,ES2009d
+36062,,Speaker A,00:20:59,"So we make one for the volume, one for the channel.",Discussion,,TS3003d
+22875,,Speaker B,00:05:50,"It's it's hard to tell. So that's your impression. Yeah. That's mine, but",Discussion,,IB4011
+37855,,Speaker C,00:33:21,"Yeah, just brainstorming basically.",Summary,,TS3004d
+11313,,Speaker B,00:15:15,"Oh, it's like the iPod.",Discussion,,ES2006c
+38659,,Speaker B,00:21:36,Yeah it it's supposed to be bit s bit s bit Yeah.,Discussion,,TS3005c
+15707,,Speaker A,00:14:19,wha what well probably our target group and how it's gonna going to appeal to our target group and I dunno the the s the buttons and what it does and that sort of thing. So.,Action_Item,,ES2011b
+15357,,Speaker A,00:06:07,"Alright, average is two.",Information,,ES2010d
+35719,,Speaker A,00:15:44,So these are the points we have to discuss.,Information,,TS3003c
+21766,,Speaker A,00:11:21,"Mm-hmm. Or actually, Pierrette is a woman too. Yeah, it's the feminine of Pierre.",Information,,IB4004
+28093,,Speaker A,00:27:46,Yeah. Maybe switch T_V_ on and off,Discussion,,IS1001b
+23399,,Speaker A,00:28:12,"okay, so maybe like here for instance it is a just reproduced two times .",Discussion,,IN1001
+12556,,Speaker A,00:36:36,Okay. right well. It's we're we've still couple of minutes until our meeting's due to finish.,Information,,ES2007c
+18297,,Speaker C,00:21:51,and I think that's all I had to say for that.,Discussion,,ES2014c
+10036,,Speaker A,00:02:24,"'Cause I I know as you add more buttons to the remote it sometimes gets so big and clunky and there's just like a hundred buttons on it, or you could have a really small slim one but then you could lose it easily.",Discussion,,ES2005a
+29657,,Speaker C,00:03:09,"Yeah. It's hard f i it's easy for you to remember it. Or to recognise it, yeah.",Information,,IS1003c
+49181,,Speaker A,00:30:06,"Okay, so we want the remote to be the s the side view actually, what I'm gonna draw. So",Discussion,,TS3012c
+15064,,Speaker C,00:05:43,"Okay, looking at the interface concept, it's gonna be mostly examples of possibilities of where we can go with this. if you wanna start the next slide.",Information,,ES2010c
+18911,,Speaker D,00:08:03,"-oh, we have a good artist.",Information,,ES2015a
+13134,,Speaker D,00:36:56,"But if I open it and then save it, probably will be there. Oh wait, never mind you can't save it to the",Discussion,,ES2008b
+21932,,Speaker A,00:26:21,"Except that we cannot read it, but",Discussion,,IB4004
+14526,,Speaker A,00:19:18,What do you guys feel about the process?,Discussion,,ES2009d
+34209,,Speaker B,00:25:10,the only thing that I saw missing from your your research that we found was this ability to find the doggone thing when you need it.,Information,,IS1008b
+15903,,Speaker B,00:10:56,"They have to r wheel really fast. But I think the wheel goes through like a hundred channels, at least on theirs.",Discussion,,ES2011c
+33957,,Speaker A,00:06:26,"Yeah, but before we talk about the finance, okay, do you have some idea how we can sell this product or project in the market and how much is going to benefit to the company and of course it's to the individual also.",Action_Item,,IS1008a
+37816,,Speaker D,00:30:09,the prices could be twenty Euros or something now. And then,Discussion,,TS3004d
+9138,,Speaker A,00:13:35,You mean to save it lesser number.,Discussion,,ES2004a
+45774,,Speaker B,00:37:19,"the fourth one is empty, isn't it? Yeah.",Information,,TS3009c
+10541,,Speaker C,00:25:09,"Yes, or maybe it's just going a bit too far. I mean we are pushing it probably with funny fruit shapes. don't wanna sort of overkill.",Discussion,,ES2005c
+30292,,Speaker B,00:25:13,"The solar cells, r is i is it?",Information,,IS1003d
+11957,,Speaker A,00:08:26,I honestly can't draw for toffee. .,Discussion,,ES2007a
+42868,,Speaker D,00:39:43,You have now ten minutes left to finish up the end report.,Information,,TS3007d
+1480,,Speaker B,00:51:06,I think it would be cool if we could check the NITE clock f code or whatever code it is for this component and see if we can access those rate things and and do something useful with them and get notified when they change and stuff.,Discussion,,EN2001d
+43575,,Speaker A,00:12:59,"I think yeah, I don't know why, but I think that is that's t trendy too, because that's the mo it it you know, it's acc acc accentu , how do you say it?",Discussion,,TS3008c
+37782,,Speaker D,00:27:18,Yeah. So we are,Information,,TS3004d
+13701,,Speaker C,00:30:18,Break the stem off.,Discussion,,ES2008d
+22335,,Speaker D,00:05:06,"It's the bald guy, the",Discussion,,IB4010
+45155,,Speaker D,00:30:17,Th that's not a problem. When I draw here it Oh. Huh?,Discussion,,TS3009b
+43951,,Speaker C,00:04:15,It's a television. Yes.,Information,,TS3008d
+376,,Speaker E,00:53:43,Okay. Wh what connection do you have at home?,Discussion,,EN2001a
+16949,,Speaker D,00:10:48,So and also technologically innovative?,Discussion,,ES2012d
+1792,,Speaker A,00:41:00,No. it's only if they're used in different contexts.,Discussion,,EN2001e
+8323,,Speaker B,00:12:01,Okay. Now we better actually just get on with the the meat of the project. So I'm gonna guess that we've all used remote controls.,Discussion,,ES2003a
+34140,,Speaker B,00:16:13,so that y you know sen send power to it.,Discussion,,IS1008b
+17666,,Speaker B,00:19:37,"Yeah, I think they're different, aren't they?",Discussion,,ES2013d
+23826,,Speaker D,00:26:09,"No, RAID five is better, I think. It l it levels.",Discussion,,IN1002
+4596,,Speaker D,01:20:38,"you know, taken you know, the good features from, you know, both sides and and tried to put them together.",Discussion,,EN2005a
+19519,,Speaker A,00:01:23,"gave it. And talk about our finances, whether we were under or over our budget. I have a a spreadsheet where we can calculate our prices for every aspect of of what we've made, given our options. And evaluate the product, as a group. And",Discussion,,ES2015d
+19919,,Speaker C,00:02:19,"Hiya, I'm Ryan. I'm the User Interface Designer. likewise I've three different roles for each stage of design. the functional design is looking at the tex technical functions of a remote control. in the concept design, the user interface, how the user reacts with the the product. And the detailed design sort of like the user interface design, what they might be looking for, things like fashions, what makes wha how we're gonna make it special.",Discussion,,ES2016a
+7381,,Speaker D,00:12:02,Do we have any other background information on like how that compares to other,Discussion,,ES2002a
+16851,,Speaker A,00:33:36,"a custom chip, but given the the we've cut the functions down, that will hopefully not be too problematic, but given that technol technological innovation is important, then we need to, I'll say it again, technologically innovate.",Action_Item,,ES2012c
+12171,,Speaker A,00:15:14,"which I think it probably should be, even if it's a physical, you know, a f a like a f a physical switch or a physical cover for the remote, even something like that, then yes, it's like, you know, like s you said earlier on ab ab ab a flip thing, something like that, but you know being physical. Look into. I've had word down from head office that something that we should be centred well, something we should take into account is we've gotta keep the corporate image within this remote control unit. It's gotta d look like it's in the R_ and R_.",Discussion,,ES2007b
+24059,,Speaker D,00:15:28,"And if it should improve it, if you say this feature extraction process is better than you can have a better cleaner separation between those two.",Action_Item,,IN1005
+29915,,Speaker B,00:28:01,"I think the supplement can be the voice. It is just, you know, it is not the most important, but",Discussion,,IS1003c
+48971,,Speaker A,00:12:56,Looks like a Star Trek phaser.,Discussion,,TS3012c
+47192,,Speaker A,00:07:41,"Yep. Current colour, you can choose another colour. And for example",Decision,,TS3011a
+43791,,Speaker D,00:29:48,That's way too Nokia.,Discussion,,TS3008c
+22727,,Speaker D,00:39:47,"so y y I don't know if you you cannot really see, but mm there is the the pricing information. So we said that one movie is eight Francs and three movies eighteen Francs. And we can have annual subscrip subscription of sixty Francs.",Information,,IB4010
+17307,,Speaker C,00:34:31,"Alright, well that's fine then.",Discussion,,ES2013b
+2818,,Speaker C,00:15:01,Are you serious? That's a,Information,,EN2002c
+19362,,Speaker B,00:19:57,"I think it would be possible. I don't think it would make that much difference. I mean, the the dimensions of it. 'Cause if it's just like constructed in the same way as like the front cover of a mobile phone. You can like take off the hard cover and then there's the like say the buttons. And then you get to the circuit. I don't think it would matter that the buttons were bigger through the, the top casing. I'm sure you could f work it out to fit in the casing, without causing too much difficulty. I'm sure that'd be fine.",Discussion,,ES2015c
+7804,,Speaker B,00:34:15,"S so like cur slightly transparent case, so it's yellow, like tinted yellow, but you can maybe see through it. Is that what you mean?",Discussion,,ES2002c
+30385,,Speaker A,00:31:53,"Yeah th no, it's the it's the pineapple control remote control. It's a pineapple now, it has changed. It's a pineapple. Pineapple.",Discussion,,IS1003d
+46524,,Speaker D,00:20:16,"the second group is the older group. Aged between forty six and sixty five. They are less interested in new features. But they spend their money more easily. Now if we look back at this graph, we can see that among the first group is about sixty percent. And the second group about forty percent.",Information,,TS3010b
+4008,,Speaker C,00:30:43,Well it could be she would or should as well. Yeah.,Discussion,,EN2004a
+48235,,Speaker A,00:32:14,"no. Yeah, the project is evaluated. but, well, we need to redesign the product.",Action_Item,,TS3011d
+14012,,Speaker A,00:18:46,"all right. So. I li I'm liking that idea, this idea of a touch screen remote with multi-format features. .",Information,,ES2009a
+42457,,Speaker D,00:10:29,During the design design life-cycle we,Discussion,,TS3007d
+12108,,Speaker B,00:05:13,Are we getting i,Information,,ES2007b
+33533,,Speaker D,00:24:39,Yeah that has to be checked out.,Discussion,,IS1007c
+27585,,Speaker A,00:30:20,Mm. There's n yeah. 'Cause that's the that's the feature that could be included in either of them. Although it is more with the spongy buttons on the,Discussion,,IS1000d
+26661,,Speaker C,00:10:58,you forget about it.,Discussion,,IS1000a
+40904,,Speaker B,00:04:46,But but th the cost of one integrated button is far more than a few extra push-buttons.,Information,,TS3006d
+17853,,Speaker A,00:11:36,And so depending what the the overhead costs are will determine how many units we're looking to sell or projecting to sell at this point in time. So,Discussion,,ES2014a
+46591,,Speaker A,00:30:40,Maybe in the menu?,Discussion,,TS3010b
+10497,,Speaker A,00:21:55,So it'd look like this kinda.,Information,,ES2005c
+13058,,Speaker A,00:29:29,"So our target group, we're saying, fifteen to thirty five?",Discussion,,ES2008b
+781,,Speaker C,00:16:15,So you mean an a an attribute. Yeah.,Discussion,,EN2001b
+11198,,Speaker C,00:31:58,"So that you can yell at it, yeah.",Discussion,,ES2006b
+4503,,Speaker B,01:06:28,"-huh. Dialogue act, yeah.",Discussion,,EN2005a
+48350,,Speaker A,00:09:51,Not sure where the p. Just put 'em here. Whatever.,Discussion,,TS3012a
+26802,,Speaker D,00:04:12,So y you are the secretary also. Right? Okay.,Information,,IS1000b
+40330,,Speaker A,00:37:36,Yeah it's a lot of pressure.,Discussion,,TS3006b
+4434,,Speaker D,00:54:42,"So I mean I think it's clear that something at this level needs to be there. I mean and to ask questions, like who disagreed or were there any counter proposals or whatever. Even those kind of questions you need some kind of mark-up like this.",Decision,,EN2005a
+122,,Speaker E,00:20:21,chunks representing the individual meetings or some,Discussion,,EN2001a
+3735,,Speaker A,00:27:51,"Might even have to come in in the evening. But that's not the end of the world, but we might have to set some things up. Like maybe just get the chairs organised or whatever. We might actually have to go into the rooms and get things ready. And there's gonna be other things like getting the technology ready. So not only is there a pressure to have",Discussion,,EN2003a
+41456,,Speaker D,00:40:57,It's not very ideal.,Discussion,,TS3006d
+39437,,Speaker C,00:28:12,"You lose this one, you got eleven point five and you make i and then you can make the spec single curve, for example.",Information,,TS3005d
+11659,,Speaker C,00:15:27,"All of the components have been used in other things before. But do yeah, yeah.",Discussion,,ES2006d
+25332,,Speaker A,00:36:56,But maybe my have a f for publishing another paper or something.,Discussion,,IN1012
+45032,,Speaker B,00:20:59,For instance you couldn't see this.,Discussion,,TS3009b
+32954,,Speaker B,00:24:48,"So, was there result? Let's have a look.",Discussion,,IS1006d
+43943,,Speaker B,00:03:45,"Yeah well, I don't have time in anymore on the",Discussion,,TS3008d
+23579,,Speaker C,00:50:30,"Yes. Yes. so just last question maybe, so this makes a X_M_L_ file. Okay. This is the the programme to to generating the X_M_L_ file and the the shot. And with the kayak you have one problems, you don't have the Real Media, so this is another thing.",Discussion,,IN1001
+725,,Speaker B,00:10:05,No but w like so they are they are segments in what sense? Wh what's definition of a segment then?,Discussion,,EN2001b
+45704,,Speaker C,00:33:44,"Yeah it it should be hard on the on the on the board, and you can remove the front.",Discussion,,TS3009c
+1821,,Speaker A,00:45:02,But actually this all here is N_L_S_S_D_ because it was data A_ that didn't fit on my quota anymore. Okay.,Information,,EN2001e
+33857,,Speaker D,00:28:07,On the same P_C_B_ yeah yeah.,Discussion,,IS1007d
+15082,,Speaker B,00:09:31,It'll be copy of component design.,Discussion,,ES2010c
+49111,,Speaker B,00:25:12,L_C_D_ screen. This is the on off button.,Information,,TS3012c
+18737,,Speaker B,00:33:21,"Yeah, maybe we've m",Discussion,,ES2014d
+40604,,Speaker A,00:25:34,"Yeah. So the keywords are primary co colours, spongey?",Information,,TS3006c
+13272,,Speaker C,00:24:29,"Oh, I see, right, yeah. Oh, okay. Yeah, that's quite a good design.",Discussion,,ES2008c
+8569,,Speaker D,00:07:40,gonna spend the money,Discussion,,ES2003c
+42862,,Speaker A,00:39:02,"well, just about, because",Information,,TS3007d
+20344,,Speaker C,00:11:15,"I was sent some information from the company saying that they, the technology department have devised a new speech recognition technology, where you can program questions into such devices.",Information,,ES2016c
+29567,,Speaker A,00:18:36,But this was first step and,Information,,IS1003b
+36267,,Speaker A,00:40:51,Then we still have some questions. If somebody has some questions they can ask them now. Or we can put these in the project folder as well. Maybe that's,Discussion,,TS3003d
+42442,,Speaker C,00:09:02,"Yeah. Yeah, maybe yeah, perhaps you're right. , I I would I would actually agree with this sounds logical.",Decision,,TS3007d
+7151,,Speaker A,01:04:03,Okay. So what you're planning on doing it is bunging it on one of the Camtasia tracks and then splicing it off the Camtasia track.,Discussion,,EN2009d
+35695,,Speaker B,00:09:53,"And and for shifting up a sen c ch channel or for putting out sound or something, you can just give a sign say sound off or",Discussion,,TS3003c
+31873,,Speaker D,00:18:26,"So if we use s solar cells, where is the sun if someone's watching T_V_ inside?",Information,,IS1005c
+37706,,Speaker B,00:22:26,"Just save, save as?",Discussion,,TS3004d
+11173,,Speaker C,00:28:40,"Yeah, if we ta if we take fifteen to thirty five, but that then does imply that we should try and incorporate voice recognition. Is that gonna have a an implication for the technical specs?",Discussion,,ES2006b
+9566,,Speaker A,00:26:16,So basically not point or click,Summary,,ES2004c
+24384,,Speaker B,00:24:00,Yeah. I think Hynek has got ma many papers or some papers over that. So Oh. In I think I read it.,Discussion,,IN1007
+23639,,Speaker B,00:04:34,"the the difference is that we do one more step, maybe I can explain it better there. So we do one more step here, and we here by means of another H_M_M_ we introduce some kind of prior knowledge and contextual information, we get better evidences than what i we initially had here, and then we do the decoding and the and s more informative posteriors instead of this one.",Discussion,,IN1002
+21568,,Speaker A,00:20:39,"Yeah, hopefully visitors don't need as much say filing space, or Yeah, they don't have that many papers. okay. So that's I have to to ask, so you don't really feel very strongly attached to this grouping by projects idea? Mm-hmm.",Information,,IB4003
+35805,,Speaker A,00:26:41,maybe you can make a little drawing of it on the,Discussion,,TS3003c
+31356,,Speaker C,00:22:55,"So we have the regular chip on the print, which is one.",Information,,IS1004d
+26909,,Speaker D,00:17:36,So the the main components you see here are the cheapest I have found and,Information,,IS1000b
+32787,,Speaker B,00:14:00,"It's a jog dial for controlling the cursor on the L_C_D_ screen. Like, selecting the menus.",Discussion,,IS1006d
+46191,,Speaker D,00:25:39,"This this this isn't a SMARTboard, right?",Information,,TS3009d
+14200,,Speaker B,00:03:01,", the case, we have a few options, plastic, rubber or wood. and then as far as the way it's shaped, we can do standard boring flat, which we probably don't wanna do, curved or very sexy double curved.",Information,,ES2009c
+34827,,Speaker B,00:24:54,Timer. Yeah and then you can use a timer as well.,Discussion,,IS1009b
+49660,,Speaker C,00:32:53,I think I like it like this more.,Discussion,,TS3012d
+45994,,Speaker D,00:14:27,"Right, R_ R_S_I_ sensitive?",Discussion,,TS3009d
+3025,,Speaker A,00:38:46,"Yeah. Yeah, that sounds good.",Discussion,,EN2002c
+26495,,Speaker C,00:49:36,"That's the intention, yep.",Discussion,,IN1016
+47464,,Speaker A,00:21:38,"Yeah, draw draw it on the board.",Discussion,,TS3011b
+18178,,Speaker A,00:08:50,with the printed circuit boards you were going for the,Discussion,,ES2014c
+6072,,Speaker B,00:07:23,"-huh, okay. Very nice, very pretty. It doesn't get in the way of seeing what's underneath?",Discussion,,EN2009b
+48172,,Speaker A,00:25:43,Okay. we'll go further on with the the rest of the evaluation.,Discussion,,TS3011d
+4880,,Speaker B,00:19:36,Silicone two is an element rather than a,Information,,EN2006a
+29009,,Speaker A,00:31:20,"But you've gotta think who our target market is because I I'm not our target market. I'm a student, but",Discussion,,IS1002c
+42282,,Speaker C,00:29:51,"Yeah, that's true. That's true, but at same instant, same happens when you have remote control. So",Discussion,,TS3007c
+36515,,Speaker A,00:02:34,How do I I escape this s presentation?,Discussion,,TS3004b
+20809,,Speaker B,00:07:47,Yeah. I mean the rooms aren't tiny if you look at the this,Information,,IB4001
+6046,,Speaker C,00:03:50,"Wh a spare head? Or yes, but she's not around. So",Information,,EN2009b
+28603,,Speaker D,00:18:47,"Is that for over here? Okay, alright.",Information,,IS1002b
+42593,,Speaker B,00:19:12,Yeah? Cau 'cause so it's okay.,Discussion,,TS3007d
+20681,,Speaker A,00:18:29,Maybe it's one because of the,Discussion,,ES2016d
+25414,,Speaker A,00:44:48,"Mm yeah. Yeah yeah, Fes yeah, I think I think you can do the Festival, you can just call like this there are different kind of again, how you call the Festival, so you can just give the full there is an too. So then you will get the all the caller and other things. If if you want to like read full text, then you can say like the full text, like those syntax and then it will speak till it finishes the text.",Discussion,,IN1012
+20237,,Speaker A,00:32:34,"If you, if we want the remote to do other things like or I guess the T_V_ to be able to change the tint and the colour and you know all those kind of things that are built into T_V_s, we just have that under one standard menu button where you go in, press the menu button, scroll up and down to select it.",Information,,ES2016b
+38579,,Speaker B,00:12:53,"I tried to the L_C_D_ screen I tried to sort of to draw. I thought at least the icon for the volume. I don't know if there is an icon for the program, but yeah. So and then the buttons above and below the and the and the mute button also recognisable as an icon.",Information,,TS3005c
+14653,,Speaker B,00:29:30,"That was pretty cool, it was a high moment of the whole experiment.",Discussion,,ES2009d
+44303,,Speaker C,00:28:08,It's eighty percent of the price of the of the amount of,Discussion,,TS3008d
+2961,,Speaker C,00:31:33,"Like if you're looking for something speci like, is that what you're thinking? Like if they if they know exactly where they wanna go, they wanna go to, you know, that meeting on December third, and they just wanna go there and see stuff, then they can immediately go and browse that.",Discussion,,EN2002c
+15565,,Speaker A,00:11:56,"just like a magnet on the back of it and you could I mean j just to have some place to put it besides like a base. You know like a portable phone has a base, like just to have a home for it. 'Cause people just stick it on top of their T_V_, but the point of having a remote is not to have to walk over to the T_V_, so",Discussion,,ES2011a
+48489,,Speaker D,00:16:29,"Everyone wants to buy it, so we w yeah.",Discussion,,TS3012b
+5874,,Speaker C,00:38:06,"Yeah yeah, we aren't gonna make it to our second cookie break.",Information,,EN2006b
+16264,,Speaker C,00:23:00,Yeah the broccoli I guess wins.,Discussion,,ES2011d
+13956,,Speaker B,00:12:11,"Yeah, my grandparents lived on thirty second.",Information,,ES2009a
+16002,,Speaker D,00:20:30,Yeah I was thinking of getting a cover for,Discussion,,ES2011c
+31923,,Speaker B,00:24:49,"Yeah, m maybe the banana could be like a bit fatter than than the c c common one. But",Discussion,,IS1005c
+23218,,Speaker D,00:38:17,We still have to decide for next meeting and we're all set.,Decision,,IB4011
+4554,,Speaker B,01:14:38,"Oh yeah. Oh, I don't even know which one I've missed. Brussels, Amsterdam. T_N_O_, okay. See, I wasn't there. So I don't know where it was.",Information,,EN2005a
+29522,,Speaker A,00:13:18,"We've made a study, so could you go to next slide. Sorry for the functional recurrence. So that's the standard method for marketing, okay. We had one hundred subjects, , we observe their remote control use in a lab and then after all the experiments they had to fill up a questionnaire, ,",Discussion,,IS1003b
+23121,,Speaker C,00:30:25,"But actually I'm I'm little bit missing th some information about our movie club, I think there should be some more information.",Discussion,,IB4011
+22781,,Speaker B,00:44:45,"so we have seven candidates. if you have a good short term memory that should be okay. Yeah. So Big Lebowski, Usual Suspects, Saving Private Ryan, Pulp Fiction, American Beauty, Schindler's List and Silence of the Lambs. So now let's vote. Should we vote just for one film or should each of us say give",Discussion,,IB4010
+30657,,Speaker C,00:26:23,So if we go with just the,Discussion,,IS1004b
+9021,,Speaker A,00:35:33,Such as it is.,Information,,ES2003d
+25163,,Speaker B,00:13:53,"O yeah, yeah, overlap.",Discussion,,IN1012
+6432,,Speaker C,00:18:50,i th in theory JAST is meant to have it every morning.,Information,,EN2009c
+46244,,Speaker D,00:28:22,"Well these chairs, man. Really great.",Discussion,,TS3009d
+45375,,Speaker C,00:08:39,"discmans for jogging and that those kind of devices, gaming devices, should define the characteristics of the device. But since we don't have a really a sports or gaming device, so we don't really have to consider that.",Discussion,,TS3009c
+15312,,Speaker D,00:03:30,"Alright. so these are the criteria we're gonna ask, is it easy to use, is it fashionable yeah, I guess we should write these down so we can reference them.",Discussion,,ES2010d
+18600,,Speaker C,00:21:24,"Yeah, it's got the cherry and the sponginess.",Discussion,,ES2014d
+27901,,Speaker C,00:02:49,What do you have in short cut?,Summary,,IS1001b
+42315,,Speaker C,00:32:37,"Yeah. That is true, that is true.",Information,,TS3007c
+2523,,Speaker D,00:09:43,"Oh. Well if we're skipping the audio one, and then things got easier.",Discussion,,EN2002b
+43830,,Speaker D,00:32:06,"Oh, yeah. Okay, yeah.",Discussion,,TS3008c
+9428,,Speaker A,00:06:03,Fine. It's okay with me.,Discussion,,ES2004c
+18024,,Speaker A,00:23:35,"Yeah. I dunno talking about vo I mean obviously if you've got voice recognition then you can do it in that way because it'll recognise the voice and you can give it a command, a set command whatever that happened to be. But you've then got the point if if you're not going with voice recognition then",Discussion,,ES2014b
+34733,,Speaker D,00:08:30,"And, in order to make it really sellable we've gotta shorten the learning curve, make sure it's really intuitive and easy to use. We have to have as few buttons as possible, because more buttons is more confusion, so that's why I'm saying, simplicity is good. Finding it's important, obviously you can't use it if you can't find it. So we've gotta concentrate on the features that help you find it, and I've already said this several times but I put it down in writing here, it should be an attractive impulse purchase at twenty five Euros. So it has to have enough value that when somebody looks at it they say, twenty five Euros I'm not gonna take that. Has to be so great that they're gonna say, twenty five Euros isn't much. and then maybe a motto, like we put fashion in electronics might be something we can use in our marketing campaign. Okay that's about it for me right now.",Discussion,,IS1009b
+4901,,Speaker C,00:21:01,"But saying that isn't the same as saying we've seen that in a spectrum, whereas a broad line quasar, someone has looked at it and they've seen a broad line.",Information,,EN2006a
+33866,,Speaker D,00:29:07,Do you require different types of P_C_B_s and,Discussion,,IS1007d
+28217,,Speaker A,00:07:51,To have the light always on?,Discussion,,IS1001c
+1016,,Speaker A,00:50:01,Yep. Should be possible.,Discussion,,EN2001b
+42958,,Speaker D,00:02:18,"Come on, move it.",Discussion,,TS3008a
+11338,,Speaker B,00:19:43,"And i it would be like I mean if you could make it integrate with the T_V_ then it could come up with new information about what's on, and you could just see that on the remote rather than",Discussion,,ES2006c
+6322,,Speaker B,00:04:04,"Yeah. No, I'm just try I'm trying to l think of the things that could go wrong. but since I haven't tried it this particular way, you know, but yeah, that sounds good. So i so you say we haven't finalised what the G_D_F_ looks like. Is that an implicit request for me to do something? Or",Discussion,,EN2009c
+14836,,Speaker A,00:06:50,Alright. Now we have Courtney with the functional requirements.,Discussion,,ES2010b
+4504,,Speaker D,01:06:32,"And I mean it seems to me that chunking should have some kind of so if if your dialogue act segmenter says there's there's a segment here, but your chunker said no, this is a coherent chunk, then y y you know, w I mean maybe they could work together to do a better job than",Discussion,,EN2005a
+21096,,Speaker D,00:01:39,go through that first.,Discussion,,IB4002
+364,,Speaker E,00:52:31,"Yeah, if you if you enter the big room, in the right-hand corner, I think. the thing is like you can only burn from the local file-system. So if it's from s well actually I think if it's mounted, you can directly burn from there, but the problem is I have my data on beefy and so I have to get it into the local temp directory and burn it from there. But you can burn it from there.",Discussion,,EN2001a
+31362,,Speaker A,00:23:21,Okay so I'll remove it.,Discussion,,IS1004d
+42903,,Speaker C,00:42:33,"It's not double. , it's not double anymore, eh?",Discussion,,TS3007d
+5696,,Speaker B,00:24:33,I think that's right.,Discussion,,EN2006b
+9301,,Speaker D,00:25:21,"Do we have to initially , you know looking at the findings here, focus on",Discussion,,ES2004b
+30598,,Speaker B,00:14:55,'Cause the thing is what a what we the presen this presentation we had is what we want the remote control to actually do. And obviously the the simplest thing that a remote control does is it just change the change the channel. Now,Discussion,,IS1004b
+24144,,Speaker A,00:31:27,"Like this, yeah, mm mm mm, okay.",Information,,IN1005
+4749,,Speaker C,00:08:07,I don't remember what we were doing with nebulae.,Discussion,,EN2006a
+12862,,Speaker C,00:13:21,or should we just stick to just stick to having television television related buttons on it?,Discussion,,ES2008a
+25737,,Speaker B,00:33:30,. . Ok ok ok,Discussion,,IN1013
+14230,,Speaker C,00:08:27,"I like it, I like it.",Discussion,,ES2009c
+39056,,Speaker D,00:10:49,"Also huh -huh the buttons, are they easy to find? That was a big requirement of the old people.",Information,,TS3005d
+37151,,Speaker C,00:24:37,"Okay, then we we use m must use the second most expensive chip. So th so the regular chip. Because we use scroll wheels.",Action_Item,,TS3004c
+18009,,Speaker D,00:21:59,"Youn young people pref Yeah, they s they said that they'd be interested in a remote control which offered that possibility and as you go up through the age groups, people got less and less interested in sort of a a remote control that you could talk to, so.",Discussion,,ES2014b
+12061,,Speaker A,00:19:08,"whether it's what goes into the box, somehow.",Discussion,,ES2007a
+39038,,Speaker A,00:10:13,Well I'd say two on a scale,Discussion,,TS3005d
+38304,,Speaker D,00:24:52,"Yeah. After two minutes, yeah two three minutes, yeah.",Discussion,,TS3005b
+48243,,Speaker A,00:32:47,That sounds quite scary.,Discussion,,TS3011d
+19602,,Speaker A,00:08:42,something I'm going to,Action_Item,,ES2015d
+1737,,Speaker D,00:31:08,"No, I don't get that on my machine.",Discussion,,EN2001e
+6681,,Speaker C,00:06:04,"Th th th yeah, the it should still come out that the little sketch I asked this p for for last week about N_X_T_ and whether it would have that sort of tiered effect so you could see the overlap of where one person is looking compared to the other and their mouse movements and things. That that should ra address all that. Mm-hmm. But but because it's also in the i based on the the time course of the procedure you'll be able to basically get the scan path of the pattern of events from that as well.",Summary,,EN2009d
+1362,,Speaker B,00:36:23,"Yeah, so if I mean I don't mind where it's done. So if the data manager filters it out and like I just think that in in the logic of the programme it's it's much easier to justify why we say we treat a series of meetings as one single thing rather than w",Discussion,,EN2001d
+2930,,Speaker B,00:27:59,Depends how you treat your compound nouns.,Discussion,,EN2002c
+41683,,Speaker A,00:15:12,Do you have a rabbit at home?,Discussion,,TS3007a
+35602,,Speaker A,00:29:27,is allowed in the budget we have?,Information,,TS3003b
+15546,,Speaker C,00:09:11,Sorry can you just say that what's the what are our price goals again?,Discussion,,ES2011a
+21695,,Speaker C,00:01:15,And I also checked with Maggie and Pierrette.,Discussion,,IB4004
+26678,,Speaker A,00:12:02,"Okay, there you go. So what favourite characteristics. . Dogs are always friendly and loyal and fun.",Discussion,,IS1000a
+1540,,Speaker D,00:05:58,"Oh right, I see.",Discussion,,EN2001e
+43549,,Speaker A,00:10:57,"Yeah. Yeah, it's okay.",Discussion,,TS3008c
+28801,,Speaker B,00:06:28,"I would guess this like this pen would be kinda like a double-curved, where it's curved on m m multiple axes, right? I think curved means just curved in one axis and double-curved is curved in two axes",Discussion,,IS1002c
+40541,,Speaker A,00:21:22,Oh yeah. Least you can easily see it.,Discussion,,TS3006c
+20883,,Speaker B,00:14:50,"Two. Well, which W There's three two person rooms.",Information,,IB4001
+7533,,Speaker C,00:20:11,"Well, did you not say it was the the adults that were going for the the voice recognition? Sort of the the older group.",Discussion,,ES2002b
+25089,,Speaker B,00:07:08,"Oh, you've got the s",Discussion,,IN1012
+48835,,Speaker C,00:03:14,Let's see where my,Discussion,,TS3012c
+39882,,Speaker D,00:18:12,"Yeah well like l li like some like some some remotes who are out there, which I know, there's one button which is very easy to switch between devices. So you can switch to your video and then the same buttons control your video. And another function I'll think of switch to your media centre, because that's getting very popular. And then use your Windows media centre under your T_V_ with the same remote control. So with the switch, one single switch",Discussion,,TS3006a
+20465,,Speaker C,00:32:01,rid of that because gonna use a battery. And the base station might not be necessary.,Information,,ES2016c
+35200,,Speaker D,00:20:43,"so they'll be our main selling points. So th those have been fulfilled by your prototype and go ahead to the next slide please. Okay, so the shape I think is a a one. That's really, really excellent shape. The size is small and th these points are in the importance for the, for the marketing, these aren't i in how I feel. I think that it's I think that it's plenty small enough to sell but I think we're sort of right the scale is one to seven. I think we're sort of right in the middle as far as c other competitors.",Discussion,,IS1009d
+44719,,Speaker A,00:15:24,We also just released a T_F_T_ thing I saw.,Discussion,,TS3009a
+11431,,Speaker B,00:28:54,"Yeah, but y your spinning wheel tends to go to one side.",Discussion,,ES2006c
+14571,,Speaker D,00:23:00,"Hmm, very much so.",Discussion,,ES2009d
+28240,,Speaker C,00:10:18,"Mm. Yeah, I think that if you put the cover it will be even more difficult for the user.",Discussion,,IS1001c
+2350,,Speaker B,00:31:43,"Well, it doesn't matter for me. I mean three three or after what?",Discussion,,EN2002a
+11927,,Speaker D,00:04:31,"Oh my gosh, I'm never gonna be able to draw that well.",Discussion,,ES2007a
+41501,,Speaker D,00:44:05,Yeah? How do you do it?,Discussion,,TS3006d
+45486,,Speaker B,00:19:35,"And oh I think as you can see so, the L_C_D_ screen does look better at the lower end, or at the bottom. But",Discussion,,TS3009c
+8999,,Speaker C,00:33:14,"Yeah, that woulda been pretty good.",Discussion,,ES2003d
+39847,,Speaker B,00:15:01,"I got some requirements it has it has to be user-friendly. really easy to use buttons, not not very small buttons, but not the the also the big big buttons, but just normal buttons. It has to be a small unit. It has to be yeah, you can take it with you everywhere in in your house. So it has n has not to be l yeah, gigantic machine.",Discussion,,TS3006a
+45583,,Speaker A,00:26:01,Okay. And well the the electrical cable is just normal .,Information,,TS3009c
+28844,,Speaker B,00:11:36,"Instead of play, stop, rewind, and fast forward there, that's up, down, louder, and quieter.",Discussion,,IS1002c
+16111,,Speaker D,00:06:48,Right what happens is we have to decide whether this this whole,Decision,,ES2011d
+3105,,Speaker B,00:46:59,"So if it m so yeah, if you return seventy five, wh where do you stop? How do you rank them or something. Or returns twenty, even if it returns twenty, do you cut off at ten, do you rank them, do you what's the threshold? Something like that would be",Discussion,,EN2002c
+41497,,Speaker A,00:43:37,"And you can just relax and have cup of coffee or oh no, they don't have beer here so you can't celebrate. You can just if you ma finish my presentation please.",Information,,TS3006d
+34926,,Speaker C,00:06:42,Going to the nex next.,Action_Item,,IS1009c
+27778,,Speaker B,00:04:09,Can I give you the no? But I don't have to say anything.,Discussion,,IS1001a
+4118,,Speaker B,00:42:23,"Right, I'm mobile. Alright.",Discussion,,EN2004a
+27857,,Speaker A,00:11:32,Maybe we can have,Discussion,,IS1001a
+951,,Speaker B,00:39:51,"Yeah, I think if we work together on an on an entropy based score. It's let me see if I can demonstrate",Discussion,,EN2001b
+27115,,Speaker C,00:10:51,Yeah so I'll I'll go with that actually so,Discussion,,IS1000c
+46441,,Speaker C,00:06:29,"Ten minutes to tell it. Okay. I think it will be a few minutes and First I will tell you something about the findings, what I discovered about the remote control. The working bout it of it.",Discussion,,TS3010b
+1469,,Speaker D,00:49:13,"No, like different measures to the display.",Information,,EN2001d
+3454,,Speaker D,00:26:58,No. I'd expect somewhere ten to fifteen pages.,Discussion,,EN2002d
+2791,,Speaker A,00:11:48,"On your home directory, not in the okay.",Discussion,,EN2002c
+9341,,Speaker C,00:31:48,Yeah and if yeah if you if you had if you had one of those just coming back to your other point about pressing the button and setting off the bleeper in the room that could,Discussion,,ES2004b
+39185,,Speaker A,00:16:29,"Yeah, but a har",Discussion,,TS3005d
+47819,,Speaker C,00:29:41,Okay. So you will be on the Bahamas.,Discussion,,TS3011c
+2329,,Speaker A,00:30:35,Yeah. That's cool. Yeah. In the morning.,Discussion,,EN2002a
+12260,,Speaker A,00:26:17,"Well, not necessarily. But we have to incorporate it.",Discussion,,ES2007b
+2141,,Speaker C,00:13:44,"Because I'm I'm just, you know, I go into the lab and I say right, what am I gonna change today. You know? And it kind of just it just develops, I'm not aiming for anything. Do we wanna aim for something?",Discussion,,EN2002a
+7122,,Speaker C,01:00:42,"No, they're they're on two s the two separate machines and the you you start and end them separately. The they they're not talking to each other. They're just recording. You start it recording and it starts recording what's on one screen. And you start the other recording on the other machine. And they're they're totally separate. They don't know about the other one.",Discussion,,EN2009d
+1970,,Speaker D,01:03:35,So may we probably want a different summary constructor that takes an an additional argument of an I_D_. And it will that w utterance will always be in the summary.,Summary,,EN2001e
+32033,,Speaker A,00:06:53,"No, because you think, why not.",Discussion,,IS1006a
+24412,,Speaker A,00:28:04,"He has all kinds of speech recognition results, right. It was the first time you start using the cluster, I remember, or some some parallel processing. That was a big thing here.",Discussion,,IN1007
+15946,,Speaker A,00:15:16,"Yeah, that you can flip over, yeah, yeah.",Discussion,,ES2011c
+19935,,Speaker C,00:06:31,one thing I thought of with the remote control is you always lose 'em.,Information,,ES2016a
+10720,,Speaker A,00:05:19,A a more friendly type of,Discussion,,ES2005d
+46950,,Speaker D,00:05:34,"And in the end, we will c count an average",Discussion,,TS3010d
+7562,,Speaker D,00:26:50,"And like on the means b Since we're on the topic of the technology, are there any like what are our options? Alright, what's what i in Is this the only way that we go about it, or are there other thin",Discussion,,ES2002b
+36893,,Speaker C,00:01:39,I received an email with a few possibilities on the materials. So I'll discuss them with you. Yeah.,Information,,TS3004c
+7008,,Speaker B,00:48:28,"Okay, so w all I'm I'm doing is kind of worrying out loud about all the things that will happen that we'll miss by th a simple view of for example regions and looking at at triangle one. When is triangle one not triangle one anymore. does it s keep its identity.",Information,,EN2009d
+18931,,Speaker A,00:11:27,It looks kinda like a person.,Discussion,,ES2015a
+30358,,Speaker A,00:30:11,The thing now is to to sell it.,Information,,IS1003d
+1069,,Speaker D,00:02:02,"That's Vera's data on the display. But the segments are just made up, aren't they.",Information,,EN2001d
+41083,,Speaker C,00:16:41,We went straight into finance?,Discussion,,TS3006d
+36453,,Speaker C,00:18:09,"Yeah, and and you just have normal batteries that you can recharge and just put it in the station, or you can change your batteries, so.",Discussion,,TS3004a
+29615,,Speaker B,00:23:56,"the global usage, so if people don't have the technology.",Discussion,,IS1003b
+10447,,Speaker A,00:18:43,"Okay so, here are a a plastic,",Information,,ES2005c
+15553,,Speaker A,00:10:19,", I don't know what these mean because I didn't actually make the slide-show. Experience with remote control. So I guess we have to reflect on our experiences with remote controls to decide what we would like to see in a convenient, practical,",Decision,,ES2011a
+15025,,Speaker A,00:27:29,"Y right, right right right. That one?",Discussion,,ES2010b
+11811,,Speaker B,00:25:28,"Yeah, I think Jen wants it to vibrate.",Discussion,,ES2006d
+17657,,Speaker B,00:18:57,We have the worry about how robust it will be if it's it's curved as a banana but spongy. I think yeah.,Discussion,,ES2013d
+48789,,Speaker A,00:39:24,"small buttons here for some extra functions, so if your basic function's here, we should like we decided before, programmes up and down,",Decision,,TS3012b
+12762,,Speaker A,00:17:17,"Oh no I thi I put it in one of my e-mails that I sent off. that, you know, it's marketable in the sense that it's whilst all these other remotes actually do give you repetitive strain injury, our one does the complete opposite, you know, so that's something that's new, which is one of the criteria they asked us to come up with something with something new.",Information,,ES2007d
+16097,,Speaker A,00:04:10,"if you wanna look in your project documents folder, there's an Excel spreadsheet.",Discussion,,ES2011d
+34842,,Speaker A,00:28:26,Do we look at one target group?,Discussion,,IS1009b
+25580,,Speaker D,00:14:11,"Yeah there yeah, yeah. Yeah. Yeah, yeah. Four point eight or something.",Discussion,,IN1013
+19184,,Speaker C,00:33:33,"That, yeah, that's a good idea.",Discussion,,ES2015b
+44532,,Speaker A,00:44:35,"Okay, well we leave it like this. Then it's c then we're yeah.",Information,,TS3008d
+41744,,Speaker D,00:21:17,"Look, you got some cheap remote controls there.",Discussion,,TS3007a
+23306,,Speaker A,00:12:45,Alpha times the maximum of the other ones. Of the other ones.,Discussion,,IN1001
+39853,,Speaker A,00:16:04,I think the best is to go to work.,Discussion,,TS3006a
+33616,,Speaker A,00:00:48,So in last meeting we have discussed the conceptual design and we asked you to prepare a prototype for the,Information,,IS1007d
+35022,,Speaker B,00:27:31,Trendy design and compact.,Discussion,,IS1009c
+23623,,Speaker A,00:56:27,"Yeah. Yeah, yeah. Yeah.",Discussion,,IN1001
+40822,,Speaker B,00:40:58,No flipping or you wanted the flipping so,Discussion,,TS3006c
+15542,,Speaker C,00:08:34,You're dragging a you have a tail.,Discussion,,ES2011a
+21864,,Speaker A,00:21:48,"No okay, no way. I'll I'll have my head cut off if we don't have a lounge. So",Discussion,,IB4004
+33236,,Speaker C,00:05:29,It's field programmable something array. Yeah.,Discussion,,IS1007b
+32638,,Speaker A,00:00:33,"So, now it's the Hi Sammy. It's the detail design meeting, so we're going last meeting. So , first Mark and Rama are going to present the prototype. then Sammy will propose some crite cr criteria to evaluate this prototype. Then, w we",Action_Item,,IS1006d
+4289,,Speaker B,00:18:18,"Yeah, c I just think well, I mean it all of these things when they encounter a new genre of of actual data, then they end up modifying building new kinds of relations with new kinds of semantics and adding them. That's the entire history of these.",Discussion,,EN2005a
+23092,,Speaker B,00:27:04,"Yeah. No, I think the summary is i is quite good, and especially I think it well mm when you read it you just want to go to see the movie. I think it looks funny for me. I haven't seen the movie, but the summary looks funny.",Summary,,IB4011
+7788,,Speaker D,00:32:07,"I've had kinetic things before, and the the the one issue we need to keep in mind with them is that you're committing the user to moving it, and watches yeah",Action_Item,,ES2002c
+31888,,Speaker D,00:20:51,Which is the same area.,Information,,IS1005c
+9463,,Speaker D,00:11:21,"Hmm. Mm-hmm. Mm. Could I just ask referring back to solar charging, is that compatible with standard batteries? I mean, could people put standard batteries in but with a s you know they could leave it in the sunlight for solar charging or the two things not compatible?",Discussion,,ES2004c
+42305,,Speaker B,00:31:43,"Ye I I think best would be to put it in and make it an menu option. You can put on Yeah. And you can just s when you buy it, you can select personal preference, parental control on, and the password or something.",Discussion,,TS3007c
+34598,,Speaker A,00:00:54,Okay. Everybody ready? I think the first thing we do is introduce ourselves,Discussion,,IS1009a
+43715,,Speaker C,00:24:53,But I've got a the email with with the possibilities. And L_C_D_ was a possibility for the remote control. So why don't we use it.,Discussion,,TS3008c
+10150,,Speaker A,00:15:51,"And a novel feature which we just brought up was this this automatic speech recognition feature or noise detection feature for when you lose the remote, there could be a little microphone on it, and any noise over a certain threshold it'll pick up as a a distress signal from you and it'll beep back and say you know oh here I am or something of this sort.",Discussion,,ES2005b
+16515,,Speaker B,00:16:13,They're not used often but they are quite important when they're used. Yeah.,Information,,ES2012b
+23775,,Speaker A,00:21:22,"Was it insured, any idea?",Discussion,,IN1002
+19360,,Speaker A,00:19:27,"Well, if they're raised up buttons. So that you can feel them. We were talking about it being more",Information,,ES2015c
+36013,,Speaker D,00:15:38,But how does scroll-wheel work here?,Discussion,,TS3003d
+36936,,Speaker D,00:07:40,maybe a see-through one in a a fruit front. Because it's it's hot. And some basic colour fronts.,Discussion,,TS3004c
+15265,,Speaker B,00:27:59,"The only problem is we're using a latex overlay so it actually would go over top of everything and have holes for the buttons, so I was thinking maybe instead of doing that what we could do is leave a space for where the logo should be.",Discussion,,ES2010c
+13098,,Speaker A,00:33:22,"And we also want it to be fashionable, which I'm not sure if that's a function so much as a yeah",Information,,ES2008b
+18799,,Speaker B,00:40:54,"Yeah, I suppose and then be going out and finding more information each time and then diff things will be relevant.",Discussion,,ES2014d
+4068,,Speaker C,00:37:58,"Oh, I had one guy, one of the project managers was he had a really weird accent and he was calling one guy Mister Ed. His name was Ed, and it took me a whole time to, you find out that it was actually Mister Ed. Or",Information,,EN2004a
+34394,,Speaker A,00:24:40,How much you can,Discussion,,IS1008c
+24748,,Speaker D,00:41:34,Then it's random. And that's why you get these values which are random.,Discussion,,IN1008
+25270,,Speaker B,00:29:46,"Yeah, but nobody you know, it's those new systems are still not general, like you know, like those P_L_P_ and M_F_C_C_s, because everybody knows that di it worked somehow, right, for any kind of data. That's why they're comparing to to that, so. Once somebody will come with something new, okay, he he's showing it works for some datas, but still yeah, yeah. First it's difficult to to show that it works for all all the datas, right, because it's really and",Discussion,,IN1012
+48637,,Speaker C,00:28:55,"Hmm. These are comfort issues. So I think people will pay they wanted to pay for comfort. Well, this is comfort.",Discussion,,TS3012b
+23807,,Speaker D,00:24:48,"Maybe at least they will give some number others, like they can.",Discussion,,IN1002
+27575,,Speaker D,00:29:04,"Yeah I think yeah it should be possible like what we do with the mobile phone, yeah.",Discussion,,IS1000d
+38156,,Speaker D,00:12:12,"Important issues about the remote. I think it would be better with a personal reference, but okay. Remote control has to have to have a low power usage, because s w",Discussion,,TS3005b
+27419,,Speaker D,00:19:45,It's will be embedded there so it won't be really you know protruding or something.,Discussion,,IS1000d
+46697,,Speaker D,00:14:22,"So, well how we did do that? , well we made an investigation of the market, by Trendwatchers. They watch in cities like Paris and Milan. Of course, well known for their trend trends.",Discussion,,TS3010c
+36382,,Speaker A,00:12:34,"The production cost are about half the price of selling price, sorry.",Information,,TS3004a
+24860,,Speaker A,00:55:21,And they are plug in the on the X_L_R_? Or,Information,,IN1008
+13584,,Speaker A,00:21:40,Let me one more space. Gonna zoom in real quick.,Discussion,,ES2008d
+28505,,Speaker C,00:03:48,"Yeah bu but we we're designing only the remote, we not design the T_V_. So we're gonna be removing the teletext out of any T_V_",Discussion,,IS1002b
+35686,,Speaker A,00:07:12,Okay. Thank you. Any questions about the the trends? Mayb,Discussion,,TS3003c
+46059,,Speaker D,00:17:52,"Yeah, we need to have the the L_C_D_ screen.",Action_Item,,TS3009d
+41129,,Speaker D,00:20:27,"F I don't know where. So that's very true, I guess, for our case.",Discussion,,TS3006d
+2714,,Speaker C,00:00:47,Hmm. Did you wanna take a look at comments. There's more,Discussion,,EN2002c
+26987,,Speaker C,00:31:14,"three like this, actually, and four five six like that and you can have keys like this in form like",Information,,IS1000b
+48253,,Speaker A,00:33:26,"M Yeah, ten or five.",Discussion,,TS3011d
+22993,,Speaker C,00:15:41,ninety one ninety one .,Discussion,,IB4011
+34817,,Speaker B,00:22:23,"And and and it is one more point which I noted it down, like the material which which which is used for remotes should be human friendly it should not cause any skin disease or something some al allergy to either children or to ad adult person. And it should have an it can have an alarm clock a a person if some if somebody wants to get up at around eight eight P_M_ then he can set the time and it can be used as an alarm clock, and I don't think it will cost much to set an alarm clock inside a remote.",Discussion,,IS1009b
+37138,,Speaker C,00:23:26,"Yeah, and and we can use the home station kind of thing. cases, flat, so uncurved. two D_ curved is like front to the back. And three D_ curved is also in depth.",Information,,TS3004c
+9757,,Speaker D,00:12:07,"Losing one decimal place, that's okay.",Discussion,,ES2004d
+17293,,Speaker A,00:32:19,"Mm. This oughta be fun. It probably won't go the first time, it'll probably be like a g mess.",Information,,ES2013b
+41051,,Speaker A,00:14:42,Yep? Instead of an additional power button?,Discussion,,TS3006d
+38219,,Speaker C,00:19:18,"Is it possible to find out, anyway? You know?",Information,,TS3005b
+351,,Speaker D,00:50:45,I can't remember who's got it. Might be WordNet. But one of these big corpuses has a list of stop words that you can download and they're just basically lists of really uninteresting boring words that we could filter out before we do that.,Summary,,EN2001a
+7382,,Speaker B,00:12:06,"No, actually. That would be useful, though, wouldn't it, if you knew like what your money would get you now.",Discussion,,ES2002a
+32017,,Speaker D,00:05:31,"yes, we have plenty at home. In fact, my daughter likes l remote controls. To eat? Yeah, mainly, and to break.",Information,,IS1006a
+21360,,Speaker D,00:22:29,"Well, we have the the group and students here. Although you still have Susan and Maggie over here.",Discussion,,IB4002
+29154,,Speaker D,00:12:32,"Yeah 'cause if if we can make this unit upgradable then we're yeah but then we talk about changing the warranty concept and everything, but that's that was just an idea I had. to me the only additions",Information,,IS1002d
+35697,,Speaker B,00:10:19,"Let's see. yeah. I was thinking about the special button for subtitles, just one button to keep it simple. one push on the button you get small subtitles.",Discussion,,TS3003c
+35214,,Speaker A,00:23:14,"I'm sorry to interrupt then but I just recog I just remembered that there was no that that was not included that there was no room for any special features, okay? So to beware of that. You wanna go to this next slide, marketing expert?",Information,,IS1009d
+14932,,Speaker A,00:18:43,"Okay, so we want for our target group would we say, I mean, young and old, all age ranges, all , not kids obviously, right?",Discussion,,ES2010b
+47392,,Speaker C,00:14:24,Yes. Th that's a bit of that's a problem. Usually,Discussion,,TS3011b
+7818,,Speaker A,00:36:00,Because that's becomes the most accessible thing in front of,Information,,ES2002c
+12209,,Speaker C,00:21:17,"What about just from the the prospective of our manufacturing cost? I mean if if it's twelve fifty per unit. I mean, okay, there's",Discussion,,ES2007b
+42684,,Speaker D,00:24:56,I don't know if twelve and a half is a fixed fixed price.,Information,,TS3007d
+22911,,Speaker D,00:08:57,"Sorry, it's control L_",Discussion,,IB4011
+43767,,Speaker A,00:28:07,"Yeah. No no no, not that comfy.",Discussion,,TS3008c
+41209,,Speaker C,00:25:10,"Yeah but it be because we couldn't hardly draw on the b s on the lower half of the screen, we could not make it big enough to actually draw in the",Discussion,,TS3006d
+38002,,Speaker D,00:09:25,"recognise as a giraffe. Yeah, the favourite charis characteristic is that the long neck, it can reach everything. And I hope I can also reach a lot with this project. So that's my favourite animal.",Information,,TS3005a
+2950,,Speaker C,00:30:25,"Yeah, what if it's yeah. Do the P_D_F_s, switch it to Postscript, switch it back to P_D_F_, and then",Discussion,,EN2002c
+9604,,Speaker C,00:31:30,Well you cou .,Discussion,,ES2004c
+4773,,Speaker A,00:10:05,"Oh, you want to s split that one and, do you, into two? Yeah. Yeah. I'd agree with that, I think.",Decision,,EN2006a
+31527,,Speaker C,00:09:03,"I dunno if I can. Okay. It may be like a cow or I dunno, whatever. I'm not good very good in drawing. Okay, so this is very It's a bird, I think. I dunno what is it.",Discussion,,IS1005a
+42246,,Speaker B,00:24:18,"Well, I agree, just put it in the menu structure somewhere.",Decision,,TS3007c
+1125,,Speaker B,00:08:08,'Cause an al like an alternative view would be that,Discussion,,EN2001d
+40816,,Speaker B,00:40:31,Yeah and then h we sh mm.,Discussion,,TS3006c
+6073,,Speaker A,00:07:29,"no, they're they're they're the same size as the as the original blobs basically. But so they yeah, I think the mouse is slightly bigger, but it's not, you know, it's not it's not hugely bigger. So",Summary,,EN2009b
+9493,,Speaker B,00:14:14,the eternal battle for control of the controls.,Discussion,,ES2004c
+5659,,Speaker B,00:21:44,"Oh right, yeah. Yeah.",Discussion,,EN2006b
+46360,,Speaker B,00:04:35,Okay. Let's try this.,Information,,TS3010a
+40058,,Speaker A,00:15:44,And the corporate identity should be clear in the design of the remote control.,Discussion,,TS3006b
+44589,,Speaker D,00:05:45,"Alright, your favourite animal?",Discussion,,TS3009a
+32820,,Speaker A,00:16:30,"It's n no, it's not fancy any more.",Discussion,,IS1006d
+18016,,Speaker B,00:22:44,"That is true, yes.",Information,,ES2014b
+22052,,Speaker D,00:37:13,So that's the standard things.,Discussion,,IB4004
+7362,,Speaker A,00:09:31,"It does make sense from maybe the design point of view 'cause you have more complicated characters like European languages, then you need more buttons.",Discussion,,ES2002a
+13428,,Speaker A,00:08:03,"Okay 'cause well, the designs are very bright, so you're right, they're gonna stick out, but",Information,,ES2008d
+43093,,Speaker A,00:18:52,"Maybe a can opener underneath it? I don't know. Or someth something special, like M_P_ three player inside of it, or Oh, well then the production costs are gonna be too high probably.",Discussion,,TS3008a
+21837,,Speaker C,00:19:46,"We put it the the furniture that we got for our reading room, we put it into the other half of the three person room.",Discussion,,IB4004
+10256,,Speaker A,00:31:28,"Well, I think a consideration too is that these remotes get abused a lot, you know they get thrown around, there's a good chance the the T_F_T_ screen would break or get damaged. They're pretty fragile.",Discussion,,ES2005b
+32686,,Speaker D,00:06:36,You mean we can change the colour of th,Discussion,,IS1006d
+16112,,Speaker D,00:06:57,this whole project we've been working on actually meets the standards we were set at the start.,Information,,ES2011d
+13805,,Speaker B,00:39:55,"Just if you like you'd have a remote for your remote, that'll.",Discussion,,ES2008d
+29077,,Speaker B,00:03:24,"The programme button, yeah the programme button. So this bl this button will be used both for the favourites and for programming your the the type of television you wanna use. So the plastic is the white area of this of the model here, and the red area is like a rubber covering. So you can see that when it lays like this or like this and the buttons are all gonna be rubber, so it's pretty hard to actually damage it",Information,,IS1002d
+20815,,Speaker A,00:08:45,or Yeah. Or Yeah. Couple of professor and assistant or,Information,,IB4001
+26393,,Speaker B,00:33:25,"that's that's that is one of the reason for example why which mark we point pretty much on slides as a mean of indexing. Because at that point there is no interaction between humans and capture. Because whenever you have microphones that you have to move, it's it's it becomes complete really",Action_Item,,IN1016
+8117,,Speaker C,00:21:05,"Yep, oh hundred pound pen. Sorry alright. No.",Discussion,,ES2002d
+8149,,Speaker B,00:25:22,Oh yeah. Well I dunno do you th I think it means I think it means did you feel you were able to give creative input so,Discussion,,ES2002d
+20878,,Speaker B,00:14:40,A one person'll be too small anyways.,Discussion,,IB4001
+25756,,Speaker B,00:35:23,Oh. Oh okay. I mean just before. Oh you..,Discussion,,IN1013
+7527,,Speaker A,00:19:13,"Is that too is that a lot of money to buy an extra remote or a replacement remote? Right. so maybe not the high end range, but maybe middle, middle up-ish. Kind of. You know how much? I dunno I guess you pay, what, ten ten quid for a remote? Like a simple replacement, right. I mean if you lost your remote and the first thing you just wanna go out and get, would you how much would you pay?",Discussion,,ES2002b
+37276,,Speaker C,00:32:25,"Yeah, just a recharger.",Discussion,,TS3004c
+47343,,Speaker C,00:07:06,"Okay. well, there are some changes in the design requirements, so there are some changes in the method also. basically all this device has to do is send messages to a T_V_ set. And the m most easy way to do this is by sending pulses of infrared light to a T_V_ set. Well, I th I tried to implement a picture here, but it's hardly readable.",Summary,,TS3011b
+25945,,Speaker B,00:06:35,"On these four inputs you can have only video. But they want to make also the slide acquisition. So on one input they put a conversion box, a converter, which converts from slide",Information,,IN1014
+36277,,Speaker A,00:42:41,Summary of the project.,Summary,,TS3003d
+43973,,Speaker A,00:05:29,"No, listen listen. When you push the button, the remote control gives a signal. I in th in the first place it gives a signal which it would also send when you put a separate button on it. The one with dash, that signal gi and when y whe when you don't push another button on the remote control within five seconds, then the remote control gives a signal for channel one.",Information,,TS3008d
+22963,,Speaker D,00:13:15,"Yeah, Tuesday, it's quite surprising though, but , okay.",Information,,IB4011
+23709,,Speaker D,00:14:31,But you're generating P_L_P_s from?,Discussion,,IN1002
+18561,,Speaker D,00:16:51,"'Kay. And I mean, how much does the product demonstrate technical innovation do you reckon?",Discussion,,ES2014d
+44177,,Speaker D,00:20:12,"But I d I definitely don't think it's a five, but",Discussion,,TS3008d
+10342,,Speaker B,00:04:05,"When we did f fashions , recent fashion our recent fashion update shows that",Discussion,,ES2005c
+8020,,Speaker C,00:13:35,Maybe closer to three even or two and a half.,Discussion,,ES2002d
+41327,,Speaker A,00:33:09,"Yeah I'm I'm somewhere, but maybe you can help me.",Discussion,,TS3006d
+36999,,Speaker C,00:13:16,"Yeah, or maybe The channel buttons are often used. And you can't use them now with your thumb, because the thing is not, it's not easy to control.",Discussion,,TS3004c
+1299,,Speaker E,00:29:28,No I think they were ten percent each.,Discussion,,EN2001d
+289,,Speaker C,00:44:14,"Yes, I did. But I've only just got the notes. I have to still have to order everything by the time and",Discussion,,EN2001a
+42895,,Speaker A,00:41:51,"You go there and you go there. So, okay. Well, maybe I can then do it one two three.",Discussion,,TS3007d
+1215,,Speaker E,00:19:36,"Alright. Yeah, I should maybe just get started with 'em.",Discussion,,EN2001d
+26038,,Speaker A,00:25:59,"Really? Well, so it was not such a difficult process then.",Discussion,,IN1014
+1775,,Speaker A,00:38:08,"And then score, yeah, it this was just for showing it. Huh?",Discussion,,EN2001e
+11929,,Speaker B,00:04:40,"okay, it's big, it's got a great memory.",Discussion,,ES2007a
+40944,,Speaker D,00:07:31,"Well okay. For example if you have f f four buttons, channel up and down, volume left right Okay, I've I think we have to keep that. And then and the power button. So that's five.",Discussion,,TS3006d
+1589,,Speaker E,00:10:19,Yeah another sh issue was that,Information,,EN2001e
+25006,,Speaker B,00:18:05,"No, I think does this work, email?",Discussion,,IN1009
+8409,,Speaker B,00:14:15,Are you finding it okay or?,Information,,ES2003b
+23968,,Speaker A,00:38:48,From posteriors to s forced alignment.,Discussion,,IN1002
+9478,,Speaker C,00:12:42,"Yeah they do, they yeah they've got dual things, but they're the batteries are smaller I think.",Discussion,,ES2004c
+21740,,Speaker B,00:08:41,"Because the professors , you have personal printer or there is only one printer?",Information,,IB4004
+20929,,Speaker B,00:17:36,Yeah. actually that's a good idea. J just put it up.,Discussion,,IB4001
+5850,,Speaker B,00:36:13,But it's al is that also the name of the source?,Information,,EN2006b
+19125,,Speaker B,00:27:49,Okay. Work on that.,Discussion,,ES2015b
+9093,,Speaker D,00:07:45,"Hopefully that'll stay on, two-handed version. Okay,",Discussion,,ES2004a
+19714,,Speaker B,00:16:38,Does this prototype match the operating behaviour of the average user.,Information,,ES2015d
+10391,,Speaker A,00:12:11,"The L_C_D_ and the other stuff , I think.",Discussion,,ES2005c
+16230,,Speaker C,00:20:12,Yeah. That could work.,Discussion,,ES2011d
+4398,,Speaker B,00:46:10,"Yeah. B th But there there are people in the field that are moving that direction, like Martin. And also what's important here is the theoretical clarity about what an initiation and a response is. So what is it that ties different acts together at a higher level, you know.",Discussion,,EN2005a
+17839,,Speaker B,00:07:29,I dunno maybe because there's so many cartoon characters made up after the bear like the jungle book characters and stuff like that. Great.,Discussion,,ES2014a
+23962,,Speaker C,00:38:20,P_L_P_ should be there. I re should have kept the P_L_P_ also somewhere tha,Discussion,,IN1002
+6904,,Speaker C,00:36:44,"Mm-hmm. I mean if if they are oscillating though, then that's presumably going to st change the weight. So you are actually going to see them flipping between when you decide they're looking there mm-hmm, if they're really close, yeah.",Decision,,EN2009d
+41330,,Speaker A,00:33:16,I was here. So,Discussion,,TS3006d
+27176,,Speaker B,00:26:32,"So I f I think we we should come to some decisions now a about this. so I understand when we want a display we need a expensive chip, but when we want a scrolling wheel w we also need the expensive chip, so can we use same chip, so with one expensive chip",Decision,,IS1000c
+185,,Speaker E,00:29:34,W what segments now?,Discussion,,EN2001a
+6021,,Speaker B,00:00:41,"Yeah, there was a mailing list before. They've just revived that, right?",Information,,EN2009b
+10009,,Speaker B,00:36:24,"yeah, just the last, I think.",Discussion,,ES2004d
+41911,,Speaker B,00:27:12,"And so an elder designer picks up th the of an elder parents or grandparent picks up the remote from the little child and who's all in the systems functions, you'll have to have the possibility to turn off the T_V_ or to switch the channel without well using all the menu structures to get back to the primary functions.",Information,,TS3007b
+41411,,Speaker C,00:38:02,How Shall we do the logo in black or not?,Discussion,,TS3006d
+24285,,Speaker B,00:11:44,"Yeah. Yeah, but I'm using that for different different reason, right. So it's speech coding. So what is the task is usual just take the speech of course somehow to encode it into as as small number of beat as possible and with a reasonable quality of course. And again to e decode it. And I'm using F_D_L_P_ for that, still playing with more less one second long segments. So just dividing the speech into one s one second frames doing D_C_T_. It's just the standard wor of work. And then doing some compression and computation of yeah, yeah yeah, sh oh, yeah. But you are doing the same, no? Yeah b yeah yeah you take the the D_C_T_ and you just divide it into several sub-bands, frequency bands with a different",Action_Item,,IN1007
+44540,,Speaker D,00:45:08,"I think we gotta fill out another questionnaire, to be honest.",Discussion,,TS3008d
+29484,,Speaker B,00:08:53,This is in fact some other component that are in between the electrical de the electronic device.,Information,,IS1003b
+1782,,Speaker D,00:38:38,"So you know how zero is T_F_I_D_F_. One is the well I've called it word importance, but that's a really m misleading name.",Discussion,,EN2001e
+46614,,Speaker B,00:02:04,", first I'll I'll discuss the buttons we just chose, show you some samples,",Discussion,,TS3010c
+2038,,Speaker B,00:04:45,"Yeah, I don't I mean it w it's more like part of the",Discussion,,EN2002a
+19981,,Speaker C,00:12:58,"Yeah, that's g that's a good idea.",Discussion,,ES2016a
+39165,,Speaker B,00:15:37,"Yeah, yeah, it's very spongy. Oh but not it's not very spongy, because it's hard rubber.",Information,,TS3005d
+34902,,Speaker A,00:02:53,mm child lock and maybe a display clock so that people could,Discussion,,IS1009c
+25581,,Speaker A,00:14:17,"Or based around that. Yeah. Okay. It's not terribly interesting though, really.",Discussion,,IN1013
+37795,,Speaker C,00:28:35,then there we probably have been creative.,Discussion,,TS3004d
+47432,,Speaker B,00:17:47,It will be an a unique feature of our remote control.,Discussion,,TS3011b
+20579,,Speaker A,00:10:49,"But if we do go with the, with the speech recognition, then it, then our scale goes up quite a bit I think.",Discussion,,ES2016d
+4513,,Speaker D,01:08:07,"So we got stuck at some point on evaluation of chunking, right. The problem was you didn't have ICSI data that was hand labelled for chunks. And we decided labelling the ICSI data for chunks would be probably difficult and maybe not very useful. And so it it mi",Decision,,EN2005a
+11802,,Speaker A,00:24:55,But we lose the locator.,Discussion,,ES2006d
+27109,,Speaker B,00:10:31,maybe we can go a th Matthew's presentation because,Discussion,,IS1000c
+25435,,Speaker C,00:47:09,"Okay, I'm I'm fine with this, but I can make it run on my machine. Okay.",Information,,IN1012
+44468,,Speaker A,00:40:17,I don't think it's realistic for you to do so.,Discussion,,TS3008d
+39759,,Speaker C,00:06:05,. Your line broke.,Discussion,,TS3006a
+34104,,Speaker B,00:11:51,"Might be hard to find, though.",Discussion,,IS1008b
+31665,,Speaker A,00:21:23,to have something new and So we I think we should still thinking about it. But maybe.,Discussion,,IS1005b
+18613,,Speaker D,00:21:58,"So this is about sort of the corporate image of like new sort of sleek technology and all that sort of thing, as well as having the logo on and all that. So sort of",Information,,ES2014d
+1721,,Speaker D,00:29:03,", oh there must be a way of detecting whether the clock's loaded. Like in fact there there is. You can try and set something on the clock and use try and catch, and then if you catch the exceptions set the flag.",Action_Item,,EN2001e
+49003,,Speaker D,00:15:33,No it maybe it's better to look what the people want. So I can show my investigation.,Discussion,,TS3012c
+29886,,Speaker B,00:25:35,"I think we can have wood for example in the bottom and, you know. It depends on the design we want, so.",Discussion,,IS1003c
+35394,,Speaker A,00:22:19,"Yeah, that's nice, I think. So we've we want different functions",Discussion,,TS3003a
+44673,,Speaker C,00:11:17,well I think it's obvious right now.,Discussion,,TS3009a

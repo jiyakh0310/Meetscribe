@@ -41,6 +41,7 @@ from typing import Any
 import torch
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
+from sklearn.metrics import classification_report, confusion_matrix as sklearn_confusion_matrix
 
 try:
     from ml_mom.ann_model import SentenceClassifierANN
@@ -72,6 +73,8 @@ BEST_MODEL_PATH = MODEL_DIR / "best_model.pt"
 LABEL_MAPPING_PATH = MODEL_DIR / "label_mapping.json"
 TRAINING_METRICS_PATH = MODEL_DIR / "training_metrics.json"
 CONFUSION_MATRIX_PATH = MODEL_DIR / "confusion_matrix.png"
+CLASSIFICATION_REPORT_PATH = MODEL_DIR / "classification_report.txt"
+VALIDATION_PREDICTIONS_PATH = MODEL_DIR / "validation_predictions.csv"
 
 BATCH_SIZE = 16
 EPOCHS = 50
@@ -171,6 +174,60 @@ def print_dataset_statistics(prepared: PreparedTrainingDataset) -> None:
     print(json.dumps(prepared.statistics, indent=2))
     print("Label mapping")
     print(json.dumps(prepared.label_mapping, indent=2))
+
+
+def compute_class_weights(
+    train_samples: list[TrainingSample],
+    label_mapping: dict[str, int],
+) -> list[float]:
+    """Compute inverse-frequency class weights from training samples.
+
+    Args:
+        train_samples: Training split samples used by the ANN optimizer.
+        label_mapping: Label-to-ID mapping used by the model output layer.
+
+    Returns:
+        Weight list ordered by class ID. Missing classes receive ``0.0`` so
+        PyTorch keeps the tensor shape valid without inventing hardcoded counts.
+    """
+
+    class_count = len(label_mapping)
+    sample_count_by_id = {class_id: 0 for class_id in label_mapping.values()}
+    for sample in train_samples:
+        if sample.label_id in sample_count_by_id:
+            sample_count_by_id[sample.label_id] += 1
+
+    total_samples = sum(sample_count_by_id.values())
+    if total_samples == 0 or class_count == 0:
+        return []
+
+    # This standard balanced-class formula keeps the average weight near 1.0
+    # while giving rare classes a stronger loss contribution.
+    weights_by_id = {}
+    for class_id, sample_count in sample_count_by_id.items():
+        if sample_count == 0:
+            weights_by_id[class_id] = 0.0
+        else:
+            weights_by_id[class_id] = total_samples / (class_count * sample_count)
+
+    return [weights_by_id[class_id] for class_id in range(class_count)]
+
+
+def print_class_weights(
+    class_weights: list[float],
+    label_mapping: dict[str, int],
+) -> None:
+    """Print class weights in label order for training transparency.
+
+    Args:
+        class_weights: Weights ordered by numeric class ID.
+        label_mapping: Label-to-ID mapping used by the model.
+    """
+
+    print("Class Weights")
+    for label, class_id in sorted(label_mapping.items(), key=lambda item: item[1]):
+        weight = class_weights[class_id] if class_id < len(class_weights) else 0.0
+        print(f"{label} : {weight:.6f}")
 
 
 def sample_to_sentence_feature(sample: TrainingSample) -> SentenceFeature:
@@ -422,19 +479,163 @@ def run_epoch(
     return average_loss, metrics
 
 
+def ordered_labels(label_mapping: dict[str, int]) -> list[str]:
+    """Return labels ordered by numeric class ID.
+
+    Args:
+        label_mapping: Label-to-ID mapping used by training and inference.
+
+    Returns:
+        Label names sorted by class ID.
+    """
+
+    return [
+        label
+        for label, _class_id in sorted(label_mapping.items(), key=lambda item: item[1])
+    ]
+
+
+def predict_validation_classes(
+    model: SentenceClassifierANN,
+    validation_features: torch.Tensor,
+    validation_labels: torch.Tensor,
+    device: torch.device,
+) -> tuple[list[int], list[int]]:
+    """Predict class IDs for the full validation tensor using the best model.
+
+    Args:
+        model: Best checkpoint loaded into the ANN classifier.
+        validation_features: Validation embedding tensor.
+        validation_labels: Ground-truth validation class IDs.
+        device: CPU or CUDA device used for inference.
+
+    Returns:
+        Tuple of ``(predictions, targets)`` ordered exactly like the validation
+        samples so saved prediction rows can include the original sentences.
+    """
+
+    model.eval()
+    with torch.no_grad():
+        logits = model(validation_features.to(device))
+        if logits.numel() == 0:
+            return [], validation_labels.detach().cpu().tolist()
+        predictions = torch.argmax(logits, dim=1).detach().cpu().tolist()
+    targets = validation_labels.detach().cpu().tolist()
+    return predictions, targets
+
+
+def build_classification_report(
+    predictions: list[int],
+    targets: list[int],
+    label_mapping: dict[str, int],
+) -> tuple[str, dict[str, Any], list[list[int]]]:
+    """Build sklearn classification report and confusion matrix.
+
+    Args:
+        predictions: Predicted validation class IDs from the best checkpoint.
+        targets: Ground-truth validation class IDs.
+        label_mapping: Label-to-ID mapping used by the model.
+
+    Returns:
+        Report text, report dictionary, and confusion matrix ordered by class ID.
+    """
+
+    labels = list(range(len(label_mapping)))
+    target_names = ordered_labels(label_mapping)
+    report_text = classification_report(
+        targets,
+        predictions,
+        labels=labels,
+        target_names=target_names,
+        zero_division=0,
+    )
+    report_dict = classification_report(
+        targets,
+        predictions,
+        labels=labels,
+        target_names=target_names,
+        output_dict=True,
+        zero_division=0,
+    )
+    confusion = sklearn_confusion_matrix(
+        targets,
+        predictions,
+        labels=labels,
+    ).tolist()
+    return report_text, report_dict, confusion
+
+
+def print_per_class_performance(
+    report_dict: dict[str, Any],
+    label_mapping: dict[str, int],
+) -> None:
+    """Print readable per-class precision, recall, and F1 metrics.
+
+    Args:
+        report_dict: Output dictionary from ``classification_report``.
+        label_mapping: Label-to-ID mapping used by the model.
+    """
+
+    print("Per-class Performance")
+    for label in ordered_labels(label_mapping):
+        label_metrics = report_dict.get(label, {})
+        precision = float(label_metrics.get("precision", 0.0))
+        recall = float(label_metrics.get("recall", 0.0))
+        f1 = float(label_metrics.get("f1-score", 0.0))
+        print(label)
+        print(f" Precision : {precision:.2f}")
+        print(f" Recall    : {recall:.2f}")
+        print(f" F1        : {f1:.2f}")
+
+
+def save_validation_predictions(
+    validation_samples: list[TrainingSample],
+    predictions: list[int],
+    targets: list[int],
+    label_mapping: dict[str, int],
+) -> None:
+    """Save validation sentence predictions for research review.
+
+    Args:
+        validation_samples: Validation split samples in tensor order.
+        predictions: Predicted class IDs from the best checkpoint.
+        targets: Ground-truth class IDs.
+        label_mapping: Label-to-ID mapping used by the model.
+    """
+
+    id_to_label = {class_id: label for label, class_id in label_mapping.items()}
+    MODEL_DIR.mkdir(parents=True, exist_ok=True)
+    with VALIDATION_PREDICTIONS_PATH.open("w", newline="", encoding="utf-8") as output_file:
+        writer = csv.DictWriter(
+            output_file,
+            fieldnames=["sentence", "true_label", "predicted_label"],
+        )
+        writer.writeheader()
+        for sample, target, prediction in zip(validation_samples, targets, predictions):
+            writer.writerow(
+                {
+                    "sentence": sample.sentence,
+                    "true_label": id_to_label.get(target, sample.selected_label),
+                    "predicted_label": id_to_label.get(prediction, "Information"),
+                }
+            )
+
+
 def save_training_outputs(
     model: SentenceClassifierANN,
     label_mapping: dict[str, int],
     metrics_history: list[dict[str, Any]],
     confusion_matrix: list[list[int]],
+    classification_report_text: str,
 ) -> None:
-    """Save the best model, label mapping, metrics, and confusion matrix image.
+    """Save the best model, label mapping, metrics, report, and matrix image.
 
     Args:
         model: Best-performing model.
         label_mapping: Label-to-ID mapping.
         metrics_history: Per-epoch training metrics.
         confusion_matrix: Best validation confusion matrix.
+        classification_report_text: Full sklearn classification report.
     """
 
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
@@ -445,6 +646,10 @@ def save_training_outputs(
     )
     TRAINING_METRICS_PATH.write_text(
         json.dumps(metrics_history, indent=2),
+        encoding="utf-8",
+    )
+    CLASSIFICATION_REPORT_PATH.write_text(
+        classification_report_text,
         encoding="utf-8",
     )
     save_confusion_matrix_png(confusion_matrix)
@@ -580,12 +785,19 @@ def train_ann(master_dataset_path: Path = MASTER_DATASET_PATH) -> None:
 
     model = SentenceClassifierANN(input_dim=train_features.size(1)).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
-    loss_fn = nn.CrossEntropyLoss()
+    class_weights = compute_class_weights(prepared.train_samples, prepared.label_mapping)
+    if not class_weights:
+        print("Training stopped because class weights could not be computed.")
+        return
+    print_class_weights(class_weights, prepared.label_mapping)
+    weights = torch.tensor(class_weights, dtype=torch.float32).to(device)
+    loss_fn = nn.CrossEntropyLoss(weight=weights)
     train_loader = create_data_loader(train_features, train_labels, shuffle=True)
     validation_loader = create_data_loader(validation_features, validation_labels, shuffle=False)
     print("Starting ANN training.")
+    print("Saving best model based on Validation F1")
 
-    best_validation_loss = float("inf")
+    best_f1 = 0.0
     best_state: dict[str, torch.Tensor] | None = None
     best_confusion_matrix: list[list[int]] = []
     best_metrics: dict[str, float | list[list[int]]] | None = None
@@ -620,8 +832,9 @@ def train_ann(master_dataset_path: Path = MASTER_DATASET_PATH) -> None:
             )
         )
 
-        if validation_loss < best_validation_loss:
-            best_validation_loss = validation_loss
+        validation_f1 = float(validation_metrics["f1"])
+        if best_state is None or validation_f1 > best_f1:
+            best_f1 = validation_f1
             best_state = {
                 key: value.detach().cpu().clone()
                 for key, value in model.state_dict().items()
@@ -641,11 +854,38 @@ def train_ann(master_dataset_path: Path = MASTER_DATASET_PATH) -> None:
         return
 
     model.load_state_dict(best_state)
+    validation_predictions, validation_targets = predict_validation_classes(
+        model=model,
+        validation_features=validation_features,
+        validation_labels=validation_labels,
+        device=device,
+    )
+    if len(validation_predictions) != len(validation_targets):
+        print("Validation evaluation failed because prediction and target counts differ.")
+        return
+
+    classification_report_text, classification_report_dict, best_confusion_matrix = (
+        build_classification_report(
+            predictions=validation_predictions,
+            targets=validation_targets,
+            label_mapping=prepared.label_mapping,
+        )
+    )
+    print("Classification Report")
+    print(classification_report_text)
+    print_per_class_performance(classification_report_dict, prepared.label_mapping)
+    save_validation_predictions(
+        validation_samples=prepared.validation_samples,
+        predictions=validation_predictions,
+        targets=validation_targets,
+        label_mapping=prepared.label_mapping,
+    )
     save_training_outputs(
         model=model,
         label_mapping=prepared.label_mapping,
         metrics_history=metrics_history,
         confusion_matrix=best_confusion_matrix,
+        classification_report_text=classification_report_text,
     )
     if best_metrics is not None:
         print("Final metrics")
@@ -657,6 +897,8 @@ def train_ann(master_dataset_path: Path = MASTER_DATASET_PATH) -> None:
     print(f"Label mapping saved to: {LABEL_MAPPING_PATH}")
     print(f"Training metrics saved to: {TRAINING_METRICS_PATH}")
     print(f"Confusion matrix saved to: {CONFUSION_MATRIX_PATH}")
+    print(f"Classification report saved to: {CLASSIFICATION_REPORT_PATH}")
+    print(f"Validation predictions saved to: {VALIDATION_PREDICTIONS_PATH}")
 
 
 def main() -> None:
