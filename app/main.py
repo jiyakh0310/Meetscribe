@@ -42,6 +42,10 @@ from summarization.base_summarizer import (
     MeetingSummary,
 )
 from transcription.audio_utils import AudioProcessingError, preprocess_uploaded_audio
+from transcription.audio_transcript_normalization import (
+    coalesce_contiguous_audio_segments,
+)
+from transcription.audio_transcript_repair import repair_audio_transcription
 from transcription.speaker_mapping import (
     SpeakerMapping,
     display_speaker_label,
@@ -2117,6 +2121,820 @@ def meeting_minutes_to_analysis_result(
     )
 
 
+def inject_premium_redesign_styles() -> None:
+    """Apply the presentation-only MeetScribe SaaS design system."""
+
+    st.markdown(
+        """
+        <style>
+          :root {
+            --ms-bg: #FCFCFB;
+            --ms-surface: #FFFFFF;
+            --ms-primary: #5B6EF5;
+            --ms-primary-hover: #4A5DDE;
+            --ms-accent: #EEF2FF;
+            --ms-success: #E6F6ED;
+            --ms-warning: #FFF4EA;
+            --ms-text: #1F2937;
+            --ms-muted: #6B7280;
+            --ms-border: #E7E7E7;
+            --ms-radius-sm: 10px;
+            --ms-radius: 16px;
+            --ms-radius-lg: 24px;
+            --ms-shadow-sm: 0 1px 2px rgba(17,24,39,.03), 0 4px 12px rgba(17,24,39,.025);
+            --ms-shadow: 0 12px 32px rgba(17,24,39,.065);
+            --ms-shadow-lg: 0 24px 60px rgba(17,24,39,.09);
+          }
+
+          html { scroll-behavior: smooth; }
+          body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
+            background: var(--ms-bg) !important;
+            color: var(--ms-text) !important;
+            font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif !important;
+          }
+          [data-testid="stHeader"] { background: transparent !important; }
+          [data-testid="stSidebar"] { display: none !important; }
+          [data-testid="stAppViewContainer"] > .main {
+            padding-top: 0 !important;
+          }
+          .main .block-container {
+            max-width: 1240px !important;
+            padding: 6.5rem 2rem 4rem !important;
+          }
+          :focus-visible {
+            outline: 3px solid rgba(68,102,242,.28) !important;
+            outline-offset: 3px !important;
+          }
+
+          .ms-topnav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 999;
+            height: 68px;
+            display: grid;
+            grid-template-columns: minmax(190px,1fr) auto minmax(190px,1fr);
+            align-items: center;
+            gap: 2rem;
+            padding: 0 max(2rem, calc((100vw - 1240px)/2));
+            border-bottom: 1px solid rgba(229,231,235,.82);
+            background: rgba(252,252,251,.9);
+            backdrop-filter: blur(16px) saturate(140%);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            transition: box-shadow .2s ease, background .2s ease;
+          }
+          .ms-nav-brand, .ms-nav-links, .ms-nav-actions {
+            display: flex; align-items: center;
+          }
+          .ms-nav-brand { gap: .7rem; color: var(--ms-text) !important; text-decoration: none !important; font-weight: 750; }
+          .ms-logo {
+            width: 34px; height: 34px; border-radius: 11px;
+            display: grid; place-items: center;
+            color: white; background: var(--ms-primary);
+            box-shadow: 0 8px 18px rgba(68,102,242,.2);
+          }
+          .ms-logo svg { width: 18px; height: 18px; }
+          .ms-nav-links { gap: 1.65rem; justify-content: center; }
+          .ms-nav-links a {
+            color: #4B5563 !important; text-decoration: none !important; font-size: .84rem; font-weight: 550;
+            transition: color .18s ease;
+          }
+          .ms-nav-links a:hover { color: var(--ms-text); }
+          body .stApp .ms-topnav a,
+          body .stApp a.ms-hero-cta,
+          body .stApp a.ms-hero-secondary {
+            text-decoration: none !important;
+          }
+          .ms-nav-actions { justify-content: flex-end; }
+          .ms-nav-cta, .ms-hero-cta {
+            display: inline-flex; align-items: center; justify-content: center; gap: .48rem;
+            border-radius: 11px; background: var(--ms-primary); color: white !important;
+            font-size: .84rem; font-weight: 650; text-decoration: none !important; padding: .72rem 1rem;
+            box-shadow: 0 7px 18px rgba(68,102,242,.18);
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+          }
+          .ms-nav-cta:hover, .ms-hero-cta:hover {
+            transform: translateY(-1px); background: var(--ms-primary-hover);
+            box-shadow: 0 11px 24px rgba(68,102,242,.24);
+          }
+
+          .ms-hero {
+            position: relative !important;
+            min-height: 560px !important;
+            display: grid !important;
+            grid-template-columns: minmax(0,1.04fr) minmax(410px,.96fr) !important;
+            align-items: center !important;
+            gap: clamp(3rem,7vw,7rem) !important;
+            padding: 4.5rem 0 5.5rem !important;
+            text-align: left !important;
+            background: transparent !important;
+            border: 0 !important; box-shadow: none !important; border-radius: 0 !important;
+            overflow: visible !important;
+          }
+          .ms-hero::before { display: none !important; }
+          .ms-hero-copy { position: relative; z-index: 1; }
+          .ms-eyebrow {
+            display: inline-flex; align-items: center; gap: .5rem;
+            color: #3E57C7; background: #F1F4FF; border: 1px solid #DDE4FF;
+            border-radius: 999px; padding: .42rem .72rem; margin-bottom: 1.35rem;
+            font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+          }
+          .ms-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ms-primary); }
+          .ms-hero h1 {
+            max-width: 700px !important; margin: 0 !important;
+            color: var(--ms-text) !important; font-size: clamp(3.15rem,5.4vw,5.15rem) !important;
+            line-height: .99 !important; letter-spacing: -.057em !important; font-weight: 720 !important;
+          }
+          .ms-hero h1 * { color: var(--ms-text) !important; }
+          .ms-hero-sub {
+            max-width: 600px !important; margin: 1.6rem 0 0 !important;
+            color: var(--ms-muted) !important; font-size: 1.08rem !important;
+            line-height: 1.72 !important;
+          }
+          .ms-hero-actions { display: flex; align-items: center; gap: .85rem; margin-top: 2rem; }
+          .ms-hero-cta { padding: .86rem 1.18rem; font-size: .9rem; }
+          .ms-hero-secondary {
+            display: inline-flex; align-items: center; gap: .45rem; padding: .84rem 1rem;
+            color: #374151 !important; text-decoration: none !important; font-size: .88rem; font-weight: 620;
+            border: 1px solid var(--ms-border); border-radius: 11px; background: var(--ms-surface);
+            transition: transform .18s ease, box-shadow .18s ease;
+          }
+          .ms-hero-secondary:hover { transform: translateY(-1px); box-shadow: var(--ms-shadow-sm); }
+          .ms-hero-note { margin-top: 1.25rem; color: #9CA3AF; font-size: .76rem; }
+
+          .ms-pipeline {
+            position: relative; padding: 1.2rem; border: 1px solid var(--ms-border);
+            border-radius: 28px; background: rgba(255,255,255,.84); box-shadow: var(--ms-shadow-lg);
+          }
+          .ms-pipeline-head {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: .25rem .25rem 1rem; color: var(--ms-muted); font-size: .72rem; font-weight: 600;
+          }
+          .ms-pipeline-status { display: inline-flex; align-items: center; gap: .35rem; color: #24835A; }
+          .ms-pipeline-status::before { content:""; width: 6px; height: 6px; border-radius: 50%; background:#31A875; }
+          .ms-pipeline-list { display: grid; gap: .58rem; }
+          .ms-pipe-step {
+            position: relative; display: grid; grid-template-columns: 38px 1fr auto;
+            align-items: center; gap: .8rem; padding: .82rem;
+            background: #FBFCFE; border: 1px solid #EDF0F4; border-radius: 14px;
+            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+          }
+          .ms-pipe-step:hover { transform: translateX(3px); border-color: #CFD7F8; box-shadow: var(--ms-shadow-sm); }
+          .ms-pipe-step + .ms-pipe-step::before {
+            content:""; position:absolute; left: 31px; top:-10px; height:11px;
+            border-left: 1px dashed #BAC5ED;
+          }
+          .ms-pipe-icon {
+            width: 38px; height: 38px; border-radius: 11px; display:grid; place-items:center;
+            background: var(--ms-accent); color: var(--ms-primary);
+          }
+          .ms-pipe-icon svg { width: 18px; height: 18px; }
+          .ms-pipe-label strong { display:block; color:var(--ms-text); font-size:.82rem; font-weight:650; }
+          .ms-pipe-label span { color:var(--ms-muted); font-size:.7rem; }
+          .ms-pipe-check { color:#2D9B6A; font-size:.72rem; font-weight:650; }
+
+          .ms-marketing { margin: 5rem 0 1rem; }
+          .ms-section-intro { max-width:680px; margin-bottom:2rem; }
+          .ms-section-intro .ms-eyebrow { margin-bottom:.85rem; }
+          .ms-section-intro h2 {
+            color:var(--ms-text); font-size:clamp(2rem,3.3vw,3rem); line-height:1.08;
+            letter-spacing:-.045em; margin:0;
+          }
+          .ms-section-intro p { color:var(--ms-muted); line-height:1.65; margin:.85rem 0 0; }
+          .ms-process-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:.7rem; }
+          .ms-process-card, .ms-feature-card {
+            position:relative; padding:1.35rem; border:1px solid var(--ms-border);
+            border-radius:var(--ms-radius); background:var(--ms-surface); box-shadow:var(--ms-shadow-sm);
+            transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+          }
+          .ms-process-card:hover, .ms-feature-card:hover {
+            transform:translateY(-4px); border-color:#D4DBE8; box-shadow:var(--ms-shadow);
+          }
+          .ms-process-card:not(:last-child)::after {
+            content:""; position:absolute; right:-.85rem; top:2.1rem; width:.85rem; border-top:1px dashed #B9C4E9;
+          }
+          .ms-card-icon {
+            width:38px; height:38px; border-radius:11px; display:grid; place-items:center;
+            color:var(--ms-primary); background:var(--ms-accent); margin-bottom:1.1rem;
+          }
+          .ms-card-icon svg { width:18px; height:18px; transition:transform .18s ease; }
+          .ms-process-card:hover svg, .ms-feature-card:hover svg { transform:scale(1.08); }
+          .ms-process-card small { color:#9CA3AF; font-size:.66rem; font-weight:700; letter-spacing:.08em; }
+          .ms-process-card h3, .ms-feature-card h3 { color:var(--ms-text); font-size:.95rem; margin:.45rem 0 .4rem; }
+          .ms-process-card p, .ms-feature-card p { color:var(--ms-muted); font-size:.78rem; line-height:1.55; margin:0; }
+          .ms-feature-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem; }
+          .ms-feature-card:nth-child(1), .ms-feature-card:nth-child(6) { grid-column:span 2; }
+          .ms-benefit-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:.7rem; }
+          .ms-benefit {
+            min-height:170px; padding:1.25rem; border:1px solid var(--ms-border);
+            border-radius:var(--ms-radius); background:var(--ms-surface);
+            transition:transform .18s ease, box-shadow .18s ease;
+          }
+          .ms-benefit:nth-child(2) { background:#EEF2FF; }
+          .ms-benefit:nth-child(3) { background:#E6F6ED; }
+          .ms-benefit:nth-child(4) { background:#FFF4EA; }
+          .ms-benefit:nth-child(5) { background:#F5F0E8; }
+          .ms-benefit:hover { transform:translateY(-3px); box-shadow:var(--ms-shadow); }
+          .ms-benefit strong { display:block; margin:.9rem 0 .35rem; color:var(--ms-text); font-size:.9rem; }
+          .ms-benefit p { margin:0; color:var(--ms-muted); font-size:.76rem; line-height:1.55; }
+          .ms-faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
+          .ms-faq-item {
+            padding:1.2rem 1.3rem; border:1px solid var(--ms-border);
+            border-radius:var(--ms-radius); background:var(--ms-surface);
+          }
+          .ms-faq-item h3 { margin:0 0 .45rem; color:var(--ms-text); font-size:.9rem; }
+          .ms-faq-item p { margin:0; color:var(--ms-muted); font-size:.78rem; line-height:1.6; }
+
+          /* Interaction workspace */
+          #workspace { scroll-margin-top:88px; }
+          div[data-testid="stVerticalBlockBorderWrapper"] {
+            border:1px solid var(--ms-border) !important;
+            border-radius:24px !important;
+            background:var(--ms-surface) !important;
+            box-shadow:var(--ms-shadow-sm) !important;
+          }
+          .ms-upload-title-row { justify-content:center !important; gap:.75rem !important; margin-top:.35rem !important; }
+          .ms-upload-title { color:var(--ms-text) !important; font-size:1.3rem !important; letter-spacing:-.02em; }
+          .ms-upload-desc { max-width:580px; margin:.55rem auto 1.5rem !important; text-align:center; color:var(--ms-muted) !important; }
+          .ms-upload-icon-badge {
+            width:44px !important; height:44px !important; border:0 !important;
+            border-radius:14px !important; color:var(--ms-primary) !important;
+            background:var(--ms-accent) !important; box-shadow:none !important;
+          }
+          .ms-sub-label { color:var(--ms-text) !important; font-size:.9rem !important; text-align:center; }
+          .ms-sub-fmt { color:var(--ms-muted) !important; text-align:center; margin-bottom:1rem !important; }
+          [data-testid="stFileUploaderDropzone"] {
+            min-height:190px !important; border:1.5px dashed #BCC7EA !important;
+            border-radius:19px !important; background:#F8FAFF !important;
+            padding:2rem !important; transition:border-color .18s ease, background .18s ease, transform .18s ease, box-shadow .18s ease !important;
+          }
+          [data-testid="stFileUploaderDropzone"]:hover,
+          [data-testid="stFileUploaderDropzone"]:focus-within {
+            transform:translateY(-2px); border-color:var(--ms-primary) !important;
+            background:#F4F6FF !important; box-shadow:0 12px 28px rgba(91,110,245,.11) !important;
+          }
+          [data-testid="stFileUploaderDropzone"] svg { color:var(--ms-primary) !important; }
+          [data-testid="stFileUploaderDropzone"] button {
+            border-radius:10px !important; color:var(--ms-primary) !important;
+            border-color:#CCD4F8 !important; background:white !important; font-weight:650 !important;
+          }
+          .ms-or-wrap { min-height:100%; display:grid !important; place-items:center; }
+          .ms-or-divider { color:#9CA3AF !important; background:var(--ms-bg) !important; border:1px solid var(--ms-border); }
+          .ms-file-card {
+            min-height:72px !important; padding:.85rem !important; border:1px solid #DDE3F2 !important;
+            border-radius:15px !important; background:#FCFDFF !important; box-shadow:var(--ms-shadow-sm);
+            transition:transform .18s ease, box-shadow .18s ease !important;
+          }
+          .ms-file-card:hover { transform:translateY(-2px); box-shadow:var(--ms-shadow) !important; }
+          .ms-file-icon { width:38px !important; height:38px !important; color:var(--ms-primary) !important; background:var(--ms-accent) !important; }
+          .ms-file-name { color:var(--ms-text) !important; font-weight:650 !important; }
+          .ms-file-size { color:var(--ms-muted) !important; }
+          .ms-upload-success {
+            display:inline-flex; align-items:center; gap:.35rem; margin-left:auto;
+            color:#287A54; background:var(--ms-success); border-radius:999px;
+            padding:.3rem .55rem; font-size:.65rem; font-weight:700;
+          }
+          .ms-file-meta {
+            display:flex; align-items:center; gap:.35rem; flex-wrap:wrap; margin-top:.25rem;
+            color:var(--ms-muted); font-size:.64rem;
+          }
+          .ms-file-meta span {
+            display:inline-flex; align-items:center; padding:.18rem .4rem;
+            border:1px solid var(--ms-border); border-radius:999px; background:#FFFFFF;
+          }
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) {
+            align-items:center; gap:.65rem !important; margin-top:.75rem; padding:.65rem;
+            border:1px solid #DDE3F2; border-radius:15px; background:#FCFDFF;
+            box-shadow:var(--ms-shadow-sm); transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+          }
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)):hover {
+            transform:translateY(-1px); border-color:#CDD5EA; box-shadow:var(--ms-shadow);
+          }
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) .ms-file-card {
+            min-height:54px !important; padding:.15rem !important; border:0 !important;
+            border-radius:0 !important; background:transparent !important; box-shadow:none !important;
+          }
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) .ms-file-card:hover {
+            transform:none !important; box-shadow:none !important;
+          }
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) .stButton > button {
+            min-height:38px !important; padding:.48rem .65rem !important;
+            border:1px solid #E0E3E9 !important; border-radius:10px !important;
+            color:#6B7280 !important; background:#FFFFFF !important; box-shadow:none !important;
+          }
+          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) .stButton > button:hover {
+            color:#9B3F3F !important; border-color:#E7CACA !important;
+            background:#FFF8F7 !important; box-shadow:0 5px 12px rgba(31,41,55,.06) !important;
+          }
+
+          .stButton > button, [data-testid="stFormSubmitButton"] button {
+            min-height:44px !important; border-radius:11px !important; font-weight:650 !important;
+            transition:transform .16s ease, box-shadow .16s ease !important;
+          }
+          .stButton > button:hover, [data-testid="stFormSubmitButton"] button:hover {
+            transform:translateY(-1px) !important; box-shadow:0 8px 20px rgba(31,41,55,.09) !important;
+          }
+          .stButton > button[kind="primary"], [data-testid="stFormSubmitButton"] button[kind="primary"] {
+            color:white !important; border-color:var(--ms-primary) !important; background:var(--ms-primary) !important;
+          }
+          textarea, input {
+            border-radius:11px !important; border-color:var(--ms-border) !important;
+            background:#FDFDFD !important; color:var(--ms-text) !important;
+          }
+          textarea { padding:1rem !important; line-height:1.7 !important; font-size:.9rem !important; }
+          textarea:focus, input:focus {
+            border-color:var(--ms-primary) !important; box-shadow:0 0 0 3px rgba(91,110,245,.11) !important;
+          }
+
+          .ms-speaker-row {
+            margin-top:.8rem !important; padding:1rem !important; border:1px solid var(--ms-border) !important;
+            border-radius:15px !important; background:#FCFDFF !important; box-shadow:var(--ms-shadow-sm);
+          }
+          .ms-speaker-avatar {
+            background:var(--ms-accent) !important; color:var(--ms-primary) !important;
+            border:1px solid #DDE3FB !important;
+          }
+          .ms-speaker-label { color:var(--ms-text) !important; }
+          .ms-speaker-badge-text { color:var(--ms-muted) !important; }
+          .ms-speaker-stats { display:flex; gap:.35rem; flex-wrap:wrap; margin-top:.4rem; }
+          .ms-speaker-stats span {
+            display:inline-flex; padding:.2rem .45rem; border-radius:999px;
+            color:#536079; background:var(--ms-accent); font-size:.62rem; font-weight:650;
+          }
+          [data-testid="stForm"] {
+            padding:1rem !important; border:1px solid var(--ms-border) !important;
+            border-radius:18px !important; background:#FBFCFF !important;
+          }
+
+          .ms-transcript-toolbar {
+            position:sticky; top:78px; z-index:20; display:flex; align-items:center;
+            justify-content:space-between; gap:1rem; flex-wrap:wrap; margin:.9rem 0;
+            padding:.75rem .85rem; border:1px solid var(--ms-border); border-radius:14px;
+            background:rgba(255,255,255,.94); backdrop-filter:blur(14px); box-shadow:var(--ms-shadow-sm);
+          }
+          .ms-toolbar-title { color:var(--ms-text); font-size:.78rem; font-weight:700; }
+          .ms-toolbar-stats { display:flex; gap:.45rem; flex-wrap:wrap; }
+          .ms-toolbar-chip {
+            display:inline-flex; align-items:center; gap:.3rem; padding:.35rem .6rem;
+            border:1px solid var(--ms-border); border-radius:999px; color:var(--ms-muted);
+            background:#F9FAFB; font-size:.68rem; font-weight:600;
+          }
+          .ms-conversation-preview {
+            display:grid !important; gap:.7rem !important; max-height:430px; overflow:auto;
+            padding:.2rem .25rem .4rem .05rem !important;
+          }
+          .ms-convo-row {
+            position:relative; padding:1rem 1.05rem 1.05rem 4.2rem !important;
+            border:1px solid var(--ms-border) !important; border-radius:16px !important;
+            background:#FCFDFF !important; box-shadow:var(--ms-shadow-sm) !important;
+            transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+          }
+          .ms-convo-row:hover { transform:translateY(-2px); border-color:#D4DAEB !important; box-shadow:var(--ms-shadow) !important; }
+          .ms-convo-row::before {
+            content:attr(data-initial); position:absolute; left:1rem; top:1rem;
+            width:36px; height:36px; border-radius:12px; display:grid; place-items:center;
+            color:var(--ms-primary); background:var(--ms-accent); font-size:.75rem; font-weight:750;
+          }
+          .ms-convo-speaker { color:var(--ms-text) !important; font-weight:700 !important; }
+          .ms-time-chip {
+            border:1px solid var(--ms-border) !important; border-radius:999px !important;
+            color:var(--ms-muted) !important; background:#F8F9FB !important; font-size:.65rem !important;
+          }
+          .ms-convo-text { color:#4B5563 !important; font-size:.84rem !important; line-height:1.7 !important; }
+          .ms-convo-meta {
+            margin-top:.7rem; color:#9CA3AF; font-size:.62rem; font-weight:600;
+            letter-spacing:.01em;
+          }
+          .ms-editor-label {
+            display:flex; justify-content:space-between; align-items:center; margin:1.1rem 0 .55rem;
+            color:var(--ms-text); font-size:.78rem; font-weight:700;
+          }
+          .ms-editor-label span { color:var(--ms-muted); font-size:.67rem; font-weight:500; }
+
+          .ms-proc-wrap {
+            border:1px solid var(--ms-border) !important; border-radius:20px !important;
+            background:white !important; box-shadow:var(--ms-shadow) !important;
+          }
+          .ms-bar-track { background:#EEF1F5 !important; }
+          .ms-bar-fill { background:var(--ms-primary) !important; }
+          .ms-step.active .ms-step-circle, .ms-step.done .ms-step-circle { background:var(--ms-primary) !important; }
+          .ms-skeleton-line { background:#EEF2FF !important; }
+          [data-testid="stToast"] {
+            border:1px solid #CAE8D7 !important; border-radius:14px !important;
+            background:var(--ms-success) !important; box-shadow:var(--ms-shadow) !important;
+          }
+          [data-testid="stAlert"] {
+            border:1px solid #F1D8C5 !important; border-radius:14px !important;
+            background:var(--ms-warning) !important;
+          }
+
+          .ms-report-shell { margin-top:1.25rem; }
+          .ms-report-legacy-intro { display:none; }
+          .ms-report-hero {
+            position:relative; overflow:hidden; padding:1.65rem 1.7rem; border:1px solid #DDE3F2;
+            border-radius:22px; background:#FFFFFF; box-shadow:var(--ms-shadow); margin-bottom:1rem;
+          }
+          .ms-report-hero::after {
+            content:""; position:absolute; right:-48px; top:-52px; width:180px; height:180px;
+            border-radius:50%; background:var(--ms-accent); opacity:.75; pointer-events:none;
+          }
+          .ms-report-eyebrow { display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; margin-bottom:.8rem; }
+          .ms-success-badge {
+            display:inline-flex; align-items:center; gap:.4rem; padding:.38rem .65rem;
+            border:1px solid #C9E8D7; border-radius:999px; color:#287A54; background:var(--ms-success);
+            font-size:.68rem; font-weight:750; animation:ms-report-arrive .42s ease both;
+          }
+          .ms-generated-time { color:var(--ms-muted); font-size:.68rem; }
+          .ms-report-title {
+            position:relative; z-index:1; max-width:760px; margin:0; color:var(--ms-text);
+            font-size:clamp(1.75rem,4vw,2.65rem); line-height:1.08; letter-spacing:-.045em; font-weight:740;
+          }
+          .ms-report-subtitle { position:relative; z-index:1; margin:.7rem 0 0; color:var(--ms-muted); font-size:.84rem; }
+          .ms-report-actions { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:1.2rem; position:relative; z-index:1; }
+          .ms-report-action {
+            display:inline-flex; align-items:center; gap:.4rem; padding:.58rem .75rem;
+            border:1px solid var(--ms-border); border-radius:10px; color:#4B5563 !important;
+            background:#FFFFFF; text-decoration:none !important; font-size:.7rem; font-weight:650;
+            transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+          }
+          .ms-report-action:hover { transform:translateY(-1px); border-color:#CCD4F8; box-shadow:var(--ms-shadow-sm); }
+          .ms-info-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.65rem; margin:1rem 0 1.2rem; }
+          .ms-info-card {
+            padding:.9rem; border:1px solid var(--ms-border); border-radius:14px; background:#FFFFFF;
+            box-shadow:var(--ms-shadow-sm); min-width:0;
+          }
+          .ms-info-label { color:var(--ms-muted); font-size:.63rem; font-weight:650; text-transform:uppercase; letter-spacing:.055em; }
+          .ms-info-value { margin-top:.35rem; color:var(--ms-text); font-size:.8rem; font-weight:680; overflow-wrap:anywhere; }
+          .ms-report-section { margin:1.2rem 0; }
+          .ms-report-section-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; margin:0 0 .65rem; }
+          .ms-report-section-head h3 { margin:0; color:var(--ms-text); font-size:1.05rem; letter-spacing:-.025em; }
+          .ms-report-section-head span { color:var(--ms-muted); font-size:.68rem; }
+          .ms-summary-editorial {
+            padding:1.55rem clamp(1.2rem,4vw,2.25rem); border:1px solid #D9E0FB; border-radius:20px;
+            background:var(--ms-accent); box-shadow:var(--ms-shadow-sm);
+          }
+          .ms-summary-editorial p { max-width:820px; margin:.7rem 0 0; color:#374151; font-size:1rem; line-height:1.85; }
+          .ms-summary-kicker { color:var(--ms-primary); font-size:.67rem; font-weight:750; letter-spacing:.06em; text-transform:uppercase; }
+          .ms-summary-topics { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1rem; }
+          .ms-summary-topics span { padding:.3rem .55rem; border-radius:999px; background:#FFFFFF; color:#536079; font-size:.65rem; font-weight:650; }
+          .ms-discussion-list, .ms-decision-list, .ms-task-list { display:grid; gap:.65rem; }
+          .ms-discussion-card {
+            border:1px solid var(--ms-border); border-radius:16px; background:#FFFFFF;
+            box-shadow:var(--ms-shadow-sm); transition:transform .18s ease, box-shadow .18s ease;
+          }
+          .ms-discussion-card:hover { transform:translateY(-1px); box-shadow:var(--ms-shadow); }
+          .ms-discussion-card summary {
+            display:flex; align-items:center; gap:.7rem; padding:1rem; cursor:pointer; list-style:none;
+            color:var(--ms-text); font-size:.82rem; font-weight:700;
+          }
+          .ms-discussion-card summary::-webkit-details-marker { display:none; }
+          .ms-discussion-index { display:grid; place-items:center; flex:0 0 30px; height:30px; border-radius:10px; background:var(--ms-accent); color:var(--ms-primary); font-size:.66rem; }
+          .ms-discussion-chevron { margin-left:auto; color:#9CA3AF; transition:transform .18s ease; }
+          .ms-discussion-card[open] .ms-discussion-chevron { transform:rotate(180deg); }
+          .ms-discussion-body { padding:0 1rem 1rem 3.45rem; color:#4B5563; font-size:.8rem; line-height:1.7; }
+          .ms-detail-meta { display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.65rem; }
+          .ms-detail-meta span, .ms-task-chip {
+            padding:.28rem .5rem; border:1px solid var(--ms-border); border-radius:999px;
+            color:var(--ms-muted); background:#FAFAFA; font-size:.62rem; font-weight:620;
+          }
+          .ms-decision-card {
+            display:grid; grid-template-columns:34px minmax(0,1fr) auto; gap:.8rem; align-items:start;
+            padding:1rem; border:1px solid #CDE7D8; border-radius:16px; background:#F8FCFA; box-shadow:var(--ms-shadow-sm);
+          }
+          .ms-decision-check { display:grid; place-items:center; width:34px; height:34px; border-radius:11px; color:#287A54; background:var(--ms-success); font-weight:800; }
+          .ms-decision-text { color:#374151; font-size:.84rem; line-height:1.65; font-weight:600; }
+          .ms-confirmed-chip { padding:.3rem .52rem; border-radius:999px; color:#287A54; background:var(--ms-success); font-size:.62rem; font-weight:700; }
+          .ms-task-card {
+            display:grid; grid-template-columns:minmax(0,1.5fr) minmax(130px,.55fr); gap:1rem;
+            padding:1rem; border:1px solid var(--ms-border); border-radius:16px; background:#FFFFFF; box-shadow:var(--ms-shadow-sm);
+          }
+          .ms-task-title { color:var(--ms-text); font-size:.84rem; font-weight:680; line-height:1.55; }
+          .ms-task-meta { display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.65rem; }
+          .ms-owner { display:flex; align-items:center; gap:.55rem; color:#4B5563; font-size:.7rem; font-weight:650; }
+          .ms-owner-avatar { display:grid; place-items:center; width:32px; height:32px; border-radius:11px; background:var(--ms-warning); color:#9A5B30; font-size:.68rem; font-weight:750; }
+          .ms-priority-high { color:#A84D45 !important; background:#FFF0EE !important; border-color:#F1D2CE !important; }
+          .ms-priority-medium { color:#8A6724 !important; background:#FFF8E8 !important; border-color:#EFDFC0 !important; }
+          .ms-priority-low { color:#287A54 !important; background:var(--ms-success) !important; border-color:#CDE7D8 !important; }
+          .ms-export-wrap { border-color:#DDE3F2 !important; background:#FFFFFF !important; box-shadow:var(--ms-shadow) !important; }
+          .ms-export-option { min-height:112px; border:1px solid var(--ms-border); border-radius:14px; background:#FCFDFF; padding:.9rem; }
+          .ms-export-option-icon.pdf,
+          .ms-export-option-icon.docx,
+          .ms-export-option-icon.email {
+            color:var(--ms-primary) !important; background:var(--ms-accent) !important;
+            border:1px solid #DCE2FA !important;
+          }
+          @keyframes ms-report-arrive { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:none; } }
+
+          /* Final production polish: normalize native Streamlit surfaces. */
+          *, *::before, *::after { box-sizing:border-box; }
+          ::selection { color:var(--ms-text); background:#DDE4FF; }
+          html { scroll-padding-top:88px; }
+          [id] { scroll-margin-top:88px; }
+          body { text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
+          body::-webkit-scrollbar, .ms-conversation-preview::-webkit-scrollbar { width:10px; height:10px; }
+          body::-webkit-scrollbar-track, .ms-conversation-preview::-webkit-scrollbar-track { background:transparent; }
+          body::-webkit-scrollbar-thumb, .ms-conversation-preview::-webkit-scrollbar-thumb {
+            border:3px solid transparent; border-radius:999px; background-clip:padding-box; background:#CDD2DC;
+          }
+          body::-webkit-scrollbar-thumb:hover, .ms-conversation-preview::-webkit-scrollbar-thumb:hover { background:#AEB5C2; }
+          [data-testid="stHeaderActionElements"], a[data-testid="stHeaderAction"] { display:none !important; }
+          [data-testid="stMarkdownContainer"] > :first-child { margin-top:0; }
+          [data-testid="stMarkdownContainer"] > :last-child { margin-bottom:0; }
+          p { text-wrap:pretty; }
+          h1, h2, h3, h4 { text-wrap:balance; }
+
+          .stButton > button,
+          .stDownloadButton > button,
+          [data-testid="stFormSubmitButton"] button,
+          button[data-baseweb="button"] {
+            min-height:44px !important; padding:.62rem .9rem !important;
+            border-radius:var(--ms-radius-sm) !important; font-size:.78rem !important;
+            font-weight:680 !important; letter-spacing:-.005em !important;
+            transition:transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease,
+              background-color 160ms ease, color 160ms ease !important;
+          }
+          .stButton > button:hover,
+          .stDownloadButton > button:hover,
+          [data-testid="stFormSubmitButton"] button:hover,
+          button[data-baseweb="button"]:hover {
+            transform:translateY(-1px) !important; box-shadow:0 8px 20px rgba(31,41,55,.09) !important;
+          }
+          .stButton > button:active,
+          .stDownloadButton > button:active,
+          [data-testid="stFormSubmitButton"] button:active,
+          button[data-baseweb="button"]:active {
+            transform:translateY(0) scale(.985) !important; box-shadow:none !important;
+          }
+          .stButton > button:focus-visible,
+          .stDownloadButton > button:focus-visible,
+          [data-testid="stFormSubmitButton"] button:focus-visible,
+          button[data-baseweb="button"]:focus-visible {
+            outline:3px solid rgba(91,110,245,.2) !important; outline-offset:2px !important;
+          }
+          .stButton > button:disabled,
+          .stDownloadButton > button:disabled,
+          [data-testid="stFormSubmitButton"] button:disabled,
+          button[data-baseweb="button"]:disabled {
+            transform:none !important; color:#9CA3AF !important; background:#F3F4F6 !important;
+            border-color:#E5E7EB !important; box-shadow:none !important; cursor:not-allowed !important; opacity:.82 !important;
+          }
+          .stButton > button p, .stDownloadButton > button p,
+          [data-testid="stFormSubmitButton"] button p { line-height:1.2 !important; }
+
+          div[data-testid="stTextInput"] input,
+          div[data-testid="stTextArea"] textarea,
+          div[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+            border:1px solid var(--ms-border) !important; border-radius:var(--ms-radius-sm) !important;
+            background:#FDFDFD !important; box-shadow:none !important;
+            transition:border-color 170ms ease, box-shadow 170ms ease, background-color 170ms ease !important;
+          }
+          div[data-testid="stTextInput"] input:hover,
+          div[data-testid="stTextArea"] textarea:hover,
+          div[data-testid="stSelectbox"] [data-baseweb="select"] > div:hover {
+            border-color:#CFD4DE !important; background:#FFFFFF !important;
+          }
+          div[data-testid="stTextInput"] input:focus,
+          div[data-testid="stTextArea"] textarea:focus,
+          div[data-testid="stSelectbox"] [data-baseweb="select"] > div:focus-within {
+            border-color:var(--ms-primary) !important; background:#FFFFFF !important;
+            box-shadow:0 0 0 3px rgba(91,110,245,.11) !important; outline:none !important;
+          }
+          div[data-testid="stTextInput"] label,
+          div[data-testid="stTextArea"] label,
+          div[data-testid="stSelectbox"] label {
+            color:#4B5563 !important; font-size:.72rem !important; font-weight:680 !important; letter-spacing:0 !important;
+          }
+          input::placeholder, textarea::placeholder { color:#9CA3AF !important; opacity:1 !important; }
+
+          [data-testid="stVerticalBlockBorderWrapper"] {
+            border-color:var(--ms-border) !important; border-radius:var(--ms-radius) !important;
+            background:var(--ms-surface); box-shadow:var(--ms-shadow-sm);
+          }
+          [data-testid="stVerticalBlockBorderWrapper"]:hover {
+            border-color:#D9DDE5 !important;
+          }
+          [data-testid="stExpander"] {
+            border:1px solid var(--ms-border) !important; border-radius:var(--ms-radius) !important;
+            background:#FFFFFF !important; box-shadow:var(--ms-shadow-sm) !important;
+            overflow:hidden; transition:border-color 170ms ease, box-shadow 170ms ease !important;
+          }
+          [data-testid="stExpander"]:hover { border-color:#D7DCE6 !important; box-shadow:var(--ms-shadow) !important; }
+
+          [data-testid="stProgressBar"] > div {
+            height:8px !important; overflow:hidden; border:0 !important; border-radius:999px !important;
+            background:#EDF0F5 !important; box-shadow:none !important;
+          }
+          [data-testid="stProgressBar"] > div > div {
+            border-radius:999px !important; background:var(--ms-primary) !important;
+            box-shadow:none !important; transition:width 240ms ease !important;
+          }
+          .ms-skeleton-line {
+            position:relative; overflow:hidden; border-radius:999px;
+          }
+          .ms-skeleton-line::after {
+            content:""; position:absolute; inset:0; transform:translateX(-100%);
+            background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);
+            animation:ms-shimmer 1.45s ease-in-out infinite;
+          }
+          @keyframes ms-shimmer { to { transform:translateX(100%); } }
+
+          [data-testid="stToastContainer"] { right:1.25rem !important; bottom:1.25rem !important; }
+          [data-testid="stToast"] {
+            min-width:280px; padding:.15rem !important; border:1px solid #DDE3EA !important;
+            border-radius:14px !important; background:rgba(255,255,255,.98) !important;
+            box-shadow:0 18px 42px rgba(17,24,39,.13) !important;
+            animation:ms-toast-in 220ms ease-out both;
+          }
+          [data-testid="stToast"] [data-testid="stMarkdownContainer"] { color:var(--ms-text) !important; font-size:.76rem !important; }
+          @keyframes ms-toast-in { from { opacity:0; transform:translateY(8px) scale(.985); } to { opacity:1; transform:none; } }
+          [data-testid="stAlert"] {
+            padding:.8rem .9rem !important; border-radius:14px !important;
+            box-shadow:var(--ms-shadow-sm) !important;
+          }
+          [data-testid="stCodeBlock"] {
+            overflow:hidden; border:1px solid var(--ms-border) !important;
+            border-radius:12px !important; background:#F8F9FB !important;
+            box-shadow:none !important;
+          }
+          [data-testid="stCodeBlock"] pre {
+            padding:.75rem .85rem !important; color:#4B5563 !important;
+            background:#F8F9FB !important; font-size:.68rem !important; line-height:1.55 !important;
+          }
+          [data-testid="stExpander"] summary {
+            min-height:46px; padding:.72rem .85rem !important;
+            color:var(--ms-text) !important; font-size:.76rem !important; font-weight:680 !important;
+          }
+          [data-testid="stExpander"] summary:hover { background:#FAFBFC !important; }
+
+          .stDownloadButton > button {
+            color:#FFFFFF !important; border-color:var(--ms-primary) !important;
+            background:var(--ms-primary) !important; box-shadow:0 5px 14px rgba(91,110,245,.16) !important;
+          }
+          .stDownloadButton > button:hover {
+            color:#FFFFFF !important; border-color:var(--ms-primary-hover) !important;
+            background:var(--ms-primary-hover) !important;
+          }
+          [data-testid="stFileUploaderDropzone"] button {
+            min-height:38px !important; padding:.5rem .72rem !important;
+            border:1px solid #CCD4F8 !important; border-radius:10px !important;
+            color:var(--ms-primary) !important; background:#FFFFFF !important; box-shadow:none !important;
+          }
+          [data-testid="stFileUploaderDropzone"] button:active { transform:scale(.985) !important; }
+
+          .ms-email-compose { margin:0 0 .8rem; padding:0 !important; border:0 !important; background:transparent !important; }
+          .ms-email-compose-hdr {
+            color:var(--ms-text) !important; font-size:1rem !important; font-weight:720 !important;
+            letter-spacing:-.02em !important;
+          }
+          .ms-email-compose-sub { margin:.28rem 0 .8rem !important; color:var(--ms-muted) !important; font-size:.75rem !important; line-height:1.55 !important; }
+          .ms-email-field-label {
+            margin:.65rem 0 .32rem !important; color:#4B5563 !important;
+            font-size:.69rem !important; font-weight:680 !important; letter-spacing:0 !important;
+          }
+          .ms-attachment-preview {
+            display:flex; align-items:center; gap:.7rem; padding:.78rem !important;
+            border:1px solid var(--ms-border) !important; border-radius:13px !important;
+            background:#FAFBFF !important; box-shadow:none !important;
+          }
+          .ms-attachment-preview-icon {
+            display:grid; place-items:center; flex:0 0 38px; height:38px;
+            border-radius:11px !important; color:var(--ms-primary) !important;
+            background:var(--ms-accent) !important; font-size:.62rem !important; font-weight:780 !important;
+          }
+          .ms-attachment-preview-name { color:var(--ms-text) !important; font-size:.74rem !important; font-weight:680 !important; }
+          .ms-attachment-preview-meta { color:var(--ms-muted) !important; font-size:.63rem !important; }
+          .ms-attachment-pill {
+            color:#287A54 !important; background:var(--ms-success) !important;
+            border:1px solid #CDE7D8 !important; border-radius:999px !important;
+            padding:.28rem .5rem !important; font-size:.61rem !important; font-weight:700 !important;
+          }
+          iframe[title="streamlit.components.v1.html"] { border:0 !important; border-radius:10px; }
+          .ms-empty {
+            padding:1.5rem 1.2rem !important; border:1px dashed #CDD5EA !important;
+            border-radius:var(--ms-radius) !important; color:var(--ms-muted) !important;
+            background:#FAFBFF !important; box-shadow:none !important; font-size:.78rem !important;
+          }
+          .ms-empty::before {
+            width:40px !important; height:40px !important; border-radius:12px !important;
+            background:var(--ms-accent) !important; box-shadow:inset 0 0 0 1px #DCE2FA !important;
+          }
+          .ms-empty-state {
+            min-height:240px; padding:2.5rem 1.5rem !important;
+            border:1px solid var(--ms-border) !important; border-radius:20px !important;
+            background:#FFFFFF !important; box-shadow:var(--ms-shadow-sm) !important;
+          }
+          .ms-empty-icon {
+            width:48px !important; height:48px !important; border:1px solid #DCE2FA !important;
+            border-radius:14px !important; color:var(--ms-primary) !important;
+            background:var(--ms-accent) !important; box-shadow:none !important;
+          }
+          .ms-empty-title { color:var(--ms-text) !important; font-size:1rem !important; font-weight:720 !important; }
+          .ms-empty-copy { color:var(--ms-muted) !important; font-size:.78rem !important; line-height:1.65 !important; }
+
+          .ms-premium-section, .ms-process-card, .ms-feature-card, .ms-benefit-card,
+          .ms-file-card, .ms-speaker-row, .ms-convo-row, .ms-report-hero,
+          .ms-summary-editorial, .ms-discussion-card, .ms-decision-card,
+          .ms-task-card, .ms-export-wrap {
+            animation:ms-surface-in 260ms ease-out both;
+          }
+          @keyframes ms-surface-in { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:none; } }
+
+          .ms-footer {
+            display:flex !important; align-items:center; justify-content:space-between;
+            margin-top:5rem !important; padding:1.5rem 0 !important; border-top:1px solid var(--ms-border) !important;
+            color:var(--ms-muted) !important; font-size:.74rem !important; background:transparent !important;
+          }
+          .ms-footer-links { display:flex; gap:1.25rem; }
+          .ms-footer a { color:var(--ms-muted); text-decoration:none; }
+          .ms-footer a:hover { color:var(--ms-text); }
+
+          @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+          }
+          @media (max-width: 960px) {
+            .ms-topnav { grid-template-columns:1fr auto; }
+            .ms-nav-links { display:none; }
+            .ms-hero { grid-template-columns:1fr !important; gap:2.5rem !important; }
+            .ms-pipeline { max-width:620px; }
+            .ms-process-grid, .ms-feature-grid, .ms-benefit-grid { grid-template-columns:repeat(2,1fr); }
+            .ms-info-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .ms-report-hero { padding:1.4rem; }
+          }
+          @media (max-width: 700px) {
+            .main .block-container { padding:5.5rem 1rem 2rem !important; }
+            .ms-topnav { height:60px; padding:0 1rem; }
+            .ms-nav-brand span:last-child { display:none; }
+            .ms-nav-cta { padding:.65rem .75rem; }
+            .ms-hero { min-height:auto !important; padding:3rem 0 4rem !important; }
+            .ms-hero h1 { font-size:clamp(2.65rem,13vw,3.7rem) !important; }
+            .ms-hero-actions { align-items:stretch; flex-direction:column; }
+            .ms-hero-cta, .ms-hero-secondary { width:100%; }
+            .ms-pipeline { padding:.8rem; border-radius:20px; }
+            .ms-process-grid, .ms-feature-grid, .ms-benefit-grid, .ms-faq-grid { grid-template-columns:1fr; }
+            .ms-feature-card:nth-child(1), .ms-feature-card:nth-child(6) { grid-column:span 1; }
+            .ms-process-card:not(:last-child)::after { display:none; }
+            .ms-footer { align-items:flex-start; flex-direction:column; gap:1rem; }
+            .ms-transcript-toolbar { top:68px; align-items:flex-start; flex-direction:column; }
+            .ms-convo-row { padding-left:3.8rem !important; }
+            .ms-info-grid { grid-template-columns:1fr; }
+            .ms-task-card { grid-template-columns:1fr; }
+            .ms-decision-card { grid-template-columns:34px minmax(0,1fr); }
+            .ms-confirmed-chip { grid-column:2; justify-self:start; }
+            .ms-report-hero { padding:1.15rem; border-radius:18px; }
+            .ms-report-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .ms-report-action { justify-content:center; text-align:center; }
+            .ms-summary-editorial { padding:1.2rem; border-radius:17px; }
+            .ms-discussion-body { padding-left:1rem; }
+            [data-testid="stToastContainer"] { inset:auto .75rem .75rem !important; }
+            [data-testid="stToast"] { min-width:0; width:100%; }
+            .stButton > button, .stDownloadButton > button,
+            [data-testid="stFormSubmitButton"] button { min-height:46px !important; }
+            div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) {
+              display:flex !important; flex-wrap:nowrap !important; padding:.55rem !important;
+            }
+            div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card))
+              > div[data-testid="column"]:first-child { flex:1 1 auto !important; min-width:0 !important; }
+            div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card))
+              > div[data-testid="column"]:last-child { flex:0 0 auto !important; width:auto !important; min-width:76px !important; }
+            .ms-file-name { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+            .ms-upload-success { padding:.26rem .46rem; }
+          }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_top_navigation() -> None:
+    """Render the static, accessible application navigation."""
+
+    st.markdown(
+        """
+        <nav class="ms-topnav" aria-label="Primary navigation">
+          <a class="ms-nav-brand" href="#top" aria-label="MeetScribe home">
+            <span class="ms-logo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"/>
+              </svg>
+            </span>
+            <span>MeetScribe</span>
+          </a>
+          <div class="ms-nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How it Works</a>
+            <a href="#use-cases">Use Cases</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div class="ms-nav-actions">
+            <a class="ms-nav-cta" href="#workspace">Generate Minutes</a>
+          </div>
+        </nav>
+        <div id="top"></div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def experimental_mom_to_analysis_result(
     transcript_text: str,
     generated: GeneratedMomResult,
@@ -2270,11 +3088,11 @@ def render_stage_status(
     elapsed = format_elapsed(time.perf_counter() - started_at)
 
     step_labels = [
-        "Upload",
-        "Preparing",
-        "Identify Speakers",
-        "Generate Report",
-        "Export",
+        "Preparing Report",
+        "Building Summary",
+        "Organizing Minutes",
+        "Finalizing Document",
+        "Completed",
     ]
     steps_html = ""
     for i, label in enumerate(step_labels):
@@ -2297,7 +3115,7 @@ def render_stage_status(
         f"""
         <div class="ms-proc-wrap">
           <div class="ms-proc-top">
-            <div class="ms-proc-title">Preparing Your Report <span class="ms-badge queue">Processing</span></div>
+            <div class="ms-proc-title">Preparing your meeting <span class="ms-badge queue">In progress</span></div>
             <div class="ms-elapsed-col">
               <span class="ms-elapsed-label">Elapsed</span>
               <span class="ms-elapsed-value">{elapsed}</span>
@@ -2560,27 +3378,155 @@ def render_hero() -> None:
     st.markdown(
         """
         <div class="ms-hero">
-          <div class="ms-hero-brand">
-            <span class="ms-brand-recording"><span></span><span></span><span></span><span></span><span></span></span>
-            <span>MeetScribe</span>
+          <div class="ms-hero-copy">
+            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>Clear records. Confident follow-through.</div>
+            <h1>Turn conversations into professional meeting minutes.</h1>
+            <p class="ms-hero-sub">
+              Upload your meeting, review the transcript, edit speaker names, and create polished
+              Minutes of Meeting ready to download as PDF or DOCX.
+            </p>
+            <div class="ms-hero-actions">
+              <a class="ms-hero-cta" href="#workspace">Generate Minutes <span aria-hidden="true">→</span></a>
+              <a class="ms-hero-secondary" href="#how-it-works">See Demo <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="ms-hero-note">Review before download · Clear action items · Professional exports</div>
           </div>
-          <h1>Every meeting deserves clear decisions.</h1>
-          <p class="ms-hero-sub">
-            Upload a recording or transcript, review speakers, verify the transcript,
-            and generate professional Minutes of Meeting in minutes.
-          </p>
-          <div class="ms-workflow-timeline">
-            <span class="ms-workflow-step active">Upload</span>
-            <span class="ms-workflow-dot"></span>
-            <span class="ms-workflow-step">Identify Speakers</span>
-            <span class="ms-workflow-dot"></span>
-            <span class="ms-workflow-step">Review Transcript</span>
-            <span class="ms-workflow-dot"></span>
-            <span class="ms-workflow-step">Generate Report</span>
-            <span class="ms-workflow-dot"></span>
-            <span class="ms-workflow-step">Export</span>
+          <div class="ms-pipeline" role="img" aria-label="Five steps from meeting upload to downloadable minutes">
+            <div class="ms-pipeline-head"><span>Your meeting, beautifully documented</span><span class="ms-pipeline-status">Ready</span></div>
+            <div class="ms-pipeline-list">
+              <div class="ms-pipe-step">
+                <span class="ms-pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg></span>
+                <span class="ms-pipe-label"><strong>Upload your meeting</strong><span>Recording or transcript</span></span><span class="ms-pipe-check">01</span>
+              </div>
+              <div class="ms-pipe-step">
+                <span class="ms-pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
+                <span class="ms-pipe-label"><strong>Review the transcript</strong><span>Read and correct the conversation</span></span><span class="ms-pipe-check">02</span>
+              </div>
+              <div class="ms-pipe-step">
+                <span class="ms-pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+                <span class="ms-pipe-label"><strong>Verify speakers</strong><span>Confirm every participant name</span></span><span class="ms-pipe-check">03</span>
+              </div>
+              <div class="ms-pipe-step">
+                <span class="ms-pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+                <span class="ms-pipe-label"><strong>Generate minutes</strong><span>Summary, decisions, and actions</span></span><span class="ms-pipe-check">04</span>
+              </div>
+              <div class="ms-pipe-step">
+                <span class="ms-pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg></span>
+                <span class="ms-pipe-label"><strong>Download and share</strong><span>Professional PDF or DOCX</span></span><span class="ms-pipe-check">05</span>
+              </div>
+            </div>
           </div>
         </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_marketing_sections() -> None:
+    """Render static product education below the empty workspace."""
+
+    st.markdown(
+        """
+        <section class="ms-marketing" id="workflow">
+          <div class="ms-section-intro">
+            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>Workflow</div>
+            <h2>From conversation to accountable outcomes.</h2>
+            <p>A guided review path keeps every stage visible while preserving control over speakers, transcript wording, and final meeting information.</p>
+          </div>
+          <div class="ms-process-grid" id="how-it-works">
+            <article class="ms-process-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5M12 3v12"/></svg></div><small>STEP 01</small><h3>Upload</h3><p>Add a recording or an existing transcript through the secure workspace.</p></article>
+            <article class="ms-process-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M17 11a4 4 0 1 0 0-8M2 21a7 7 0 0 1 14 0M17 14a6 6 0 0 1 5 7"/></svg></div><small>STEP 02</small><h3>Resolve speakers</h3><p>Review participant labels and establish clear attribution before analysis.</p></article>
+            <article class="ms-process-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg></div><small>STEP 03</small><h3>Review transcript</h3><p>Edit wording and meeting details before generating the official report.</p></article>
+            <article class="ms-process-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div><small>STEP 04</small><h3>Export minutes</h3><p>Inspect the structured report and download professional PDF or DOCX files.</p></article>
+          </div>
+        </section>
+        <section class="ms-marketing" id="features">
+          <div class="ms-section-intro">
+            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>Product capabilities</div>
+            <h2>Everything needed for reliable meeting records.</h2>
+            <p>Purpose-built tools turn long conversations into documentation teams can review, share, and act on.</p>
+          </div>
+          <div class="ms-feature-grid">
+            <article class="ms-feature-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Speaker diarization</h3><p>Keep each contribution connected to the right participant across the reviewed transcript.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>Decision detection</h3><p>Surface confirmed outcomes separately from discussion and follow-up work.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M3 6h7M3 12h3M3 18h7"/></svg></div><h3>Action items</h3><p>Organize assigned tasks, owners, deadlines, and priorities into clear rows.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Meeting summary</h3><p>Capture the meeting’s central themes in concise, professional language.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg></div><h3>Transcript editing</h3><p>Review and correct the conversation before report generation begins.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg></div><h3>PDF and DOCX export</h3><p>Deliver client-ready documents in the formats stakeholders already use.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 0 12c1.7 0 3.2-.7 4.3-1.7L21 18"/><path d="M18 21l3-3-3-3"/></svg></div><h3>Local refinement</h3><p>Polish deterministic minutes locally while preserving factual source content.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Review-first control</h3><p>Nothing becomes a report until speakers and transcript content are confirmed.</p></article>
+          </div>
+        </section>
+        <div id="about"></div><div id="documentation"></div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_product_landing_sections() -> None:
+    """Render customer-facing landing sections without implementation details."""
+
+    st.markdown(
+        """
+        <section class="ms-marketing" id="use-cases">
+          <div class="ms-section-intro">
+            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>Why MeetScribe</div>
+            <h2>Less time writing. More clarity after every meeting.</h2>
+            <p>Keep teams aligned with minutes that are easy to review, act on, and share.</p>
+          </div>
+          <div class="ms-benefit-grid">
+            <article class="ms-benefit"><div class="ms-card-icon">◷</div><strong>Save hours</strong><p>Replace repetitive manual note-taking with a guided report workflow.</p></article>
+            <article class="ms-benefit"><div class="ms-card-icon">✓</div><strong>Capture decisions</strong><p>Keep confirmed outcomes visible and separate from general discussion.</p></article>
+            <article class="ms-benefit"><div class="ms-card-icon">≡</div><strong>Organize actions</strong><p>Turn commitments into clear tasks with owners and due dates.</p></article>
+            <article class="ms-benefit"><div class="ms-card-icon">✎</div><strong>Review first</strong><p>Edit transcript wording and speaker names before creating the report.</p></article>
+            <article class="ms-benefit"><div class="ms-card-icon">↓</div><strong>Export beautifully</strong><p>Download polished minutes that are ready to circulate immediately.</p></article>
+          </div>
+        </section>
+        <section class="ms-marketing" id="features">
+          <div class="ms-section-intro">
+            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>Features</div>
+            <h2>Everything needed for reliable meeting records.</h2>
+            <p>Purpose-built tools turn long conversations into documentation teams can review, share, and act on.</p>
+          </div>
+          <div class="ms-feature-grid">
+            <article class="ms-feature-card"><div class="ms-card-icon">≡</div><h3>Automatic meeting summaries</h3><p>Understand the central themes and outcomes without reading the full conversation.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon">✎</div><h3>Editable transcript</h3><p>Correct wording and meeting details before creating the final minutes.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon">◉</div><h3>Speaker identification</h3><p>Review and rename speakers so every contribution is clearly attributed.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon">✓</div><h3>Decision tracking</h3><p>Keep agreed outcomes organized and easy to reference after the meeting.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon">☑</div><h3>Action items</h3><p>Organize assigned tasks, owners, deadlines, and priorities into clear rows.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon">PDF</div><h3>Professional PDF export</h3><p>Create presentation-ready minutes for clients, teams, and stakeholders.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon">DOC</div><h3>DOCX export</h3><p>Continue editing your minutes in the document tools your organization uses.</p></article>
+            <article class="ms-feature-card"><div class="ms-card-icon">⌂</div><h3>Local privacy</h3><p>Keep sensitive meeting content within a privacy-conscious local workflow.</p></article>
+          </div>
+        </section>
+        <section class="ms-marketing" id="how-it-works">
+          <div class="ms-section-intro">
+            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>How it works</div>
+            <h2>Professional minutes in five clear steps.</h2>
+            <p>You stay in control from the first upload to the final download.</p>
+          </div>
+          <div class="ms-process-grid">
+            <article class="ms-process-card"><div class="ms-card-icon">↑</div><small>STEP 01</small><h3>Upload</h3><p>Add a meeting recording or an existing transcript.</p></article>
+            <article class="ms-process-card"><div class="ms-card-icon">≡</div><small>STEP 02</small><h3>Review transcript</h3><p>Read the conversation and correct anything that needs attention.</p></article>
+            <article class="ms-process-card"><div class="ms-card-icon">◉</div><small>STEP 03</small><h3>Edit speakers</h3><p>Confirm participant names and speaker attribution.</p></article>
+            <article class="ms-process-card"><div class="ms-card-icon">✓</div><small>STEP 04</small><h3>Generate minutes</h3><p>Create the summary, discussion, decisions, and actions.</p></article>
+            <article class="ms-process-card"><div class="ms-card-icon">↓</div><small>STEP 05</small><h3>Download</h3><p>Export polished minutes as PDF or DOCX.</p></article>
+          </div>
+        </section>
+        <section class="ms-marketing" id="faq">
+          <div class="ms-section-intro">
+            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>FAQ</div>
+            <h2>Everything you need to get started.</h2>
+          </div>
+          <div class="ms-faq-grid">
+            <article class="ms-faq-item"><h3>Which files are supported?</h3><p>Upload MP3, WAV, M4A, AAC, or MP4 recordings, or use PDF, DOCX, and TXT transcripts.</p></article>
+            <article class="ms-faq-item"><h3>Can I edit speakers?</h3><p>Yes. You can review and rename every detected speaker before generating minutes.</p></article>
+            <article class="ms-faq-item"><h3>Can I edit the transcript before export?</h3><p>Yes. The transcript review step lets you correct wording and meeting information first.</p></article>
+            <article class="ms-faq-item"><h3>Can I download PDF and DOCX?</h3><p>Yes. Final minutes can be downloaded in both professional PDF and editable DOCX formats.</p></article>
+            <article class="ms-faq-item"><h3>Is my data private?</h3><p>MeetScribe keeps the review experience under your control and supports private local processing.</p></article>
+          </div>
+        </section>
+        <div id="documentation"></div>
         """,
         unsafe_allow_html=True,
     )
@@ -2591,6 +3537,12 @@ def empty_card(message: str) -> None:
         f"<div class='ms-empty'>{html.escape(message)}</div>",
         unsafe_allow_html=True,
     )
+
+
+def compact_ui_html(markup: str) -> str:
+    """Collapse template-only whitespace so Markdown always parses UI markup as HTML."""
+
+    return re.sub(r">\s+<", "><", markup).strip()
 
 
 def format_timestamp(seconds: float | None) -> str:
@@ -3112,16 +4064,16 @@ def render_transcript_turn_cards(turns: list[dict[str, str]]) -> None:
     transcript_html = f"""
     <style>
       :root {{
-        --pink-soft: #FFF1F4;
-        --pink-mid: #F8C7D2;
-        --pink-deep: #BE185D;
-        --green-soft: #DCFCE7;
-        --blue-soft: #DBEAFE;
-        --lav-soft: #F3E8FF;
-        --warm: #3B2F2F;
-        --warm-2: #574848;
-        --warm-4: #9B7B7B;
-        --border-soft: #FCE7EC;
+        --pink-soft: #EEF2FF;
+        --pink-mid: #E7E7E7;
+        --pink-deep: #5B6EF5;
+        --green-soft: #E6F6ED;
+        --blue-soft: #EAF2FF;
+        --lav-soft: #F3F0FF;
+        --warm: #1F2937;
+        --warm-2: #4B5563;
+        --warm-4: #6B7280;
+        --border-soft: #E7E7E7;
       }}
       body {{
         margin: 0;
@@ -3155,11 +4107,11 @@ def render_transcript_turn_cards(turns: list[dict[str, str]]) -> None:
         align-items: center;
         gap: 0.75rem;
         padding: 0.75rem 0.9rem;
-        border: 1.35px solid var(--pink-mid);
-        border-radius: 18px;
-        background: rgba(255, 251, 254, 0.96);
+        border: 1px solid var(--pink-mid);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.96);
         backdrop-filter: blur(10px);
-        box-shadow: 0 10px 24px rgba(251,113,133,0.09);
+        box-shadow: 0 8px 22px rgba(17,24,39,0.06);
       }}
       .ms-transcript-sticky-head span:first-child {{
         color: var(--warm);
@@ -3174,17 +4126,17 @@ def render_transcript_turn_cards(turns: list[dict[str, str]]) -> None:
       .ms-tr-row {{
         display: grid;
         grid-template-columns: 150px minmax(0, 1fr);
-        border: 1.35px solid var(--pink-mid);
-        border-radius: 18px;
+        border: 1px solid var(--pink-mid);
+        border-radius: 16px;
         background: #FFFFFF;
-        box-shadow: 0 8px 22px rgba(251,113,133,0.07);
+        box-shadow: 0 5px 16px rgba(17,24,39,0.045);
         overflow: visible;
         transition: background 180ms, border-color 180ms, box-shadow 180ms, transform 180ms;
       }}
       .ms-tr-row:hover {{
-        background: #FFF7FA;
-        border-color: #F4AFC0;
-        box-shadow: 0 14px 30px rgba(251,113,133,0.12);
+        background: #FCFDFF;
+        border-color: #CDD5EA;
+        box-shadow: 0 12px 28px rgba(17,24,39,0.075);
         transform: translateY(-1px);
       }}
       .ms-tr-left {{
@@ -3411,29 +4363,99 @@ def action_priority(task: str, due_date: str | None = None) -> str:
     return "Low"
 
 
+def render_generated_report_header(analysis: MeetingAnalysisResult) -> None:
+    """Render the generated report as a product workspace using existing data only."""
+
+    report_info = meeting_info_for_export()
+    metrics = st.session_state.get("success_metrics") or {}
+    title = (
+        report_info.get("Meeting Title")
+        or analysis.summary.title
+        or "Meeting Minutes"
+    )
+    participants_text = str(report_info.get("Participants") or report_info.get("Attendees") or "")
+    participant_count = len(
+        [name for name in re.split(r"[,;\n]+", participants_text) if name.strip()]
+    )
+    generated_on = str(report_info.get("Generated On") or generated_on_display())
+    date_text = str(report_info.get("Date") or "Not specified")
+    duration = str(report_info.get("Duration") or metrics.get("Duration") or "Not available")
+    prepared_by = str(report_info.get("Prepared By") or "MeetScribe")
+
+    st.html(
+        compact_ui_html(
+            f"""
+        <div class="ms-report-shell">
+          <header class="ms-report-hero">
+            <div class="ms-report-eyebrow">
+              <span class="ms-success-badge">&#10003; Meeting minutes generated successfully</span>
+              <span class="ms-generated-time">Generated {html.escape(generated_on)}</span>
+            </div>
+            <h2 class="ms-report-title">{html.escape(str(title))}</h2>
+            <p class="ms-report-subtitle">
+              {participant_count} participant{"s" if participant_count != 1 else ""} ·
+              {html.escape(date_text)} · Ready to review and share
+            </p>
+            <nav class="ms-report-actions" aria-label="Report actions">
+              <a class="ms-report-action" href="#downloads">&#8595; Download PDF</a>
+              <a class="ms-report-action" href="#downloads">&#8595; Download DOCX</a>
+              <a class="ms-report-action" href="#summary-heading">Read summary</a>
+              <a class="ms-report-action" href="#source-transcript">View transcript</a>
+            </nav>
+          </header>
+          <section class="ms-report-section" aria-labelledby="meeting-information-heading">
+            <div class="ms-report-section-head">
+              <h3 id="meeting-information-heading">Meeting Information</h3>
+              <span>Report details</span>
+            </div>
+            <div class="ms-info-grid">
+              <div class="ms-info-card">
+                <div class="ms-info-label">Meeting date</div>
+                <div class="ms-info-value">{html.escape(date_text)}</div>
+              </div>
+              <div class="ms-info-card">
+                <div class="ms-info-label">Participants</div>
+                <div class="ms-info-value">{participant_count} attendee{"s" if participant_count != 1 else ""}</div>
+              </div>
+              <div class="ms-info-card">
+                <div class="ms-info-label">Duration</div>
+                <div class="ms-info-value">{html.escape(duration)}</div>
+              </div>
+              <div class="ms-info-card">
+                <div class="ms-info-label">Prepared by</div>
+                <div class="ms-info-value">{html.escape(prepared_by)}</div>
+              </div>
+            </div>
+          </section>
+        </div>
+        """
+        ),
+    )
+
+
 def render_summary_tab(analysis: MeetingAnalysisResult) -> None:
     summary = analysis.summary
-    topics_html = ""
-    if summary.topics_discussed:
-        topics_html = "".join(
-            f"<span class='ms-chip'>{html.escape(topic)}</span>"
-            for topic in summary.topics_discussed
-        )
-    else:
-        topics_html = "<span class='ms-chip'>No topics extracted</span>"
+    topics_html = "".join(
+        f"<span>{html.escape(topic)}</span>"
+        for topic in summary.topics_discussed
+    ) or "<span>No topics captured</span>"
 
-    st.markdown(
-        f"""
-        <div class="ms-output-card">
-          <p class="ms-card-label">Meeting Title</p>
-          <h3 class="ms-card-title">{html.escape(summary.title)}</h3>
-          <p class="ms-card-label">Short Summary</p>
-          <p class="ms-card-body">{html.escape(summary.short_summary)}</p>
-          <p class="ms-card-label" style="margin-top: 1rem;">Topics Discussed</p>
-          <div class="ms-chip-row">{topics_html}</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    st.html(
+        compact_ui_html(
+            f"""
+        <section class="ms-report-section" aria-labelledby="summary-heading">
+          <div class="ms-report-section-head">
+            <h3 id="summary-heading">Executive Summary</h3>
+            <span>At a glance</span>
+          </div>
+          <div class="ms-summary-editorial">
+            <div class="ms-summary-kicker">{html.escape(summary.title or "Meeting overview")}</div>
+            <p>{html.escape(summary.short_summary)}</p>
+            <div class="ms-summary-topics">{topics_html}</div>
+          </div>
+        </section>
+        """
+        ),
     )
 
 
@@ -3442,22 +4464,47 @@ def render_key_points_tab(analysis: MeetingAnalysisResult) -> None:
         empty_card("No key discussion points were extracted.")
         return
 
-    for item in analysis.key_discussion_points:
+    cards: list[str] = []
+    for index, item in enumerate(analysis.key_discussion_points, start=1):
         speakers = ", ".join(item.speakers)
         timestamp = item.timestamp or "Not Mentioned"
-        st.markdown(
-            f"""
-            <div class="ms-item-card discussion">
-              <h4>Discussion Point</h4>
-              <p>{html.escape(item.point)}</p>
-              <div class="ms-meta-row">
-                <span class="ms-meta">Timestamp: {html.escape(timestamp)}</span>
-                <span class="ms-meta">Speaker: {html.escape(speakers or "Not Mentioned")}</span>
+        topic_title = re.split(r"(?<=[.!?])\s+|:\s+", item.point, maxsplit=1)[0].strip()
+        if len(topic_title) > 76:
+            topic_title = topic_title[:73].rstrip() + "..."
+        cards.append(
+            compact_ui_html(
+                f"""
+            <details class="ms-discussion-card">
+              <summary>
+                <span class="ms-discussion-index">{index:02d}</span>
+                <span>{html.escape(topic_title or f"Discussion {index}")}</span>
+                <span class="ms-discussion-chevron">&#8964;</span>
+              </summary>
+              <div class="ms-discussion-body">
+                {html.escape(item.point)}
+                <div class="ms-detail-meta">
+                  <span>Speaker · {html.escape(speakers or "Not Mentioned")}</span>
+                  <span>Time · {html.escape(timestamp)}</span>
+                </div>
               </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
+            </details>
+            """
+            ),
         )
+    cards_html = "".join(cards)
+    st.html(
+        compact_ui_html(
+            f"""
+        <section class="ms-report-section" aria-labelledby="discussion-heading">
+          <div class="ms-report-section-head">
+            <h3 id="discussion-heading">Discussion Topics</h3>
+            <span>{len(cards)} captured</span>
+          </div>
+          <div class="ms-discussion-list">{cards_html}</div>
+        </section>
+        """
+        ),
+    )
 
 
 def render_decisions_tab(analysis: MeetingAnalysisResult) -> None:
@@ -3465,23 +4512,41 @@ def render_decisions_tab(analysis: MeetingAnalysisResult) -> None:
         empty_card("No decisions were extracted.")
         return
 
+    cards: list[str] = []
     for item in analysis.decisions:
         owner = item.owner or "Unassigned"
         timestamp = item.timestamp or "--:--"
-        st.markdown(
-            f"""
-            <div class="ms-item-card decision">
-              <h4>Decision</h4>
-              <p>{html.escape(item.decision)}</p>
-              <div class="ms-meta-row">
-                <span class="ms-meta">Confidence: {html.escape(item.confidence)}</span>
-                <span class="ms-meta">Owner: {html.escape(owner)}</span>
-                <span class="ms-meta">Time: {html.escape(timestamp)}</span>
+        cards.append(
+            compact_ui_html(
+                f"""
+            <article class="ms-decision-card">
+              <div class="ms-decision-check">&#10003;</div>
+              <div>
+                <div class="ms-decision-text">{html.escape(item.decision)}</div>
+                <div class="ms-detail-meta">
+                  <span>Owner · {html.escape(owner)}</span>
+                  <span>Time · {html.escape(timestamp)}</span>
+                </div>
               </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
+              <span class="ms-confirmed-chip">Confirmed</span>
+            </article>
+            """
+            ),
         )
+    cards_html = "".join(cards)
+    st.html(
+        compact_ui_html(
+            f"""
+        <section class="ms-report-section" aria-labelledby="decisions-heading">
+          <div class="ms-report-section-head">
+            <h3 id="decisions-heading">Decisions</h3>
+            <span>{len(cards)} confirmed</span>
+          </div>
+          <div class="ms-decision-list">{cards_html}</div>
+        </section>
+        """
+        ),
+    )
 
 
 def render_action_items_tab(analysis: MeetingAnalysisResult) -> None:
@@ -3489,26 +4554,49 @@ def render_action_items_tab(analysis: MeetingAnalysisResult) -> None:
         empty_card("No action items were extracted.")
         return
 
+    cards: list[str] = []
     for item in analysis.action_items:
         owner = item.owner or "Unassigned"
         due_date = item.due_date or "Not Mentioned"
         timestamp = item.timestamp or "Not Mentioned"
         priority = action_priority(item.task, due_date)
-        st.markdown(
-            f"""
-            <div class="ms-item-card action">
-              <h4>Task</h4>
-              <p>{html.escape(item.task)}</p>
-              <div class="ms-meta-row">
-                <span class="ms-meta">Owner: {html.escape(owner)}</span>
-                <span class="ms-meta">Due Date: {html.escape(due_date)}</span>
-                <span class="ms-meta">Priority: {html.escape(priority)}</span>
-                <span class="ms-meta">Timestamp: {html.escape(timestamp)}</span>
+        initials = "".join(part[0] for part in owner.split()[:2]).upper()[:2] or "—"
+        priority_class = priority.lower()
+        cards.append(
+            compact_ui_html(
+                f"""
+            <article class="ms-task-card">
+              <div>
+                <div class="ms-task-title">{html.escape(item.task)}</div>
+                <div class="ms-task-meta">
+                  <span class="ms-task-chip">Due · {html.escape(due_date)}</span>
+                  <span class="ms-task-chip ms-priority-{priority_class}">{html.escape(priority)} priority</span>
+                  <span class="ms-task-chip">Open</span>
+                  <span class="ms-task-chip">Time · {html.escape(timestamp)}</span>
+                </div>
               </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
+              <div class="ms-owner">
+                <span class="ms-owner-avatar">{html.escape(initials)}</span>
+                <span>{html.escape(owner)}</span>
+              </div>
+            </article>
+            """
+            ),
         )
+    cards_html = "".join(cards)
+    st.html(
+        compact_ui_html(
+            f"""
+        <section class="ms-report-section" aria-labelledby="actions-heading">
+          <div class="ms-report-section-head">
+            <h3 id="actions-heading">Action Items</h3>
+            <span>{len(cards)} tasks</span>
+          </div>
+          <div class="ms-task-list">{cards_html}</div>
+        </section>
+        """
+        ),
+    )
 
 
 def render_analysis_error() -> None:
@@ -3708,13 +4796,13 @@ def render_email_form(
 def render_export_card(analysis: MeetingAnalysisResult) -> None:
     st.markdown(
         """
-        <div class="ms-export-section">
+        <div class="ms-export-section" id="downloads">
           <div class="ms-export-wrap">
             <div class="ms-export-hdr">
               <div class="ms-export-hdr-icon">&#8659;</div>
               <div>
-                <div class="ms-export-hdr-title">Export Center</div>
-                <p class="ms-export-sub">Download polished MoM documents or send them by email.</p>
+                <div class="ms-export-hdr-title">Your minutes are ready to share</div>
+                <p class="ms-export-sub">Choose a polished document format or send the report directly to stakeholders.</p>
               </div>
             </div>
           </div>
@@ -3893,7 +4981,7 @@ def run_meeting_analysis(
                 status_placeholder,
                 active_index=3,
                 started_at=started_at,
-                note="Embedding, classifying, and formatting transcript sentences.",
+                note="Organizing your reviewed meeting into a clear, professional report.",
             )
         update_elapsed(elapsed_placeholder, started_at)
 
@@ -4080,19 +5168,22 @@ def render_copy_button(transcript: str) -> None:
         <button
             id="copy-transcript"
             style="
-                border: 1px solid rgba(109,93,246,0.30);
-                border-radius: 8px;
-                background: rgba(109,93,246,0.10);
-                color: #A78BFA;
+                min-height: 36px;
+                border: 1px solid #D6DCF8;
+                border-radius: 10px;
+                background: #F7F8FF;
+                color: #4A5DDE;
                 cursor: pointer;
-                font: 600 12px Inter, system-ui, sans-serif;
-                padding: 0.38rem 0.75rem;
+                font: 650 12px Inter, system-ui, sans-serif;
+                padding: 0.48rem 0.75rem;
                 letter-spacing: 0.01em;
-                transition: border-color 160ms ease, background 160ms ease;
+                transition: border-color 160ms ease, background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
                 display: inline-flex; align-items: center; gap: 6px;
             "
-            onmouseover="this.style.borderColor='rgba(109,93,246,0.55)';this.style.background='rgba(109,93,246,0.18)';"
-            onmouseout="this.style.borderColor='rgba(109,93,246,0.30)';this.style.background='rgba(109,93,246,0.10)';"
+            onmouseover="this.style.borderColor='#BBC5F5';this.style.background='#EEF2FF';this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 14px rgba(31,41,55,.07)';"
+            onmouseout="this.style.borderColor='#D6DCF8';this.style.background='#F7F8FF';this.style.transform='none';this.style.boxShadow='none';"
+            onmousedown="this.style.transform='scale(.985)';"
+            onmouseup="this.style.transform='translateY(-1px)';"
             type="button"
         >
             Copy transcript
@@ -4100,7 +5191,7 @@ def render_copy_button(transcript: str) -> None:
         <span
             id="copy-status"
             style="
-                color: #A78BFA;
+                color: #4A5DDE;
                 font: 12px Inter, system-ui, sans-serif;
                 margin-left: 0.6rem;
             "
@@ -4198,6 +5289,15 @@ def render_speaker_review(result: TranscriptionResult) -> None:
             submitted_values: SpeakerMapping = {}
             for index, label in enumerate(labels):
                 initials = "".join(part[0] for part in str(label).split()[:2]).upper()[:2] or "S"
+                speaker_segments = [
+                    segment
+                    for segment in result.segments
+                    if speaker_label(segment) == label
+                ]
+                speaker_words = sum(
+                    len(re.findall(r"\b\w+\b", segment.transcript))
+                    for segment in speaker_segments
+                )
                 st.markdown(
                     f"""
                     <div class="ms-speaker-row">
@@ -4205,6 +5305,10 @@ def render_speaker_review(result: TranscriptionResult) -> None:
                       <div>
                         <div class="ms-speaker-label">{html.escape(str(label))}</div>
                         <div class="ms-speaker-badge-text">Editable participant name</div>
+                        <div class="ms-speaker-stats">
+                          <span>{len(speaker_segments)} contributions</span>
+                          <span>{speaker_words} words</span>
+                        </div>
                       </div>
                     </div>
                     """,
@@ -4275,14 +5379,18 @@ def transcript_review_preview_html(transcript_text: str, query: str = "") -> str
         if match:
             speaker = match.group("speaker").strip() or header
             timestamp = match.group("time").strip()
+        initial = next((character for character in speaker if character.isalnum()), "S").upper()
+        displayed_text = body or header
         rows.append(
             f"""
-            <div class="ms-convo-row">
+            <div class="ms-convo-row" data-initial="{html.escape(initial)}">
               <div class="ms-convo-head">
                 <span class="ms-convo-speaker">{html.escape(speaker)}</span>
+                <span class="ms-toolbar-chip">Speaker</span>
                 <span class="ms-time-chip">{html.escape(timestamp or "--:--")}</span>
               </div>
-              <div class="ms-convo-text">{html.escape(body or header)}</div>
+              <div class="ms-convo-text">{html.escape(displayed_text)}</div>
+              <div class="ms-convo-meta">{len(displayed_text)} characters</div>
             </div>
             """
         )
@@ -4307,6 +5415,14 @@ def render_editable_transcript_review(result: TranscriptionResult) -> None:
     if not transcript_text:
         return
 
+    transcript_turns = transcript_turns_from_text(transcript_text)
+    transcript_speakers = {
+        turn.get("speaker", "").strip()
+        for turn in transcript_turns
+        if turn.get("speaker", "").strip()
+    }
+    word_count = len(re.findall(r"\b\w+\b", transcript_text))
+
     with st.container(border=True):
         st.markdown(
             """
@@ -4316,6 +5432,25 @@ def render_editable_transcript_review(result: TranscriptionResult) -> None:
             """,
             unsafe_allow_html=True,
         )
+        st.markdown(
+            f"""
+            <div class="ms-transcript-toolbar">
+              <span class="ms-toolbar-title">Transcript workspace</span>
+              <span class="ms-toolbar-stats">
+                <span class="ms-toolbar-chip">{len(transcript_turns)} conversation blocks</span>
+                <span class="ms-toolbar-chip">{len(transcript_speakers)} speakers</span>
+                <span class="ms-toolbar-chip">{word_count} words</span>
+              </span>
+            </div>
+            {transcript_review_preview_html(transcript_text)}
+            <div class="ms-editor-label">
+              <strong>Edit full transcript</strong>
+              <span>Changes are applied when you generate the report</span>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        render_copy_button(transcript_text)
         edited_text = st.text_area(
             "Resolved transcript",
             value=transcript_text,
@@ -4454,10 +5589,18 @@ def process_upload(uploaded_file: object) -> None:
         )
 
         result = validate_transcription_result(result)
+        original_segment_count = len(result.segments)
+        result = coalesce_contiguous_audio_segments(result)
+        confirmed_audio_speakers = saved_speaker_mapping()
+        result = repair_audio_transcription(
+            result,
+            confirmed_speaker_mapping=confirmed_audio_speakers or None,
+        )
         log_stage(
             "Diarization parsing",
-            "Validated transcription result.",
+            "Validated and deterministically repaired audio transcription.",
             segment_count=len(result.segments),
+            original_segment_count=original_segment_count,
             transcript_chars=len(result.transcript),
         )
 
@@ -4677,20 +5820,22 @@ def main() -> None:
     st.set_page_config(page_title="MeetScribe", layout="wide")
     initialize_session_state()
     inject_processing_styles()
+    inject_premium_redesign_styles()
 
-    render_sidebar_shell()
+    render_top_navigation()
     render_hero()
+    st.markdown("<div id='workspace'></div>", unsafe_allow_html=True)
 
     # ── UPLOAD PANEL ──────────────────────────────────────────────
     with st.container(border=True):
         st.markdown(
             """
             <div class="ms-upload-title-row">
-              <div class="ms-upload-icon-badge">&#9729;</div>
-              <span class="ms-upload-title">Upload Input</span>
+              <div class="ms-upload-icon-badge">↑</div>
+              <span class="ms-upload-title">Bring your meeting into MeetScribe</span>
             </div>
             <p class="ms-upload-desc">
-              Upload a meeting recording or a transcript to generate a structured meeting report.
+              Drag and drop a recording or transcript, or choose a file to begin the guided review.
             </p>
             """,
             unsafe_allow_html=True,
@@ -4715,13 +5860,14 @@ def main() -> None:
 
                 if uploaded_file is not None:
                     file_size_mb = uploaded_file.size / (1024 * 1024)
+                    audio_file_type = Path(uploaded_file.name).suffix.lstrip(".").upper() or "AUDIO"
                     upload_signature = f"{uploaded_file.name}:{uploaded_file.size}"
                     if st.session_state.last_logged_upload != upload_signature:
                         log_stage("File upload", "File selected in UI.",
                                   filename=uploaded_file.name, size=uploaded_file.size)
                         st.session_state.last_logged_upload = upload_signature
 
-                    file_col, remove_col = st.columns([1, 0.16], gap="small", vertical_alignment="center")
+                    file_col, remove_col = st.columns([1, 0.26], gap="small", vertical_alignment="center")
                     with file_col:
                         st.markdown(
                             f"""<div class="ms-file-card">
@@ -4730,13 +5876,18 @@ def main() -> None:
                                     </div>
                                   <div class="ms-file-info">
                                     <div class="ms-file-name">{html.escape(uploaded_file.name)}</div>
-                                    <div class="ms-file-size">{file_size_mb:.2f} MB</div>
+                                    <div class="ms-file-meta">
+                                      <span>{file_size_mb:.2f} MB</span>
+                                      <span>{html.escape(audio_file_type)}</span>
+                                      <span>Uploaded this session</span>
+                                    </div>
                                   </div>
+                                  <span class="ms-upload-success">✓ Ready</span>
                                 </div>""",
                             unsafe_allow_html=True,
                         )
                     with remove_col:
-                        if st.button("✕", key="remove_audio_file", type="secondary", help="Remove file"):
+                        if st.button("Remove", key="remove_audio_file", type="secondary", help="Remove file"):
                             st.session_state.audio_upload_version += 1
                             st.session_state.last_logged_upload = ""
                             clear_current_report()
@@ -4765,7 +5916,8 @@ def main() -> None:
 
                 if transcript_file is not None:
                     tf_size_mb = transcript_file.size / (1024 * 1024)
-                    file_col, remove_col = st.columns([1, 0.16], gap="small", vertical_alignment="center")
+                    transcript_file_type = Path(transcript_file.name).suffix.lstrip(".").upper() or "DOCUMENT"
+                    file_col, remove_col = st.columns([1, 0.26], gap="small", vertical_alignment="center")
                     with file_col:
                         st.markdown(
                             f"""<div class="ms-file-card">
@@ -4774,13 +5926,18 @@ def main() -> None:
                                     </div>
                                   <div class="ms-file-info">
                                     <div class="ms-file-name">{html.escape(transcript_file.name)}</div>
-                                    <div class="ms-file-size">{tf_size_mb:.2f} MB</div>
+                                    <div class="ms-file-meta">
+                                      <span>{tf_size_mb:.2f} MB</span>
+                                      <span>{html.escape(transcript_file_type)}</span>
+                                      <span>Uploaded this session</span>
+                                    </div>
                                   </div>
+                                  <span class="ms-upload-success">✓ Ready</span>
                                 </div>""",
                             unsafe_allow_html=True,
                         )
                     with remove_col:
-                        if st.button("✕", key="remove_transcript_file", type="secondary", help="Remove file"):
+                        if st.button("Remove", key="remove_transcript_file", type="secondary", help="Remove file"):
                             st.session_state.transcript_upload_version += 1
                             clear_current_report()
                             st.rerun()
@@ -4805,6 +5962,7 @@ def main() -> None:
     )
     if not has_session_input:
         render_empty_state()
+        render_product_landing_sections()
 
     # ── POST-PROCESSING RESULTS ───────────────────────────────────
     transcript_text = st.session_state.transcript_text
@@ -4826,7 +5984,7 @@ def main() -> None:
         if analysis is not None:
             st.markdown(
                 """
-                <div class="ms-premium-section">
+                <div class="ms-report-legacy-intro">
                   <div class="ms-section-kicker">Professional Report</div>
                   <h3 class="ms-section-heading">Meeting Report</h3>
                   <p class="ms-section-subcopy">
@@ -4838,33 +5996,42 @@ def main() -> None:
                 unsafe_allow_html=True,
             )
             render_analysis_error()
-            render_success_metrics()
+            render_generated_report_header(analysis)
+
+            render_summary_tab(analysis)
+
+            render_key_points_tab(analysis)
+
+            render_decisions_tab(analysis)
+
+            render_action_items_tab(analysis)
 
             with st.container(border=True):
-                st.markdown("<div class='ms-report-block-title'>Summary</div>", unsafe_allow_html=True)
-                render_summary_tab(analysis)
-
-            with st.container(border=True):
-                st.markdown("<div class='ms-report-block-title'>Discussion</div>", unsafe_allow_html=True)
-                render_key_points_tab(analysis)
-
-            with st.container(border=True):
-                st.markdown("<div class='ms-report-block-title'>Decisions</div>", unsafe_allow_html=True)
-                render_decisions_tab(analysis)
-
-            with st.container(border=True):
-                st.markdown("<div class='ms-report-block-title'>Action Items</div>", unsafe_allow_html=True)
-                render_action_items_tab(analysis)
-
-            with st.container(border=True):
-                st.markdown("<div class='ms-report-block-title'>Transcript</div>", unsafe_allow_html=True)
+                st.markdown(
+                    """
+                    <div id="source-transcript" class="ms-report-section-head">
+                      <h3>Source Transcript</h3>
+                      <span>Reviewed conversation</span>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
                 render_copy_button(transcript_text)
                 render_transcript(result, current_speaker_mapping())
 
             render_export_card(analysis)
 
     st.markdown(
-        "<div class='ms-footer'>&#169; 2026 MeetScribe. All rights reserved.</div>",
+        """
+        <footer class="ms-footer">
+          <span>© 2026 MeetScribe · Made with care for clearer meetings.</span>
+          <span class="ms-footer-links">
+            <a href="#documentation">Documentation</a>
+            <a href="#about">Privacy</a>
+            <span>Version 1.0</span>
+          </span>
+        </footer>
+        """,
         unsafe_allow_html=True,
     )
 
