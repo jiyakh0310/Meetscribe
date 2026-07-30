@@ -35,6 +35,10 @@ except ModuleNotFoundError:  # pragma: no cover - supports direct script executi
 
 
 FILLER_PATTERNS = (
+    r"\bwe have\b",
+    r"\bthere is\b",
+    r"\bthere are\b",
+    r"\blet'?s\b",
     r"\bum\b",
     r"\buh\b",
     r"\berm\b",
@@ -47,7 +51,32 @@ FILLER_PATTERNS = (
     r"\bas discussed\b",
     r"\bactually\b",
     r"\bbasically\b",
+    r"\bprobably\b",
+    r"\baround\b",
+    r"\bkind of\b",
+    r"\bsort of\b",
 )
+WEAK_TOPIC_PATTERNS = (
+    r"^\s*(we have|there is|there are|let'?s|okay|yes|no|around|actually|basically|probably|i think)\b",
+    r"^\s*(we|i|you|they|it|this|that)\s+(have|had|are|is|was|were)\b",
+)
+WEAK_TOPIC_WORDS = {
+    "we",
+    "have",
+    "there",
+    "is",
+    "are",
+    "let",
+    "lets",
+    "okay",
+    "yes",
+    "no",
+    "around",
+    "actually",
+    "basically",
+    "probably",
+    "think",
+}
 AGREEMENT_PATTERNS = (
     r"^\s*(yes|okay|ok|sure|done|exactly|absolutely|correct|fine|perfect|great|nice)\s*[.!]?$",
     r"^\s*(i agree|agreed|sounds good|that works|looks good)\s*[.!]?$",
@@ -57,6 +86,8 @@ LOW_VALUE_PATTERNS = (
     r"^\s*(meeting closed|let'?s close|that'?s all)\s*[.!]?$",
     r"^\s*let'?s\s+summari[sz]e\b",
     r"^\s*(yeah|hmm|umm|um|uh|actually|basically)\s*[.!]?$",
+    r"^\s*(that'?s exactly what|that is exactly what)\b",
+    r"^\s*(i'?ll\s+i'?ll|we'?ll\s+we'?ll)\b",
     *AGREEMENT_PATTERNS,
 )
 DEADLINE_PATTERN = re.compile(
@@ -68,15 +99,16 @@ DEADLINE_PATTERN = re.compile(
 )
 ACTION_VERB_PATTERN = re.compile(
     r"(?i)\b(will|shall|need to|needs to|prepare|submit|complete|finish|deliver|"
-    r"review|send|share|update|create|finalize|implement)\b"
+    r"review|send|share|update|create|finalize|implement|publish|confirm|assign|generate|fix)\b"
 )
 OWNER_ACTION_PATTERN = re.compile(
-    r"(?i)^\s*(?P<owner>[A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,2})\s+"
-    r"(?P<verb>will|shall|needs to|need to|should|must|has to)\s+"
+    r"^\s*(?P<owner>[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+"
+    r"(?P<verb>(?i:will|shall|needs to|need to|should|must|has to|complete|update|"
+    r"publish|confirm|prepare|assign|generate|review|finalize|implement|fix))\s+"
     r"(?P<task>.+)$"
 )
 FIRST_PERSON_ACTION_PATTERN = re.compile(
-    r"(?i)^\s*(i|i'll|i will|we will|we need to|we should)\s+(?P<task>.+)$"
+    r"(?i)^\s*(i'll|i will|we will|we need to|we should|i)\s+(?P<task>.+)$"
 )
 
 
@@ -188,10 +220,28 @@ def remove_fillers(text: str) -> str:
     return normalize_whitespace(cleaned)
 
 
+def remove_speech_repetitions(text: str) -> str:
+    """Remove adjacent repeated words caused by speech disfluency."""
+
+    words = normalize_whitespace(text).split()
+    cleaned_words: list[str] = []
+    for word in words:
+        comparable = re.sub(r"[^a-z0-9']+", "", word.casefold())
+        previous = (
+            re.sub(r"[^a-z0-9']+", "", cleaned_words[-1].casefold())
+            if cleaned_words
+            else ""
+        )
+        if comparable and comparable == previous and not cleaned_words[-1].endswith(":"):
+            continue
+        cleaned_words.append(word)
+    return normalize_whitespace(" ".join(cleaned_words))
+
+
 def normalize_sentence(text: str) -> str:
     """Create a readable sentence without changing its factual content."""
 
-    cleaned = remove_fillers(text)
+    cleaned = remove_speech_repetitions(remove_fillers(text))
     cleaned = cleaned.strip(" -")
     if not cleaned:
         return ""
@@ -223,8 +273,14 @@ def is_low_value_sentence(text: str) -> bool:
         re.search(rf"\b{re.escape(keyword)}\b", normalized)
         for keyword in templates.RANKING_KEYWORDS
     )
+    has_numeric_business_fact = bool(re.search(r"\d", normalized)) and any(
+        re.search(rf"\b{re.escape(keyword)}\b", normalized)
+        for keyword in templates.RANKING_KEYWORDS
+    )
     if len(normalized.split()) < 4 and not has_work_signal:
         return True
+    if has_numeric_business_fact:
+        return False
     return any(re.search(pattern, normalized, flags=re.IGNORECASE) for pattern in LOW_VALUE_PATTERNS)
 
 
@@ -232,6 +288,64 @@ def is_reportable_sentence(text: str) -> bool:
     """Return whether text is useful enough for the experimental MoM."""
 
     return bool(normalize_whitespace(text)) and not is_low_value_sentence(text) and not is_agreement_sentence(text)
+
+
+def quality_score(text: str) -> float:
+    """Score report text for completeness, substance, and professionalism.
+
+    The score is deterministic and uses only text quality signals. It does not
+    call an ML model or external service.
+    """
+
+    normalized = normalize_whitespace(text)
+    if not normalized:
+        return 0.0
+    words = re.findall(r"[A-Za-z0-9][A-Za-z0-9'%/-]*", normalized)
+    meaningful_words = [
+        word
+        for word in words
+        if word.casefold() not in WEAK_TOPIC_WORDS
+    ]
+    score = min(len(meaningful_words), 18) / 18
+    if re.search(r"\d", normalized):
+        score += 0.12
+    if ACTION_VERB_PATTERN.search(normalized):
+        score += 0.12
+    if any(re.search(rf"(?i)\b{re.escape(keyword)}\b", normalized) for keyword in templates.RANKING_KEYWORDS):
+        score += 0.15
+    if re.search(r"(?i)\b(approved|confirmed|agreed|resolved|accepted|finalized|deferred)\b", normalized):
+        score += 0.15
+    if is_low_value_sentence(normalized) or is_weak_topic(normalized):
+        score -= 0.55
+    if re.search(r"(?i)\b(i'?ll\s+i'?ll|we'?ll\s+we'?ll|we have around|kind of|sort of)\b", normalized):
+        score -= 0.45
+    if normalized.rstrip().endswith("?"):
+        score -= 0.15
+    return max(0.0, min(1.0, score))
+
+
+def clean_report_sentence(text: str) -> str:
+    """Clean a generated candidate before it enters the final report."""
+
+    cleaned = normalize_sentence(text)
+    cleaned = re.sub(r"(?i)\bi'?ll\s+i'?ll\b", "I'll", cleaned)
+    cleaned = re.sub(r"(?i)\bwe'?ll\s+we'?ll\b", "We'll", cleaned)
+    cleaned = re.sub(r"(?i)\bkind of\b|\bsort of\b", "", cleaned)
+    cleaned = re.sub(r"\s+([,.;:!?])", r"\1", cleaned)
+    return normalize_sentence(cleaned)
+
+
+def is_quality_report_sentence(text: str, *, min_score: float = 0.34) -> bool:
+    """Return whether a candidate sentence is suitable for final MoM content."""
+
+    cleaned = clean_report_sentence(text)
+    if not cleaned or is_low_value_sentence(cleaned) or is_agreement_sentence(cleaned):
+        return False
+    if quality_score(cleaned) < min_score:
+        return False
+    if is_weak_topic(cleaned):
+        return False
+    return True
 
 
 def unique_normalized_sentences(sentences: Iterable[str]) -> list[str]:
@@ -288,11 +402,52 @@ def professional_topic(sentence: str) -> str:
         cleaned,
     )
     cleaned = re.sub(r"(?i)\b(before|for)\s+release\??$", "release readiness", cleaned)
+    cleaned = re.sub(
+        r"(?i)^(we have|there is|there are|let'?s|okay|yes|no|around|actually|basically|probably|i think)\s+",
+        "",
+        cleaned,
+    )
     cleaned = cleaned.strip(" ?.")
-    words = cleaned.split()
+    words = [
+        word
+        for word in cleaned.split()
+        if re.sub(r"[^a-z0-9]+", "", word.casefold()) not in WEAK_TOPIC_WORDS
+    ]
     if len(words) > 9:
         cleaned = " ".join(words[:9])
+    else:
+        cleaned = " ".join(words)
     return cleaned[0].upper() + cleaned[1:] if cleaned else ""
+
+
+def is_weak_topic(topic: str) -> bool:
+    """Return whether a candidate topic is filler rather than meeting content."""
+
+    normalized = normalize_whitespace(topic).casefold().strip(" .")
+    if not normalized:
+        return True
+    if any(re.search(pattern, normalized, flags=re.IGNORECASE) for pattern in WEAK_TOPIC_PATTERNS):
+        return True
+    tokens = re.findall(r"[a-z0-9]+", normalized)
+    if len(tokens) <= 2 and all(token in WEAK_TOPIC_WORDS for token in tokens):
+        return True
+    return False
+
+
+def meaningful_fact(sentence: str) -> str:
+    """Return a concise transcript-supported fact for topic discussion bullets."""
+
+    cleaned = normalize_sentence(sentence).rstrip(".")
+    cleaned = re.sub(
+        r"(?i)^(we have|there is|there are|let'?s|okay|yes|no|actually|basically|probably|i think)\s+",
+        "",
+        cleaned,
+    )
+    cleaned = re.sub(r"(?i)\baround\s+(\d)", r"\1", cleaned)
+    cleaned = normalize_whitespace(cleaned)
+    if not cleaned or is_low_value_sentence(cleaned):
+        return ""
+    return normalize_sentence(cleaned)
 
 
 def discussion_context(topic: str) -> str:
@@ -517,7 +672,10 @@ def extract_action_parts(sentence: str, speaker: str) -> ActionParts:
     owner_match = OWNER_ACTION_PATTERN.match(normalized.rstrip("."))
     if owner_match:
         owner = normalize_whitespace(owner_match.group("owner"))
+        verb = owner_match.group("verb")
         task = owner_match.group("task")
+        if not re.search(r"(?i)^(will|shall|needs to|need to|should|must|has to)$", verb):
+            task = f"{verb} {task}"
     else:
         speaker_name = normalize_whitespace(speaker)
         first_person = FIRST_PERSON_ACTION_PATTERN.match(normalized.rstrip("."))

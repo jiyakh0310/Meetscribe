@@ -29,17 +29,9 @@ from exports.email_sender import (
     send_report_email,
 )
 from exports.pdf_exporter import export_to_pdf
-from ml_mom.clustering import ClusteringService
-from ml_mom.embeddings import EmbeddingService
-from ml_mom.feature_extraction import extract_sentence_features
-from ml_mom.mom_generator import MeetingMinutes, PredictionRecord, generate_minutes
-from ml_mom.predict_ann import (
-    PredictionResult,
-    load_label_mapping,
-    load_trained_model,
-    predict_labels,
-)
-from ml_mom.preprocessing import preprocess_transcript
+from ml_mom.experimental.integration import GeneratedMomResult, generate_mom
+from ml_mom.mom_generator import MeetingMinutes, PredictionRecord
+from ml_mom.predict_ann import PredictionResult
 from ml_mom.transcript_parser import TranscriptTurn, parse_transcript
 from ml_ner.entity_extractor import EntityExtractionResult, extract_meeting_metadata
 from summarization.base_summarizer import (
@@ -78,6 +70,23 @@ from transcription.sarvam_client import (
 SUPPORTED_FILE_TYPES = ("wav", "mp3", "m4a", "aac", "mp4")
 SUPPORTED_TRANSCRIPT_TYPES = ("pdf", "docx", "txt")
 logger = logging.getLogger(__name__)
+
+
+def log_runtime_environment() -> None:
+    """Log the Python runtime used by Streamlit at application startup.
+
+    The report-generation stack depends on native ML packages. When Streamlit is
+    launched outside the project virtual environment, Windows may resolve
+    packages from a different Python installation. Logging the runtime here
+    makes that visible without changing any application behavior.
+    """
+
+    logger.info("Runtime sys.executable: %s", sys.executable)
+    logger.info("Runtime sys.prefix: %s", sys.prefix)
+    logger.info("Runtime sys.path: %s", sys.path)
+
+
+log_runtime_environment()
 MEETING_INFO_FIELDS = (
     ("meeting_title", "Meeting Title"),
     ("meeting_date", "Meeting Date"),
@@ -1415,7 +1424,7 @@ def inject_processing_styles() -> None:
           .ms-transcript-scroll {
             height: 560px; overflow-y: auto; margin-top: 0;
             display: flex; flex-direction: column; gap: 0.7rem;
-            padding: 0.25rem 0.35rem 0.25rem 0;
+            padding: 0 0.35rem 0.35rem 0;
             scroll-behavior: smooth;
             scrollbar-width: thin; scrollbar-color: var(--warm-4) transparent;
           }
@@ -1425,8 +1434,34 @@ def inject_processing_styles() -> None:
             background: var(--warm-4); border-radius: 999px;
           }
 
+          .ms-transcript-sticky-head {
+            position: sticky;
+            top: 0;
+            z-index: 3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0.9rem;
+            border: 1.35px solid #F8C7D2;
+            border-radius: 18px;
+            background: rgba(255, 251, 254, 0.96);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 24px rgba(251,113,133,0.09);
+          }
+          .ms-transcript-sticky-head span:first-child {
+            color: var(--warm) !important;
+            font-size: 0.82rem;
+            font-weight: 850;
+          }
+          .ms-transcript-sticky-head span:last-child {
+            color: var(--warm-4) !important;
+            font-size: 0.68rem;
+            font-weight: 750;
+          }
+
           .ms-tr-row {
-            display: grid; grid-template-columns: 128px minmax(0, 1fr);
+            display: grid; grid-template-columns: 150px minmax(0, 1fr);
             border: 1.35px solid #F8C7D2;
             border-radius: 18px;
             background: #FFFFFF;
@@ -1442,22 +1477,44 @@ def inject_processing_styles() -> None:
           }
 
           .ms-tr-left {
-            padding: 0.85rem 0.75rem 0.85rem 0.95rem;
+            padding: 0.95rem 0.8rem 0.95rem 0.95rem;
             border-right: 1px solid var(--border-soft);
-            display: flex; flex-direction: column; gap: 0.25rem;
+            display: grid;
+            grid-template-columns: 34px minmax(0, 1fr);
+            gap: 0.55rem;
+            align-items: start;
             min-width: 0;
           }
 
-          .ms-speaker-badge {
-            display: inline-block; border-radius: 5px;
-            font-size: 0.62rem; font-weight: 700;
-            letter-spacing: 0.06em; text-transform: uppercase;
-            padding: 0.15rem 0.40rem;
+          .ms-speaker-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.76rem;
+            font-weight: 900;
+            flex: 0 0 auto;
           }
-          .ms-speaker-badge.s1 { background: var(--pink-soft);  color: var(--pink-deep); }
-          .ms-speaker-badge.s2 { background: var(--green-soft); color: #065F46; }
-          .ms-speaker-badge.s3 { background: var(--blue-soft);  color: #1E40AF; }
-          .ms-speaker-badge.s4 { background: var(--lav-soft);   color: #5B21B6; }
+          .ms-speaker-avatar.s1 { background: var(--pink-soft);  color: var(--pink-deep); }
+          .ms-speaker-avatar.s2 { background: var(--green-soft); color: #065F46; }
+          .ms-speaker-avatar.s3 { background: var(--blue-soft);  color: #1E40AF; }
+          .ms-speaker-avatar.s4 { background: var(--lav-soft);   color: #5B21B6; }
+
+          .ms-speaker-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            min-width: 0;
+          }
+          .ms-speaker-name {
+            color: var(--warm) !important;
+            font-size: 0.78rem;
+            font-weight: 850;
+            line-height: 1.25;
+            overflow-wrap: anywhere;
+          }
 
           .ms-tr-timestamp {
             color: var(--warm-4) !important;
@@ -1468,6 +1525,17 @@ def inject_processing_styles() -> None:
           .ms-tr-text {
             color: var(--warm-2) !important; font-size: 0.88rem; line-height: 1.6;
             display: block; white-space: pre-wrap; overflow-wrap: anywhere; word-break: normal;
+          }
+
+          @media (max-width: 720px) {
+            .ms-transcript-scroll { height: 500px; gap: 0.62rem; }
+            .ms-tr-row { grid-template-columns: 1fr; }
+            .ms-tr-left {
+              border-right: 0;
+              border-bottom: 1px solid var(--border-soft);
+              grid-template-columns: 34px minmax(0, 1fr);
+            }
+            .ms-tr-right { padding: 0.85rem 0.95rem 0.95rem; }
           }
 
           /* ══ CONTENT CARDS ════════════════════════════ */
@@ -2049,8 +2117,112 @@ def meeting_minutes_to_analysis_result(
     )
 
 
+def experimental_mom_to_analysis_result(
+    transcript_text: str,
+    generated: GeneratedMomResult,
+) -> MeetingAnalysisResult:
+    """Adapt Experimental Formatter V4 output to the stable UI/export contract.
+
+    Args:
+        transcript_text: Reviewed transcript text used for generation.
+        generated: Result returned by ``ml_mom.experimental.integration.generate_mom``.
+
+    Returns:
+        ``MeetingAnalysisResult`` consumed by the existing Streamlit UI, PDF,
+        DOCX, and email flows.
+    """
+
+    if generated.experimental_mom is None:
+        raise ValueError("Experimental MoM output is unavailable.")
+
+    # The UI and exporters are intentionally left untouched. This adapter keeps
+    # their existing data contract stable while swapping only the final backend
+    # minutes generator to Formatter V4.
+    info = st.session_state.get("meeting_info", {})
+    experimental_mom = generated.experimental_mom
+    title = (
+        str(info.get("meeting_title") or "").strip()
+        or str(experimental_mom.meeting_title or "").strip()
+        or default_meeting_title()
+    )
+    summary_text = str(experimental_mom.summary or "").strip()
+    objective = str(experimental_mom.objective or "").strip()
+    summary_sentences = [
+        sentence.strip()
+        for sentence in re.split(r"(?<=[.!?])\s+", summary_text)
+        if sentence.strip()
+    ]
+    unique_summary_sentences: list[str] = []
+    seen_summary: set[str] = set()
+    for sentence in summary_sentences:
+        key = re.sub(r"\W+", " ", sentence).strip().casefold()
+        objective_key = re.sub(r"\W+", " ", objective).strip().casefold()
+        if key and key not in seen_summary and key != objective_key:
+            unique_summary_sentences.append(sentence)
+            seen_summary.add(key)
+    short_summary = " ".join(unique_summary_sentences[:5]) or objective or "No summary could be generated."
+    detailed_parts = [part for part in (objective, short_summary) if part]
+    detailed_summary = "\n\n".join(detailed_parts) or short_summary
+
+    topics = []
+    seen_topics: set[str] = set()
+    for topic in [objective, *experimental_mom.discussion_points]:
+        topic = str(topic or "").strip()
+        if not topic or topic.casefold() in seen_topics:
+            continue
+        topics.append(topic)
+        seen_topics.add(topic.casefold())
+
+    return MeetingAnalysisResult(
+        cleaned_transcript=transcript_text,
+        summary=MeetingSummary(
+            title=title,
+            short_summary=short_summary,
+            detailed_summary=detailed_summary,
+            topics_discussed=topics,
+        ),
+        key_discussion_points=[
+            KeyDiscussionPoint(
+                point=point,
+                speakers=evidence_for_report_item(transcript_text, point)[0],
+                timestamp=evidence_for_report_item(transcript_text, point)[1],
+            )
+            for point in experimental_mom.discussion_points
+            if str(point).strip()
+        ],
+        decisions=[
+            Decision(
+                decision=decision,
+                owner=(
+                    evidence_for_report_item(transcript_text, decision)[0][0]
+                    if evidence_for_report_item(transcript_text, decision)[0]
+                    else None
+                ),
+                timestamp=evidence_for_report_item(transcript_text, decision)[1],
+                confidence="ML",
+            )
+            for decision in experimental_mom.decisions
+            if str(decision).strip()
+        ],
+        action_items=[
+            ActionItem(
+                task=item.task,
+                owner=None if item.owner in {"", "-", "Unassigned"} else item.owner,
+                due_date=extract_due_date_text(item.deadline, item.task),
+                timestamp=evidence_for_report_item(transcript_text, item.task)[1],
+                status=action_priority(item.task, item.deadline),
+            )
+            for item in experimental_mom.action_items
+            if item.task.strip()
+        ],
+    )
+
+
 def analysis_cache_key(transcript_text: str) -> str:
-    return hashlib.sha256(transcript_text.strip().encode("utf-8")).hexdigest()
+    # Include the formatter version so an existing Streamlit session cannot
+    # reuse a cached report produced by the previous rule-based MoM generator.
+    cache_payload = f"experimental_formatter_v4\n{transcript_text.strip()}"
+    return hashlib.sha256(cache_payload.encode("utf-8")).hexdigest()
 
 
 def format_elapsed(seconds: float) -> str:
@@ -2726,6 +2898,7 @@ def meeting_info_for_export() -> dict[str, str]:
         "Attendees": participants,
         "Duration": duration or "",
         "Source File": source_file,
+        "Generated On": metadata.get("generated_on", "") or generated_on_display(),
     }
 
 
@@ -2920,21 +3093,176 @@ def render_transcript_turn_cards(turns: list[dict[str, str]]) -> None:
         cls = seen[label]
         timestamp = turn.get("timestamp", "").strip() or "--:--"
         text = turn.get("text", "").strip()
+        initial = next((char for char in label if char.isalnum()), "S").upper()
         rows_html += f"""
         <div class="ms-tr-row">
           <div class="ms-tr-left">
-            <span class="ms-speaker-badge {cls}">{html.escape(label)}</span>
-            <span class="ms-tr-timestamp">{html.escape(timestamp)}</span>
+            <span class="ms-speaker-avatar {cls}">{html.escape(initial)}</span>
+            <span class="ms-speaker-meta">
+              <span class="ms-speaker-name">{html.escape(label)}</span>
+              <span class="ms-tr-timestamp">{html.escape(timestamp)}</span>
+            </span>
           </div>
           <div class="ms-tr-right">
             <span class="ms-tr-text">{html.escape(text)}</span>
           </div>
         </div>"""
 
-    st.markdown(
-        f"""<div class="ms-transcript-scroll">{rows_html}</div>""",
-        unsafe_allow_html=True,
-    )
+    transcript_html = f"""
+    <style>
+      :root {{
+        --pink-soft: #FFF1F4;
+        --pink-mid: #F8C7D2;
+        --pink-deep: #BE185D;
+        --green-soft: #DCFCE7;
+        --blue-soft: #DBEAFE;
+        --lav-soft: #F3E8FF;
+        --warm: #3B2F2F;
+        --warm-2: #574848;
+        --warm-4: #9B7B7B;
+        --border-soft: #FCE7EC;
+      }}
+      body {{
+        margin: 0;
+        background: transparent;
+        font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      }}
+      .ms-transcript-scroll {{
+        box-sizing: border-box;
+        height: 600px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 0 0.35rem 0.35rem 0;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: var(--warm-4) transparent;
+      }}
+      .ms-transcript-scroll::-webkit-scrollbar {{ width: 4px; }}
+      .ms-transcript-scroll::-webkit-scrollbar-track {{ background: transparent; }}
+      .ms-transcript-scroll::-webkit-scrollbar-thumb {{
+        background: var(--warm-4);
+        border-radius: 999px;
+      }}
+      .ms-transcript-sticky-head {{
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 0.9rem;
+        border: 1.35px solid var(--pink-mid);
+        border-radius: 18px;
+        background: rgba(255, 251, 254, 0.96);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 24px rgba(251,113,133,0.09);
+      }}
+      .ms-transcript-sticky-head span:first-child {{
+        color: var(--warm);
+        font-size: 0.82rem;
+        font-weight: 850;
+      }}
+      .ms-transcript-sticky-head span:last-child {{
+        color: var(--warm-4);
+        font-size: 0.68rem;
+        font-weight: 750;
+      }}
+      .ms-tr-row {{
+        display: grid;
+        grid-template-columns: 150px minmax(0, 1fr);
+        border: 1.35px solid var(--pink-mid);
+        border-radius: 18px;
+        background: #FFFFFF;
+        box-shadow: 0 8px 22px rgba(251,113,133,0.07);
+        overflow: visible;
+        transition: background 180ms, border-color 180ms, box-shadow 180ms, transform 180ms;
+      }}
+      .ms-tr-row:hover {{
+        background: #FFF7FA;
+        border-color: #F4AFC0;
+        box-shadow: 0 14px 30px rgba(251,113,133,0.12);
+        transform: translateY(-1px);
+      }}
+      .ms-tr-left {{
+        padding: 0.95rem 0.8rem 0.95rem 0.95rem;
+        border-right: 1px solid var(--border-soft);
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 0.55rem;
+        align-items: start;
+        min-width: 0;
+      }}
+      .ms-speaker-avatar {{
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.76rem;
+        font-weight: 900;
+        flex: 0 0 auto;
+      }}
+      .ms-speaker-avatar.s1 {{ background: var(--pink-soft); color: var(--pink-deep); }}
+      .ms-speaker-avatar.s2 {{ background: var(--green-soft); color: #065F46; }}
+      .ms-speaker-avatar.s3 {{ background: var(--blue-soft); color: #1E40AF; }}
+      .ms-speaker-avatar.s4 {{ background: var(--lav-soft); color: #5B21B6; }}
+      .ms-speaker-meta {{
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        min-width: 0;
+      }}
+      .ms-speaker-name {{
+        color: var(--warm);
+        font-size: 0.78rem;
+        font-weight: 850;
+        line-height: 1.25;
+        overflow-wrap: anywhere;
+      }}
+      .ms-tr-timestamp {{
+        color: var(--warm-4);
+        font-size: 0.65rem;
+        font-variant-numeric: tabular-nums;
+        font-weight: 500;
+      }}
+      .ms-tr-right {{
+        padding: 0.9rem 1rem;
+        display: block;
+        min-width: 0;
+      }}
+      .ms-tr-text {{
+        color: var(--warm-2);
+        font-size: 0.88rem;
+        line-height: 1.6;
+        display: block;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }}
+      @media (max-width: 720px) {{
+        .ms-transcript-scroll {{ height: 560px; gap: 0.62rem; }}
+        .ms-tr-row {{ grid-template-columns: 1fr; }}
+        .ms-tr-left {{
+          border-right: 0;
+          border-bottom: 1px solid var(--border-soft);
+          grid-template-columns: 34px minmax(0, 1fr);
+        }}
+        .ms-tr-right {{ padding: 0.85rem 0.95rem 0.95rem; }}
+      }}
+    </style>
+    <div class="ms-transcript-scroll">
+      <div class="ms-transcript-sticky-head">
+        <span>Reviewed Transcript</span>
+        <span>Speaker-wise view</span>
+      </div>
+      {rows_html}
+    </div>
+    """
+    components.html(transcript_html, height=620, scrolling=False)
 
 
 def render_transcript(
@@ -2947,6 +3275,11 @@ def render_transcript(
         has_segments=bool(result.segments),
         segment_count=len(result.segments),
     )
+
+    parsed_turns = transcript_turns_from_text(result.transcript)
+    if parsed_turns and (not result.segments or len(result.segments) <= 1):
+        render_transcript_turn_cards(parsed_turns)
+        return
 
     if result.segments:
         turns = [
@@ -2963,7 +3296,6 @@ def render_transcript(
         render_transcript_turn_cards(turns)
         return
 
-    parsed_turns = transcript_turns_from_text(result.transcript)
     if parsed_turns:
         render_transcript_turn_cards(parsed_turns)
         return
@@ -2974,6 +3306,108 @@ def render_transcript(
         height=480,
         label_visibility="collapsed",
     )
+
+
+DEADLINE_TEXT_PATTERN = re.compile(
+    r"(?i)\b(today|tomorrow|monday|tuesday|wednesday|thursday|friday|"
+    r"saturday|sunday|next sprint|this sprint|within two weeks|end of month|"
+    r"end of day|eod|next week|this week|upcoming release|before deployment|"
+    r"sprint\s+\d+|by\s+[A-Za-z]+(?:\s+[A-Za-z]+)?|"
+    r"before\s+[A-Za-z]+(?:\s+[A-Za-z]+)?|"
+    r"\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?)\b"
+)
+HIGH_PRIORITY_PATTERN = re.compile(
+    r"(?i)\b(urgent|critical|immediately|today|asap|release blocker|high priority)\b"
+)
+MEDIUM_PRIORITY_PATTERN = re.compile(
+    r"(?i)\b(next sprint|this week|upcoming release|soon|planned)\b"
+)
+
+
+def generated_on_display() -> str:
+    """Return the report generation timestamp in the required display format."""
+
+    return f"{time.strftime('%d %B %Y')}\n{time.strftime('%I:%M %p')}"
+
+
+def transcript_keywords(value: str) -> set[str]:
+    """Extract comparison keywords for deterministic transcript evidence lookup."""
+
+    ignored = {
+        "the", "and", "for", "with", "that", "this", "was", "were", "will",
+        "has", "have", "been", "team", "meeting", "discussed", "reviewed",
+        "evaluated", "approved", "implemented", "implementation", "during",
+        "before", "after", "from", "into", "about", "action", "items",
+    }
+    return {
+        token
+        for token in re.findall(r"[A-Za-z][A-Za-z0-9]+", value.casefold())
+        if len(token) > 2 and token not in ignored
+    }
+
+
+def evidence_for_report_item(
+    transcript_text: str,
+    report_text: str,
+) -> tuple[list[str], str | None]:
+    """Find the edited-transcript speaker/timestamp most related to a report item.
+
+    The formatter produces polished bullets that may not exactly copy transcript
+    sentences. This deterministic lookup scores final edited transcript turns by
+    keyword overlap, keeping speaker names and timestamps aligned with the
+    transcript that the user approved.
+    """
+
+    target_keywords = transcript_keywords(report_text)
+    if not target_keywords:
+        return [], None
+
+    best_score = 0
+    best_turn: dict[str, str] | None = None
+    for turn in transcript_turns_from_text(transcript_text):
+        turn_text = " ".join(
+            [
+                turn.get("speaker", ""),
+                turn.get("timestamp", ""),
+                turn.get("text", ""),
+            ]
+        )
+        turn_keywords = transcript_keywords(turn_text)
+        if not turn_keywords:
+            continue
+        score = len(target_keywords & turn_keywords)
+        if score > best_score:
+            best_score = score
+            best_turn = turn
+
+    if best_turn is None or best_score == 0:
+        return [], None
+
+    speaker = (best_turn.get("speaker") or "").strip()
+    timestamp = (best_turn.get("timestamp") or "").strip()
+    speakers = [speaker] if speaker and not re.fullmatch(r"(?i)speaker\s+[A-Za-z0-9]+", speaker) else []
+    return speakers, None if timestamp in {"", "--:--"} else timestamp
+
+
+def extract_due_date_text(*values: str | None) -> str:
+    """Extract a deterministic due-date phrase from action-related text."""
+
+    text = " ".join(str(value or "") for value in values)
+    match = DEADLINE_TEXT_PATTERN.search(text)
+    if not match:
+        return "Not Mentioned"
+    return re.sub(r"\s+", " ", match.group(0)).strip().title()
+
+
+def action_priority(task: str, due_date: str | None = None) -> str:
+    """Return deterministic action-item priority without using AI."""
+
+    text = f"{task or ''} {due_date or ''}"
+    if HIGH_PRIORITY_PATTERN.search(text):
+        return "High"
+    if MEDIUM_PRIORITY_PATTERN.search(text):
+        return "Medium"
+    return "Low"
 
 
 def render_summary_tab(analysis: MeetingAnalysisResult) -> None:
@@ -3009,15 +3443,15 @@ def render_key_points_tab(analysis: MeetingAnalysisResult) -> None:
 
     for item in analysis.key_discussion_points:
         speakers = ", ".join(item.speakers)
-        timestamp = item.timestamp or "--:--"
+        timestamp = item.timestamp or "Not Mentioned"
         st.markdown(
             f"""
             <div class="ms-item-card discussion">
               <h4>Discussion Point</h4>
               <p>{html.escape(item.point)}</p>
               <div class="ms-meta-row">
-                <span class="ms-meta">Time: {html.escape(timestamp)}</span>
-                <span class="ms-meta">Speakers: {html.escape(speakers or "N/A")}</span>
+                <span class="ms-meta">Timestamp: {html.escape(timestamp)}</span>
+                <span class="ms-meta">Speaker: {html.escape(speakers or "Not Mentioned")}</span>
               </div>
             </div>
             """,
@@ -3056,8 +3490,9 @@ def render_action_items_tab(analysis: MeetingAnalysisResult) -> None:
 
     for item in analysis.action_items:
         owner = item.owner or "Unassigned"
-        due_date = item.due_date or "No due date"
-        timestamp = item.timestamp or "--:--"
+        due_date = item.due_date or "Not Mentioned"
+        timestamp = item.timestamp or "Not Mentioned"
+        priority = action_priority(item.task, due_date)
         st.markdown(
             f"""
             <div class="ms-item-card action">
@@ -3065,9 +3500,9 @@ def render_action_items_tab(analysis: MeetingAnalysisResult) -> None:
               <p>{html.escape(item.task)}</p>
               <div class="ms-meta-row">
                 <span class="ms-meta">Owner: {html.escape(owner)}</span>
-                <span class="ms-meta">Due: {html.escape(due_date)}</span>
-                <span class="ms-meta">Status: {html.escape(item.status)}</span>
-                <span class="ms-meta">Time: {html.escape(timestamp)}</span>
+                <span class="ms-meta">Due Date: {html.escape(due_date)}</span>
+                <span class="ms-meta">Priority: {html.escape(priority)}</span>
+                <span class="ms-meta">Timestamp: {html.escape(timestamp)}</span>
               </div>
             </div>
             """,
@@ -3117,17 +3552,33 @@ def render_download_button(
     mime: str,
     key: str,
     success_message: str,
+    download_name: str | None = None,
 ) -> None:
     st.download_button(
         label,
         data=export_path.read_bytes(),
-        file_name=export_path.name,
+        file_name=download_name or export_path.name,
         mime=mime,
         key=key,
         use_container_width=True,
         on_click=toast_download_success,
         args=(success_message,),
     )
+
+
+def safe_mom_download_filename(extension: str) -> str:
+    """Return a cross-platform safe MoM download filename from meeting title."""
+
+    title = (
+        st.session_state.get("meeting_info", {}).get("meeting_title")
+        or meeting_info_for_export().get("Meeting Title")
+        or "Meeting"
+    )
+    cleaned = re.sub(r"[<>:\"/\\|?*\x00-\x1F]+", " ", str(title))
+    cleaned = re.sub(r"\s+", "_", cleaned).strip("._ ")
+    if not cleaned:
+        cleaned = "Meeting"
+    return f"{cleaned}_MoM.{extension.lstrip('.')}"
 
 
 def default_email_subject() -> str:
@@ -3302,6 +3753,7 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
             mime="application/pdf",
             key="download_mom_pdf",
             success_message="Download started",
+            download_name=safe_mom_download_filename("pdf"),
         )
 
     with docx_col:
@@ -3321,6 +3773,7 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
             key="download_mom_docx",
             success_message="Download started",
+            download_name=safe_mom_download_filename("docx"),
         )
 
     with email_col:
@@ -3422,23 +3875,14 @@ def run_meeting_analysis(
             )
         update_elapsed(elapsed_placeholder, started_at)
 
-        # Validation starts with the existing ML parser so unsupported transcript
-        # formats fail with a friendly message before embeddings or ANN inference.
+        # Parse once here only for existing meeting metadata enrichment. The
+        # reusable experimental integration performs its own parser ->
+        # preprocessing -> feature extraction -> MiniLM -> ANN path internally.
         parsed_transcript = parse_transcript(transcript_text)
         if not parsed_transcript.is_valid:
             stop_with_analysis_error(
                 parsed_transcript.validation_message
                 or "We could not identify speaker information in this transcript."
-            )
-            return None
-
-        # Preprocessing and feature extraction reuse the standalone ML modules;
-        # these keep transcript text safe for embedding without changing UI edits.
-        preprocessed_turns = preprocess_transcript(parsed_transcript.turns)
-        sentence_features = extract_sentence_features(preprocessed_turns)
-        if not sentence_features:
-            stop_with_analysis_error(
-                "No usable transcript sentences were found for meeting analysis."
             )
             return None
 
@@ -3448,115 +3892,60 @@ def run_meeting_analysis(
                 status_placeholder,
                 active_index=3,
                 started_at=started_at,
-                note="Embedding and classifying transcript sentences for meeting notes.",
-        )
+                note="Embedding, classifying, and formatting transcript sentences.",
+            )
         update_elapsed(elapsed_placeholder, started_at)
 
-        # Embeddings are generated from reviewed transcript sentences, making the
-        # live report path use the same local representation as ANN training.
-        embedding_service = EmbeddingService()
-        embedding_result = embedding_service.generate_embeddings(sentence_features)
-        if embedding_result.error_message or not embedding_result.embeddings:
-            stop_with_analysis_error(
-                embedding_result.error_message
-                or "Sentence embeddings could not be generated for this transcript."
-            )
-            return None
-
-        # Clustering supplies topic context for the report, but it is not allowed
-        # to discard valid sentence predictions if a topic strategy falls back.
-        clustering_result = ClusteringService().cluster(embedding_result.embeddings)
-        if clustering_result.error_message:
-            log_stage(
-                "Meeting analysis",
-                "Clustering returned a non-fatal validation message.",
-                error=clustering_result.error_message,
-            )
-
-        try:
-            import torch
-
-            embedding_tensor = torch.tensor(
-                [embedding.embedding_vector for embedding in embedding_result.embeddings],
-                dtype=torch.float32,
-            )
-        except Exception as exc:
-            stop_with_analysis_error(
-                f"Sentence embeddings could not be prepared for ANN prediction: {exc}"
-            )
-            return None
-
-        # The trained ANN and label mapping are reused from datasets/models so
-        # production inference stays aligned with the annotation/training pipeline.
-        id_to_label = load_label_mapping()
-        if not id_to_label:
-            stop_with_analysis_error(
-                "The ML label mapping is missing or invalid. Please train the ANN model first."
-            )
-            return None
-
-        model = load_trained_model(
-            embedding_dimension=embedding_tensor.size(1),
-            class_count=len(id_to_label),
-        )
-        if model is None:
-            stop_with_analysis_error(
-                "The trained ANN model is missing or invalid. Please train the ANN model first."
-            )
-            return None
-
-        prediction_results = predict_labels(
-            model=model,
-            embedding_tensor=embedding_tensor,
-            sentence_features=sentence_features,
-            id_to_label=id_to_label,
-        )
-        if not prediction_results:
-            stop_with_analysis_error(
-                "The ANN model did not return any sentence predictions."
-            )
-            return None
-
-        # The rule-based generator consumes prediction records and avoids any LLM
-        # or agentic orchestration for Minutes of Meeting generation.
-        prediction_records = prediction_records_from_results(prediction_results)
-        minutes = generate_minutes(
-            prediction_records,
-            warnings=[
-                *(clustering_result.warnings or []),
-                *([clustering_result.error_message] if clustering_result.error_message else []),
-            ],
-        )
-        topic_labels = [
-            cluster.topic_label
-            for cluster in clustering_result.clusters
-            if cluster.topic_label.strip()
+        current_info_for_generation = st.session_state.get("meeting_info", {})
+        participant_text = str(current_info_for_generation.get("participants", "")).strip()
+        manual_participants = [
+            participant.strip()
+            for participant in re.split(r"[,;\n]+", participant_text)
+            if participant.strip()
         ]
-        analysis = meeting_minutes_to_analysis_result(
+        generated = generate_mom(
+            transcript_text,
+            meeting_title=(
+                str(current_info_for_generation.get("meeting_title") or "").strip()
+                or default_meeting_title()
+            ),
+            meeting_date=str(current_info_for_generation.get("meeting_date") or "").strip(),
+            participants=manual_participants or None,
+        )
+        if not generated.is_valid:
+            stop_with_analysis_error(
+                generated.error_message
+                or "The experimental MoM formatter could not generate meeting notes."
+            )
+            return None
+
+        analysis = experimental_mom_to_analysis_result(
             transcript_text=transcript_text,
-            topic_labels=topic_labels,
-            minutes=minutes,
+            generated=generated,
         )
 
         log_stage(
             "Meeting analysis",
             "Completed ML meeting analysis pipeline.",
-            sentences=len(sentence_features),
-            embeddings=len(embedding_result.embeddings),
-            clusters=len(clustering_result.clusters),
-            predictions=len(prediction_results),
+            sentences=generated.sentence_count,
+            predictions=len(generated.predictions or []),
+            formatter="experimental_formatter_v4",
         )
         meeting_metadata = {
             **st.session_state.get("meeting_metadata", {}),
             "source_file": st.session_state.get("uploaded_filename", ""),
-            "ml_pipeline": "parser_preprocessing_embeddings_clustering_ann_rules",
-            "ml_sentence_count": len(sentence_features),
-            "ml_cluster_count": len(clustering_result.clusters),
-            "ml_prediction_count": len(prediction_results),
+            "ml_pipeline": "parser_preprocessing_embeddings_ann_experimental_formatter_v4",
+            "ml_sentence_count": generated.sentence_count,
+            "ml_prediction_count": len(generated.predictions or []),
+            "generated_on": generated_on_display(),
         }
         parsed_participants = participants_from_transcript_turns(parsed_transcript.turns)
-        if parsed_participants:
-            meeting_metadata["participant_list"] = parsed_participants
+        formatter_participants = (
+            generated.experimental_mom.participants if generated.experimental_mom else []
+        )
+        participant_candidates = parsed_participants or formatter_participants
+        if participant_candidates:
+            meeting_metadata["participant_list"] = participant_candidates
         st.session_state.meeting_metadata = meeting_metadata
         initialize_meeting_info(st.session_state.get("transcript_result"))
         current_info = dict(st.session_state.get("meeting_info", {}))
@@ -3992,7 +4381,8 @@ def render_editable_transcript_review(result: TranscriptionResult) -> None:
             analysis=analysis,
             started_at=started_at,
         )
-    st.rerun()
+        st.rerun()
+    st.session_state.transcript_review_required = True
 
 
 def process_upload(uploaded_file: object) -> None:

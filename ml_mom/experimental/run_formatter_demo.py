@@ -47,17 +47,8 @@ import ml_mom.embeddings as embeddings_module
 
 patch_experimental_embedding_environment(embeddings_module)
 
-from ml_mom.embeddings import EmbeddingService
-from ml_mom.experimental.mom_formatter import ExperimentalMomFormatter
-from ml_mom.predict_ann import (
-    generate_embedding_tensor,
-    load_label_mapping,
-    load_trained_model,
-    load_transcript_text,
-    predict_labels,
-    prediction_statistics,
-    prepare_sentence_features,
-)
+from ml_mom.experimental.integration import generate_mom
+from ml_mom.predict_ann import load_transcript_text, prediction_statistics
 
 
 DEFAULT_TRANSCRIPT_PATH = Path("datasets") / "raw_transcripts" / "meeting10.txt"
@@ -100,53 +91,22 @@ def run_experimental_formatter(transcript_path: Path) -> bool:
         print("Transcript is empty or unavailable.")
         return False
 
-    sentence_features = prepare_sentence_features(transcript_text)
-    if not sentence_features:
-        print("No sentence features were produced from the transcript.")
-        return False
-
-    embedding_service = EmbeddingService()
-    embedding_dimension = embedding_service.get_embedding_dimension()
-    if embedding_dimension is None:
-        print(embedding_service.error_message or "Embedding model is unavailable.")
-        return False
-
-    embedding_tensor = generate_embedding_tensor(sentence_features, embedding_service)
-    if embedding_tensor is None:
-        print("Embedding tensor could not be generated.")
-        return False
-
-    id_to_label = load_label_mapping()
-    if id_to_label is None:
-        print("Label mapping could not be loaded.")
-        return False
-
-    model = load_trained_model(
-        embedding_dimension=embedding_tensor.size(1),
-        class_count=len(id_to_label),
-    )
-    if model is None:
-        print("Trained ANN model could not be loaded.")
-        return False
-
-    predictions = predict_labels(model, embedding_tensor, sentence_features, id_to_label)
-    if not predictions:
-        print("No ANN predictions were produced.")
-        return False
-
-    prediction_statistics(predictions)
-
-    formatter = ExperimentalMomFormatter()
-    experimental_mom = formatter.format(
-        predictions,
+    generated = generate_mom(
+        transcript_text,
         meeting_title=transcript_path.stem.replace("_", " ").replace("-", " ").title(),
     )
+    if not generated.is_valid:
+        print(generated.error_message or "Experimental MoM generation failed.")
+        return False
+
+    if generated.predictions:
+        prediction_statistics(generated.predictions)
 
     # The experiment writes only under datasets/models/experimental so deleting
     # this folder fully removes all artifacts produced by this prototype.
     EXPERIMENT_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    MARKDOWN_OUTPUT_PATH.write_text(experimental_mom.to_markdown(), encoding="utf-8")
-    TEXT_OUTPUT_PATH.write_text(experimental_mom.to_text(), encoding="utf-8")
+    MARKDOWN_OUTPUT_PATH.write_text(generated.markdown, encoding="utf-8")
+    TEXT_OUTPUT_PATH.write_text(generated.text, encoding="utf-8")
 
     print(f"Experimental Markdown saved to: {MARKDOWN_OUTPUT_PATH}")
     print(f"Experimental text saved to: {TEXT_OUTPUT_PATH}")

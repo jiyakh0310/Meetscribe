@@ -116,6 +116,22 @@ DECISION_REWRITES = (
 
 
 PROFESSIONAL_TOPIC_KEYWORDS = {
+    "registration": "Event registrations",
+    "registrations": "Event registrations",
+    "attendee": "Attendee participation",
+    "attendees": "Attendee participation",
+    "participant": "Participant engagement",
+    "participants": "Participant engagement",
+    "auditorium": "Venue logistics",
+    "venue": "Venue logistics",
+    "logistics": "Event logistics",
+    "marketing": "Marketing performance",
+    "social engagement": "Social engagement",
+    "engagement": "Audience engagement",
+    "sponsor": "Sponsorship coordination",
+    "sponsors": "Sponsorship coordination",
+    "budget": "Budget planning",
+    "agenda": "Meeting agenda",
     "dark mode": "Dark mode",
     "lazy loading": "Lazy loading implementation",
     "transcript loading": "Transcript loading performance",
@@ -128,6 +144,7 @@ PROFESSIONAL_TOPIC_KEYWORDS = {
     "authentication": "Authentication workflow",
     "auth": "Authentication workflow",
     "deployment": "Deployment timeline",
+    "rollout": "Deployment timeline",
     "release": "Release readiness",
     "performance": "Performance optimization",
     "optimization": "Performance optimization",
@@ -203,10 +220,34 @@ DISCUSSION_CONTEXT = {
     "Testing readiness": (
         "Testing readiness was assessed to validate release quality."
     ),
+    "Event registrations": (
+        "Event registrations were reviewed to confirm attendee interest and participation status."
+    ),
+    "Marketing performance": (
+        "Marketing performance was reviewed to assess audience reach and campaign effectiveness."
+    ),
+    "Social engagement": (
+        "Social engagement was reviewed to understand audience response and outreach progress."
+    ),
+    "Venue logistics": (
+        "Venue logistics were reviewed to confirm space readiness and operational arrangements."
+    ),
+    "Event logistics": (
+        "Event logistics were reviewed to confirm operational readiness and remaining coordination needs."
+    ),
+    "Budget planning": (
+        "Budget planning was reviewed to clarify financial readiness and required approvals."
+    ),
 }
 
 
 TOPIC_TITLE_RULES = (
+    ("Event Registrations", ("registration", "registrations", "attendee", "attendees")),
+    ("Marketing Performance", ("marketing", "campaign", "promotion")),
+    ("Social Engagement", ("social engagement", "engagement", "followers", "reach")),
+    ("Venue Logistics", ("auditorium", "venue", "hall", "room booking")),
+    ("Event Logistics", ("logistics", "arrangement", "coordination")),
+    ("Budget Planning", ("budget", "cost", "expense", "funding")),
     ("Authentication", ("authentication", "auth", "login", "signin", "sign-in")),
     ("Performance Optimization", ("performance", "optimization", "loading", "lazy loading", "responsiveness")),
     ("PDF Export", ("pdf", "export", "docx")),
@@ -214,7 +255,7 @@ TOPIC_TITLE_RULES = (
     ("Model Performance", ("model", "accuracy", "evaluation")),
     ("Dark Mode", ("dark mode",)),
     ("Bug Fixes", ("bug", "issue", "alignment", "fix", "polish")),
-    ("Deployment", ("deployment", "deploy", "production")),
+    ("Deployment", ("deployment", "deploy", "production", "rollout")),
     ("Documentation", ("documentation", "document", "requirement")),
     ("Sprint Planning", ("sprint", "feature list", "release readiness", "release")),
     ("Meeting Summary", ("summarize", "summary", "meeting adjourned")),
@@ -233,6 +274,10 @@ DECISION_SIGNALS = (
     "selected",
     "implemented",
     "implement",
+    "proceed",
+    "go ahead",
+    "resolved",
+    "approved for release",
     "deferred",
     "postponed",
     "moves to",
@@ -241,6 +286,8 @@ DECISION_SIGNALS = (
 
 
 PENDING_KEYWORDS = (
+    "pending",
+    "waiting",
     "still pending",
     "needs improvement",
     "needs some",
@@ -262,6 +309,14 @@ PENDING_KEYWORDS = (
 
 
 RANKING_KEYWORDS = (
+    "registration",
+    "registrations",
+    "marketing",
+    "logistics",
+    "venue",
+    "auditorium",
+    "budget",
+    "engagement",
     "implementation",
     "deadline",
     "release",
