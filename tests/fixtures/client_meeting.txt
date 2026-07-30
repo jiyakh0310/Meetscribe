@@ -1,0 +1,7 @@
+Nisha: Good afternoon. We'll review the client project status.
+Nisha: The client reviewed reporting requirements and deployment timing.
+Client: PDF export was accepted for the first release.
+Client: Multilingual support will be deferred to the next release.
+Nisha: I will update the requirement document by Tuesday.
+Rohan: I will prepare the deployment plan this week.
+Client: Please submit the revised dashboard design by Friday.

@@ -39,6 +39,7 @@ patch_experimental_embedding_environment(embeddings_module)
 from ml_mom.embeddings import EmbeddingService
 from ml_mom.experimental.mom_formatter import ExperimentalMom
 from ml_mom.experimental.mom_formatter import ExperimentalMomFormatter
+from ml_mom.local_gemma_rewriter import LocalGemmaRewriter
 from ml_mom.predict_ann import (
     PredictionResult,
     generate_embedding_tensor,
@@ -58,6 +59,8 @@ class GeneratedMomResult:
             succeeds.
         predictions: Sentence-level ANN predictions used by the formatter.
         markdown: Markdown render of the generated MoM.
+        deterministic_markdown: Unmodified formatter Markdown retained as the
+            internal source of truth.
         text: Plain-text render of the generated MoM.
         structured_json: JSON-compatible representation of the generated MoM.
         sentence_count: Number of sentence features passed to MiniLM/ANN.
@@ -65,12 +68,17 @@ class GeneratedMomResult:
     """
 
     experimental_mom: ExperimentalMom | None = None
+    deterministic_mom: ExperimentalMom | None = None
     predictions: list[PredictionResult] | None = None
     markdown: str = ""
+    deterministic_markdown: str = ""
     text: str = ""
     structured_json: dict[str, Any] | None = None
     sentence_count: int = 0
     error_message: str | None = None
+    gemma_refinement_applied: bool = False
+    gemma_model: str = ""
+    gemma_error: str | None = None
 
     @property
     def is_valid(self) -> bool:
@@ -165,14 +173,21 @@ def generate_mom(
         meeting_date=meeting_date,
         participants=participants,
     )
+    rewrite = LocalGemmaRewriter().rewrite(experimental_mom)
+    output_mom = rewrite.mom
 
     return GeneratedMomResult(
-        experimental_mom=experimental_mom,
+        experimental_mom=output_mom,
+        deterministic_mom=experimental_mom,
         predictions=predictions,
-        markdown=experimental_mom.to_markdown(),
-        text=experimental_mom.to_text(),
-        structured_json=experimental_mom_to_dict(experimental_mom),
+        markdown=output_mom.to_markdown(),
+        deterministic_markdown=experimental_mom.to_markdown(),
+        text=output_mom.to_text(),
+        structured_json=experimental_mom_to_dict(output_mom),
         sentence_count=len(sentence_features),
+        gemma_refinement_applied=rewrite.applied,
+        gemma_model=rewrite.model,
+        gemma_error=rewrite.error,
     )
 
 

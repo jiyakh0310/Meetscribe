@@ -20,7 +20,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from config.settings import SettingsError
+from config.settings import OLLAMA_GEMMA_MODEL, USE_LOCAL_GEMMA, SettingsError
 from exports.docx_exporter import export_to_docx
 from exports.email_sender import (
     EmailDeliveryError,
@@ -2221,7 +2221,8 @@ def experimental_mom_to_analysis_result(
 def analysis_cache_key(transcript_text: str) -> str:
     # Include the formatter version so an existing Streamlit session cannot
     # reuse a cached report produced by the previous rule-based MoM generator.
-    cache_payload = f"experimental_formatter_v4\n{transcript_text.strip()}"
+    refinement = OLLAMA_GEMMA_MODEL if USE_LOCAL_GEMMA else "disabled"
+    cache_payload = f"experimental_formatter_v4/local_gemma={refinement}\n{transcript_text.strip()}"
     return hashlib.sha256(cache_payload.encode("utf-8")).hexdigest()
 
 
@@ -3930,6 +3931,9 @@ def run_meeting_analysis(
             sentences=generated.sentence_count,
             predictions=len(generated.predictions or []),
             formatter="experimental_formatter_v4",
+            local_gemma_applied=generated.gemma_refinement_applied,
+            local_gemma_model=generated.gemma_model,
+            local_gemma_fallback=bool(generated.gemma_error),
         )
         meeting_metadata = {
             **st.session_state.get("meeting_metadata", {}),

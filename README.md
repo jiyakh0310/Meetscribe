@@ -45,5 +45,23 @@ Training and annotation utilities are kept separate from production report
 generation under `ml_mom/annotation_*.py`, `ml_mom/merge_annotations.py`,
 `ml_mom/training_dataset.py`, and `ml_mom/train_ann.py`.
 
+## Optional local Gemma refinement
+
+After deterministic formatting, MeetScribe can polish the Minutes of Meeting
+with a Gemma model already installed in local Ollama. No transcript or ML
+internals are sent to the model. If Ollama or Gemma is unavailable, the
+deterministic output is used automatically.
+
+```dotenv
+USE_LOCAL_GEMMA=true
+OLLAMA_BASE_URL=http://127.0.0.1:11434
+OLLAMA_GEMMA_MODEL=gemma3:4b
+OLLAMA_TIMEOUT_SECONDS=45
+```
+
+Set `USE_LOCAL_GEMMA=false` to bypass the rewriter. MeetScribe selects the
+configured installed Gemma model, or another installed model whose name
+contains `gemma`; it never downloads a model.
+
 After pushing changes, reboot the Streamlit Cloud app so it reinstalls both
 Python and apt dependencies.

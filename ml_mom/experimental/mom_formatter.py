@@ -236,12 +236,13 @@ DECISION_SIGNAL_PATTERN = re.compile(
     r"(?i)\b(approved|approve|approved by|accepted|confirmed|finali[sz]ed|"
     r"agree|agreed|agreement reached|decided|decision|resolved|resolution|locked|"
     r"freeze|freezed|postpone|postponed|defer|deferred|moved to|moves to|move to|will move to|"
-    r"added to|will remain|scheduled|selected|chosen|implemented|go ahead|proceed with|"
+    r"added to|included in|will be included|will remain|scheduled|selected|chosen|"
+    r"implemented|go ahead|proceed with|"
     r"continue with|stop|cancel|close|completed|completed for release|release on|"
     r"ship|deploy|merge|merged|feature freeze|release candidate|will handle)\b"
 )
 DECISION_CONFIRMATION_PATTERN = re.compile(
-    r"(?i)^\s*(yes(?:,\s*agreed)?|agreed|done|okay|ok|sure|sounds good|"
+    r"(?i)^\s*(yes(?:,\s*agreed)?|agreed|approved|confirmed|done|okay|ok|sure|sounds good|"
     r"works for me|confirmed)\s*[.!]?$"
 )
 DECISION_PROPOSAL_PATTERN = re.compile(
@@ -252,8 +253,8 @@ DECISION_PROPOSAL_PATTERN = re.compile(
 DECISION_VERB_PATTERN = re.compile(
     r"(?i)\b(approved|confirmed|accepted|finali[sz]ed|resolved|agree|agreed|defer|deferred|"
     r"postponed|scheduled|locked|completed|closed|selected|chosen|implemented|"
-    r"release|ship|deploy|merge|merged|proceed|continue|cancel|stopped|added|will remain|"
-    r"will be implemented|will handle)\b"
+    r"release|ship|deploy|merge|merged|proceed|continue|cancel|stopped|added|included|"
+    r"will remain|will be implemented|will handle)\b"
 )
 
 
@@ -779,7 +780,7 @@ def quality_filter_decisions(items: Iterable[str]) -> list[str]:
     filtered: list[str] = []
     seen: set[str] = set()
     for item in items:
-        cleaned = utils.clean_report_sentence(str(item or ""))
+        cleaned = cleanup_decision_output(utils.clean_report_sentence(str(item or "")))
         key = re.sub(r"[^a-z0-9]+", " ", cleaned.casefold()).strip()
         if not key or key in seen:
             continue
@@ -838,7 +839,8 @@ def is_valid_action_task(task: str) -> bool:
     has_action_verb = bool(
         re.search(
             r"(?i)\b(implement|finish|complete|update|publish|confirm|prepare|assign|"
-            r"generate|review|submit|send|share|email|finalize|validate|test|create|deliver|fix)\b",
+            r"generate|review|submit|send|share|email|finalize|validate|test|create|"
+            r"deliver|deploy|verify|finish|fix)\b",
             task,
         )
     )
@@ -1434,12 +1436,14 @@ def extract_product_entities(sentences: list[str]) -> list[str]:
 def choose_blueprint_title(evidence: TopicEvidence, entities: ExtractedEntities) -> str:
     """Select the safest noun-based title for a topic blueprint."""
 
+    # Concrete product/topic phrases carry more meaning than scheduling labels
+    # such as "Phase 2" or "Sprint 5".
     candidates = (
         entities.products
-        + entities.projects
         + entities.topics
         + entities.organizations
         + entities.locations
+        + entities.projects
         + [evidence.topic]
     )
     for candidate in candidates:
@@ -1467,15 +1471,16 @@ def build_supporting_facts(
 
 
 def consolidate_blueprints(blueprints: list[TopicBlueprint]) -> list[TopicBlueprint]:
-    """Merge blueprints that resolve to the same noun-based topic."""
+    """Merge lexically overlapping blueprints that describe the same topic."""
 
     merged: dict[str, TopicBlueprint] = {}
     for blueprint in blueprints:
-        key = blueprint.title.casefold()
+        key = semantic_topic_key(blueprint.title)
         if key not in merged:
             merged[key] = blueprint
             continue
         target = merged[key]
+        target.title = preferred_topic_title(target.title, blueprint.title)
         target.supporting_facts = utils.unique_normalized_sentences(
             target.supporting_facts + blueprint.supporting_facts
         )
@@ -1494,6 +1499,44 @@ def consolidate_blueprints(blueprints: list[TopicBlueprint]) -> list[TopicBluepr
         target.evidence.action_records.extend(blueprint.evidence.action_records)
         target.importance_score = max(target.importance_score, blueprint.importance_score)
     return sorted(merged.values(), key=lambda item: item.importance_score, reverse=True)
+
+
+def semantic_topic_key(title: str) -> str:
+    """Return a stable concept key for discussion-title de-duplication."""
+
+    tokens = [
+        token
+        for token in re.findall(r"[a-z0-9]+", title.casefold())
+        if token not in {"automatic", "current", "planned", "general"}
+    ]
+    aliases = {
+        "emails": "email",
+        "mail": "email",
+        "notification": "notification",
+        "notifications": "notification",
+        "delivery": "notification",
+        "integrations": "integration",
+        "improvements": "improvement",
+        "features": "feature",
+    }
+    normalized = [aliases.get(token, token) for token in tokens]
+    if "email" in normalized and "notification" in normalized:
+        return "email notification"
+    return " ".join(sorted(set(normalized)))
+
+
+def preferred_topic_title(left: str, right: str) -> str:
+    """Prefer the more descriptive of two equivalent deterministic titles."""
+
+    def score(title: str) -> tuple[int, int]:
+        words = re.findall(r"[A-Za-z0-9]+", title)
+        generic = sum(
+            word.casefold() in {"phase", "feature", "backend", "performance", "ui"}
+            for word in words
+        )
+        return (len(words) - generic, len(title))
+
+    return max((left, right), key=score)
 
 
 def unique_preserve_order(items: Iterable[str]) -> list[str]:
@@ -1560,6 +1603,10 @@ def normalize_topic_heading(candidate: str) -> str:
     title = title_case_topic(" ".join(words))
     if not title or utils.is_weak_topic(title):
         return ""
+    if len(title.split()) == 1:
+        title = title_case_topic(
+            templates.PROFESSIONAL_TOPIC_KEYWORDS.get(title.casefold(), title)
+        )
     first = title.split()[0].casefold()
     if first in TOPIC_LEADING_VERBS:
         return ""
@@ -2000,6 +2047,7 @@ def decision_from_sentence(sentence: str, fallback_title: str) -> str:
     """Generate a decision using only the sentence with decision evidence."""
 
     title = decision_topic_from_sentence(sentence, fallback_title)
+    subject = decision_subject(sentence, title)
     sprint_match = re.search(r"(?i)\bSprint\s+(\d+)\b", sentence)
     sprint_phrase = f"Sprint {sprint_match.group(1)}" if sprint_match else ""
     weekday_match = re.search(
@@ -2007,22 +2055,26 @@ def decision_from_sentence(sentence: str, fallback_title: str) -> str:
         sentence,
     )
     release_phrase = weekday_match.group(1).title() if weekday_match else ""
+    if re.match(r"(?i)^\s*go\s+ahead\b", sentence):
+        return "The team approved proceeding with the planned work."
     if re.search(r"(?i)\b(defer|deferred|postpone|postponed|moves to|move to|moved to|will move to|will be moved to|future release|next release|next sprint|delay|delayed)\b", sentence):
         suffix = f" to {sprint_phrase}" if sprint_phrase else ""
         if re.search(r"(?i)\bnext release\b", sentence):
             suffix = " to Next Release"
-        return f"The team agreed to defer {title} implementation{suffix}."
-    if re.search(r"(?i)\b(approved|approval|approved by|go ahead|proceed|proceed with|approved for release|selected|chosen|accepted)\b", sentence):
+        return f"{subject} was deferred{suffix}."
+    if re.search(r"(?i)\b(approve|approved|approval|approved by|go ahead|proceed|proceed with|approved for release|selected|chosen|accepted)\b", sentence):
         suffix = f" for {sprint_phrase}" if sprint_phrase else " as the agreed direction"
         if title == "Proposal":
             subject = proposal_decision_subject(sentence, fallback_title)
             return f"The proposal for {subject} was approved."
-        return f"The team approved {title}{suffix}."
+        if re.fullmatch(r"(?i)(go\s+ahead|proceed(?:ing)?|planned\s+work)", subject):
+            return "The team approved proceeding with the planned work."
+        return f"{subject} was approved{f' for {sprint_phrase}' if sprint_phrase else ''}."
     if re.search(r"(?i)\b(added to|included in)\b", sentence):
         suffix = f" for {sprint_phrase}" if sprint_phrase else ""
         return f"{title} was approved{suffix}."
-    if re.search(r"(?i)\b(finalized|finalised|feature freeze)\b", sentence):
-        return f"The team finalized {title}."
+    if re.search(r"(?i)\b(finalize|finalise|finalized|finalised|feature freeze)\b", sentence):
+        return f"{subject} was finalized."
     if re.search(r"(?i)\b(release on|ship)\b", sentence):
         suffix = f" on {release_phrase}" if release_phrase else ""
         return f"The team confirmed the release schedule{suffix}."
@@ -2031,11 +2083,11 @@ def decision_from_sentence(sentence: str, fallback_title: str) -> str:
     if re.search(r"(?i)\b(deploy|merge|merged|release candidate)\b", sentence):
         return f"The team confirmed {title} as the agreed release path."
     if re.search(r"(?i)\b(scheduled)\b", sentence):
-        return f"The team scheduled {title}."
+        return f"{subject} was scheduled."
     if re.search(r"(?i)\b(freeze|feature freeze)\b", sentence):
-        return f"The team finalized {title}."
+        return f"{subject} was finalized."
     if re.search(r"(?i)\b(locked|closed|completed)\b", sentence):
-        return f"The team closed {title} as the agreed outcome."
+        return f"{subject} was finalized."
     if re.search(r"(?i)\b(will remain|will be implemented|implemented)\b", sentence):
         return f"The team confirmed {title} as the agreed outcome."
     if re.search(r"(?i)\b(confirmed|resolved|resolution|agree|agreed|agreement reached|decided|decision)\b", sentence):
@@ -2043,6 +2095,55 @@ def decision_from_sentence(sentence: str, fallback_title: str) -> str:
             return "The proposal to use MiniLM was approved."
         return f"The team confirmed {title} as the agreed outcome."
     return normalize_decision(sentence)
+
+
+def decision_subject(sentence: str, fallback_title: str) -> str:
+    """Extract a clean noun phrase from imperative or completed decisions."""
+
+    cleaned = utils.normalize_whitespace(sentence).strip(" .!?")
+    cleaned = re.sub(
+        r"(?i)^(?:the\s+team\s+)?(?:has\s+|had\s+)?(?:approved?|accept(?:ed)?|"
+        r"confirm(?:ed)?|finali[sz](?:e|ed)|reject(?:ed)?|postpone(?:d)?|"
+        r"defer(?:red)?|move(?:d)?|decid(?:e|ed)\s+to)\s+",
+        "",
+        cleaned,
+    )
+    cleaned = re.sub(
+        r"(?i)\s+(?:has\s+been|was|is|were)\s+(?:approved|accepted|confirmed|"
+        r"finali[sz]ed|rejected|postponed|deferred|moved)\b.*$",
+        "",
+        cleaned,
+    )
+    cleaned = re.sub(r"(?i)\b(?:as\s+the\s+agreed\s+(?:direction|outcome))\b.*$", "", cleaned)
+    cleaned = re.sub(r"(?i)^the\s+", "", cleaned).strip(" .")
+    if not cleaned or re.fullmatch(r"(?i)(go\s+ahead|proceed(?:ing)?)", cleaned):
+        return "planned work"
+    words = re.findall(r"[A-Za-z0-9%&/-]+", cleaned)
+    topic = title_case_topic(cleaned) if 1 <= len(words) <= 8 else ""
+    topic = topic or normalize_topic_heading(cleaned) or utils.professional_topic(cleaned)
+    if not topic or utils.is_weak_topic(topic):
+        topic = fallback_title
+    return topic[:1].upper() + topic[1:]
+
+
+def cleanup_decision_output(text: str) -> str:
+    """Remove duplicated outcome language from a rendered decision."""
+
+    cleaned = re.sub(
+        r"(?i)\s+(?:as\s+the\s+agreed\s+(?:direction|outcome)|"
+        r"as\s+the\s+agreed\s+release\s+path)\b",
+        "",
+        text,
+    )
+    cleaned = re.sub(
+        r"(?i)\b(approved|confirmed|finalized|accepted|rejected|postponed|"
+        r"moved|deferred)(?:\s+(?:has\s+been|was|is))?\s+\1\b",
+        r"\1",
+        cleaned,
+    )
+    cleaned = re.sub(r"(?i)\bhas\s+been\s+approved\s+approved\b", "was approved", cleaned)
+    cleaned = re.sub(r"(?i)\bhas\s+been\s+approved\b", "was approved", cleaned)
+    return utils.normalize_sentence(cleaned)
 
 
 def decision_auxiliary(title: str) -> str:
@@ -2215,15 +2316,16 @@ def build_action_items(blueprints: list[TopicBlueprint]) -> list[ExperimentalAct
     for blueprint in blueprints:
         for record in blueprint.evidence.action_records:
             raw_sentence = utils.record_sentence(record)
-            if re.search(r"(?i)\b(today'?s|meeting)\s+goal\s+is\b", raw_sentence):
+            if is_non_action_utterance(raw_sentence) or is_decision_only_statement(raw_sentence):
                 continue
             if not action_sentence_has_evidence(raw_sentence, getattr(record, "predicted_label", "")):
                 continue
             if not utils.is_reportable_sentence(raw_sentence):
                 continue
             if raw_sentence.strip().endswith("?") and not re.match(
-                r"(?i)^\s*[A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,2}\s+"
-                r"(will|shall|needs to|need to|should|must|has to)\b",
+                r"(?i)^\s*(?:(?:can|could|would)\s+you|"
+                r"[A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+){0,2}\s+"
+                r"(?:will|shall|needs to|need to|should|must|has to))\b",
                 raw_sentence,
             ):
                 continue
@@ -2250,6 +2352,8 @@ def build_action_items(blueprints: list[TopicBlueprint]) -> list[ExperimentalAct
 def action_sentence_has_evidence(sentence: str, predicted_label: str) -> bool:
     """Return whether a sentence contains explicit action-item evidence."""
 
+    if is_non_action_utterance(sentence) or is_decision_only_statement(sentence):
+        return False
     if re.search(r"(?i)\b(resolved|approved|confirmed|accepted|finalized|agreed|decided)\b", sentence):
         return bool(
             re.search(
@@ -2260,7 +2364,8 @@ def action_sentence_has_evidence(sentence: str, predicted_label: str) -> bool:
     if predicted_label == "Action_Item" and re.search(
         r"(?i)\b(i'?ll|i will|we will|will|shall|need to|needs to|should|must|"
         r"has to|complete|update|publish|confirm|prepare|assign|generate|send|"
-        r"share|email|review|finalize|implement|submit|deliver|fix)\b",
+        r"share|email|review|finalize|implement|submit|deliver|deploy|verify|"
+        r"finish|test|fix)\b",
         sentence,
     ):
         return True
@@ -2274,10 +2379,13 @@ def action_sentence_has_evidence(sentence: str, predicted_label: str) -> bool:
     ):
         return True
     if re.match(
-        r"(?i)^\s*(complete|update|publish|confirm|prepare|assign|generate|"
-        r"send|share|email|review|finalize|implement|submit|deliver|fix)\b",
+        r"(?i)^\s*(?:please\s+)?(complete|update|publish|confirm|prepare|assign|generate|"
+        r"send|share|email|review|finalize|implement|submit|deliver|deploy|verify|"
+        r"finish|test|fix)\b",
         sentence,
     ):
+        return True
+    if re.match(r"(?i)^\s*(?:can|could|would)\s+you\s+\w+", sentence):
         return True
     return bool(
         re.match(
@@ -2286,6 +2394,54 @@ def action_sentence_has_evidence(sentence: str, predicted_label: str) -> bool:
             sentence,
         )
     )
+
+
+def is_non_action_utterance(sentence: str) -> bool:
+    """Reject greetings, introductions, questions, and status narration."""
+
+    cleaned = utils.normalize_whitespace(sentence)
+    if not cleaned:
+        return True
+    if re.match(
+        r"(?i)^(?:good\s+(?:morning|afternoon|evening)|hello|hi|welcome|"
+        r"let'?s\s+(?:begin|start|get\s+started)|today'?s\s+meeting\s+is|"
+        r"the\s+(?:meeting|session)\s+(?:is|was)|we(?:'ll|\s+will)\s+review\b)",
+        cleaned,
+    ):
+        return True
+    if cleaned.endswith("?") and not re.match(
+        r"(?i)^\s*(?:can|could|would)\s+you\b", cleaned
+    ):
+        return True
+    if re.search(
+        r"(?i)\b(?:was|were|has\s+been|have\s+been)\s+"
+        r"(?:discussed|reviewed|completed|updated|noted)\b",
+        cleaned,
+    ):
+        return True
+    return False
+
+
+def is_decision_only_statement(sentence: str) -> bool:
+    """Separate agreed scope/outcome declarations from executable tasks."""
+
+    cleaned = utils.normalize_whitespace(sentence)
+    has_explicit_assignee = bool(
+        re.search(
+            r"(?i)\b(?:i'?ll|i\s+will|we\s+will|"
+            r"assigned\s+to|responsible\s+for|please|can\s+you|must|need(?:s)?\s+to)\b",
+            cleaned,
+        )
+    )
+    outcome_declaration = bool(
+        re.search(
+            r"(?i)\b(?:will\s+be|was|has\s+been)\s+"
+            r"(?:included|added|approved|accepted|confirmed|finali[sz]ed|"
+            r"rejected|postponed|deferred|moved|retained|implemented)\b",
+            cleaned,
+        )
+    )
+    return outcome_declaration and not has_explicit_assignee
 
 
 def action_record_has_task_support(record: Any, sentence: str) -> bool:
@@ -2485,6 +2641,8 @@ def summary_opening_phrase(topics: list[str]) -> str:
         "Key discussion areas included",
         "Participants reviewed",
         "The meeting addressed",
+        "The meeting focused on",
+        "The discussion centered on",
     )
     seed = " ".join(topics).casefold()
     index = sum(ord(character) for character in seed) % len(options)

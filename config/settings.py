@@ -15,6 +15,18 @@ ENV_FILE = PROJECT_ROOT / ".env"
 REQUIRED_ENV_VARS: tuple[str, ...] = ("SARVAM_API_KEY",)
 OPTIONAL_ENV_VARS: tuple[str, ...] = ("GEMINI_API_KEY",)
 
+# Local language-polishing layer. These values intentionally do not depend on
+# ``get_settings`` because transcript-only use must not require an audio API key.
+USE_LOCAL_GEMMA = os.getenv("USE_LOCAL_GEMMA", "true").strip().casefold() in {
+    "1",
+    "true",
+    "yes",
+    "on",
+}
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434").rstrip("/")
+OLLAMA_GEMMA_MODEL = os.getenv("OLLAMA_GEMMA_MODEL", "gemma3:4b").strip()
+OLLAMA_TIMEOUT_SECONDS = float(os.getenv("OLLAMA_TIMEOUT_SECONDS", "45"))
+
 
 class SettingsError(ValueError):
     """Raised when required configuration is missing or invalid."""

@@ -99,12 +99,14 @@ DEADLINE_PATTERN = re.compile(
 )
 ACTION_VERB_PATTERN = re.compile(
     r"(?i)\b(will|shall|need to|needs to|prepare|submit|complete|finish|deliver|"
-    r"review|send|share|update|create|finalize|implement|publish|confirm|assign|generate|fix)\b"
+    r"review|send|share|update|create|finalize|implement|publish|confirm|assign|"
+    r"generate|deploy|verify|test|fix)\b"
 )
 OWNER_ACTION_PATTERN = re.compile(
     r"^\s*(?P<owner>[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+"
     r"(?P<verb>(?i:will|shall|needs to|need to|should|must|has to|complete|update|"
-    r"publish|confirm|prepare|assign|generate|review|finalize|implement|fix))\s+"
+    r"publish|confirm|prepare|assign|generate|review|finalize|implement|deploy|"
+    r"verify|deliver|submit|finish|test|fix))\s+"
     r"(?P<task>.+)$"
 )
 FIRST_PERSON_ACTION_PATTERN = re.compile(
@@ -486,6 +488,14 @@ def normalize_task(task: str) -> str:
     """Convert conversational action wording into professional task wording."""
 
     cleaned = normalize_sentence(task).rstrip(".")
+    cleaned = re.sub(r"(?i)^(?:can|could|would)\s+you\s+", "", cleaned)
+    cleaned = re.sub(
+        r"(?i)^(?:i|we|you|the\s+team)\s+(?:will|shall|must|should|"
+        r"need(?:s)?\s+to|have\s+to)\s+",
+        "",
+        cleaned,
+    )
+    cleaned = re.sub(r"(?i)^please\s+", "", cleaned)
     replacements = (
         (r"(?i)^finish\s+lazy loading$", "Implement lazy loading"),
         (r"(?i)^complete\s+lazy loading$", "Implement lazy loading"),
@@ -664,6 +674,7 @@ def extract_action_parts(sentence: str, speaker: str) -> ActionParts:
         "",
         normalized,
     )
+    normalized = re.sub(r"(?i)^please\s+", "", normalized)
     owner = "Unassigned"
     deadline = extract_deadline(normalized)
 
@@ -685,7 +696,7 @@ def extract_action_parts(sentence: str, speaker: str) -> ActionParts:
         else:
             task = normalized
 
-    task = DEADLINE_PATTERN.sub("", task).strip(" .")
+    task = DEADLINE_PATTERN.sub("", task).strip(" .?")
     task = re.sub(
         r"(?i)^(will|shall|needs to|need to|should|must|has to|please)\s+",
         "",

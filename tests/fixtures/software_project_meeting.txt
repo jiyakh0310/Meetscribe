@@ -1,0 +1,7 @@
+Priya: Good morning everyone. Let's begin.
+Priya: The team reviewed backend integration and dashboard performance.
+Arun: Automatic email delivery will be included in this release.
+Priya: Approved. Go ahead with the planned release scope.
+Arun: I will deploy the backend by Friday.
+Meera: I will verify the dashboard after deployment.
+Priya: Please prepare the release documentation by Friday.
