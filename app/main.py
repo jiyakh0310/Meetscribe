@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import base64
 import html
 import hashlib
 import json
@@ -19,6 +20,18 @@ import streamlit.components.v1 as components
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
+
+BRAND_LOGO_PATH = Path(__file__).resolve().parent / "assets" / "meetscribe-logo.png"
+
+
+def brand_logo_html(class_name: str, *, alt: str = "MeetScribe") -> str:
+    """Return the official transparent logo as presentation-only inline HTML."""
+
+    encoded = base64.b64encode(BRAND_LOGO_PATH.read_bytes()).decode("ascii")
+    return (
+        f'<img class="{html.escape(class_name)}" '
+        f'src="data:image/png;base64,{encoded}" alt="{html.escape(alt)}">'
+    )
 
 from config.settings import OLLAMA_GEMMA_MODEL, USE_LOCAL_GEMMA, SettingsError
 from exports.docx_exporter import export_to_docx
@@ -147,6 +160,11 @@ def initialize_session_state() -> None:
     st.session_state.setdefault("speaker_review_required", False)
     st.session_state.setdefault("transcript_review_required", False)
     st.session_state.setdefault("edited_transcript_text", "")
+    st.session_state.setdefault("workflow_open", False)
+    st.session_state.setdefault("workflow_source", "audio")
+    st.session_state.setdefault("workflow_stage", "upload")
+    st.session_state.setdefault("workflow_file", None)
+    st.session_state.setdefault("workflow_pending_action", "")
 
 
 def log_stage(stage: str, message: str, **details: Any) -> None:
@@ -283,6 +301,7 @@ def inject_processing_styles() -> None:
             font-size: 0.95rem;
             letter-spacing: -0.02em;
           }
+          .ms-side-brand-logo { width: 40px; height: 40px; object-fit: contain; background: transparent; border: 0; }
           .ms-side-nav {
             display: flex;
             flex-direction: column;
@@ -1701,6 +1720,7 @@ def inject_processing_styles() -> None:
             color: var(--pink-deep) !important;
             font-size: 1.25rem; font-weight: 800;
           }
+          .ms-empty-brand-logo { display:block; width:46px; height:46px; object-fit:contain; background:transparent; border:0; }
           .ms-empty-title {
             color: var(--warm) !important;
             font-size: 1.05rem;
@@ -2122,35 +2142,51 @@ def meeting_minutes_to_analysis_result(
 
 
 def inject_premium_redesign_styles() -> None:
-    """Apply the presentation-only MeetScribe SaaS design system."""
+    """Apply the presentation-only MeetScribe editorial design system."""
 
     st.markdown(
         """
         <style>
+          @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,440;9..144,520&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+
           :root {
-            --ms-bg: #FCFCFB;
+            --ms-sand: #EFE8D9;
+            --ms-warm-white: #FBFAF7;
+            --ms-slate-900: #33363B;
+            --ms-slate-600: #767B82;
+            --ms-muted-blue: #6D8CAC;
+            --ms-lavender: #A79BC7;
+            --ms-green: #7C9B79;
+            --ms-bg: #FBFAF7;
             --ms-surface: #FFFFFF;
-            --ms-primary: #5B6EF5;
-            --ms-primary-hover: #4A5DDE;
-            --ms-accent: #EEF2FF;
-            --ms-success: #E6F6ED;
-            --ms-warning: #FFF4EA;
-            --ms-text: #1F2937;
-            --ms-muted: #6B7280;
-            --ms-border: #E7E7E7;
-            --ms-radius-sm: 10px;
-            --ms-radius: 16px;
-            --ms-radius-lg: 24px;
-            --ms-shadow-sm: 0 1px 2px rgba(17,24,39,.03), 0 4px 12px rgba(17,24,39,.025);
-            --ms-shadow: 0 12px 32px rgba(17,24,39,.065);
-            --ms-shadow-lg: 0 24px 60px rgba(17,24,39,.09);
+            --ms-primary: #33363B;
+            --ms-primary-hover: #2A2D30;
+            --ms-accent: rgba(167,152,199,.14);
+            --ms-success: rgba(124,152,121,.14);
+            --ms-warning: rgba(241,235,216,.85);
+            --ms-text: #33363B;
+            --ms-muted: #767B82;
+            --ms-border: #E1DCCE;
+            --ms-border-light: #E1DCCE;
+            --ms-radius-sm: 8px;
+            --ms-radius: 14px;
+            --ms-radius-lg: 22px;
+            --ms-radius-pill: 999px;
+            --ms-shadow-sm: 0 1px 2px rgba(51,54,59,.06);
+            --ms-shadow: 0 6px 20px rgba(51,54,59,.08);
+            --ms-shadow-lg: 0 20px 48px rgba(51,54,59,.14);
+            --ms-font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+            --ms-font-sans: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+            --ms-font-mono: "IBM Plex Mono", ui-monospace, monospace;
           }
 
           html { scroll-behavior: smooth; }
           body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
             background: var(--ms-bg) !important;
             color: var(--ms-text) !important;
-            font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif !important;
+            font-family: var(--ms-font-sans) !important;
+            font-size: 15px !important;
+            line-height: 1.4667 !important;
           }
           [data-testid="stHeader"] { background: transparent !important; }
           [data-testid="stSidebar"] { display: none !important; }
@@ -2158,11 +2194,11 @@ def inject_premium_redesign_styles() -> None:
             padding-top: 0 !important;
           }
           .main .block-container {
-            max-width: 1240px !important;
-            padding: 6.5rem 2rem 4rem !important;
+            max-width: 1180px !important;
+            padding: 4.75rem 2.5rem 4rem !important;
           }
           :focus-visible {
-            outline: 3px solid rgba(68,102,242,.28) !important;
+            outline: 3px solid rgba(51,58,63,.25) !important;
             outline-offset: 3px !important;
           }
 
@@ -2170,133 +2206,460 @@ def inject_premium_redesign_styles() -> None:
             position: fixed;
             inset: 0 0 auto 0;
             z-index: 999;
-            height: 68px;
+            height: 76px;
             display: grid;
-            grid-template-columns: minmax(190px,1fr) auto minmax(190px,1fr);
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
-            gap: 2rem;
-            padding: 0 max(2rem, calc((100vw - 1240px)/2));
-            border-bottom: 1px solid rgba(229,231,235,.82);
-            background: rgba(252,252,251,.9);
-            backdrop-filter: blur(16px) saturate(140%);
-            -webkit-backdrop-filter: blur(16px) saturate(140%);
-            transition: box-shadow .2s ease, background .2s ease;
+            gap: 1.5rem;
+            padding: 0 max(2.5rem, calc((100vw - 1180px)/2));
+            border-bottom: 1px solid var(--ms-border-light);
+            background: rgba(251,250,247,.94);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: box-shadow .25s ease, background .25s ease;
           }
-          .ms-nav-brand, .ms-nav-links, .ms-nav-actions {
-            display: flex; align-items: center;
+          .ms-topnav.scrolled { box-shadow: var(--ms-shadow-sm); }
+          .ms-nav-brand {
+            display: flex; align-items: center; gap: .65rem;
+            color: var(--ms-text) !important; text-decoration: none !important;
+            font-family: var(--ms-font-serif); font-weight: 520; font-size: 1.1875rem;
+            justify-self: start;
           }
-          .ms-nav-brand { gap: .7rem; color: var(--ms-text) !important; text-decoration: none !important; font-weight: 750; }
           .ms-logo {
-            width: 34px; height: 34px; border-radius: 11px;
+            width: 38px; height: 38px; border-radius: 0;
             display: grid; place-items: center;
-            color: white; background: var(--ms-primary);
-            box-shadow: 0 8px 18px rgba(68,102,242,.2);
+            color: inherit; background: transparent;
           }
-          .ms-logo svg { width: 18px; height: 18px; }
-          .ms-nav-links { gap: 1.65rem; justify-content: center; }
+          .ms-brand-image{display:block;max-width:100%;height:auto;object-fit:contain;background:transparent;border:0}
+          .ms-brand-image-nav{width:38px;height:38px}
+          .ms-brand-image-footer{width:52px;height:52px}
+          .ms-nav-links {
+            display: flex; align-items: center; gap: 2.125rem;
+            justify-self: center;
+          }
           .ms-nav-links a {
-            color: #4B5563 !important; text-decoration: none !important; font-size: .84rem; font-weight: 550;
-            transition: color .18s ease;
+            color: var(--ms-slate-600) !important; text-decoration: none !important;
+            font-size: .875rem; font-weight: 500; letter-spacing: 0;
+            transition: color .2s ease, opacity .2s ease;
+            position: relative; padding: .35rem 0;
           }
-          .ms-nav-links a:hover { color: var(--ms-text); }
+          .ms-nav-links a:hover { color: var(--ms-text) !important; opacity: .85; }
+          .ms-nav-links a.active { color: var(--ms-text) !important; font-weight: 600; }
+          .ms-nav-links a.active::after {
+            content: ""; position: absolute; left: 0; right: 0; bottom: -4px;
+            height: 1px; background: var(--ms-slate-900); border-radius: 1px;
+          }
+          .ms-nav-spacer { justify-self: end; display: flex; align-items: center; }
+          .ms-nav-toggle {
+            display: none; align-items: center; justify-content: center;
+            width: 40px; height: 40px; padding: 0; border: 1px solid var(--ms-border);
+            border-radius: var(--ms-radius-sm); background: var(--ms-warm-white);
+            color: var(--ms-text); cursor: pointer;
+            transition: background .2s ease, border-color .2s ease;
+          }
+          .ms-nav-toggle:hover { background: var(--ms-sand); border-color: var(--ms-border); }
+          .ms-nav-toggle svg { width: 18px; height: 18px; }
+          .ms-nav-mobile-panel {
+            display: none; position: fixed; inset: 72px 0 auto 0; z-index: 998;
+            padding: 1rem max(1.5rem, calc((100vw - 1160px)/2)) 1.25rem;
+            background: rgba(251,249,247,.98); border-bottom: 1px solid var(--ms-border-light);
+            box-shadow: var(--ms-shadow-sm);
+          }
+          .ms-nav-mobile-panel.open { display: block; }
+          .ms-nav-mobile-panel a {
+            display: block; padding: .85rem 0; color: var(--ms-text) !important;
+            text-decoration: none !important; font-size: 1rem; font-weight: 500;
+            border-bottom: 1px solid var(--ms-border-light);
+          }
+          .ms-nav-mobile-panel a:last-child { border-bottom: 0; }
+          .ms-nav-mobile-panel a.active { font-weight: 650; color: var(--ms-slate-900) !important; }
           body .stApp .ms-topnav a,
-          body .stApp a.ms-hero-cta,
-          body .stApp a.ms-hero-secondary {
+          body .stApp a.ms-btn-primary,
+          body .stApp a.ms-btn-secondary {
             text-decoration: none !important;
           }
-          .ms-nav-actions { justify-content: flex-end; }
-          .ms-nav-cta, .ms-hero-cta {
-            display: inline-flex; align-items: center; justify-content: center; gap: .48rem;
-            border-radius: 11px; background: var(--ms-primary); color: white !important;
-            font-size: .84rem; font-weight: 650; text-decoration: none !important; padding: .72rem 1rem;
-            box-shadow: 0 7px 18px rgba(68,102,242,.18);
-            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-          }
-          .ms-nav-cta:hover, .ms-hero-cta:hover {
-            transform: translateY(-1px); background: var(--ms-primary-hover);
-            box-shadow: 0 11px 24px rgba(68,102,242,.24);
-          }
 
+          /* Hero */
           .ms-hero {
             position: relative !important;
-            min-height: 560px !important;
-            display: grid !important;
-            grid-template-columns: minmax(0,1.04fr) minmax(410px,.96fr) !important;
+            display: flex !important;
+            flex-direction: column !important;
             align-items: center !important;
-            gap: clamp(3rem,7vw,7rem) !important;
-            padding: 4.5rem 0 5.5rem !important;
-            text-align: left !important;
+            text-align: center !important;
+            padding: 6.5rem 0 3.75rem !important;
             background: transparent !important;
-            border: 0 !important; box-shadow: none !important; border-radius: 0 !important;
-            overflow: visible !important;
+            border: 0 !important; box-shadow: none !important;
+            min-height: auto !important; overflow: visible !important;
           }
           .ms-hero::before { display: none !important; }
-          .ms-hero-copy { position: relative; z-index: 1; }
-          .ms-eyebrow {
-            display: inline-flex; align-items: center; gap: .5rem;
-            color: #3E57C7; background: #F1F4FF; border: 1px solid #DDE4FF;
-            border-radius: 999px; padding: .42rem .72rem; margin-bottom: 1.35rem;
-            font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+          .ms-hero-badge {
+            display: inline-flex; align-items: center; gap: .45rem;
+            color: var(--ms-muted-blue); background: rgba(109,140,172,.1);
+            border: 1px solid rgba(109,140,172,.18);
+            border-radius: var(--ms-radius-pill); padding: .375rem .75rem;
+            margin-bottom: 1.625rem;
+            font-family: var(--ms-font-mono); font-size: .75rem; font-weight: 500;
+            letter-spacing: .06em; text-transform: uppercase;
           }
-          .ms-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ms-primary); }
           .ms-hero h1 {
-            max-width: 700px !important; margin: 0 !important;
-            color: var(--ms-text) !important; font-size: clamp(3.15rem,5.4vw,5.15rem) !important;
-            line-height: .99 !important; letter-spacing: -.057em !important; font-weight: 720 !important;
+            max-width: 820px !important; margin: 0 auto !important;
+            color: var(--ms-text) !important;
+            font-family: var(--ms-font-serif) !important;
+            font-size: clamp(3.5rem, 5.4vw, 4.25rem) !important;
+            line-height: 1.06 !important; letter-spacing: -.02em !important;
+            font-weight: 440 !important;
           }
-          .ms-hero h1 * { color: var(--ms-text) !important; }
           .ms-hero-sub {
-            max-width: 600px !important; margin: 1.6rem 0 0 !important;
-            color: var(--ms-muted) !important; font-size: 1.08rem !important;
-            line-height: 1.72 !important;
+            max-width: 560px !important; margin: 1.375rem auto 0 !important;
+            color: var(--ms-muted) !important; font-size: 1.0625rem !important;
+            line-height: 1.5 !important;
           }
-          .ms-hero-actions { display: flex; align-items: center; gap: .85rem; margin-top: 2rem; }
-          .ms-hero-cta { padding: .86rem 1.18rem; font-size: .9rem; }
-          .ms-hero-secondary {
-            display: inline-flex; align-items: center; gap: .45rem; padding: .84rem 1rem;
-            color: #374151 !important; text-decoration: none !important; font-size: .88rem; font-weight: 620;
-            border: 1px solid var(--ms-border); border-radius: 11px; background: var(--ms-surface);
-            transition: transform .18s ease, box-shadow .18s ease;
+          .ms-hero-actions {
+            display: flex; align-items: center; justify-content: center;
+            gap: .75rem; margin-top: 2rem; flex-wrap: wrap;
           }
-          .ms-hero-secondary:hover { transform: translateY(-1px); box-shadow: var(--ms-shadow-sm); }
-          .ms-hero-note { margin-top: 1.25rem; color: #9CA3AF; font-size: .76rem; }
+          .ms-btn-primary, .ms-btn-secondary {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: .45rem; padding: .8125rem 1.375rem; border-radius: var(--ms-radius-pill);
+            font-size: .90625rem; font-weight: 500; text-decoration: none !important;
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+          }
+          .ms-btn-primary {
+            background: var(--ms-slate-900); color: #FBF9F7 !important;
+            box-shadow: var(--ms-shadow-sm);
+          }
+          .ms-btn-primary:hover {
+            transform: translateY(-1px); background: var(--ms-primary-hover);
+            box-shadow: var(--ms-shadow);
+          }
+          .ms-btn-secondary {
+            color: var(--ms-text) !important; background: var(--ms-warm-white);
+            border: 1px solid var(--ms-border);
+          }
+          .ms-btn-secondary:hover {
+            transform: translateY(-1px); box-shadow: var(--ms-shadow-sm);
+          }
 
-          .ms-pipeline {
-            position: relative; padding: 1.2rem; border: 1px solid var(--ms-border);
-            border-radius: 28px; background: rgba(255,255,255,.84); box-shadow: var(--ms-shadow-lg);
+          /* Hero preview card */
+          .ms-hero-preview {
+            width: 100%; max-width: 920px; margin: 4.5rem auto 0;
+            padding: 2.25rem; background: #FFFFFF;
+            border: 1px solid var(--ms-border); border-radius: var(--ms-radius-lg);
+            box-shadow: var(--ms-shadow-lg);
           }
-          .ms-pipeline-head {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: .25rem .25rem 1rem; color: var(--ms-muted); font-size: .72rem; font-weight: 600;
+          .ms-preview-bars {
+            display: flex; flex-direction: column; gap: .75rem;
+            padding: 1.25rem 0;
           }
-          .ms-pipeline-status { display: inline-flex; align-items: center; gap: .35rem; color: #24835A; }
-          .ms-pipeline-status::before { content:""; width: 6px; height: 6px; border-radius: 50%; background:#31A875; }
-          .ms-pipeline-list { display: grid; gap: .58rem; }
-          .ms-pipe-step {
-            position: relative; display: grid; grid-template-columns: 38px 1fr auto;
-            align-items: center; gap: .8rem; padding: .82rem;
-            background: #FBFCFE; border: 1px solid #EDF0F4; border-radius: 14px;
-            transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+          .ms-preview-bar {
+            height: 11px; border-radius: 6px;
+            transition: opacity .2s ease;
           }
-          .ms-pipe-step:hover { transform: translateX(3px); border-color: #CFD7F8; box-shadow: var(--ms-shadow-sm); }
-          .ms-pipe-step + .ms-pipe-step::before {
-            content:""; position:absolute; left: 31px; top:-10px; height:11px;
-            border-left: 1px dashed #BAC5ED;
-          }
-          .ms-pipe-icon {
-            width: 38px; height: 38px; border-radius: 11px; display:grid; place-items:center;
-            background: var(--ms-accent); color: var(--ms-primary);
-          }
-          .ms-pipe-icon svg { width: 18px; height: 18px; }
-          .ms-pipe-label strong { display:block; color:var(--ms-text); font-size:.82rem; font-weight:650; }
-          .ms-pipe-label span { color:var(--ms-muted); font-size:.7rem; }
-          .ms-pipe-check { color:#2D9B6A; font-size:.72rem; font-weight:650; }
+          .ms-preview-bar:nth-child(1) { width: 78%; background: var(--ms-lavender); opacity: .9; }
+          .ms-preview-bar:nth-child(2) { width: 52%; background: var(--ms-slate-600); margin-left: 6%; opacity: .35; }
+          .ms-preview-bar:nth-child(3) { width: 88%; background: var(--ms-green); margin-left: 3%; opacity: .85; }
+          .ms-preview-bar:nth-child(4) { width: 62%; background: var(--ms-slate-600); margin-left: 10%; opacity: .4; }
 
-          .ms-marketing { margin: 5rem 0 1rem; }
+          /* Trust bar */
+          .ms-trust-bar {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 2rem; flex-wrap: wrap;
+            width: 100%; max-width: 920px; margin: 3rem auto 0;
+            padding: 2rem 0 0; border-top: 1px solid var(--ms-border-light);
+          }
+          .ms-trust-label {
+            color: var(--ms-muted); font-size: .9375rem; font-weight: 500;
+          }
+          .ms-trust-tags {
+            display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap;
+          }
+          .ms-trust-tags span {
+            color: var(--ms-slate-600); font-size: .9375rem; font-weight: 500;
+          }
+
+          /* Section dividers */
+          .ms-section-divider {
+            width: 100%; max-width: 1160px; margin: 0 auto;
+            border: 0; border-top: 1px solid var(--ms-border-light);
+          }
+
+          /* Feature sections */
+          .ms-feature-section {
+            max-width: 1160px; margin: 0 auto;
+            padding: 3.25rem 0;
+          }
+          .ms-feature-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem; align-items: center;
+          }
+          .ms-feature-grid.reverse { direction: rtl; }
+          .ms-feature-grid.reverse > * { direction: ltr; }
+          .ms-feature-label {
+            color: var(--ms-muted); font-size: .85rem; font-weight: 500;
+            margin-bottom: 1rem; letter-spacing: .02em;
+          }
+          .ms-feature-heading {
+            font-family: var(--ms-font-serif); font-size: 2rem;
+            line-height: 1.1875; letter-spacing: -.01em; font-weight: 440;
+            color: var(--ms-text); margin: 0 0 1.25rem;
+          }
+          .ms-feature-body {
+            color: var(--ms-muted); font-size: 1.0625rem; line-height: 1.5; margin: 0;
+          }
+          .ms-feature-link {
+            display: inline-flex; align-items: center; gap: .35rem;
+            margin-top: 1.5rem; color: var(--ms-text); font-size: .925rem;
+            font-weight: 600; text-decoration: none !important;
+            border-bottom: 1px solid var(--ms-text); padding-bottom: 2px;
+            transition: opacity .2s ease;
+          }
+          .ms-feature-link:hover { opacity: .7; }
+
+          /* Feature preview cards */
+          .ms-feature-card-wrap {
+            padding: 1.75rem; background: var(--ms-sand);
+            border-radius: var(--ms-radius-lg);
+          }
+          .ms-feature-card-inner {
+            background: var(--ms-warm-white); border-radius: var(--ms-radius);
+            padding: 1.5rem; box-shadow: var(--ms-shadow-sm);
+          }
+          .ms-speaker-pill {
+            display: flex; align-items: center; gap: .75rem;
+            padding: .85rem 1rem; border-radius: var(--ms-radius-sm);
+            background: var(--ms-warm-white); border: 1px solid var(--ms-border-light);
+            margin-bottom: .65rem;
+          }
+          .ms-speaker-pill:last-child { margin-bottom: 0; }
+          .ms-speaker-avatar-sm {
+            width: 36px; height: 36px; border-radius: 50%;
+            display: grid; place-items: center; font-size: .7rem; font-weight: 700;
+            color: white; background: var(--ms-lavender); flex-shrink: 0;
+          }
+          .ms-speaker-avatar-sm.gray { background: var(--ms-slate-600); opacity: .6; }
+          .ms-speaker-pill-info { flex: 1; min-width: 0; }
+          .ms-speaker-pill-name {
+            font-size: .9rem; font-weight: 600; color: var(--ms-text);
+          }
+          .ms-speaker-pill-meta {
+            font-size: .78rem; color: var(--ms-muted); margin-top: .15rem;
+          }
+          .ms-speaker-pill-badge {
+            font-size: .7rem; font-weight: 600; padding: .25rem .55rem;
+            border-radius: var(--ms-radius-pill); background: #F5EDE4;
+            color: #9A7355;
+          }
+          .ms-structured-item {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1rem; padding: .9rem 0;
+            border-bottom: 1px solid var(--ms-border-light);
+          }
+          .ms-structured-item:last-child { border-bottom: 0; padding-bottom: 0; }
+          .ms-structured-item:first-child { padding-top: 0; }
+          .ms-structured-text { font-size: .925rem; color: var(--ms-text); font-weight: 500; }
+          .ms-badge-decided {
+            font-size: .72rem; font-weight: 600; padding: .3rem .65rem;
+            border-radius: var(--ms-radius-pill); background: var(--ms-success);
+            color: var(--ms-green); white-space: nowrap;
+          }
+          .ms-badge-action {
+            font-size: .72rem; font-weight: 600; padding: .3rem .65rem;
+            border-radius: var(--ms-radius-pill); background: rgba(109,140,172,.12);
+            color: var(--ms-muted-blue); white-space: nowrap;
+          }
+          .ms-badge-question {
+            font-size: .72rem; font-weight: 600; padding: .3rem .65rem;
+            border-radius: var(--ms-radius-pill); background: #F5EDE4;
+            color: #9A7355; white-space: nowrap;
+          }
+          .ms-edit-line {
+            display: flex; align-items: flex-start; gap: 1rem;
+            padding: .75rem 0;
+          }
+          .ms-edit-time {
+            font-family: var(--ms-font-mono); font-size: .75rem;
+            color: var(--ms-muted); white-space: nowrap; padding-top: .15rem;
+          }
+          .ms-edit-text { font-size: .925rem; color: var(--ms-text); line-height: 1.6; }
+          .ms-edit-text.highlighted {
+            background: rgba(162,150,199,.15); padding: .5rem .75rem;
+            border-radius: var(--ms-radius-sm); margin: -.25rem 0;
+          }
+
+          /* Workflow section */
+          .ms-workflow-section {
+            max-width: 1160px; margin: 0 auto; padding: 3.5rem 0;
+          }
+          .ms-workflow-card {
+            background: var(--ms-sand); border-radius: var(--ms-radius-lg);
+            padding: 4.25rem 3rem; box-shadow: var(--ms-shadow-sm);
+          }
+          .ms-workflow-header { text-align: center; margin-bottom: 2.25rem; }
+          .ms-workflow-header h2 {
+            font-family: var(--ms-font-serif); font-size: 2.375rem;
+            line-height: 1.2; font-weight: 440; letter-spacing: -.01em; margin: 0 0 .85rem;
+            color: var(--ms-text);
+          }
+          .ms-workflow-header p {
+            color: var(--ms-muted); font-size: 1.05rem; margin: 0;
+            max-width: 540px; margin-left: auto; margin-right: auto;
+          }
+          .ms-workflow-grid {
+            display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem;
+          }
+          .ms-workflow-step {
+            display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+            min-width: 0; min-height: 220px;
+            padding: 1.5rem; background: rgba(255,255,255,.72);
+            border: 1px solid var(--ms-border); border-radius: var(--ms-radius);
+            box-shadow: 0 8px 20px rgba(51,58,63,.04);
+          }
+          .ms-workflow-step-num {
+            align-self: flex-start; padding: .28rem .55rem; border-radius: var(--ms-radius-pill);
+            background: rgba(109,140,172,.12); color: var(--ms-muted-blue);
+            font-family: var(--ms-font-mono); font-size: .7rem; font-weight: 600;
+            line-height: 1; margin-bottom: 1.15rem; letter-spacing: .05em;
+          }
+          .ms-workflow-step h3 {
+            width: 100%; font-size: 1rem; font-weight: 650; color: var(--ms-text);
+            margin: 0 0 .65rem; line-height: 1.35; overflow-wrap: normal; word-break: normal;
+          }
+          .ms-workflow-step p {
+            width: 100%; font-size: .9rem; color: var(--ms-muted); line-height: 1.6; margin: 0;
+            overflow-wrap: normal; word-break: normal; hyphens: none;
+          }
+
+          /* Comparison table */
+          .ms-compare-section {
+            max-width: 1160px; margin: 0 auto; padding: 3.5rem 0;
+          }
+          .ms-compare-header { text-align: center; margin-bottom: 3rem; }
+          .ms-compare-header h2 {
+            font-family: var(--ms-font-serif); font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 500; letter-spacing: -.025em; margin: 0 0 .85rem;
+          }
+          .ms-compare-header p { color: var(--ms-muted); font-size: 1.05rem; margin: 0; }
+          .ms-compare-table {
+            width: 100%; border-collapse: collapse;
+          }
+          .ms-compare-table th {
+            text-align: left; padding: 1rem 1.25rem; font-size: .72rem;
+            font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+            color: var(--ms-muted); border-bottom: 1px solid var(--ms-border-light);
+          }
+          .ms-compare-table th:last-child { background: rgba(109,140,172,.08); }
+          .ms-compare-table td {
+            padding: 1.15rem 1.25rem; font-size: .925rem;
+            border-bottom: 1px solid var(--ms-border-light);
+            color: var(--ms-muted); vertical-align: top;
+          }
+          .ms-compare-table td:first-child {
+            font-weight: 600; color: var(--ms-text); font-size: .875rem;
+          }
+          .ms-compare-table td:last-child {
+            background: rgba(109,140,172,.08); color: var(--ms-text); font-weight: 600;
+          }
+          .ms-compare-table tr:last-child td { border-bottom: 0; }
+
+          /* FAQ */
+          .ms-faq-section {
+            max-width: 1160px; margin: 0 auto; padding: 3.5rem 0;
+          }
+          .ms-faq-header { text-align: center; margin-bottom: 3rem; }
+          .ms-faq-header h2 {
+            font-family: var(--ms-font-serif); font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 500; letter-spacing: -.025em; margin: 0;
+          }
+          .ms-faq-list { max-width: 720px; margin: 0 auto; border-top: 1px solid var(--ms-border-light); }
+          .ms-faq-item {
+            border-bottom: 1px solid var(--ms-border-light);
+          }
+          .ms-faq-item summary {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 1.5rem; padding: 1.35rem 0; cursor: pointer; list-style: none;
+            font-family: var(--ms-font-serif); font-size: 1.125rem; font-weight: 440; color: var(--ms-text);
+            transition: opacity .2s ease;
+          }
+          .ms-faq-item summary::-webkit-details-marker { display: none; }
+          .ms-faq-item summary:hover { opacity: .75; }
+          .ms-faq-icon {
+            font-size: 1.25rem; font-weight: 400; color: var(--ms-muted);
+            flex-shrink: 0; width: 24px; text-align: center;
+            transition: transform .2s ease;
+          }
+          .ms-faq-item[open] .ms-faq-icon { transform: rotate(45deg); }
+          .ms-faq-answer {
+            padding: 0 0 1.35rem; color: var(--ms-muted);
+            font-size: .975rem; line-height: 1.75;
+          }
+
+          /* Footer CTA */
+          .ms-footer-cta {
+            max-width: 1160px; margin: 0 auto 0; padding: 0 0 3.5rem;
+          }
+          .ms-footer-cta-inner {
+            background: var(--ms-slate-900); border-radius: var(--ms-radius-lg);
+            padding: 4rem 3rem; text-align: center;
+          }
+          .ms-footer-cta-inner h2 {
+            font-family: var(--ms-font-serif); font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 500; color: #FFFFFF !important; margin: 0 0 1rem;
+            letter-spacing: -.025em;
+          }
+          .ms-footer-cta-inner p {
+            color: rgba(255,255,255,.86) !important; font-size: 1.05rem;
+            margin: 0 0 2rem; max-width: 480px; margin-left: auto; margin-right: auto;
+          }
+          .ms-footer-cta-inner .ms-btn-primary {
+            background: rgba(255,255,255,.12); color: #FFFFFF !important;
+            border: 1px solid rgba(255,255,255,.7);
+          }
+          .ms-footer-cta-inner .ms-btn-primary:hover {
+            background: rgba(255,255,255,.2); color:#FFFFFF !important;
+          }
+
+          /* Site footer */
+          .ms-site-footer {
+            max-width: 1160px; margin: 0 auto;
+            padding: 3rem 0 2rem;
+            border-top: 1px solid var(--ms-border-light);
+          }
+          .ms-footer-grid {
+            display: grid; grid-template-columns: 1.4fr repeat(3, 1fr);
+            gap: 3rem; margin-bottom: 3rem;
+          }
+          .ms-footer-brand p {
+            color: var(--ms-muted); font-size: .925rem; line-height: 1.65;
+            margin: .85rem 0 0; max-width: 260px;
+          }
+          .ms-footer-col h4 {
+            font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+            text-transform: uppercase; color: var(--ms-muted); margin: 0 0 1rem;
+          }
+          .ms-footer-col a {
+            display: block; color: var(--ms-text); font-size: .925rem;
+            text-decoration: none !important; margin-bottom: .65rem;
+            transition: opacity .2s ease;
+          }
+          .ms-footer-col a:hover { opacity: .65; }
+          .ms-footer-bottom {
+            display: flex; align-items: center; justify-content: space-between;
+            padding-top: 1.75rem; border-top: 1px solid var(--ms-border-light);
+            color: var(--ms-muted); font-size: .85rem;
+          }
+          .ms-footer-bottom-links { display: flex; gap: 1.5rem; }
+          .ms-footer-bottom-links a {
+            color: var(--ms-muted); text-decoration: none !important;
+            transition: color .2s ease;
+          }
+          .ms-footer-bottom-links a:hover { color: var(--ms-text); }
+
+          /* Legacy marketing classes (kept for compatibility) */
+          .ms-marketing { margin: 0; }
           .ms-section-intro { max-width:680px; margin-bottom:2rem; }
-          .ms-section-intro .ms-eyebrow { margin-bottom:.85rem; }
           .ms-section-intro h2 {
-            color:var(--ms-text); font-size:clamp(2rem,3.3vw,3rem); line-height:1.08;
+            font-family: var(--ms-font-serif); color:var(--ms-text);
+            font-size:clamp(2rem,3.3vw,3rem); line-height:1.08;
             letter-spacing:-.045em; margin:0;
           }
           .ms-section-intro p { color:var(--ms-muted); line-height:1.65; margin:.85rem 0 0; }
@@ -2307,42 +2670,27 @@ def inject_premium_redesign_styles() -> None:
             transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
           }
           .ms-process-card:hover, .ms-feature-card:hover {
-            transform:translateY(-4px); border-color:#D4DBE8; box-shadow:var(--ms-shadow);
-          }
-          .ms-process-card:not(:last-child)::after {
-            content:""; position:absolute; right:-.85rem; top:2.1rem; width:.85rem; border-top:1px dashed #B9C4E9;
+            transform:translateY(-4px); box-shadow:var(--ms-shadow);
           }
           .ms-card-icon {
             width:38px; height:38px; border-radius:11px; display:grid; place-items:center;
-            color:var(--ms-primary); background:var(--ms-accent); margin-bottom:1.1rem;
+            color:var(--ms-muted-blue); background:var(--ms-accent); margin-bottom:1.1rem;
           }
           .ms-card-icon svg { width:18px; height:18px; transition:transform .18s ease; }
           .ms-process-card:hover svg, .ms-feature-card:hover svg { transform:scale(1.08); }
-          .ms-process-card small { color:#9CA3AF; font-size:.66rem; font-weight:700; letter-spacing:.08em; }
+          .ms-process-card small { color:var(--ms-muted); font-size:.66rem; font-weight:700; letter-spacing:.08em; }
           .ms-process-card h3, .ms-feature-card h3 { color:var(--ms-text); font-size:.95rem; margin:.45rem 0 .4rem; }
           .ms-process-card p, .ms-feature-card p { color:var(--ms-muted); font-size:.78rem; line-height:1.55; margin:0; }
-          .ms-feature-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem; }
-          .ms-feature-card:nth-child(1), .ms-feature-card:nth-child(6) { grid-column:span 2; }
           .ms-benefit-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:.7rem; }
           .ms-benefit {
             min-height:170px; padding:1.25rem; border:1px solid var(--ms-border);
             border-radius:var(--ms-radius); background:var(--ms-surface);
             transition:transform .18s ease, box-shadow .18s ease;
           }
-          .ms-benefit:nth-child(2) { background:#EEF2FF; }
-          .ms-benefit:nth-child(3) { background:#E6F6ED; }
-          .ms-benefit:nth-child(4) { background:#FFF4EA; }
-          .ms-benefit:nth-child(5) { background:#F5F0E8; }
           .ms-benefit:hover { transform:translateY(-3px); box-shadow:var(--ms-shadow); }
           .ms-benefit strong { display:block; margin:.9rem 0 .35rem; color:var(--ms-text); font-size:.9rem; }
           .ms-benefit p { margin:0; color:var(--ms-muted); font-size:.76rem; line-height:1.55; }
           .ms-faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
-          .ms-faq-item {
-            padding:1.2rem 1.3rem; border:1px solid var(--ms-border);
-            border-radius:var(--ms-radius); background:var(--ms-surface);
-          }
-          .ms-faq-item h3 { margin:0 0 .45rem; color:var(--ms-text); font-size:.9rem; }
-          .ms-faq-item p { margin:0; color:var(--ms-muted); font-size:.78rem; line-height:1.6; }
 
           /* Interaction workspace */
           #workspace { scroll-margin-top:88px; }
@@ -2626,7 +2974,7 @@ def inject_premium_redesign_styles() -> None:
 
           /* Final production polish: normalize native Streamlit surfaces. */
           *, *::before, *::after { box-sizing:border-box; }
-          ::selection { color:var(--ms-text); background:#DDE4FF; }
+          ::selection { color:var(--ms-text); background:rgba(162,150,199,.25); }
           html { scroll-padding-top:88px; }
           [id] { scroll-margin-top:88px; }
           body { text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
@@ -2818,17 +3166,17 @@ def inject_premium_redesign_styles() -> None:
             background:var(--ms-accent) !important; box-shadow:inset 0 0 0 1px #DCE2FA !important;
           }
           .ms-empty-state {
-            min-height:240px; padding:2.5rem 1.5rem !important;
+            min-height:180px; padding:2.25rem 1.5rem !important; margin:2rem 0 4.5rem;
             border:1px solid var(--ms-border) !important; border-radius:20px !important;
-            background:#FFFFFF !important; box-shadow:var(--ms-shadow-sm) !important;
+            background:var(--ms-sand) !important; box-shadow:none !important;
           }
           .ms-empty-icon {
             width:48px !important; height:48px !important; border:1px solid #DCE2FA !important;
             border-radius:14px !important; color:var(--ms-primary) !important;
             background:var(--ms-accent) !important; box-shadow:none !important;
           }
-          .ms-empty-title { color:var(--ms-text) !important; font-size:1rem !important; font-weight:720 !important; }
-          .ms-empty-copy { color:var(--ms-muted) !important; font-size:.78rem !important; line-height:1.65 !important; }
+          .ms-empty-title { color:var(--ms-text) !important; font-family:var(--ms-font-serif)!important; font-size:1.5rem !important; line-height:1.3!important; font-weight:440 !important; }
+          .ms-empty-copy { max-width:560px;margin:.5rem auto 0!important;color:var(--ms-muted) !important; font-size:.9375rem !important; line-height:1.55 !important; }
 
           .ms-premium-section, .ms-process-card, .ms-feature-card, .ms-benefit-card,
           .ms-file-card, .ms-speaker-row, .ms-convo-row, .ms-report-hero,
@@ -2839,40 +3187,52 @@ def inject_premium_redesign_styles() -> None:
           @keyframes ms-surface-in { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:none; } }
 
           .ms-footer {
-            display:flex !important; align-items:center; justify-content:space-between;
-            margin-top:5rem !important; padding:1.5rem 0 !important; border-top:1px solid var(--ms-border) !important;
-            color:var(--ms-muted) !important; font-size:.74rem !important; background:transparent !important;
+            display:none !important;
           }
-          .ms-footer-links { display:flex; gap:1.25rem; }
-          .ms-footer a { color:var(--ms-muted); text-decoration:none; }
-          .ms-footer a:hover { color:var(--ms-text); }
 
           @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
           }
           @media (max-width: 960px) {
-            .ms-topnav { grid-template-columns:1fr auto; }
-            .ms-nav-links { display:none; }
-            .ms-hero { grid-template-columns:1fr !important; gap:2.5rem !important; }
-            .ms-pipeline { max-width:620px; }
-            .ms-process-grid, .ms-feature-grid, .ms-benefit-grid { grid-template-columns:repeat(2,1fr); }
+            .ms-nav-links { gap: 1.25rem; }
+            .ms-nav-links a { font-size: .85rem; }
+            .ms-feature-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .ms-feature-grid.reverse { direction: ltr; }
+            .ms-workflow-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .ms-footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .ms-compare-table { font-size: .85rem; }
+            .ms-compare-table th, .ms-compare-table td { padding: .85rem .75rem; }
+            .ms-process-grid, .ms-benefit-grid { grid-template-columns:repeat(2,1fr); }
             .ms-info-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
             .ms-report-hero { padding:1.4rem; }
           }
           @media (max-width: 700px) {
-            .main .block-container { padding:5.5rem 1rem 2rem !important; }
-            .ms-topnav { height:60px; padding:0 1rem; }
-            .ms-nav-brand span:last-child { display:none; }
-            .ms-nav-cta { padding:.65rem .75rem; }
-            .ms-hero { min-height:auto !important; padding:3rem 0 4rem !important; }
-            .ms-hero h1 { font-size:clamp(2.65rem,13vw,3.7rem) !important; }
-            .ms-hero-actions { align-items:stretch; flex-direction:column; }
-            .ms-hero-cta, .ms-hero-secondary { width:100%; }
-            .ms-pipeline { padding:.8rem; border-radius:20px; }
-            .ms-process-grid, .ms-feature-grid, .ms-benefit-grid, .ms-faq-grid { grid-template-columns:1fr; }
+            .main .block-container { padding:7rem 1.25rem 2rem !important; }
+            .ms-topnav { min-height: 96px; height: auto; padding: .7rem 1.25rem; grid-template-columns: 1fr; gap: .45rem; }
+            .ms-nav-brand { justify-self: center; }
+            .ms-nav-links { display: flex; width: 100%; justify-self: stretch; justify-content: center; gap: 1rem; overflow-x: auto; scrollbar-width: none; }
+            .ms-nav-links::-webkit-scrollbar { display: none; }
+            .ms-nav-links a { font-size: .75rem; white-space: nowrap; }
+            .ms-hero { padding: 2.75rem 0 2.5rem !important; }
+            .ms-hero h1 { font-size: clamp(2.25rem, 10vw, 2.75rem) !important; }
+            .ms-hero-sub { font-size: 1rem !important; }
+            .ms-hero-actions { flex-direction: column; width: 100%; }
+            .ms-btn-primary, .ms-btn-secondary { width: 100%; }
+            .ms-hero-preview { padding: 1.25rem 1.5rem; margin-top: 2.5rem; }
+            .ms-trust-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .ms-trust-tags { gap: 1rem; }
+            .ms-feature-section, .ms-workflow-section, .ms-compare-section, .ms-faq-section {
+              padding: 3.5rem 0;
+            }
+            .ms-workflow-card { padding: 2rem 1.5rem; }
+            .ms-workflow-grid { grid-template-columns: 1fr; }
+            .ms-compare-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .ms-footer-cta-inner { padding: 2.5rem 1.5rem; }
+            .ms-footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .ms-footer-bottom { flex-direction: column; gap: 1rem; align-items: flex-start; }
+            .ms-process-grid, .ms-benefit-grid, .ms-faq-grid { grid-template-columns:1fr; }
             .ms-feature-card:nth-child(1), .ms-feature-card:nth-child(6) { grid-column:span 1; }
             .ms-process-card:not(:last-child)::after { display:none; }
-            .ms-footer { align-items:flex-start; flex-direction:column; gap:1rem; }
             .ms-transcript-toolbar { top:68px; align-items:flex-start; flex-direction:column; }
             .ms-convo-row { padding-left:3.8rem !important; }
             .ms-info-grid { grid-template-columns:1fr; }
@@ -2904,29 +3264,78 @@ def inject_premium_redesign_styles() -> None:
     )
 
 
+def render_landing_interactivity() -> None:
+    """Inject lightweight JS for navbar scroll state and active section highlighting."""
+
+    st.components.v1.html(
+        """
+        <script>
+          (function () {
+            const doc = window.parent.document;
+            const nav = doc.querySelector('.ms-topnav');
+            const links = doc.querySelectorAll('.ms-nav-links a[data-section]');
+            const scrollRoot = doc.querySelector('[data-testid="stMain"]') || window.parent;
+            if (!nav || !links.length) return;
+
+            const sections = Array.from(links).map(function (link) {
+              const id = link.getAttribute('data-section');
+              const el = id === 'top' ? doc.getElementById('top') : doc.getElementById(id);
+              return { link: link, el: el };
+            }).filter(function (item) { return item.el; });
+
+            function setActive() {
+              const scrollY = scrollRoot.scrollTop || window.parent.scrollY || 0;
+              if (scrollY > 12) nav.classList.add('scrolled');
+              else nav.classList.remove('scrolled');
+
+              let current = sections[0];
+              sections.forEach(function (item) {
+                const rect = item.el.getBoundingClientRect();
+                if (rect.top <= 120) current = item;
+              });
+              links.forEach(function (link) { link.classList.remove('active'); });
+              if (current && current.link) current.link.classList.add('active');
+            }
+
+            links.forEach(function (link) {
+              link.addEventListener('click', function (event) {
+                const id = link.getAttribute('data-section');
+                const target = id === 'top' ? doc.getElementById('top') : doc.getElementById(id);
+                if (!target || !scrollRoot.scrollTo) return;
+                event.preventDefault();
+                const navOffset = window.parent.innerWidth <= 700 ? 106 : 86;
+                const top = scrollRoot.scrollTop + target.getBoundingClientRect().top - navOffset;
+                scrollRoot.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+                window.parent.history.replaceState(null, '', '#' + id);
+              });
+            });
+            scrollRoot.addEventListener('scroll', setActive, { passive: true });
+            setActive();
+          })();
+        </script>
+        """,
+        height=0,
+    )
+
+
 def render_top_navigation() -> None:
     """Render the static, accessible application navigation."""
 
     st.markdown(
-        """
+        f"""
         <nav class="ms-topnav" aria-label="Primary navigation">
           <a class="ms-nav-brand" href="#top" aria-label="MeetScribe home">
             <span class="ms-logo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8"/>
-              </svg>
+              {brand_logo_html("ms-brand-image ms-brand-image-nav", alt="")}
             </span>
             <span>MeetScribe</span>
           </a>
           <div class="ms-nav-links">
-            <a href="#features">Features</a>
-            <a href="#how-it-works">How it Works</a>
-            <a href="#use-cases">Use Cases</a>
-            <a href="#faq">FAQ</a>
-          </div>
-          <div class="ms-nav-actions">
-            <a class="ms-nav-cta" href="#workspace">Generate Minutes</a>
+            <a href="#top" data-section="top">Home</a>
+            <a href="#features" data-section="features">Features</a>
+            <a href="#workflow" data-section="workflow">Workflow</a>
+            <a href="#workspace" data-section="workspace">Upload</a>
+            <a href="#faq" data-section="faq">FAQ</a>
           </div>
         </nav>
         <div id="top"></div>
@@ -2938,6 +3347,7 @@ def render_top_navigation() -> None:
 def experimental_mom_to_analysis_result(
     transcript_text: str,
     generated: GeneratedMomResult,
+    audio_quality_mode: bool = False,
 ) -> MeetingAnalysisResult:
     """Adapt Experimental Formatter V4 output to the stable UI/export contract.
 
@@ -2979,8 +3389,13 @@ def experimental_mom_to_analysis_result(
             unique_summary_sentences.append(sentence)
             seen_summary.add(key)
     short_summary = " ".join(unique_summary_sentences[:5]) or objective or "No summary could be generated."
-    detailed_parts = [part for part in (objective, short_summary) if part]
-    detailed_summary = "\n\n".join(detailed_parts) or short_summary
+    if audio_quality_mode:
+        objective_key = re.sub(r"\W+", " ", objective).strip().casefold()
+        short_key = re.sub(r"\W+", " ", short_summary).strip().casefold()
+        detailed_summary = objective if objective_key and objective_key != short_key else short_summary
+    else:
+        detailed_parts = [part for part in (objective, short_summary) if part]
+        detailed_summary = "\n\n".join(detailed_parts) or short_summary
 
     topics = []
     seen_topics: set[str] = set()
@@ -3036,11 +3451,12 @@ def experimental_mom_to_analysis_result(
     )
 
 
-def analysis_cache_key(transcript_text: str) -> str:
+def analysis_cache_key(transcript_text: str, *, audio_quality_mode: bool = False) -> str:
     # Include the formatter version so an existing Streamlit session cannot
     # reuse a cached report produced by the previous rule-based MoM generator.
     refinement = OLLAMA_GEMMA_MODEL if USE_LOCAL_GEMMA else "disabled"
-    cache_payload = f"experimental_formatter_v4/local_gemma={refinement}\n{transcript_text.strip()}"
+    audio_marker = "/audio_quality_v1" if audio_quality_mode else ""
+    cache_payload = f"experimental_formatter_v4/local_gemma={refinement}{audio_marker}\n{transcript_text.strip()}"
     return hashlib.sha256(cache_payload.encode("utf-8")).hexdigest()
 
 
@@ -3220,10 +3636,10 @@ def render_success_metrics() -> None:
 
 def render_sidebar_shell() -> None:
     st.sidebar.markdown(
-        """
+        f"""
         <div class="ms-side-shell">
           <div class="ms-side-brand">
-            <div class="ms-side-logo-mark">MS</div>
+            {brand_logo_html("ms-side-brand-logo", alt="")}
             <div class="ms-side-title">MeetScribe</div>
           </div>
           <div class="ms-side-nav">
@@ -3242,13 +3658,13 @@ def render_sidebar_shell() -> None:
 
 def render_empty_state() -> None:
     st.markdown(
-        """
+        f"""
         <div class="ms-empty-state">
-          <div class="ms-empty-icon">◎</div>
-          <h3 class="ms-empty-title">No meeting uploaded yet</h3>
+          <div class="ms-empty-icon">{brand_logo_html("ms-empty-brand-logo", alt="")}</div>
+          <h3 class="ms-empty-title">Your meeting workspace is ready</h3>
           <p class="ms-empty-copy">
-            Upload a recording or transcript above to review speakers, verify the transcript,
-            and generate professional Minutes of Meeting.
+            Upload audio or an existing transcript above. You will review speakers and transcript
+            content before generating professional Minutes of Meeting.
           </p>
         </div>
         """,
@@ -3377,43 +3793,68 @@ def render_dashboard_context(
 def render_hero() -> None:
     st.markdown(
         """
+        <style>
+          .ms-hero-action-anchor{height:0;margin:0}
+          .st-key-hero_actions{width:min(100%,480px)!important;margin:.2rem auto 0!important}
+          .st-key-hero_actions>div[data-testid="stHorizontalBlock"]{gap:10px!important}
+          .st-key-hero_actions .st-key-open_audio_workflow button,.st-key-hero_actions .st-key-open_transcript_workflow button{
+            width:100%!important;height:46px!important;min-height:46px!important;border-radius:999px!important;padding:0 22px!important;
+            font:600 13px/1 Inter,sans-serif!important;box-shadow:none!important;
+            transition:transform 160ms ease,box-shadow 160ms ease,background-color 160ms ease!important
+          }
+          .st-key-open_audio_workflow button{background:#30343a!important;border-color:#30343a!important;color:#fff!important}
+          .st-key-open_transcript_workflow button{background:#fff!important;border:1px solid #d9cfbd!important;color:#30343a!important}
+          .st-key-open_audio_workflow button:hover,.st-key-open_transcript_workflow button:hover{transform:translateY(-2px)!important;
+            box-shadow:0 9px 20px rgba(48,52,58,.12)!important}
+          .ms-hero:not(.ms-hero-after-actions){padding:2.25rem 0 .9rem!important}
+          .ms-hero-after-actions{padding:1rem 0 1.75rem!important}
+          .ms-hero-after-actions .ms-hero-preview{margin:1rem auto 0!important;padding:0!important;max-width:920px!important;
+            background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+          .ms-waveform-art{display:block;width:100%;height:150px;color:#7897b7}
+          .ms-trust-bar{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+            gap:.8rem!important;text-align:center!important;margin:1.5rem auto 0!important;padding:1.15rem 0 0!important}
+          .ms-trust-tags{justify-content:center!important;gap:1rem 1.8rem!important}
+          @media(max-width:700px){.st-key-open_audio_workflow button,.st-key-open_transcript_workflow button{width:100%!important}
+            .ms-hero:not(.ms-hero-after-actions){padding:1.7rem 0 .8rem!important}.ms-hero-after-actions{padding:.75rem 0 1.4rem!important}
+            .ms-waveform-art{height:110px}}
+        </style>
         <div class="ms-hero">
-          <div class="ms-hero-copy">
-            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>Clear records. Confident follow-through.</div>
-            <h1>Turn conversations into professional meeting minutes.</h1>
-            <p class="ms-hero-sub">
-              Upload your meeting, review the transcript, edit speaker names, and create polished
-              Minutes of Meeting ready to download as PDF or DOCX.
-            </p>
-            <div class="ms-hero-actions">
-              <a class="ms-hero-cta" href="#workspace">Generate Minutes <span aria-hidden="true">→</span></a>
-              <a class="ms-hero-secondary" href="#how-it-works">See Demo <span aria-hidden="true">↓</span></a>
-            </div>
-            <div class="ms-hero-note">Review before download · Clear action items · Professional exports</div>
+          <h1>The minutes write themselves.</h1>
+          <p class="ms-hero-sub">
+            Drop in a recording or a transcript. MeetScribe identifies speakers, extracts decisions
+            and action items, and prepares professional minutes ready to review and share.
+          </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.markdown('<div class="ms-hero-action-anchor" id="workspace"></div>', unsafe_allow_html=True)
+    with st.container(key="hero_actions"):
+        audio_col, transcript_col = st.columns(2, gap="small")
+        with audio_col:
+            if st.button("Upload Audio", type="primary", use_container_width=True, key="open_audio_workflow"):
+                open_workflow("audio")
+        with transcript_col:
+            if st.button("Upload Transcript", use_container_width=True, key="open_transcript_workflow"):
+                open_workflow("transcript")
+    st.markdown(
+        """
+        <div class="ms-hero ms-hero-after-actions">
+          <div class="ms-hero-preview" role="img" aria-label="Meeting audio waveform">
+            <svg class="ms-waveform-art" viewBox="0 0 900 150" fill="none" aria-hidden="true">
+              <g stroke="currentColor" stroke-width="7" stroke-linecap="round">
+                <path d="M32 66v18M54 52v46M76 35v80M98 59v32M120 23v104M142 48v54M164 31v88M186 56v38M208 38v74M230 25v100M252 49v52M274 65v20M296 40v70M318 28v94M340 55v40M362 35v80M384 50v50M406 30v90M428 58v34M450 44v62M472 21v108M494 48v54M516 62v26M538 39v72M560 52v46M582 30v90M604 57v36M626 42v66M648 27v96M670 54v42M692 37v76M714 49v52M736 24v102M758 47v56M780 61v28M802 40v70M824 31v88M846 56v38M868 45v60"/>
+              </g>
+            </svg>
           </div>
-          <div class="ms-pipeline" role="img" aria-label="Five steps from meeting upload to downloadable minutes">
-            <div class="ms-pipeline-head"><span>Your meeting, beautifully documented</span><span class="ms-pipeline-status">Ready</span></div>
-            <div class="ms-pipeline-list">
-              <div class="ms-pipe-step">
-                <span class="ms-pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg></span>
-                <span class="ms-pipe-label"><strong>Upload your meeting</strong><span>Recording or transcript</span></span><span class="ms-pipe-check">01</span>
-              </div>
-              <div class="ms-pipe-step">
-                <span class="ms-pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
-                <span class="ms-pipe-label"><strong>Review the transcript</strong><span>Read and correct the conversation</span></span><span class="ms-pipe-check">02</span>
-              </div>
-              <div class="ms-pipe-step">
-                <span class="ms-pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
-                <span class="ms-pipe-label"><strong>Verify speakers</strong><span>Confirm every participant name</span></span><span class="ms-pipe-check">03</span>
-              </div>
-              <div class="ms-pipe-step">
-                <span class="ms-pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-                <span class="ms-pipe-label"><strong>Generate minutes</strong><span>Summary, decisions, and actions</span></span><span class="ms-pipe-check">04</span>
-              </div>
-              <div class="ms-pipe-step">
-                <span class="ms-pipe-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg></span>
-                <span class="ms-pipe-label"><strong>Download and share</strong><span>Professional PDF or DOCX</span></span><span class="ms-pipe-check">05</span>
-              </div>
+          <div class="ms-trust-bar">
+            <span class="ms-trust-label">Built for teams that need reliable meeting records</span>
+            <div class="ms-trust-tags">
+              <span>Design studios</span>
+              <span>Consulting firms</span>
+              <span>Product teams</span>
+              <span>Legal practices</span>
+              <span>Research labs</span>
             </div>
           </div>
         </div>
@@ -3464,68 +3905,313 @@ def render_marketing_sections() -> None:
 
 
 def render_product_landing_sections() -> None:
-    """Render customer-facing landing sections without implementation details."""
+    """Render customer-facing landing sections matching the editorial design."""
 
     st.markdown(
-        """
-        <section class="ms-marketing" id="use-cases">
-          <div class="ms-section-intro">
-            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>Why MeetScribe</div>
-            <h2>Less time writing. More clarity after every meeting.</h2>
-            <p>Keep teams aligned with minutes that are easy to review, act on, and share.</p>
-          </div>
-          <div class="ms-benefit-grid">
-            <article class="ms-benefit"><div class="ms-card-icon">◷</div><strong>Save hours</strong><p>Replace repetitive manual note-taking with a guided report workflow.</p></article>
-            <article class="ms-benefit"><div class="ms-card-icon">✓</div><strong>Capture decisions</strong><p>Keep confirmed outcomes visible and separate from general discussion.</p></article>
-            <article class="ms-benefit"><div class="ms-card-icon">≡</div><strong>Organize actions</strong><p>Turn commitments into clear tasks with owners and due dates.</p></article>
-            <article class="ms-benefit"><div class="ms-card-icon">✎</div><strong>Review first</strong><p>Edit transcript wording and speaker names before creating the report.</p></article>
-            <article class="ms-benefit"><div class="ms-card-icon">↓</div><strong>Export beautifully</strong><p>Download polished minutes that are ready to circulate immediately.</p></article>
-          </div>
-        </section>
-        <section class="ms-marketing" id="features">
-          <div class="ms-section-intro">
-            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>Features</div>
-            <h2>Everything needed for reliable meeting records.</h2>
-            <p>Purpose-built tools turn long conversations into documentation teams can review, share, and act on.</p>
-          </div>
+        f"""
+        <hr class="ms-section-divider">
+
+        <section class="ms-feature-section" id="features">
           <div class="ms-feature-grid">
-            <article class="ms-feature-card"><div class="ms-card-icon">≡</div><h3>Automatic meeting summaries</h3><p>Understand the central themes and outcomes without reading the full conversation.</p></article>
-            <article class="ms-feature-card"><div class="ms-card-icon">✎</div><h3>Editable transcript</h3><p>Correct wording and meeting details before creating the final minutes.</p></article>
-            <article class="ms-feature-card"><div class="ms-card-icon">◉</div><h3>Speaker identification</h3><p>Review and rename speakers so every contribution is clearly attributed.</p></article>
-            <article class="ms-feature-card"><div class="ms-card-icon">✓</div><h3>Decision tracking</h3><p>Keep agreed outcomes organized and easy to reference after the meeting.</p></article>
-            <article class="ms-feature-card"><div class="ms-card-icon">☑</div><h3>Action items</h3><p>Organize assigned tasks, owners, deadlines, and priorities into clear rows.</p></article>
-            <article class="ms-feature-card"><div class="ms-card-icon">PDF</div><h3>Professional PDF export</h3><p>Create presentation-ready minutes for clients, teams, and stakeholders.</p></article>
-            <article class="ms-feature-card"><div class="ms-card-icon">DOC</div><h3>DOCX export</h3><p>Continue editing your minutes in the document tools your organization uses.</p></article>
-            <article class="ms-feature-card"><div class="ms-card-icon">⌂</div><h3>Local privacy</h3><p>Keep sensitive meeting content within a privacy-conscious local workflow.</p></article>
+            <div class="ms-feature-copy">
+              <div class="ms-feature-label">01 — Speaker Intelligence</div>
+              <h2 class="ms-feature-heading">Identify who said what before minutes are generated.</h2>
+              <p class="ms-feature-body">
+                Speaker identification separates detected voices and lets you confirm each
+                participant before professional minutes are generated.
+              </p>
+              <a class="ms-feature-link" href="#workspace">Upload a meeting →</a>
+            </div>
+            <div class="ms-feature-card-wrap">
+              <div class="ms-feature-card-inner">
+                <div class="ms-speaker-pill">
+                  <span class="ms-speaker-avatar-sm">JM</span>
+                  <div class="ms-speaker-pill-info">
+                    <div class="ms-speaker-pill-name">Jordan Ma</div>
+                    <div class="ms-speaker-pill-meta">Identified speaker</div>
+                  </div>
+                </div>
+                <div class="ms-speaker-pill">
+                  <span class="ms-speaker-avatar-sm">RP</span>
+                  <div class="ms-speaker-pill-info">
+                    <div class="ms-speaker-pill-name">Riya Patel</div>
+                    <div class="ms-speaker-pill-meta">Identified speaker</div>
+                  </div>
+                </div>
+                <div class="ms-speaker-pill">
+                  <span class="ms-speaker-avatar-sm gray">S</span>
+                  <div class="ms-speaker-pill-info">
+                    <div class="ms-speaker-pill-name">Speaker 3</div>
+                    <div class="ms-speaker-pill-meta">Awaiting confirmation</div>
+                  </div>
+                  <span class="ms-speaker-pill-badge">Unverified</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-        <section class="ms-marketing" id="how-it-works">
-          <div class="ms-section-intro">
-            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>How it works</div>
-            <h2>Professional minutes in five clear steps.</h2>
-            <p>You stay in control from the first upload to the final download.</p>
-          </div>
-          <div class="ms-process-grid">
-            <article class="ms-process-card"><div class="ms-card-icon">↑</div><small>STEP 01</small><h3>Upload</h3><p>Add a meeting recording or an existing transcript.</p></article>
-            <article class="ms-process-card"><div class="ms-card-icon">≡</div><small>STEP 02</small><h3>Review transcript</h3><p>Read the conversation and correct anything that needs attention.</p></article>
-            <article class="ms-process-card"><div class="ms-card-icon">◉</div><small>STEP 03</small><h3>Edit speakers</h3><p>Confirm participant names and speaker attribution.</p></article>
-            <article class="ms-process-card"><div class="ms-card-icon">✓</div><small>STEP 04</small><h3>Generate minutes</h3><p>Create the summary, discussion, decisions, and actions.</p></article>
-            <article class="ms-process-card"><div class="ms-card-icon">↓</div><small>STEP 05</small><h3>Download</h3><p>Export polished minutes as PDF or DOCX.</p></article>
+
+        <hr class="ms-section-divider">
+
+        <section class="ms-feature-section">
+          <div class="ms-feature-grid reverse">
+            <div class="ms-feature-copy">
+              <div class="ms-feature-label">02 — Structured by default</div>
+              <h2 class="ms-feature-heading">Decisions and action items, pulled out on their own.</h2>
+              <p class="ms-feature-body">
+                No more scrolling a transcript for the one line that mattered. MeetScribe
+                separates discussion from decision from next step.
+              </p>
+              <a class="ms-feature-link" href="#workflow">Preview a sample document →</a>
+            </div>
+            <div class="ms-feature-card-wrap">
+              <div class="ms-feature-card-inner">
+                <div class="ms-structured-item">
+                  <span class="ms-structured-text">Ship pricing page redesign</span>
+                  <span class="ms-badge-decided">Decided</span>
+                </div>
+                <div class="ms-structured-item">
+                  <span class="ms-structured-text">Riya to send contract by Fri</span>
+                  <span class="ms-badge-action">Action item</span>
+                </div>
+                <div class="ms-structured-item">
+                  <span class="ms-structured-text">Revisit onboarding copy</span>
+                  <span class="ms-badge-question">Open question</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-        <section class="ms-marketing" id="faq">
-          <div class="ms-section-intro">
-            <div class="ms-eyebrow"><span class="ms-eyebrow-dot"></span>FAQ</div>
-            <h2>Everything you need to get started.</h2>
-          </div>
-          <div class="ms-faq-grid">
-            <article class="ms-faq-item"><h3>Which files are supported?</h3><p>Upload MP3, WAV, M4A, AAC, or MP4 recordings, or use PDF, DOCX, and TXT transcripts.</p></article>
-            <article class="ms-faq-item"><h3>Can I edit speakers?</h3><p>Yes. You can review and rename every detected speaker before generating minutes.</p></article>
-            <article class="ms-faq-item"><h3>Can I edit the transcript before export?</h3><p>Yes. The transcript review step lets you correct wording and meeting information first.</p></article>
-            <article class="ms-faq-item"><h3>Can I download PDF and DOCX?</h3><p>Yes. Final minutes can be downloaded in both professional PDF and editable DOCX formats.</p></article>
-            <article class="ms-faq-item"><h3>Is my data private?</h3><p>MeetScribe keeps the review experience under your control and supports private local processing.</p></article>
+
+        <hr class="ms-section-divider">
+
+        <section class="ms-feature-section">
+          <div class="ms-feature-grid">
+            <div class="ms-feature-copy">
+              <div class="ms-feature-label">03 — Edit before it ships</div>
+              <h2 class="ms-feature-heading">Every line stays editable, right up to export.</h2>
+              <p class="ms-feature-body">
+                Correct speaker names, wording, and meeting details before the transcript
+                becomes the source for your final Minutes of Meeting.
+              </p>
+              <a class="ms-feature-link" href="#workspace">Try the editor →</a>
+            </div>
+            <div class="ms-feature-card-wrap">
+              <div class="ms-feature-card-inner">
+                <div class="ms-edit-line">
+                  <span class="ms-edit-time">00:14:32</span>
+                  <span class="ms-edit-text">We'll launch the beta to 50 users first</span>
+                </div>
+                <div class="ms-edit-line">
+                  <span class="ms-edit-time">00:14:51</span>
+                  <span class="ms-edit-text highlighted">Edited for clarity</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
+
+        <hr class="ms-section-divider">
+
+        <section class="ms-feature-section">
+          <div class="ms-feature-grid reverse">
+            <div class="ms-feature-copy">
+              <div class="ms-feature-label">04 — Professional minutes</div>
+              <h2 class="ms-feature-heading">A reviewed record, ready to circulate.</h2>
+              <p class="ms-feature-body">
+                Generate structured Minutes of Meeting and deliver them as PDF, editable DOCX,
+                or directly through the existing email workflow.
+              </p>
+              <a class="ms-feature-link" href="#workflow">See the complete workflow →</a>
+            </div>
+            <div class="ms-feature-card-wrap">
+              <div class="ms-feature-card-inner">
+                <div class="ms-structured-item"><span class="ms-structured-text">Professional Minutes of Meeting</span><span class="ms-badge-decided">Ready</span></div>
+                <div class="ms-structured-item"><span class="ms-structured-text">PDF export</span><span class="ms-badge-action">PDF</span></div>
+                <div class="ms-structured-item"><span class="ms-structured-text">Editable document</span><span class="ms-badge-action">DOCX</span></div>
+                <div class="ms-structured-item"><span class="ms-structured-text">Share with attendees</span><span class="ms-badge-question">Email</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr class="ms-section-divider">
+
+        <section class="ms-workflow-section" id="workflow">
+          <div class="ms-workflow-card">
+            <div class="ms-workflow-header">
+              <h2>From recording to document, in four steps</h2>
+              <p>A guided path from upload to professional minutes you can share.</p>
+            </div>
+            <div class="ms-workflow-grid">
+              <div class="ms-workflow-step">
+                <div class="ms-workflow-step-num">01</div>
+                <h3>Upload</h3>
+                <p>Drop an audio recording or paste an existing transcript. MP3, WAV, M4A, PDF, DOCX, and TXT supported.</p>
+              </div>
+              <div class="ms-workflow-step">
+                <div class="ms-workflow-step-num">02</div>
+                <h3>Confirm speakers</h3>
+                <p>Review detected voices and assign names before the transcript is finalized.</p>
+              </div>
+              <div class="ms-workflow-step">
+                <div class="ms-workflow-step-num">03</div>
+                <h3>Review the transcript</h3>
+                <p>Skim, search, and edit the conversation before generating your minutes.</p>
+              </div>
+              <div class="ms-workflow-step">
+                <div class="ms-workflow-step-num">04</div>
+                <h3>Generate &amp; send</h3>
+                <p>Export professional minutes as PDF or DOCX, or share directly through email.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr class="ms-section-divider">
+
+        <section class="ms-compare-section" id="compare">
+          <div class="ms-compare-header">
+            <h2>How it stacks up</h2>
+            <p>Built for teams that need more than a raw transcript.</p>
+          </div>
+          <table class="ms-compare-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Manual notes</th>
+                <th>Generic AI notetaker</th>
+                <th>MeetScribe</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Speaker identification</td>
+                <td>Manual</td>
+                <td>Varies by tool</td>
+                <td>Detected and reviewable</td>
+              </tr>
+              <tr>
+                <td>Decision and action extraction</td>
+                <td>Manual review</td>
+                <td>Varies by tool</td>
+                <td>Structured automatically</td>
+              </tr>
+              <tr>
+                <td>Transcript review</td>
+                <td>Manual document editing</td>
+                <td>Varies by tool</td>
+                <td>Edit before generation</td>
+              </tr>
+              <tr>
+                <td>Professional export</td>
+                <td>Manual formatting</td>
+                <td>Varies by tool</td>
+                <td>PDF, DOCX, and email</td>
+              </tr>
+              <tr>
+                <td>Review before minutes</td>
+                <td>Manual process</td>
+                <td>Varies by tool</td>
+                <td>Speakers and transcript reviewed</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <hr class="ms-section-divider">
+
+        <section class="ms-faq-section" id="faq">
+          <div class="ms-faq-header">
+            <h2>Questions worth asking</h2>
+          </div>
+          <div class="ms-faq-list">
+            <details class="ms-faq-item" open>
+              <summary>What audio formats does MeetScribe accept?<span class="ms-faq-icon">+</span></summary>
+              <div class="ms-faq-answer">
+                MeetScribe accepts MP3, WAV, M4A, AAC, and MP4 audio files. You can also upload
+                existing transcripts in PDF, DOCX, or TXT format if you already have a written record.
+              </div>
+            </details>
+            <details class="ms-faq-item">
+              <summary>Can I edit speakers before generating minutes?<span class="ms-faq-icon">+</span></summary>
+              <div class="ms-faq-answer">
+                Yes. After upload, you review every detected speaker and assign names before
+                the transcript is processed. Changes carry through to the final minutes.
+              </div>
+            </details>
+            <details class="ms-faq-item">
+              <summary>Can I edit the transcript before export?<span class="ms-faq-icon">+</span></summary>
+              <div class="ms-faq-answer">
+                Yes. The transcript review step lets you correct wording, fix names, and adjust
+                meeting details before minutes are generated.
+              </div>
+            </details>
+            <details class="ms-faq-item">
+              <summary>What export formats are available?<span class="ms-faq-icon">+</span></summary>
+              <div class="ms-faq-answer">
+                Final minutes can be downloaded as professional PDF or editable DOCX. You can
+                also share the document directly through email from within the app.
+              </div>
+            </details>
+            <details class="ms-faq-item">
+              <summary>What happens before minutes are generated?<span class="ms-faq-icon">+</span></summary>
+              <div class="ms-faq-answer">
+                MeetScribe guides you through speaker identification and transcript review first.
+                Minutes are generated from the transcript you have reviewed.
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <div class="ms-footer-cta">
+          <div class="ms-footer-cta-inner">
+            <h2>Stop writing minutes by hand.</h2>
+            <p>Upload audio or a transcript, review it, and generate a document worth sending.</p>
+            <a class="ms-btn-primary" href="#workspace">Upload a meeting</a>
+          </div>
+        </div>
+
+        <footer class="ms-site-footer">
+          <div class="ms-footer-grid">
+            <div class="ms-footer-brand">
+              <a class="ms-nav-brand" href="#top">
+                <span class="ms-logo">
+                  {brand_logo_html("ms-brand-image ms-brand-image-footer", alt="")}
+                </span>
+                <span>MeetScribe</span>
+              </a>
+              <p>Meeting minutes, written the moment the call ends.</p>
+            </div>
+            <div class="ms-footer-col">
+              <h4>Product</h4>
+              <a href="#workspace">Upload</a>
+              <a href="#features">Features</a>
+              <a href="#workflow">Workflow</a>
+            </div>
+            <div class="ms-footer-col">
+              <h4>Review</h4>
+              <a href="#features">Speaker identification</a>
+              <a href="#features">Transcript review</a>
+              <a href="#faq">FAQ</a>
+            </div>
+            <div class="ms-footer-col">
+              <h4>Export</h4>
+              <a href="#features">PDF</a>
+              <a href="#features">DOCX</a>
+              <a href="#features">Email</a>
+            </div>
+          </div>
+          <div class="ms-footer-bottom">
+            <span>© 2026 MeetScribe</span>
+            <div class="ms-footer-bottom-links">
+              <a href="#privacy">Privacy</a>
+              <a href="#terms">Terms</a>
+            </div>
+          </div>
+        </footer>
+        <div id="privacy"></div>
+        <div id="terms"></div>
         <div id="documentation"></div>
         """,
         unsafe_allow_html=True,
@@ -3858,68 +4544,46 @@ def meeting_info_for_export() -> dict[str, str]:
 def render_meeting_information_panel(result: TranscriptionResult | None = None) -> None:
     initialize_meeting_info(result)
     info = dict(st.session_state.get("meeting_info", {}))
-    st.markdown(
-        """
-        <div class="ms-premium-section">
-          <div class="ms-section-kicker">Meeting Details</div>
-          <h3 class="ms-section-heading">Meeting Information</h3>
-          <p class="ms-section-subcopy">Review the report header details before generating the final meeting documentation.</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    time_or_duration = info.get("meeting_time") or info.get("duration", "")
+    with st.container(key="workflow_meeting_information"):
+        title_col, date_col, time_col = st.columns(3)
+        with title_col:
+            meeting_title = st.text_input(
+                "Meeting Title", value=info.get("meeting_title", ""), key="meeting_info_title_input")
+        with date_col:
+            meeting_date = st.text_input(
+                "Meeting Date", value=info.get("meeting_date", ""), key="meeting_info_date_input")
+        with time_col:
+            meeting_time = st.text_input(
+                "Duration", value=time_or_duration, key="meeting_info_time_input")
 
-    col_left, col_right = st.columns(2)
-    with col_left:
-        meeting_title = st.text_input(
-            "Meeting Title",
-            value=info.get("meeting_title", ""),
-            key="meeting_info_title_input",
-        )
-        meeting_date = st.text_input(
-            "Meeting Date",
-            value=info.get("meeting_date", ""),
-            key="meeting_info_date_input",
-        )
-        meeting_time = st.text_input(
-            "Meeting Time (optional)",
-            value=info.get("meeting_time", ""),
-            key="meeting_info_time_input",
-        )
-        prepared_by = st.text_input(
-            "Prepared By",
-            value=info.get("prepared_by", ""),
-            key="meeting_info_prepared_by_input",
-        )
-    with col_right:
-        organization = st.text_input(
-            "Organization / Company (optional)",
-            value=info.get("organization", ""),
-            key="meeting_info_organization_input",
-        )
-        project_name = st.text_input(
-            "Project Name (optional)",
-            value=info.get("project_name", ""),
-            key="meeting_info_project_name_input",
-        )
-        participants = st.text_area(
-            "Participants",
-            value=info.get("participants", ""),
-            height=98,
-            key="meeting_info_participants_input",
-        )
+        participants_col, project_col, prepared_col = st.columns(3)
+        with participants_col:
+            participants = st.text_area(
+                "Participants", value=info.get("participants", ""), height=82,
+                key="meeting_info_participants_input")
+        with project_col:
+            project_name = st.text_input(
+                "Project Name", value=info.get("project_name", ""),
+                key="meeting_info_project_name_input")
+        with prepared_col:
+            prepared_by = st.text_input(
+                "Prepared By", value=info.get("prepared_by", ""),
+                key="meeting_info_prepared_by_input")
 
     updated = {
         **info,
         "meeting_title": meeting_title.strip(),
         "meeting_date": meeting_date.strip(),
-        "meeting_time": meeting_time.strip(),
-        "organization": organization.strip(),
         "project_name": project_name.strip(),
         "prepared_by": prepared_by.strip(),
         "participants": participants.strip(),
         "source_file": st.session_state.get("uploaded_filename", ""),
     }
+    if info.get("meeting_time") or not info.get("duration"):
+        updated["meeting_time"] = meeting_time.strip()
+    else:
+        updated["duration"] = meeting_time.strip()
     previous = dict(st.session_state.get("meeting_info_last_saved", {}))
     st.session_state.meeting_info = updated
     changed_fields = [
@@ -4698,24 +5362,17 @@ def render_email_form(
         st.markdown(
             f"""
             <div class="ms-email-compose">
-              <div class="ms-email-compose-hdr">Compose Email</div>
+              {brand_logo_html("ms-context-brand-logo", alt="")}
+              <div class="ms-email-compose-hdr">Send minutes by email</div>
               <p class="ms-email-compose-sub">
-                Send the generated Minutes of Meeting PDF using your configured SMTP account.
+                Review the message and attachment before sending.
               </p>
-              <div class="ms-attachment-preview">
-                <div class="ms-attachment-preview-icon">PDF</div>
-                <div>
-                  <div class="ms-attachment-preview-name">{html.escape(attachment_name)}</div>
-                  <div class="ms-attachment-preview-meta">PDF attached automatically</div>
-                </div>
-                <span class="ms-attachment-pill" style="margin-left:auto;">PDF Attached</span>
-              </div>
             </div>
             """,
             unsafe_allow_html=True,
         )
         with st.form("send_mom_email_form"):
-            st.markdown("<div class='ms-email-field-label'>Recipient</div>", unsafe_allow_html=True)
+            st.markdown("<div class='ms-email-field-label'>Recipients</div>", unsafe_allow_html=True)
             recipient = st.text_input("Recipient Email", key="email_recipient_input", label_visibility="collapsed")
             st.markdown("<div class='ms-email-field-label'>CC</div>", unsafe_allow_html=True)
             cc = st.text_input("CC (optional)", key="email_cc_input", label_visibility="collapsed")
@@ -4726,7 +5383,7 @@ def render_email_form(
                 key="email_subject_input",
                 label_visibility="collapsed",
             )
-            st.markdown("<div class='ms-email-field-label'>Message</div>", unsafe_allow_html=True)
+            st.markdown("<div class='ms-email-field-label'>Preview</div>", unsafe_allow_html=True)
             message = st.text_area(
                 "Message",
                 value=default_email_message(),
@@ -4734,11 +5391,35 @@ def render_email_form(
                 key="email_message_input",
                 label_visibility="collapsed",
             )
-            send_clicked = st.form_submit_button(
-                "Send Email",
-                type="primary",
-                use_container_width=True,
+            st.markdown(
+                f"""
+                <div class="ms-email-field-label">Attachment</div>
+                <div class="ms-attachment-preview">
+                  <div class="ms-attachment-preview-icon">PDF</div>
+                  <div>
+                    <div class="ms-attachment-preview-name">{html.escape(attachment_name)}</div>
+                    <div class="ms-attachment-preview-meta">PDF attached automatically</div>
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
             )
+            cancel_col, send_col = st.columns(2, vertical_alignment="center")
+            with cancel_col:
+                cancel_clicked = st.form_submit_button(
+                    "Cancel",
+                    use_container_width=False,
+                )
+            with send_col:
+                send_clicked = st.form_submit_button(
+                    "Send Minutes →",
+                    type="primary",
+                    use_container_width=True,
+                )
+
+    if cancel_clicked:
+        st.session_state.workflow_stage = "export"
+        st.rerun()
 
     if not send_clicked:
         return
@@ -4795,14 +5476,15 @@ def render_email_form(
 
 def render_export_card(analysis: MeetingAnalysisResult) -> None:
     st.markdown(
-        """
+        f"""
         <div class="ms-export-section" id="downloads">
           <div class="ms-export-wrap">
             <div class="ms-export-hdr">
               <div class="ms-export-hdr-icon">&#8659;</div>
               <div>
-                <div class="ms-export-hdr-title">Your minutes are ready to share</div>
-                <p class="ms-export-sub">Choose a polished document format or send the report directly to stakeholders.</p>
+                {brand_logo_html("ms-context-brand-logo", alt="")}
+                <div class="ms-export-hdr-title">Send these minutes anywhere</div>
+                <p class="ms-export-sub">Same document, three ways to share it.</p>
               </div>
             </div>
           </div>
@@ -4830,14 +5512,14 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
             """
             <div class="ms-export-option">
               <div class="ms-export-option-icon pdf">PDF</div>
-              <div class="ms-export-option-title">Download PDF</div>
-              <div class="ms-export-option-desc">Print-ready Minutes of Meeting document.</div>
+              <div class="ms-export-option-title">Export as PDF</div>
+              <div class="ms-export-option-desc">A print-ready document, formatted exactly as shown here.</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
         render_download_button(
-            label="Download PDF",
+            label="Download PDF →",
             export_path=mom_pdf_path,
             mime="application/pdf",
             key="download_mom_pdf",
@@ -4850,14 +5532,14 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
             """
             <div class="ms-export-option">
               <div class="ms-export-option-icon docx">DOC</div>
-              <div class="ms-export-option-title">Download DOCX</div>
-              <div class="ms-export-option-desc">Editable Word document for your team.</div>
+              <div class="ms-export-option-title">Export as Word</div>
+              <div class="ms-export-option-desc">An editable .docx you can adapt in your own template.</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
         render_download_button(
-            label="Download DOCX",
+            label="Download DOCX →",
             export_path=mom_docx_path,
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
             key="download_mom_docx",
@@ -4870,21 +5552,19 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
             """
             <div class="ms-export-option ms-export-email-wrap">
               <div class="ms-export-option-icon email">✉</div>
-              <div class="ms-export-option-title">Send Email</div>
-              <div class="ms-export-option-desc">Email the MoM PDF to stakeholders.</div>
+              <div class="ms-export-option-title">Send by email</div>
+              <div class="ms-export-option-desc">Deliver the minutes directly to everyone who attended.</div>
             </div>
             """,
             unsafe_allow_html=True,
         )
         if st.button(
-            "Send Email",
+            "Compose Email →",
             key="show_send_email_form",
             use_container_width=True,
         ):
-            st.session_state.show_email_form = True
-
-    if st.session_state.get("show_email_form", False):
-        render_email_form(analysis=analysis, mom_pdf_path=mom_pdf_path)
+            st.session_state.workflow_stage = "email"
+            st.rerun()
 
 
 def run_meeting_analysis(
@@ -4897,7 +5577,11 @@ def run_meeting_analysis(
     estimate_note: str = "",
 ) -> MeetingAnalysisResult | None:
     analysis_progress = progress or st.progress(0, text="Generating Meeting Notes")
-    cache_key = analysis_cache_key(transcript_text)
+    audio_quality_mode = st.session_state.get("workflow_source") == "audio"
+    cache_key = analysis_cache_key(
+        transcript_text,
+        audio_quality_mode=audio_quality_mode,
+    )
 
     try:
         cached_analysis = st.session_state.analysis_cache.get(cache_key)
@@ -5000,6 +5684,7 @@ def run_meeting_analysis(
             ),
             meeting_date=str(current_info_for_generation.get("meeting_date") or "").strip(),
             participants=manual_participants or None,
+            audio_quality_mode=audio_quality_mode,
         )
         if not generated.is_valid:
             stop_with_analysis_error(
@@ -5011,6 +5696,7 @@ def run_meeting_analysis(
         analysis = experimental_mom_to_analysis_result(
             transcript_text=transcript_text,
             generated=generated,
+            audio_quality_mode=audio_quality_mode,
         )
 
         log_stage(
@@ -5589,12 +6275,34 @@ def process_upload(uploaded_file: object) -> None:
         )
 
         result = validate_transcription_result(result)
+        raw_audio_transcript = result.transcript
+        raw_audio_segments = "\n".join(segment.transcript for segment in result.segments)
         original_segment_count = len(result.segments)
         result = coalesce_contiguous_audio_segments(result)
         confirmed_audio_speakers = saved_speaker_mapping()
         result = repair_audio_transcription(
             result,
             confirmed_speaker_mapping=confirmed_audio_speakers or None,
+        )
+        raw_digest = hashlib.sha256(raw_audio_transcript.encode("utf-8")).hexdigest()[:12]
+        cleaned_digest = hashlib.sha256(result.transcript.encode("utf-8")).hexdigest()[:12]
+        cleaned_audio_segments = "\n".join(segment.transcript for segment in result.segments)
+        raw_segments_digest = hashlib.sha256(raw_audio_segments.encode("utf-8")).hexdigest()[:12]
+        cleaned_segments_digest = hashlib.sha256(cleaned_audio_segments.encode("utf-8")).hexdigest()[:12]
+        log_stage(
+            "Audio transcript cleanup",
+            "Compared raw STT with the cleaned audio transcript.",
+            raw_chars=len(raw_audio_transcript),
+            cleaned_chars=len(result.transcript),
+            raw_sha256=raw_digest,
+            cleaned_sha256=cleaned_digest,
+            text_changed=raw_digest != cleaned_digest,
+            raw_segment_chars=len(raw_audio_segments),
+            cleaned_segment_chars=len(cleaned_audio_segments),
+            raw_segments_sha256=raw_segments_digest,
+            cleaned_segments_sha256=cleaned_segments_digest,
+            segments_changed=raw_segments_digest != cleaned_segments_digest,
+            removed_segments=original_segment_count - len(result.segments),
         )
         log_stage(
             "Diarization parsing",
@@ -5816,15 +6524,673 @@ def process_transcript_upload(transcript_file: object) -> None:
         st.error("Something went wrong while reading this transcript. Please try another file.")
 
 
+def open_workflow(source: str) -> None:
+    """Open the single workflow shell without changing the processing pipeline."""
+    st.session_state.workflow_open = True
+    st.session_state.workflow_source = source
+    st.session_state.workflow_stage = "upload"
+    st.session_state.workflow_file = None
+    st.rerun()
+
+
+def workflow_stage() -> str:
+    current_stage = st.session_state.get("workflow_stage", "upload")
+    pending_action = st.session_state.get("workflow_pending_action")
+    if pending_action == "prepare" and st.session_state.get("workflow_source") == "audio":
+        return "processing"
+    if current_stage in {"minutes", "export", "email"} and st.session_state.get("analysis_result") is not None:
+        return current_stage
+    if current_stage == "processing" and pending_action == "analyze":
+        return "processing"
+    if current_stage == "processing":
+        return "processing"
+    if current_stage == "speakers" and st.session_state.get("transcript_result") is not None:
+        return "speakers"
+    if current_stage == "transcript" and st.session_state.get("transcript_result") is not None:
+        return "transcript"
+    if current_stage == "upload":
+        return "upload"
+    if st.session_state.get("workflow_file") is not None:
+        return "uploaded"
+    return "upload"
+
+
+def inject_workflow_shell_styles() -> None:
+    st.markdown(
+        """
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+          :root{--wf-bg:#f1eadb;--wf-paper:#fff;--wf-ink:#171b22;--wf-muted:#737982;
+            --wf-line:#e2d8c6;--wf-blue:#7897b7;--wf-blue-soft:#e7eff6;--wf-green:#7d9c7d;
+            --wf-lav:#a79bca;--wf-rust:#c9826e;--wf-radius:22px;--wf-card-radius:16px;
+            --wf-shadow:0 24px 55px rgba(50,45,35,.12)}
+          [data-testid="stAppViewContainer"], [data-testid="stApp"]{background:var(--wf-bg)!important}
+          [data-testid="stHeader"], [data-testid="stToolbar"], [data-testid="stDecoration"], footer{display:none!important}
+          .block-container{max-width:1140px!important;padding:1.35rem 1rem 2rem!important}
+          .st-key-workflow_shell{background:var(--wf-paper);border:1px solid var(--wf-line);border-radius:var(--wf-radius);
+            box-shadow:var(--wf-shadow);overflow:hidden;min-height:0;font-family:Inter,sans-serif;scroll-margin-top:18px}
+          .st-key-workflow_shell>div[data-testid="stVerticalBlock"]{gap:0!important}
+          .st-key-workflow_stage_content{padding:22px 40px 20px!important}
+          .st-key-workflow_stage_content>div[data-testid="stVerticalBlock"]{gap:.62rem!important}
+          .st-key-workflow_stage_content [data-testid="stForm"]{border:0!important;border-radius:0!important;
+            background:transparent!important;box-shadow:none!important;padding:0!important}
+          .ms-wf-bar{height:64px;border-bottom:1px solid var(--wf-line);display:grid;
+            grid-template-columns:180px 1fr;align-items:center;padding:0 32px}
+          .ms-wf-brand{display:flex;align-items:center;gap:8px;font-family:Fraunces,serif;font-weight:600;color:var(--wf-ink)}
+          .ms-wf-brand-logo{display:block;width:38px;height:38px;object-fit:contain;background:transparent;border:0;flex:0 0 auto}
+          .ms-wf-steps{display:flex;align-items:center;justify-content:flex-end;gap:10px;color:var(--wf-muted);font-size:13px}
+          .ms-wf-step{display:flex;align-items:center;gap:7px;white-space:nowrap}.ms-wf-dot{width:17px;height:17px;border-radius:50%;
+            background:#e9e0ce;display:grid;place-items:center;font:10px monospace}.ms-wf-step.now{background:var(--wf-blue-soft);
+            color:#274b6d;border-radius:999px;padding:7px 12px}.ms-wf-step.now .ms-wf-dot{background:var(--wf-blue);color:white}
+          .ms-wf-step.done{color:var(--wf-ink)}.ms-wf-step.done .ms-wf-dot{background:var(--wf-green);color:white}
+          .ms-wf-sep{width:14px;height:1px;background:#d5c9b5}
+          .ms-wf-body{padding:0}.ms-wf-body h2{font:500 28px Fraunces,serif!important;margin:0 0 6px!important}
+          .ms-wf-sub{margin:0 0 20px;color:var(--wf-muted)!important}.ms-drop-copy{text-align:center;padding:18px 10px 10px}
+          .ms-drop-copy h3{font:500 22px Fraunces,serif!important;margin:14px 0 6px!important}.ms-drop-copy p{font-size:13px}
+          .ms-upload-stage{width:100%!important;text-align:center!important}.ms-upload-stage>h2,.ms-upload-stage>.ms-wf-sub{width:100%!important;text-align:center!important}
+          .ms-upload-stage>.ms-wf-sub{max-width:620px;margin:0 auto 12px!important}
+          .st-key-workflow_stage_content:has(.ms-upload-stage) .ms-wf-body h2,
+          .st-key-workflow_stage_content:has(.ms-upload-stage) .ms-wf-body>.ms-wf-sub{text-align:center!important;margin-left:auto!important;margin-right:auto!important}
+          .ms-upload-stage .ms-drop-copy{padding-top:8px!important}
+          .ms-wf-card{border:1px solid var(--wf-line);border-radius:var(--wf-card-radius);padding:22px 28px;background:#fffdfa}
+          .ms-wf-success{max-width:640px;margin:18px auto 10px;text-align:center}.ms-wf-success-head{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center}
+          .ms-wf-success-head h3,.ms-wf-success-head p{margin-left:auto!important;margin-right:auto!important;text-align:center!important}
+          .ms-wf-check{width:48px;height:48px;border-radius:13px;background:#eaf2e7;color:#426a49;display:grid;place-items:center;font-size:23px}
+          .ms-wf-wave{display:flex;align-items:center;justify-content:center;gap:3px;height:48px;margin:12px 0;border-bottom:1px solid var(--wf-line)}
+          .ms-wf-wave i{display:block;width:3px;border-radius:4px;background:var(--wf-blue)}
+          .ms-wf-meta{display:flex;justify-content:center;gap:26px;font-size:13px;color:var(--wf-muted);padding-bottom:16px;border-bottom:1px solid var(--wf-line);text-align:center}
+          .ms-meeting-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--wf-line);
+            border:1px solid var(--wf-line);border-radius:var(--wf-card-radius);overflow:hidden;margin:0 0 28px}
+          .ms-meeting-meta-item{background:#fbfaf6;padding:16px 18px;min-height:76px}.ms-meeting-meta-label{display:block;
+            margin-bottom:7px;color:#85827b;font:500 10px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em}
+          .ms-meeting-meta-value{display:block;color:var(--wf-ink);font:500 14px Inter,sans-serif;line-height:1.4;overflow-wrap:anywhere}
+          .ms-speaker-shell{border:0;padding:10px 2px 6px;background:transparent;margin:0;box-shadow:none}
+          .ms-speaker-shell b{font:600 14px Inter,sans-serif;color:var(--wf-ink)}
+          .ms-speaker-shell small{font:400 11px 'IBM Plex Mono',monospace;color:var(--wf-muted)}
+          .st-key-workflow_meeting_information{padding:0;margin:0 0 10px;background:transparent;border:0;box-shadow:none}
+          .st-key-workflow_meeting_information>div[data-testid="stVerticalBlock"]{gap:.45rem!important}
+          .st-key-workflow_meeting_information label p{color:#77736c!important;font:500 10px 'IBM Plex Mono',monospace!important;
+            letter-spacing:.06em;text-transform:uppercase}
+          .st-key-workflow_shell div[data-baseweb="input"],
+          .st-key-workflow_shell div[data-baseweb="textarea"]{border:1px solid #ded6c8!important;border-radius:11px!important;
+            background:#fffdfa!important;box-shadow:none!important;overflow:hidden!important}
+          .st-key-workflow_shell div[data-baseweb="input"]:focus-within,
+          .st-key-workflow_shell div[data-baseweb="textarea"]:focus-within{border-color:var(--wf-blue)!important;
+            box-shadow:0 0 0 3px rgba(120,151,183,.13)!important}
+          .st-key-workflow_shell input,.st-key-workflow_shell textarea{background:#fffdfa!important;color:var(--wf-ink)!important;
+            caret-color:var(--wf-ink)!important;border:0!important;box-shadow:none!important;font:500 14px/1.5 Inter,sans-serif!important;padding:9px 12px!important}
+          .st-key-workflow_shell input::selection,.st-key-workflow_shell textarea::selection{background:rgba(120,151,183,.28)!important;color:var(--wf-ink)!important}
+          .st-key-workflow_speaker_actions{display:flex!important;width:100%!important;margin-top:18px!important;padding-top:14px!important;border-top:1px solid var(--wf-line)!important}
+          .st-key-workflow_speaker_actions>div[data-testid="stVerticalBlock"]{display:flex!important;align-items:flex-end!important;width:100%!important}
+          .st-key-workflow_speaker_actions [data-testid="stFormSubmitButton"]{display:flex!important;justify-content:flex-end!important;width:fit-content!important;margin-left:auto!important}
+          .st-key-workflow_speaker_actions [data-testid="stFormSubmitButton"]>div{display:flex!important;justify-content:flex-end!important;width:auto!important;margin-left:auto!important}
+          .st-key-workflow_speaker_actions [data-testid="stFormSubmitButton"] button{width:auto!important;min-width:0!important;padding:0 22px!important;
+            background:#30343a!important;border:1px solid #30343a!important;color:#fff!important;box-shadow:none!important}
+          .st-key-workflow_speaker_actions [data-testid="stFormSubmitButton"] button:hover{background:#24282d!important;border-color:#24282d!important;color:#fff!important}
+          .ms-transcript-preview{display:grid;gap:3px;max-height:410px;overflow-y:auto;padding:6px 8px 6px 0;
+            border-top:1px solid var(--wf-line);border-bottom:1px solid var(--wf-line);scrollbar-width:thin;scrollbar-color:#b9ad9a transparent}
+          .ms-transcript-row{display:grid;grid-template-columns:92px 132px minmax(0,1fr);align-items:start;
+            gap:18px;padding:15px 16px;border-radius:12px;color:var(--wf-ink);font:400 15px/1.62 Inter,sans-serif}
+          .ms-transcript-row:nth-child(3n){background:#f2eef8}.ms-transcript-preview::-webkit-scrollbar,
+          .st-key-workflow_transcript_editor textarea::-webkit-scrollbar{width:8px}.ms-transcript-preview::-webkit-scrollbar-thumb,
+          .st-key-workflow_transcript_editor textarea::-webkit-scrollbar-thumb{background:#b9ad9a;border-radius:999px;border:2px solid transparent;background-clip:padding-box}
+          .ms-transcript-time{padding-top:3px;font:400 11px 'IBM Plex Mono',monospace;color:#61707e}.ms-transcript-speaker{font-weight:600;color:#536c5b}
+          .st-key-workflow_transcript_editor label p{font:600 12px 'IBM Plex Mono',monospace!important;color:#6e6a63!important;letter-spacing:.03em}
+          .st-key-workflow_transcript_editor{margin-top:24px!important;padding-top:22px!important;border-top:1px solid var(--wf-line)!important}
+          .st-key-workflow_transcript_editor div[data-baseweb="textarea"]{border:1px solid #ded6c8!important;border-radius:var(--wf-card-radius)!important;
+            background:#fbfaf6!important;box-shadow:0 8px 22px rgba(50,45,35,.045)!important;overflow:hidden!important}
+          .st-key-workflow_shell .st-key-workflow_transcript_editor div[data-baseweb="textarea"]>div[data-baseweb="base-input"]{
+            background:#fbfaf6!important;border:0!important;border-radius:var(--wf-card-radius)!important;box-shadow:none!important}
+          .st-key-workflow_transcript_editor div[data-baseweb="textarea"]:focus-within{border-color:var(--wf-blue)!important;
+            box-shadow:0 0 0 3px rgba(120,151,183,.14)!important}
+          .st-key-workflow_transcript_editor textarea{min-height:300px!important;padding:20px 22px!important;background:#fbfaf6!important;
+            color:var(--wf-ink)!important;font:400 15px/1.72 Inter,sans-serif!important;border:0!important;outline:0!important;box-shadow:none!important;
+            scrollbar-width:thin;scrollbar-color:#b9ad9a transparent}
+          .st-key-workflow_shell .st-key-workflow_stage_content .st-key-workflow_transcript_editor div[data-baseweb="textarea"] textarea{
+            background-color:#fbfaf6!important;background-image:none!important;border:0!important;border-radius:var(--wf-card-radius)!important;
+            outline:0!important;box-shadow:none!important}
+          .ms-process-center{max-width:560px;margin:8px auto 4px;text-align:center}.ms-process-list{text-align:left;margin:24px auto 0;max-width:420px}
+          .ms-process-item{display:grid;grid-template-columns:28px 1fr;gap:13px;padding:9px 0 22px}.ms-process-bullet{width:26px;height:26px;
+            border-radius:50%;background:#eaf2e7;color:#426a49;display:grid;place-items:center}.ms-process-item.active .ms-process-bullet{background:var(--wf-blue);color:white}
+          .ms-audio-preparing{max-width:470px;margin:22px auto 10px}.ms-audio-preparing .ms-process-list{margin-top:28px;max-width:360px}
+          .ms-audio-preparing .ms-process-item{padding:7px 0 15px}.ms-loading-wave{height:42px;display:flex;align-items:center;justify-content:center;gap:5px;margin:2px auto 18px}
+          .ms-loading-wave i{display:block;width:4px;height:16px;border-radius:999px;background:var(--wf-blue);animation:ms-wave-pulse 1s ease-in-out infinite}
+          .ms-loading-wave i:nth-child(2),.ms-loading-wave i:nth-child(4){animation-delay:.12s}.ms-loading-wave i:nth-child(3){animation-delay:.24s}
+          .ms-loading-wave i:nth-child(5){animation-delay:.36s}@keyframes ms-wave-pulse{0%,100%{height:14px;opacity:.55}50%{height:36px;opacity:1}}
+          .ms-processing-spinner{width:38px;height:38px;margin:2px auto 16px;border:3px solid #dfe7ee;border-top-color:var(--wf-blue);
+            border-radius:50%;animation:ms-spinner-turn .85s linear infinite}@keyframes ms-spinner-turn{to{transform:rotate(360deg)}}
+          .ms-processing-brand-logo{display:block;width:58px;height:58px;object-fit:contain;margin:0 auto 10px;background:transparent;border:0}
+          .ms-estimated-progress{margin-top:8px;color:var(--wf-muted);font:400 11px 'IBM Plex Mono',monospace}
+          .st-key-minutes_document{max-width:860px!important;margin:0 auto!important}.st-key-minutes_document>div[data-testid="stVerticalBlock"]{gap:.8rem!important}
+          .ms-minutes-document{max-width:860px;margin:0 auto;padding:4px 10px 8px}
+          .ms-minutes-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:22px}
+          .ms-minutes-title{font:440 30px/1.15 Fraunces,serif;color:var(--wf-ink);letter-spacing:-.015em}
+          .ms-minutes-sub{margin-top:6px;color:var(--wf-muted);font:400 12px/1.5 Inter,sans-serif}
+          .ms-minutes-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding-top:2px}
+          .ms-minutes-export-link{display:inline-flex;align-items:center;height:34px;padding:0 16px;border-radius:999px;background:#30343a;
+            color:#fff!important;font:600 12px Inter,sans-serif;text-decoration:none!important}
+          .st-key-minutes_regenerate button{height:34px!important;min-height:34px!important;width:auto!important;padding:0 15px!important;
+            border:1px solid var(--wf-line)!important;border-radius:999px!important;background:#fff!important;color:var(--wf-ink)!important;font-size:12px!important}
+          .ms-minutes-info{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 30px}
+          .ms-minutes-info-card{min-height:86px;padding:15px 16px;border-radius:14px;background:#efe8d9}
+          .ms-minutes-info-icon{display:block;margin-bottom:10px;color:#3d5670;font-size:17px}
+          .ms-minutes-info-label{margin-bottom:4px;color:var(--wf-muted);font:400 9px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.07em}
+          .ms-minutes-info-value{color:var(--wf-ink);font:500 13px/1.4 Inter,sans-serif;overflow-wrap:anywhere}
+          .ms-minutes-section{margin:0 0 30px}.ms-minutes-section-head{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+          .ms-minutes-section-icon{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:12px;flex:0 0 auto}
+          .ms-minutes-section-head h3{margin:0!important;font:440 17px Fraunces,serif!important;color:var(--wf-ink)!important}
+          .ms-minutes-summary{padding:20px 22px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
+          .ms-minutes-summary p{margin:0;color:var(--wf-ink)!important;font:400 14px/1.65 Inter,sans-serif}
+          .ms-minutes-summary p+p{margin-top:10px}
+          .ms-minutes-discussion{padding:17px 19px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7;margin-bottom:9px}
+          .ms-minutes-discussion-title{display:flex;align-items:center;gap:9px;margin-bottom:8px;color:var(--wf-ink);font:600 13px Inter,sans-serif}
+          .ms-minutes-discussion-mark{width:25px;height:25px;border-radius:8px;background:#eeeaf4;color:#5c5077;display:grid;place-items:center}
+          .ms-minutes-discussion p{margin:0;color:var(--wf-muted)!important;font:400 12px/1.6 Inter,sans-serif}
+          .ms-minutes-chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px}.ms-minutes-chip{padding:3px 8px;border-radius:999px;
+            background:#efe8d9;color:var(--wf-muted);font:500 9px Inter,sans-serif}
+          .ms-minutes-decision{display:flex;gap:11px;padding:13px 16px;border-radius:13px;background:#e8efe5;margin-bottom:8px}
+          .ms-minutes-decision-check{width:20px;height:20px;border-radius:50%;background:#7c9b79;color:#fff;display:grid;place-items:center;flex:0 0 auto;font-size:11px}
+          .ms-minutes-decision-text{color:#40573e;font:500 13px/1.45 Inter,sans-serif}.ms-minutes-meta{margin-top:3px;color:#60735d;
+            font:400 9px 'IBM Plex Mono',monospace}
+          .ms-minutes-table-wrap{border:1px solid var(--wf-line);border-radius:14px;overflow-x:auto;background:#fff}
+          .ms-minutes-table{width:100%;border-collapse:collapse;min-width:620px}.ms-minutes-table th{padding:10px 14px;background:#efe8d9;
+            color:var(--wf-muted);font:500 9px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;text-align:left}
+          .ms-minutes-table td{padding:11px 14px;border-top:1px solid var(--wf-line);color:var(--wf-ink);font:400 12px/1.4 Inter,sans-serif}
+          .ms-minutes-owner{display:flex;align-items:center;gap:7px}.ms-minutes-owner-avatar{width:20px;height:20px;border-radius:50%;background:#eeeaf4;
+            color:#5c5077;display:grid;place-items:center;font:600 8px Inter,sans-serif}.ms-minutes-status{display:inline-flex;padding:3px 8px;border-radius:999px;
+            background:#e5ecf2;color:#3d5670;font:500 9px Inter,sans-serif}
+          .ms-export-section{max-width:760px;margin:34px auto 12px;text-align:center}.ms-export-hdr-title{font:440 24px Fraunces,serif;color:var(--wf-ink)}
+          .ms-export-wrap{border:0!important;background:transparent!important;box-shadow:none!important;padding:0!important;margin:0!important}
+          .ms-export-hdr{display:block!important}.ms-export-sub{margin-top:5px!important;color:var(--wf-muted)!important;font:400 13px Inter,sans-serif!important}.ms-export-hdr-icon{display:none!important}
+          div[data-testid="stHorizontalBlock"]:has(.ms-export-option){max-width:760px;margin:22px auto 0;gap:16px!important}
+          div[data-testid="stHorizontalBlock"]:has(.ms-export-option)>div[data-testid="stColumn"]{border:1px solid var(--wf-line);border-radius:18px;
+            padding:22px 18px 18px!important;background:#fbfaf7!important;box-shadow:none!important;min-height:220px!important;overflow:visible!important;
+            position:relative!important;transition:transform .18s ease,box-shadow .18s ease}
+          div[data-testid="stHorizontalBlock"]:has(.ms-export-option)>div[data-testid="stColumn"]:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(51,54,59,.08)}
+          .ms-export-option{text-align:center!important;padding:0!important;min-height:136px!important;border:0!important;background:transparent!important;box-shadow:none!important}.ms-export-option-icon{width:40px;height:40px;border-radius:11px;margin:0 auto 14px;display:grid;place-items:center;
+            font:600 10px Inter,sans-serif;border:0!important}.ms-export-option-icon.pdf{background:#f5e8e3!important;color:#7a4331!important}.ms-export-option-icon.docx{background:#e5ecf2!important;color:#3d5670!important}
+          .ms-export-option-icon.email{background:#eeeaf4!important;color:#5c5077!important}.ms-export-option-title{font:440 16px Fraunces,serif!important;color:var(--wf-ink)!important}
+          .ms-export-option-desc{min-height:38px;margin:6px 0 14px;color:var(--wf-muted);font:400 11px/1.5 Inter,sans-serif}
+          div[data-testid="stHorizontalBlock"]:has(.ms-export-option) .stDownloadButton,
+          div[data-testid="stHorizontalBlock"]:has(.ms-export-option) .stButton{position:static!important;inset:auto!important;margin:0!important;padding:0!important}
+          div[data-testid="stHorizontalBlock"]:has(.ms-export-option) button{position:static!important;opacity:1!important;width:100%!important;height:42px!important;
+            min-height:42px!important;padding:0 18px!important;background:#30343a!important;color:#fff!important;border:1px solid #30343a!important;border-radius:999px!important;
+            font:600 12px Inter,sans-serif!important}
+          div[data-testid="stHorizontalBlock"]:has(.ms-export-option) button p{color:#fff!important;opacity:1!important}
+          div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose){width:min(100%,520px)!important;margin:30px auto!important;
+            background:#fff!important;border:1px solid var(--wf-line)!important;border-radius:22px!important;padding:0!important;
+            box-shadow:0 14px 36px rgba(51,54,59,.09)!important}
+          div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose)>div{width:100%!important;overflow:visible;
+            background:transparent!important;border-radius:22px!important;box-shadow:none!important;padding:0!important}
+          div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose) [data-testid="stForm"]{padding:0 28px 30px!important;border:0!important}
+          div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose) [data-testid="stForm"] div[data-testid="stHorizontalBlock"]{margin-top:30px!important;padding-top:4px!important;gap:14px!important;align-items:center!important}
+          div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose) [data-testid="stForm"] div[data-testid="stHorizontalBlock"]>div:first-child button{
+            width:auto!important;background:#fff!important;color:var(--wf-ink)!important;border:1px solid var(--wf-line)!important}
+          div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose) [data-testid="stForm"] div[data-testid="stHorizontalBlock"]>div:last-child button{
+            background:#30343a!important;color:#fff!important;border:1px solid #30343a!important}
+          .ms-context-brand-logo{display:block;width:48px;height:48px;object-fit:contain;margin:0 auto 9px;background:transparent;border:0}
+          .ms-email-compose{padding:24px 28px 2px}.ms-email-compose .ms-context-brand-logo{margin-left:0}.ms-email-compose-hdr{font:440 18px Fraunces,serif;color:var(--wf-ink);padding-bottom:14px;border-bottom:1px solid var(--wf-line)}
+          .ms-email-compose-sub{margin:14px 0 18px!important;font-size:12px!important}.ms-attachment-preview{display:flex;align-items:center;gap:10px;padding:11px 12px;
+            border:1px solid var(--wf-line);border-radius:9px;background:#fbfaf7}.ms-attachment-preview-icon{width:28px;height:28px;border-radius:7px;background:#f5e8e3;
+            color:#7a4331;display:grid;place-items:center;font:600 9px Inter,sans-serif}.ms-attachment-preview-name{font:500 12px Inter,sans-serif}.ms-attachment-preview-meta{font-size:10px;color:var(--wf-muted)}
+          .ms-attachment-pill{display:none}.ms-email-field-label{margin:14px 0 6px;color:var(--wf-muted);font:500 11px Inter,sans-serif}
+          @media(max-width:800px){.ms-minutes-head{flex-direction:column}.ms-minutes-info{grid-template-columns:repeat(2,minmax(0,1fr))}
+            div[data-testid="stHorizontalBlock"]:has(.ms-export-option){display:grid!important;grid-template-columns:1fr!important}.ms-minutes-document{padding-inline:0}}
+          .st-key-workflow_shell .ms-proc-wrap{display:none!important}
+          .st-key-workflow_shell [data-testid="stProgress"]{display:none!important}
+          .st-key-transcript_prepare_output [data-testid="stProgress"],
+          .st-key-transcript_prepare_output .ms-proc-wrap{display:none!important}
+          .st-key-workflow_shell div[data-testid="stFileUploader"]{border:1px dashed var(--wf-blue)!important;border-radius:var(--wf-card-radius)!important;background:var(--wf-blue-soft)!important;padding:24px!important}
+          .st-key-workflow_shell div[data-testid="stFileUploader"] section{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+            gap:6px!important;background:transparent!important;border:0!important;min-height:132px!important;text-align:center!important}
+          .st-key-workflow_shell div[data-testid="stFileUploader"] section>div{align-items:center!important;justify-content:center!important;text-align:center!important}
+          .st-key-workflow_shell div[data-testid="stFileUploader"] section button{margin:4px auto 0!important}
+          .st-key-workflow_shell div[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzoneInstructions"]{margin-bottom:2px!important}
+          .st-key-workflow_shell div[data-testid="stFileUploader"] small{margin-top:0!important}
+          .st-key-workflow_shell [data-testid="stCaptionContainer"]{text-align:center!important;margin-top:8px!important}
+          .st-key-workflow_shell .stButton button,.st-key-workflow_shell [data-testid="stFormSubmitButton"] button{border-radius:999px!important;
+            min-height:40px!important;padding:0 18px!important;font:600 13px Inter,sans-serif!important;box-shadow:none!important}
+          .st-key-workflow_shell .stButton button[kind="primary"],.st-key-workflow_shell [data-testid="stFormSubmitButton"] button[kind="primary"]{
+            background:#30343a!important;color:#fff!important;border-color:#30343a!important}
+          .st-key-workflow_shell .stButton button:not([kind="primary"]),.st-key-workflow_shell [data-testid="stFormSubmitButton"] button:not([kind="primary"]){
+            background:#fff!important;color:var(--wf-ink)!important;border:1px solid #cfc3b0!important}
+          .st-key-workflow_shell .stButton button:not([kind="primary"]):hover,.st-key-workflow_shell [data-testid="stFormSubmitButton"] button:not([kind="primary"]):hover{
+            background:#f8f5ee!important;border-color:#9e927f!important;color:var(--wf-ink)!important}
+          .st-key-workflow_shell div[data-testid="stHorizontalBlock"]:has(.ms-export-option) .stButton button,
+          .st-key-workflow_shell div[data-testid="stHorizontalBlock"]:has(.ms-export-option) .stDownloadButton button{
+            background:#30343a!important;color:#fff!important;border-color:#30343a!important}
+          .st-key-workflow_shell div[data-testid="stHorizontalBlock"]:has(.ms-export-option) .stButton button:hover,
+          .st-key-workflow_shell div[data-testid="stHorizontalBlock"]:has(.ms-export-option) .stDownloadButton button:hover{
+            background:#24282d!important;color:#fff!important;border-color:#24282d!important}
+          .st-key-workflow_shell div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose) [data-testid="stForm"] div[data-testid="stHorizontalBlock"]>div:first-child button{
+            width:auto!important;background:#fff!important;color:var(--wf-ink)!important;border:1px solid #bcae98!important}
+          .st-key-workflow_shell div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose) [data-testid="stForm"] div[data-testid="stHorizontalBlock"]>div:first-child button:hover{
+            background:#f8f5ee!important;color:var(--wf-ink)!important;border-color:#938571!important}
+          .st-key-workflow_shell div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose) [data-testid="stForm"] div[data-testid="stHorizontalBlock"]>div:last-child button{
+            width:auto!important;min-width:148px!important;background:#30343a!important;color:#fff!important;border:1px solid #30343a!important;float:right!important}
+          .st-key-workflow_shell div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose) [data-testid="stForm"] div[data-testid="stHorizontalBlock"]>div:last-child button:hover{
+            background:#24282d!important;color:#fff!important;border-color:#24282d!important}
+          .st-key-uploaded_actions{max-width:480px;margin:16px auto 0}.st-key-uploaded_actions div[data-testid="stHorizontalBlock"]{gap:12px!important}
+          .st-key-uploaded_actions div[data-testid="stColumn"] button{width:100%!important}
+          .ms-shell-close button{border:0!important;background:transparent!important}
+          @media(max-width:760px){.ms-wf-bar{grid-template-columns:1fr;padding:0 18px}.ms-wf-steps{display:none}
+            .st-key-workflow_stage_content{padding:22px 18px 24px!important}.ms-wf-meta{flex-wrap:wrap;gap:10px}
+            .ms-meeting-meta{grid-template-columns:1fr}.ms-transcript-row{grid-template-columns:68px 90px minmax(0,1fr);gap:10px;padding:13px 9px}
+            .ms-wf-success{padding:20px 16px}.st-key-uploaded_actions{max-width:100%}.ms-process-list{margin-top:18px}
+            div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose) [data-testid="stForm"]{padding:0 18px 24px!important}
+            .ms-email-compose{padding:20px 18px 2px}}
+          @media(max-width:520px){.ms-transcript-row{grid-template-columns:1fr;gap:4px}.ms-minutes-info{grid-template-columns:1fr}
+            .st-key-uploaded_actions div[data-testid="stHorizontalBlock"]{display:grid!important;grid-template-columns:1fr!important}
+            div[data-testid="stVerticalBlockBorderWrapper"]:has(.ms-email-compose) [data-testid="stForm"] div[data-testid="stHorizontalBlock"]{display:grid!important;grid-template-columns:1fr!important}}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_workflow_header(stage: str) -> None:
+    order = ["upload", "speakers", "transcript", "processing", "minutes"]
+    active = {"uploaded": 0, "export": 4, "email": 4}.get(stage, order.index(stage) if stage in order else 0)
+    labels = ["Upload", "Speakers", "Transcript", "Processing", "Minutes"]
+    steps = []
+    for index, label in enumerate(labels):
+        state = "done" if index < active else "now" if index == active else ""
+        dot = "&#10003;" if index < active else str(index + 1)
+        steps.append(f'<div class="ms-wf-step {state}"><span class="ms-wf-dot">{dot}</span>{label}</div>')
+        if index < len(labels) - 1:
+            steps.append('<span class="ms-wf-sep"></span>')
+    st.markdown(
+        '<div class="ms-wf-bar">'
+        f'<div class="ms-wf-brand">{brand_logo_html("ms-wf-brand-logo", alt="")}<span>MeetScribe</span></div>'
+        f'<div class="ms-wf-steps">{"".join(steps)}</div>'
+        '</div>', unsafe_allow_html=True)
+
+
+def render_workflow_meeting_metadata(result: TranscriptionResult) -> None:
+    """Render the existing meeting-info source as a read-only workflow summary."""
+    initialize_meeting_info(result)
+    info = meeting_info_for_export()
+    time_and_duration = " · ".join(
+        value for value in (info.get("Time", ""), info.get("Duration", "")) if value
+    )
+    fields = (
+        ("Meeting Title", info.get("Meeting Title", "")),
+        ("Meeting Date", info.get("Date", "")),
+        ("Meeting Time / Duration", time_and_duration),
+        ("Participants", info.get("Participants", "")),
+        ("Project Name", info.get("Project Name", "")),
+        ("Prepared By", info.get("Prepared By", "")),
+    )
+    items = "".join(
+        '<div class="ms-meeting-meta-item">'
+        f'<span class="ms-meeting-meta-label">{html.escape(label)}</span>'
+        f'<span class="ms-meeting-meta-value">{html.escape(str(value or "—"))}</span>'
+        '</div>'
+        for label, value in fields
+    )
+    st.markdown(f'<div class="ms-meeting-meta">{items}</div>', unsafe_allow_html=True)
+
+
+def render_upload_stage() -> None:
+    source = st.session_state.workflow_source
+    noun = "recording" if source == "audio" else "transcript"
+    intro = (
+        "Upload a recording for speaker identification and automatic transcription."
+        if source == "audio"
+        else "Upload a transcript for speaker confirmation, transcript review, and minutes generation."
+    )
+    drop_label = "Drop your recording here" if source == "audio" else "Drop your transcript here"
+    types = SUPPORTED_FILE_TYPES if source == "audio" else SUPPORTED_TRANSCRIPT_TYPES
+    version = st.session_state.audio_upload_version if source == "audio" else st.session_state.transcript_upload_version
+    st.markdown(f'<div class="ms-wf-body ms-upload-stage"><h2>New meeting</h2><p class="ms-wf-sub">{intro}</p><div class="ms-drop-copy"><h3>{drop_label}</h3><p>or browse from your computer</p></div>', unsafe_allow_html=True)
+    selected = st.file_uploader(f"Choose a {noun}", type=list(types), accept_multiple_files=False,
+        key=f"workflow_{source}_{version}", label_visibility="collapsed")
+    st.caption("Accepts one file at a time · " + " · ".join(f".{item}" for item in types))
+    if selected is not None:
+        st.session_state.workflow_file = selected
+        st.session_state.workflow_stage = "uploaded"
+        st.rerun()
+    back, _ = st.columns([0.2, 0.8])
+    with back:
+        if st.button("Back to home", use_container_width=True):
+            clear_current_report()
+            st.session_state.workflow_file = None
+            st.session_state.workflow_pending_action = ""
+            st.session_state.workflow_stage = "upload"
+            st.session_state.workflow_open = False
+            st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+def render_uploaded_stage() -> None:
+    uploaded = st.session_state.workflow_file
+    name = html.escape(getattr(uploaded, "name", "Uploaded file"))
+    size = (getattr(uploaded, "size", 0) or 0) / (1024 * 1024)
+    bars = "".join(f'<i style="height:{h}px"></i>' for h in (14,28,36,20,31,17,34,23,29,18,35,25,32,16,27,21,34,19))
+    st.markdown(f'''<div class="ms-wf-body"><div class="ms-wf-card ms-wf-success">
+      <div class="ms-wf-success-head"><div class="ms-wf-check">✓</div><div><h3>File uploaded</h3><p>{name} is ready to process.</p></div></div>
+      <div class="ms-wf-wave">{bars}</div><div class="ms-wf-meta"><span><b>{size:.2f} MB</b> file size</span><span><b>{Path(name).suffix.lstrip('.').upper()}</b> format</span><span><b>Ready</b> to process</span></div></div>''', unsafe_allow_html=True)
+    if st.button("← Upload", use_container_width=False):
+        st.session_state.workflow_stage = "upload"
+        st.rerun()
+    with st.container(key="uploaded_actions"):
+        remove_col, continue_col = st.columns(2)
+        with remove_col:
+            if st.button("Remove", use_container_width=True):
+                if st.session_state.workflow_source == "audio": st.session_state.audio_upload_version += 1
+                else: st.session_state.transcript_upload_version += 1
+                st.session_state.workflow_file = None
+                clear_current_report(); st.rerun()
+        with continue_col:
+            if st.button("Continue to Review →", type="primary", use_container_width=True):
+                st.session_state.workflow_pending_action = "prepare"
+                st.session_state.workflow_stage = "uploaded"
+                st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+def render_speaker_stage(result: TranscriptionResult) -> None:
+    labels = list(current_speaker_mapping()) or detect_speaker_labels(result)
+    mapping = current_speaker_mapping() or {label: label for label in labels}
+    if st.button("← Upload", use_container_width=False):
+        st.session_state.workflow_stage = "upload"
+        st.rerun()
+    st.markdown(f'<div class="ms-wf-body"><h2>Confirm your speakers</h2><p class="ms-wf-sub">Confirm the {len(labels)} detected speakers before reviewing the transcript.</p>', unsafe_allow_html=True)
+    with st.form("workflow_speaker_form"):
+        render_meeting_information_panel(result)
+        values = {}
+        cols = st.columns(2)
+        for index, label in enumerate(labels):
+            segments = [s for s in result.segments if speaker_label(s) == label]
+            first = format_timestamp(segments[0].start_time_seconds if segments else None)
+            with cols[index % 2]:
+                st.markdown(f'<div class="ms-speaker-shell"><b>{html.escape(label)}</b><br><small>Speaks first at {first}</small></div>', unsafe_allow_html=True)
+                values[label] = st.text_input("Speaker name", value=mapping.get(label, label), key=f"wf_speaker_{index}", label_visibility="collapsed")
+        with st.container(key="workflow_speaker_actions"):
+            submitted = st.form_submit_button(
+                "Continue to Transcript →", type="primary", use_container_width=False)
+    if submitted:
+        updated = update_mapping(labels, values); store_speaker_mapping(updated)
+        mapped = apply_speaker_resolution(result, updated); transcript = format_transcript(mapped, {})
+        st.session_state.transcript_result = mapped; st.session_state.transcript_text = transcript
+        st.session_state.meeting_metadata = source_meeting_metadata(
+            mapped, source_file=st.session_state.get("uploaded_filename", ""))
+        st.session_state.meeting_info_initialized = False; initialize_meeting_info(mapped)
+        st.session_state.edited_transcript_text = transcript; st.session_state.speaker_review_required = False
+        st.session_state.transcript_review_required = True; st.session_state.analysis_result = None
+        st.session_state.analysis_error = ""; st.session_state.success_metrics = None
+        st.session_state.workflow_stage = "transcript"
+        reset_export_state(); st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+def render_transcript_stage(result: TranscriptionResult) -> None:
+    transcript = st.session_state.get("edited_transcript_text") or st.session_state.transcript_text
+    if st.button("← Speakers", use_container_width=False):
+        st.session_state.workflow_stage = "speakers"
+        st.rerun()
+    turns = transcript_turns_from_text(transcript)
+    rows = []
+    for turn in turns:
+        rows.append(f'<div class="ms-transcript-row"><span class="ms-transcript-time">{html.escape(turn.get("timestamp", "--:--"))}</span><span class="ms-transcript-speaker">{html.escape(turn.get("speaker", "Speaker"))}</span><span>{html.escape(turn.get("text", ""))}</span></div>')
+    st.markdown('<div class="ms-wf-body"><h2>Review transcript</h2><p class="ms-wf-sub">Edit the transcript before generating the meeting minutes.</p><div class="ms-transcript-preview">'+''.join(rows)+'</div>', unsafe_allow_html=True)
+    edited = st.text_area("Edit transcript", value=transcript, height=220, key="workflow_transcript_editor")
+    if st.button("Continue to Minutes →", type="primary", use_container_width=True):
+        if not edited.strip(): st.warning("Transcript cannot be empty.")
+        else:
+            st.session_state.edited_transcript_text = edited.strip()
+            st.session_state.workflow_pending_action = "analyze"
+            st.session_state.workflow_stage = "processing"; st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+def render_processing_stage() -> None:
+    action = st.session_state.get("workflow_pending_action")
+    if st.button("← Transcript", use_container_width=False):
+        st.session_state.workflow_stage = "transcript"
+        st.rerun()
+    if action == "prepare":
+        st.markdown(f'''<div class="ms-wf-body"><div class="ms-process-center ms-audio-preparing">
+          {brand_logo_html("ms-processing-brand-logo", alt="")}
+          <div class="ms-processing-spinner" role="status" aria-label="Processing audio"></div>
+          <h2>Preparing speaker review</h2><p class="ms-wf-sub">Your recording is being transcribed and organized by speaker.</p>
+          <div class="ms-process-list">
+            <div class="ms-process-item"><span class="ms-process-bullet">✓</span><div><b>Audio uploaded</b></div></div>
+            <div class="ms-process-item active"><span class="ms-process-bullet">●</span><div><b>Transcribing audio</b></div></div>
+            <div class="ms-process-item"><span class="ms-process-bullet">3</span><div><b>Detecting speakers</b></div></div>
+            <div class="ms-process-item"><span class="ms-process-bullet">4</span><div><b>Preparing speaker review</b></div></div>
+          </div>
+        </div></div>''', unsafe_allow_html=True)
+        st.session_state.workflow_pending_action = ""
+        process_upload(st.session_state.workflow_file)
+        if st.session_state.get("transcript_result") is not None:
+            st.session_state.workflow_stage = "speakers"
+            st.rerun()
+    elif action == "analyze":
+        st.markdown(f'''<div class="ms-wf-body"><div class="ms-process-center">{brand_logo_html("ms-processing-brand-logo", alt="")}<div class="ms-processing-spinner" role="status" aria-label="Generating minutes"></div><h2>Writing your minutes</h2><p class="ms-wf-sub">The reviewed transcript is being analyzed and prepared as structured minutes.</p><div class="ms-process-list">
+          <div class="ms-process-item"><span class="ms-process-bullet">✓</span><div><b>Preparing reviewed transcript</b><br><small>Applying confirmed edits and speaker names</small></div></div>
+          <div class="ms-process-item"><span class="ms-process-bullet">✓</span><div><b>Extracting meeting context</b><br><small>Reading participants and meeting information</small></div></div>
+          <div class="ms-process-item active"><span class="ms-process-bullet">•</span><div><b>Generating structured minutes</b><br><small>Building summary, decisions, and action items</small></div></div>
+          <div class="ms-process-item"><span class="ms-process-bullet">4</span><div><b>Organizing the final report</b></div></div>
+          <div class="ms-process-item"><span class="ms-process-bullet">5</span><div><b>Preparing export-ready output</b></div></div>
+          </div></div></div>''', unsafe_allow_html=True)
+        st.session_state.workflow_pending_action = ""
+        started_at = time.perf_counter()
+        edited = st.session_state.edited_transcript_text.strip(); result = st.session_state.transcript_result
+        edited_result = apply_transcript_edits(result, edited)
+        st.session_state.transcript_result = edited_result; st.session_state.transcript_text = edited
+        st.session_state.transcript_review_required = False; reset_export_state()
+        analysis = run_meeting_analysis(edited, started_at=started_at, estimate_note="Generating your meeting minutes.")
+        if analysis is not None: store_success_metrics(result=edited_result, analysis=analysis, started_at=started_at)
+        st.session_state.workflow_stage = "minutes" if analysis is not None else "transcript"; st.rerun()
+    else:
+        st.markdown('''<div class="ms-wf-body"><div class="ms-process-center">
+          <h2>Minutes prepared</h2><p class="ms-wf-sub">Processing completed successfully.</p>
+          <div class="ms-process-list">
+            <div class="ms-process-item"><span class="ms-process-bullet">✓</span><div><b>Transcript reviewed</b></div></div>
+            <div class="ms-process-item"><span class="ms-process-bullet">✓</span><div><b>Meeting minutes generated</b></div></div>
+          </div></div></div>''', unsafe_allow_html=True)
+
+
+def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisResult) -> None:
+    report_info = meeting_info_for_export()
+    title = str(report_info.get("Meeting Title") or analysis.summary.title or "Meeting Minutes")
+    source_file = str(report_info.get("Source File") or st.session_state.get("uploaded_filename", ""))
+    date_text = str(report_info.get("Date") or "Not specified")
+    duration = str(report_info.get("Duration") or "Not available")
+    participants = str(report_info.get("Participants") or report_info.get("Attendees") or "Not specified")
+    project_name = str(report_info.get("Project Name") or report_info.get("Prepared By") or "MeetScribe")
+
+    if st.button("← Processing", use_container_width=False):
+        st.session_state.workflow_stage = "processing"
+        st.rerun()
+
+    with st.container(key="minutes_document"):
+        title_col, actions_col = st.columns([0.72, 0.28], vertical_alignment="top")
+        with title_col:
+            st.markdown(
+                f'''<div class="ms-minutes-title">{html.escape(title)}</div>
+                <div class="ms-minutes-sub">Generated from {html.escape(source_file or "reviewed transcript")}</div>''',
+                unsafe_allow_html=True,
+            )
+        with actions_col:
+            regenerate_col, export_col = st.columns(2, gap="small")
+            with regenerate_col:
+                with st.container(key="minutes_regenerate"):
+                    regenerate_clicked = st.button(
+                        "Regenerate", key="continue_to_analysis", use_container_width=False)
+            with export_col:
+                if st.button("Export ↓", type="primary", use_container_width=False):
+                    st.session_state.workflow_stage = "export"
+                    st.rerun()
+
+        if regenerate_clicked:
+            regenerated = run_meeting_analysis(
+                st.session_state.get("transcript_text", ""),
+                started_at=time.perf_counter(),
+                estimate_note="Regenerating meeting minutes.",
+            )
+            if regenerated is not None:
+                st.rerun()
+
+        info_cards = (
+            ("▣", "Date", date_text),
+            ("◷", "Duration", duration),
+            ("♙", "Attendees", participants),
+            ("▤", "Project", project_name),
+        )
+        info_html = "".join(
+            '<div class="ms-minutes-info-card">'
+            f'<span class="ms-minutes-info-icon">{icon}</span>'
+            f'<div class="ms-minutes-info-label">{html.escape(label)}</div>'
+            f'<div class="ms-minutes-info-value">{html.escape(value)}</div></div>'
+            for icon, label, value in info_cards
+        )
+
+        summary_paragraphs = [analysis.summary.short_summary]
+        if analysis.summary.detailed_summary and analysis.summary.detailed_summary.strip() != analysis.summary.short_summary.strip():
+            summary_paragraphs.append(analysis.summary.detailed_summary)
+        summary_html = "".join(f'<p>{html.escape(text)}</p>' for text in summary_paragraphs if text)
+
+        discussion_cards = []
+        for index, item in enumerate(analysis.key_discussion_points, start=1):
+            topic = re.split(r"(?<=[.!?])\s+|:\s+", item.point, maxsplit=1)[0].strip()
+            if len(topic) > 76:
+                topic = topic[:73].rstrip() + "..."
+            chips = "".join(f'<span class="ms-minutes-chip">{html.escape(name)}</span>' for name in item.speakers)
+            if item.timestamp:
+                chips += f'<span class="ms-minutes-chip">{html.escape(item.timestamp)}</span>'
+            discussion_cards.append(
+                '<article class="ms-minutes-discussion">'
+                f'<div class="ms-minutes-discussion-title"><span class="ms-minutes-discussion-mark">{index:02d}</span>{html.escape(topic or f"Discussion {index}")}</div>'
+                f'<p>{html.escape(item.point)}</p><div class="ms-minutes-chips">{chips}</div></article>'
+            )
+        discussions_html = "".join(discussion_cards) or '<div class="ms-minutes-summary"><p>No discussion points were extracted.</p></div>'
+
+        decision_cards = []
+        for item in analysis.decisions:
+            meta = " · ".join(value for value in (item.owner or "Unassigned", item.timestamp or "") if value)
+            decision_cards.append(
+                '<article class="ms-minutes-decision"><span class="ms-minutes-decision-check">✓</span><div>'
+                f'<div class="ms-minutes-decision-text">{html.escape(item.decision)}</div>'
+                f'<div class="ms-minutes-meta">{html.escape(meta)}</div></div></article>'
+            )
+        decisions_html = "".join(decision_cards) or '<div class="ms-minutes-summary"><p>No decisions were extracted.</p></div>'
+
+        action_rows = []
+        for item in analysis.action_items:
+            owner = item.owner or "Unassigned"
+            initials = "".join(part[0] for part in owner.split()[:2]).upper()[:2] or "—"
+            action_rows.append(
+                '<tr>'
+                f'<td>{html.escape(item.task)}</td>'
+                f'<td><span class="ms-minutes-owner"><span class="ms-minutes-owner-avatar">{html.escape(initials)}</span>{html.escape(owner)}</span></td>'
+                f'<td class="mono">{html.escape(item.due_date or "Not specified")}</td>'
+                f'<td><span class="ms-minutes-status">{html.escape(item.status or "Open")}</span></td></tr>'
+            )
+        actions_html = (
+            '<div class="ms-minutes-table-wrap"><table class="ms-minutes-table"><thead><tr>'
+            '<th>Task</th><th>Assignee</th><th>Due</th><th>Status</th></tr></thead><tbody>'
+            + ("".join(action_rows) or '<tr><td colspan="4">No action items were extracted.</td></tr>')
+            + '</tbody></table></div>'
+        )
+
+        st.markdown(
+            f'''<div class="ms-minutes-document">
+              <div class="ms-minutes-info">{info_html}</div>
+              <section class="ms-minutes-section"><div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" style="background:#e5ecf2;color:#3d5670">☷</span><h3>Executive summary</h3></div><div class="ms-minutes-summary">{summary_html}</div></section>
+              <section class="ms-minutes-section"><div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" style="background:#eeeaf4;color:#5c5077">▧</span><h3>Discussion</h3></div>{discussions_html}</section>
+              <section class="ms-minutes-section"><div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" style="background:#e8efe5;color:#40573e">✓</span><h3>Decisions</h3></div>{decisions_html}</section>
+              <section class="ms-minutes-section"><div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" style="background:#f5e8e3;color:#7a4331">▤</span><h3>Action items</h3></div>{actions_html}</section>
+            </div>''',
+            unsafe_allow_html=True,
+        )
+        render_analysis_error()
+
+
+def render_export_stage(analysis: MeetingAnalysisResult) -> None:
+    if st.button("← Minutes", use_container_width=False):
+        st.session_state.workflow_stage = "minutes"
+        st.rerun()
+    render_export_card(analysis)
+
+
+def render_email_stage(analysis: MeetingAnalysisResult) -> None:
+    if st.button("← Export", use_container_width=False):
+        st.session_state.workflow_stage = "export"
+        st.rerun()
+    try:
+        mom_pdf_path = prepared_export_path("pdf_export_path", export_to_pdf, analysis)
+    except Exception as exc:
+        log_stage(
+            "Export",
+            "Could not prepare email attachment.",
+            error=str(exc),
+            traceback=traceback.format_exc(),
+        )
+        st.error("The email attachment could not be prepared. Please try again.")
+        return
+    render_email_form(analysis=analysis, mom_pdf_path=mom_pdf_path)
+
+
+def render_workflow_shell() -> None:
+    inject_workflow_shell_styles()
+    stage = workflow_stage()
+    with st.container(key="workflow_shell"):
+        render_workflow_header(stage)
+        with st.container(key="workflow_stage_content"):
+            if stage == "upload": render_upload_stage()
+            elif stage == "uploaded": render_uploaded_stage()
+            elif stage == "speakers": render_speaker_stage(st.session_state.transcript_result)
+            elif stage == "transcript": render_transcript_stage(st.session_state.transcript_result)
+            elif stage == "processing": render_processing_stage()
+            elif stage == "minutes": render_minutes_stage(st.session_state.transcript_result, st.session_state.analysis_result)
+            elif stage == "export": render_export_stage(st.session_state.analysis_result)
+            elif stage == "email": render_email_stage(st.session_state.analysis_result)
+            if (st.session_state.get("workflow_pending_action") == "prepare"
+                    and st.session_state.workflow_source == "transcript"):
+                st.session_state.workflow_pending_action = ""
+                with st.container(key="transcript_prepare_output"):
+                    process_transcript_upload(st.session_state.workflow_file)
+                if st.session_state.get("transcript_result") is not None:
+                    st.session_state.workflow_stage = "speakers"
+                    st.rerun()
+        components.html(
+            """
+            <script>
+              requestAnimationFrame(() => setTimeout(() => {
+                const shell = window.parent.document.querySelector('.st-key-workflow_shell');
+                if (shell) shell.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }, 40));
+            </script>
+            """,
+            height=0,
+        )
+
+
 def main() -> None:
-    st.set_page_config(page_title="MeetScribe", layout="wide")
+    st.set_page_config(page_title="MeetScribe", page_icon=str(BRAND_LOGO_PATH), layout="wide")
     initialize_session_state()
     inject_processing_styles()
     inject_premium_redesign_styles()
 
+    if st.session_state.get("workflow_open", False):
+        render_workflow_shell()
+        return
+
+    # The public landing page remains intact. Its two CTA buttons open the
+    # workflow shell; the legacy upload/review workspace below is intentionally
+    # bypassed so none of the previous widgets remain visible.
+    render_top_navigation()
+    render_hero()
+    render_product_landing_sections()
+    render_landing_interactivity()
+    return
+
     render_top_navigation()
     render_hero()
     st.markdown("<div id='workspace'></div>", unsafe_allow_html=True)
+    render_landing_interactivity()
 
     # ── UPLOAD PANEL ──────────────────────────────────────────────
     with st.container(border=True):
@@ -6021,19 +7387,8 @@ def main() -> None:
 
             render_export_card(analysis)
 
-    st.markdown(
-        """
-        <footer class="ms-footer">
-          <span>© 2026 MeetScribe · Made with care for clearer meetings.</span>
-          <span class="ms-footer-links">
-            <a href="#documentation">Documentation</a>
-            <a href="#about">Privacy</a>
-            <span>Version 1.0</span>
-          </span>
-        </footer>
-        """,
-        unsafe_allow_html=True,
-    )
+    if not has_session_input:
+        render_landing_interactivity()
 
 
 if __name__ == "__main__":

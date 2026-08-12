@@ -22,7 +22,7 @@ def _segment(
 def test_removes_unpunctuated_adjacent_word_and_phrase_repetitions() -> None:
     assert repair_audio_text("How how do we use it?") == "How do we use it?"
     assert repair_audio_text("Is is it ready?") == "Is it ready?"
-    assert repair_audio_text("how do we how do we deploy it") == "how do we deploy it"
+    assert repair_audio_text("how do we how do we deploy it") == "How do we deploy it."
     assert repair_audio_text("It is very, very useful.") == "It is very, very useful."
 
 
@@ -31,7 +31,7 @@ def test_restores_only_repeated_interrogative_clause_boundaries() -> None:
         "How do we use the APIs, how do we integrate them, how do we deploy them?"
     )
     assert repaired == (
-        "How do we use the APIs? how do we integrate them? how do we deploy them?"
+        "How do we use the APIs? How do we integrate them? How do we deploy them?"
     )
     assert repair_audio_text("We reviewed cost, scope, and timing.") == (
         "We reviewed cost, scope, and timing."
@@ -49,6 +49,21 @@ def test_normalizes_only_configured_technical_vocabulary() -> None:
         "Use product alpha.",
         technical_vocabulary={"product alpha": "Product Alpha"},
     ) == "Use Product Alpha."
+
+
+def test_normalizes_fragmented_stt_surface_without_changing_meaning() -> None:
+    assert repair_audio_text(
+        "  um, deadline Friday tak close karni hai   and i will update client  "
+    ) == "Deadline Friday tak close karni hai and I will update client."
+    assert repair_audio_text(
+        "haan toh billing tum dekh lena... client ko update bhej dena"
+    ) == "Haan toh billing tum dekh lena... Client ko update bhej dena."
+
+
+def test_preserves_meaningful_hinglish_discourse_words() -> None:
+    repaired = repair_audio_text("haan toh kal meeting rakh lete hain")
+    assert repaired == "Haan toh kal meeting rakh lete hain."
+    assert all(word in repaired.casefold() for word in ("haan", "toh", "kal"))
 
 
 def test_preserves_timestamps_order_and_unmapped_speakers() -> None:
@@ -71,6 +86,24 @@ def test_preserves_timestamps_order_and_unmapped_speakers() -> None:
         for segment in repaired.segments
     ] == [(4.2, 6.8), (7.0, 8.5)]
     assert result.segments == [first, second]
+
+
+def test_removes_only_adjacent_same_speaker_duplicate_segments() -> None:
+    duplicate = _segment("Send the client update by Friday.", "0", 1.1, 2.0)
+    other_speaker = _segment("Send the client update by Friday.", "1", 2.1, 3.0)
+    result = TranscriptionResult(
+        transcript="Send the client update by Friday. Send the client update by Friday.",
+        segments=[
+            _segment("Send the client update by Friday.", "0", 0.0, 1.0),
+            duplicate,
+            other_speaker,
+        ],
+    )
+
+    repaired = repair_audio_transcription(result)
+
+    assert len(repaired.segments) == 2
+    assert [segment.speaker_id for segment in repaired.segments] == ["0", "1"]
 
 
 def test_uses_only_explicit_confirmed_speaker_mapping() -> None:

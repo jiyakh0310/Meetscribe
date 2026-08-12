@@ -2,8 +2,9 @@
 
 This module is intentionally audio-specific.  It does not summarize, infer
 missing words, classify sentences, or call a language model.  Repairs are
-limited to exact repetition removal, configured vocabulary substitutions, and
-conservative punctuation restoration inside existing speaker segments.
+limited to surface normalization, unambiguous filler/repetition removal,
+configured vocabulary substitutions, and conservative punctuation restoration
+inside existing speaker segments.
 """
 
 from __future__ import annotations
@@ -43,6 +44,23 @@ _QUESTION_CLAUSE_RE = re.compile(
     re.IGNORECASE,
 )
 
+_UNICODE_PUNCTUATION = str.maketrans(
+    {
+        "\u00a0": " ",
+        "\u2018": "'",
+        "\u2019": "'",
+        "\u201c": '"',
+        "\u201d": '"',
+        "\u2013": "-",
+        "\u2014": "-",
+        "\u2026": "...",
+    }
+)
+_UNAMBIGUOUS_FILLER_RE = re.compile(
+    r"(?<![\w'-])(?:u+m+|u+h+|e+r+m+|h+m+)(?![\w'-])",
+    re.IGNORECASE,
+)
+
 
 def repair_audio_transcription(
     result: TranscriptionResult,
@@ -69,6 +87,7 @@ def repair_audio_transcription(
         )
         for segment in result.segments
     ]
+    repaired_segments = _deduplicate_adjacent_segments(repaired_segments)
     repaired_transcript = repair_audio_text(
         result.transcript,
         technical_vocabulary=vocabulary,
@@ -86,6 +105,37 @@ def repair_audio_transcription(
     )
 
 
+def _deduplicate_adjacent_segments(
+    segments: list[TranscriptionSegment],
+) -> list[TranscriptionSegment]:
+    """Drop only adjacent duplicate STT segments from the same speaker.
+
+    Providers occasionally return the same finalized utterance twice at a
+    segment boundary.  Restricting this repair to adjacent, same-speaker text
+    avoids removing intentional repetition elsewhere in the meeting.
+    """
+
+    deduplicated: list[TranscriptionSegment] = []
+    for segment in segments:
+        if not deduplicated:
+            deduplicated.append(segment)
+            continue
+        previous = deduplicated[-1]
+        if (
+            str(previous.speaker_id or "").strip()
+            == str(segment.speaker_id or "").strip()
+            and _segment_text_key(previous.transcript)
+            == _segment_text_key(segment.transcript)
+        ):
+            continue
+        deduplicated.append(segment)
+    return deduplicated
+
+
+def _segment_text_key(text: str) -> str:
+    return " ".join(re.findall(r"[a-z0-9]+", text.casefold()))
+
+
 def repair_audio_text(
     text: str,
     *,
@@ -98,10 +148,57 @@ def repair_audio_text(
         if technical_vocabulary is None
         else technical_vocabulary
     )
-    repaired = _remove_adjacent_repetitions(text)
+    repaired = _normalize_surface(text)
+    repaired = _remove_adjacent_repetitions(repaired)
     repaired = _restore_repeated_question_boundaries(repaired)
     repaired = _normalize_configured_vocabulary(repaired, vocabulary)
+    repaired = _remove_unambiguous_fillers(repaired)
+    repaired = _normalize_surface(repaired)
+    repaired = _capitalize_sentence_starts(repaired)
+    repaired = _ensure_terminal_punctuation(repaired)
     return repaired
+
+
+def _normalize_surface(text: str) -> str:
+    """Normalize typography and spacing without changing spoken meaning."""
+
+    repaired = str(text).translate(_UNICODE_PUNCTUATION)
+    repaired = re.sub(r"[\t\r\f\v]+", " ", repaired)
+    repaired = re.sub(r" *\n+ *", " ", repaired)
+    repaired = re.sub(r" {2,}", " ", repaired)
+    repaired = re.sub(r"\s+([,.;:!?])", r"\1", repaired)
+    repaired = re.sub(r"([,;:!?])(?=[A-Za-z])", r"\1 ", repaired)
+    repaired = re.sub(r"([!?])\1+", r"\1", repaired)
+    repaired = re.sub(r"\.{4,}", "...", repaired)
+    return repaired.strip()
+
+
+def _remove_unambiguous_fillers(text: str) -> str:
+    """Remove only hesitation tokens with no meeting-content meaning.
+
+    Hinglish discourse words such as ``haan``, ``toh``, ``matlab``, ``kal``
+    and ``tak`` are intentionally retained because they can carry intent.
+    """
+
+    repaired = _UNAMBIGUOUS_FILLER_RE.sub("", text)
+    repaired = re.sub(r"(^|[.!?])\s*[,;:]\s*", r"\1 ", repaired)
+    repaired = re.sub(r",\s*(?=[.!?]|$)", "", repaired)
+    return repaired
+
+
+def _capitalize_sentence_starts(text: str) -> str:
+    repaired = re.sub(r"\bi\b", "I", text)
+    return re.sub(
+        r"(^|[.!?]\s+)([a-z])",
+        lambda match: match.group(1) + match.group(2).upper(),
+        repaired,
+    )
+
+
+def _ensure_terminal_punctuation(text: str) -> str:
+    if not text or re.search(r"[.!?](?:['\"\)\]]*)$", text):
+        return text
+    return f"{text}."
 
 
 def _repair_segment(

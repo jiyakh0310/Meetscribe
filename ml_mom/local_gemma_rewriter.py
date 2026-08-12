@@ -48,6 +48,27 @@ natural wording
 
 Return only the improved Minutes of Meeting."""
 
+AUDIO_QUALITY_INSTRUCTIONS = """
+
+Additional rules for minutes derived from audio speech-to-text:
+
+The source may contain Hinglish (mixed Hindi and English), transcription
+fillers, or repeated phrases. Express only the supplied meaning as fluent,
+professional business English. Translate by business intent, never word for
+word. Ignore filler language and repetition without removing real outcomes.
+Preserve commitments, ownership, deadlines, uncertainty, and negation exactly.
+
+Executive Summary must be concise, outcome-focused, and contain no repeated or
+near-duplicate sentence or paragraph.
+
+For each existing Discussion bullet, replace only its topic prefix before the
+colon when necessary. Use a grounded 3-6 word professional topic that represents
+the overall meaning of that bullet, not the first words of a transcript phrase.
+Keep the same number and order of Discussion bullets. Do not create topics,
+facts, decisions, or actions that are not supported by the supplied minutes.
+Section headings such as Executive Summary and Discussion remain unchanged.
+"""
+
 
 @dataclass(frozen=True, slots=True)
 class GemmaRewriteResult:
@@ -75,7 +96,12 @@ class LocalGemmaRewriter:
         self.preferred_model = preferred_model
         self.timeout_seconds = timeout_seconds
 
-    def rewrite(self, deterministic_mom: ExperimentalMom) -> GemmaRewriteResult:
+    def rewrite(
+        self,
+        deterministic_mom: ExperimentalMom,
+        *,
+        audio_quality_mode: bool = False,
+    ) -> GemmaRewriteResult:
         """Return a refined copy or the original object on every failure."""
 
         if not self.enabled:
@@ -86,6 +112,9 @@ class LocalGemmaRewriter:
             if not model:
                 raise RuntimeError("No local Gemma model is installed in Ollama.")
             source = _permitted_markdown(deterministic_mom)
+            prompt = SYSTEM_PROMPT
+            if audio_quality_mode:
+                prompt += AUDIO_QUALITY_INSTRUCTIONS
             response = self._post_json(
                 "/api/chat",
                 {
@@ -93,13 +122,22 @@ class LocalGemmaRewriter:
                     "stream": False,
                     "options": {"temperature": 0},
                     "messages": [
-                        {"role": "system", "content": SYSTEM_PROMPT},
+                        {"role": "system", "content": prompt},
                         {"role": "user", "content": source},
                     ],
                 },
             )
             content = str(response.get("message", {}).get("content", "")).strip()
-            refined = _apply_safe_rewrite(deterministic_mom, content)
+            refined = _apply_safe_rewrite(
+                deterministic_mom,
+                content,
+                allow_discussion_topic_rewrite=audio_quality_mode,
+            )
+            if audio_quality_mode:
+                refined = replace(
+                    refined,
+                    summary=_deduplicate_summary_sentences(refined.summary),
+                )
             return GemmaRewriteResult(mom=refined, applied=True, model=model)
         except Exception as exc:
             LOGGER.warning("Local Gemma rewrite unavailable; using deterministic MoM: %s", exc)
@@ -171,7 +209,12 @@ def _permitted_markdown(mom: ExperimentalMom) -> str:
     return "\n".join(lines).strip()
 
 
-def _apply_safe_rewrite(mom: ExperimentalMom, markdown: str) -> ExperimentalMom:
+def _apply_safe_rewrite(
+    mom: ExperimentalMom,
+    markdown: str,
+    *,
+    allow_discussion_topic_rewrite: bool = False,
+) -> ExperimentalMom:
     """Accept only the two language fields and enforce structural invariants."""
 
     required = (
@@ -194,9 +237,55 @@ def _apply_safe_rewrite(mom: ExperimentalMom, markdown: str) -> ExperimentalMom:
     if not summary or len(discussion) != len(mom.discussion_points):
         raise ValueError("Gemma response changed the MoM section structure.")
 
+    if allow_discussion_topic_rewrite:
+        discussion = [
+            _validated_audio_discussion_rewrite(source, candidate)
+            for source, candidate in zip(mom.discussion_points, discussion, strict=True)
+        ]
+
     # Meeting information, decisions, action items, and every unsubmitted
     # formatter field are copied from the deterministic source of truth.
     return replace(mom, summary=summary, discussion_points=discussion)
+
+
+def _validated_audio_discussion_rewrite(source: str, candidate: str) -> str:
+    """Accept a semantic audio topic only when its structure is report-safe."""
+
+    title, separator, body = candidate.partition(":")
+    title_words = re.findall(r"[A-Za-z0-9&/-]+", title)
+    if (
+        not separator
+        or not body.strip()
+        or not 3 <= len(title_words) <= 6
+    ):
+        return source
+    return f"{title.strip()}: {body.strip()}"
+
+
+def _deduplicate_summary_sentences(summary: str) -> str:
+    """Remove exact and near-duplicate audio-summary sentences."""
+
+    sentences = [
+        sentence.strip()
+        for sentence in re.split(r"(?<=[.!?])\s+|\n+", summary)
+        if sentence.strip()
+    ]
+    unique: list[str] = []
+    token_sets: list[set[str]] = []
+    for sentence in sentences:
+        tokens = set(re.findall(r"[a-z0-9]+", sentence.casefold()))
+        if not tokens:
+            continue
+        duplicate = any(
+            tokens == existing
+            or len(tokens & existing) / max(1, min(len(tokens), len(existing))) >= 0.85
+            for existing in token_sets
+        )
+        if duplicate:
+            continue
+        unique.append(sentence)
+        token_sets.append(tokens)
+    return " ".join(unique)
 
 
 def _markdown_sections(markdown: str) -> dict[str, str]:

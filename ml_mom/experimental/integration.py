@@ -93,6 +93,7 @@ def generate_mom(
     meeting_title: str = "Minutes of Meeting",
     meeting_date: str = "",
     participants: list[str] | None = None,
+    audio_quality_mode: bool = False,
 ) -> GeneratedMomResult:
     """Generate MoM output with MiniLM, ANN inference, and Formatter V4.
 
@@ -173,7 +174,10 @@ def generate_mom(
         meeting_date=meeting_date,
         participants=participants,
     )
-    rewrite = LocalGemmaRewriter().rewrite(experimental_mom)
+    rewrite = LocalGemmaRewriter().rewrite(
+        experimental_mom,
+        audio_quality_mode=audio_quality_mode,
+    )
     output_mom = rewrite.mom
 
     return GeneratedMomResult(

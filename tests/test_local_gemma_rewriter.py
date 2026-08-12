@@ -8,6 +8,7 @@ from urllib.error import URLError
 
 from ml_mom.experimental.mom_formatter import ExperimentalActionItem, ExperimentalMom
 from ml_mom.local_gemma_rewriter import LocalGemmaRewriter, _permitted_markdown
+from ml_mom.local_gemma_rewriter import AUDIO_QUALITY_INSTRUCTIONS, SYSTEM_PROMPT
 
 
 def sample_mom() -> ExperimentalMom:
@@ -93,6 +94,39 @@ The team reviewed the release plan and associated risks.
         self.assertNotIn("pending", payload.casefold())
         self.assertNotIn("embedding", payload.casefold())
         self.assertNotIn("speaker diarization", payload.casefold())
+
+    def test_transcript_default_prompt_is_unchanged_by_audio_instructions(self) -> None:
+        self.assertNotIn("Hinglish", SYSTEM_PROMPT)
+        self.assertIn("Hinglish", AUDIO_QUALITY_INSTRUCTIONS)
+
+    def test_audio_mode_accepts_grounded_topic_shape_and_deduplicates_summary(self) -> None:
+        source = sample_mom()
+        response = """## Meeting Information
+unchanged
+## Executive Summary
+The team reviewed release readiness. The team reviewed release readiness and associated risks.
+## Discussion
+- PDF Layout Improvements: The team discussed improvements to the PDF layout.
+- Final Verification Planning: Ravi reviewed the final verification steps.
+## Decisions
+- Release remains scheduled for Friday.
+## Action Items
+| Owner | Task | Deadline |
+| --- | --- | --- |
+| Ravi | Complete final checks | 31 July 2026 |
+"""
+        rewriter = LocalGemmaRewriter(enabled=True)
+        with (
+            patch.object(rewriter, "_select_local_gemma_model", return_value="gemma3:4b"),
+            patch.object(rewriter, "_post_json", return_value={"message": {"content": response}}),
+        ):
+            result = rewriter.rewrite(source, audio_quality_mode=True)
+
+        self.assertTrue(result.applied)
+        self.assertEqual(result.mom.summary, "The team reviewed release readiness.")
+        self.assertTrue(result.mom.discussion_points[0].startswith("PDF Layout Improvements:"))
+        self.assertEqual(result.mom.decisions, source.decisions)
+        self.assertEqual(result.mom.action_items, source.action_items)
 
 
 if __name__ == "__main__":
