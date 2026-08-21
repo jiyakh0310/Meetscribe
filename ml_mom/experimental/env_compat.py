@@ -104,6 +104,12 @@ def install_datasets_stub() -> None:
     class DatasetDict(dict):
         """Placeholder for optional HuggingFace DatasetDict metadata."""
 
+    class IterableDataset:  # pylint: disable=too-few-public-methods
+        """Placeholder for optional HuggingFace iterable dataset metadata."""
+
+    class IterableDatasetDict(dict):  # pylint: disable=too-few-public-methods
+        """Placeholder for optional iterable dataset mapping metadata."""
+
     class Value:  # pylint: disable=too-few-public-methods
         """Placeholder for optional HuggingFace feature value metadata."""
 
@@ -113,6 +119,8 @@ def install_datasets_stub() -> None:
 
     datasets_module.Dataset = Dataset
     datasets_module.DatasetDict = DatasetDict
+    datasets_module.IterableDataset = IterableDataset
+    datasets_module.IterableDatasetDict = IterableDatasetDict
     datasets_module.Value = Value
     sys.modules["datasets"] = datasets_module
 

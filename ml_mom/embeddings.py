@@ -25,6 +25,7 @@ Future Implementation Notes:
 """
 
 from dataclasses import dataclass, field
+import importlib.machinery
 import sys
 import types
 from typing import Any
@@ -40,6 +41,7 @@ MODEL_UNAVAILABLE_MESSAGE = (
     "Embedding model is unavailable. Please ensure sentence-transformers is "
     "installed and the requested local model can be loaded."
 )
+_MODEL_CACHE: dict[str, Any] = {}
 
 
 @dataclass(slots=True)
@@ -109,6 +111,12 @@ class EmbeddingService:
         if self._model is not None:
             return None
 
+        cached_model = _MODEL_CACHE.get(self.model_name)
+        if cached_model is not None:
+            self._model = cached_model
+            self.error_message = None
+            return None
+
         try:
             _disable_optional_torchcodec_backend()
 
@@ -127,6 +135,7 @@ class EmbeddingService:
                 # If the model has not been cached yet, fall back to the normal
                 # loader so a permitted network run can download it once.
                 self._model = SentenceTransformer(self.model_name)
+            _MODEL_CACHE[self.model_name] = self._model
             self.error_message = None
             return None
         except Exception as exc:  # pragma: no cover - depends on local model state.
@@ -277,6 +286,17 @@ def _disable_optional_torchcodec_backend() -> None:
         # in-process stub prevents a broken optional DLL from blocking training.
         torchcodec_module = types.ModuleType("torchcodec")
         decoders_module = types.ModuleType("torchcodec.decoders")
+        torchcodec_module.__spec__ = importlib.machinery.ModuleSpec(
+            name="torchcodec",
+            loader=None,
+            is_package=True,
+        )
+        torchcodec_module.__path__ = []
+        decoders_module.__spec__ = importlib.machinery.ModuleSpec(
+            name="torchcodec.decoders",
+            loader=None,
+            is_package=False,
+        )
 
         class AudioDecoder:  # pylint: disable=too-few-public-methods
             """Text-only placeholder for optional torchcodec AudioDecoder."""

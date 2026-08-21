@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MeetScribe Meeting Recorder</title>
+  <style>
+    :root{
+      color-scheme: light;
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --line:#e2d8c6;
+      --paper:#fffdfa;
+      --paper-2:#fbf8f0;
+      --panel:#f7f3ea;
+      --accent:#30343a;
+      --accent-2:#7897b7;
+      --success:#7d9c7d;
+      --danger:#c9826e;
+      --shadow:0 14px 28px rgba(50,45,35,.07);
+      --radius:22px;
+      --radius-sm:18px;
+      --font-serif:"Fraunces",serif;
+      --font-ui:"Inter",system-ui,sans-serif;
+      --font-mono:"IBM Plex Mono",monospace;
+    }
+    html,body{margin:0;padding:0;background:transparent;font-family:var(--font-ui);color:var(--ink)}
+    *{box-sizing:border-box}
+    .card{
+      border:1px solid var(--line);
+      border-radius:calc(var(--radius) + 2px);
+      background:linear-gradient(180deg,#fffefb 0%,#fffaf3 100%);
+      box-shadow:var(--shadow);
+      padding:28px 32px 24px;
+      max-width:100%;
+      min-height:520px;
+    }
+    .hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:22px}
+    .title{margin:0;font-family:var(--font-serif);font-size:25px;line-height:1.12;font-weight:500;color:var(--ink);letter-spacing:-.015em}
+    .desc{margin:8px 0 0;font-size:14px;line-height:1.55;color:var(--muted);max-width:680px}
+    .note{margin-top:10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.03em;color:#6f665a}
+    .status{display:inline-flex;align-items:center;gap:9px;margin:2px 0 0;padding:8px 13px;border:1px solid #e7dfd2;border-radius:999px;background:#f1f3ee}
+    .status-dot{width:9px;height:9px;border-radius:50%;background:#7d9c7d;box-shadow:none;flex:0 0 auto}
+    .status-dot.live{background:var(--success)}
+    .status-text{font-size:12px;font-weight:600;color:#39414d;white-space:nowrap}
+    .timer-row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .timer{font-family:var(--font-mono);font-size:38px;letter-spacing:.05em;color:var(--ink);line-height:1}
+    .max{font-family:var(--font-mono);font-size:11px;color:var(--muted);text-align:right;white-space:nowrap}
+    .panel{background:var(--paper-2);border:1px solid #e8dfcf;border-radius:var(--radius-sm);padding:18px}
+    .mic-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .mic-icon{width:56px;height:56px;border-radius:50%;background:#f0edf6;display:grid;place-items:center;color:#3b4654}
+    .mic-icon svg{width:23px;height:23px;display:block}
+    .mic-copy{font-size:12px;color:var(--muted)}
+    .wave{display:flex;align-items:flex-end;justify-content:center;gap:4px;height:38px;margin:7px 0 4px}
+    .wave span{display:block;width:4px;border-radius:999px;background:var(--accent-2);animation:pulse 1.1s ease-in-out infinite}
+    .wave span:nth-child(2n){animation-delay:.12s}
+    .wave span:nth-child(3n){animation-delay:.24s}
+    .wave span:nth-child(4n){animation-delay:.36s}
+    @keyframes pulse{0%,100%{height:12px;opacity:.55}50%{height:34px;opacity:1}}
+    .actions{display:flex;gap:10px;justify-content:flex-end;align-items:center;margin-top:20px;flex-wrap:wrap}
+    .actions button{
+      border-radius:999px;border:1px solid var(--line);height:40px;min-height:40px;padding:0 16px;
+      display:inline-flex;align-items:center;justify-content:center;text-align:center;line-height:1;white-space:nowrap;
+      font:600 13px var(--font-ui);cursor:pointer;transition:transform .16s ease,background-color .16s ease,box-shadow .16s ease;
+    }
+    .actions button:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(48,52,58,.08)}
+    .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .btn-secondary{background:#fff;color:var(--ink)}
+    .btn-danger{background:#fff;color:#a74f3b;border-color:#dcc7ba}
+    .btn-primary:disabled,.btn-secondary:disabled,.btn-danger:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+    .preview{margin-top:14px;border:1px solid #e5dcca;background:#eef2ed;border-radius:18px;padding:18px 20px}
+    .preview .mic-row{flex-direction:column;justify-content:center;gap:0;text-align:center;margin-bottom:10px}
+    .preview audio{width:100%;margin-top:12px;accent-color:#7d9c7d}
+    .playback{margin-top:12px}
+    .playback-track{height:6px;border-radius:999px;background:#e2e5e2;overflow:hidden;cursor:pointer}
+    .playback-progress{display:block;width:0;height:100%;border-radius:inherit;background:#7d9c7d;transition:width 80ms linear}
+    .playback-times{display:flex;justify-content:space-between;margin-top:6px;color:#6a7380;font:11px var(--font-mono)}
+    .preview-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:10px;font-size:12px;color:#6a7380}
+    .empty{display:grid;place-items:center;min-height:190px;border:1px dashed #d7cdbb;border-radius:18px;background:#fffdfa;color:#6f756f;text-align:center;padding:24px}
+    .small{font-family:var(--font-mono);font-size:11px}
+    .error{margin-top:10px;padding:10px 12px;border-radius:14px;background:#fff0ec;color:#973e27;font-size:12px;display:none}
+    .recording .status{background:#f0edf6;border-color:#ddd4ef}
+    .recording .status-dot{background:#a79bca;box-shadow:0 0 0 6px rgba(167,155,202,.14)}
+    .recording .mic-icon{background:#a79bca;color:#fff}
+    .recording .wave span{background:#a79bca}
+    .recording .empty{background:#faf8fc;border-style:solid;border-color:#dfd9ea}
+    .recorded .status{background:#edf3ea;border-color:#dce8d8}
+    .recorded .status-dot{background:var(--success)}
+    .recorded .empty{background:#edf2ed;border-style:solid;border-color:#d2ddd0}
+    .recorded .success-icon{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#7d9c7d;color:#fff;margin:0 auto 12px;font-size:25px;font-weight:600}
+    .recorded .recording-title{font:500 20px/1.2 var(--font-serif);color:var(--ink);margin-bottom:8px}
+    .recorded .recording-sub{font-size:13px;line-height:1.5;color:var(--muted);max-width:420px;margin:0 auto}
+    .recorded .preview-meta{justify-content:center}
+    .recording .status-dot.live{background:var(--success)}
+    @media (max-width: 680px){
+      .card{padding:22px 18px 20px}
+      .hdr{flex-direction:column}
+      .timer-row{flex-direction:column;align-items:flex-start}
+      .max{text-align:left}
+      .status{align-self:flex-start}
+      .actions{justify-content:stretch;flex-direction:column}
+      .actions button{width:100%;display:flex}
+    }
+  </style>
+</head>
+<body>
+  <div id="root" class="card">
+    <div class="hdr">
+      <div>
+        <h2 class="title">Record Meeting</h2>
+        <p class="desc">Record your meeting directly and turn it into professional minutes.</p>
+        <div class="note">Maximum recording duration: 60 minutes.</div>
+      </div>
+        <div class="status" aria-live="polite">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusText" class="status-text">Ready to record</span>
+        </div>
+    </div>
+
+    <div class="timer-row">
+      <div>
+        <div class="timer" id="timer">00:00</div>
+        <div class="small" id="timerLabel">Live recording timer</div>
+      </div>
+      <div class="max" id="maxHint">Auto-stops at 60:00</div>
+    </div>
+
+    <div id="emptyState" class="empty">
+      <div>
+          <div class="mic-row" style="justify-content:center;margin-bottom:8px">
+            <div class="mic-icon">◉</div>
+          </div>
+        <div style="font-weight:600;color:#344054;margin-bottom:4px">Start a secure browser recording</div>
+        <div class="small">Use your microphone, stop when ready, then continue the recording into MeetScribe.</div>
+      </div>
+    </div>
+
+    <div id="preview" class="preview" style="display:none">
+      <div class="mic-row">
+        <div class="mic-icon">◉</div>
+        <div>
+          <div style="font-weight:600;color:#344054">Recorded audio</div>
+          <div class="mic-copy" id="previewMeta">Ready for processing</div>
+        </div>
+      </div>
+    <audio id="player" controls></audio>
+      <div class="playback" aria-label="Audio playback progress">
+        <div id="playbackTrack" class="playback-track" role="slider" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0" tabindex="0">
+          <span id="playbackProgress" class="playback-progress"></span>
+        </div>
+        <div class="playback-times"><span id="playbackElapsed">00:00</span><span id="playbackTotal">00:00</span></div>
+      </div>
+      <div class="preview-meta">
+        <span id="durationMeta">Duration: --:--</span>
+        <span id="sizeMeta">Size: --</span>
+        <span id="formatMeta">Format: --</span>
+      </div>
+    </div>
+
+    <div id="errorBox" class="error"></div>
+
+    <div class="actions">
+      <button id="startBtn" class="btn-primary" type="button">Start Recording</button>
+      <button id="stopBtn" class="btn-primary" type="button" disabled>Stop Recording</button>
+      <button id="clearBtn" class="btn-danger" type="button">Clear recording state</button>
+      <button id="processBtn" class="btn-primary" type="button" style="display:none">Continue to Processing &#8594;</button>
+    </div>
+  </div>
+
+  <script>
+    const MAX_SECONDS = 60 * 60;
+    const root = document.getElementById("root");
+    const timerEl = document.getElementById("timer");
+    const timerLabel = document.getElementById("timerLabel");
+    const maxHint = document.getElementById("maxHint");
+    const statusDot = document.getElementById("statusDot");
+    const statusText = document.getElementById("statusText");
+    const emptyState = document.getElementById("emptyState");
+    const preview = document.getElementById("preview");
+    const player = document.getElementById("player");
+    const previewMeta = document.getElementById("previewMeta");
+    const durationMeta = document.getElementById("durationMeta");
+    const sizeMeta = document.getElementById("sizeMeta");
+    const formatMeta = document.getElementById("formatMeta");
+    const errorBox = document.getElementById("errorBox");
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const processBtn = document.getElementById("processBtn");
+    const playbackTrack = document.getElementById("playbackTrack");
+    const playbackProgress = document.getElementById("playbackProgress");
+    const playbackElapsed = document.getElementById("playbackElapsed");
+    const playbackTotal = document.getElementById("playbackTotal");
+
+    const readyMarkup = `
+      <div>
+        <div class="mic-row" style="justify-content:center;margin-bottom:12px">
+          <div class="mic-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"></path></svg>
+          </div>
+        </div>
+        <div style="font:500 20px/1.2 var(--font-serif);color:#1f2937;margin-bottom:7px">Ready when you are</div>
+        <div style="font-size:13px;line-height:1.5;color:#6b7280;max-width:430px">Use your microphone, stop when you are done, then continue into the usual review flow.</div>
+      </div>`;
+    const recordingMarkup = `
+      <div>
+        <div class="mic-row" style="justify-content:center;margin-bottom:12px">
+          <div class="mic-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"></path></svg>
+          </div>
+        </div>
+        <div style="font:500 20px/1.2 var(--font-serif);color:#1f2937;margin-bottom:8px">Listening</div>
+        <div class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div style="font-size:13px;line-height:1.5;color:#6b7280">Speak naturally &mdash; MeetScribe picks it up from here.</div>
+      </div>`;
+
+    emptyState.innerHTML = readyMarkup;
+    const previewIcon = preview.querySelector(".mic-icon");
+    if (previewIcon) {
+      previewIcon.className = "success-icon";
+      previewIcon.innerHTML = "&#10003;";
+    }
+    const previewTitle = preview.querySelector("div[style*='font-weight:600']");
+    if (previewTitle) {
+      previewTitle.className = "recording-title";
+      previewTitle.removeAttribute("style");
+      previewTitle.textContent = "Recording saved";
+    }
+    previewMeta.textContent = "Sounds right? Continue, or record again if you need another take.";
+
+    let mediaRecorder = null;
+    let mediaStream = null;
+    let chunks = [];
+    let startedAt = 0;
+    let timerId = null;
+    let autoStopId = null;
+    let currentRecording = null;
+    let currentState = null;
+    let playerSourceKey = "";
+
+    function postMessageToParent(type, payload = {}) {
+      window.parent.postMessage(
+        { isStreamlitMessage: true, type, ...payload },
+        "*"
+      );
+    }
+
+    function postReady() {
+      postMessageToParent("streamlit:componentReady", { apiVersion: 1 });
+    }
+
+    function postHeight() {
+      requestAnimationFrame(() => {
+        postMessageToParent("streamlit:setFrameHeight", {
+          height: Math.max(1, document.body.scrollHeight),
+        });
+      });
+    }
+
+    function setError(message) {
+      if (!message) {
+        errorBox.style.display = "none";
+        errorBox.textContent = "";
+        return;
+      }
+      errorBox.textContent = message;
+      errorBox.style.display = "block";
+    }
+
+    function formatSeconds(totalSeconds) {
+      const seconds = Math.max(0, Math.floor(totalSeconds || 0));
+      const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const remaining = String(seconds % 60).padStart(2, "0");
+      return `${minutes}:${remaining}`;
+    }
+
+    function humanSize(bytes) {
+      if (!bytes && bytes !== 0) return "--";
+      const units = ["B", "KB", "MB", "GB"];
+      let value = bytes;
+      let index = 0;
+      while (value >= 1024 && index < units.length - 1) {
+        value /= 1024;
+        index += 1;
+      }
+      return `${value.toFixed(index === 0 ? 0 : 1)} ${units[index]}`;
+    }
+
+    function updatePlaybackProgress() {
+      const mediaDuration = Number(player.duration);
+      const hasValidDuration = Number.isFinite(mediaDuration) && mediaDuration > 0;
+      const duration = hasValidDuration
+        ? mediaDuration
+        : Number(currentState && currentState.duration_seconds) || 0;
+      const current = hasValidDuration
+        ? Math.max(0, Math.min(Number(player.currentTime) || 0, mediaDuration))
+        : 0;
+      const ratio = hasValidDuration ? Math.min(1, current / mediaDuration) : 0;
+      playbackProgress.style.width = `${ratio * 100}%`;
+      playbackElapsed.textContent = formatSeconds(current);
+      playbackTotal.textContent = formatSeconds(duration);
+      playbackTrack.setAttribute("aria-valuemax", String(Math.round(duration)));
+      playbackTrack.setAttribute("aria-valuenow", String(Math.round(current)));
+    }
+
+    function seekPlayback(event) {
+      const duration = Number(player.duration);
+      if (!Number.isFinite(duration) || duration <= 0) return;
+      const rect = playbackTrack.getBoundingClientRect();
+      const ratio = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width));
+      player.currentTime = ratio * duration;
+      updatePlaybackProgress();
+    }
+
+    function chooseMimeType() {
+      const candidates = [
+        "audio/webm;codecs=opus",
+        "audio/webm",
+        "audio/ogg;codecs=opus",
+        "audio/ogg",
+      ];
+      return candidates.find((mime) => window.MediaRecorder && MediaRecorder.isTypeSupported(mime)) || "";
+    }
+
+    function stopTracks() {
+      if (mediaStream) {
+        mediaStream.getTracks().forEach((track) => track.stop());
+        mediaStream = null;
+      }
+    }
+
+    function resetRecorderUi() {
+      clearInterval(timerId);
+      clearTimeout(autoStopId);
+      timerId = null;
+      autoStopId = null;
+      mediaRecorder = null;
+      chunks = [];
+      startedAt = 0;
+      root.classList.remove("recording");
+      root.classList.toggle("recorded", Boolean(currentState));
+      startBtn.disabled = false;
+      startBtn.style.display = "inline-flex";
+      stopBtn.disabled = true;
+      stopBtn.style.display = "none";
+      clearBtn.style.display = currentState ? "none" : "inline-flex";
+      processBtn.style.display = currentState ? "inline-flex" : "none";
+      emptyState.style.display = currentState ? "none" : "grid";
+      if (!currentState) emptyState.innerHTML = readyMarkup;
+      preview.style.display = currentState ? "block" : "none";
+      statusDot.classList.remove("live");
+      statusText.textContent = currentState ? "Recording complete" : "Ready to record";
+      timerEl.textContent = currentState && currentState.duration_seconds != null
+        ? formatSeconds(currentState.duration_seconds)
+        : "00:00";
+      timerLabel.textContent = currentState ? "Recorded duration" : "Live recording timer";
+      maxHint.textContent = currentState ? "Within 60:00 limit" : "Auto-stops at 60:00";
+      if (currentState) {
+        const mimeType = currentState.mime_type || "audio/webm";
+        const sourceKey = `${mimeType}:${currentState.data_base64 || ""}`;
+        if (playerSourceKey !== sourceKey) {
+          const dataUrl = `data:${mimeType};base64,${currentState.data_base64}`;
+          player.pause();
+          player.src = dataUrl;
+          player.load();
+          playerSourceKey = sourceKey;
+        }
+        previewMeta.textContent = "Sounds right? Continue, or record again if you need another take.";
+        durationMeta.textContent = `Duration: ${formatSeconds(currentState.duration_seconds || 0)}`;
+        sizeMeta.textContent = `Size: ${humanSize(currentState.size_bytes || 0)}`;
+        formatMeta.textContent = `Format: ${mimeType}`;
+        updatePlaybackProgress();
+        startBtn.textContent = "Record Again";
+      } else {
+        player.pause();
+        player.removeAttribute("src");
+        player.load();
+        playerSourceKey = "";
+        previewMeta.textContent = "Start a new recording or clear the current one.";
+        durationMeta.textContent = "Duration: --:--";
+        sizeMeta.textContent = "Size: --";
+        formatMeta.textContent = "Format: --";
+        playbackProgress.style.width = "0%";
+        playbackElapsed.textContent = "00:00";
+        playbackTotal.textContent = "00:00";
+        playbackTrack.setAttribute("aria-valuemax", "0");
+        playbackTrack.setAttribute("aria-valuenow", "0");
+        startBtn.textContent = "Start Recording";
+      }
+      setError("");
+      postHeight();
+    }
+
+    function applyState(state) {
+      currentState = state && typeof state === "object" ? state : null;
+      resetRecorderUi();
+    }
+
+    function currentDuration() {
+      return startedAt ? (Date.now() - startedAt) / 1000 : 0;
+    }
+
+    function updateTimer() {
+      timerEl.textContent = formatSeconds(currentDuration());
+      timerLabel.textContent = "Live recording timer";
+      if (currentDuration() >= MAX_SECONDS) {
+        stopRecording(true);
+      }
+    }
+
+    async function startRecording() {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        setError("Your browser does not support microphone recording.");
+        return;
+      }
+      if (!window.MediaRecorder) {
+        setError("Your browser cannot create a recording in this session.");
+        return;
+      }
+      setError("");
+      try {
+        if (currentState) {
+          currentState = null;
+          stopTracks();
+          applyState(null);
+          postMessageToParent("streamlit:setComponentValue", {
+            value: { event: "clear" },
+            dataType: "json",
+          });
+          return;
+        }
+        currentState = null;
+        resetRecorderUi();
+        mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const mimeType = chooseMimeType();
+        mediaRecorder = mimeType ? new MediaRecorder(mediaStream, { mimeType }) : new MediaRecorder(mediaStream);
+        chunks = [];
+        startedAt = Date.now();
+        startBtn.disabled = true;
+        startBtn.style.display = "none";
+        stopBtn.disabled = false;
+        stopBtn.style.display = "inline-flex";
+        clearBtn.style.display = "none";
+        processBtn.style.display = "none";
+        emptyState.innerHTML = recordingMarkup;
+        emptyState.style.display = "grid";
+        preview.style.display = "none";
+        statusDot.classList.add("live");
+        statusText.textContent = "Recording";
+        root.classList.add("recording");
+        timerLabel.textContent = "Live recording timer";
+        maxHint.textContent = "Recording will stop automatically at 60:00";
+
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data && event.data.size > 0) {
+            chunks.push(event.data);
+          }
+        };
+        mediaRecorder.onerror = () => {
+          setError("The browser recorder encountered an error.");
+        };
+        mediaRecorder.onstop = finalizeRecording;
+        mediaRecorder.start(1000);
+        timerId = setInterval(updateTimer, 250);
+        autoStopId = setTimeout(() => stopRecording(true), MAX_SECONDS * 1000);
+        updateTimer();
+      } catch (error) {
+        stopTracks();
+        setError(error && error.message ? error.message : "We could not start the microphone.");
+        resetRecorderUi();
+      }
+    }
+
+    function stopRecording(isAutoStop = false) {
+      if (!mediaRecorder || mediaRecorder.state === "inactive") return;
+      clearInterval(timerId);
+      clearTimeout(autoStopId);
+      timerId = null;
+      autoStopId = null;
+      timerEl.textContent = formatSeconds(currentDuration());
+      timerLabel.textContent = "Recorded duration";
+      statusText.textContent = isAutoStop ? "Recording stopped at the maximum duration" : "Recording stopped";
+      try {
+        mediaRecorder.stop();
+      } catch (error) {
+        finalizeRecording();
+      }
+      stopTracks();
+      stopBtn.disabled = true;
+    }
+
+    function finalizeRecording() {
+      const elapsedSeconds = Math.max(1, Math.round(currentDuration()));
+      const blob = new Blob(chunks, { type: (mediaRecorder && mediaRecorder.mimeType) || "audio/webm" });
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const dataUrl = String(reader.result || "");
+        const base64 = dataUrl.split(",")[1] || "";
+        currentState = {
+          name: `meeting-recording-${new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-")}.webm`,
+          mime_type: blob.type || "audio/webm",
+          duration_seconds: elapsedSeconds,
+          size_bytes: blob.size,
+          data_base64: base64,
+        };
+        applyState(currentState);
+        postMessageToParent("streamlit:setComponentValue", {
+          value: { event: "recorded", recording: currentState },
+          dataType: "json",
+        });
+      };
+      reader.readAsDataURL(blob);
+    }
+
+    function clearRecording() {
+      currentState = null;
+      stopTracks();
+      applyState(null);
+      postMessageToParent("streamlit:setComponentValue", {
+        value: { event: "clear" },
+        dataType: "json",
+      });
+    }
+
+    function continueRecording() {
+      if (!currentState) return;
+      postMessageToParent("streamlit:setComponentValue", {
+        value: { event: "process" },
+        dataType: "json",
+      });
+    }
+
+    startBtn.addEventListener("click", startRecording);
+    stopBtn.addEventListener("click", () => stopRecording(false));
+    clearBtn.addEventListener("click", clearRecording);
+    processBtn.addEventListener("click", continueRecording);
+    ["loadedmetadata", "durationchange", "timeupdate", "seeking", "seeked", "play", "pause", "ended"].forEach((eventName) => {
+      player.addEventListener(eventName, updatePlaybackProgress);
+    });
+    player.addEventListener("play", () => {
+      const duration = Number(player.duration);
+      if (Number.isFinite(duration) && duration > 0 && player.currentTime >= duration) {
+        player.currentTime = 0;
+      }
+      updatePlaybackProgress();
+    });
+    playbackTrack.addEventListener("click", seekPlayback);
+    playbackTrack.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      const duration = Number(player.duration);
+      if (!Number.isFinite(duration) || duration <= 0) return;
+      player.currentTime = Math.max(0, Math.min(duration, (player.currentTime || 0) + (event.key === "ArrowRight" ? 5 : -5)));
+      updatePlaybackProgress();
+    });
+
+    window.addEventListener("message", (event) => {
+      const data = event.data || {};
+      if (!data.isStreamlitMessage) return;
+      if (data.type === "streamlit:render") {
+        const args = data.args || {};
+        applyState(args.state || null);
+        postReady();
+        postHeight();
+      }
+    });
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => {
+        postReady();
+        postHeight();
+      });
+    } else {
+      postReady();
+      postHeight();
+    }
+  </script>
+</body>
+</html>

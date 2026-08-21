@@ -57,6 +57,8 @@ fillers, or repeated phrases. Express only the supplied meaning as fluent,
 professional business English. Translate by business intent, never word for
 word. Ignore filler language and repetition without removing real outcomes.
 Preserve commitments, ownership, deadlines, uncertainty, and negation exactly.
+The final Minutes of Meeting must be written entirely in professional English,
+even when the spoken conversation is Hinglish or Hindi-English mixed speech.
 
 Executive Summary must be concise, outcome-focused, and contain no repeated or
 near-duplicate sentence or paragraph.

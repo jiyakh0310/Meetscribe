@@ -25,7 +25,10 @@ imageio-ffmpeg>=0.5.1
 pyannote.audio>=3.3.0
 
 # BERT NER metadata extraction
-transformers>=4.40.0
+transformers>=4.40.0,<5.0.0
+
+# Sentence embeddings used by the existing ANN/MoM pipeline
+sentence-transformers>=3.0.1,<4.0.0
 
 # Audio I/O for diarization and preprocessing pipelines
 soundfile>=0.12.1

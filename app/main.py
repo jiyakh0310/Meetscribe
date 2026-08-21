@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import base64
+import io
 import html
 import hashlib
 import json
@@ -22,6 +23,10 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 BRAND_LOGO_PATH = Path(__file__).resolve().parent / "assets" / "meetscribe-logo.png"
+MEETING_RECORDER_COMPONENT = components.declare_component(
+    "meeting_recorder",
+    path=str(PROJECT_ROOT / "components" / "meeting_recorder" / "frontend"),
+)
 
 
 def brand_logo_html(class_name: str, *, alt: str = "MeetScribe") -> str:
@@ -165,6 +170,9 @@ def initialize_session_state() -> None:
     st.session_state.setdefault("workflow_stage", "upload")
     st.session_state.setdefault("workflow_file", None)
     st.session_state.setdefault("workflow_pending_action", "")
+    st.session_state.setdefault("recording_meeting_state", None)
+    st.session_state.setdefault("recording_meeting_version", 0)
+    st.session_state.setdefault("recording_meeting_open", False)
 
 
 def log_stage(stage: str, message: str, **details: Any) -> None:
@@ -3791,20 +3799,38 @@ def render_dashboard_context(
 
 
 def render_hero() -> None:
+    if st.session_state.get("recording_meeting_open"):
+        render_record_meeting_card()
+        return
     st.markdown(
         """
         <style>
           .ms-hero-action-anchor{height:0;margin:0}
-          .st-key-hero_actions{width:min(100%,480px)!important;margin:.2rem auto 0!important}
+          .st-key-hero_actions{width:min(100%,920px)!important;margin:.2rem auto 0!important}
           .st-key-hero_actions>div[data-testid="stHorizontalBlock"]{gap:10px!important}
-          .st-key-hero_actions .st-key-open_audio_workflow button,.st-key-hero_actions .st-key-open_transcript_workflow button{
+          .st-key-hero_actions [data-testid="stColumn"]{border:1px solid #e4ddd2!important;border-radius:22px!important;background:#fffdfa!important;padding:18px 14px 14px!important;box-shadow:0 10px 24px rgba(50,45,35,.06)!important;text-align:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;min-height:208px!important}
+          .st-key-hero_actions [data-testid="stColumn"]>div[data-testid="stVerticalBlock"]{width:100%!important;height:100%!important;display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
+          .st-key-hero_actions [data-testid="stMarkdownContainer"],.st-key-hero_actions [data-testid="stMarkdownContainer"]>*{width:100%!important;text-align:center!important}
+          .st-key-hero_actions .stButton{width:100%!important;margin-top:auto!important}
+          .ms-home-input-icon{width:44px;height:44px;border-radius:14px;background:#f1eef6;color:#30343a;display:grid;place-items:center;margin:0 auto 10px}
+          .ms-home-input-icon svg{width:21px;height:21px;display:block}
+          .ms-home-input-title{font:500 18px/1.2 Fraunces,serif;color:#1f2937;margin-bottom:5px}
+          .ms-home-input-sub{min-height:34px;color:#6b7280;font:400 12px/1.45 Inter,sans-serif;margin-bottom:12px}
+          .st-key-hero_actions .st-key-open_audio_workflow button,.st-key-hero_actions .st-key-open_transcript_workflow button,.st-key-hero_actions .st-key-open_recording_meeting button{
             width:100%!important;height:46px!important;min-height:46px!important;border-radius:999px!important;padding:0 22px!important;
-            font:600 13px/1 Inter,sans-serif!important;box-shadow:none!important;
+            display:flex!important;align-items:center!important;justify-content:center!important;line-height:1!important;
+            font:600 13px/1 Inter,sans-serif!important;box-shadow:none!important;background:#30343a!important;border:1px solid #30343a!important;color:#fff!important;
             transition:transform 160ms ease,box-shadow 160ms ease,background-color 160ms ease!important
           }
-          .st-key-open_audio_workflow button{background:#30343a!important;border-color:#30343a!important;color:#fff!important}
-          .st-key-open_transcript_workflow button{background:#fff!important;border:1px solid #d9cfbd!important;color:#30343a!important}
-          .st-key-open_audio_workflow button:hover,.st-key-open_transcript_workflow button:hover{transform:translateY(-2px)!important;
+          .st-key-hero_actions .stButton button,.st-key-hero_actions .stButton button p,.st-key-hero_actions .stButton button span,
+          .st-key-hero_actions .st-key-open_audio_workflow button *,.st-key-hero_actions .st-key-open_transcript_workflow button *,.st-key-hero_actions .st-key-open_recording_meeting button *{
+            color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important;visibility:visible!important;
+          }
+          .st-key-hero_actions .stButton button p{margin:0!important;font:600 13px/1 Inter,sans-serif!important;display:block!important;text-align:center!important}
+          .st-key-hero_actions .stButton button:hover,.st-key-hero_actions .stButton button:focus,.st-key-hero_actions .stButton button:focus-visible,
+          .st-key-hero_actions .stButton button:active,.st-key-hero_actions .stButton button:visited{
+            background:#30343a!important;background-color:#30343a!important;border-color:#30343a!important;color:#fff!important;
+            -webkit-text-fill-color:#fff!important;opacity:1!important;transform:translateY(-1px)!important;
             box-shadow:0 9px 20px rgba(48,52,58,.12)!important}
           .ms-hero:not(.ms-hero-after-actions){padding:2.25rem 0 .9rem!important}
           .ms-hero-after-actions{padding:1rem 0 1.75rem!important}
@@ -3814,7 +3840,7 @@ def render_hero() -> None:
           .ms-trust-bar{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
             gap:.8rem!important;text-align:center!important;margin:1.5rem auto 0!important;padding:1.15rem 0 0!important}
           .ms-trust-tags{justify-content:center!important;gap:1rem 1.8rem!important}
-          @media(max-width:700px){.st-key-open_audio_workflow button,.st-key-open_transcript_workflow button{width:100%!important}
+          @media(max-width:700px){.st-key-open_audio_workflow button,.st-key-open_transcript_workflow button,.st-key-open_recording_meeting button{width:100%!important}
             .ms-hero:not(.ms-hero-after-actions){padding:1.7rem 0 .8rem!important}.ms-hero-after-actions{padding:.75rem 0 1.4rem!important}
             .ms-waveform-art{height:110px}}
         </style>
@@ -3830,13 +3856,22 @@ def render_hero() -> None:
     )
     st.markdown('<div class="ms-hero-action-anchor" id="workspace"></div>', unsafe_allow_html=True)
     with st.container(key="hero_actions"):
-        audio_col, transcript_col = st.columns(2, gap="small")
+        audio_col, transcript_col, recording_col = st.columns(3, gap="small")
         with audio_col:
+            st.markdown('<div class="ms-home-input-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="16" cy="16" r="3"></circle></svg></div><div class="ms-home-input-title">Upload Audio</div><div class="ms-home-input-sub">MP3, WAV, M4A, AAC, MP4</div>', unsafe_allow_html=True)
             if st.button("Upload Audio", type="primary", use_container_width=True, key="open_audio_workflow"):
                 open_workflow("audio")
         with transcript_col:
+            st.markdown('<div class="ms-home-input-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path><path d="M14 2v6h6"></path></svg></div><div class="ms-home-input-title">Upload Transcript</div><div class="ms-home-input-sub">PDF, DOCX, TXT</div>', unsafe_allow_html=True)
             if st.button("Upload Transcript", use_container_width=True, key="open_transcript_workflow"):
                 open_workflow("transcript")
+        with recording_col:
+            st.markdown('<div class="ms-home-input-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"></path></svg></div><div class="ms-home-input-title">Record Meeting</div><div class="ms-home-input-sub">Up to 60 minutes, right in your browser</div>', unsafe_allow_html=True)
+            if st.button("Record Meeting", use_container_width=True, key="open_recording_meeting"):
+                st.session_state.recording_meeting_open = True
+                st.rerun()
+    if st.session_state.get("recording_meeting_open"):
+        render_record_meeting_card()
     st.markdown(
         """
         <div class="ms-hero ms-hero-after-actions">
@@ -6533,6 +6568,39 @@ def open_workflow(source: str) -> None:
     st.rerun()
 
 
+def _recording_payload_to_upload(recording: dict[str, Any]) -> io.BytesIO:
+    """Convert the browser recording payload into an upload-like file object."""
+
+    data = base64.b64decode(str(recording.get("data_base64", "")))
+    audio_file = io.BytesIO(data)
+    name = str(recording.get("name") or "meeting-recording.webm")
+    audio_file.name = name  # type: ignore[attr-defined]
+    audio_file.size = len(data)  # type: ignore[attr-defined]
+    audio_file.type = str(recording.get("mime_type") or "audio/webm")  # type: ignore[attr-defined]
+    audio_file.seek(0)
+    return audio_file
+
+
+def clear_recording_state(*, rerun: bool = True) -> None:
+    st.session_state.recording_meeting_state = None
+    st.session_state.recording_meeting_version += 1
+    if rerun:
+        st.rerun()
+
+
+def start_recorded_meeting_workflow(recording: dict[str, Any]) -> None:
+    """Send a browser recording into the existing audio processing pipeline."""
+
+    audio_file = _recording_payload_to_upload(recording)
+    st.session_state.workflow_open = True
+    st.session_state.workflow_source = "audio"
+    st.session_state.workflow_stage = "processing"
+    st.session_state.workflow_pending_action = "prepare"
+    st.session_state.workflow_file = audio_file
+    clear_recording_state(rerun=False)
+    st.rerun()
+
+
 def workflow_stage() -> str:
     current_stage = st.session_state.get("workflow_stage", "upload")
     pending_action = st.session_state.get("workflow_pending_action")
@@ -6568,9 +6636,20 @@ def inject_workflow_shell_styles() -> None:
           [data-testid="stHeader"], [data-testid="stToolbar"], [data-testid="stDecoration"], footer{display:none!important}
           .block-container{max-width:1140px!important;padding:1.35rem 1rem 2rem!important}
           .st-key-workflow_shell{background:var(--wf-paper);border:1px solid var(--wf-line);border-radius:var(--wf-radius);
-            box-shadow:var(--wf-shadow);overflow:hidden;min-height:0;font-family:Inter,sans-serif;scroll-margin-top:18px}
+            box-shadow:var(--wf-shadow);overflow:hidden;min-height:0;font-family:Inter,sans-serif;scroll-margin-top:18px;
+            opacity:1!important;filter:none!important;backdrop-filter:none!important;position:relative!important}
+          .st-key-workflow_shell::before,.st-key-workflow_shell::after{display:none!important;content:none!important}
+          .st-key-workflow_shell [data-testid="stStatusWidget"],.st-key-workflow_shell [data-testid="stProgress"],
+          .st-key-workflow_shell .ms-proc-wrap{display:none!important;opacity:1!important;filter:none!important}
+          .st-key-workflow_shell [data-testid="stAppViewBlockContainer"]{opacity:1!important;filter:none!important}
+          body:has(.st-key-workflow_shell) [data-testid="stAppViewBlockContainer"],
+          body:has(.st-key-workflow_shell) [data-testid="stAppViewContainer"] > .main{opacity:1!important;filter:none!important;backdrop-filter:none!important}
+          body:has(.st-key-workflow_shell) [data-testid="stStatusWidget"]{display:none!important}
+          .st-key-workflow_shell iframe{opacity:1!important;filter:none!important;backdrop-filter:none!important;background:transparent!important}
           .st-key-workflow_shell>div[data-testid="stVerticalBlock"]{gap:0!important}
           .st-key-workflow_stage_content{padding:22px 40px 20px!important}
+          .st-key-workflow_stage_content:has([class*="st-key-meeting_recorder_"]){min-height:560px!important}
+          .st-key-recording_stage_frame{min-height:560px!important;display:flex!important;align-items:flex-start!important}
           .st-key-workflow_stage_content>div[data-testid="stVerticalBlock"]{gap:.62rem!important}
           .st-key-workflow_stage_content [data-testid="stForm"]{border:0!important;border-radius:0!important;
             background:transparent!important;box-shadow:none!important;padding:0!important}
@@ -6737,7 +6816,7 @@ def inject_workflow_shell_styles() -> None:
           @media(max-width:800px){.ms-minutes-head{flex-direction:column}.ms-minutes-info{grid-template-columns:repeat(2,minmax(0,1fr))}
             div[data-testid="stHorizontalBlock"]:has(.ms-export-option){display:grid!important;grid-template-columns:1fr!important}.ms-minutes-document{padding-inline:0}}
           .st-key-workflow_shell .ms-proc-wrap{display:none!important}
-          .st-key-workflow_shell [data-testid="stProgress"]{display:none!important}
+          .st-key-workflow_shell [data-testid="stProgress"],.st-key-workflow_shell [data-testid="stStatusWidget"]{display:none!important}
           .st-key-transcript_prepare_output [data-testid="stProgress"],
           .st-key-transcript_prepare_output .ms-proc-wrap{display:none!important}
           .st-key-workflow_shell div[data-testid="stFileUploader"]{border:1px dashed var(--wf-blue)!important;border-radius:var(--wf-card-radius)!important;background:var(--wf-blue-soft)!important;padding:24px!important}
@@ -6788,6 +6867,60 @@ def inject_workflow_shell_styles() -> None:
     )
 
 
+def render_record_meeting_card() -> None:
+    st.markdown(
+        """
+        <style>
+          .ms-record-shell{max-width:920px;margin:1rem auto 0}
+          .ms-record-shell .ms-record-hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin:0 0 14px}
+          .ms-record-shell .ms-record-title{font:440 20px Fraunces,serif;color:var(--ms-text,#1f2937);margin:0}
+          .ms-record-shell .ms-record-desc{margin:.25rem 0 0;color:#5f6674;font:400 13px/1.55 Inter,sans-serif;max-width:620px}
+          .ms-record-shell .ms-record-note{margin-top:8px;color:#6c7481;font:500 11px 'IBM Plex Mono',monospace;letter-spacing:.03em}
+          .ms-record-shell .ms-record-card{border:1px solid #e4dbc8;border-radius:22px;background:#fffdfa;box-shadow:0 16px 38px rgba(50,45,35,.08);padding:18px 18px 16px}
+          .ms-record-shell .ms-record-state{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+          .ms-record-shell .ms-record-pulse{width:12px;height:12px;border-radius:50%;background:#c9826e;box-shadow:0 0 0 7px rgba(201,130,110,.14)}
+          .ms-record-shell .ms-record-state-text{font:600 12px Inter,sans-serif;color:#39414d}
+          .ms-record-shell .ms-record-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center}
+          .ms-record-shell .ms-record-preview{margin-top:14px;padding:14px;border-radius:16px;background:#fbfaf6;border:1px solid #e8dfcf}
+          .ms-record-shell .ms-record-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:10px;color:#66707d;font:400 12px/1.5 Inter,sans-serif}
+          .ms-record-shell .ms-record-actions{display:flex;gap:10px;justify-content:flex-end;align-items:center;margin-top:14px}
+          .ms-record-shell .ms-record-actions button{border-radius:999px!important;height:40px!important;min-height:40px!important;padding:0 18px!important;font:600 13px Inter,sans-serif!important}
+          .ms-record-shell .ms-record-actions .ms-record-clear button{background:#fff!important;border:1px solid #d9cfbd!important;color:#30343a!important}
+          .ms-record-shell .ms-record-actions .ms-record-process button{background:#30343a!important;border:1px solid #30343a!important;color:#fff!important}
+          .ms-record-shell .ms-record-actions .ms-record-process button:hover{background:#24282d!important;border-color:#24282d!important;color:#fff!important}
+          .ms-record-shell .ms-record-empty{display:grid;place-items:center;min-height:156px;border:1px dashed #d7cdbb;border-radius:16px;background:#f8f5ef;color:#6f756f}
+          .st-key-close_recording_meeting button{border:1px solid #cfc3b0!important;border-radius:999px!important;background:#fff!important;color:#30343a!important;font:600 12px/1 Inter,sans-serif!important;padding:0 16px!important;min-height:36px!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important}
+          .st-key-close_recording_meeting button p{margin:0!important;line-height:1!important;color:#30343a!important}
+          .st-key-close_recording_meeting button:hover{background:#f8f5ee!important;border-color:#9e927f!important}
+          @media(max-width:760px){
+            .ms-record-shell .ms-record-row{grid-template-columns:1fr}
+            .ms-record-shell .ms-record-actions{justify-content:stretch;flex-direction:column}
+            .ms-record-shell .ms-record-actions > div{width:100%}
+            .ms-record-shell .ms-record-actions button{width:100%!important}
+          }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    if st.button("Back to input options", key="close_recording_meeting"):
+        clear_recording_state(rerun=False)
+        st.session_state.recording_meeting_open = False
+        st.rerun()
+    with st.container(key="recording_stage_frame"):
+        payload = MEETING_RECORDER_COMPONENT(
+            state=st.session_state.get("recording_meeting_state"),
+            max_minutes=60,
+            key=f"meeting_recorder_{st.session_state.recording_meeting_version}",
+        )
+    if isinstance(payload, dict):
+        event = str(payload.get("event") or "")
+        if event == "recorded":
+            st.session_state.recording_meeting_state = payload.get("recording")
+            st.rerun()
+        if event == "clear":
+            clear_recording_state()
+        if event == "process" and st.session_state.get("recording_meeting_state"):
+            start_recorded_meeting_workflow(st.session_state.recording_meeting_state)
 def render_workflow_header(stage: str) -> None:
     order = ["upload", "speakers", "transcript", "processing", "minutes"]
     active = {"uploaded": 0, "export": 4, "email": 4}.get(stage, order.index(stage) if stage in order else 0)
@@ -6858,6 +6991,8 @@ def render_upload_stage() -> None:
             st.session_state.workflow_pending_action = ""
             st.session_state.workflow_stage = "upload"
             st.session_state.workflow_open = False
+            st.session_state.recording_meeting_open = False
+            st.session_state.recording_meeting_state = None
             st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -6974,15 +7109,56 @@ def render_processing_stage() -> None:
           <div class="ms-process-item"><span class="ms-process-bullet">4</span><div><b>Organizing the final report</b></div></div>
           <div class="ms-process-item"><span class="ms-process-bullet">5</span><div><b>Preparing export-ready output</b></div></div>
           </div></div></div>''', unsafe_allow_html=True)
-        st.session_state.workflow_pending_action = ""
         started_at = time.perf_counter()
-        edited = st.session_state.edited_transcript_text.strip(); result = st.session_state.transcript_result
-        edited_result = apply_transcript_edits(result, edited)
-        st.session_state.transcript_result = edited_result; st.session_state.transcript_text = edited
-        st.session_state.transcript_review_required = False; reset_export_state()
-        analysis = run_meeting_analysis(edited, started_at=started_at, estimate_note="Generating your meeting minutes.")
-        if analysis is not None: store_success_metrics(result=edited_result, analysis=analysis, started_at=started_at)
-        st.session_state.workflow_stage = "minutes" if analysis is not None else "transcript"; st.rerun()
+        result = st.session_state.get("transcript_result")
+        edited = str(st.session_state.get("edited_transcript_text") or "").strip()
+        if result is None or not edited:
+            st.session_state.analysis_error = "The reviewed transcript was not available for meeting analysis."
+            st.error(st.session_state.analysis_error)
+            return
+
+        # Keep the exact reviewed result available to the existing analysis
+        # pipeline.  If the editor text cannot be reparsed into segments, the
+        # editing helper preserves the original diarized segments; do not let a
+        # transient parsing mismatch discard the recording transcript.
+        try:
+            edited_result = apply_transcript_edits(result, edited)
+        except Exception as exc:
+            log_stage(
+                "Transcript editing",
+                "Could not reparse reviewed transcript; preserving diarized result.",
+                error=str(exc),
+                traceback=traceback.format_exc(),
+            )
+            edited_result = result
+        if not edited_result.segments and result.segments:
+            edited_result = result
+        st.session_state.transcript_result = edited_result
+        st.session_state.transcript_text = edited
+        st.session_state.transcript_review_required = False
+        reset_export_state()
+        st.session_state.workflow_pending_action = ""
+        analysis = run_meeting_analysis(
+            edited,
+            started_at=started_at,
+            estimate_note="Generating your meeting minutes.",
+        )
+        if analysis is not None:
+            store_success_metrics(result=edited_result, analysis=analysis, started_at=started_at)
+            st.session_state.workflow_stage = "minutes"
+        else:
+            # run_meeting_analysis records the real failure in analysis_error.
+            # Keep the user on Processing so the failure is visible instead of
+            # silently sending the recording back to Transcript Review.
+            st.session_state.workflow_stage = "processing"
+            return
+        st.rerun()
+    elif st.session_state.get("analysis_error"):
+        st.markdown('''<div class="ms-wf-body"><div class="ms-process-center">
+          <h2>Minutes could not be completed</h2>
+          <p class="ms-wf-sub">The existing meeting-analysis pipeline reported an error. Your reviewed transcript is still preserved.</p>
+        </div></div>''', unsafe_allow_html=True)
+        render_analysis_error()
     else:
         st.markdown('''<div class="ms-wf-body"><div class="ms-process-center">
           <h2>Minutes prepared</h2><p class="ms-wf-sub">Processing completed successfully.</p>
@@ -7183,6 +7359,8 @@ def main() -> None:
     # bypassed so none of the previous widgets remain visible.
     render_top_navigation()
     render_hero()
+    if st.session_state.get("recording_meeting_open"):
+        return
     render_product_landing_sections()
     render_landing_interactivity()
     return

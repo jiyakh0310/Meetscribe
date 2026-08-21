@@ -98,6 +98,7 @@ The team reviewed the release plan and associated risks.
     def test_transcript_default_prompt_is_unchanged_by_audio_instructions(self) -> None:
         self.assertNotIn("Hinglish", SYSTEM_PROMPT)
         self.assertIn("Hinglish", AUDIO_QUALITY_INSTRUCTIONS)
+        self.assertIn("entirely in professional English", AUDIO_QUALITY_INSTRUCTIONS)
 
     def test_audio_mode_accepts_grounded_topic_shape_and_deduplicates_summary(self) -> None:
         source = sample_mom()

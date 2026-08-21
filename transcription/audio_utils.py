@@ -13,7 +13,7 @@ import ffmpeg
 logger = logging.getLogger(__name__)
 
 SUPPORTED_EXTENSIONS: frozenset[str] = frozenset(
-    {".aac", ".m4a", ".mp3", ".mp4", ".wav"}
+    {".aac", ".m4a", ".mp3", ".mp4", ".wav", ".webm"}
 )
 CONVERT_EXTENSIONS: frozenset[str] = SUPPORTED_EXTENSIONS
 
