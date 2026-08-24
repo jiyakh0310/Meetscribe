@@ -47,6 +47,8 @@ from exports.email_sender import (
     send_report_email,
 )
 from exports.pdf_exporter import export_to_pdf
+from integrations.voxels_ser import _tone_for as voxels_tone_for
+from integrations.voxels_ser import run_voxels_emotion
 from ml_mom.experimental.integration import GeneratedMomResult, generate_mom
 from ml_mom.mom_generator import MeetingMinutes, PredictionRecord
 from ml_mom.predict_ann import PredictionResult
@@ -139,6 +141,7 @@ def initialize_session_state() -> None:
     st.session_state.setdefault("transcript_result", None)
     st.session_state.setdefault("uploaded_filename", "")
     st.session_state.setdefault("analysis_result", None)
+    st.session_state.setdefault("voxels_emotion_result", None)
     st.session_state.setdefault("analysis_error", "")
     st.session_state.setdefault("analysis_cache", {})
     st.session_state.setdefault("meeting_metadata", {})
@@ -5943,6 +5946,7 @@ def render_copy_button(transcript: str) -> None:
 def reset_report_state() -> None:
     st.session_state.processing_logs = []
     st.session_state.analysis_result = None
+    st.session_state.voxels_emotion_result = None
     st.session_state.analysis_error = ""
     st.session_state.success_metrics = None
     st.session_state.docx_export_path = ""
@@ -5986,6 +5990,237 @@ def clear_current_report() -> None:
     st.session_state.meeting_info_last_saved = {}
     reset_speaker_mapping_state()
     reset_report_state()
+
+
+def analyze_audio_emotion(prepared_path: Path) -> None:
+    """Run the optional Voxels branch without coupling it to MeetScribe MoM."""
+    if st.session_state.get("workflow_source") != "audio":
+        return
+    try:
+        emotion_result = run_voxels_emotion(prepared_path)
+        st.session_state.voxels_emotion_result = emotion_result
+        log_stage(
+            "Voxels SER",
+            "Speech-emotion analysis completed independently of the transcript pipeline.",
+            dominant=emotion_result.get("dominant_emotion"),
+            windows=emotion_result.get("windows_analyzed"),
+        )
+    except Exception as exc:
+        # Emotion insights are supplementary. Keep the diagnostic separate and
+        # allow the existing STT/speaker/MoM pipeline to continue normally.
+        st.session_state.voxels_emotion_result = {
+            "available": False,
+            "error": str(exc),
+            "note": "Emotion analysis was unavailable for this recording.",
+        }
+        logger.warning("Voxels emotion analysis failed; continuing MeetScribe pipeline: %s", exc, exc_info=True)
+        log_stage(
+            "Voxels SER",
+            "Emotion analysis was unavailable; continuing with the existing audio pipeline.",
+            error=str(exc),
+        )
+
+
+def _parse_topic_timestamp(value: str | None) -> float | None:
+    """Parse an existing report timestamp into seconds for topic anchoring."""
+    match = re.search(r"(?<!\d)(\d{1,2}(?::\d{2}){1,2})(?!\d)", str(value or ""))
+    if not match:
+        return None
+    parts = [int(part) for part in match.group(1).split(":")]
+    if len(parts) == 2:
+        return float(parts[0] * 60 + parts[1])
+    return float(parts[0] * 3600 + parts[1] * 60 + parts[2])
+
+
+def align_voxels_windows_to_transcript(
+    emotion_result: dict[str, Any] | None,
+    transcript_result: TranscriptionResult,
+) -> dict[str, Any] | None:
+    """Attach existing diarized transcript segments to overlapping SER windows."""
+    if not isinstance(emotion_result, dict):
+        return emotion_result
+    windows = emotion_result.get("windows")
+    if not isinstance(windows, list) or not windows:
+        updated = dict(emotion_result)
+        updated["alignment_available"] = False
+        updated["alignment_reason"] = "Per-window emotion results are unavailable."
+        return updated
+
+    timed_segments: list[tuple[int, TranscriptionSegment, float, float]] = []
+    for index, segment in enumerate(transcript_result.segments):
+        start = segment.start_time_seconds
+        end = segment.end_time_seconds
+        if start is None or end is None:
+            continue
+        try:
+            start_value = float(start)
+            end_value = float(end)
+        except (TypeError, ValueError):
+            continue
+        if end_value <= start_value:
+            continue
+        timed_segments.append((index, segment, start_value, end_value))
+
+    updated_windows: list[dict[str, Any]] = []
+    aligned_count = 0
+    for window in windows:
+        if not isinstance(window, dict):
+            continue
+        updated_window = dict(window)
+        try:
+            window_start = float(window["start_time"])
+            window_end = float(window["end_time"])
+        except (KeyError, TypeError, ValueError):
+            updated_window["aligned_segments"] = []
+            updated_windows.append(updated_window)
+            continue
+
+        overlaps: list[dict[str, Any]] = []
+        for index, segment, segment_start, segment_end in timed_segments:
+            overlap_start = max(window_start, segment_start)
+            overlap_end = min(window_end, segment_end)
+            if overlap_end <= overlap_start:
+                continue
+            overlaps.append(
+                {
+                    "segment_index": index,
+                    "start_time": segment_start,
+                    "end_time": segment_end,
+                    "overlap_seconds": overlap_end - overlap_start,
+                    "speaker": speaker_label(segment),
+                    "transcript": segment.transcript,
+                }
+            )
+        if overlaps:
+            aligned_count += 1
+        updated_window["aligned_segments"] = overlaps
+        updated_windows.append(updated_window)
+
+    updated = dict(emotion_result)
+    updated["windows"] = updated_windows
+    updated["alignment_available"] = bool(timed_segments and aligned_count)
+    updated["aligned_window_count"] = aligned_count
+    updated["alignment_reason"] = (
+        "Existing diarized timestamps were used."
+        if updated["alignment_available"]
+        else "Transcript segments did not contain usable start/end timestamps."
+    )
+    return updated
+
+
+def _topic_label(point: Any, index: int) -> str:
+    text = re.split(r"(?<=[.!?])\s+|:\s+", str(getattr(point, "point", "")), maxsplit=1)[0].strip()
+    if len(text) > 76:
+        text = text[:73].rstrip() + "..."
+    return text or f"Discussion {index}"
+
+
+def build_topic_emotion_insights(
+    emotion_result: dict[str, Any] | None,
+    analysis: MeetingAnalysisResult,
+) -> list[dict[str, Any]]:
+    """Aggregate aligned SER windows using existing discussion-point anchors."""
+    if not isinstance(emotion_result, dict) or not emotion_result.get("available"):
+        return []
+    if not emotion_result.get("alignment_available"):
+        return []
+    windows = [window for window in emotion_result.get("windows", []) if isinstance(window, dict)]
+    anchored_topics: list[dict[str, Any]] = []
+    for index, point in enumerate(analysis.key_discussion_points, start=1):
+        start = _parse_topic_timestamp(getattr(point, "timestamp", None))
+        if start is None:
+            continue
+        anchored_topics.append(
+            {"index": index, "start": start, "label": _topic_label(point, index), "timestamp": point.timestamp}
+        )
+    anchored_topics.sort(key=lambda topic: (topic["start"], topic["index"]))
+    if not anchored_topics:
+        return []
+
+    max_window_end = max(
+        (float(window.get("end_time", 0.0)) for window in windows if window.get("aligned_segments")),
+        default=anchored_topics[-1]["start"] + 4.0,
+    )
+    groups: dict[int, list[dict[str, Any]]] = {topic["index"]: [] for topic in anchored_topics}
+    for topic_index, topic in enumerate(anchored_topics):
+        topic["end"] = (
+            anchored_topics[topic_index + 1]["start"]
+            if topic_index + 1 < len(anchored_topics)
+            else max_window_end
+        )
+
+    for window in windows:
+        if not window.get("aligned_segments"):
+            continue
+        try:
+            window_start = float(window["start_time"])
+            window_end = float(window["end_time"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        best_topic: dict[str, Any] | None = None
+        best_overlap = 0.0
+        for topic in anchored_topics:
+            overlap = min(window_end, topic["end"]) - max(window_start, topic["start"])
+            if overlap > best_overlap:
+                best_overlap = overlap
+                best_topic = topic
+        if best_topic is not None:
+            groups[best_topic["index"]].append(window)
+
+    insights: list[dict[str, Any]] = []
+    for topic in anchored_topics:
+        contributing = groups[topic["index"]]
+        if not contributing:
+            continue
+        totals: dict[str, float] = {}
+        for window in contributing:
+            for emotion, probability in (window.get("probabilities") or {}).items():
+                try:
+                    totals[str(emotion)] = totals.get(str(emotion), 0.0) + float(probability)
+                except (TypeError, ValueError):
+                    continue
+        if not totals:
+            continue
+        probabilities = {emotion: value / len(contributing) for emotion, value in totals.items()}
+        dominant = max(probabilities, key=probabilities.get)
+        confidences = []
+        for window in contributing:
+            try:
+                confidences.append(float(window.get("confidence", 0.0)))
+            except (TypeError, ValueError):
+                continue
+        tone = voxels_tone_for(dominant)
+        if tone == "Negative":
+            pattern = "Increased negative speech-emotion signals"
+        elif tone == "Positive":
+            pattern = "Mostly positive speech-emotion pattern"
+        elif tone == "Neutral":
+            pattern = "Mostly neutral speech-emotion pattern"
+        else:
+            pattern = "Mixed / uncertain speech-emotion pattern"
+        insights.append(
+            {
+                "topic": topic["label"],
+                "timestamp": topic["timestamp"],
+                "dominant_emotion": dominant.title(),
+                "average_confidence": sum(confidences) / len(confidences) if confidences else 0.0,
+                "tone": tone,
+                "pattern": pattern,
+                "windows_analyzed": len(contributing),
+            }
+        )
+    return insights
+
+
+def attach_topic_emotion_insights(analysis: MeetingAnalysisResult | None) -> None:
+    if st.session_state.get("workflow_source") != "audio" or analysis is None:
+        return
+    payload = st.session_state.get("voxels_emotion_result")
+    if not isinstance(payload, dict):
+        return
+    updated = dict(payload)
+    updated["topic_insights"] = build_topic_emotion_insights(updated, analysis)
+    st.session_state.voxels_emotion_result = updated
 
 
 def render_speaker_review(result: TranscriptionResult) -> None:
@@ -6309,6 +6544,10 @@ def process_upload(uploaded_file: object) -> None:
             result_type=type(result).__name__,
         )
 
+        # Analyze the same normalized WAV used by MeetScribe. This branch is
+        # audio-only; transcript uploads never enter process_upload().
+        analyze_audio_emotion(prepared_path)
+
         result = validate_transcription_result(result)
         raw_audio_transcript = result.transcript
         raw_audio_segments = "\n".join(segment.transcript for segment in result.segments)
@@ -6370,6 +6609,10 @@ def process_upload(uploaded_file: object) -> None:
 
         st.session_state.transcript_result = session_result
         st.session_state.transcript_text = transcript_text
+        st.session_state.voxels_emotion_result = align_voxels_windows_to_transcript(
+            st.session_state.get("voxels_emotion_result"),
+            session_result,
+        )
         st.session_state.uploaded_filename = getattr(uploaded_file, "name", "")
         st.session_state.meeting_metadata = source_meeting_metadata(
             session_result,
@@ -6758,6 +7001,22 @@ def inject_workflow_shell_styles() -> None:
           .ms-minutes-section{margin:0 0 30px}.ms-minutes-section-head{display:flex;align-items:center;gap:9px;margin-bottom:12px}
           .ms-minutes-section-icon{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:12px;flex:0 0 auto}
           .ms-minutes-section-head h3{margin:0!important;font:440 17px Fraunces,serif!important;color:var(--wf-ink)!important}
+          .ms-emotion-card{padding:18px 20px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
+          .ms-emotion-topline{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+          .ms-emotion-kicker{color:var(--wf-muted);font:500 9px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
+          .ms-emotion-dominant{margin-top:5px;color:var(--wf-ink);font:500 20px Fraunces,serif}
+          .ms-emotion-tone{display:flex;flex-direction:column;align-items:flex-end;gap:5px;color:var(--wf-muted);font:400 10px Inter,sans-serif}
+          .ms-emotion-tone strong{padding:5px 9px;border-radius:999px;background:#eeeaf4;color:#5c5077;font:600 11px Inter,sans-serif}
+          .ms-emotion-observation{margin:14px 0;color:var(--wf-ink);font:400 12px/1.55 Inter,sans-serif}
+          .ms-emotion-distribution{padding-top:13px;border-top:1px solid var(--wf-line)}
+          .ms-emotion-row{display:grid;grid-template-columns:78px minmax(0,1fr) 38px;align-items:center;gap:10px;margin-top:9px}
+          .ms-emotion-label,.ms-emotion-value{color:var(--wf-muted);font:500 11px Inter,sans-serif}.ms-emotion-value{text-align:right;font-family:'IBM Plex Mono',monospace}
+          .ms-emotion-track{height:7px;border-radius:999px;background:#e9e0ce;overflow:hidden}.ms-emotion-fill{display:block;height:100%;border-radius:999px;background:var(--wf-lav)}
+          .ms-emotion-footnote,.ms-emotion-unavailable{margin-top:14px;color:var(--wf-muted);font:400 10px/1.5 Inter,sans-serif}
+          .ms-emotion-unavailable{padding:16px 18px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}.ms-emotion-unavailable p{margin:0}
+          .ms-topic-emotion-list{display:grid;gap:9px}.ms-topic-emotion-row{padding:15px 18px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
+          .ms-topic-emotion-title{color:var(--wf-ink);font:600 13px Inter,sans-serif}.ms-topic-emotion-pattern{margin-top:5px;color:var(--wf-muted);font:400 12px/1.5 Inter,sans-serif}
+          .ms-topic-emotion-meta{display:flex;flex-wrap:wrap;gap:7px 14px;margin-top:9px;color:var(--wf-muted);font:400 10px 'IBM Plex Mono',monospace}
           .ms-minutes-summary{padding:20px 22px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
           .ms-minutes-summary p{margin:0;color:var(--wf-ink)!important;font:400 14px/1.65 Inter,sans-serif}
           .ms-minutes-summary p+p{margin-top:10px}
@@ -6814,6 +7073,7 @@ def inject_workflow_shell_styles() -> None:
             color:#7a4331;display:grid;place-items:center;font:600 9px Inter,sans-serif}.ms-attachment-preview-name{font:500 12px Inter,sans-serif}.ms-attachment-preview-meta{font-size:10px;color:var(--wf-muted)}
           .ms-attachment-pill{display:none}.ms-email-field-label{margin:14px 0 6px;color:var(--wf-muted);font:500 11px Inter,sans-serif}
           @media(max-width:800px){.ms-minutes-head{flex-direction:column}.ms-minutes-info{grid-template-columns:repeat(2,minmax(0,1fr))}
+            .ms-emotion-topline{flex-direction:column}.ms-emotion-tone{align-items:flex-start}.ms-emotion-row{grid-template-columns:70px minmax(0,1fr) 36px}
             div[data-testid="stHorizontalBlock"]:has(.ms-export-option){display:grid!important;grid-template-columns:1fr!important}.ms-minutes-document{padding-inline:0}}
           .st-key-workflow_shell .ms-proc-wrap{display:none!important}
           .st-key-workflow_shell [data-testid="stProgress"],.st-key-workflow_shell [data-testid="stStatusWidget"]{display:none!important}
@@ -7048,6 +7308,11 @@ def render_speaker_stage(result: TranscriptionResult) -> None:
         updated = update_mapping(labels, values); store_speaker_mapping(updated)
         mapped = apply_speaker_resolution(result, updated); transcript = format_transcript(mapped, {})
         st.session_state.transcript_result = mapped; st.session_state.transcript_text = transcript
+        if st.session_state.get("workflow_source") == "audio":
+            st.session_state.voxels_emotion_result = align_voxels_windows_to_transcript(
+                st.session_state.get("voxels_emotion_result"),
+                mapped,
+            )
         st.session_state.meeting_metadata = source_meeting_metadata(
             mapped, source_file=st.session_state.get("uploaded_filename", ""))
         st.session_state.meeting_info_initialized = False; initialize_meeting_info(mapped)
@@ -7135,6 +7400,11 @@ def render_processing_stage() -> None:
             edited_result = result
         st.session_state.transcript_result = edited_result
         st.session_state.transcript_text = edited
+        if st.session_state.get("workflow_source") == "audio":
+            st.session_state.voxels_emotion_result = align_voxels_windows_to_transcript(
+                st.session_state.get("voxels_emotion_result"),
+                edited_result,
+            )
         st.session_state.transcript_review_required = False
         reset_export_state()
         st.session_state.workflow_pending_action = ""
@@ -7144,6 +7414,7 @@ def render_processing_stage() -> None:
             estimate_note="Generating your meeting minutes.",
         )
         if analysis is not None:
+            attach_topic_emotion_insights(analysis)
             store_success_metrics(result=edited_result, analysis=analysis, started_at=started_at)
             st.session_state.workflow_stage = "minutes"
         else:
@@ -7166,6 +7437,92 @@ def render_processing_stage() -> None:
             <div class="ms-process-item"><span class="ms-process-bullet">✓</span><div><b>Transcript reviewed</b></div></div>
             <div class="ms-process-item"><span class="ms-process-bullet">✓</span><div><b>Meeting minutes generated</b></div></div>
           </div></div></div>''', unsafe_allow_html=True)
+
+
+def emotion_insights_html(analysis: MeetingAnalysisResult | None = None) -> str:
+    """Build the optional audio-only Voxels section for the Minutes view."""
+    if st.session_state.get("workflow_source") != "audio":
+        return ""
+    if analysis is not None:
+        attach_topic_emotion_insights(analysis)
+    payload = st.session_state.get("voxels_emotion_result")
+    if not isinstance(payload, dict):
+        return ""
+    if not payload.get("available"):
+        return (
+            '<section class="ms-minutes-section ms-emotion-section">'
+            '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
+            'style="background:#eeeaf4;color:#5c5077">~</span><h3>Emotion &amp; Communication Insights</h3></div>'
+            '<div class="ms-emotion-unavailable"><p>Emotion insights were unavailable for this recording. '
+            'The meeting minutes were generated using the normal MeetScribe pipeline.</p></div></section>'
+        )
+
+    probabilities = payload.get("probabilities") or {}
+    rows: list[str] = []
+    for emotion, probability in sorted(
+        ((str(label), float(value)) for label, value in probabilities.items()),
+        key=lambda item: item[1],
+        reverse=True,
+    ):
+        percent = max(0.0, min(1.0, probability))
+        rows.append(
+            '<div class="ms-emotion-row">'
+            f'<span class="ms-emotion-label">{html.escape(emotion.title())}</span>'
+            '<span class="ms-emotion-track"><span class="ms-emotion-fill" '
+            f'style="width:{percent * 100:.1f}%"></span></span>'
+            f'<span class="ms-emotion-value">{percent:.0%}</span></div>'
+        )
+    dominant = html.escape(str(payload.get("dominant_emotion") or "Not available"))
+    tone = html.escape(str(payload.get("tone") or "Mixed / Uncertain"))
+    observation = html.escape(str(payload.get("observation") or ""))
+    note = html.escape(
+        str(
+            payload.get("note")
+            or "Detected speech-emotion patterns only; this is not a measure of a person's true psychological state."
+        )
+    )
+    windows = payload.get("windows_analyzed")
+    window_note = f"Based on {int(windows)} sampled speech windows." if windows else "Based on sampled speech windows."
+    topic_rows: list[str] = []
+    for topic in payload.get("topic_insights", []):
+        if not isinstance(topic, dict):
+            continue
+        topic_name = html.escape(str(topic.get("topic") or "Discussion"))
+        topic_emotion = html.escape(str(topic.get("dominant_emotion") or "Uncertain"))
+        topic_tone = html.escape(str(topic.get("tone") or "Mixed / Uncertain"))
+        topic_pattern = html.escape(str(topic.get("pattern") or "Detected speech-emotion pattern"))
+        topic_confidence = float(topic.get("average_confidence") or 0.0)
+        topic_windows = int(topic.get("windows_analyzed") or 0)
+        topic_rows.append(
+            '<article class="ms-topic-emotion-row">'
+            f'<div class="ms-topic-emotion-title">{topic_name}</div>'
+            f'<div class="ms-topic-emotion-pattern">{topic_pattern}</div>'
+            f'<div class="ms-topic-emotion-meta"><span>Dominant: {topic_emotion}</span>'
+            f'<span>Tone: {topic_tone}</span><span>Confidence: {topic_confidence:.0%}</span>'
+            f'<span>{topic_windows} window{"s" if topic_windows != 1 else ""}</span></div></article>'
+        )
+    topic_html = ""
+    if topic_rows:
+        topic_html = (
+            '<section class="ms-minutes-section ms-topic-emotion-section">'
+            '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
+            'style="background:#eeeaf4;color:#5c5077">~</span><h3>Discussion-Level Emotion Insights</h3></div>'
+            f'<div class="ms-topic-emotion-list">{"".join(topic_rows)}</div></section>'
+        )
+    return (
+        '<section class="ms-minutes-section ms-emotion-section">'
+        '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
+        'style="background:#eeeaf4;color:#5c5077">~</span><h3>Emotion &amp; Communication Insights</h3></div>'
+        '<div class="ms-emotion-card">'
+        '<div class="ms-emotion-topline">'
+        f'<div><div class="ms-emotion-kicker">Dominant detected speech emotion</div><div class="ms-emotion-dominant">{dominant}</div></div>'
+        f'<div class="ms-emotion-tone"><span>Derived meeting tone</span><strong>{tone}</strong></div>'
+        '</div>'
+        f'<div class="ms-emotion-observation">{observation}</div>'
+        f'<div class="ms-emotion-distribution"><div class="ms-emotion-kicker">Emotion probability distribution</div>{"".join(rows)}</div>'
+        f'<div class="ms-emotion-footnote">{html.escape(window_note)} {note}</div>'
+        f'</div></section>{topic_html}'
+    )
 
 
 def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisResult) -> None:
@@ -7270,6 +7627,7 @@ def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisR
             + ("".join(action_rows) or '<tr><td colspan="4">No action items were extracted.</td></tr>')
             + '</tbody></table></div>'
         )
+        emotion_html = emotion_insights_html(analysis)
 
         st.markdown(
             f'''<div class="ms-minutes-document">
@@ -7281,6 +7639,8 @@ def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisR
             </div>''',
             unsafe_allow_html=True,
         )
+        if emotion_html:
+            st.markdown(emotion_html, unsafe_allow_html=True)
         render_analysis_error()
 
 

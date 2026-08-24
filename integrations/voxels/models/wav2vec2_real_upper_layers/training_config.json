@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "epochs": 5,
+  "batch_size": 2,
+  "gradient_accumulation_steps": 2,
+  "pretrained_learning_rate": 1e-05,
+  "head_learning_rate": 0.0001,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.1,
+  "max_grad_norm": 1.0,
+  "use_class_weights": false,
+  "early_stopping_patience": 2,
+  "mixed_precision": "auto",
+  "output_dir": "models/wav2vec2_real_upper_layers",
+  "transformer_mode": "upper_layers",
+  "trainable_upper_layers": 4,
+  "source_checkpoint": null,
+  "config_path": "configs/wav2vec2_base.yaml"
+}

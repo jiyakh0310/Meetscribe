@@ -1,0 +1,8 @@
+{
+  "epoch": 5,
+  "training_loss": 1.5657912310431985,
+  "validation_loss": 1.8713165197521449,
+  "validation_accuracy": 0.3875,
+  "validation_macro_f1": 0.28608305124244593,
+  "learning_rate": 0.0
+}
