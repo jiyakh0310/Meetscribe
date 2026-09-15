@@ -92,7 +92,8 @@ from transcription.sarvam_client import (
     TranscriptionSegment,
     transcribe_audio_detailed,
 )
-from timeline import build_timeline
+from timeline import Timeline, build_timeline
+from meeting_analytics import ConversationAnalytics, SpeakerAnalytics, analyze_conversation
 
 SUPPORTED_FILE_TYPES = ("wav", "mp3", "m4a", "aac", "mp4")
 SUPPORTED_TRANSCRIPT_TYPES = ("pdf", "docx", "txt")
@@ -5835,6 +5836,23 @@ def inject_workflow_shell_styles() -> None:
           .ms-topic-emotion-list{display:grid;gap:9px}.ms-topic-emotion-row{padding:15px 18px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
           .ms-topic-emotion-title{color:var(--wf-ink);font:600 13px Inter,sans-serif}.ms-topic-emotion-pattern{margin-top:5px;color:var(--wf-muted);font:400 12px/1.5 Inter,sans-serif}
           .ms-topic-emotion-meta{display:flex;flex-wrap:wrap;gap:7px 14px;margin-top:9px;color:var(--wf-muted);font:400 10px 'IBM Plex Mono',monospace}
+          .ms-analytics-note{margin:0 0 16px;color:var(--wf-muted);font:400 12px/1.55 Inter,sans-serif}
+          .ms-analytics-card{padding:18px 20px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7;margin-bottom:16px}
+          .ms-analytics-kicker{color:var(--wf-muted);font:500 9px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+          .ms-analytics-row{display:grid;grid-template-columns:120px minmax(0,1fr) 78px;align-items:center;gap:10px;margin-top:10px}
+          .ms-analytics-label{display:flex;align-items:center;gap:7px;color:var(--wf-ink);font:500 12px Inter,sans-serif;overflow:hidden}
+          .ms-analytics-label span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+          .ms-analytics-dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+          .ms-analytics-value{color:var(--wf-muted);font:500 11px 'IBM Plex Mono',monospace;text-align:right;white-space:nowrap}
+          .ms-analytics-track{height:9px;border-radius:999px;background:#e9e0ce;overflow:hidden}
+          .ms-analytics-fill{display:block;height:100%;border-radius:999px}
+          .ms-analytics-unavailable{margin-top:6px;color:var(--wf-muted);font:400 11px/1.5 Inter,sans-serif;font-style:italic}
+          .ms-analytics-speakers{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+          .ms-analytics-speaker-card{padding:17px 19px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
+          .ms-analytics-speaker-name{display:flex;align-items:center;gap:8px;margin-bottom:12px;color:var(--wf-ink);font:600 13px Inter,sans-serif}
+          .ms-analytics-speaker-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+          .ms-analytics-speaker-metric-label{color:var(--wf-muted);font:400 9px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+          .ms-analytics-speaker-metric-value{color:var(--wf-ink);font:500 13px Inter,sans-serif}
           .ms-minutes-summary{padding:20px 22px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
           .ms-minutes-summary p{margin:0;color:var(--wf-ink)!important;font:400 14px/1.65 Inter,sans-serif}
           .ms-minutes-summary p+p{margin-top:10px}
@@ -5892,6 +5910,7 @@ def inject_workflow_shell_styles() -> None:
           .ms-attachment-pill{display:none}.ms-email-field-label{margin:14px 0 6px;color:var(--wf-muted);font:500 11px Inter,sans-serif}
           @media(max-width:800px){.ms-minutes-head{flex-direction:column}.ms-minutes-info{grid-template-columns:repeat(2,minmax(0,1fr))}
             .ms-emotion-topline{flex-direction:column}.ms-emotion-tone{align-items:flex-start}.ms-emotion-row{grid-template-columns:70px minmax(0,1fr) 36px}
+            .ms-analytics-row{grid-template-columns:88px minmax(0,1fr) 64px}.ms-analytics-speakers{grid-template-columns:1fr}
             div[data-testid="stHorizontalBlock"]:has(.ms-export-option){display:grid!important;grid-template-columns:1fr!important}.ms-minutes-document{padding-inline:0}}
           .st-key-workflow_shell .ms-proc-wrap{display:none!important}
           .st-key-workflow_shell [data-testid="stProgress"],.st-key-workflow_shell [data-testid="stStatusWidget"]{display:none!important}
@@ -6373,6 +6392,125 @@ def emotion_insights_html(analysis: MeetingAnalysisResult | None = None) -> str:
     )
 
 
+_ANALYTICS_SPEAKER_COLORS = ("var(--wf-blue)", "var(--wf-green)", "var(--wf-lav)", "var(--wf-rust)")
+
+
+def _format_duration_seconds(seconds: float) -> str:
+    """Format a non-negative duration in seconds as e.g. "4m 32s" or "45s"."""
+    total_seconds = max(0, int(round(seconds)))
+    minutes, secs = divmod(total_seconds, 60)
+    return f"{minutes}m {secs}s" if minutes else f"{secs}s"
+
+
+def meeting_analytics_html(analytics: ConversationAnalytics) -> str:
+    """Build the SELaD Phase 1 "Meeting Analytics" section for the Minutes view.
+
+    Presentation only -- every figure comes from
+    ``meeting_analytics.analyze_conversation``, which reads only the Phase 0
+    Timeline and never touches the factual MoM pipeline or Voxels. Uses
+    neutral, observational wording throughout (no "dominant"/"good"/"poor"
+    language) per the SELaD principle: measured evidence, not judgment --
+    reflection prompts built on top of this data are a later phase.
+    """
+
+    if analytics.speaker_count == 0:
+        return (
+            '<section class="ms-minutes-section ms-analytics-section">'
+            '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
+            'style="background:#e7eff6;color:#3d5670">&#9684;</span><h3>Meeting Analytics</h3></div>'
+            '<p class="ms-analytics-note">Conversation patterns derived from speaker activity and transcript timing.</p>'
+            '<div class="ms-analytics-card"><div class="ms-analytics-unavailable">'
+            'No speaker activity was available for this meeting.</div></div>'
+            '</section>'
+        )
+
+    colors_by_speaker = {
+        speaker.speaker_id: _ANALYTICS_SPEAKER_COLORS[index % len(_ANALYTICS_SPEAKER_COLORS)]
+        for index, speaker in enumerate(analytics.per_speaker)
+    }
+
+    total_duration_text = (
+        _format_duration_seconds(analytics.total_timed_speaking_duration_seconds)
+        if analytics.total_timed_speaking_duration_seconds is not None
+        else "Not available"
+    )
+    overview_cards = (
+        ("&#9673;", "Speakers identified", str(analytics.speaker_count)),
+        ("&#9201;", "Timed speaking duration", total_duration_text),
+        ("&#8644;", "Speaking turns", str(analytics.total_turns)),
+        ("?", "Questions asked", str(analytics.total_questions)),
+    )
+    overview_html = "".join(
+        '<div class="ms-minutes-info-card">'
+        f'<span class="ms-minutes-info-icon">{icon}</span>'
+        f'<div class="ms-minutes-info-label">{html.escape(label)}</div>'
+        f'<div class="ms-minutes-info-value">{html.escape(value)}</div></div>'
+        for icon, label, value in overview_cards
+    )
+
+    if analytics.timing_available and analytics.total_timed_speaking_duration_seconds:
+        participation_rows = "".join(
+            '<div class="ms-analytics-row">'
+            '<div class="ms-analytics-label">'
+            f'<span class="ms-analytics-dot" style="background:{colors_by_speaker[speaker.speaker_id]}"></span>'
+            f'<span>{html.escape(speaker.speaker_name)}</span></div>'
+            '<span class="ms-analytics-track">'
+            f'<span class="ms-analytics-fill" style="width:{(speaker.conversation_proportion or 0.0) * 100:.1f}%;'
+            f'background:{colors_by_speaker[speaker.speaker_id]}"></span></span>'
+            f'<span class="ms-analytics-value">{(speaker.conversation_proportion or 0.0):.0%}</span></div>'
+            for speaker in analytics.per_speaker
+        )
+        participation_html = (
+            '<div class="ms-analytics-card">'
+            '<div class="ms-analytics-kicker">Share of timed speaking duration</div>'
+            f'{participation_rows}</div>'
+        )
+    else:
+        participation_html = (
+            '<div class="ms-analytics-card">'
+            '<div class="ms-analytics-kicker">Share of timed speaking duration</div>'
+            '<div class="ms-analytics-unavailable">Talk-time proportion is unavailable for this meeting '
+            '(no timed segments -- typically a transcript upload without timestamps).</div></div>'
+        )
+
+    speaker_cards_html = "".join(
+        '<div class="ms-analytics-speaker-card">'
+        '<div class="ms-analytics-speaker-name">'
+        f'<span class="ms-analytics-dot" style="background:{colors_by_speaker[speaker.speaker_id]}"></span>'
+        f'{html.escape(speaker.speaker_name)}</div>'
+        '<div class="ms-analytics-speaker-metrics">'
+        '<div><div class="ms-analytics-speaker-metric-label">Speaking time</div>'
+        f'<div class="ms-analytics-speaker-metric-value">{html.escape(_format_duration_seconds(speaker.speaking_duration_seconds) if speaker.speaking_duration_seconds is not None else "Not available")}</div></div>'
+        '<div><div class="ms-analytics-speaker-metric-label">Speaking speed</div>'
+        f'<div class="ms-analytics-speaker-metric-value">{html.escape(f"{speaker.speaking_speed_wpm:.0f} WPM" if speaker.speaking_speed_wpm is not None else "Not available")}</div></div>'
+        '<div><div class="ms-analytics-speaker-metric-label">Turns</div>'
+        f'<div class="ms-analytics-speaker-metric-value">{speaker.turn_count}</div></div>'
+        '<div><div class="ms-analytics-speaker-metric-label">Questions</div>'
+        f'<div class="ms-analytics-speaker-metric-value">{speaker.question_count}</div></div>'
+        '</div></div>'
+        for speaker in analytics.per_speaker
+    )
+
+    coverage_note = ""
+    if analytics.timing_coverage_ratio is not None and 0 < analytics.timing_coverage_ratio < 1:
+        coverage_note = (
+            f'<p class="ms-analytics-note">Timing available for {analytics.timed_event_count} of '
+            f'{analytics.total_event_count} transcript segments; duration-based metrics reflect only those.</p>'
+        )
+
+    return (
+        '<section class="ms-minutes-section ms-analytics-section">'
+        '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
+        'style="background:#e7eff6;color:#3d5670">&#9684;</span><h3>Meeting Analytics</h3></div>'
+        '<p class="ms-analytics-note">Conversation patterns derived from speaker activity and transcript timing.</p>'
+        f'{coverage_note}'
+        f'<div class="ms-minutes-info">{overview_html}</div>'
+        f'{participation_html}'
+        f'<div class="ms-analytics-speakers" style="margin-top:16px">{speaker_cards_html}</div>'
+        '</section>'
+    )
+
+
 def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisResult) -> None:
     report_info = meeting_info_for_export()
     title = str(report_info.get("Meeting Title") or analysis.summary.title or "Meeting Minutes")
@@ -6476,6 +6614,9 @@ def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisR
             + '</tbody></table></div>'
         )
         emotion_html = emotion_insights_html(analysis)
+        analytics_html = meeting_analytics_html(
+            analyze_conversation(build_timeline(result, st.session_state.get("speaker_mapping")))
+        )
 
         st.markdown(
             f'''<div class="ms-minutes-document">
@@ -6487,6 +6628,7 @@ def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisR
             </div>''',
             unsafe_allow_html=True,
         )
+        st.markdown(analytics_html, unsafe_allow_html=True)
         if emotion_html:
             st.markdown(emotion_html, unsafe_allow_html=True)
         render_analysis_error()
