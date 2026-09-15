@@ -26,6 +26,13 @@ outputs/
 temp/
 uploads/
 
+# Runtime-generated MoM exports (PDF/DOCX produced by exports/pdf_exporter.py
+# and exports/docx_exporter.py on every Export click). Pre-existing tracked
+# files under exports/generated/ from prior history are left as-is; this only
+# stops new export artifacts from continuing to pollute `git status`.
+exports/generated/*.pdf
+exports/generated/*.docx
+
 # IDE files
 .vscode/
 .idea/

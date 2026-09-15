@@ -161,7 +161,7 @@
 
     <div class="actions">
       <button id="startBtn" class="btn-primary" type="button">Start Recording</button>
-      <button id="stopBtn" class="btn-primary" type="button" disabled>Stop Recording</button>
+      <button id="stopBtn" class="btn-primary" type="button" disabled style="display:none">Stop Recording</button>
       <button id="clearBtn" class="btn-danger" type="button">Clear recording state</button>
       <button id="processBtn" class="btn-primary" type="button" style="display:none">Continue to Processing &#8594;</button>
     </div>
@@ -244,6 +244,13 @@
         "*"
       );
     }
+
+    // Report a known-good initial height synchronously, immediately on script
+    // execution -- before componentReady/DOMContentLoaded/requestAnimationFrame.
+    // Matches .card's own min-height so the parent sizes the iframe correctly
+    // before the async postHeight() round-trip completes, closing the window
+    // where a click could land outside the not-yet-resized iframe element.
+    postMessageToParent("streamlit:setFrameHeight", { height: 520 });
 
     function postReady() {
       postMessageToParent("streamlit:componentReady", { apiVersion: 1 });

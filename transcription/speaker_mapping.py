@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import replace
+from ml_mom.transcript_parser import is_metadata_label
 from transcription.sarvam_client import TranscriptionResult, TranscriptionSegment
 
 
@@ -38,6 +39,14 @@ _NON_NAME_LABELS = {
     "pm",
     "summary",
     "transcript",
+}
+
+# Metadata-header phrases not covered by ml_mom.transcript_parser's single-token
+# _METADATA_LABELS set (which has "meeting" and "title" separately, not the
+# combined phrases uploaded transcripts commonly use as header labels).
+_EXTRA_METADATA_LABELS = {
+    "meeting title",
+    "project name",
 }
 
 
@@ -193,6 +202,8 @@ def is_participant_name(value: str) -> bool:
     if _GENERIC_SPEAKER_RE.match(label):
         return False
     if label.lower() in _NON_NAME_LABELS:
+        return False
+    if is_metadata_label(label) or label.lower() in _EXTRA_METADATA_LABELS:
         return False
     if not re.search(r"[A-Za-z]", label):
         return False

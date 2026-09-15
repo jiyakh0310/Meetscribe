@@ -19,8 +19,10 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+project_root_text = str(PROJECT_ROOT)
+if project_root_text in sys.path:
+    sys.path.remove(project_root_text)
+sys.path.insert(0, project_root_text)
 
 BRAND_LOGO_PATH = Path(__file__).resolve().parent / "assets" / "meetscribe-logo.png"
 MEETING_RECORDER_COMPONENT = components.declare_component(
@@ -52,7 +54,7 @@ from integrations.voxels_ser import run_voxels_emotion
 from ml_mom.experimental.integration import GeneratedMomResult, generate_mom
 from ml_mom.mom_generator import MeetingMinutes, PredictionRecord
 from ml_mom.predict_ann import PredictionResult
-from ml_mom.transcript_parser import TranscriptTurn, parse_transcript
+from ml_mom.transcript_parser import TranscriptTurn, is_metadata_label, parse_transcript
 from ml_ner.entity_extractor import EntityExtractionResult, extract_meeting_metadata
 from summarization.base_summarizer import (
     ActionItem,
@@ -254,97 +256,6 @@ def inject_processing_styles() -> None:
           [data-testid="stDecoration"] { display: none !important; }
           [data-testid="stToolbar"]    { display: none !important; }
 
-          [data-testid="stSidebar"] {
-            background: var(--surface) !important;
-            border-right: 1px solid var(--border-soft) !important;
-            box-shadow: 8px 0 24px rgba(28,25,23,0.03) !important;
-          }
-          [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
-            gap: 0.35rem !important;
-          }
-          [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
-            margin: 0 !important;
-          }
-          [data-testid="stSidebar"] > div:first-child {
-            padding-top: 1.1rem !important;
-          }
-          [data-testid="stSidebarHeader"] {
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-            min-height: 0 !important;
-            height: 0 !important;
-            overflow: hidden !important;
-          }
-          [data-testid="stSidebarUserContent"],
-          [data-testid="stSidebarContent"] {
-            padding-top: 0 !important;
-          }
-          .ms-side-shell {
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-            padding: 0 0.15rem 0.75rem;
-            margin-top: -5px;
-          }
-          .ms-side-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.55rem;
-            padding: 0.45rem 0.35rem 0.9rem;
-            border-bottom: 1px solid var(--border-soft);
-            margin-bottom: 0.25rem;
-          }
-          .ms-side-logo-mark {
-            width: 30px;
-            height: 30px;
-            border-radius: 9px;
-            background: var(--pink-soft);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--pink);
-            font-weight: 800;
-            font-size: 0.68rem;
-          }
-          .ms-side-title {
-            color: var(--warm) !important;
-            font-weight: 800;
-            font-size: 0.95rem;
-            letter-spacing: -0.02em;
-          }
-          .ms-side-brand-logo { width: 40px; height: 40px; object-fit: contain; background: transparent; border: 0; }
-          .ms-side-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-          }
-          .ms-side-item {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            min-height: 38px;
-            padding: 0.55rem 0.75rem;
-            border-radius: 10px;
-            color: var(--warm-2) !important;
-            font-size: 0.84rem;
-            font-weight: 600;
-            transition: background 160ms ease, color 160ms ease, transform 160ms ease;
-          }
-          .ms-side-item:hover {
-            background: var(--warm-5);
-            transform: translateX(2px);
-          }
-          .ms-side-item.active {
-            background: var(--pink-soft);
-            color: var(--pink-deep) !important;
-          }
-          .ms-side-icon {
-            width: 18px;
-            color: inherit;
-            text-align: center;
-            font-size: 0.64rem;
-            font-weight: 800;
-          }
           .block-container {
             max-width: 1180px !important;
             margin: 0 auto !important;
@@ -368,40 +279,6 @@ def inject_processing_styles() -> None:
             display: flex; flex-direction: column; align-items: flex-start;
           }
 
-          .ms-hero-brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            margin: 0 0 0.85rem;
-            color: var(--warm) !important;
-            font-size: 0.82rem;
-            font-weight: 800;
-            letter-spacing: -0.01em;
-          }
-          .ms-brand-recording {
-            width: 32px;
-            height: 32px;
-            border-radius: 11px;
-            background: var(--pink-soft);
-            border: 1px solid #FAD4DC;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2px;
-            box-shadow: 0 4px 16px rgba(251,113,133,0.08);
-          }
-          .ms-brand-recording span {
-            display: block;
-            width: 3px;
-            border-radius: 999px;
-            background: var(--pink);
-          }
-          .ms-brand-recording span:nth-child(1),
-          .ms-brand-recording span:nth-child(5) { height: 9px; opacity: 0.65; }
-          .ms-brand-recording span:nth-child(2),
-          .ms-brand-recording span:nth-child(4) { height: 15px; opacity: 0.82; }
-          .ms-brand-recording span:nth-child(3) { height: 20px; }
-
           .ms-hero h1 {
             font-size: clamp(1.72rem, 3.7vw, 2.55rem) !important;
             font-weight: 800 !important;
@@ -418,19 +295,6 @@ def inject_processing_styles() -> None:
             max-width: 680px; margin: 0 0 1.35rem;
           }
 
-          .ms-workflow-timeline {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 0.65rem;
-            padding: 0;
-            border: 0;
-            border-radius: 0;
-            background: transparent;
-            box-shadow: none;
-            max-width: 100%;
-          }
           .ms-workflow-step {
             display: inline-flex;
             align-items: center;
@@ -450,10 +314,6 @@ def inject_processing_styles() -> None:
             color: #FFFFFF !important;
             box-shadow: 0 8px 22px rgba(251,113,133,0.18);
           }
-          .ms-workflow-dot {
-            display: none;
-          }
-
           /* ══ PANELS ══════════════════════════════════ */
           div[data-testid="stVerticalBlockBorderWrapper"] {
             border: 1.35px solid #F8C7D2 !important;
@@ -469,92 +329,6 @@ def inject_processing_styles() -> None:
             transform: translateY(-1px);
           }
 
-          /* ══ UPLOAD PANEL ═════════════════════════════ */
-          .ms-upload-card {
-            border: 1.35px solid #F8C7D2;
-            border-radius: 20px;
-            background: var(--surface);
-            padding: 1.5rem 1.5rem 1.25rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
-            animation: fadein 0.35s ease both;
-            transition: border-color 220ms, box-shadow 220ms, transform 220ms;
-          }
-          .ms-upload-card:hover {
-            border-color: var(--pink-mid);
-            box-shadow: 0 14px 34px rgba(251,113,133,0.12);
-            transform: translateY(-1px);
-          }
-
-          .ms-dashboard-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 0.9fr 1fr;
-            gap: 1rem;
-            margin: 1rem 0 1.2rem;
-          }
-          .ms-dashboard-card {
-            border: 1.35px solid #F8C7D2;
-            border-radius: 20px;
-            background: linear-gradient(180deg,#FFFFFF 0%,#FFFBFE 100%);
-            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
-            padding: 1.05rem;
-            min-width: 0;
-            transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
-          }
-          .ms-dashboard-card:hover {
-            border-color: var(--pink-mid);
-            box-shadow: 0 14px 34px rgba(251,113,133,0.12);
-            transform: translateY(-1px);
-          }
-          .ms-dashboard-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.75rem;
-            margin-bottom: 0.8rem;
-          }
-          .ms-dashboard-title {
-            color: var(--warm) !important;
-            font-size: 0.82rem;
-            font-weight: 800;
-          }
-          .ms-dashboard-muted {
-            color: var(--warm-4) !important;
-            font-size: 0.7rem;
-            font-weight: 600;
-          }
-          .ms-activity-row {
-            display: grid;
-            grid-template-columns: 28px minmax(0,1fr) auto;
-            gap: 0.65rem;
-            align-items: center;
-            padding: 0.65rem 0;
-            border-top: 1px solid var(--border-soft);
-          }
-          .ms-activity-row:first-of-type { border-top: none; }
-          .ms-activity-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 8px;
-            background: var(--pink-soft);
-            color: var(--pink-deep) !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.76rem;
-          }
-          .ms-activity-name {
-            color: var(--warm) !important;
-            font-size: 0.78rem;
-            font-weight: 700;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-          .ms-activity-meta {
-            color: var(--warm-4) !important;
-            font-size: 0.68rem;
-          }
           .ms-badge {
             border-radius: 999px;
             padding: 0.2rem 0.5rem;
@@ -565,224 +339,6 @@ def inject_processing_styles() -> None:
           .ms-badge.ready { background: var(--green-soft); color: #047857 !important; }
           .ms-badge.queue { background: var(--amber-soft); color: #92400E !important; }
           .ms-badge.idle { background: var(--warm-5); color: var(--warm-3) !important; }
-          .ms-quick-stats {
-            display: grid;
-            grid-template-columns: repeat(4,minmax(0,1fr));
-            gap: 0.6rem;
-          }
-          .ms-quick-stat {
-            border: 1.25px solid #F8C7D2;
-            border-radius: 16px;
-            background: var(--warm-6);
-            padding: 0.65rem 0.45rem;
-            text-align: center;
-            min-height: 72px;
-            box-shadow: 0 5px 14px rgba(251,113,133,0.055);
-            transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
-          }
-          .ms-quick-stat:hover {
-            border-color: var(--pink-mid);
-            box-shadow: 0 9px 20px rgba(251,113,133,0.095);
-            transform: translateY(-1px);
-          }
-          .ms-quick-value {
-            display: block;
-            color: var(--warm) !important;
-            font-size: 0.95rem;
-            font-weight: 850;
-            letter-spacing: -0.03em;
-            line-height: 1.15;
-          }
-          .ms-quick-label {
-            display: block;
-            color: var(--warm-4) !important;
-            font-size: 0.62rem;
-            font-weight: 700;
-            margin-top: 0.28rem;
-            line-height: 1.25;
-          }
-          .ms-queue-line {
-            display: grid;
-            grid-template-columns: minmax(0,1fr) auto;
-            gap: 0.75rem;
-            align-items: center;
-            padding: 0.5rem 0;
-            border-top: 1px solid var(--border-soft);
-          }
-          .ms-queue-line:first-of-type { border-top: none; }
-          .ms-queue-title {
-            color: var(--warm) !important;
-            font-size: 0.76rem;
-            font-weight: 700;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-          .ms-queue-sub {
-            color: var(--warm-4) !important;
-            font-size: 0.66rem;
-            margin-top: 0.15rem;
-          }
-
-          .ms-premium-section {
-            border: 1.35px solid #F8C7D2;
-            border-radius: 20px;
-            background: linear-gradient(180deg,#FFFFFF 0%,#FFFBFE 100%);
-            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
-            padding: 1.05rem;
-            margin: 0.9rem 0 1rem;
-            transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
-          }
-          .ms-premium-section:hover {
-            border-color: var(--pink-mid);
-            box-shadow: 0 14px 34px rgba(251,113,133,0.12);
-            transform: translateY(-1px);
-          }
-          .ms-section-kicker {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            color: var(--pink-deep) !important;
-            font-size: 0.72rem;
-            font-weight: 850;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-            margin-bottom: 0.3rem;
-          }
-          .ms-section-heading {
-            color: var(--warm) !important;
-            font-size: 1.05rem;
-            font-weight: 850;
-            letter-spacing: -0.025em;
-            margin: 0 0 0.2rem;
-          }
-          .ms-section-subcopy {
-            color: var(--warm-3) !important;
-            font-size: 0.82rem;
-            line-height: 1.5;
-            margin: 0 0 0.72rem;
-          }
-          .ms-speaker-row {
-            display: grid;
-            grid-template-columns: 34px minmax(0,1fr);
-            gap: 0.65rem;
-            align-items: center;
-            padding: 0.48rem 0.58rem;
-            border: 1.25px solid #F8C7D2;
-            border-radius: 14px;
-            background: #FFFBFE;
-            margin-bottom: 0.38rem;
-            box-shadow: 0 5px 14px rgba(251,113,133,0.055);
-            transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
-          }
-          .ms-speaker-row:hover {
-            border-color: var(--pink-mid);
-            box-shadow: 0 9px 20px rgba(251,113,133,0.095);
-            transform: translateY(-1px);
-          }
-          .ms-speaker-avatar {
-            width: 34px;
-            height: 34px;
-            border-radius: 11px;
-            background: var(--lav-soft);
-            color: #6D28D9 !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 850;
-            font-size: 0.78rem;
-          }
-          .ms-speaker-label {
-            color: var(--warm) !important;
-            font-weight: 800;
-            font-size: 0.8rem;
-            line-height: 1.2;
-          }
-          .ms-speaker-badge-text {
-            color: var(--warm-4) !important;
-            font-size: 0.64rem;
-            margin-top: 0.08rem;
-          }
-          .ms-transcript-toolbar {
-            position: sticky;
-            top: 0;
-            z-index: 4;
-            border: 1.25px solid #F8C7D2;
-            border-radius: 16px;
-            background: rgba(255,255,255,0.96);
-            padding: 0.75rem;
-            margin-bottom: 0.8rem;
-            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
-          }
-          .ms-conversation-preview {
-            display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-            max-height: 300px;
-            overflow-y: auto;
-            padding: 0.15rem 0.1rem 0.8rem;
-            margin-bottom: 0.8rem;
-          }
-          .ms-convo-row {
-            border: 1.25px solid #F8C7D2;
-            border-radius: 16px;
-            background: #FFFFFF;
-            padding: 0.85rem 0.95rem;
-            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
-            transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
-          }
-          .ms-convo-row:hover {
-            border-color: var(--pink-mid);
-            box-shadow: 0 14px 34px rgba(251,113,133,0.12);
-            transform: translateY(-1px);
-          }
-          .ms-convo-head {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            align-items: center;
-            margin-bottom: 0.45rem;
-          }
-          .ms-convo-speaker {
-            background: var(--pink-soft);
-            color: var(--pink-deep) !important;
-            border-radius: 999px;
-            padding: 0.2rem 0.55rem;
-            font-weight: 850;
-            font-size: 0.68rem;
-          }
-          .ms-time-chip {
-            background: var(--warm-5);
-            color: var(--warm-3) !important;
-            border-radius: 999px;
-            padding: 0.2rem 0.55rem;
-            font-weight: 700;
-            font-size: 0.66rem;
-          }
-          .ms-convo-text {
-            color: var(--warm-2) !important;
-            font-size: 0.88rem;
-            line-height: 1.68;
-          }
-          .ms-output-card,
-          .ms-item-card {
-            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
-          }
-          .ms-output-card {
-            border-color: #F8C7D2;
-            background: linear-gradient(180deg,#FFFFFF 0%,#FFF7F8 100%);
-          }
-          .ms-card-label::before,
-          .ms-item-card h4::before {
-            content: "";
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            border-radius: 999px;
-            background: currentColor;
-            margin-right: 0.4rem;
-            vertical-align: 0.08rem;
-          }
           .ms-export-wrap {
             border: 1.35px solid #F8C7D2;
             border-radius: 20px;
@@ -790,73 +346,12 @@ def inject_processing_styles() -> None:
             padding: 1.05rem;
             box-shadow: 0 8px 24px rgba(251,113,133,0.075);
           }
-          .ms-email-attachments {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.55rem;
-            margin: 0.4rem 0 0.85rem;
-          }
-          .ms-attachment-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            border: 1px solid var(--pink-mid);
-            border-radius: 999px;
-            background: var(--pink-soft);
-            color: var(--pink-deep) !important;
-            font-size: 0.72rem;
-            font-weight: 800;
-            padding: 0.35rem 0.7rem;
-          }
-          .ms-empty {
-            position: relative;
-          }
-          .ms-empty::before {
-            content: "";
-            display: block;
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            background: var(--pink-soft);
-            margin: 0 auto 0.8rem;
-            box-shadow: inset 0 0 0 1px var(--pink-mid);
-          }
           .ms-skeleton-line {
             height: 10px;
             border-radius: 999px;
             background: linear-gradient(90deg,var(--warm-5),#fff,var(--warm-5));
             background-size: 220% 100%;
             animation: shimmer 1.3s ease-in-out infinite;
-          }
-
-          .ms-upload-title-row {
-            display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.25rem;
-          }
-
-          .ms-upload-icon-badge {
-            width: 28px; height: 28px; border-radius: 8px;
-            background: var(--pink-soft); border: 1px solid var(--pink-mid);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.80rem; color: var(--pink); flex-shrink: 0;
-          }
-
-          .ms-upload-title {
-            color: var(--warm) !important;
-            font-size: 1rem; font-weight: 800; letter-spacing: -0.015em;
-          }
-
-          .ms-upload-desc {
-            color: var(--warm-3) !important;
-            font-size: 0.86rem; line-height: 1.55; margin: 0 0 1.1rem;
-          }
-
-          .ms-sub-label {
-            color: var(--warm) !important;
-            font-size: 0.9rem; font-weight: 800; margin-bottom: 0.2rem;
-          }
-          .ms-sub-fmt {
-            color: var(--warm-3) !important;
-            font-size: 0.78rem; margin-bottom: 1rem; line-height: 1.45;
           }
 
           /* ══ FILE UPLOADER ZONE ═══════════════════════ */
@@ -888,23 +383,10 @@ def inject_processing_styles() -> None:
           div[data-testid="stFileUploader"] section button {
             position: static !important;
             opacity: 1 !important;
-            border: 1px solid var(--pink-mid) !important;
-            border-radius: 999px !important;
-            background: var(--pink-soft) !important;
-            color: var(--pink-deep) !important;
             font-family: Inter, sans-serif !important;
             font-size: 0.75rem !important;
             font-weight: 700 !important;
             cursor: pointer !important;
-            transition: background 150ms !important;
-          }
-          div[data-testid="stFileUploader"] section button:hover {
-            background: var(--pink-mid) !important;
-          }
-
-          div[data-testid="stFileUploader"] section svg {
-            color: var(--pink) !important;
-            opacity: 0.85 !important;
           }
 
           div[data-testid="stFileUploader"] label,
@@ -928,103 +410,6 @@ def inject_processing_styles() -> None:
           div[data-testid="stFileUploader"] section ~ div,
           div[data-testid="stFileUploader"] ul,
           div[data-testid="stFileUploader"] li { display: none !important; }
-
-          /* ══ FILE CARD ════════════════════════════════ */
-          /* Row: file card takes full width; delete button column is absolutely overlaid inside */
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card) {
-            display: flex !important;
-            align-items: center !important;
-            flex-wrap: nowrap !important;
-            gap: 0 !important;
-            margin-top: 0.75rem !important;
-            width: 100% !important;
-            position: relative !important;
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            > div[data-testid="column"] [data-testid="stElementContainer"],
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            > div[data-testid="column"] [data-testid="stVerticalBlock"] {
-            margin: 0 !important;
-            padding: 0 !important;
-            gap: 0 !important;
-          }
-          /* Delete button column: absolutely positioned, right-aligned inside the card */
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            > div[data-testid="column"]:has(button[data-testid="stBaseButton-secondary"]) {
-            position: absolute !important;
-            right: 14px !important;
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            width: 36px !important;
-            min-width: 36px !important;
-            flex: 0 0 36px !important;
-            z-index: 3 !important;
-          }
-          /* File card column: takes full width */
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            > div[data-testid="column"]:not(:has(button[data-testid="stBaseButton-secondary"])) {
-            flex: 1 1 100% !important;
-            width: 100% !important;
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            > div[data-testid="column"]:has(button[data-testid="stBaseButton-secondary"])
-            .stButton {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card)
-            > div[data-testid="column"]:has(button[data-testid="stBaseButton-secondary"])
-            .stButton > button {
-            width: 36px !important; min-width: 36px !important;
-            height: 36px !important; min-height: 36px !important;
-            flex: 0 0 36px !important; transform: none !important;
-          }
-
-          .ms-file-card {
-            display: flex; align-items: center; gap: 0.65rem;
-            border: 1px solid #FAD4DC;
-            border-radius: 12px;
-            background: #FFF1F5;
-            padding: 0 3.75rem 0 1rem;
-            width: 100%; height: 52px;
-            min-height: 52px; max-height: 52px; overflow: hidden;
-          }
-          .ms-file-icon {
-            width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0;
-            background: var(--surface); border: 1px solid var(--pink-mid);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--pink);
-          }
-          .ms-file-info { flex: 1; min-width: 0; }
-          .ms-file-name {
-            color: var(--warm) !important;
-            font-size: 0.83rem; font-weight: 600;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-          }
-          .ms-file-size { color: var(--warm-4) !important; font-size: 0.71rem; }
-
-          /* ══ OR DIVIDER ═══════════════════════════════ */
-          .ms-or-wrap {
-            min-height: 238px;
-            display: flex; align-items: center; justify-content: center;
-            position: relative;
-          }
-          .ms-or-wrap::before {
-            content: "";
-            position: absolute; top: 0.5rem; bottom: 0.5rem; width: 1px;
-            background: linear-gradient(180deg, transparent, var(--border), transparent);
-          }
-          .ms-or-divider {
-            display: flex; align-items: center; justify-content: center;
-            color: var(--warm-4) !important;
-            font-size: 0.68rem; font-weight: 700;
-            width: 32px; height: 32px; border-radius: 50%;
-            border: 1px solid var(--border);
-            background: var(--surface);
-            position: relative; z-index: 1;
-            box-shadow: var(--shadow-sm);
-          }
 
           /* ══ BUTTONS ══════════════════════════════════ */
           /* Primary – Generate Meeting Report */
@@ -1391,361 +776,6 @@ def inject_processing_styles() -> None:
             font-size: 0.86rem !important;
           }
 
-          /* ══ TABS ════════════════════════════════════ */
-          .stTabs [data-baseweb="tab-list"] {
-            gap: 0;
-            border-bottom: 1px solid var(--border-soft);
-            padding: 0; margin: 0 0 0.55rem;
-            background: transparent;
-          }
-          .stTabs [data-baseweb="tab"] {
-            border: none; border-bottom: 2px solid transparent;
-            border-radius: 0; background: transparent;
-            color: var(--warm-3) !important;
-            font-family: Inter, sans-serif;
-            font-weight: 500; font-size: 0.82rem;
-            padding: 0.70rem 1.1rem; white-space: nowrap;
-            transition: color 150ms;
-          }
-          .stTabs [data-baseweb="tab"]:hover { color: var(--warm-2) !important; }
-          .stTabs [aria-selected="true"] {
-            color: var(--pink-deep) !important; font-weight: 700 !important;
-            background: transparent !important;
-          }
-          .stTabs [data-baseweb="tab-highlight"] {
-            background: var(--pink) !important; height: 2px !important;
-          }
-          .stTabs [data-baseweb="tab-panel"] { padding: 0 !important; margin: 0 !important; }
-          .stTabs [data-baseweb="tab-panel"] [data-testid="stVerticalBlock"] {
-            gap: 0 !important; padding: 0 !important; margin: 0 !important;
-          }
-          .stTabs [data-baseweb="tab-panel"] > div,
-          .stTabs [data-baseweb="tab-panel"] > div > div,
-          .stTabs [data-baseweb="tab-panel"] [data-testid="stVerticalBlock"] > div,
-          .stTabs [data-baseweb="tab-panel"] [data-testid="stMarkdownContainer"] {
-            margin-top: 0 !important; padding-top: 0 !important;
-          }
-
-          /* per-tab accent — Summary, Discussion, Decisions, Action Items, Transcript */
-          .stTabs [data-baseweb="tab-list"] button:nth-of-type(1)[aria-selected="true"] {
-            border-bottom-color: var(--lav) !important; color: #5B21B6 !important;
-          }
-          .stTabs [data-baseweb="tab-list"] button:nth-of-type(2)[aria-selected="true"] {
-            border-bottom-color: #34D399 !important; color: #047857 !important;
-          }
-          .stTabs [data-baseweb="tab-list"] button:nth-of-type(3)[aria-selected="true"] {
-            border-bottom-color: var(--amber) !important; color: #92400E !important;
-          }
-          .stTabs [data-baseweb="tab-list"] button:nth-of-type(4)[aria-selected="true"] {
-            border-bottom-color: var(--pink) !important; color: var(--pink-deep) !important;
-          }
-          .stTabs [data-baseweb="tab-list"] button:nth-of-type(5)[aria-selected="true"] {
-            border-bottom-color: var(--warm-4) !important; color: var(--warm-2) !important;
-          }
-
-          /* ══ SCROLLABLE CONTENT ══════════════════════ */
-          .ms-tab-scroll {
-            height: 440px; overflow-y: auto; padding: 0 !important; margin-top: 0 !important;
-            scrollbar-width: thin; scrollbar-color: var(--warm-4) transparent;
-          }
-          .ms-tab-scroll::-webkit-scrollbar { width: 4px; }
-          .ms-tab-scroll::-webkit-scrollbar-track { background: transparent; }
-          .ms-tab-scroll::-webkit-scrollbar-thumb {
-            background: var(--warm-4); border-radius: 999px;
-          }
-
-          /* ══ TRANSCRIPT VIEWER ════════════════════════ */
-          .ms-transcript-scroll {
-            height: 560px; overflow-y: auto; margin-top: 0;
-            display: flex; flex-direction: column; gap: 0.7rem;
-            padding: 0 0.35rem 0.35rem 0;
-            scroll-behavior: smooth;
-            scrollbar-width: thin; scrollbar-color: var(--warm-4) transparent;
-          }
-          .ms-transcript-scroll::-webkit-scrollbar { width: 4px; }
-          .ms-transcript-scroll::-webkit-scrollbar-track { background: transparent; }
-          .ms-transcript-scroll::-webkit-scrollbar-thumb {
-            background: var(--warm-4); border-radius: 999px;
-          }
-
-          .ms-transcript-sticky-head {
-            position: sticky;
-            top: 0;
-            z-index: 3;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 0.9rem;
-            border: 1.35px solid #F8C7D2;
-            border-radius: 18px;
-            background: rgba(255, 251, 254, 0.96);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 24px rgba(251,113,133,0.09);
-          }
-          .ms-transcript-sticky-head span:first-child {
-            color: var(--warm) !important;
-            font-size: 0.82rem;
-            font-weight: 850;
-          }
-          .ms-transcript-sticky-head span:last-child {
-            color: var(--warm-4) !important;
-            font-size: 0.68rem;
-            font-weight: 750;
-          }
-
-          .ms-tr-row {
-            display: grid; grid-template-columns: 150px minmax(0, 1fr);
-            border: 1.35px solid #F8C7D2;
-            border-radius: 18px;
-            background: #FFFFFF;
-            box-shadow: 0 8px 22px rgba(251,113,133,0.07);
-            overflow: visible;
-            transition: background 180ms, border-color 180ms, box-shadow 180ms, transform 180ms;
-          }
-          .ms-tr-row:hover {
-            background: #FFF7FA;
-            border-color: var(--pink-mid);
-            box-shadow: 0 14px 30px rgba(251,113,133,0.12);
-            transform: translateY(-1px);
-          }
-
-          .ms-tr-left {
-            padding: 0.95rem 0.8rem 0.95rem 0.95rem;
-            border-right: 1px solid var(--border-soft);
-            display: grid;
-            grid-template-columns: 34px minmax(0, 1fr);
-            gap: 0.55rem;
-            align-items: start;
-            min-width: 0;
-          }
-
-          .ms-speaker-avatar {
-            width: 34px;
-            height: 34px;
-            border-radius: 12px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.76rem;
-            font-weight: 900;
-            flex: 0 0 auto;
-          }
-          .ms-speaker-avatar.s1 { background: var(--pink-soft);  color: var(--pink-deep); }
-          .ms-speaker-avatar.s2 { background: var(--green-soft); color: #065F46; }
-          .ms-speaker-avatar.s3 { background: var(--blue-soft);  color: #1E40AF; }
-          .ms-speaker-avatar.s4 { background: var(--lav-soft);   color: #5B21B6; }
-
-          .ms-speaker-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-            min-width: 0;
-          }
-          .ms-speaker-name {
-            color: var(--warm) !important;
-            font-size: 0.78rem;
-            font-weight: 850;
-            line-height: 1.25;
-            overflow-wrap: anywhere;
-          }
-
-          .ms-tr-timestamp {
-            color: var(--warm-4) !important;
-            font-size: 0.65rem; font-variant-numeric: tabular-nums; font-weight: 500;
-          }
-
-          .ms-tr-right { padding: 0.9rem 1rem; display: block; min-width: 0; }
-          .ms-tr-text {
-            color: var(--warm-2) !important; font-size: 0.88rem; line-height: 1.6;
-            display: block; white-space: pre-wrap; overflow-wrap: anywhere; word-break: normal;
-          }
-
-          @media (max-width: 720px) {
-            .ms-transcript-scroll { height: 500px; gap: 0.62rem; }
-            .ms-tr-row { grid-template-columns: 1fr; }
-            .ms-tr-left {
-              border-right: 0;
-              border-bottom: 1px solid var(--border-soft);
-              grid-template-columns: 34px minmax(0, 1fr);
-            }
-            .ms-tr-right { padding: 0.85rem 0.95rem 0.95rem; }
-          }
-
-          /* ══ CONTENT CARDS ════════════════════════════ */
-          /* Summary */
-          .ms-output-card {
-            border: 1.35px solid #DDD6FE;
-            border-radius: 18px;
-            background: #FAF7FF;
-            border-left: 4px solid var(--lav);
-            padding: 1.25rem 1.3rem;
-            margin: 0 0 1.1rem;
-            box-shadow: 0 8px 24px rgba(167,139,250,0.08);
-            transition: border-color 220ms, box-shadow 220ms, transform 220ms;
-          }
-          .ms-output-card:hover {
-            border-color: var(--lav-mid);
-            box-shadow: 0 14px 34px rgba(167,139,250,0.13);
-            transform: translateY(-1px);
-          }
-          .ms-card-label {
-            color: var(--lav) !important;
-            font-size: 0.63rem; font-weight: 700;
-            letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 0.22rem;
-          }
-          .ms-card-title {
-            color: var(--warm) !important;
-            font-size: 1.05rem; font-weight: 700; margin: 0 0 0.65rem;
-            letter-spacing: -0.015em;
-          }
-          .ms-card-body { color: var(--warm-3) !important; font-size: 0.89rem; line-height: 1.7; }
-          .ms-chip-row { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-top: 0.75rem; }
-          .ms-chip {
-            border: 1px solid var(--pink-mid); border-radius: 999px;
-            background: var(--pink-soft); color: var(--pink-deep) !important;
-            font-size: 0.73rem; font-weight: 600; padding: 0.22rem 0.60rem;
-          }
-
-          /* Discussion */
-          .ms-item-card {
-            border: 1.35px solid var(--border); border-radius: 18px;
-            background: var(--surface); padding: 1.05rem 1.1rem;
-            margin: 0 0 1.0rem;
-            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
-            transition: border-color 220ms, transform 220ms, box-shadow 220ms;
-          }
-          .ms-item-card:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(251,113,133,0.12); }
-
-          .ms-item-card.discussion {
-            border-color: #BBF7D0;
-            background: #F0FDF4;
-            border-left: 4px solid #34D399;
-          }
-          .ms-item-card.discussion h4 { color: #047857 !important; }
-          .ms-item-card.discussion:hover { border-color: #A7F3D0; }
-
-          .ms-item-card.decision {
-            border-color: #FDE68A;
-            background: #FFFBEB;
-            border-left: 4px solid var(--amber);
-          }
-          .ms-item-card.decision h4 { color: #92400E !important; }
-          .ms-item-card.decision:hover { border-color: #FCD34D; }
-
-          .ms-item-card.action {
-            border-color: #FAD4DC;
-            background: #FFF1F5;
-            border-left: 4px solid var(--pink);
-          }
-          .ms-item-card.action h4 { color: var(--pink-deep) !important; }
-          .ms-item-card.action:hover { border-color: var(--pink-mid); }
-
-          .ms-item-card h4 {
-            font-size: 0.62rem; font-weight: 700;
-            letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 0.30rem;
-          }
-          .ms-item-card p {
-            color: var(--warm-2) !important;
-            font-size: 0.88rem; line-height: 1.62; margin-bottom: 0.50rem;
-          }
-          .ms-meta-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-          .ms-meta {
-            border: 1px solid var(--border); border-radius: 999px;
-            color: var(--warm-4) !important; background: var(--warm-5);
-            font-size: 0.66rem; font-weight: 500; padding: 0.17rem 0.48rem;
-          }
-          .ms-item-card.discussion .ms-meta {
-            border-color: #BBF7D0; color: #065F46 !important; background: #F0FDF4;
-          }
-          .ms-item-card.decision .ms-meta {
-            border-color: #FDE68A; color: #92400E !important; background: #FFFBEB;
-          }
-          .ms-item-card.action .ms-meta {
-            border-color: var(--pink-mid); color: var(--pink-deep) !important;
-            background: var(--pink-soft);
-          }
-
-          .ms-report-stack {
-            display: grid;
-            gap: 1rem;
-            margin: 0.35rem 0 1.25rem;
-          }
-          .ms-report-block {
-            border: 1.35px solid #F8C7D2;
-            border-radius: 20px;
-            background: linear-gradient(180deg,#FFFFFF 0%,#FFFBFE 100%);
-            padding: 1.05rem;
-            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
-            transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
-          }
-          .ms-report-block:hover {
-            border-color: var(--pink-mid);
-            box-shadow: 0 14px 34px rgba(251,113,133,0.12);
-            transform: translateY(-1px);
-          }
-          .ms-report-block-title {
-            color: var(--warm) !important;
-            font-size: 0.95rem;
-            font-weight: 850;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.7rem;
-          }
-          .ms-report-block.summary { border-top: 3px solid var(--lav); }
-          .ms-report-block.discussion { border-top: 3px solid #34D399; }
-          .ms-report-block.decisions { border-top: 3px solid var(--amber); }
-          .ms-report-block.actions { border-top: 3px solid var(--pink); }
-          .ms-report-block.transcript { border-top: 3px solid var(--warm-4); }
-
-          /* ══ MISC ════════════════════════════════════ */
-          .ms-empty {
-            border: 1.5px dashed #F8C7D2;
-            border-radius: 20px;
-            background: var(--surface);
-            color: var(--warm-3) !important;
-            font-size: 0.84rem;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
-          }
-          .ms-empty-state {
-            border: 1.35px solid #F8C7D2;
-            border-radius: 20px;
-            background: #FFFBFE;
-            padding: 3rem 1.75rem;
-            text-align: center;
-            margin: 0.5rem 0 1.25rem;
-            box-shadow: 0 8px 24px rgba(251,113,133,0.075);
-            display: flex;
-            min-height: 260px;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-          }
-          .ms-empty-icon {
-            width: 52px; height: 52px; border-radius: 16px;
-            margin: 0 auto 1rem;
-            background: linear-gradient(135deg, var(--pink-soft), var(--lav-soft));
-            border: 1px solid var(--border-soft);
-            display: flex; align-items: center; justify-content: center;
-            color: var(--pink-deep) !important;
-            font-size: 1.25rem; font-weight: 800;
-          }
-          .ms-empty-brand-logo { display:block; width:46px; height:46px; object-fit:contain; background:transparent; border:0; }
-          .ms-empty-title {
-            color: var(--warm) !important;
-            font-size: 1.05rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.45rem;
-          }
-          .ms-empty-copy {
-            color: var(--warm-3) !important;
-            font-size: 0.84rem;
-            line-height: 1.6;
-            max-width: 420px;
-            margin: 0 auto;
-          }
           .ms-email-compose {
             border: 1px solid #FAD4DC;
             border-radius: 18px;
@@ -1919,14 +949,6 @@ def inject_processing_styles() -> None:
             margin-top: 2rem;
           }
 
-          /* ══ COPY BUTTON ════════════════════════════ */
-          .ms-copy-row {
-            display: flex; align-items: center; gap: 0.5rem;
-            padding: 0.55rem 0 0.65rem;
-            border-bottom: 1px solid var(--border-soft);
-            margin-bottom: 0;
-          }
-
           /* ══ SCROLLBAR ══════════════════════════════ */
           .stButton > button[data-testid="stBaseButton-secondary"] {
             width: 100% !important;
@@ -1965,9 +987,6 @@ def inject_processing_styles() -> None:
           /* ══ RESPONSIVE ═════════════════════════════ */
           @media (max-width: 860px) {
             .block-container { max-width: 100% !important; }
-            .ms-metrics-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-            .ms-dashboard-grid { grid-template-columns: 1fr; }
-            .ms-quick-stats { grid-template-columns: repeat(4,minmax(0,1fr)); }
             .ms-steps { grid-template-columns: repeat(3,1fr); }
             .ms-steps > .ms-step:nth-child(n+4) { display: none; }
           }
@@ -1983,33 +1002,10 @@ def inject_processing_styles() -> None:
               > div[data-testid="column"] {
               width: 100% !important; min-width: 0 !important; flex: 1 1 auto !important;
             }
-            .ms-or-wrap {
-              min-height: 44px;
-              margin: 0;
-            }
-            .ms-or-wrap::before {
-              left: 0.75rem; right: 0.75rem; top: 50%; bottom: auto;
-              width: auto; height: 1px;
-              background: linear-gradient(90deg, transparent, var(--border), transparent);
-            }
             div[data-testid="stFileUploader"] section { min-height: 120px !important; }
-            .ms-navbar { align-items: flex-start; flex-direction: column; }
-            .ms-export-actions { grid-template-columns: 1fr; }
-            .ms-workflow-timeline { flex-direction: column; align-items: flex-start; }
           }
           @media (max-width: 640px) {
             .ms-hero h1 { font-size: 1.9rem !important; }
-            .ms-metrics-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0.55rem; }
-            .ms-tr-row { grid-template-columns: 104px minmax(0,1fr); }
-            .ms-transcript-scroll { height: 340px; }
-            .stTabs [data-baseweb="tab-list"] { overflow-x: auto; scrollbar-width: none; }
-            .stTabs [data-baseweb="tab-list"]::-webkit-scrollbar { display: none; }
-          }
-          @media (max-width: 420px) {
-            .ms-metrics-grid { grid-template-columns: 1fr; }
-            .ms-quick-stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
-            .ms-pill-row { flex-direction: column; align-items: center; }
-            .ms-workflow-timeline { padding: 0.75rem; }
           }
         </style>
         """,
@@ -2711,16 +1707,6 @@ def inject_premium_redesign_styles() -> None:
             background:var(--ms-surface) !important;
             box-shadow:var(--ms-shadow-sm) !important;
           }
-          .ms-upload-title-row { justify-content:center !important; gap:.75rem !important; margin-top:.35rem !important; }
-          .ms-upload-title { color:var(--ms-text) !important; font-size:1.3rem !important; letter-spacing:-.02em; }
-          .ms-upload-desc { max-width:580px; margin:.55rem auto 1.5rem !important; text-align:center; color:var(--ms-muted) !important; }
-          .ms-upload-icon-badge {
-            width:44px !important; height:44px !important; border:0 !important;
-            border-radius:14px !important; color:var(--ms-primary) !important;
-            background:var(--ms-accent) !important; box-shadow:none !important;
-          }
-          .ms-sub-label { color:var(--ms-text) !important; font-size:.9rem !important; text-align:center; }
-          .ms-sub-fmt { color:var(--ms-muted) !important; text-align:center; margin-bottom:1rem !important; }
           [data-testid="stFileUploaderDropzone"] {
             min-height:190px !important; border:1.5px dashed #BCC7EA !important;
             border-radius:19px !important; background:#F8FAFF !important;
@@ -2736,55 +1722,6 @@ def inject_premium_redesign_styles() -> None:
             border-radius:10px !important; color:var(--ms-primary) !important;
             border-color:#CCD4F8 !important; background:white !important; font-weight:650 !important;
           }
-          .ms-or-wrap { min-height:100%; display:grid !important; place-items:center; }
-          .ms-or-divider { color:#9CA3AF !important; background:var(--ms-bg) !important; border:1px solid var(--ms-border); }
-          .ms-file-card {
-            min-height:72px !important; padding:.85rem !important; border:1px solid #DDE3F2 !important;
-            border-radius:15px !important; background:#FCFDFF !important; box-shadow:var(--ms-shadow-sm);
-            transition:transform .18s ease, box-shadow .18s ease !important;
-          }
-          .ms-file-card:hover { transform:translateY(-2px); box-shadow:var(--ms-shadow) !important; }
-          .ms-file-icon { width:38px !important; height:38px !important; color:var(--ms-primary) !important; background:var(--ms-accent) !important; }
-          .ms-file-name { color:var(--ms-text) !important; font-weight:650 !important; }
-          .ms-file-size { color:var(--ms-muted) !important; }
-          .ms-upload-success {
-            display:inline-flex; align-items:center; gap:.35rem; margin-left:auto;
-            color:#287A54; background:var(--ms-success); border-radius:999px;
-            padding:.3rem .55rem; font-size:.65rem; font-weight:700;
-          }
-          .ms-file-meta {
-            display:flex; align-items:center; gap:.35rem; flex-wrap:wrap; margin-top:.25rem;
-            color:var(--ms-muted); font-size:.64rem;
-          }
-          .ms-file-meta span {
-            display:inline-flex; align-items:center; padding:.18rem .4rem;
-            border:1px solid var(--ms-border); border-radius:999px; background:#FFFFFF;
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) {
-            align-items:center; gap:.65rem !important; margin-top:.75rem; padding:.65rem;
-            border:1px solid #DDE3F2; border-radius:15px; background:#FCFDFF;
-            box-shadow:var(--ms-shadow-sm); transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)):hover {
-            transform:translateY(-1px); border-color:#CDD5EA; box-shadow:var(--ms-shadow);
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) .ms-file-card {
-            min-height:54px !important; padding:.15rem !important; border:0 !important;
-            border-radius:0 !important; background:transparent !important; box-shadow:none !important;
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) .ms-file-card:hover {
-            transform:none !important; box-shadow:none !important;
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) .stButton > button {
-            min-height:38px !important; padding:.48rem .65rem !important;
-            border:1px solid #E0E3E9 !important; border-radius:10px !important;
-            color:#6B7280 !important; background:#FFFFFF !important; box-shadow:none !important;
-          }
-          div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) .stButton > button:hover {
-            color:#9B3F3F !important; border-color:#E7CACA !important;
-            background:#FFF8F7 !important; box-shadow:0 5px 12px rgba(31,41,55,.06) !important;
-          }
-
           .stButton > button, [data-testid="stFormSubmitButton"] button {
             min-height:44px !important; border-radius:11px !important; font-weight:650 !important;
             transition:transform .16s ease, box-shadow .16s ease !important;
@@ -2792,7 +1729,7 @@ def inject_premium_redesign_styles() -> None:
           .stButton > button:hover, [data-testid="stFormSubmitButton"] button:hover {
             transform:translateY(-1px) !important; box-shadow:0 8px 20px rgba(31,41,55,.09) !important;
           }
-          .stButton > button[kind="primary"], [data-testid="stFormSubmitButton"] button[kind="primary"] {
+          .stButton > button[kind^="primary"], [data-testid="stFormSubmitButton"] button[kind^="primary"] {
             color:white !important; border-color:var(--ms-primary) !important; background:var(--ms-primary) !important;
           }
           textarea, input {
@@ -2804,70 +1741,10 @@ def inject_premium_redesign_styles() -> None:
             border-color:var(--ms-primary) !important; box-shadow:0 0 0 3px rgba(91,110,245,.11) !important;
           }
 
-          .ms-speaker-row {
-            margin-top:.8rem !important; padding:1rem !important; border:1px solid var(--ms-border) !important;
-            border-radius:15px !important; background:#FCFDFF !important; box-shadow:var(--ms-shadow-sm);
-          }
-          .ms-speaker-avatar {
-            background:var(--ms-accent) !important; color:var(--ms-primary) !important;
-            border:1px solid #DDE3FB !important;
-          }
-          .ms-speaker-label { color:var(--ms-text) !important; }
-          .ms-speaker-badge-text { color:var(--ms-muted) !important; }
-          .ms-speaker-stats { display:flex; gap:.35rem; flex-wrap:wrap; margin-top:.4rem; }
-          .ms-speaker-stats span {
-            display:inline-flex; padding:.2rem .45rem; border-radius:999px;
-            color:#536079; background:var(--ms-accent); font-size:.62rem; font-weight:650;
-          }
           [data-testid="stForm"] {
             padding:1rem !important; border:1px solid var(--ms-border) !important;
             border-radius:18px !important; background:#FBFCFF !important;
           }
-
-          .ms-transcript-toolbar {
-            position:sticky; top:78px; z-index:20; display:flex; align-items:center;
-            justify-content:space-between; gap:1rem; flex-wrap:wrap; margin:.9rem 0;
-            padding:.75rem .85rem; border:1px solid var(--ms-border); border-radius:14px;
-            background:rgba(255,255,255,.94); backdrop-filter:blur(14px); box-shadow:var(--ms-shadow-sm);
-          }
-          .ms-toolbar-title { color:var(--ms-text); font-size:.78rem; font-weight:700; }
-          .ms-toolbar-stats { display:flex; gap:.45rem; flex-wrap:wrap; }
-          .ms-toolbar-chip {
-            display:inline-flex; align-items:center; gap:.3rem; padding:.35rem .6rem;
-            border:1px solid var(--ms-border); border-radius:999px; color:var(--ms-muted);
-            background:#F9FAFB; font-size:.68rem; font-weight:600;
-          }
-          .ms-conversation-preview {
-            display:grid !important; gap:.7rem !important; max-height:430px; overflow:auto;
-            padding:.2rem .25rem .4rem .05rem !important;
-          }
-          .ms-convo-row {
-            position:relative; padding:1rem 1.05rem 1.05rem 4.2rem !important;
-            border:1px solid var(--ms-border) !important; border-radius:16px !important;
-            background:#FCFDFF !important; box-shadow:var(--ms-shadow-sm) !important;
-            transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
-          }
-          .ms-convo-row:hover { transform:translateY(-2px); border-color:#D4DAEB !important; box-shadow:var(--ms-shadow) !important; }
-          .ms-convo-row::before {
-            content:attr(data-initial); position:absolute; left:1rem; top:1rem;
-            width:36px; height:36px; border-radius:12px; display:grid; place-items:center;
-            color:var(--ms-primary); background:var(--ms-accent); font-size:.75rem; font-weight:750;
-          }
-          .ms-convo-speaker { color:var(--ms-text) !important; font-weight:700 !important; }
-          .ms-time-chip {
-            border:1px solid var(--ms-border) !important; border-radius:999px !important;
-            color:var(--ms-muted) !important; background:#F8F9FB !important; font-size:.65rem !important;
-          }
-          .ms-convo-text { color:#4B5563 !important; font-size:.84rem !important; line-height:1.7 !important; }
-          .ms-convo-meta {
-            margin-top:.7rem; color:#9CA3AF; font-size:.62rem; font-weight:600;
-            letter-spacing:.01em;
-          }
-          .ms-editor-label {
-            display:flex; justify-content:space-between; align-items:center; margin:1.1rem 0 .55rem;
-            color:var(--ms-text); font-size:.78rem; font-weight:700;
-          }
-          .ms-editor-label span { color:var(--ms-muted); font-size:.67rem; font-weight:500; }
 
           .ms-proc-wrap {
             border:1px solid var(--ms-border) !important; border-radius:20px !important;
@@ -2886,93 +1763,6 @@ def inject_premium_redesign_styles() -> None:
             background:var(--ms-warning) !important;
           }
 
-          .ms-report-shell { margin-top:1.25rem; }
-          .ms-report-legacy-intro { display:none; }
-          .ms-report-hero {
-            position:relative; overflow:hidden; padding:1.65rem 1.7rem; border:1px solid #DDE3F2;
-            border-radius:22px; background:#FFFFFF; box-shadow:var(--ms-shadow); margin-bottom:1rem;
-          }
-          .ms-report-hero::after {
-            content:""; position:absolute; right:-48px; top:-52px; width:180px; height:180px;
-            border-radius:50%; background:var(--ms-accent); opacity:.75; pointer-events:none;
-          }
-          .ms-report-eyebrow { display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; margin-bottom:.8rem; }
-          .ms-success-badge {
-            display:inline-flex; align-items:center; gap:.4rem; padding:.38rem .65rem;
-            border:1px solid #C9E8D7; border-radius:999px; color:#287A54; background:var(--ms-success);
-            font-size:.68rem; font-weight:750; animation:ms-report-arrive .42s ease both;
-          }
-          .ms-generated-time { color:var(--ms-muted); font-size:.68rem; }
-          .ms-report-title {
-            position:relative; z-index:1; max-width:760px; margin:0; color:var(--ms-text);
-            font-size:clamp(1.75rem,4vw,2.65rem); line-height:1.08; letter-spacing:-.045em; font-weight:740;
-          }
-          .ms-report-subtitle { position:relative; z-index:1; margin:.7rem 0 0; color:var(--ms-muted); font-size:.84rem; }
-          .ms-report-actions { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:1.2rem; position:relative; z-index:1; }
-          .ms-report-action {
-            display:inline-flex; align-items:center; gap:.4rem; padding:.58rem .75rem;
-            border:1px solid var(--ms-border); border-radius:10px; color:#4B5563 !important;
-            background:#FFFFFF; text-decoration:none !important; font-size:.7rem; font-weight:650;
-            transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
-          }
-          .ms-report-action:hover { transform:translateY(-1px); border-color:#CCD4F8; box-shadow:var(--ms-shadow-sm); }
-          .ms-info-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.65rem; margin:1rem 0 1.2rem; }
-          .ms-info-card {
-            padding:.9rem; border:1px solid var(--ms-border); border-radius:14px; background:#FFFFFF;
-            box-shadow:var(--ms-shadow-sm); min-width:0;
-          }
-          .ms-info-label { color:var(--ms-muted); font-size:.63rem; font-weight:650; text-transform:uppercase; letter-spacing:.055em; }
-          .ms-info-value { margin-top:.35rem; color:var(--ms-text); font-size:.8rem; font-weight:680; overflow-wrap:anywhere; }
-          .ms-report-section { margin:1.2rem 0; }
-          .ms-report-section-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; margin:0 0 .65rem; }
-          .ms-report-section-head h3 { margin:0; color:var(--ms-text); font-size:1.05rem; letter-spacing:-.025em; }
-          .ms-report-section-head span { color:var(--ms-muted); font-size:.68rem; }
-          .ms-summary-editorial {
-            padding:1.55rem clamp(1.2rem,4vw,2.25rem); border:1px solid #D9E0FB; border-radius:20px;
-            background:var(--ms-accent); box-shadow:var(--ms-shadow-sm);
-          }
-          .ms-summary-editorial p { max-width:820px; margin:.7rem 0 0; color:#374151; font-size:1rem; line-height:1.85; }
-          .ms-summary-kicker { color:var(--ms-primary); font-size:.67rem; font-weight:750; letter-spacing:.06em; text-transform:uppercase; }
-          .ms-summary-topics { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1rem; }
-          .ms-summary-topics span { padding:.3rem .55rem; border-radius:999px; background:#FFFFFF; color:#536079; font-size:.65rem; font-weight:650; }
-          .ms-discussion-list, .ms-decision-list, .ms-task-list { display:grid; gap:.65rem; }
-          .ms-discussion-card {
-            border:1px solid var(--ms-border); border-radius:16px; background:#FFFFFF;
-            box-shadow:var(--ms-shadow-sm); transition:transform .18s ease, box-shadow .18s ease;
-          }
-          .ms-discussion-card:hover { transform:translateY(-1px); box-shadow:var(--ms-shadow); }
-          .ms-discussion-card summary {
-            display:flex; align-items:center; gap:.7rem; padding:1rem; cursor:pointer; list-style:none;
-            color:var(--ms-text); font-size:.82rem; font-weight:700;
-          }
-          .ms-discussion-card summary::-webkit-details-marker { display:none; }
-          .ms-discussion-index { display:grid; place-items:center; flex:0 0 30px; height:30px; border-radius:10px; background:var(--ms-accent); color:var(--ms-primary); font-size:.66rem; }
-          .ms-discussion-chevron { margin-left:auto; color:#9CA3AF; transition:transform .18s ease; }
-          .ms-discussion-card[open] .ms-discussion-chevron { transform:rotate(180deg); }
-          .ms-discussion-body { padding:0 1rem 1rem 3.45rem; color:#4B5563; font-size:.8rem; line-height:1.7; }
-          .ms-detail-meta { display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.65rem; }
-          .ms-detail-meta span, .ms-task-chip {
-            padding:.28rem .5rem; border:1px solid var(--ms-border); border-radius:999px;
-            color:var(--ms-muted); background:#FAFAFA; font-size:.62rem; font-weight:620;
-          }
-          .ms-decision-card {
-            display:grid; grid-template-columns:34px minmax(0,1fr) auto; gap:.8rem; align-items:start;
-            padding:1rem; border:1px solid #CDE7D8; border-radius:16px; background:#F8FCFA; box-shadow:var(--ms-shadow-sm);
-          }
-          .ms-decision-check { display:grid; place-items:center; width:34px; height:34px; border-radius:11px; color:#287A54; background:var(--ms-success); font-weight:800; }
-          .ms-decision-text { color:#374151; font-size:.84rem; line-height:1.65; font-weight:600; }
-          .ms-confirmed-chip { padding:.3rem .52rem; border-radius:999px; color:#287A54; background:var(--ms-success); font-size:.62rem; font-weight:700; }
-          .ms-task-card {
-            display:grid; grid-template-columns:minmax(0,1.5fr) minmax(130px,.55fr); gap:1rem;
-            padding:1rem; border:1px solid var(--ms-border); border-radius:16px; background:#FFFFFF; box-shadow:var(--ms-shadow-sm);
-          }
-          .ms-task-title { color:var(--ms-text); font-size:.84rem; font-weight:680; line-height:1.55; }
-          .ms-task-meta { display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.65rem; }
-          .ms-owner { display:flex; align-items:center; gap:.55rem; color:#4B5563; font-size:.7rem; font-weight:650; }
-          .ms-owner-avatar { display:grid; place-items:center; width:32px; height:32px; border-radius:11px; background:var(--ms-warning); color:#9A5B30; font-size:.68rem; font-weight:750; }
-          .ms-priority-high { color:#A84D45 !important; background:#FFF0EE !important; border-color:#F1D2CE !important; }
-          .ms-priority-medium { color:#8A6724 !important; background:#FFF8E8 !important; border-color:#EFDFC0 !important; }
-          .ms-priority-low { color:#287A54 !important; background:var(--ms-success) !important; border-color:#CDE7D8 !important; }
           .ms-export-wrap { border-color:#DDE3F2 !important; background:#FFFFFF !important; box-shadow:var(--ms-shadow) !important; }
           .ms-export-option { min-height:112px; border:1px solid var(--ms-border); border-radius:14px; background:#FCFDFF; padding:.9rem; }
           .ms-export-option-icon.pdf,
@@ -3161,33 +1951,7 @@ def inject_premium_redesign_styles() -> None:
           }
           .ms-attachment-preview-name { color:var(--ms-text) !important; font-size:.74rem !important; font-weight:680 !important; }
           .ms-attachment-preview-meta { color:var(--ms-muted) !important; font-size:.63rem !important; }
-          .ms-attachment-pill {
-            color:#287A54 !important; background:var(--ms-success) !important;
-            border:1px solid #CDE7D8 !important; border-radius:999px !important;
-            padding:.28rem .5rem !important; font-size:.61rem !important; font-weight:700 !important;
-          }
           iframe[title="streamlit.components.v1.html"] { border:0 !important; border-radius:10px; }
-          .ms-empty {
-            padding:1.5rem 1.2rem !important; border:1px dashed #CDD5EA !important;
-            border-radius:var(--ms-radius) !important; color:var(--ms-muted) !important;
-            background:#FAFBFF !important; box-shadow:none !important; font-size:.78rem !important;
-          }
-          .ms-empty::before {
-            width:40px !important; height:40px !important; border-radius:12px !important;
-            background:var(--ms-accent) !important; box-shadow:inset 0 0 0 1px #DCE2FA !important;
-          }
-          .ms-empty-state {
-            min-height:180px; padding:2.25rem 1.5rem !important; margin:2rem 0 4.5rem;
-            border:1px solid var(--ms-border) !important; border-radius:20px !important;
-            background:var(--ms-sand) !important; box-shadow:none !important;
-          }
-          .ms-empty-icon {
-            width:48px !important; height:48px !important; border:1px solid #DCE2FA !important;
-            border-radius:14px !important; color:var(--ms-primary) !important;
-            background:var(--ms-accent) !important; box-shadow:none !important;
-          }
-          .ms-empty-title { color:var(--ms-text) !important; font-family:var(--ms-font-serif)!important; font-size:1.5rem !important; line-height:1.3!important; font-weight:440 !important; }
-          .ms-empty-copy { max-width:560px;margin:.5rem auto 0!important;color:var(--ms-muted) !important; font-size:.9375rem !important; line-height:1.55 !important; }
 
           .ms-premium-section, .ms-process-card, .ms-feature-card, .ms-benefit-card,
           .ms-file-card, .ms-speaker-row, .ms-convo-row, .ms-report-hero,
@@ -3214,8 +1978,6 @@ def inject_premium_redesign_styles() -> None:
             .ms-compare-table { font-size: .85rem; }
             .ms-compare-table th, .ms-compare-table td { padding: .85rem .75rem; }
             .ms-process-grid, .ms-benefit-grid { grid-template-columns:repeat(2,1fr); }
-            .ms-info-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-            .ms-report-hero { padding:1.4rem; }
           }
           @media (max-width: 700px) {
             .main .block-container { padding:7rem 1.25rem 2rem !important; }
@@ -3244,30 +2006,10 @@ def inject_premium_redesign_styles() -> None:
             .ms-process-grid, .ms-benefit-grid, .ms-faq-grid { grid-template-columns:1fr; }
             .ms-feature-card:nth-child(1), .ms-feature-card:nth-child(6) { grid-column:span 1; }
             .ms-process-card:not(:last-child)::after { display:none; }
-            .ms-transcript-toolbar { top:68px; align-items:flex-start; flex-direction:column; }
-            .ms-convo-row { padding-left:3.8rem !important; }
-            .ms-info-grid { grid-template-columns:1fr; }
-            .ms-task-card { grid-template-columns:1fr; }
-            .ms-decision-card { grid-template-columns:34px minmax(0,1fr); }
-            .ms-confirmed-chip { grid-column:2; justify-self:start; }
-            .ms-report-hero { padding:1.15rem; border-radius:18px; }
-            .ms-report-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
-            .ms-report-action { justify-content:center; text-align:center; }
-            .ms-summary-editorial { padding:1.2rem; border-radius:17px; }
-            .ms-discussion-body { padding-left:1rem; }
             [data-testid="stToastContainer"] { inset:auto .75rem .75rem !important; }
             [data-testid="stToast"] { min-width:0; width:100%; }
             .stButton > button, .stDownloadButton > button,
             [data-testid="stFormSubmitButton"] button { min-height:46px !important; }
-            div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card)) {
-              display:flex !important; flex-wrap:nowrap !important; padding:.55rem !important;
-            }
-            div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card))
-              > div[data-testid="column"]:first-child { flex:1 1 auto !important; min-width:0 !important; }
-            div[data-testid="stHorizontalBlock"]:has(.ms-file-card):not(:has(div[data-testid="stHorizontalBlock"] .ms-file-card))
-              > div[data-testid="column"]:last-child { flex:0 0 auto !important; width:auto !important; min-width:76px !important; }
-            .ms-file-name { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-            .ms-upload-success { padding:.26rem .46rem; }
           }
         </style>
         """,
@@ -3400,13 +2142,9 @@ def experimental_mom_to_analysis_result(
             unique_summary_sentences.append(sentence)
             seen_summary.add(key)
     short_summary = " ".join(unique_summary_sentences[:5]) or objective or "No summary could be generated."
-    if audio_quality_mode:
-        objective_key = re.sub(r"\W+", " ", objective).strip().casefold()
-        short_key = re.sub(r"\W+", " ", short_summary).strip().casefold()
-        detailed_summary = objective if objective_key and objective_key != short_key else short_summary
-    else:
-        detailed_parts = [part for part in (objective, short_summary) if part]
-        detailed_summary = "\n\n".join(detailed_parts) or short_summary
+    objective_key = re.sub(r"\W+", " ", objective).strip().casefold()
+    short_key = re.sub(r"\W+", " ", short_summary).strip().casefold()
+    detailed_summary = objective if objective_key and objective_key != short_key else short_summary
 
     topics = []
     seen_topics: set[str] = set()
@@ -4269,6 +3007,14 @@ def compact_ui_html(markup: str) -> str:
     return re.sub(r">\s+<", "><", markup).strip()
 
 
+def format_file_size_display(size_bytes: float | int | None) -> str:
+    """Format a byte count as KB for small files, MB otherwise."""
+    size = max(0, size_bytes or 0)
+    if size < 1024 * 1024:
+        return f"{size / 1024:.1f} KB"
+    return f"{size / (1024 * 1024):.2f} MB"
+
+
 def format_timestamp(seconds: float | None) -> str:
     if seconds is None:
         return "--:--"
@@ -4462,6 +3208,15 @@ def participants_from_current_context(result: TranscriptionResult | None = None)
     return participants
 
 
+# Metadata-header phrases not covered by ml_mom.transcript_parser's single-token
+# is_metadata_label check (which has "meeting" and "title" separately, not the
+# combined phrases uploaded transcripts commonly use as header labels).
+_EXTRA_METADATA_PARTICIPANT_LABELS = {
+    "meeting title",
+    "project name",
+}
+
+
 def extract_actual_participants_from_transcript(transcript_text: str) -> list[str]:
     participants: list[str] = []
     seen: set[str] = set()
@@ -4498,6 +3253,8 @@ def extract_actual_participants_from_transcript(transcript_text: str) -> list[st
             continue
         speaker = re.sub(r"\s+", " ", speaker).strip(" -")
         if not speaker or re.fullmatch(r"(?i)speaker\s+[A-Za-z0-9]+", speaker):
+            continue
+        if is_metadata_label(speaker) or speaker.casefold() in _EXTRA_METADATA_PARTICIPANT_LABELS:
             continue
         key = speaker.casefold()
         if key in seen:
@@ -4650,9 +3407,17 @@ def format_segment(
     segment: TranscriptionSegment,
     mapping: SpeakerMapping | None = None,
 ) -> str:
+    label = speaker_label(segment, mapping)
+    if segment.start_time_seconds is None and segment.end_time_seconds is None:
+        # No real per-segment timestamps exist (e.g. plain-text transcript
+        # uploads). A "[--:-- - --:--]" placeholder is not a timestamp token
+        # ml_mom.transcript_parser's speaker-label regexes can match, which
+        # silently breaks MoM generation. Fall back to the plain "Speaker:"
+        # format that parser already supports instead of faking a timestamp.
+        return f"{label}:\n{segment.transcript}"
     start_time = format_timestamp(segment.start_time_seconds)
     end_time = format_timestamp(segment.end_time_seconds)
-    return f"{speaker_label(segment, mapping)} [{start_time} - {end_time}]\n{segment.transcript}"
+    return f"{label} [{start_time} - {end_time}]\n{segment.transcript}"
 
 
 def format_transcript(
@@ -5319,13 +4084,36 @@ def prepared_export_path(
     export_path_text = st.session_state.get(state_key, "")
     if export_path_text:
         export_path = Path(export_path_text)
-        if export_path.is_file():
+        current_pdf_filename = bool(
+            re.fullmatch(
+                r"minutes_of_meeting_\d{8}_\d{6}_\d{6}_[0-9a-f]{8}\.pdf",
+                export_path.name,
+                flags=re.IGNORECASE,
+            )
+        )
+        is_valid_pdf = (
+            export_path.is_file()
+            and export_path.stat().st_size > 0
+            and current_pdf_filename
+            if state_key == "pdf_export_path"
+            else export_path.is_file()
+        )
+        if is_valid_pdf:
             return export_path
+        if state_key == "pdf_export_path":
+            # Do not reuse a stale, deleted, or empty PDF path on a rerun.
+            st.session_state[state_key] = ""
 
     export_path = export_factory(
         analysis,
         meeting_info=meeting_info_for_export(),
     )
+    export_path = Path(export_path)
+    if state_key == "pdf_export_path":
+        if not export_path.is_file() or export_path.stat().st_size <= 0:
+            raise RuntimeError(
+                f"PDF exporter returned an invalid file path: {export_path}"
+            )
     st.session_state[state_key] = str(export_path)
     log_stage(
         "Export",
@@ -5475,7 +4263,11 @@ def render_email_form(
         if not attachment_existed:
             attachment_path = prepared_export_path(
                 "pdf_export_path",
-                export_to_pdf,
+                lambda analysis, meeting_info: export_to_pdf(
+                    analysis,
+                    meeting_info=meeting_info,
+                    voxels_emotion=voxels_payload_for_export(analysis),
+                ),
                 analysis,
             )
         log_stage(
@@ -5530,18 +4322,37 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
         """,
         unsafe_allow_html=True,
     )
+    mom_pdf_path: Path | None = None
     try:
-        mom_pdf_path = prepared_export_path("pdf_export_path", export_to_pdf, analysis)
-        mom_docx_path = prepared_export_path("docx_export_path", export_to_docx, analysis)
+        mom_pdf_path = prepared_export_path(
+            "pdf_export_path",
+            lambda analysis, meeting_info: export_to_pdf(
+                analysis,
+                meeting_info=meeting_info,
+                voxels_emotion=voxels_payload_for_export(analysis),
+            ),
+            analysis,
+        )
     except Exception as exc:
+        logger.exception("PDF export preparation failed")
         log_stage(
             "Export",
-            "Could not prepare export documents.",
+            "Could not prepare PDF export.",
             error=str(exc),
             traceback=traceback.format_exc(),
         )
-        st.error("Downloads could not be prepared. Please try again.")
-        return
+
+    mom_docx_path: Path | None = None
+    try:
+        mom_docx_path = prepared_export_path("docx_export_path", export_to_docx, analysis)
+    except Exception as exc:
+        logger.exception("DOCX export preparation failed")
+        log_stage(
+            "Export",
+            "Could not prepare DOCX export.",
+            error=str(exc),
+            traceback=traceback.format_exc(),
+        )
 
     pdf_col, docx_col, email_col = st.columns(3)
 
@@ -5556,14 +4367,17 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
             """,
             unsafe_allow_html=True,
         )
-        render_download_button(
-            label="Download PDF →",
-            export_path=mom_pdf_path,
-            mime="application/pdf",
-            key="download_mom_pdf",
-            success_message="Download started",
-            download_name=safe_mom_download_filename("pdf"),
-        )
+        if mom_pdf_path is not None:
+            render_download_button(
+                label="Download PDF →",
+                export_path=mom_pdf_path,
+                mime="application/pdf",
+                key="download_mom_pdf",
+                success_message="Download started",
+                download_name=safe_mom_download_filename("pdf"),
+            )
+        else:
+            st.caption("PDF unavailable. Please try again.")
 
     with docx_col:
         st.markdown(
@@ -5576,14 +4390,17 @@ def render_export_card(analysis: MeetingAnalysisResult) -> None:
             """,
             unsafe_allow_html=True,
         )
-        render_download_button(
-            label="Download DOCX →",
-            export_path=mom_docx_path,
-            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-            key="download_mom_docx",
-            success_message="Download started",
-            download_name=safe_mom_download_filename("docx"),
-        )
+        if mom_docx_path is not None:
+            render_download_button(
+                label="Download DOCX →",
+                export_path=mom_docx_path,
+                mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                key="download_mom_docx",
+                success_message="Download started",
+                download_name=safe_mom_download_filename("docx"),
+            )
+        else:
+            st.caption("DOCX unavailable. Please try again.")
 
     with email_col:
         st.markdown(
@@ -7089,11 +5906,11 @@ def inject_workflow_shell_styles() -> None:
           .st-key-workflow_shell [data-testid="stCaptionContainer"]{text-align:center!important;margin-top:8px!important}
           .st-key-workflow_shell .stButton button,.st-key-workflow_shell [data-testid="stFormSubmitButton"] button{border-radius:999px!important;
             min-height:40px!important;padding:0 18px!important;font:600 13px Inter,sans-serif!important;box-shadow:none!important}
-          .st-key-workflow_shell .stButton button[kind="primary"],.st-key-workflow_shell [data-testid="stFormSubmitButton"] button[kind="primary"]{
+          .st-key-workflow_shell .stButton button[kind^="primary"],.st-key-workflow_shell [data-testid="stFormSubmitButton"] button[kind^="primary"]{
             background:#30343a!important;color:#fff!important;border-color:#30343a!important}
-          .st-key-workflow_shell .stButton button:not([kind="primary"]),.st-key-workflow_shell [data-testid="stFormSubmitButton"] button:not([kind="primary"]){
+          .st-key-workflow_shell .stButton button:not([kind^="primary"]),.st-key-workflow_shell [data-testid="stFormSubmitButton"] button:not([kind^="primary"]){
             background:#fff!important;color:var(--wf-ink)!important;border:1px solid #cfc3b0!important}
-          .st-key-workflow_shell .stButton button:not([kind="primary"]):hover,.st-key-workflow_shell [data-testid="stFormSubmitButton"] button:not([kind="primary"]):hover{
+          .st-key-workflow_shell .stButton button:not([kind^="primary"]):hover,.st-key-workflow_shell [data-testid="stFormSubmitButton"] button:not([kind^="primary"]):hover{
             background:#f8f5ee!important;border-color:#9e927f!important;color:var(--wf-ink)!important}
           .st-key-workflow_shell div[data-testid="stHorizontalBlock"]:has(.ms-export-option) .stButton button,
           .st-key-workflow_shell div[data-testid="stHorizontalBlock"]:has(.ms-export-option) .stDownloadButton button{
@@ -7260,11 +6077,11 @@ def render_upload_stage() -> None:
 def render_uploaded_stage() -> None:
     uploaded = st.session_state.workflow_file
     name = html.escape(getattr(uploaded, "name", "Uploaded file"))
-    size = (getattr(uploaded, "size", 0) or 0) / (1024 * 1024)
+    size_display = format_file_size_display(getattr(uploaded, "size", 0))
     bars = "".join(f'<i style="height:{h}px"></i>' for h in (14,28,36,20,31,17,34,23,29,18,35,25,32,16,27,21,34,19))
     st.markdown(f'''<div class="ms-wf-body"><div class="ms-wf-card ms-wf-success">
       <div class="ms-wf-success-head"><div class="ms-wf-check">✓</div><div><h3>File uploaded</h3><p>{name} is ready to process.</p></div></div>
-      <div class="ms-wf-wave">{bars}</div><div class="ms-wf-meta"><span><b>{size:.2f} MB</b> file size</span><span><b>{Path(name).suffix.lstrip('.').upper()}</b> format</span><span><b>Ready</b> to process</span></div></div>''', unsafe_allow_html=True)
+      <div class="ms-wf-wave">{bars}</div><div class="ms-wf-meta"><span><b>{size_display}</b> file size</span><span><b>{Path(name).suffix.lstrip('.').upper()}</b> format</span><span><b>Ready</b> to process</span></div></div>''', unsafe_allow_html=True)
     if st.button("← Upload", use_container_width=False):
         st.session_state.workflow_stage = "upload"
         st.rerun()
@@ -7437,6 +6254,36 @@ def render_processing_stage() -> None:
             <div class="ms-process-item"><span class="ms-process-bullet">✓</span><div><b>Transcript reviewed</b></div></div>
             <div class="ms-process-item"><span class="ms-process-bullet">✓</span><div><b>Meeting minutes generated</b></div></div>
           </div></div></div>''', unsafe_allow_html=True)
+
+
+def voxels_payload_for_export(analysis: MeetingAnalysisResult | None = None) -> dict[str, Any] | None:
+    """Return the same Voxels emotion payload already shown on the Minutes UI.
+
+    Mirrors the gating in ``emotion_insights_html`` exactly (audio-only,
+    already-stored session data, ``available`` flag) so PDF export never
+    re-runs Voxels and never shows emotion sections for transcript-only
+    meetings.
+    """
+    if st.session_state.get("workflow_source") != "audio":
+        return None
+    if analysis is not None:
+        try:
+            attach_topic_emotion_insights(analysis)
+        except Exception as exc:
+            # Topic-level emotion insights are an enhancement, not a required
+            # field. If aggregating them ever fails for an unforeseen data
+            # shape, export must still succeed with the top-level emotion
+            # summary rather than fail entirely.
+            log_stage(
+                "Export",
+                "Could not attach topic-level emotion insights; continuing without them.",
+                error=str(exc),
+                traceback=traceback.format_exc(),
+            )
+    payload = st.session_state.get("voxels_emotion_result")
+    if not isinstance(payload, dict) or not payload.get("available"):
+        return None
+    return payload
 
 
 def emotion_insights_html(analysis: MeetingAnalysisResult | None = None) -> str:
@@ -7656,7 +6503,15 @@ def render_email_stage(analysis: MeetingAnalysisResult) -> None:
         st.session_state.workflow_stage = "export"
         st.rerun()
     try:
-        mom_pdf_path = prepared_export_path("pdf_export_path", export_to_pdf, analysis)
+        mom_pdf_path = prepared_export_path(
+            "pdf_export_path",
+            lambda analysis, meeting_info: export_to_pdf(
+                analysis,
+                meeting_info=meeting_info,
+                voxels_emotion=voxels_payload_for_export(analysis),
+            ),
+            analysis,
+        )
     except Exception as exc:
         log_stage(
             "Export",

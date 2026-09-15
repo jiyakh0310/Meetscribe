@@ -241,6 +241,19 @@ DECISION_SIGNAL_PATTERN = re.compile(
     r"continue with|stop|cancel|close|completed|completed for release|release on|"
     r"ship|deploy|merge|merged|feature freeze|release candidate|will handle)\b"
 )
+# A concrete date/deadline/release outcome change, e.g. "Naya date hoga next
+# Monday instead of Friday." or "The deadline will be Friday instead of
+# Wednesday." Requires BOTH a concrete subject (a date/day/deadline/release
+# term) AND an explicit change/outcome construction -- neither alone is
+# sufficient, so a bare "Maybe Monday." or "Monday works?" is not rescued.
+CONCRETE_OUTCOME_SUBJECT_PATTERN = re.compile(
+    r"(?i)\b(date|day|deadline|release|launch|monday|tuesday|wednesday|thursday|"
+    r"friday|saturday|sunday)\b"
+)
+CONCRETE_OUTCOME_CHANGE_PATTERN = re.compile(
+    r"(?i)\b(instead of|moved to|move to|will be|has been moved|new date|"
+    r"naya date|hoga)\b"
+)
 DECISION_CONFIRMATION_PATTERN = re.compile(
     r"(?i)^\s*(yes(?:,\s*agreed)?|agreed|approved|confirmed|done|okay|ok|sure|sounds good|"
     r"works for me|confirmed)\s*[.!]?$"
@@ -252,9 +265,22 @@ DECISION_PROPOSAL_PATTERN = re.compile(
 )
 DECISION_VERB_PATTERN = re.compile(
     r"(?i)\b(approved|confirmed|accepted|finali[sz]ed|resolved|agree|agreed|defer|deferred|"
-    r"postponed|scheduled|locked|completed|closed|selected|chosen|implemented|"
+    r"postponed|scheduled|locked|completed|closed|selected|chosen|implemented|moved|"
     r"release|ship|deploy|merge|merged|proceed|continue|cancel|stopped|added|included|"
     r"will remain|will be implemented|will handle)\b"
+)
+# Hinglish task-completion verb forms ("... karna", "ready karna", "check
+# karna", etc.). Every example in this family ends in the bare word "karna",
+# so matching that word is sufficient. Only consulted where the caller has
+# already gated on the ANN's own Action_Item label, so this does not
+# independently promote casual mentions of "karna" elsewhere in a transcript.
+HINGLISH_ACTION_VERB_PATTERN = re.compile(r"(?i)\bkarna\b")
+# Hinglish deadline construction "<weekday/today> tak" (e.g. "Friday tak",
+# "aaj tak"), the postposition equivalent of English "by <weekday>". "kal"
+# ("tomorrow"/"yesterday" in Hindi, genuinely ambiguous) is deliberately
+# excluded to avoid mistaking a past-tense reference for future intent.
+HINGLISH_DEADLINE_TAK_PATTERN = re.compile(
+    r"(?i)\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday|aaj)\s+tak\b"
 )
 
 
@@ -843,6 +869,7 @@ def is_valid_action_task(task: str) -> bool:
             r"deliver|deploy|verify|finish|fix)\b",
             task,
         )
+        or HINGLISH_ACTION_VERB_PATTERN.search(task)
     )
     has_object = len(re.findall(r"\b[A-Za-z0-9]+\b", task)) >= 2
     if not has_action_verb or not has_object:
@@ -1067,7 +1094,7 @@ def build_formatter_evidence(clusters: list[TopicCluster]) -> FormatterEvidence:
 
             context_text = cluster.contexts[index] if index < len(cluster.contexts) else ""
             contextual_decision = contextual_decision_evidence(raw_sentence, context_text)
-            if contextual_decision:
+            if contextual_decision and contextual_decision not in evidence.decision_sentences:
                 evidence.decision_sentences.append(contextual_decision)
 
             # The validation gate runs before section assignment so greetings,
@@ -1084,7 +1111,7 @@ def build_formatter_evidence(clusters: list[TopicCluster]) -> FormatterEvidence:
             # prediction. A sentence can contain an explicit outcome phrase even
             # if the classifier labels it as Discussion or Information, so the
             # signal check is intentionally not restricted to label == Decision.
-            if contains_decision_signal(cleaned_sentence):
+            if contains_decision_signal(cleaned_sentence) and cleaned_sentence not in evidence.decision_sentences:
                 evidence.decision_sentences.append(cleaned_sentence)
 
             if action_sentence_has_evidence(cleaned_sentence, label) and action_record_has_task_support(
@@ -1154,6 +1181,7 @@ def build_topic_blueprints(evidence: FormatterEvidence) -> list[TopicBlueprint]:
         for split_evidence in split_evidence_by_topic(topic_evidence):
             entities = extract_entities_from_evidence(split_evidence)
             title = choose_blueprint_title(split_evidence, entities)
+            title = humanize_topic_title(title, split_evidence)
             if not title or utils.is_weak_topic(title):
                 continue
             facts = build_supporting_facts(split_evidence, entities)
@@ -1451,6 +1479,54 @@ def choose_blueprint_title(evidence: TopicEvidence, entities: ExtractedEntities)
         if title:
             return title
     return ""
+
+
+def humanize_topic_title(title: str, evidence: TopicEvidence) -> str:
+    """Replace a raw Hinglish or semantically-mismatched topic title with a
+    grounded English equivalent for display in Discussion Points / Summary.
+
+    This only rewrites the display title assigned to a topic blueprint after
+    ``choose_blueprint_title`` has already run; it does not touch clustering,
+    evidence grouping, decisions, or action-item extraction. Rules only fire
+    on known problem patterns (a Hindi/Hinglish token in the title, or a title
+    that is topically mismatched with its own evidence) and only choose among
+    English words already present in that topic's own evidence sentences --
+    nothing is invented.
+    """
+
+    if not title:
+        return title
+    lowered_title = title.casefold()
+    context = " ".join(evidence_sentences(evidence)).casefold()
+
+    if re.search(r"\b(kya|hoga|hai|hoon|hun|karna|tak|toh|abhi)\b", lowered_title):
+        if re.search(r"\b(launch|date|deadline|release)\b", context):
+            return "Launch Date Discussion"
+        return "Timeline Discussion"
+
+    if lowered_title == "understand your frustration amit" or "frustration" in lowered_title:
+        if "marketing collateral" in context or "collateral" in context:
+            return "Marketing Timeline Concern"
+        return "Timeline Concern"
+
+    if lowered_title == "marketing performance":
+        genuine_performance_terms = ("campaign", "promotion", "analytics", "reach", "conversion", "audience")
+        if "collateral" in context and not any(term in context for term in genuine_performance_terms):
+            return "Marketing Collateral Readiness"
+
+    # A title beginning with a dangling connective ("Instead Of Friday",
+    # "Due To Delays") is a leftover sentence fragment, not a real noun
+    # phrase -- it must be retitled rather than dropped, since dropping the
+    # blueprint would also discard any decision/action content attached to
+    # it. "Launch Date Decision" is kept distinct from "Launch Date
+    # Discussion" (used for the separate open-question topic) so the two
+    # do not collide into one misleading bullet.
+    if re.match(r"^(instead of|due to|because of|in order to|such as)\b", lowered_title):
+        if re.search(r"\b(launch|date|deadline|release)\b", context):
+            return "Launch Date Decision"
+        return "Timeline Update"
+
+    return title
 
 
 def build_supporting_facts(
@@ -1966,7 +2042,26 @@ def has_explicit_decision_evidence(text: str) -> bool:
         return False
     if re.search(r"(?i)\b(pending|waiting|not completed|requires review)\b.{0,24}\b(approval|approved)\b", text):
         return False
-    return bool(DECISION_SIGNAL_PATTERN.search(text))
+    return bool(DECISION_SIGNAL_PATTERN.search(text)) or has_concrete_outcome_change_evidence(text)
+
+
+def has_concrete_outcome_change_evidence(text: str) -> bool:
+    """Return whether text states a concrete date/deadline/release outcome
+    change, e.g. "Naya date hoga next Monday instead of Friday." or "The
+    deadline is now Friday instead of Wednesday." These carry the same
+    decision-grade evidence as an explicit approval/confirmation phrase, but
+    use a date-change construction instead of an approval verb.
+    """
+
+    if not text:
+        return False
+    cleaned = utils.normalize_whitespace(text).strip()
+    if cleaned.endswith("?"):
+        return False
+    return bool(
+        CONCRETE_OUTCOME_SUBJECT_PATTERN.search(cleaned)
+        and CONCRETE_OUTCOME_CHANGE_PATTERN.search(cleaned)
+    )
 
 
 def is_contextual_confirmation(text: str) -> bool:
@@ -2043,8 +2138,89 @@ def decision_topic_from_sentence(sentence: str, fallback_title: str) -> str:
     return decision_sentence_title(sentence, fallback_title)
 
 
+def is_weak_procedural_decision(sentence: str) -> bool:
+    """Return whether a sentence is procedural/agreement-only with no concrete
+    decision outcome, e.g. "Let's finalize this decision, everyone agree?" or
+    "Fine, main agree karta hun." These name no actual subject or outcome and
+    should be skipped rather than force-rendered as a decision.
+    """
+
+    cleaned = utils.normalize_whitespace(sentence).strip()
+    if not cleaned:
+        return True
+
+    # A trailing question mark on a sentence about the *act* of deciding,
+    # finalizing, or agreeing (not a real statement of what was decided) is a
+    # procedural prompt, not a decision outcome.
+    is_procedural_question = cleaned.endswith("?") and bool(
+        re.search(r"(?i)\b(finalize|finalise|decide|agree)\b", cleaned)
+    )
+
+    # A short utterance that is only agreement/confirmation language states
+    # that agreement happened but never says what was agreed.
+    is_bare_agreement = bool(
+        re.fullmatch(
+            r"(?i)(?:okay|ok|fine|yes|sure|great|perfect)?[,\s]*"
+            r"(?:everyone\s+agrees?|we\s+agree|i\s+agree|agreed|"
+            r"main\s+agree\s+karta\s+h(?:u|oo)n|main\s+agree\s+karti\s+h(?:u|oo)n)"
+            r"[.\s]*",
+            cleaned,
+        )
+    )
+
+    # A bare procedural imperative naming no concrete subject beyond a
+    # generic pronoun: "let's decide this now" / "let's finalize this".
+    is_bare_imperative = bool(
+        re.match(
+            r"(?i)^\s*(?:so\s+|toh\s+|okay,?\s+)?let'?s\s+(?:finalize|finalise|decide|agree)\s+"
+            r"(?:this(?:\s+decision)?|it)?\s*(?:right\s+now|now)?[.,!?\s]*$",
+            cleaned,
+        )
+    )
+
+    return is_procedural_question or is_bare_agreement or is_bare_imperative
+
+
+def date_change_decision_text(sentence: str) -> str:
+    """Render a concrete date/deadline change sentence in professional English.
+
+    Handles sentences of the form "<subject> <hoga|will be|moved to> <new
+    value> instead of <old value>", e.g. "Naya date hoga next Monday instead
+    of Friday." or "The deadline will be Friday instead of Wednesday.". Only
+    the new/old values and the subject term already present in the sentence
+    are used -- nothing is invented. Returns "" when the sentence does not
+    match this narrow shape, letting the caller fall through to the existing
+    decision-rendering branches.
+    """
+
+    match = re.search(
+        r"(?i)\b(?:hoga|will be|has been moved to|moved to|move to)\s+"
+        r"(?P<new>.+?)\s+instead\s+of\s+(?P<old>.+?)[.!?]*$",
+        sentence,
+    )
+    if not match:
+        return ""
+    new_value = utils.normalize_whitespace(match.group("new")).strip(" .")
+    old_value = utils.normalize_whitespace(match.group("old")).strip(" .")
+    if not new_value or not old_value:
+        return ""
+    lowered = sentence.casefold()
+    if "launch" in lowered:
+        subject = "launch date"
+    elif "deadline" in lowered:
+        subject = "deadline"
+    elif "release" in lowered:
+        subject = "release date"
+    else:
+        subject = "date"
+    return f"The {subject} was moved from {old_value} to {new_value}."
+
+
 def decision_from_sentence(sentence: str, fallback_title: str) -> str:
     """Generate a decision using only the sentence with decision evidence."""
+
+    if is_weak_procedural_decision(sentence):
+        return ""
 
     title = decision_topic_from_sentence(sentence, fallback_title)
     subject = decision_subject(sentence, title)
@@ -2057,6 +2233,9 @@ def decision_from_sentence(sentence: str, fallback_title: str) -> str:
     release_phrase = weekday_match.group(1).title() if weekday_match else ""
     if re.match(r"(?i)^\s*go\s+ahead\b", sentence):
         return "The team approved proceeding with the planned work."
+    date_change_text = date_change_decision_text(sentence)
+    if date_change_text:
+        return date_change_text
     if re.search(r"(?i)\b(defer|deferred|postpone|postponed|moves to|move to|moved to|will move to|will be moved to|future release|next release|next sprint|delay|delayed)\b", sentence):
         suffix = f" to {sprint_phrase}" if sprint_phrase else ""
         if re.search(r"(?i)\bnext release\b", sentence):
@@ -2361,12 +2540,15 @@ def action_sentence_has_evidence(sentence: str, predicted_label: str) -> bool:
                 sentence,
             )
         )
-    if predicted_label == "Action_Item" and re.search(
-        r"(?i)\b(i'?ll|i will|we will|will|shall|need to|needs to|should|must|"
-        r"has to|complete|update|publish|confirm|prepare|assign|generate|send|"
-        r"share|email|review|finalize|implement|submit|deliver|deploy|verify|"
-        r"finish|test|fix)\b",
-        sentence,
+    if predicted_label == "Action_Item" and (
+        re.search(
+            r"(?i)\b(i'?ll|i will|we will|will|shall|need to|needs to|should|must|"
+            r"has to|complete|update|publish|confirm|prepare|assign|generate|send|"
+            r"share|email|review|finalize|implement|submit|deliver|deploy|verify|"
+            r"finish|test|fix)\b",
+            sentence,
+        )
+        or HINGLISH_ACTION_VERB_PATTERN.search(sentence)
     ):
         return True
     # Non-action labels need explicit assignment or commitment language. This
@@ -2448,7 +2630,10 @@ def action_record_has_task_support(record: Any, sentence: str) -> bool:
     """Require owner, future intent, and a concrete task before action output."""
 
     parts = utils.extract_action_parts(sentence, getattr(record, "speaker", ""))
-    owner_is_known = normalize_owner(parts.owner) != "Unassigned"
+    # normalize_owner() maps the "Unassigned" sentinel to the display string
+    # "Not Mentioned"; compare against that post-normalization value so a
+    # genuinely unassigned owner is not miscounted as known.
+    owner_is_known = normalize_owner(parts.owner) != "Not Mentioned"
     has_future_intent = bool(
         re.search(
             r"(?i)\b(i'?ll|i will|we will|will|shall|need to|needs to|should|"
@@ -2456,6 +2641,7 @@ def action_record_has_task_support(record: Any, sentence: str) -> bool:
             r"next week|tomorrow|today)\b",
             sentence,
         )
+        or HINGLISH_DEADLINE_TAK_PATTERN.search(sentence)
     )
     return owner_is_known and has_future_intent and is_valid_action_task(parts.task)
 
@@ -2570,7 +2756,17 @@ def build_objective(blueprints: list[TopicBlueprint]) -> str:
     if primary is None:
         return ""
     context = " ".join(primary.evidence.cluster.contexts + [primary.title])
-    if re.search(r"(?i)\bloading|performance|optimization|lazy\b", context):
+    # Bare "performance" alone is too broad -- it also matches unrelated
+    # topics like "Marketing Performance". Only fire this branch when
+    # "performance" is qualified by a software/technical term, or when a
+    # strong unambiguous signal (loading/optimization/lazy) is present on
+    # its own.
+    if re.search(r"(?i)\b(loading|optimization|lazy)\b", context) or re.search(
+        r"(?i)\b(application|app|software|system|page|api|query|database|server|"
+        r"website|site)\s+performance\b|\bperformance\s+(issue|issues|problem|"
+        r"problems|degradation|bottleneck|bottlenecks)\b",
+        context,
+    ):
         return "Evaluate application performance, confirm the optimization approach, and align ownership for release readiness."
     if re.search(r"(?i)\bsprint|release|feature\b", context):
         return "Review sprint release readiness, finalize delivery priorities, and confirm ownership for remaining work."

@@ -2,10 +2,14 @@
 
 from __future__ import annotations
 
+import logging
 import re
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+from uuid import uuid4
+
+logger = logging.getLogger(__name__)
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
@@ -41,8 +45,15 @@ def export_to_pdf(
     output_path: str | Path | None = None,
     output_dir: str | Path = DEFAULT_EXPORT_DIR,
     meeting_info: dict[str, str] | None = None,
+    voxels_emotion: dict[str, Any] | None = None,
 ) -> Path:
-    """Create a concise Minutes of Meeting PDF and return its file path."""
+    """Create a concise Minutes of Meeting PDF and return its file path.
+
+    ``voxels_emotion`` is the already-computed Voxels session payload (the
+    same data shown on the Minutes UI); passing it in adds an Emotion &
+    Communication Insights section. Omit it (default) to preserve the
+    existing transcript-only export behaviour.
+    """
     payload = _analysis_to_dict(analysis)
     export_path = _resolve_output_path(output_path, output_dir)
     export_path.parent.mkdir(parents=True, exist_ok=True)
@@ -55,6 +66,15 @@ def export_to_pdf(
     _add_concise_key_discussion_points(story, styles, payload)
     _add_concise_decisions(story, styles, payload)
     _add_action_items(story, styles, payload)
+    try:
+        _add_emotion_insights(story, styles, voxels_emotion)
+    except Exception:
+        # Emotion insights are an enhancement on top of the core Minutes
+        # content. An unexpected Voxels data shape must not prevent the PDF
+        # itself -- with Executive Summary, Decisions, and Action Items --
+        # from being produced. The failure is still logged so it can be
+        # diagnosed rather than silently disappearing.
+        logger.exception("Could not render emotion insights section; PDF will omit it.")
     _add_next_meeting(story, styles, payload, meeting_info=meeting_info)
 
     document = SimpleDocTemplate(
@@ -119,8 +139,9 @@ def _resolve_output_path(
     if output_path is not None:
         return Path(output_path)
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    return Path(output_dir) / f"minutes_of_meeting_{timestamp}.pdf"
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+    unique_suffix = uuid4().hex[:8]
+    return Path(output_dir) / f"minutes_of_meeting_{timestamp}_{unique_suffix}.pdf"
 
 
 def _resolve_transcript_output_path(
@@ -504,6 +525,84 @@ def _add_next_steps(
             ))
 
 
+def _add_emotion_insights(
+    story: list[Any],
+    styles: dict[str, ParagraphStyle],
+    voxels_emotion: dict[str, Any] | None,
+) -> None:
+    """Render the same Voxels emotion insights already shown on the Minutes UI.
+
+    ``voxels_emotion`` is the already-computed session payload passed in by
+    the caller (the same data backing ``emotion_insights_html`` in
+    ``app/main.py``) -- Voxels is never re-run here. Renders nothing for
+    transcript-only meetings or when emotion data is unavailable, preserving
+    the existing export behaviour for those cases.
+    """
+    if not isinstance(voxels_emotion, dict) or not voxels_emotion.get("available"):
+        return
+
+    _add_heading(story, styles, "EMOTION & COMMUNICATION INSIGHTS")
+
+    dominant = _escape(str(voxels_emotion.get("dominant_emotion") or "Not available"))
+    tone = _escape(str(voxels_emotion.get("tone") or "Mixed / Uncertain"))
+    story.append(Paragraph(f"<b>Dominant detected speech emotion:</b> {dominant}", styles["body"]))
+    story.append(Paragraph(f"<b>Derived meeting tone:</b> {tone}", styles["body"]))
+
+    confidence = voxels_emotion.get("confidence")
+    if isinstance(confidence, (int, float)):
+        story.append(Paragraph(f"<b>Confidence:</b> {confidence:.0%}", styles["body"]))
+
+    observation = str(voxels_emotion.get("observation") or "").strip()
+    if observation:
+        story.append(Paragraph(_escape(observation), styles["body"]))
+
+    probabilities = voxels_emotion.get("probabilities") or {}
+    if probabilities:
+        rows: list[list[Any]] = [[
+            Paragraph("<b>Emotion</b>", styles["body"]),
+            Paragraph("<b>Probability</b>", styles["body"]),
+        ]]
+        for emotion, probability in sorted(
+            ((str(label), float(value)) for label, value in probabilities.items()),
+            key=lambda item: item[1],
+            reverse=True,
+        ):
+            percent = max(0.0, min(1.0, probability))
+            rows.append([
+                Paragraph(_escape(emotion.title()), styles["body"]),
+                Paragraph(f"{percent:.0%}", styles["body"]),
+            ])
+        story.append(_table(rows, [3.5 * inch, 3.0 * inch]))
+
+    windows = voxels_emotion.get("windows_analyzed")
+    note = str(
+        voxels_emotion.get("note")
+        or "Detected speech-emotion patterns only; this is not a measure of a person's true psychological state."
+    ).strip()
+    window_note = f"Based on {int(windows)} sampled speech windows. " if windows else "Based on sampled speech windows. "
+    story.append(Paragraph(_escape(window_note + note), styles["meta_indent"]))
+
+    topic_insights = [item for item in voxels_emotion.get("topic_insights", []) if isinstance(item, dict)]
+    if topic_insights:
+        story.append(Spacer(1, 6))
+        _add_heading(story, styles, "DISCUSSION-LEVEL EMOTION INSIGHTS")
+        topic_rows: list[list[Any]] = [[
+            Paragraph("<b>Topic</b>", styles["body"]),
+            Paragraph("<b>Dominant</b>", styles["body"]),
+            Paragraph("<b>Tone</b>", styles["body"]),
+            Paragraph("<b>Confidence</b>", styles["body"]),
+        ]]
+        for topic in topic_insights:
+            topic_confidence = float(topic.get("average_confidence") or 0.0)
+            topic_rows.append([
+                Paragraph(_escape(str(topic.get("topic") or "Discussion")), styles["body"]),
+                Paragraph(_escape(str(topic.get("dominant_emotion") or "Uncertain")), styles["body"]),
+                Paragraph(_escape(str(topic.get("tone") or "Mixed / Uncertain")), styles["body"]),
+                Paragraph(f"{topic_confidence:.0%}", styles["body"]),
+            ])
+        story.append(_table(topic_rows, [2.5 * inch, 1.5 * inch, 1.5 * inch, 1.0 * inch]))
+
+
 def _add_next_meeting(
     story: list[Any],
     styles: dict[str, ParagraphStyle],
@@ -669,38 +768,26 @@ def _speakers_from_transcript(transcript: str) -> set[str]:
 
 
 def _executive_summary_paragraphs(payload: dict[str, Any]) -> list[str]:
+    """Return the exact Executive Summary paragraphs shown on the Minutes UI.
+
+    Mirrors the short_summary / detailed_summary paragraph selection used by
+    the Minutes screen (``experimental_mom_to_analysis_result`` in
+    ``app/main.py``) so the PDF never substitutes a different or recomputed
+    summary -- it only reuses the values already produced for the UI.
+    """
     summary = payload.get("summary", {})
-    detailed = _sanitize_business_text(
-        str(summary.get("detailed_summary") or summary.get("short_summary") or "").strip()
-    )
     short = _sanitize_business_text(str(summary.get("short_summary") or "").strip())
-    decisions = payload.get("decisions", [])
-    actions = payload.get("action_items", [])
+    detailed = _sanitize_business_text(str(summary.get("detailed_summary") or "").strip())
 
     paragraphs: list[str] = []
-    if detailed:
-        paragraphs.append(_concise_paragraph(detailed))
-    elif short:
+    if short:
         paragraphs.append(_concise_paragraph(short))
-    else:
+    if detailed and detailed != short:
+        paragraphs.append(_concise_paragraph(detailed))
+    if not paragraphs:
         paragraphs.append("The meeting covered the listed agenda items and produced the outcomes captured in this report.")
 
-    decision_text = "; ".join(
-        _professionalize_sentence(item.get("decision", "")).rstrip(".")
-        for item in decisions[:3]
-        if item.get("decision")
-    )
-    if decision_text:
-        paragraphs.append(f"Key decisions included {decision_text}.")
-
-    if actions:
-        owners = sorted({str(item.get("owner")) for item in actions if item.get("owner")})
-        owner_text = ", ".join(owners[:4]) if owners else "the assigned owners"
-        paragraphs.append(
-            f"Follow-up activities were assigned to {owner_text}, with progress to be tracked through the action items below."
-        )
-
-    return paragraphs[:1]
+    return paragraphs
 
 
 def _concise_paragraph(text: str, *, max_words: int = 85) -> str:

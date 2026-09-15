@@ -59,6 +59,12 @@ FILLER_PATTERNS = (
 WEAK_TOPIC_PATTERNS = (
     r"^\s*(we have|there is|there are|let'?s|okay|yes|no|around|actually|basically|probably|i think)\b",
     r"^\s*(we|i|you|they|it|this|that)\s+(have|had|are|is|was|were)\b",
+    # Generic meeting wrap-up phrases (e.g. "Overall Productive Discussion",
+    # "a great meeting") carry no topical content -- they restate that the
+    # meeting happened rather than what it was about, and should not be
+    # surfaced as a discussion topic or pulled into the Executive Summary.
+    r"\b(productive|good|great|useful|helpful)\s+(discussion|meeting|conversation|session)\b",
+    r"^\s*overall\b",
 )
 WEAK_TOPIC_WORDS = {
     "we",
@@ -111,6 +117,22 @@ OWNER_ACTION_PATTERN = re.compile(
 )
 FIRST_PERSON_ACTION_PATTERN = re.compile(
     r"(?i)^\s*(i'll|i will|we will|we need to|we should|i)\s+(?P<task>.+)$"
+)
+# Explicit third-person task assignment, e.g. "Priya, your action item is..." or
+# the Hinglish equivalent "Priya, tumhara action item hai...". A short leading
+# discourse filler ("So Priya, ...") is tolerated so the filler word itself is
+# never mistaken for part of the owner's name.
+THIRD_PERSON_OWNER_PATTERN = re.compile(
+    r"^\s*(?:(?i:so|now|well|alright|okay|ok)[\s,]+)?"
+    r"(?P<owner>[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s*,\s*"
+    r"(?i:your\s+action\s+item\s+is\s+(?:to\s+)?|"
+    r"your\s+task\s+is\s+(?:to\s+)?|"
+    r"tumhara\s+action\s+item\s+hai\s+|"
+    r"tumhari\s+action\s+item\s+hai\s+|"
+    r"tumhara\s+task\s+hai\s+|"
+    r"tumhara\s+kaam\s+hai\s+|"
+    r"tumhari\s+responsibility\s+hai\s+)"
+    r"(?P<task>.+)$"
 )
 
 
@@ -484,10 +506,60 @@ def embedding_vectors_for_texts(texts: list[str]) -> list[list[float]]:
         return []
 
 
+# Hinglish "<object> <verb> karna" task phrasing ("karna" = Hindi "to do").
+# The word before "karna" already carries the intended action in these
+# transcripts (e.g. "ready karna" = "to make ready" = prepare), so mapping
+# just that word is enough to render the phrase in professional English
+# without altering the named object.
+HINGLISH_TASK_VERB_MAP = {
+    "ready": "prepare",
+    "complete": "complete",
+    "check": "check",
+    "update": "update",
+    "test": "test",
+    "fix": "fix",
+    "start": "start",
+    "shuru": "start",
+    "submit": "submit",
+    "review": "review",
+    "send": "send",
+    "create": "create",
+    "finish": "finish",
+    "prepare": "prepare",
+}
+HINGLISH_OBJECT_VERB_KARNA_PATTERN = re.compile(
+    r"(?i)^(?P<object>.+?)\s+(?P<verb>"
+    + "|".join(HINGLISH_TASK_VERB_MAP.keys())
+    + r")\s+karna$"
+)
+
+
+def normalize_hinglish_task_phrase(task: str) -> str:
+    """Rewrite a Hinglish "<object> <verb> karna" task into English "<Verb>
+    <object>" order. The named object is preserved verbatim; only the trailing
+    Hindi verb construction is translated using a fixed word map, so no task
+    detail is invented or dropped.
+    """
+
+    stripped = task.strip()
+    match = HINGLISH_OBJECT_VERB_KARNA_PATTERN.match(stripped)
+    if not match:
+        return task
+    obj = match.group("object").strip()
+    if not obj:
+        return task
+    verb = HINGLISH_TASK_VERB_MAP[match.group("verb").casefold()]
+    return f"{verb.capitalize()} {obj}"
+
+
 def normalize_task(task: str) -> str:
     """Convert conversational action wording into professional task wording."""
 
     cleaned = normalize_sentence(task).rstrip(".")
+    # Strip a stray Hinglish deadline postposition ("Friday tak") left behind
+    # after the deadline word itself has already been extracted elsewhere.
+    cleaned = re.sub(r"(?i)\s+tak$", "", cleaned).strip()
+    cleaned = normalize_hinglish_task_phrase(cleaned)
     cleaned = re.sub(r"(?i)^(?:can|could|would)\s+you\s+", "", cleaned)
     cleaned = re.sub(
         r"(?i)^(?:i|we|you|the\s+team)\s+(?:will|shall|must|should|"
@@ -681,12 +753,20 @@ def extract_action_parts(sentence: str, speaker: str) -> ActionParts:
     # A named person at the start of an action sentence should override the
     # current speaker because "Aarav: Rahul will complete..." assigns Rahul.
     owner_match = OWNER_ACTION_PATTERN.match(normalized.rstrip("."))
+    third_person_match = None if owner_match else THIRD_PERSON_OWNER_PATTERN.match(normalized.rstrip("."))
     if owner_match:
         owner = normalize_whitespace(owner_match.group("owner"))
         verb = owner_match.group("verb")
         task = owner_match.group("task")
         if not re.search(r"(?i)^(will|shall|needs to|need to|should|must|has to)$", verb):
             task = f"{verb} {task}"
+    elif third_person_match:
+        # Explicit third-person assignment ("Priya, your action item is..." /
+        # "Priya, tumhara action item hai...") names the owner directly, so it
+        # takes precedence over the speaker (the assigner is often someone
+        # else, e.g. a manager assigning work to a teammate).
+        owner = normalize_whitespace(third_person_match.group("owner"))
+        task = third_person_match.group("task")
     else:
         speaker_name = normalize_whitespace(speaker)
         first_person = FIRST_PERSON_ACTION_PATTERN.match(normalized.rstrip("."))
