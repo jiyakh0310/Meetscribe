@@ -94,9 +94,11 @@ from transcription.sarvam_client import (
 )
 from timeline import Timeline, build_timeline
 from meeting_analytics import (
+    CommunicationInsights,
     ContentAnalytics,
     ConversationAnalytics,
     SpeakerAnalytics,
+    align_topics_with_voxels,
     analyze_content,
     analyze_conversation,
 )
@@ -5869,6 +5871,14 @@ def inject_workflow_shell_styles() -> None:
           .ms-analytics-topic-meta{color:var(--wf-muted);font:400 11px/1.6 Inter,sans-serif}
           .ms-analytics-topic-meta strong{color:var(--wf-ink);font-weight:600}
           .ms-analytics-topic-preview{margin-top:8px;padding-top:8px;border-top:1px solid var(--wf-line);color:var(--wf-muted);font:400 11px/1.5 Inter,sans-serif;font-style:italic;overflow-wrap:anywhere}
+          .ms-analytics-comm-note{margin:0 0 12px;color:var(--wf-muted);font:400 12px/1.55 Inter,sans-serif}
+          .ms-analytics-comm-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+          .ms-analytics-comm-card{padding:16px 18px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
+          .ms-analytics-comm-title{color:var(--wf-ink);font:600 13px Inter,sans-serif}
+          .ms-analytics-comm-time{margin:2px 0 10px;color:var(--wf-muted);font:500 10px 'IBM Plex Mono',monospace}
+          .ms-analytics-comm-pattern{color:var(--wf-ink);font:500 12px Inter,sans-serif;margin-bottom:8px}
+          .ms-analytics-comm-card .ms-analytics-row{grid-template-columns:70px minmax(0,1fr) 40px;margin-top:6px}
+          .ms-analytics-comm-meta{margin-top:8px;padding-top:8px;border-top:1px solid var(--wf-line);color:var(--wf-muted);font:400 10px/1.5 Inter,sans-serif}
           .ms-minutes-summary{padding:20px 22px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
           .ms-minutes-summary p{margin:0;color:var(--wf-ink)!important;font:400 14px/1.65 Inter,sans-serif}
           .ms-minutes-summary p+p{margin-top:10px}
@@ -5927,7 +5937,7 @@ def inject_workflow_shell_styles() -> None:
           @media(max-width:800px){.ms-minutes-head{flex-direction:column}.ms-minutes-info{grid-template-columns:repeat(2,minmax(0,1fr))}
             .ms-emotion-topline{flex-direction:column}.ms-emotion-tone{align-items:flex-start}.ms-emotion-row{grid-template-columns:70px minmax(0,1fr) 36px}
             .ms-analytics-row{grid-template-columns:88px minmax(0,1fr) 64px}.ms-analytics-speakers{grid-template-columns:1fr}
-            .ms-analytics-topics{grid-template-columns:1fr}
+            .ms-analytics-topics{grid-template-columns:1fr}.ms-analytics-comm-cards{grid-template-columns:1fr}
             div[data-testid="stHorizontalBlock"]:has(.ms-export-option){display:grid!important;grid-template-columns:1fr!important}.ms-minutes-document{padding-inline:0}}
           .st-key-workflow_shell .ms-proc-wrap{display:none!important}
           .st-key-workflow_shell [data-testid="stProgress"],.st-key-workflow_shell [data-testid="stStatusWidget"]{display:none!important}
@@ -6522,7 +6532,113 @@ def _positive_language_html(positive_language) -> str:
     )
 
 
-def meeting_analytics_html(analytics: ConversationAnalytics, content: ContentAnalytics | None = None) -> str:
+def _topic_communication_html(communication) -> str:
+    """Build the "Emotion & Communication" sub-section for Meeting Analytics
+    (SELaD Phase 3): a meeting-level pass-through line plus compact
+    "Topic Communication Patterns" cards, one per Phase 2 topic that has
+    genuinely aligned Voxels evidence.
+
+    This deliberately does NOT repeat the full existing Emotion &
+    Communication Insights section (meeting-wide distribution, disclaimer,
+    quality warnings, discussion-point-level insights) -- that section,
+    built from ``emotion_insights_html()``, is unchanged and still renders
+    in full directly below Meeting Analytics. What's added here is new: a
+    per-Phase-2-topic view connecting WHAT was discussed, WHEN, and the
+    acoustic pattern detected during that window, which the existing
+    section does not provide (it anchors to factual MoM discussion points,
+    a different topic list, using next-topic-boundary inference rather than
+    each topic's own real start/end).
+
+    Uses only Voxels' own tone categories/observational wording -- never a
+    psychological claim, never a combined score with Positive Language.
+    """
+
+    if not communication.available:
+        return (
+            '<div class="ms-analytics-subhead">Emotion &amp; Communication</div>'
+            f'<p class="ms-analytics-comm-note">{html.escape(communication.unavailable_reason or "")}</p>'
+        )
+
+    summary_bits = []
+    if communication.dominant_acoustic_emotion:
+        summary_bits.append(f"dominant acoustic pattern: {communication.dominant_acoustic_emotion}")
+    if communication.communication_tone:
+        summary_bits.append(f"tone: {communication.communication_tone}")
+    if communication.windows_analyzed:
+        summary_bits.append(f"{communication.windows_analyzed} audio windows analyzed")
+    summary_line = (
+        "Meeting-level speech-emotion signal (" + ", ".join(summary_bits) + ") -- see Emotion "
+        "&amp; Communication Insights below for the full distribution and disclaimer."
+        if summary_bits
+        else ""
+    )
+
+    quality_warning_html = ""
+    if communication.quality_warnings:
+        warning_items = "".join(
+            f"<li>{html.escape(warning)}</li>" for warning in communication.quality_warnings
+        )
+        quality_warning_html = (
+            '<p class="ms-analytics-comm-note" style="margin-top:8px">'
+            f'<strong>Recording quality notes:</strong></p><ul class="ms-analytics-comm-note" '
+            f'style="margin:0 0 12px 18px;padding:0">{warning_items}</ul>'
+        )
+
+    available_topics = [topic for topic in communication.per_topic if topic.available]
+    topic_cards = ""
+    if available_topics:
+        cards = []
+        for topic in available_topics:
+            time_range = ""
+            if topic.start_time_seconds is not None and topic.end_time_seconds is not None:
+                time_range = (
+                    f'<div class="ms-analytics-comm-time">{html.escape(format_timestamp(topic.start_time_seconds))} - '
+                    f'{html.escape(format_timestamp(topic.end_time_seconds))}</div>'
+                )
+            top_emotions = topic.emotion_distribution[:3]
+            distribution_rows = "".join(
+                '<div class="ms-analytics-row">'
+                f'<div class="ms-analytics-label"><span>{html.escape(emotion.title())}</span></div>'
+                '<span class="ms-analytics-track">'
+                f'<span class="ms-analytics-fill" style="width:{max(0.0, min(1.0, probability)) * 100:.1f}%;'
+                'background:var(--wf-lav)"></span></span>'
+                f'<span class="ms-analytics-value">{max(0.0, min(1.0, probability)):.0%}</span></div>'
+                for emotion, probability in top_emotions
+            )
+            window_word = "window" if topic.windows_analyzed == 1 else "windows"
+            cards.append(
+                '<div class="ms-analytics-comm-card">'
+                f'<div class="ms-analytics-comm-title">{html.escape(topic.topic_title)}</div>'
+                f'{time_range}'
+                f'<div class="ms-analytics-comm-pattern">{html.escape(topic.pattern or "")}</div>'
+                f'{distribution_rows}'
+                f'<div class="ms-analytics-comm-meta">{topic.windows_analyzed} audio {window_word} analyzed</div>'
+                '</div>'
+            )
+        topic_cards = (
+            '<div class="ms-analytics-comm-cards" style="margin-top:12px">'
+            f'{"".join(cards)}</div>'
+        )
+
+    if not summary_line and not topic_cards:
+        return (
+            '<div class="ms-analytics-subhead">Emotion &amp; Communication</div>'
+            '<p class="ms-analytics-comm-note">No topic-aligned speech-emotion evidence was available for this meeting.</p>'
+        )
+
+    return (
+        '<div class="ms-analytics-subhead">Emotion &amp; Communication</div>'
+        + (f'<p class="ms-analytics-comm-note">{summary_line}</p>' if summary_line else "")
+        + quality_warning_html
+        + topic_cards
+    )
+
+
+def meeting_analytics_html(
+    analytics: ConversationAnalytics,
+    content: ContentAnalytics | None = None,
+    communication=None,
+) -> str:
     """Build the SELaD "Meeting Analytics" section for the Minutes view.
 
     Presentation only -- every figure comes from
@@ -6622,10 +6738,15 @@ def meeting_analytics_html(analytics: ConversationAnalytics, content: ContentAna
     content_html = ""
     if content is not None:
         content_html = (
-            _topics_html(content.topics)
+            '<div class="ms-analytics-subhead">Conversation Content</div>'
+            + _topics_html(content.topics)
             + _key_themes_html(content.keywords)
             + _positive_language_html(content.positive_language)
         )
+
+    communication_html = ""
+    if communication is not None:
+        communication_html = _topic_communication_html(communication)
 
     return (
         '<section class="ms-minutes-section ms-analytics-section">'
@@ -6634,9 +6755,11 @@ def meeting_analytics_html(analytics: ConversationAnalytics, content: ContentAna
         '<p class="ms-analytics-note">Conversation patterns derived from speaker activity and transcript timing.</p>'
         f'{coverage_note}'
         f'<div class="ms-minutes-info">{overview_html}</div>'
+        '<div class="ms-analytics-subhead" style="margin-top:0">Conversation Behaviour</div>'
         f'{participation_html}'
         f'<div class="ms-analytics-speakers" style="margin-top:16px">{speaker_cards_html}</div>'
         f'{content_html}'
+        f'{communication_html}'
         '</section>'
     )
 
@@ -6745,9 +6868,23 @@ def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisR
         )
         emotion_html = emotion_insights_html(analysis)
         _analytics_timeline = build_timeline(result, st.session_state.get("speaker_mapping"))
+        _content_analytics = analyze_content(_analytics_timeline)
+        # Read the raw, already-computed Voxels result directly (gated only
+        # on workflow_source, matching emotion_insights_html's own gating)
+        # rather than voxels_payload_for_export()'s collapsed None -- that
+        # helper intentionally treats "no audio" and "audio but Voxels
+        # unavailable" the same for PDF-export purposes, but Phase 3 wants
+        # to tell those two cases apart (see NO_AUDIO_MESSAGE vs the
+        # payload's own unavailable reason). Voxels is never re-run here.
+        _voxels_for_communication = (
+            st.session_state.get("voxels_emotion_result")
+            if st.session_state.get("workflow_source") == "audio"
+            else None
+        )
         analytics_html = meeting_analytics_html(
             analyze_conversation(_analytics_timeline),
-            analyze_content(_analytics_timeline),
+            _content_analytics,
+            align_topics_with_voxels(_content_analytics.topics, _voxels_for_communication),
         )
 
         st.markdown(
@@ -6780,7 +6917,7 @@ def render_timeline_debug_view(result: TranscriptionResult | None) -> None:
     """
 
     timeline = build_timeline(result, st.session_state.get("speaker_mapping"))
-    with st.expander("Timeline (Phase 0 verification)", expanded=False):
+    with st.expander("Technical timeline details", expanded=False):
         if not timeline.events:
             st.caption("No transcript segments available for this meeting.")
             return
