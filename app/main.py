@@ -93,7 +93,13 @@ from transcription.sarvam_client import (
     transcribe_audio_detailed,
 )
 from timeline import Timeline, build_timeline
-from meeting_analytics import ConversationAnalytics, SpeakerAnalytics, analyze_conversation
+from meeting_analytics import (
+    ContentAnalytics,
+    ConversationAnalytics,
+    SpeakerAnalytics,
+    analyze_content,
+    analyze_conversation,
+)
 
 SUPPORTED_FILE_TYPES = ("wav", "mp3", "m4a", "aac", "mp4")
 SUPPORTED_TRANSCRIPT_TYPES = ("pdf", "docx", "txt")
@@ -5853,6 +5859,16 @@ def inject_workflow_shell_styles() -> None:
           .ms-analytics-speaker-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
           .ms-analytics-speaker-metric-label{color:var(--wf-muted);font:400 9px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
           .ms-analytics-speaker-metric-value{color:var(--wf-ink);font:500 13px Inter,sans-serif}
+          .ms-analytics-subhead{margin:20px 0 10px;color:var(--wf-ink);font:600 12px Inter,sans-serif;text-transform:uppercase;letter-spacing:.04em}
+          .ms-analytics-topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+          .ms-analytics-topic-card{padding:16px 18px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
+          .ms-analytics-topic-title{color:var(--wf-ink);font:600 13px Inter,sans-serif;margin-bottom:8px}
+          .ms-analytics-chips{display:flex;flex-wrap:wrap;gap:5px}
+          .ms-analytics-topic-card .ms-analytics-chips{margin-bottom:10px}
+          .ms-analytics-chip{padding:3px 9px;border-radius:999px;background:#efe8d9;color:var(--wf-muted);font:500 10px Inter,sans-serif;white-space:nowrap}
+          .ms-analytics-topic-meta{color:var(--wf-muted);font:400 11px/1.6 Inter,sans-serif}
+          .ms-analytics-topic-meta strong{color:var(--wf-ink);font-weight:600}
+          .ms-analytics-topic-preview{margin-top:8px;padding-top:8px;border-top:1px solid var(--wf-line);color:var(--wf-muted);font:400 11px/1.5 Inter,sans-serif;font-style:italic;overflow-wrap:anywhere}
           .ms-minutes-summary{padding:20px 22px;border:1px solid var(--wf-line);border-radius:14px;background:#fbfaf7}
           .ms-minutes-summary p{margin:0;color:var(--wf-ink)!important;font:400 14px/1.65 Inter,sans-serif}
           .ms-minutes-summary p+p{margin-top:10px}
@@ -5911,6 +5927,7 @@ def inject_workflow_shell_styles() -> None:
           @media(max-width:800px){.ms-minutes-head{flex-direction:column}.ms-minutes-info{grid-template-columns:repeat(2,minmax(0,1fr))}
             .ms-emotion-topline{flex-direction:column}.ms-emotion-tone{align-items:flex-start}.ms-emotion-row{grid-template-columns:70px minmax(0,1fr) 36px}
             .ms-analytics-row{grid-template-columns:88px minmax(0,1fr) 64px}.ms-analytics-speakers{grid-template-columns:1fr}
+            .ms-analytics-topics{grid-template-columns:1fr}
             div[data-testid="stHorizontalBlock"]:has(.ms-export-option){display:grid!important;grid-template-columns:1fr!important}.ms-minutes-document{padding-inline:0}}
           .st-key-workflow_shell .ms-proc-wrap{display:none!important}
           .st-key-workflow_shell [data-testid="stProgress"],.st-key-workflow_shell [data-testid="stStatusWidget"]{display:none!important}
@@ -6402,15 +6419,119 @@ def _format_duration_seconds(seconds: float) -> str:
     return f"{minutes}m {secs}s" if minutes else f"{secs}s"
 
 
-def meeting_analytics_html(analytics: ConversationAnalytics) -> str:
-    """Build the SELaD Phase 1 "Meeting Analytics" section for the Minutes view.
+def _topics_html(topics: tuple) -> str:
+    """Build the "Conversation Topics" sub-section (SELaD Phase 2).
+
+    Each card is traceable to its own source timeline events via
+    ``topic.source_event_ids`` (not surfaced in the UI -- this is an
+    internal traceability link for later phases, e.g. Voxels/video/playback
+    synchronization) and never shows a fabricated time range.
+    """
+
+    if not topics:
+        return ""
+
+    cards = []
+    for topic in topics:
+        chips = "".join(
+            f'<span class="ms-analytics-chip">{html.escape(keyword)}</span>' for keyword in topic.keywords
+        )
+        time_range = ""
+        if topic.start_time_seconds is not None and topic.end_time_seconds is not None:
+            time_range = (
+                f'<div>{html.escape(format_timestamp(topic.start_time_seconds))} - '
+                f'{html.escape(format_timestamp(topic.end_time_seconds))}</div>'
+            )
+        participants = ", ".join(html.escape(name) for name in topic.participant_speakers) or "Not specified"
+        segment_word = "segment" if topic.event_count == 1 else "segments"
+        cards.append(
+            '<div class="ms-analytics-topic-card">'
+            f'<div class="ms-analytics-topic-title">{html.escape(topic.title)}</div>'
+            f'<div class="ms-analytics-chips">{chips}</div>'
+            f'<div class="ms-analytics-topic-meta"><strong>{participants}</strong></div>'
+            f'<div class="ms-analytics-topic-meta">{topic.event_count} transcript {segment_word}</div>'
+            f'<div class="ms-analytics-topic-meta">{time_range}</div>'
+            f'<div class="ms-analytics-topic-preview">&#8220;{html.escape(topic.representative_text)}&#8221;</div>'
+            '</div>'
+        )
+
+    return (
+        '<div class="ms-analytics-subhead">Conversation Topics</div>'
+        f'<div class="ms-analytics-topics">{"".join(cards)}</div>'
+    )
+
+
+def _key_themes_html(keywords) -> str:
+    """Build the "Key Themes" sub-section: 6-10 meeting-wide keywords as
+    plain, single-color chips -- no per-term color-coding that could read
+    as a ranking/quality signal."""
+
+    if not keywords.meeting_keywords:
+        return ""
+    chips = "".join(
+        f'<span class="ms-analytics-chip">{html.escape(term)}</span>' for term in keywords.meeting_keywords
+    )
+    return (
+        '<div class="ms-analytics-subhead">Key Themes</div>'
+        f'<div class="ms-analytics-card"><div class="ms-analytics-chips">{chips}</div></div>'
+    )
+
+
+def _positive_language_html(positive_language) -> str:
+    """Build the "Positive Language" sub-section.
+
+    Deliberately NOT named "Emotion" (Voxels already owns that word for
+    acoustic speech-emotion patterns -- see integrations/voxels_ser.py).
+    Every speaker's bar uses the SAME neutral color (no red/green, no
+    per-speaker ranking color) so a higher percentage never visually reads
+    as "better". Speakers with no eligible text show "Not enough text"
+    rather than a fabricated 0%.
+    """
+
+    if not positive_language.per_speaker:
+        return ""
+
+    rows = []
+    for speaker in positive_language.per_speaker:
+        if speaker.proportion is None:
+            rows.append(
+                '<div class="ms-analytics-row">'
+                f'<div class="ms-analytics-label"><span>{html.escape(speaker.speaker_name)}</span></div>'
+                '<span class="ms-analytics-track"></span>'
+                '<span class="ms-analytics-value">Not enough text</span></div>'
+            )
+        else:
+            rows.append(
+                '<div class="ms-analytics-row">'
+                f'<div class="ms-analytics-label"><span>{html.escape(speaker.speaker_name)}</span></div>'
+                '<span class="ms-analytics-track">'
+                f'<span class="ms-analytics-fill" style="width:{speaker.proportion * 100:.1f}%;'
+                'background:var(--wf-blue)"></span></span>'
+                f'<span class="ms-analytics-value">{speaker.proportion:.0%}</span></div>'
+            )
+
+    return (
+        '<div class="ms-analytics-subhead">Positive Language</div>'
+        '<div class="ms-analytics-card">'
+        '<div class="ms-analytics-kicker">Share of eligible transcript words matching the positive-language lexicon</div>'
+        f'{"".join(rows)}'
+        '<div class="ms-analytics-unavailable" style="font-style:normal">'
+        "Based on explicit lexical signals in the transcript; this does not measure a participant's "
+        'emotional or psychological state. The lexicon is English-only.</div>'
+        '</div>'
+    )
+
+
+def meeting_analytics_html(analytics: ConversationAnalytics, content: ContentAnalytics | None = None) -> str:
+    """Build the SELaD "Meeting Analytics" section for the Minutes view.
 
     Presentation only -- every figure comes from
-    ``meeting_analytics.analyze_conversation``, which reads only the Phase 0
-    Timeline and never touches the factual MoM pipeline or Voxels. Uses
-    neutral, observational wording throughout (no "dominant"/"good"/"poor"
-    language) per the SELaD principle: measured evidence, not judgment --
-    reflection prompts built on top of this data are a later phase.
+    ``meeting_analytics.analyze_conversation``/``analyze_content``, which
+    read only the Phase 0 Timeline and never touch the factual MoM pipeline
+    or Voxels. Uses neutral, observational wording throughout (no
+    "dominant"/"good"/"poor" language) per the SELaD principle: measured
+    evidence, not judgment -- reflection prompts built on top of this data
+    are a later phase.
     """
 
     if analytics.speaker_count == 0:
@@ -6498,6 +6619,14 @@ def meeting_analytics_html(analytics: ConversationAnalytics) -> str:
             f'{analytics.total_event_count} transcript segments; duration-based metrics reflect only those.</p>'
         )
 
+    content_html = ""
+    if content is not None:
+        content_html = (
+            _topics_html(content.topics)
+            + _key_themes_html(content.keywords)
+            + _positive_language_html(content.positive_language)
+        )
+
     return (
         '<section class="ms-minutes-section ms-analytics-section">'
         '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
@@ -6507,6 +6636,7 @@ def meeting_analytics_html(analytics: ConversationAnalytics) -> str:
         f'<div class="ms-minutes-info">{overview_html}</div>'
         f'{participation_html}'
         f'<div class="ms-analytics-speakers" style="margin-top:16px">{speaker_cards_html}</div>'
+        f'{content_html}'
         '</section>'
     )
 
@@ -6614,8 +6744,10 @@ def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisR
             + '</tbody></table></div>'
         )
         emotion_html = emotion_insights_html(analysis)
+        _analytics_timeline = build_timeline(result, st.session_state.get("speaker_mapping"))
         analytics_html = meeting_analytics_html(
-            analyze_conversation(build_timeline(result, st.session_state.get("speaker_mapping")))
+            analyze_conversation(_analytics_timeline),
+            analyze_content(_analytics_timeline),
         )
 
         st.markdown(
