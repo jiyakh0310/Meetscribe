@@ -92,6 +92,7 @@ from transcription.sarvam_client import (
     TranscriptionSegment,
     transcribe_audio_detailed,
 )
+from timeline import build_timeline
 
 SUPPORTED_FILE_TYPES = ("wav", "mp3", "m4a", "aac", "mp4")
 SUPPORTED_TRANSCRIPT_TYPES = ("pdf", "docx", "txt")
@@ -6489,6 +6490,45 @@ def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisR
         if emotion_html:
             st.markdown(emotion_html, unsafe_allow_html=True)
         render_analysis_error()
+
+    render_timeline_debug_view(result)
+
+
+def render_timeline_debug_view(result: TranscriptionResult | None) -> None:
+    """Minimal, collapsed development view for the SELaD Phase 0 timeline.
+
+    Deliberately outside the ``minutes_document`` container and using plain
+    Streamlit widgets (no custom CSS) so it cannot visually interfere with
+    the polished Minutes layout. This is verification-only: nothing here
+    feeds back into the MoM pipeline, and no new session state is created --
+    the timeline is built fresh from the same reviewed ``result`` and
+    ``speaker_mapping`` the rest of the Minutes stage already uses.
+    """
+
+    timeline = build_timeline(result, st.session_state.get("speaker_mapping"))
+    with st.expander("Timeline (Phase 0 verification)", expanded=False):
+        if not timeline.events:
+            st.caption("No transcript segments available for this meeting.")
+            return
+        if not timeline.has_timed_events:
+            st.caption(
+                "No timed segments available for this meeting "
+                "(transcript upload without timestamps, or a very short recording)."
+            )
+        rows = [
+            {
+                "Speaker": event.speaker_name,
+                "Start": f"{event.start_time_seconds:.2f}s" if event.start_time_seconds is not None else "—",
+                "End": f"{event.end_time_seconds:.2f}s" if event.end_time_seconds is not None else "—",
+                "Duration": f"{event.duration_seconds:.2f}s" if event.duration_seconds is not None else "—",
+                "Status": event.timing_status.value,
+                "Transcript preview": (
+                    event.transcript[:80] + "…" if len(event.transcript) > 80 else event.transcript
+                ),
+            }
+            for event in timeline.events
+        ]
+        st.dataframe(rows, use_container_width=True, hide_index=True)
 
 
 def render_export_stage(analysis: MeetingAnalysisResult) -> None:
