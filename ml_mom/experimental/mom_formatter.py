@@ -220,7 +220,11 @@ DISCUSSION_RENDER_TEMPLATES = (
     "{topic}: The meeting covered {topic_lower} and clarified the related implementation considerations.",
     "{topic}: Attention was given to {topic_lower}, including the current status and required next steps.",
     "{topic}: {topic} was assessed in relation to delivery readiness, ownership, and outstanding work.",
-    "{topic}: The group aligned on {topic_lower} and identified the practical follow-up required.",
+    # Phase 3.1: "aligned" claims a reached consensus the generic fallback
+    # has no evidence for -- the topic only guarantees SOME discussion
+    # sentences exist, not that participants agreed on anything. "Reviewed"
+    # is accurate regardless of whether the discussion ended in agreement.
+    "{topic}: The group reviewed {topic_lower} and identified practical next steps.",
 )
 QUANTITY_DISCUSSION_TEMPLATES = (
     "{topic}: Available figures for {topic_lower} were reviewed, including {quantities}, to assess readiness and follow-up needs.",
@@ -230,7 +234,10 @@ QUANTITY_DISCUSSION_TEMPLATES = (
 TIMELINE_DISCUSSION_TEMPLATES = (
     "{topic}: Timeline considerations for {topic_lower} were reviewed with reference to {timeline}.",
     "{topic}: Discussion focused on {topic_lower}, including timing expectations around {timeline}.",
-    "{topic}: Participants examined {topic_lower} and aligned the related follow-up with {timeline}.",
+    # Phase 3.1: same "aligned" over-claim as DISCUSSION_RENDER_TEMPLATES --
+    # a shared deadline mention is not evidence participants reached
+    # agreement on it.
+    "{topic}: Participants examined {topic_lower} and noted the related timeline of {timeline}.",
 )
 DECISION_SIGNAL_PATTERN = re.compile(
     r"(?i)\b(approved|approve|approved by|accepted|confirmed|finali[sz]ed|"
@@ -253,6 +260,60 @@ CONCRETE_OUTCOME_SUBJECT_PATTERN = re.compile(
 CONCRETE_OUTCOME_CHANGE_PATTERN = re.compile(
     r"(?i)\b(instead of|moved to|move to|will be|has been moved|new date|"
     r"naya date|hoga)\b"
+)
+# Phase 3.1 grounding fix: DECISION_SIGNAL_PATTERN alone is too permissive --
+# it matches bare action verbs ("deploy", "ship", "release", "close", ...)
+# regardless of whether the sentence actually states that something was
+# decided, or is merely asking about, suggesting, or explaining the same
+# concept ("How do we deploy this?", "We should deploy this.", "The
+# deployment process works like this."). These two patterns narrow
+# acceptance to sentences that make an affirmative commitment/selection/
+# approval claim, while still rejecting discussion/question/speculation
+# framing. Both are additive English-language gates layered on top of the
+# existing DECISION_SIGNAL_PATTERN/has_concrete_outcome_change_evidence
+# checks (including their Hinglish coverage) -- neither existing pattern is
+# removed or narrowed, and Hinglish decision evidence is untouched since
+# these new patterns only ever SUPPRESS an English discussion/question
+# framing, never suppress a Hinglish sentence (which won't match either
+# pattern's English wording).
+DECISION_DISCUSSION_MARKER_PATTERN = re.compile(
+    r"(?i)\b("
+    r"how (?:do|does|should|can|could|would|will|might) (?:we|i|you|they)\b|"
+    r"what (?:should|do|does|are|is|would)\b|"
+    r"which (?:one|option|approach)\b|"
+    r"should we\b|could we\b|can we\b|would we\b|"
+    r"we (?:discussed|talked about|are discussing|are considering|"
+    r"need to evaluate|will evaluate|plan to evaluate|are evaluating|"
+    r"should evaluate)\b|"
+    r"let'?s discuss\b|discussion (?:on|about)\b|"
+    r"maybe we\b|we might\b|perhaps we\b|we could\b|we should\b|"
+    r"works like this\b|works as follows\b|"
+    r"could (?:this|that|it) be\b|"
+    r"recommend(?:ation|ed)?\b"
+    r")\b"
+)
+# An explicit, affirmative statement that something was actually decided,
+# agreed, selected, or approved -- phrase-based (not a single bare verb like
+# "deploy"/"release") so that a decision-adjacent word appearing inside a
+# question or explanation is never mistaken for a stated commitment. When
+# present, this overrides DECISION_DISCUSSION_MARKER_PATTERN (a sentence can
+# legitimately both describe a discussion AND report its outcome, e.g. "We
+# discussed it and agreed to proceed with option B.").
+DECISION_COMMITMENT_PATTERN = re.compile(
+    r"(?i)\b("
+    r"we(?:'ve| have)? decided|decided to|"
+    r"we(?:'ve| have)? agreed|agreed to|agreement (?:was |is )?reached|"
+    r"we will proceed with|will proceed with|proceeding with|"
+    r"let'?s go with|going with|go ahead with|goes ahead with|"
+    r"(?:was |has been |is )?approved|"
+    r"the decision is|our decision is|final decision (?:is|was)|"
+    r"we selected|selected to|"
+    r"we chose|chose to|"
+    r"we'?ll use|we will use|decided to use|"
+    r"confirmed (?:that\s+)?(?:we|it|this)?\s*will|"
+    r"finali[sz]ed|locked in|signed off|sign(?:ed)? off on|"
+    r"resolved to"
+    r")\b"
 )
 DECISION_CONFIRMATION_PATTERN = re.compile(
     r"(?i)^\s*(yes(?:,\s*agreed)?|agreed|approved|confirmed|done|okay|ok|sure|sounds good|"
@@ -982,13 +1043,20 @@ def quality_summary(
 
 
 def infer_participants(records: Iterable[Any]) -> list[str]:
-    """Infer ordered participant names from prediction speakers."""
+    """Infer ordered, de-duplicated participant names from prediction speakers.
+
+    Phase 3.1: a speaker still carrying a generic label (e.g. "Speaker 3",
+    left unrenamed while other speakers were reviewed) is still a real,
+    distinct participant and is no longer excluded -- see
+    app.main.participants_from_transcript_turns for the matching fix and
+    its rationale.
+    """
 
     participants: list[str] = []
     seen: set[str] = set()
     for record in records:
         speaker = utils.normalize_whitespace(getattr(record, "speaker", ""))
-        if not speaker or speaker == "-" or re.fullmatch(r"(?i)speaker\s+\d+", speaker):
+        if not speaker or speaker == "-":
             continue
         key = speaker.casefold()
         if key in seen:
@@ -2034,15 +2102,31 @@ def contextual_decision_evidence(sentence: str, context_text: str) -> str:
 
 
 def has_explicit_decision_evidence(text: str) -> bool:
-    """Return whether text contains a deterministic decision signal."""
+    """Return whether text contains a deterministic decision signal.
+
+    Phase 3.1: a candidate must state an affirmative commitment/selection/
+    approval, not merely mention a decision-adjacent action word while
+    asking about, suggesting, or explaining it. Two additive checks enforce
+    this: (1) a question is never a stated decision, regardless of which
+    words it contains; (2) discussion/suggestion framing
+    (DECISION_DISCUSSION_MARKER_PATTERN) suppresses an otherwise-matching
+    sentence UNLESS it also contains an explicit commitment phrase
+    (DECISION_COMMITMENT_PATTERN) -- a sentence can legitimately both
+    describe a discussion and report its outcome in one breath.
+    """
 
     if not text or utils.is_agreement_sentence(text) or is_contextual_confirmation(text):
+        return False
+    if utils.normalize_whitespace(text).strip().endswith("?"):
         return False
     if re.search(r"(?i)\b(approval|approved)\b.{0,24}\b(pending|waiting|not completed|requires review)\b", text):
         return False
     if re.search(r"(?i)\b(pending|waiting|not completed|requires review)\b.{0,24}\b(approval|approved)\b", text):
         return False
-    return bool(DECISION_SIGNAL_PATTERN.search(text)) or has_concrete_outcome_change_evidence(text)
+    has_commitment = bool(DECISION_COMMITMENT_PATTERN.search(text))
+    if DECISION_DISCUSSION_MARKER_PATTERN.search(text) and not has_commitment:
+        return False
+    return bool(DECISION_SIGNAL_PATTERN.search(text)) or has_commitment or has_concrete_outcome_change_evidence(text)
 
 
 def has_concrete_outcome_change_evidence(text: str) -> bool:
@@ -2772,10 +2856,17 @@ def build_objective(blueprints: list[TopicBlueprint]) -> str:
         return "Review sprint release readiness, finalize delivery priorities, and confirm ownership for remaining work."
     if re.search(r"(?i)\btesting|qa|regression\b", context):
         return "Assess testing readiness, confirm quality risks, and assign validation follow-up."
+    # Phase 3.1 grounding fix: the strongest topic's TITLE is a generated
+    # label, not evidence of a "required follow-up". Claiming one here
+    # invented an obligation that may not exist (e.g. a poor/generic title
+    # like "Next Question" became "Review next question and confirm any
+    # required follow-up", reading as a fabricated action). State only what
+    # the title-based fallback can actually support -- that the topic was
+    # reviewed -- and leave follow-up claims to build_objective's own
+    # evidence-backed branches above (testing/release/performance) or to the
+    # Action Items / Pending Items sections, which are grounded separately.
     return limit_words(
-        utils.normalize_sentence(
-            f"Review {primary.title.lower()} and confirm any required follow-up."
-        ),
+        utils.normalize_sentence(f"Review {primary.title.lower()}."),
         20,
     )
 

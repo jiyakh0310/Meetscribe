@@ -70,6 +70,7 @@ from transcription.audio_transcript_normalization import (
 from transcription.audio_transcript_repair import repair_audio_transcription
 from transcription.speaker_mapping import (
     SpeakerMapping,
+    default_speaker_label,
     display_speaker_label,
 )
 from transcription.speaker_resolution import (
@@ -1024,23 +1025,30 @@ def inject_processing_styles() -> None:
 
 
 def participants_from_transcript_turns(turns: list[TranscriptTurn]) -> list[str]:
-    """Return ordered, non-generic participant names from parsed transcript turns.
+    """Return ordered, de-duplicated participant names from parsed transcript turns.
 
     Args:
         turns: Parsed speaker turns produced by ``ml_mom.transcript_parser``.
 
     Returns:
-        Speaker names in transcript order, with duplicates and generic labels
-        such as ``Speaker 1`` removed.
+        Speaker names in transcript order, with duplicates removed.
+
+    Phase 3.1: a speaker who was reviewed but left with a generic label
+    (e.g. "Speaker 3", because the user renamed some but not all detected
+    speakers) is still a real, distinct participant and must be listed --
+    it is no longer filtered out just because it still looks generic.
+    Dropping it caused the reported "only the renamed attendee appears"
+    bug: with three detected speakers and only one renamed, this filter
+    discarded the other two even though they genuinely spoke.
     """
 
     # Manual meeting-info participants remain the source of truth; this helper
-    # only supplies ordered, non-generic names when the UI field is empty.
+    # only supplies ordered names when the UI field is empty.
     participants: list[str] = []
     seen: set[str] = set()
     for turn in turns:
         speaker = (turn.speaker_normalized or turn.speaker_raw or "").strip()
-        if not speaker or re.fullmatch(r"(?i)speaker\s+[A-Za-z0-9]+", speaker):
+        if not speaker:
             continue
         key = speaker.casefold()
         if key in seen:
@@ -3187,12 +3195,19 @@ def default_meeting_title() -> str:
 
 
 def participants_from_current_context(result: TranscriptionResult | None = None) -> list[str]:
-    metadata = st.session_state.get("meeting_metadata", {})
-    participant_list = metadata.get("participant_list")
-    if isinstance(participant_list, list):
-        participants = [str(item).strip() for item in participant_list if str(item).strip()]
-        if participants:
-            return participants
+    """Return the authoritative participant list for the current meeting.
+
+    Phase 3.1: the reviewed speaker mapping (``current_speaker_mapping()``)
+    is checked FIRST, ahead of ``meeting_metadata["participant_list"]``.
+    That metadata field is auto-derived (from BERT NER or the formatter's
+    own speaker inference, both run on transcript text) and can predate or
+    otherwise disagree with what the user just reviewed/renamed on the
+    Speaker Review screen -- it must never override the user's own review.
+    The reviewed mapping is the single authoritative "reviewed speaker
+    identity" source described in the SELaD speaker-integrity design; the
+    auto-derived metadata list remains a fallback for when no mapping has
+    been reviewed yet (e.g. before the Speaker Review step has run).
+    """
 
     mapping = current_speaker_mapping()
     participants = []
@@ -3204,6 +3219,13 @@ def participants_from_current_context(result: TranscriptionResult | None = None)
             seen.add(participant.lower())
     if participants:
         return participants
+
+    metadata = st.session_state.get("meeting_metadata", {})
+    participant_list = metadata.get("participant_list")
+    if isinstance(participant_list, list):
+        auto_derived = [str(item).strip() for item in participant_list if str(item).strip()]
+        if auto_derived:
+            return auto_derived
 
     transcript_text = st.session_state.get("transcript_text", "")
     if transcript_text:
@@ -3780,20 +3802,32 @@ def evidence_for_report_item(
     transcript_text: str,
     report_text: str,
 ) -> tuple[list[str], str | None]:
-    """Find the edited-transcript speaker/timestamp most related to a report item.
+    """Find the edited-transcript speaker(s)/timestamp most related to a report item.
 
     The formatter produces polished bullets that may not exactly copy transcript
     sentences. This deterministic lookup scores final edited transcript turns by
     keyword overlap, keeping speaker names and timestamps aligned with the
     transcript that the user approved.
+
+    Phase 3.1: a discussion point or decision bullet is frequently synthesized
+    from MULTIPLE contributing turns (e.g. one speaker raises a point and a
+    second speaker responds to it). Previously only the single highest-scoring
+    turn was used, which silently misattributed the evidence to one
+    "representative" speaker and dropped every other real contributor. Every
+    turn that shares a substantial majority of the top turn's keyword overlap
+    is treated as a genuine contributor; a turn with much weaker overlap is
+    still excluded so unrelated turns are not pulled in. A generic-but-real
+    speaker label (e.g. "Speaker 3", left unrenamed) is no longer filtered out
+    here either -- see participants_from_transcript_turns for the matching
+    participant-list fix and its rationale; the same real speaker must not
+    silently vanish from evidence attribution.
     """
 
     target_keywords = transcript_keywords(report_text)
     if not target_keywords:
         return [], None
 
-    best_score = 0
-    best_turn: dict[str, str] | None = None
+    scored_turns: list[tuple[int, dict[str, str]]] = []
     for turn in transcript_turns_from_text(transcript_text):
         turn_text = " ".join(
             [
@@ -3806,17 +3840,32 @@ def evidence_for_report_item(
         if not turn_keywords:
             continue
         score = len(target_keywords & turn_keywords)
-        if score > best_score:
-            best_score = score
-            best_turn = turn
+        if score > 0:
+            scored_turns.append((score, turn))
 
-    if best_turn is None or best_score == 0:
+    if not scored_turns:
         return [], None
 
-    speaker = (best_turn.get("speaker") or "").strip()
-    timestamp = (best_turn.get("timestamp") or "").strip()
-    speakers = [speaker] if speaker and not re.fullmatch(r"(?i)speaker\s+[A-Za-z0-9]+", speaker) else []
-    return speakers, None if timestamp in {"", "--:--"} else timestamp
+    best_score = max(score for score, _ in scored_turns)
+    # Integer ceil(0.6 * best_score) without importing math: turns scoring at
+    # least 60% of the best turn's overlap are genuine co-contributors.
+    relevance_floor = max(1, (best_score * 3 + 4) // 5)
+
+    speakers: list[str] = []
+    seen_speakers: set[str] = set()
+    timestamp: str | None = None
+    for score, turn in scored_turns:
+        if score < relevance_floor:
+            continue
+        speaker = (turn.get("speaker") or "").strip()
+        if speaker and speaker.casefold() not in seen_speakers:
+            speakers.append(speaker)
+            seen_speakers.add(speaker.casefold())
+        if timestamp is None:
+            candidate_timestamp = (turn.get("timestamp") or "").strip()
+            if candidate_timestamp and candidate_timestamp != "--:--":
+                timestamp = candidate_timestamp
+    return speakers, timestamp
 
 
 def extract_due_date_text(*values: str | None) -> str:
@@ -6160,7 +6209,16 @@ def render_speaker_stage(result: TranscriptionResult) -> None:
         values = {}
         cols = st.columns(2)
         for index, label in enumerate(labels):
-            segments = [s for s in result.segments if speaker_label(s) == label]
+            # Phase 3.1 fix: compare against each segment's stable generic
+            # label (default_speaker_label), not its live display label
+            # (speaker_label, which resolves through current_speaker_mapping()).
+            # `label` here is always a generic key from `labels`; if this
+            # speaker had already been renamed in a prior mapping pass,
+            # speaker_label(s) would return the display name instead and
+            # never equal the generic `label`, silently filtering out ALL
+            # of that speaker's segments and showing "Speaks first at --:--"
+            # despite a valid first segment existing.
+            segments = [s for s in result.segments if default_speaker_label(s) == label]
             first = format_timestamp(segments[0].start_time_seconds if segments else None)
             with cols[index % 2]:
                 st.markdown(f'<div class="ms-speaker-shell"><b>{html.escape(label)}</b><br><small>Speaks first at {first}</small></div>', unsafe_allow_html=True)
