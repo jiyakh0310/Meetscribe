@@ -295,19 +295,59 @@ class SarvamTranscriptionClient:
             raise TranscriptionError(
                 f"Could not read audio file '{audio_path.name}'."
             ) from exc
+        except Exception as exc:
+            # Phase 3.6 safety net: the Sarvam SDK can raise exception types
+            # this function does not explicitly enumerate (a schema
+            # validation error, an unexpected transport error, etc.). Left
+            # uncaught, an exception here escapes as an arbitrary internal
+            # exception type -- app.main.process_upload's generic handler
+            # then shows the user "Something went wrong while preparing
+            # your report" with no indication the problem was actually the
+            # external transcription service. Converting ANY unexpected
+            # failure at this boundary into TranscriptionError ensures it
+            # is always classified and surfaced as a transcription-service
+            # problem instead, while the full exception is still logged
+            # here with a traceback for server-side diagnosis.
+            logger.error(
+                "Unexpected error during real-time transcription for '%s': %s",
+                audio_path.name,
+                exc,
+                exc_info=True,
+            )
+            raise TranscriptionError(
+                f"Real-time transcription failed unexpectedly: {exc}"
+            ) from exc
 
-        transcript = response.transcript.strip()
-        if not transcript:
-            raise TranscriptionError("Sarvam returned an empty transcript.")
+        # Phase 3.6 safety net: response parsing previously ran OUTSIDE the
+        # try/except above -- a malformed/changed response schema (e.g. a
+        # response object missing the expected .transcript attribute) is
+        # exactly the same class of gap the batch path had after polling.
+        try:
+            transcript = response.transcript.strip()
+            if not transcript:
+                raise TranscriptionError("Sarvam returned an empty transcript.")
 
-        language_code = _get_response_value(response, "language_code")
-        raw_payload = (
-            response.model_dump()
-            if hasattr(response, "model_dump")
-            else vars(response)
-            if hasattr(response, "__dict__")
-            else {}
-        )
+            language_code = _get_response_value(response, "language_code")
+            raw_payload = (
+                response.model_dump()
+                if hasattr(response, "model_dump")
+                else vars(response)
+                if hasattr(response, "__dict__")
+                else {}
+            )
+        except TranscriptionError:
+            raise
+        except Exception as exc:
+            logger.error(
+                "Unexpected error while parsing real-time transcription "
+                "response for '%s': %s",
+                audio_path.name,
+                exc,
+                exc_info=True,
+            )
+            raise TranscriptionError(
+                f"Could not read the transcription response: {exc}"
+            ) from exc
 
         logger.info(
             "Real-time transcription completed for '%s' (%d characters)",
@@ -391,30 +431,68 @@ class SarvamTranscriptionClient:
             raise TranscriptionError(
                 "Batch transcription failed during upload or download."
             ) from exc
-
-        if status.job_state.lower() == "failed" or job.is_failed():
-            results = job.get_file_results()
-            failed_files = results.get("failed", [])
-            error_message = (
-                failed_files[0].get("error_message")
-                if failed_files
-                else "Unknown batch job failure."
-            )
+        except Exception as exc:
+            # Phase 3.6 safety net: job creation/upload/start/polling can
+            # raise Sarvam-SDK-internal exception types this function does
+            # not explicitly enumerate. See the matching note in
+            # _transcribe_realtime for why this must never be allowed to
+            # escape as an unclassified exception.
             logger.error(
-                "Batch job failed for '%s': %s",
+                "Unexpected error during batch transcription submission for "
+                "'%s': %s",
                 audio_path.name,
-                error_message,
+                exc,
+                exc_info=True,
             )
             raise TranscriptionError(
-                f"Batch transcription failed: {error_message}"
-            )
+                f"Batch transcription failed unexpectedly: {exc}"
+            ) from exc
 
-        with tempfile.TemporaryDirectory(prefix="meetscribe_sarvam_") as temp_dir:
-            output_dir = Path(temp_dir)
-            logger.info("Sarvam batch output download starting for '%s'", audio_path.name)
-            job.download_outputs(output_dir=str(output_dir))
-            logger.info("Sarvam batch output downloaded for '%s'", audio_path.name)
-            result = _extract_result_from_batch_output(output_dir)
+        # Phase 3.6 safety net: this status-check/download/extraction phase
+        # previously ran OUTSIDE the try/except above entirely -- any
+        # exception here (an unexpected job-status shape, a network error
+        # during job.download_outputs()'s real I/O, ...) escaped as a
+        # raw, unclassified exception straight past process_upload's
+        # specific TranscriptionError handling to its generic catch-all,
+        # which shows the user an unhelpful "something went wrong" message
+        # with no indication the transcription service was the problem.
+        try:
+            if status.job_state.lower() == "failed" or job.is_failed():
+                results = job.get_file_results()
+                failed_files = results.get("failed", [])
+                error_message = (
+                    failed_files[0].get("error_message")
+                    if failed_files
+                    else "Unknown batch job failure."
+                )
+                logger.error(
+                    "Batch job failed for '%s': %s",
+                    audio_path.name,
+                    error_message,
+                )
+                raise TranscriptionError(
+                    f"Batch transcription failed: {error_message}"
+                )
+
+            with tempfile.TemporaryDirectory(prefix="meetscribe_sarvam_") as temp_dir:
+                output_dir = Path(temp_dir)
+                logger.info("Sarvam batch output download starting for '%s'", audio_path.name)
+                job.download_outputs(output_dir=str(output_dir))
+                logger.info("Sarvam batch output downloaded for '%s'", audio_path.name)
+                result = _extract_result_from_batch_output(output_dir)
+        except TranscriptionError:
+            raise
+        except Exception as exc:
+            logger.error(
+                "Unexpected error while retrieving batch transcription "
+                "results for '%s': %s",
+                audio_path.name,
+                exc,
+                exc_info=True,
+            )
+            raise TranscriptionError(
+                f"Could not retrieve transcription results: {exc}"
+            ) from exc
 
         logger.info(
             "Batch transcription completed for '%s' (%d characters)",

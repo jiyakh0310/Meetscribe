@@ -5431,6 +5431,17 @@ def process_upload(uploaded_file: object) -> None:
             "transcribe_audio_detailed() returned.",
             result_type=type(result).__name__,
         )
+        # Phase 3.6: retain the successfully-transcribed result as soon as
+        # it exists, before any later speaker-processing stage runs. If a
+        # later stage fails, the generic exception handler below can then
+        # tell the user their audio WAS transcribed (so a retry need not
+        # silently look identical to a transcription failure) rather than
+        # reporting an undifferentiated "something went wrong" for both
+        # failure classes. This does not change control flow or introduce
+        # a new persistence/retry mechanism -- it is one additional
+        # session_state key, cleared once the stage it exists for
+        # completes successfully.
+        st.session_state.last_sarvam_result = result
 
         # Analyze the same normalized WAV used by MeetScribe. This branch is
         # audio-only; transcript uploads never enter process_upload().
@@ -5495,6 +5506,7 @@ def process_upload(uploaded_file: object) -> None:
         if not transcript_text.strip():
             raise ValueError("Formatted transcript is empty.")
 
+        st.session_state.last_sarvam_result = None
         st.session_state.transcript_result = session_result
         st.session_state.transcript_text = transcript_text
         st.session_state.voxels_emotion_result = align_voxels_windows_to_transcript(
@@ -5551,21 +5563,43 @@ def process_upload(uploaded_file: object) -> None:
         )
         st.toast("Transcript is ready for review")
         return
-    except (AudioProcessingError, SettingsError, TranscriptionError) as exc:
+    except AudioProcessingError as exc:
         progress.empty()
-        log_stage("Error", "Pipeline error.", error=str(exc))
+        log_stage("Error", "Audio preprocessing error.", failure_stage="audio_preprocessing", error=str(exc))
+        st.error("We couldn't process this audio format. Please check the file and try again.")
+    except SettingsError as exc:
+        progress.empty()
+        log_stage("Error", "Configuration error.", failure_stage="settings", error=str(exc))
         st.error(
             "We could not prepare this recording. Please check the file and try again."
         )
+    except TranscriptionError as exc:
+        progress.empty()
+        log_stage("Error", "Transcription service error.", failure_stage="sarvam_transcription", error=str(exc))
+        st.error("We couldn't transcribe this audio right now. Please try again.")
     except Exception as exc:
         progress.empty()
+        # Phase 3.6: distinguish "transcription itself succeeded, a later
+        # speaker-processing step failed" from a genuinely unclassified
+        # failure -- see the last_sarvam_result note above. Either way the
+        # full exception/traceback is always logged server-side; only the
+        # user-facing message differs, and no stack trace/internal detail
+        # is ever shown to the user.
+        transcription_succeeded = st.session_state.get("last_sarvam_result") is not None
         log_stage(
             "Error",
             "Unexpected error while processing audio.",
+            failure_stage="speaker_processing" if transcription_succeeded else "unknown",
             error=str(exc),
             traceback=traceback.format_exc(),
         )
-        st.error("Something went wrong while preparing your report. Please try again.")
+        if transcription_succeeded:
+            st.error(
+                "The transcript was created, but speaker detection could not be completed. "
+                "Please try again."
+            )
+        else:
+            st.error("Something went wrong while preparing your report. Please try again.")
     finally:
         if prepared_path is not None:
             prepared_path.unlink(missing_ok=True)
