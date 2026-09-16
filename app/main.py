@@ -6417,52 +6417,29 @@ def _format_duration_seconds(seconds: float) -> str:
     return f"{minutes}m {secs}s" if minutes else f"{secs}s"
 
 
-def _topics_html(topics: tuple) -> str:
-    """Build the "Conversation Topics" sub-section (SELaD Phase 2).
-
-    Each card is traceable to its own source timeline events via
-    ``topic.source_event_ids`` (not surfaced in the UI -- this is an
-    internal traceability link for later phases, e.g. Voxels/video/playback
-    synchronization) and never shows a fabricated time range.
-    """
-
-    if not topics:
-        return ""
-
-    cards = []
-    for topic in topics:
-        chips = "".join(
-            f'<span class="ms-analytics-chip">{html.escape(keyword)}</span>' for keyword in topic.keywords
-        )
-        time_range = ""
-        if topic.start_time_seconds is not None and topic.end_time_seconds is not None:
-            time_range = (
-                f'<div>{html.escape(format_timestamp(topic.start_time_seconds))} - '
-                f'{html.escape(format_timestamp(topic.end_time_seconds))}</div>'
-            )
-        participants = ", ".join(html.escape(name) for name in topic.participant_speakers) or "Not specified"
-        segment_word = "segment" if topic.event_count == 1 else "segments"
-        cards.append(
-            '<div class="ms-analytics-topic-card">'
-            f'<div class="ms-analytics-topic-title">{html.escape(topic.title)}</div>'
-            f'<div class="ms-analytics-chips">{chips}</div>'
-            f'<div class="ms-analytics-topic-meta"><strong>{participants}</strong></div>'
-            f'<div class="ms-analytics-topic-meta">{topic.event_count} transcript {segment_word}</div>'
-            f'<div class="ms-analytics-topic-meta">{time_range}</div>'
-            f'<div class="ms-analytics-topic-preview">&#8220;{html.escape(topic.representative_text)}&#8221;</div>'
-            '</div>'
-        )
-
-    return (
-        '<div class="ms-analytics-subhead">Conversation Topics</div>'
-        f'<div class="ms-analytics-topics">{"".join(cards)}</div>'
-    )
+# Phase 3.4: the previous "Conversation Topics" grid (``_topics_html``,
+# one card per Phase 2/3.2 MiniLM embedding cluster) was removed from the
+# user-facing Meeting Analytics presentation. Real-audio validation showed
+# it producing dozens of cards from utterance fragments, greetings, and
+# isolated questions -- a semantic-similarity CLUSTER is not the same
+# thing as a MEETING TOPIC, and the SELaD methodology's own conversation-
+# summary stage is a compact keyword representation, not a topic-modeling
+# UI (see meeting_analytics/content.py's Phase 3.4 module docstring for
+# the full methodology writeup). The underlying clustering
+# (``TopicAnalytics``/``_build_topics``) is KEPT as an internal
+# implementation detail -- ``meeting_analytics.communication`` still uses
+# it to align Voxels acoustic evidence to timed conversation segments --
+# it is simply no longer rendered here as "the meeting's topics".
 
 
-def _key_themes_html(keywords) -> str:
-    """Build the "Key Themes" sub-section: 6-10 meeting-wide keywords as
-    plain, single-color chips -- no per-term color-coding that could read
-    as a ranking/quality signal."""
+def _conversation_summary_html(keywords) -> str:
+    """Build the "Conversation summary" sub-section: a compact, graph/
+    rank-based set of meeting-wide keywords and keyphrases (see
+    ``meeting_analytics.content._rank_keywords`` for the SELaD-inspired
+    extraction method) as plain, single-color chips -- no per-term
+    color-coding that could read as a ranking/quality signal. Never a
+    fixed count: a short or lexically weak meeting may show only a
+    handful of chips, or none, rather than padding the list."""
 
     if not keywords.meeting_keywords:
         return ""
@@ -6470,7 +6447,7 @@ def _key_themes_html(keywords) -> str:
         f'<span class="ms-analytics-chip">{html.escape(term)}</span>' for term in keywords.meeting_keywords
     )
     return (
-        '<div class="ms-analytics-subhead">Key Themes</div>'
+        '<div class="ms-analytics-subhead">Conversation summary</div>'
         f'<div class="ms-analytics-card"><div class="ms-analytics-chips">{chips}</div></div>'
     )
 
@@ -6522,31 +6499,32 @@ def _positive_language_html(positive_language) -> str:
 
 
 def _topic_communication_html(communication) -> str:
-    """Build the consolidated "Communication Signals" sub-section for
-    Meeting Analytics (SELaD Phase 3.3).
+    """Build the "Communication Signals" sub-section for Meeting Analytics
+    (SELaD Phase 3.3, revised Phase 3.4).
 
-    Phase 3.3 consolidation: this is now the ONLY user-facing rendering of
-    Voxels speech-emotion evidence on the Minutes page -- the previously
-    separate "Emotion & Communication Insights" and "Discussion-Level
-    Emotion Insights" sections (built by the now-removed
-    ``emotion_insights_html``) repeated the same meeting-level distribution
-    and a second, differently-anchored topic list. This section shows both
-    the meeting-level distribution AND Phase 2/3.2-topic-aligned acoustic
-    patterns in one place.
-
-    Every headline here is UNCERTAINTY-AWARE: it uses
-    ``communication.distribution_interpretation`` /
-    ``topic.distribution_interpretation`` (see
+    This is the ONLY user-facing rendering of Voxels speech-emotion
+    evidence on the Minutes page. The headline is UNCERTAINTY-AWARE: it
+    uses ``communication.distribution_interpretation`` (see
     ``meeting_analytics.communication.interpret_emotion_distribution``) --
     the SAME shared judgment ``app.main.build_topic_emotion_insights`` and
     the PDF exporter also use -- so a near-tied argmax class is never
     presented as a confident conclusion. Raw probabilities/argmax/tone are
-    still shown as supporting evidence, never suppressed. Uses only
-    Voxels' own tone categories/observational wording when a pattern IS
-    clear -- never a psychological claim, never a combined score with
-    Positive-language cues (see the explanatory note at the top of this
-    section: acoustic vs. lexical evidence are always presented as two
-    separate signals).
+    still shown as supporting evidence, never suppressed.
+
+    Phase 3.4: per-topic acoustic cards were REMOVED here. They were keyed
+    to Phase 2/3.2's internal ``TopicAnalytics`` clustering, which Phase
+    3.4 stopped presenting to users as "the meeting's topics" (see
+    meeting_analytics/content.py's Phase 3.4 module docstring) -- showing
+    those same cluster titles here, just relabeled as acoustic evidence,
+    would have re-exposed the exact fabricated-looking micro-topic titles
+    Phase 3.4 removed elsewhere. ``meeting_analytics.communication``'s
+    topic-level alignment (``CommunicationInsights.per_topic``,
+    ``align_topics_with_voxels``) is UNCHANGED and still computed --
+    Voxels' own alignment machinery was not touched -- only this
+    presentation layer stops rendering it, per the "prefer omitting a
+    subsection over presenting fake topics" instruction. The meeting-level
+    acoustic distribution below is unaffected and remains the primary
+    Communication Signals evidence.
     """
 
     if not communication.available:
@@ -6583,46 +6561,10 @@ def _topic_communication_html(communication) -> str:
             f'style="margin:0 0 12px 18px;padding:0">{warning_items}</ul>'
         )
 
-    available_topics = [topic for topic in communication.per_topic if topic.available]
-    topic_cards = ""
-    if available_topics:
-        cards = []
-        for topic in available_topics:
-            time_range = ""
-            if topic.start_time_seconds is not None and topic.end_time_seconds is not None:
-                time_range = (
-                    f'<div class="ms-analytics-comm-time">{html.escape(format_timestamp(topic.start_time_seconds))} - '
-                    f'{html.escape(format_timestamp(topic.end_time_seconds))}</div>'
-                )
-            top_emotions = topic.emotion_distribution[:3]
-            distribution_rows = "".join(
-                '<div class="ms-analytics-row">'
-                f'<div class="ms-analytics-label"><span>{html.escape(emotion.title())}</span></div>'
-                '<span class="ms-analytics-track">'
-                f'<span class="ms-analytics-fill" style="width:{max(0.0, min(1.0, probability)) * 100:.1f}%;'
-                'background:var(--wf-lav)"></span></span>'
-                f'<span class="ms-analytics-value">{max(0.0, min(1.0, probability)):.0%}</span></div>'
-                for emotion, probability in top_emotions
-            )
-            window_word = "window" if topic.windows_analyzed == 1 else "windows"
-            cards.append(
-                '<div class="ms-analytics-comm-card">'
-                f'<div class="ms-analytics-comm-title">{html.escape(topic.topic_title)}</div>'
-                f'{time_range}'
-                f'<div class="ms-analytics-comm-pattern">{html.escape(topic.pattern or "")}</div>'
-                f'{distribution_rows}'
-                f'<div class="ms-analytics-comm-meta">{topic.windows_analyzed} audio {window_word} analyzed</div>'
-                '</div>'
-            )
-        topic_cards = (
-            '<div class="ms-analytics-comm-cards" style="margin-top:12px">'
-            f'{"".join(cards)}</div>'
-        )
-
-    if not meeting_lines and not topic_cards:
+    if not meeting_lines:
         return (
             '<div class="ms-analytics-subhead">Communication Signals</div>'
-            '<p class="ms-analytics-comm-note">No topic-aligned speech-emotion evidence was available for this meeting.</p>'
+            '<p class="ms-analytics-comm-note">No speech-emotion evidence was available for this meeting.</p>'
         )
 
     disclaimer = (
@@ -6636,7 +6578,6 @@ def _topic_communication_html(communication) -> str:
         '<div class="ms-analytics-subhead">Communication Signals</div>'
         + "".join(meeting_lines)
         + quality_warning_html
-        + topic_cards
         + disclaimer
     )
 
@@ -6746,8 +6687,7 @@ def meeting_analytics_html(
     if content is not None:
         content_html = (
             '<div class="ms-analytics-subhead">Conversation Content</div>'
-            + _topics_html(content.topics)
-            + _key_themes_html(content.keywords)
+            + _conversation_summary_html(content.keywords)
             + _positive_language_html(content.positive_language)
         )
 

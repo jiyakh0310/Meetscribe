@@ -148,10 +148,21 @@ def test_quality_warning_case_pdf_surfaces_the_warning() -> None:
     assert _factual_sections_present(text)
 
 
-# --- Topic-level table uses uncertainty-aware pattern, not raw tone -------------------
+# --- Phase 3.4: topic-level acoustic table was removed from the PDF ------------------
 
 
-def test_topic_table_avoids_categorical_negative_for_uncertain_topic() -> None:
+def test_topic_level_acoustic_table_is_no_longer_rendered() -> None:
+    # Phase 3.4: this test previously asserted the OPPOSITE (that a
+    # "TOPIC-LEVEL ACOUSTIC PATTERNS" table renders with uncertainty-aware
+    # wording). That table was keyed to Phase 2/3.2's internal micro-topic
+    # clustering, which Phase 3.4 stopped presenting to users as "the
+    # meeting's topics" -- reprinting the same cluster labels in the PDF,
+    # merely relabeled as acoustic evidence, would have re-exposed the
+    # same fabricated-looking topic titles Phase 3.4 removed from the
+    # Minutes UI (see PART P of the Phase 3.4 task: "prefer omitting that
+    # subsection rather than presenting fake topics"). The meeting-level
+    # acoustic distribution (asserted elsewhere in this file) is
+    # unaffected and remains the primary Communication Signals evidence.
     with tempfile.TemporaryDirectory() as tmp:
         path = export_to_pdf(
             ANALYSIS,
@@ -160,8 +171,9 @@ def test_topic_table_avoids_categorical_negative_for_uncertain_topic() -> None:
             output_path=Path(tmp) / "topic_mixed.pdf",
         )
         text = _normalized(_extract_text(path))
-    assert "TOPIC-LEVEL ACOUSTIC PATTERNS" in text
-    assert "No clearly dominant acoustic pattern was detected." in text
+    assert "TOPIC-LEVEL ACOUSTIC PATTERNS" not in text
+    # Meeting-level evidence must still be present.
+    assert "COMMUNICATION SIGNALS" in text
 
 
 # --- No Voxels payload / transcript-only: no emotion section at all -------------------

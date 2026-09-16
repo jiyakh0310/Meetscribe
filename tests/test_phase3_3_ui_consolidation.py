@@ -145,15 +145,26 @@ def test_quality_warning_is_surfaced_in_communication_signals() -> None:
 # --- 4: audio + topic insights -------------------------------------------------------
 
 
-def test_topic_level_acoustic_cards_use_shared_interpretation() -> None:
+def test_no_per_topic_acoustic_cards_are_rendered() -> None:
+    # Phase 3.4: per-topic acoustic cards were removed from Communication
+    # Signals (they were keyed to Phase 2/3.2's internal micro-topic
+    # clustering, no longer presented to users as "the meeting's topics").
+    # This test previously asserted the OPPOSITE (that topic cards render
+    # with the shared interpretation) -- updated because that UX was
+    # itself the thing Phase 3.4 corrected, not because the underlying
+    # interpretation logic changed. Substring-checking a CSS class name
+    # alone is not a reliable presence check (the stylesheet always
+    # defines ".ms-analytics-comm-card{...}" whether or not any card
+    # renders) -- check for the actual opening tag instead.
     at, combined = _run(
         workflow_source="audio",
         transcript_result=TIMED_SEGMENTS,
         speaker_mapping={"Speaker 1": "Nora", "Speaker 2": "Devraj"},
         voxels=_voxels_payload(_mixed_probabilities()),
     )
-    assert "ms-analytics-comm-card" in combined
-    assert "ms-analytics-comm-pattern" in combined
+    assert '<div class="ms-analytics-comm-card">' not in combined
+    # The meeting-level pattern headline must still be present.
+    assert '<div class="ms-analytics-comm-pattern">' in combined
 
 
 # --- 5: transcript-only ---------------------------------------------------------------

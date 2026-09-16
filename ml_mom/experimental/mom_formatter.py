@@ -214,22 +214,30 @@ NORMALIZED_DISCUSSION_RENDERERS = {
         "Access management was reviewed to clarify security, login, and authorization requirements."
     ),
 }
+# Phase 3.4: every template below uses only OBSERVATIONAL verbs (discussed/
+# reviewed/covered/examined) and describes only what a topic blueprint's
+# EXISTENCE genuinely proves -- that some discussion happened. Earlier
+# wording ("outlined the follow-up needed", "clarified the related
+# implementation considerations", "delivery readiness, ownership, and
+# outstanding work") asserted obligations, technical conclusions, and
+# accountability that no generic topic blueprint actually evidences; real-
+# audio validation showed this producing sentences like "Api Apis
+# Conversational was assessed in relation to delivery readiness,
+# ownership, and outstanding work" for a topic that was never about
+# ownership or delivery at all. See ``topic_finding_phrase`` for the
+# matching fix to the ``{finding}`` placeholder itself.
 DISCUSSION_RENDER_TEMPLATES = (
     "{topic}: Discussion focused on {topic_lower}, with emphasis on {finding}.",
-    "{topic}: Participants examined {topic_lower} and outlined the follow-up needed to move it forward.",
-    "{topic}: The meeting covered {topic_lower} and clarified the related implementation considerations.",
-    "{topic}: Attention was given to {topic_lower}, including the current status and required next steps.",
-    "{topic}: {topic} was assessed in relation to delivery readiness, ownership, and outstanding work.",
-    # Phase 3.1: "aligned" claims a reached consensus the generic fallback
-    # has no evidence for -- the topic only guarantees SOME discussion
-    # sentences exist, not that participants agreed on anything. "Reviewed"
-    # is accurate regardless of whether the discussion ended in agreement.
-    "{topic}: The group reviewed {topic_lower} and identified practical next steps.",
+    "{topic}: Participants discussed {topic_lower}.",
+    "{topic}: The meeting covered {topic_lower}.",
+    "{topic}: {topic} was reviewed, focusing on {finding}.",
+    "{topic}: The group discussed {topic_lower} and its current status.",
+    "{topic}: The team reviewed {topic_lower}.",
 )
 QUANTITY_DISCUSSION_TEMPLATES = (
-    "{topic}: Available figures for {topic_lower} were reviewed, including {quantities}, to assess readiness and follow-up needs.",
-    "{topic}: Discussion focused on {topic_lower}, using {quantities} as the basis for planning and coordination.",
-    "{topic}: Participants reviewed {topic_lower} against the recorded quantity of {quantities} and identified the related follow-up.",
+    "{topic}: Available figures for {topic_lower} were reviewed, including {quantities}.",
+    "{topic}: Discussion focused on {topic_lower}, using {quantities} as reference points.",
+    "{topic}: Participants reviewed {topic_lower} against the recorded quantity of {quantities}.",
 )
 TIMELINE_DISCUSSION_TEMPLATES = (
     "{topic}: Timeline considerations for {topic_lower} were reviewed with reference to {timeline}.",
@@ -289,7 +297,16 @@ DECISION_DISCUSSION_MARKER_PATTERN = re.compile(
     r"maybe we\b|we might\b|perhaps we\b|we could\b|we should\b|"
     r"works like this\b|works as follows\b|"
     r"could (?:this|that|it) be\b|"
-    r"recommend(?:ation|ed)?\b"
+    r"recommend(?:ation|ed)?\b|"
+    # Phase 3.4: "let's move to X"/"moving to X"/"move on to X" is
+    # DISCUSSION-NAVIGATION -- an imperative topic transition ("let's move
+    # to the next item") -- not evidence that some THING was moved to a
+    # new state ("the deadline was moved to Friday", which
+    # DECISION_SIGNAL_PATTERN's own "moved to" match is meant to catch).
+    # Grammatically this is "let's + move to + noun phrase" (a navigation
+    # cue), the mirror image of "X was moved to Y" (a past-tense outcome
+    # statement) -- the imperative framing is what distinguishes them.
+    r"let'?s move (?:to|on)\b|mov(?:e|ing) on to\b"
     r")\b"
 )
 # An explicit, affirmative statement that something was actually decided,
@@ -314,6 +331,27 @@ DECISION_COMMITMENT_PATTERN = re.compile(
     r"finali[sz]ed|locked in|signed off|sign(?:ed)? off on|"
     r"resolved to"
     r")\b"
+)
+# Phase 3.4 grounding fix: a NEGATED decision/agreement/approval statement
+# ("We haven't decided yet, let's revisit that next week.", "It wasn't
+# approved.", "They didn't agree on a vendor.") previously still matched
+# DECISION_SIGNAL_PATTERN/DECISION_COMMITMENT_PATTERN purely on the
+# presence of "decided"/"approved"/etc., with no check for an explicit
+# negation nearby -- the exact inverse of what the sentence actually says.
+# General, phrase-agnostic rule: a negation marker ("not", "never", "no",
+# or a "n't" contraction) within a short span on EITHER side of a
+# decision-signal word means the sentence explicitly denies a decision
+# happened, so it can never be accepted as decision evidence regardless of
+# which other patterns it also matches.
+DECISION_NEGATION_PATTERN = re.compile(
+    r"(?i)\b(?:not|never|no)\b[^.?!]{0,15}\b(?:decided|decide|agreed|agree|approved|approve|"
+    r"confirmed|confirm|finali[sz]ed|finali[sz]e|decision)\b"
+    r"|n't\b[^.?!]{0,15}\b(?:decided|decide|agreed|agree|approved|approve|confirmed|confirm|"
+    r"finali[sz]ed|finali[sz]e|decision)\b"
+    r"|\b(?:decided|decide|agreed|agree|approved|approve|confirmed|confirm|finali[sz]ed|"
+    r"finali[sz]e|decision)\b[^.?!]{0,10}\b(?:not|never)\b"
+    r"|\b(?:decided|decide|agreed|agree|approved|approve|confirmed|confirm|finali[sz]ed|"
+    r"finali[sz]e|decision)\b[^.?!]{0,10}n't\b"
 )
 DECISION_CONFIRMATION_PATTERN = re.compile(
     r"(?i)^\s*(yes(?:,\s*agreed)?|agreed|approved|confirmed|done|okay|ok|sure|sounds good|"
@@ -1995,17 +2033,28 @@ def discussion_from_blueprint(blueprint: TopicBlueprint) -> str:
 
 
 def topic_finding_phrase(blueprint: TopicBlueprint) -> str:
-    """Return a concise rendering phrase from structured topic attributes."""
+    """Return a concise, evidence-neutral rendering phrase from structured
+    topic attributes.
+
+    Phase 3.4: previously returned phrases like "timing, ownership, and
+    delivery readiness" or "current status, risks, and required follow-up"
+    for ANY topic matching the corresponding entity type -- asserting
+    ownership/risk/an obligation to follow up that the topic's mere
+    presence never actually evidences. Each branch below only describes
+    what its OWN triggering entity genuinely supports (a deadline mention
+    supports "timing"; a pending sentence supports "open items"), and the
+    default no-evidence case is purely observational.
+    """
 
     if blueprint.entities.deadlines:
-        return "timing, ownership, and delivery readiness"
+        return "timing and delivery details"
     if blueprint.entities.products:
-        return "readiness, ownership, and stakeholder communication"
+        return "readiness and stakeholder communication"
     if blueprint.entities.organizations or blueprint.entities.locations:
-        return "coordination requirements and operational readiness"
+        return "coordination details"
     if blueprint.evidence.pending_sentences:
-        return "open work, ownership, and follow-up requirements"
-    return "current status, risks, and required follow-up"
+        return "open items raised during the discussion"
+    return "the points raised during the discussion"
 
 
 def is_reportable_quantity(quantity: str) -> bool:
@@ -2118,6 +2167,8 @@ def has_explicit_decision_evidence(text: str) -> bool:
     if not text or utils.is_agreement_sentence(text) or is_contextual_confirmation(text):
         return False
     if utils.normalize_whitespace(text).strip().endswith("?"):
+        return False
+    if DECISION_NEGATION_PATTERN.search(text):
         return False
     if re.search(r"(?i)\b(approval|approved)\b.{0,24}\b(pending|waiting|not completed|requires review)\b", text):
         return False
@@ -2320,7 +2371,15 @@ def decision_from_sentence(sentence: str, fallback_title: str) -> str:
     date_change_text = date_change_decision_text(sentence)
     if date_change_text:
         return date_change_text
-    if re.search(r"(?i)\b(defer|deferred|postpone|postponed|moves to|move to|moved to|will move to|will be moved to|future release|next release|next sprint|delay|delayed)\b", sentence):
+    # Phase 3.4 grounding fix: "next sprint"/"next release"/"future
+    # release" alone are neutral SCHEDULING references ("we agreed to
+    # proceed starting next sprint"), not evidence of deferral -- treating
+    # any timing mention as a deferral signal produced a fabricated
+    # "X was deferred" decision for a sentence that was actually an
+    # approval/commitment. Only an explicit defer/postpone/delay/move verb
+    # counts as deferral evidence now; a bare "next sprint"/"next release"
+    # mention no longer does on its own.
+    if re.search(r"(?i)\b(defer|deferred|postpone|postponed|moves to|move to|moved to|will move to|will be moved to|delay|delayed)\b", sentence):
         suffix = f" to {sprint_phrase}" if sprint_phrase else ""
         if re.search(r"(?i)\bnext release\b", sentence):
             suffix = " to Next Release"
@@ -2881,8 +2940,24 @@ def build_summary(
     pending_items: list[str],
     information: list[str],
 ) -> str:
-    """Build a 100-word executive summary from clusters and outcomes."""
+    """Build a 100-word executive summary from clusters and outcomes.
 
+    Phase 3.4: ``discussion_topics`` is now cross-checked against
+    ``discussion_points`` -- the ALREADY-VALIDATED Discussion bullets built
+    from these same blueprints (see ``build_discussion_points``) -- so the
+    summary can never mention a "topic" that did not itself survive into
+    the real Discussion section. Previously this list was derived
+    independently from raw ``blueprint.title`` values, so a topic that
+    ``validate_discussion_points`` later rejected as too weak/transcript-
+    like could still be named in the summary.
+    """
+
+    discussion_headings = {
+        heading.strip().casefold()
+        for point in discussion_points
+        for heading in [point.split(":", 1)[0]]
+        if heading.strip()
+    }
     summary_sentences: list[str] = []
     discussion_topics = [
         blueprint.title
@@ -2890,6 +2965,7 @@ def build_summary(
         if blueprint.title
         and not utils.is_weak_topic(blueprint.title)
         and not re.fullmatch(r"(?i)Sprint\s+\d+", blueprint.title)
+        and blueprint.title.strip().casefold() in discussion_headings
     ][:3]
     if discussion_topics:
         opener = summary_opening_phrase(discussion_topics)
@@ -2974,6 +3050,28 @@ def normalize_decision_summary_topic(decision: str) -> str:
     return topic_phrase(cleaned)
 
 
+def _deduplicate_adjacent_word_variants(words: list[str]) -> list[str]:
+    """Drop a word that is just a bare/plural variant of the immediately
+    preceding word (e.g. ["api", "apis"] -> ["api"]).
+
+    Phase 3.4: real-audio validation showed a poorly-clustered topic title
+    surviving into summary text as redundant variants of the same term
+    sitting side by side ("api apis conversational"). This is a generic
+    rule (singular/plural adjacency), not specific to any one term.
+    """
+
+    result: list[str] = []
+    for word in words:
+        if result:
+            previous = result[-1]
+            stem_previous = previous[:-1] if previous.endswith("s") and len(previous) > 3 else previous
+            stem_word = word[:-1] if word.endswith("s") and len(word) > 3 else word
+            if stem_previous == stem_word:
+                continue
+        result.append(word)
+    return result
+
+
 def topic_phrase(topic: str) -> str:
     """Render a topic title as a readable inline summary phrase."""
 
@@ -2982,6 +3080,7 @@ def topic_phrase(topic: str) -> str:
         word if word.isupper() and len(word) <= 4 else word.lower()
         for word in words
     ]
+    rendered = _deduplicate_adjacent_word_variants(rendered)
     return utils.normalize_whitespace(" ".join(rendered))
 
 

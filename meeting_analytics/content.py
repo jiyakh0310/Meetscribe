@@ -1,5 +1,6 @@
-"""SELaD Phase 2 -- topic grouping, keyword extraction, and positive-language
-proportion.
+"""SELaD conversation-content analytics: keyword/keyphrase extraction
+("Conversation Summary"), positive-language cues, and an internal
+acoustic-alignment grouping layer.
 
 Consumes only the Phase 0 ``timeline.Timeline`` (the same object Phase 1's
 ``meeting_analytics.model`` consumes). This module never touches Sarvam,
@@ -9,8 +10,56 @@ dependency direction stays one-way:
 
     Timeline -> meeting_analytics.content -> UI
 
-Two design decisions worth calling out explicitly (see the audit that
-preceded this phase):
+==============================================================================
+Phase 3.4 -- realignment with the SELaD methodology
+==============================================================================
+
+The authoritative SELaD reference ("Why stressed, Mom?: Exploring Family
+Reflection on Social and Emotional Sensor Data through Family Informatics")
+computes, per meeting, TWO families of conversation features:
+
+- conversation-BEHAVIOUR features (speaking speed, turns/initiation,
+  conversation proportion, question count) -- MeetScribe's functional
+  equivalent is Phase 1 (``meeting_analytics.model``), untouched here.
+- conversation-SUMMARY (content) features: keywords and a positive-word
+  proportion. The original Korean implementation produced these via
+  Okt (Korean morphological noun extraction) feeding KRWordRank (a
+  GRAPH-based keyword ranker: candidate substrings as graph nodes, local
+  co-occurrence as edges, a PageRank-style iterative importance score --
+  NOT raw or TF-IDF term frequency).
+
+Okt and KRWordRank are both Korean-specific tools with no meaningful
+English/Hinglish equivalent library to "just install" -- adopting them
+here would be a category error, not a port. What Phase 3.4 reproduces is
+their METHODOLOGICAL ROLE: ``_graph_rank_unigrams``/``_rank_keywords``
+below implement a small, local, deterministic co-occurrence-graph +
+PageRank-style ranker over English/Hinglish lexical candidates -- the same
+broad technique family as English "TextRank" keyword extraction (Mihalcea
+& Tarau, 2004), which is the natural functional analogue of KRWordRank's
+graph-ranking role for this language pair. This is a FUNCTIONAL
+ADAPTATION of SELaD's lexical keyword-extraction stage, not a
+reproduction of Okt/KRWordRank's Korean-specific internals -- see the
+Phase 3.4 section above ``_GRAPH_COOCCURRENCE_WINDOW`` for the exact
+algorithm (nodes/edges/window/damping/convergence).
+
+A SEPARATE Phase 3.2 change is also corrected here: Phase 2/3.2 clustered
+MiniLM sentence embeddings into ``TopicAnalytics`` and presented every
+resulting cluster to the user as a "Conversation Topic" card. Real-audio
+validation showed this producing dozens of cards from utterance
+fragments, greetings, and isolated questions -- a SEMANTIC UNIT (one
+locally-coherent embedding cluster) is not the same thing as a MEETING
+TOPIC in the SELaD sense, and SELaD's own conversation-summary stage is a
+compact keyword representation, not a topic-modeling/clustering system.
+``TopicAnalytics``/``_build_topics``/``_cluster_units`` are KEPT as an
+internal implementation detail (Voxels topic-aligned acoustic evidence in
+``meeting_analytics.communication`` still needs SOME timed grouping to
+align windows against), but are no longer rendered to the user as "the
+meeting's topics" -- see ``app.main``'s Conversation Content section,
+which now shows only the graph-ranked keywords/keyphrases below plus
+Positive-language cues.
+
+Two pre-existing design decisions still apply to the (now internal-only)
+clustering layer:
 
 1. Topic grouping does NOT reuse ``ml_mom.experimental.mom_formatter``'s
    live clustering (``build_topic_clusters``). That function is private
@@ -19,17 +68,19 @@ preceded this phase):
    ``PredictionResult``/ANN labels). Reusing it here would either require
    invasive coupling to formatter internals or silently diverge from what
    it actually does. Instead this module implements a small,
-   analytics-specific single-pass grouping layer (see ``_cluster_events``)
+   analytics-specific single-pass grouping layer (see ``_cluster_units``)
    that is deterministic, documented, and answers only to analytics needs.
 
 2. It DOES reuse the existing MiniLM model-loading/caching infrastructure
    (``ml_mom.embeddings.EmbeddingService``) rather than loading a second
-   copy of the model. ``EmbeddingService``'s public embedding methods
-   require ``ml_mom.feature_extraction.SentenceFeature`` objects (a
-   20-field formatter-shaped dataclass) -- constructing throwaway instances
-   of that just to get a vector back would itself be a form of invasive
-   coupling to formatter-internal data shapes for no benefit, since none of
-   those fields affect the embedding. Instead this module calls
+   copy of the model, for that same internal clustering layer -- MiniLM is
+   NOT used anywhere in the keyword/keyphrase extraction described above.
+   ``EmbeddingService``'s public embedding methods require
+   ``ml_mom.feature_extraction.SentenceFeature`` objects (a 20-field
+   formatter-shaped dataclass) -- constructing throwaway instances of that
+   just to get a vector back would itself be a form of invasive coupling
+   to formatter-internal data shapes for no benefit, since none of those
+   fields affect the embedding. Instead this module calls
    ``EmbeddingService.load_model()`` (the service's public, documented
    entry point) and then encodes raw text directly through the loaded
    model, which is fetched from the SAME module-level ``_MODEL_CACHE`` the
@@ -146,11 +197,24 @@ class PositiveLanguageAnalytics:
 
 @dataclass(frozen=True, slots=True)
 class ContentAnalytics:
-    """Phase 2 result: topics, keywords, and positive-language, all derived
-    from the same Timeline Phase 1 already consumes."""
+    """Content analytics result: keywords/keyphrases ("Conversation
+    Summary"), positive-language cues, and an internal topic-clustering
+    grouping -- all derived from the same Timeline Phase 1 already
+    consumes."""
 
     topics: tuple[TopicAnalytics, ...]
+    """Phase 3.4: INTERNAL implementation detail only. Kept because
+    ``meeting_analytics.communication.align_topics_with_voxels`` still
+    uses these timed groupings to align Voxels acoustic evidence -- it is
+    no longer rendered anywhere as "the meeting's topics" (see this
+    module's Phase 3.4 docstring section). Do not add new user-facing
+    rendering of this field without re-reading that section first."""
+
     keywords: KeywordAnalytics
+    """The primary SELaD-style "Conversation Summary" content: graph/
+    rank-based meeting-wide (and optional per-speaker) keywords/
+    keyphrases. See ``_rank_keywords``."""
+
     positive_language: PositiveLanguageAnalytics
 
 
@@ -339,46 +403,190 @@ def _candidate_ngrams(text: str, noise_terms: frozenset[str]) -> list[str]:
     return candidates
 
 
+# --------------------------------------------------------------------------
+# Phase 3.4 -- SELaD-inspired graph/rank-based keyword extraction
+# --------------------------------------------------------------------------
+#
+# SELaD methodology note (see the module docstring's Phase 3.4 section for
+# the full writeup): the original SELaD family-informatics system's
+# conversation-summary stage extracted Korean nouns with the Okt
+# morphological analyzer, then ranked them with KRWordRank -- a GRAPH-based
+# keyword extractor (substrings as graph nodes, co-occurrence as edges, a
+# PageRank-style iterative importance score, rather than a frequency/TF-IDF
+# count). Okt and KRWordRank are both Korean-specific tools and are not
+# used here. What IS reproduced is the METHODOLOGICAL ROLE they played:
+# salient lexical concepts are surfaced via a graph/rank-based importance
+# score over a co-occurrence graph, not via raw or TF-IDF-weighted term
+# frequency. This is the same broad family of technique as English
+# "TextRank" keyword extraction (Mihalcea & Tarau, 2004) -- PageRank
+# applied to a word co-occurrence graph -- which is the natural
+# English/Hinglish functional analogue of KRWordRank's graph-ranking role.
+#
+# This is a FUNCTIONAL ADAPTATION, not a reproduction of KRWordRank's
+# internals (which operate on Korean sub-word substrings via a different
+# candidate-extraction scheme); see PART Q of the Phase 3.4 task for the
+# exact language used to describe this adaptation.
+
+_GRAPH_COOCCURRENCE_WINDOW = 4
+"""Two candidate tokens become graph neighbors only if they appear within
+this many token positions of each other in the ORIGINAL (unfiltered)
+sentence-level text -- a small LOCAL context window, not whole-document
+co-occurrence. Keeps the graph reflecting genuine local adjacency/context
+(matching KRWordRank's/TextRank's own local-window co-occurrence
+convention) rather than treating an entire meeting as one bag of words."""
+
+_GRAPH_DAMPING_FACTOR = 0.85
+"""Standard PageRank/TextRank damping factor -- the well-established
+default from both the original PageRank paper and Mihalcea & Tarau's
+TextRank paper, not tuned for this project."""
+
+_GRAPH_MAX_ITERATIONS = 30
+_GRAPH_CONVERGENCE_EPSILON = 1e-4
+"""Iterate the rank update until the largest single-node score change
+drops below this, or ``_GRAPH_MAX_ITERATIONS`` is reached -- whichever
+comes first. A meeting transcript's candidate-word graph is small (at most
+a few hundred nodes), so convergence is fast and the iteration cap is a
+safety bound, not the expected stopping condition."""
+
+
+def _build_cooccurrence_graph(
+    documents: Sequence[str],
+    noise_terms: frozenset[str],
+) -> dict[str, dict[str, float]]:
+    """Build an undirected, weighted candidate-token co-occurrence graph.
+
+    A node is created for every candidate unigram token (post stopword/
+    conversational-noise/participant-name filtering, see
+    ``_is_noise_token``) that appears anywhere in ``documents``, even if it
+    never co-occurs with another candidate (an isolated node with no
+    edges, handled gracefully by the ranking step below). An edge is added
+    between two candidate tokens whenever they appear within
+    ``_GRAPH_COOCCURRENCE_WINDOW`` token positions of each other in the
+    same document's ORIGINAL token sequence (noise tokens are skipped when
+    measuring distance, so filler words between two candidates -- "the
+    api... and the database" -- don't count against the window). Edge
+    weight is the number of times that pair co-occurs, accumulated across
+    the whole meeting.
+    """
+
+    edges: dict[str, dict[str, float]] = {}
+
+    def add_node(node: str) -> None:
+        edges.setdefault(node, {})
+
+    def add_edge(a: str, b: str) -> None:
+        if a == b:
+            return
+        add_node(a)
+        add_node(b)
+        edges[a][b] = edges[a].get(b, 0.0) + 1.0
+        edges[b][a] = edges[b].get(a, 0.0) + 1.0
+
+    for document in documents:
+        raw_tokens = _tokenize(document)
+        candidates = [
+            token for token in raw_tokens if not _is_noise_token(token, noise_terms)
+        ]
+        for index, token in enumerate(candidates):
+            add_node(token)
+            for other in candidates[index + 1 : index + 1 + _GRAPH_COOCCURRENCE_WINDOW]:
+                add_edge(token, other)
+
+    return edges
+
+
+def _graph_rank_unigrams(
+    documents: Sequence[str],
+    noise_terms: frozenset[str],
+) -> dict[str, float]:
+    """PageRank/TextRank-style importance score for each candidate unigram
+    token (see the Phase 3.4 SELaD methodology note above).
+
+        score(v) = (1-d)/N + d * sum_{u in neighbors(v)} (w(v,u) / deg(u)) * score(u)
+
+    where ``deg(u)`` is the sum of ``u``'s own edge weights (a weighted
+    node degree), ``d`` is ``_GRAPH_DAMPING_FACTOR``, and ``N`` is the
+    total node count. Scores are initialized uniformly (``1/N``) and
+    updated iteratively until convergence or the iteration cap. A graph
+    with 0 nodes returns ``{}``; a single-node graph returns that node at
+    score ``1.0`` (nothing to rank it against). Deterministic: node
+    iteration order follows first-appearance order in ``documents``, and
+    every arithmetic step is a plain float operation with no randomness.
+    """
+
+    edges = _build_cooccurrence_graph(documents, noise_terms)
+    nodes = list(edges.keys())
+    node_count = len(nodes)
+    if node_count == 0:
+        return {}
+    if node_count == 1:
+        return {nodes[0]: 1.0}
+
+    degree_weight = {node: sum(edges[node].values()) for node in nodes}
+    scores = {node: 1.0 / node_count for node in nodes}
+
+    for _iteration in range(_GRAPH_MAX_ITERATIONS):
+        new_scores: dict[str, float] = {}
+        max_delta = 0.0
+        for node in nodes:
+            rank_sum = 0.0
+            for neighbor, weight in edges[node].items():
+                neighbor_degree = degree_weight.get(neighbor, 0.0)
+                if neighbor_degree > 0:
+                    rank_sum += (weight / neighbor_degree) * scores[neighbor]
+            new_score = (1 - _GRAPH_DAMPING_FACTOR) / node_count + _GRAPH_DAMPING_FACTOR * rank_sum
+            new_scores[node] = new_score
+            max_delta = max(max_delta, abs(new_score - scores[node]))
+        scores = new_scores
+        if max_delta < _GRAPH_CONVERGENCE_EPSILON:
+            break
+
+    return scores
+
+
 def _rank_keywords(
     documents: Sequence[str],
     top_n: int,
     noise_terms: frozenset[str] = frozenset(),
 ) -> list[str]:
-    """Deterministic TF-IDF-style keyword/keyphrase ranking across
+    """Deterministic, graph/rank-based keyword/keyphrase ranking across
     ``documents`` (each a semantic unit's or event's text, i.e. this
-    meeting's own segments treated as a small corpus).
+    meeting's own segments treated as a small corpus) -- see the Phase 3.4
+    SELaD methodology note above ``_GRAPH_COOCCURRENCE_WINDOW`` for the
+    full rationale.
 
-    Separate from, and unrelated to, the TF-IDF baseline classifier in
-    ``ml_mom/logistic_baseline.py`` -- that scores whole sentences for a
-    5-class label; this ranks individual terms/phrases for display as
-    keywords.
+    Unigram importance comes from ``_graph_rank_unigrams`` (a PageRank/
+    TextRank-style score), NOT term frequency or TF-IDF. A bigram
+    candidate (two ADJACENT non-noise tokens, see ``_candidate_ngrams``)
+    is scored as the sum of its two constituent unigram graph scores, with
+    a small fixed 1.15 multiplier (a concrete phrase is more specific,
+    less ambiguous evidence than either bare word) -- but ONLY if it
+    occurs at least twice in the corpus (a one-off adjacent pairing like
+    "plan needs" is not yet evidence of a genuine compound concept).
 
-        idf(term) = ln((1 + N) / (1 + df(term))) + 1   (smoothed)
-        score(term) = total_frequency(term) * idf(term)
-        adjusted(term) = score(term) * 1.15 if term is a phrase (2 words)
-
-    Ranked descending by adjusted score; ties broken by first-appearance
-    order so the result is fully deterministic. The small fixed multi-word
-    bonus (not a separate scoring model) reflects that a concrete phrase
-    ("production deployment") is more useful, less ambiguous evidence than
-    an equally-frequent bare unigram ("deployment") -- see module-level
-    Phase 3.2 notes. A unigram is then dropped from the final ranked list
-    if a higher-ranked selected phrase already contains it (or vice
-    versa), so a short result never shows both "deployment" and
-    "production deployment" as if they were two distinct concepts.
+    A unigram is dropped from the final ranked list if a higher-ranked
+    selected phrase already contains it (or vice versa), so a short result
+    never shows both "deployment" and "production deployment" as if they
+    were two distinct concepts. Candidates scoring below 15% of the top
+    candidate's score are dropped entirely rather than padding the result
+    up to ``top_n`` -- a short, high-confidence list is preferred over a
+    forced-length noisy one (see the "Number of Key Themes" requirement:
+    quality over a fixed count).
 
     ``noise_terms`` (typically this meeting's own participant-name tokens,
     see ``_participant_name_noise_tokens``) are excluded the same way
     ``STOPWORDS``/``CONVERSATIONAL_NOISE_WORDS`` are -- see
-    ``_candidate_ngrams``.
+    ``_candidate_ngrams``/``_is_noise_token``.
     """
 
-    doc_candidate_lists = [_candidate_ngrams(document, noise_terms) for document in documents]
-    n_docs = len(doc_candidate_lists)
-    if n_docs == 0:
+    if not documents:
         return []
 
-    doc_frequency: dict[str, int] = {}
+    unigram_scores = _graph_rank_unigrams(documents, noise_terms)
+    if not unigram_scores:
+        return []
+
+    doc_candidate_lists = [_candidate_ngrams(document, noise_terms) for document in documents]
     total_frequency: dict[str, int] = {}
     first_seen: dict[str, int] = {}
     position = 0
@@ -390,47 +598,68 @@ def _rank_keywords(
                 first_seen[term] = position
                 position += 1
             seen_in_doc.add(term)
-        for term in seen_in_doc:
-            doc_frequency[term] = doc_frequency.get(term, 0) + 1
 
-    if not total_frequency:
-        return []
-
-    # A bigram that occurs only once is exactly as likely to be a
-    # meaningless adjacent-word accident ("plan needs", "needs review") as
-    # a genuine concept -- neither token being a stopword is not, by
-    # itself, enough evidence. Requiring at least one REPEATED occurrence
-    # (the same two words adjacent more than once, anywhere in the corpus)
-    # is the deterministic, frequency-based signal the task calls for;
-    # unigrams have no such requirement since a single strong unigram
-    # occurrence is still meaningful evidence on its own.
     _MIN_PHRASE_FREQUENCY = 2
-    total_frequency = {
-        term: frequency
-        for term, frequency in total_frequency.items()
-        if " " not in term or frequency >= _MIN_PHRASE_FREQUENCY
-    }
-    if not total_frequency:
+    _PHRASE_BONUS = 1.15
+    # A PageRank-style score is not directly comparable ACROSS disconnected
+    # graph components: a small isolated component (e.g. one filler
+    # sentence like "Okay, sure, that sounds fine to me." forming its own
+    # 3-node island) equilibrates its total rank mass among only its own
+    # few nodes, giving each one a disproportionately high per-node score
+    # compared to a node in a large, well-connected component -- even
+    # though the large component's terms are genuinely more central to the
+    # conversation. Multiplying by each term's own corpus frequency
+    # corrects this: a term's final score reflects BOTH its local
+    # graph-context importance AND how much of the actual conversation
+    # supports it, so a one-off aside cannot outrank a repeated concept
+    # purely because it happened to sit in a smaller island of the graph.
+    scores: dict[str, float] = {}
+    for term, frequency in total_frequency.items():
+        if " " in term:
+            if frequency < _MIN_PHRASE_FREQUENCY:
+                continue
+            word_scores = [unigram_scores.get(word, 0.0) for word in term.split()]
+            if not all(score > 0 for score in word_scores):
+                continue
+            scores[term] = sum(word_scores) * frequency * _PHRASE_BONUS
+        else:
+            unigram_score = unigram_scores.get(term)
+            if unigram_score is not None and unigram_score > 0:
+                scores[term] = unigram_score * frequency
+
+    if not scores:
         return []
 
-    _PHRASE_BONUS = 1.15
-    scores = {
-        term: frequency * (math.log((1 + n_docs) / (1 + doc_frequency[term])) + 1)
-        for term, frequency in total_frequency.items()
-    }
-    adjusted_scores = {
-        term: (score * _PHRASE_BONUS if " " in term else score) for term, score in scores.items()
-    }
-    ranked = sorted(adjusted_scores.items(), key=lambda item: (-item[1], first_seen[item[0]]))
+    ranked = sorted(scores.items(), key=lambda item: (-item[1], first_seen.get(item[0], 0)))
+
+    _RELATIVE_SCORE_FLOOR = 0.15
+    top_score = ranked[0][1]
+    floor = top_score * _RELATIVE_SCORE_FLOOR
+
+    def _bare_stem(word: str) -> str:
+        return word[:-1] if word.endswith("s") and len(word) > 3 else word
 
     selected: list[str] = []
     selected_word_sets: list[set[str]] = []
-    for term, _score in ranked:
+    selected_unigrams: set[str] = set()
+    for term, score in ranked:
+        if score < floor:
+            break
         term_words = set(term.split())
         if any(term_words <= existing or existing <= term_words for existing in selected_word_sets):
             continue
+        # Redundancy: "API" and "APIs" (or any other bare singular/plural
+        # pair) must not occupy two separate slots -- the higher-ranked
+        # form (already selected, since ``ranked`` is sorted descending)
+        # wins and the variant is dropped, matching the same conservative
+        # stem comparison used for topic-title cleanup (see
+        # ml_mom.experimental.mom_formatter._deduplicate_adjacent_word_variants).
+        if " " not in term and _bare_stem(term) in selected_unigrams:
+            continue
         selected.append(term)
         selected_word_sets.append(term_words)
+        if " " not in term:
+            selected_unigrams.add(_bare_stem(term))
         if len(selected) >= top_n:
             break
     return selected

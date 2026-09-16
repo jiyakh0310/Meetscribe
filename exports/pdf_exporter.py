@@ -608,28 +608,16 @@ def _add_emotion_insights(
         for warning in quality_warnings:
             story.append(Paragraph(f"- {_escape(warning)}", styles["bullet"]))
 
-    topic_insights = [item for item in voxels_emotion.get("topic_insights", []) if isinstance(item, dict)]
-    if topic_insights:
-        story.append(Spacer(1, 6))
-        _add_heading(story, styles, "TOPIC-LEVEL ACOUSTIC PATTERNS")
-        topic_rows: list[list[Any]] = [[
-            Paragraph("<b>Topic</b>", styles["body"]),
-            Paragraph("<b>Acoustic Pattern</b>", styles["body"]),
-            Paragraph("<b>Highest Class</b>", styles["body"]),
-            Paragraph("<b>Probability</b>", styles["body"]),
-            Paragraph("<b>Windows</b>", styles["body"]),
-        ]]
-        for topic in topic_insights:
-            highest_probability = topic.get("highest_probability")
-            probability_text = f"{float(highest_probability):.0%}" if isinstance(highest_probability, (int, float)) else "-"
-            topic_rows.append([
-                Paragraph(_escape(str(topic.get("topic") or "Discussion")), styles["body"]),
-                Paragraph(_escape(str(topic.get("pattern") or "No clearly dominant acoustic pattern was detected.")), styles["body"]),
-                Paragraph(_escape(str(topic.get("dominant_emotion") or "Uncertain")), styles["body"]),
-                Paragraph(probability_text, styles["body"]),
-                Paragraph(str(int(topic.get("windows_analyzed") or 0)), styles["body"]),
-            ])
-        story.append(_table(topic_rows, [1.8 * inch, 2.2 * inch, 1.1 * inch, 0.7 * inch, 0.7 * inch]))
+    # Phase 3.4: the "TOPIC-LEVEL ACOUSTIC PATTERNS" table (keyed to Phase
+    # 2/3.2's internal micro-topic clustering via
+    # app.main.build_topic_emotion_insights's ``topic_insights``) was
+    # removed. That clustering is no longer presented to users as "the
+    # meeting's topics" (see meeting_analytics/content.py's Phase 3.4
+    # module docstring) -- reprinting the same cluster labels here, merely
+    # relabeled as acoustic evidence, would re-expose the same
+    # fabricated-looking topic titles Phase 3.4 removed from the Minutes
+    # UI. The meeting-level acoustic distribution above is unaffected and
+    # remains the primary Communication Signals evidence in this export.
 
 
 def _add_next_meeting(
