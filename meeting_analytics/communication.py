@@ -45,6 +45,166 @@ NO_AUDIO_MESSAGE = "Speech-emotion insights are available for meetings with audi
 """Exact wording required for transcript-only meetings (no Voxels ever ran)."""
 
 
+# --------------------------------------------------------------------------
+# Phase 3.3 -- shared, presentation-only uncertainty interpretation
+# --------------------------------------------------------------------------
+#
+# Real-audio validation showed a general bug class: the Voxels model's
+# argmax class was presented as a confident meeting-level conclusion
+# ("Dominant detected speech emotion: Disgust" / "Derived meeting tone:
+# Negative") even when the underlying distribution was nearly flat (e.g.
+# Disgust 18% barely ahead of Neutral 17%, Sad 16%, ...). This is NOT a
+# Voxels inference bug -- argmax is a perfectly correct summary of "the
+# single highest-probability class" -- it is a PRESENTATION bug: argmax
+# alone does not tell a reader whether that class was a clear signal or a
+# statistical coin-flip among several similarly-likely classes.
+#
+# ``interpret_emotion_distribution`` is the ONE place this judgment is
+# made. Every caller that needs to decide "should this be presented as a
+# clear pattern or as an uncertain one" -- the meeting-level summary here,
+# the per-topic insights here, ``app.main.build_topic_emotion_insights``,
+# and the PDF exporter -- calls this SAME function, so the three surfaces
+# can never silently diverge into different uncertainty rules. It never
+# touches raw Voxels probabilities/confidence/windows; it only reads them
+# and returns a separate, additional judgment.
+_CLEAR_TOP_PROBABILITY_THRESHOLD = 0.40
+"""The leading class must represent a plausible plurality of the acoustic
+evidence -- comfortably above the ~14.3% a uniform 7-class distribution
+would give each class -- before its class label is presented as the
+meeting's/topic's acoustic pattern at all, regardless of margin."""
+
+_CLEAR_MARGIN_THRESHOLD = 0.15
+"""The leading class must also clear the runner-up by a comfortable margin
+(15 percentage points) -- a 1-point lead (e.g. 18% vs 17%, the real-audio
+validation case) is a statistical near-tie, not a "dominant" class, no
+matter how the two threshold constants are tuned; both constants were
+chosen by reasoning about the general problem (chance level for 7 classes,
+what a "comfortable" separation looks like) and validated against
+synthetic distributions spanning strongly-dominant, borderline, and
+near-uniform cases -- never against the one real validation meeting's
+actual numbers."""
+
+
+@dataclass(frozen=True, slots=True)
+class EmotionDistributionInterpretation:
+    """A presentation-only judgment derived from a raw Voxels probability
+    distribution. Never mutates or replaces the raw distribution -- see
+    ``interpret_emotion_distribution``.
+    """
+
+    status: str
+    """One of "clear", "mixed", or "unavailable" (no usable probabilities
+    were supplied at all -- e.g. an empty dict)."""
+
+    highest_class: str | None
+    highest_probability: float | None
+    second_class: str | None
+    second_probability: float | None
+    margin: float | None
+    """``highest_probability - second_probability``. None when there is no
+    second class to compare against (a single-class distribution) or when
+    ``status == "unavailable"``."""
+
+    display_pattern: str
+    """Human-facing phrase for the acoustic pattern itself, e.g. "Happy-
+    associated acoustic pattern" (status == "clear") or "No clearly
+    dominant acoustic pattern was detected." (status == "mixed"/
+    "unavailable"). Never a claim about a person or the meeting."""
+
+    secondary_tone: str | None
+    """Voxels' own Positive/Neutral/Negative/Mixed-Uncertain tone category
+    (via ``voxels_tone_for``), populated ONLY when ``status == "clear"`` --
+    callers should never headline this for an uncertain distribution, so
+    leaving it None for "mixed"/"unavailable" lets a caller show it
+    unconditionally without repeating the status check."""
+
+
+def interpret_emotion_distribution(
+    probabilities: dict[str, Any] | None,
+) -> EmotionDistributionInterpretation:
+    """Judge whether ``probabilities`` (a Voxels class -> probability
+    mapping, meeting-level or topic-level, already averaged across
+    whichever windows contributed) shows a clear dominant acoustic pattern
+    or a mixed/low-separation one.
+
+    Deterministic rule (see module-level threshold docstrings for why):
+    "clear" requires BOTH the top class's probability to be
+    >= ``_CLEAR_TOP_PROBABILITY_THRESHOLD`` AND its margin over the
+    second-highest class to be >= ``_CLEAR_MARGIN_THRESHOLD``. A
+    single-class distribution (no second class to compare against) is
+    "clear" by construction -- there is nothing for it to be mixed with.
+    Ties are broken deterministically by sorting on (-probability, class
+    name) so repeated calls with the same input always pick the same
+    highest/second class regardless of dict insertion order.
+
+    Never raises on malformed input (missing/non-numeric values, an empty
+    dict, ``None``) -- degrades to ``status="unavailable"`` instead.
+    """
+
+    if not probabilities:
+        return EmotionDistributionInterpretation(
+            status="unavailable",
+            highest_class=None,
+            highest_probability=None,
+            second_class=None,
+            second_probability=None,
+            margin=None,
+            display_pattern="No acoustic distribution is available.",
+            secondary_tone=None,
+        )
+
+    parsed: list[tuple[str, float]] = []
+    for label, value in probabilities.items():
+        try:
+            parsed.append((str(label), float(value)))
+        except (TypeError, ValueError):
+            continue
+    if not parsed:
+        return EmotionDistributionInterpretation(
+            status="unavailable",
+            highest_class=None,
+            highest_probability=None,
+            second_class=None,
+            second_probability=None,
+            margin=None,
+            display_pattern="No acoustic distribution is available.",
+            secondary_tone=None,
+        )
+
+    ranked = sorted(parsed, key=lambda item: (-item[1], item[0]))
+    highest_class, highest_probability = ranked[0]
+    second_class, second_probability = (ranked[1] if len(ranked) > 1 else (None, None))
+    margin = (highest_probability - second_probability) if second_probability is not None else None
+
+    is_clear = (
+        highest_probability >= _CLEAR_TOP_PROBABILITY_THRESHOLD
+        and (margin is None or margin >= _CLEAR_MARGIN_THRESHOLD)
+    )
+
+    if is_clear:
+        return EmotionDistributionInterpretation(
+            status="clear",
+            highest_class=highest_class,
+            highest_probability=highest_probability,
+            second_class=second_class,
+            second_probability=second_probability,
+            margin=margin,
+            display_pattern=f"{highest_class.title()}-associated acoustic pattern",
+            secondary_tone=voxels_tone_for(highest_class),
+        )
+
+    return EmotionDistributionInterpretation(
+        status="mixed",
+        highest_class=highest_class,
+        highest_probability=highest_probability,
+        second_class=second_class,
+        second_probability=second_probability,
+        margin=margin,
+        display_pattern="No clearly dominant acoustic pattern was detected.",
+        secondary_tone=None,
+    )
+
+
 @dataclass(frozen=True, slots=True)
 class TopicCommunicationInsight:
     """Voxels-derived acoustic pattern aligned to one Phase 2 topic.
@@ -52,8 +212,8 @@ class TopicCommunicationInsight:
     ``available=False`` covers every case where no genuine insight exists
     (untimed topic, no overlapping windows, Voxels unavailable) --
     ``dominant_acoustic_emotion``/``emotion_distribution``/
-    ``communication_tone``/``pattern`` are then all None/empty rather than
-    fabricated.
+    ``communication_tone``/``pattern``/``distribution_interpretation`` are
+    then all None/empty rather than fabricated.
     """
 
     topic_id: int
@@ -68,6 +228,11 @@ class TopicCommunicationInsight:
 
     windows_analyzed: int
     dominant_acoustic_emotion: str | None
+    """Raw argmax class of this topic's averaged distribution -- UNCHANGED
+    Phase 3 semantics, kept for backward compatibility. See
+    ``distribution_interpretation`` for the uncertainty-aware judgment;
+    prefer it for any human-facing headline."""
+
     emotion_distribution: tuple[tuple[str, float], ...]
     """(emotion, average probability across this topic's contributing
     windows), sorted descending. Empty when unavailable."""
@@ -75,13 +240,21 @@ class TopicCommunicationInsight:
     average_confidence: float | None
     communication_tone: str | None
     """One of Voxels' own tone categories via ``voxels_tone_for`` (Positive/
-    Neutral/Negative/Mixed-Uncertain) -- never a new judgment scale."""
+    Neutral/Negative/Mixed-Uncertain) -- never a new judgment scale. Raw
+    pass-through of the argmax-derived tone, kept for backward
+    compatibility; human-facing presentation should prefer
+    ``distribution_interpretation.secondary_tone`` (None for a mixed/
+    uncertain distribution, unlike this field)."""
 
     pattern: str | None
-    """Short observational phrase (matches the wording already used by
-    ``app.main.build_topic_emotion_insights`` for the equivalent
-    discussion-point-level insight, e.g. "Mostly neutral speech-emotion
-    pattern")."""
+    """Phase 3.3: now ``distribution_interpretation.display_pattern`` --
+    uncertainty-aware wording (e.g. "No clearly dominant acoustic pattern
+    was detected." instead of always naming the argmax class)."""
+
+    distribution_interpretation: "EmotionDistributionInterpretation | None" = None
+    """Phase 3.3: the full shared interpretation for this topic's averaged
+    distribution -- see ``interpret_emotion_distribution``. None only when
+    ``available`` is False."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -93,29 +266,44 @@ class CommunicationInsights:
     unavailable_reason: str | None
 
     dominant_acoustic_emotion: str | None
+    """Raw argmax class of the meeting-wide distribution -- UNCHANGED Phase
+    3 semantics, kept for backward compatibility. See
+    ``distribution_interpretation`` for the uncertainty-aware judgment."""
+
     communication_tone: str | None
+    """Raw pass-through of Voxels' own meeting-level tone. Human-facing
+    presentation should prefer ``distribution_interpretation.secondary_tone``
+    (None for a mixed/uncertain distribution)."""
+
     average_confidence: float | None
+    """Phase 3.3 note: this is Voxels' top-level ``confidence`` field,
+    which is literally the winning class's averaged probability (see
+    ``integrations.voxels_ser.run_voxels_emotion``) -- NOT a calibrated
+    statistical confidence. Kept under its established name for backward
+    compatibility; prefer ``distribution_interpretation.highest_probability``
+    (the same number) in new human-facing text, described as "highest
+    model probability", and ``average_window_confidence`` (a genuinely
+    different, per-window metric) where that is what is actually meant."""
+
+    average_window_confidence: float | None
+    """Phase 3.3 addition: Voxels' own ``average_window_confidence`` (the
+    mean of each window's OWN model confidence, distinct from the
+    meeting-level winning-class probability above) -- surfaced so callers
+    that want a genuine confidence figure have one under an accurate name."""
+
     windows_analyzed: int | None
     quality_warnings: tuple[str, ...]
+
+    distribution_interpretation: "EmotionDistributionInterpretation | None"
+    """Phase 3.3: the shared uncertainty-aware interpretation of the
+    meeting-wide probability distribution. None only when ``available`` is
+    False."""
 
     per_topic: tuple[TopicCommunicationInsight, ...]
     """Only topics with ``available=True`` genuinely have aligned evidence;
     topics with no timing or no overlapping windows still appear here with
     ``available=False`` so the UI can render them consistently rather than
     silently omitting some topics."""
-
-
-def _pattern_for_tone(tone: str) -> str:
-    """Matches app.main.build_topic_emotion_insights's tone->pattern text
-    exactly, so meeting-level and topic-level wording never diverges."""
-
-    if tone == "Negative":
-        return "Increased negative speech-emotion signals"
-    if tone == "Positive":
-        return "Mostly positive speech-emotion pattern"
-    if tone == "Neutral":
-        return "Mostly neutral speech-emotion pattern"
-    return "Mixed / uncertain speech-emotion pattern"
 
 
 def _valid_windows(voxels_payload: dict[str, Any]) -> list[dict[str, Any]]:
@@ -249,6 +437,7 @@ def _insight_for_topic(
     average_confidence = (sum(confidences) / len(confidences)) if confidences else None
 
     tone = voxels_tone_for(dominant)
+    interpretation = interpret_emotion_distribution(averaged)
 
     return TopicCommunicationInsight(
         **base,
@@ -259,7 +448,8 @@ def _insight_for_topic(
         emotion_distribution=distribution,
         average_confidence=average_confidence,
         communication_tone=tone,
-        pattern=_pattern_for_tone(tone),
+        pattern=interpretation.display_pattern,
+        distribution_interpretation=interpretation,
     )
 
 
@@ -288,8 +478,10 @@ def align_topics_with_voxels(
             dominant_acoustic_emotion=None,
             communication_tone=None,
             average_confidence=None,
+            average_window_confidence=None,
             windows_analyzed=None,
             quality_warnings=(),
+            distribution_interpretation=None,
             per_topic=(),
         )
 
@@ -304,8 +496,10 @@ def align_topics_with_voxels(
             dominant_acoustic_emotion=None,
             communication_tone=None,
             average_confidence=None,
+            average_window_confidence=None,
             windows_analyzed=None,
             quality_warnings=(),
+            distribution_interpretation=None,
             per_topic=(),
         )
 
@@ -318,6 +512,12 @@ def align_topics_with_voxels(
         average_confidence = float(confidence) if confidence is not None else None
     except (TypeError, ValueError):
         average_confidence = None
+
+    window_confidence = voxels_payload.get("average_window_confidence")
+    try:
+        average_window_confidence = float(window_confidence) if window_confidence is not None else None
+    except (TypeError, ValueError):
+        average_window_confidence = None
 
     windows_analyzed = voxels_payload.get("windows_analyzed")
     try:
@@ -337,7 +537,9 @@ def align_topics_with_voxels(
         ),
         communication_tone=str(voxels_payload.get("tone")) if voxels_payload.get("tone") else None,
         average_confidence=average_confidence,
+        average_window_confidence=average_window_confidence,
         windows_analyzed=windows_analyzed,
         quality_warnings=quality_warnings,
+        distribution_interpretation=interpret_emotion_distribution(voxels_payload.get("probabilities")),
         per_topic=per_topic,
     )

@@ -25,6 +25,7 @@ from reportlab.platypus import (
     TableStyle,
 )
 
+from meeting_analytics.communication import interpret_emotion_distribution
 from summarization.base_summarizer import MeetingAnalysisResult
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -530,27 +531,37 @@ def _add_emotion_insights(
     styles: dict[str, ParagraphStyle],
     voxels_emotion: dict[str, Any] | None,
 ) -> None:
-    """Render the same Voxels emotion insights already shown on the Minutes UI.
+    """Render the same Voxels-derived communication signals already shown
+    on the Minutes UI's consolidated "Communication Signals" subsection.
 
     ``voxels_emotion`` is the already-computed session payload passed in by
-    the caller (the same data backing ``emotion_insights_html`` in
-    ``app/main.py``) -- Voxels is never re-run here. Renders nothing for
+    the caller -- Voxels is never re-run here. Renders nothing for
     transcript-only meetings or when emotion data is unavailable, preserving
     the existing export behaviour for those cases.
+
+    Phase 3.3: uses the SAME shared, deterministic uncertainty-aware
+    interpretation (``meeting_analytics.communication.
+    interpret_emotion_distribution``) as the Minutes UI and
+    ``app.main.build_topic_emotion_insights`` -- a near-tied argmax class is
+    never presented here as a confident "Derived meeting tone" conclusion
+    either. Raw probabilities/windows/disclaimer are still fully shown.
     """
     if not isinstance(voxels_emotion, dict) or not voxels_emotion.get("available"):
         return
 
-    _add_heading(story, styles, "EMOTION & COMMUNICATION INSIGHTS")
+    _add_heading(story, styles, "COMMUNICATION SIGNALS")
 
-    dominant = _escape(str(voxels_emotion.get("dominant_emotion") or "Not available"))
-    tone = _escape(str(voxels_emotion.get("tone") or "Mixed / Uncertain"))
-    story.append(Paragraph(f"<b>Dominant detected speech emotion:</b> {dominant}", styles["body"]))
-    story.append(Paragraph(f"<b>Derived meeting tone:</b> {tone}", styles["body"]))
-
-    confidence = voxels_emotion.get("confidence")
-    if isinstance(confidence, (int, float)):
-        story.append(Paragraph(f"<b>Confidence:</b> {confidence:.0%}", styles["body"]))
+    interpretation = interpret_emotion_distribution(voxels_emotion.get("probabilities"))
+    if interpretation.status != "unavailable":
+        story.append(Paragraph(f"<b>Pattern:</b> {_escape(interpretation.display_pattern)}", styles["body"]))
+        if interpretation.highest_class and interpretation.highest_probability is not None:
+            story.append(
+                Paragraph(
+                    f"<b>Highest model probability:</b> {_escape(interpretation.highest_class.title())} "
+                    f"- {interpretation.highest_probability:.0%}",
+                    styles["body"],
+                )
+            )
 
     observation = str(voxels_emotion.get("observation") or "").strip()
     if observation:
@@ -581,26 +592,44 @@ def _add_emotion_insights(
     ).strip()
     window_note = f"Based on {int(windows)} sampled speech windows. " if windows else "Based on sampled speech windows. "
     story.append(Paragraph(_escape(window_note + note), styles["meta_indent"]))
+    story.append(
+        Paragraph(
+            _escape(
+                "Speech-emotion evidence is derived from the audio signal (acoustic), separate from any "
+                "text-based positive-language evidence in the Minutes UI."
+            ),
+            styles["meta_indent"],
+        )
+    )
+
+    quality_warnings = [str(item) for item in (voxels_emotion.get("quality_warnings") or [])]
+    if quality_warnings:
+        story.append(Paragraph("<b>Recording quality notes:</b>", styles["body"]))
+        for warning in quality_warnings:
+            story.append(Paragraph(f"- {_escape(warning)}", styles["bullet"]))
 
     topic_insights = [item for item in voxels_emotion.get("topic_insights", []) if isinstance(item, dict)]
     if topic_insights:
         story.append(Spacer(1, 6))
-        _add_heading(story, styles, "DISCUSSION-LEVEL EMOTION INSIGHTS")
+        _add_heading(story, styles, "TOPIC-LEVEL ACOUSTIC PATTERNS")
         topic_rows: list[list[Any]] = [[
             Paragraph("<b>Topic</b>", styles["body"]),
-            Paragraph("<b>Dominant</b>", styles["body"]),
-            Paragraph("<b>Tone</b>", styles["body"]),
-            Paragraph("<b>Confidence</b>", styles["body"]),
+            Paragraph("<b>Acoustic Pattern</b>", styles["body"]),
+            Paragraph("<b>Highest Class</b>", styles["body"]),
+            Paragraph("<b>Probability</b>", styles["body"]),
+            Paragraph("<b>Windows</b>", styles["body"]),
         ]]
         for topic in topic_insights:
-            topic_confidence = float(topic.get("average_confidence") or 0.0)
+            highest_probability = topic.get("highest_probability")
+            probability_text = f"{float(highest_probability):.0%}" if isinstance(highest_probability, (int, float)) else "-"
             topic_rows.append([
                 Paragraph(_escape(str(topic.get("topic") or "Discussion")), styles["body"]),
+                Paragraph(_escape(str(topic.get("pattern") or "No clearly dominant acoustic pattern was detected.")), styles["body"]),
                 Paragraph(_escape(str(topic.get("dominant_emotion") or "Uncertain")), styles["body"]),
-                Paragraph(_escape(str(topic.get("tone") or "Mixed / Uncertain")), styles["body"]),
-                Paragraph(f"{topic_confidence:.0%}", styles["body"]),
+                Paragraph(probability_text, styles["body"]),
+                Paragraph(str(int(topic.get("windows_analyzed") or 0)), styles["body"]),
             ])
-        story.append(_table(topic_rows, [2.5 * inch, 1.5 * inch, 1.5 * inch, 1.0 * inch]))
+        story.append(_table(topic_rows, [1.8 * inch, 2.2 * inch, 1.1 * inch, 0.7 * inch, 0.7 * inch]))
 
 
 def _add_next_meeting(

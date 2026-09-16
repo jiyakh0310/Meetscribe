@@ -102,6 +102,7 @@ from meeting_analytics import (
     align_topics_with_voxels,
     analyze_content,
     analyze_conversation,
+    interpret_emotion_distribution,
 )
 
 SUPPORTED_FILE_TYPES = ("wav", "mp3", "m4a", "aac", "mp4")
@@ -5066,14 +5067,15 @@ def build_topic_emotion_insights(
             except (TypeError, ValueError):
                 continue
         tone = voxels_tone_for(dominant)
-        if tone == "Negative":
-            pattern = "Increased negative speech-emotion signals"
-        elif tone == "Positive":
-            pattern = "Mostly positive speech-emotion pattern"
-        elif tone == "Neutral":
-            pattern = "Mostly neutral speech-emotion pattern"
-        else:
-            pattern = "Mixed / uncertain speech-emotion pattern"
+        # Phase 3.3: pattern wording now comes from the SAME shared,
+        # uncertainty-aware interpretation used by meeting_analytics.
+        # communication and the PDF exporter (see
+        # meeting_analytics.communication.interpret_emotion_distribution),
+        # instead of unconditionally naming the argmax class's tone -- a
+        # topic whose top two classes are nearly tied no longer reads as
+        # "Increased negative speech-emotion signals" just because the
+        # argmax happened to land on a negative-tone class.
+        interpretation = interpret_emotion_distribution(probabilities)
         insights.append(
             {
                 "topic": topic["label"],
@@ -5081,8 +5083,11 @@ def build_topic_emotion_insights(
                 "dominant_emotion": dominant.title(),
                 "average_confidence": sum(confidences) / len(confidences) if confidences else 0.0,
                 "tone": tone,
-                "pattern": pattern,
+                "pattern": interpretation.display_pattern,
                 "windows_analyzed": len(contributing),
+                "probabilities": probabilities,
+                "status": interpretation.status,
+                "highest_probability": interpretation.highest_probability,
             }
         )
     return insights
@@ -6364,10 +6369,10 @@ def render_processing_stage() -> None:
 def voxels_payload_for_export(analysis: MeetingAnalysisResult | None = None) -> dict[str, Any] | None:
     """Return the same Voxels emotion payload already shown on the Minutes UI.
 
-    Mirrors the gating in ``emotion_insights_html`` exactly (audio-only,
-    already-stored session data, ``available`` flag) so PDF export never
-    re-runs Voxels and never shows emotion sections for transcript-only
-    meetings.
+    Mirrors the gating the Minutes UI's Communication Signals section uses
+    (audio-only, already-stored session data, ``available`` flag) so PDF
+    export never re-runs Voxels and never shows emotion sections for
+    transcript-only meetings.
     """
     if st.session_state.get("workflow_source") != "audio":
         return None
@@ -6391,90 +6396,15 @@ def voxels_payload_for_export(analysis: MeetingAnalysisResult | None = None) -> 
     return payload
 
 
-def emotion_insights_html(analysis: MeetingAnalysisResult | None = None) -> str:
-    """Build the optional audio-only Voxels section for the Minutes view."""
-    if st.session_state.get("workflow_source") != "audio":
-        return ""
-    if analysis is not None:
-        attach_topic_emotion_insights(analysis)
-    payload = st.session_state.get("voxels_emotion_result")
-    if not isinstance(payload, dict):
-        return ""
-    if not payload.get("available"):
-        return (
-            '<section class="ms-minutes-section ms-emotion-section">'
-            '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
-            'style="background:#eeeaf4;color:#5c5077">~</span><h3>Emotion &amp; Communication Insights</h3></div>'
-            '<div class="ms-emotion-unavailable"><p>Emotion insights were unavailable for this recording. '
-            'The meeting minutes were generated using the normal MeetScribe pipeline.</p></div></section>'
-        )
-
-    probabilities = payload.get("probabilities") or {}
-    rows: list[str] = []
-    for emotion, probability in sorted(
-        ((str(label), float(value)) for label, value in probabilities.items()),
-        key=lambda item: item[1],
-        reverse=True,
-    ):
-        percent = max(0.0, min(1.0, probability))
-        rows.append(
-            '<div class="ms-emotion-row">'
-            f'<span class="ms-emotion-label">{html.escape(emotion.title())}</span>'
-            '<span class="ms-emotion-track"><span class="ms-emotion-fill" '
-            f'style="width:{percent * 100:.1f}%"></span></span>'
-            f'<span class="ms-emotion-value">{percent:.0%}</span></div>'
-        )
-    dominant = html.escape(str(payload.get("dominant_emotion") or "Not available"))
-    tone = html.escape(str(payload.get("tone") or "Mixed / Uncertain"))
-    observation = html.escape(str(payload.get("observation") or ""))
-    note = html.escape(
-        str(
-            payload.get("note")
-            or "Detected speech-emotion patterns only; this is not a measure of a person's true psychological state."
-        )
-    )
-    windows = payload.get("windows_analyzed")
-    window_note = f"Based on {int(windows)} sampled speech windows." if windows else "Based on sampled speech windows."
-    topic_rows: list[str] = []
-    for topic in payload.get("topic_insights", []):
-        if not isinstance(topic, dict):
-            continue
-        topic_name = html.escape(str(topic.get("topic") or "Discussion"))
-        topic_emotion = html.escape(str(topic.get("dominant_emotion") or "Uncertain"))
-        topic_tone = html.escape(str(topic.get("tone") or "Mixed / Uncertain"))
-        topic_pattern = html.escape(str(topic.get("pattern") or "Detected speech-emotion pattern"))
-        topic_confidence = float(topic.get("average_confidence") or 0.0)
-        topic_windows = int(topic.get("windows_analyzed") or 0)
-        topic_rows.append(
-            '<article class="ms-topic-emotion-row">'
-            f'<div class="ms-topic-emotion-title">{topic_name}</div>'
-            f'<div class="ms-topic-emotion-pattern">{topic_pattern}</div>'
-            f'<div class="ms-topic-emotion-meta"><span>Dominant: {topic_emotion}</span>'
-            f'<span>Tone: {topic_tone}</span><span>Confidence: {topic_confidence:.0%}</span>'
-            f'<span>{topic_windows} window{"s" if topic_windows != 1 else ""}</span></div></article>'
-        )
-    topic_html = ""
-    if topic_rows:
-        topic_html = (
-            '<section class="ms-minutes-section ms-topic-emotion-section">'
-            '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
-            'style="background:#eeeaf4;color:#5c5077">~</span><h3>Discussion-Level Emotion Insights</h3></div>'
-            f'<div class="ms-topic-emotion-list">{"".join(topic_rows)}</div></section>'
-        )
-    return (
-        '<section class="ms-minutes-section ms-emotion-section">'
-        '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
-        'style="background:#eeeaf4;color:#5c5077">~</span><h3>Emotion &amp; Communication Insights</h3></div>'
-        '<div class="ms-emotion-card">'
-        '<div class="ms-emotion-topline">'
-        f'<div><div class="ms-emotion-kicker">Dominant detected speech emotion</div><div class="ms-emotion-dominant">{dominant}</div></div>'
-        f'<div class="ms-emotion-tone"><span>Derived meeting tone</span><strong>{tone}</strong></div>'
-        '</div>'
-        f'<div class="ms-emotion-observation">{observation}</div>'
-        f'<div class="ms-emotion-distribution"><div class="ms-emotion-kicker">Emotion probability distribution</div>{"".join(rows)}</div>'
-        f'<div class="ms-emotion-footnote">{html.escape(window_note)} {note}</div>'
-        f'</div></section>{topic_html}'
-    )
+# Phase 3.3: the standalone ``emotion_insights_html`` renderer (a
+# meeting-level "Emotion & Communication Insights" section plus a separate
+# "Discussion-Level Emotion Insights" topic list) was removed here -- it
+# duplicated what Meeting Analytics' consolidated "Communication Signals"
+# subsection (``_topic_communication_html``) now shows in one place, using
+# the same uncertainty-aware interpretation. ``build_topic_emotion_insights``/
+# ``attach_topic_emotion_insights``/``voxels_payload_for_export`` are
+# UNCHANGED and still used by PDF export, which needed its own (also now
+# uncertainty-aware) rendering -- see ``exports/pdf_exporter.py``.
 
 
 _ANALYTICS_SPEAKER_COLORS = ("var(--wf-blue)", "var(--wf-green)", "var(--wf-lav)", "var(--wf-rust)")
@@ -6592,45 +6522,55 @@ def _positive_language_html(positive_language) -> str:
 
 
 def _topic_communication_html(communication) -> str:
-    """Build the "Emotion & Communication" sub-section for Meeting Analytics
-    (SELaD Phase 3): a meeting-level pass-through line plus compact
-    "Topic Communication Patterns" cards, one per Phase 2 topic that has
-    genuinely aligned Voxels evidence.
+    """Build the consolidated "Communication Signals" sub-section for
+    Meeting Analytics (SELaD Phase 3.3).
 
-    This deliberately does NOT repeat the full existing Emotion &
-    Communication Insights section (meeting-wide distribution, disclaimer,
-    quality warnings, discussion-point-level insights) -- that section,
-    built from ``emotion_insights_html()``, is unchanged and still renders
-    in full directly below Meeting Analytics. What's added here is new: a
-    per-Phase-2-topic view connecting WHAT was discussed, WHEN, and the
-    acoustic pattern detected during that window, which the existing
-    section does not provide (it anchors to factual MoM discussion points,
-    a different topic list, using next-topic-boundary inference rather than
-    each topic's own real start/end).
+    Phase 3.3 consolidation: this is now the ONLY user-facing rendering of
+    Voxels speech-emotion evidence on the Minutes page -- the previously
+    separate "Emotion & Communication Insights" and "Discussion-Level
+    Emotion Insights" sections (built by the now-removed
+    ``emotion_insights_html``) repeated the same meeting-level distribution
+    and a second, differently-anchored topic list. This section shows both
+    the meeting-level distribution AND Phase 2/3.2-topic-aligned acoustic
+    patterns in one place.
 
-    Uses only Voxels' own tone categories/observational wording -- never a
-    psychological claim, never a combined score with Positive Language.
+    Every headline here is UNCERTAINTY-AWARE: it uses
+    ``communication.distribution_interpretation`` /
+    ``topic.distribution_interpretation`` (see
+    ``meeting_analytics.communication.interpret_emotion_distribution``) --
+    the SAME shared judgment ``app.main.build_topic_emotion_insights`` and
+    the PDF exporter also use -- so a near-tied argmax class is never
+    presented as a confident conclusion. Raw probabilities/argmax/tone are
+    still shown as supporting evidence, never suppressed. Uses only
+    Voxels' own tone categories/observational wording when a pattern IS
+    clear -- never a psychological claim, never a combined score with
+    Positive-language cues (see the explanatory note at the top of this
+    section: acoustic vs. lexical evidence are always presented as two
+    separate signals).
     """
 
     if not communication.available:
         return (
-            '<div class="ms-analytics-subhead">Emotion &amp; Communication</div>'
+            '<div class="ms-analytics-subhead">Communication Signals</div>'
             f'<p class="ms-analytics-comm-note">{html.escape(communication.unavailable_reason or "")}</p>'
         )
 
-    summary_bits = []
-    if communication.dominant_acoustic_emotion:
-        summary_bits.append(f"dominant acoustic pattern: {communication.dominant_acoustic_emotion}")
-    if communication.communication_tone:
-        summary_bits.append(f"tone: {communication.communication_tone}")
+    interpretation = communication.distribution_interpretation
+    meeting_lines: list[str] = []
+    if interpretation is not None and interpretation.status != "unavailable":
+        meeting_lines.append(
+            f'<div class="ms-analytics-comm-pattern">{html.escape(interpretation.display_pattern)}</div>'
+        )
+        if interpretation.highest_class and interpretation.highest_probability is not None:
+            meeting_lines.append(
+                '<p class="ms-analytics-comm-note">'
+                f'Highest model probability: {html.escape(interpretation.highest_class.title())} '
+                f'&mdash; {interpretation.highest_probability:.0%}</p>'
+            )
     if communication.windows_analyzed:
-        summary_bits.append(f"{communication.windows_analyzed} audio windows analyzed")
-    summary_line = (
-        "Meeting-level speech-emotion signal (" + ", ".join(summary_bits) + ") -- see Emotion "
-        "&amp; Communication Insights below for the full distribution and disclaimer."
-        if summary_bits
-        else ""
-    )
+        meeting_lines.append(
+            f'<p class="ms-analytics-comm-note">{communication.windows_analyzed} audio windows analyzed.</p>'
+        )
 
     quality_warning_html = ""
     if communication.quality_warnings:
@@ -6679,17 +6619,25 @@ def _topic_communication_html(communication) -> str:
             f'{"".join(cards)}</div>'
         )
 
-    if not summary_line and not topic_cards:
+    if not meeting_lines and not topic_cards:
         return (
-            '<div class="ms-analytics-subhead">Emotion &amp; Communication</div>'
+            '<div class="ms-analytics-subhead">Communication Signals</div>'
             '<p class="ms-analytics-comm-note">No topic-aligned speech-emotion evidence was available for this meeting.</p>'
         )
 
+    disclaimer = (
+        '<p class="ms-analytics-comm-note" style="margin-top:8px">'
+        "Speech-emotion evidence is derived from the AUDIO signal (acoustic), separate from the "
+        "Positive-language cues above, which are derived from transcript TEXT (lexical). This is not a "
+        "measurement of any participant's psychological state.</p>"
+    )
+
     return (
-        '<div class="ms-analytics-subhead">Emotion &amp; Communication</div>'
-        + (f'<p class="ms-analytics-comm-note">{summary_line}</p>' if summary_line else "")
+        '<div class="ms-analytics-subhead">Communication Signals</div>'
+        + "".join(meeting_lines)
         + quality_warning_html
         + topic_cards
+        + disclaimer
     )
 
 
@@ -6925,16 +6873,15 @@ def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisR
             + ("".join(action_rows) or '<tr><td colspan="4">No action items were extracted.</td></tr>')
             + '</tbody></table></div>'
         )
-        emotion_html = emotion_insights_html(analysis)
         _analytics_timeline = build_timeline(result, st.session_state.get("speaker_mapping"))
         _content_analytics = analyze_content(_analytics_timeline)
         # Read the raw, already-computed Voxels result directly (gated only
-        # on workflow_source, matching emotion_insights_html's own gating)
-        # rather than voxels_payload_for_export()'s collapsed None -- that
-        # helper intentionally treats "no audio" and "audio but Voxels
-        # unavailable" the same for PDF-export purposes, but Phase 3 wants
-        # to tell those two cases apart (see NO_AUDIO_MESSAGE vs the
-        # payload's own unavailable reason). Voxels is never re-run here.
+        # on workflow_source) rather than voxels_payload_for_export()'s
+        # collapsed None -- that helper intentionally treats "no audio" and
+        # "audio but Voxels unavailable" the same for PDF-export purposes,
+        # but the Communication Signals section wants to tell those two
+        # cases apart (see NO_AUDIO_MESSAGE vs the payload's own
+        # unavailable reason). Voxels is never re-run here.
         _voxels_for_communication = (
             st.session_state.get("voxels_emotion_result")
             if st.session_state.get("workflow_source") == "audio"
@@ -6957,8 +6904,6 @@ def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisR
             unsafe_allow_html=True,
         )
         st.markdown(analytics_html, unsafe_allow_html=True)
-        if emotion_html:
-            st.markdown(emotion_html, unsafe_allow_html=True)
         render_analysis_error()
 
     render_timeline_debug_view(result)

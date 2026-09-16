@@ -35,8 +35,10 @@ from meeting_analytics.content import (
 )
 from meeting_analytics.communication import (
     CommunicationInsights,
+    EmotionDistributionInterpretation,
     TopicCommunicationInsight,
     align_topics_with_voxels,
+    interpret_emotion_distribution,
 )
 
 __all__ = [
@@ -51,6 +53,8 @@ __all__ = [
     "TopicAnalytics",
     "analyze_content",
     "CommunicationInsights",
+    "EmotionDistributionInterpretation",
     "TopicCommunicationInsight",
     "align_topics_with_voxels",
+    "interpret_emotion_distribution",
 ]
