@@ -415,35 +415,34 @@ def test_navigation_phrase_move_to_is_never_decision_evidence() -> None:
     assert has_explicit_decision_evidence("The deadline was moved to Friday instead of Wednesday.") is True
 
 
-def test_known_limitation_proposal_from_context_can_bypass_the_evidence_gate() -> None:
-    # KNOWN LIMITATION (documented, not fixed in Phase 3.4): when a bare
-    # confirmation-like reply (e.g. "Agreed.") appears in the transcript,
-    # ml_mom.experimental.mom_formatter.contextual_decision_evidence calls
-    # proposal_from_context() to find "the proposal being confirmed" in
-    # nearby context. proposal_from_context() DELIBERATELY returns a
-    # candidate sentence when DECISION_PROPOSAL_PATTERN matches it AND
-    # has_explicit_decision_evidence(candidate) is False -- i.e. it is
-    # SPECIFICALLY designed to surface a not-yet-validated proposal
-    # sentence as decision evidence once a nearby confirmation exists. This
-    # is architecturally separate from (and bypasses) the primary
-    # has_explicit_decision_evidence gate this file's other tests harden --
-    # DECISION_PROPOSAL_PATTERN's own bare "let's"/"move" trigger words can
-    # still let a navigation/topic-transition sentence back in through this
-    # side door even after the Phase 3.4 fixes above. Fixing this
-    # requires reviewing proposal_from_context/DECISION_PROPOSAL_PATTERN
-    # directly, which touches the Decision-evidence architecture Part H of
-    # the Phase 3.4 task asked to keep frozen -- left for a dedicated
-    # future pass. This test exists to make the limitation executable and
-    # visible (it currently demonstrates the gap) rather than silent.
-    from ml_mom.experimental.mom_formatter import DECISION_PROPOSAL_PATTERN, proposal_from_context
+def test_proposal_side_door_no_longer_surfaces_navigation_as_a_proposal() -> None:
+    # Phase 3.5 FIX (was a documented known limitation in Phase 3.4): a
+    # bare confirmation-like reply (e.g. "Agreed.") near a navigation
+    # sentence used to let ml_mom.experimental.mom_formatter.
+    # proposal_from_context() surface that navigation sentence as decision
+    # evidence, bypassing has_explicit_decision_evidence entirely --
+    # DECISION_PROPOSAL_PATTERN's bare "move" trigger word matched "let's
+    # move to X" just as readily as a genuine proposed change. Fixed by
+    # (1) removing bare "move" from DECISION_PROPOSAL_PATTERN and (2)
+    # adding _PROPOSAL_NAVIGATION_EXCLUSION_PATTERN, checked directly in
+    # proposal_from_context, which rejects any candidate matching a
+    # navigation/agenda-transition phrase regardless of which other
+    # DECISION_PROPOSAL_PATTERN word it also contains. This directly
+    # reproduces the real-audio-validation-equivalent runtime failure
+    # ("Great Now Move To The Monitoring Dashboard Updates was deferred.").
+    from ml_mom.experimental.mom_formatter import proposal_from_context
 
-    navigation_sentence = "Now let's move to the database migration for the reporting cluster."
-    # DECISION_PROPOSAL_PATTERN still matches "let's"/"move" as bare
-    # proposal-trigger words, and has_explicit_decision_evidence correctly
-    # rejects it (Phase 3.4 fix) -- so proposal_from_context's OWN
-    # eligibility check (pattern match AND NOT already-valid-evidence)
-    # still treats it as fair game to surface as a "proposal".
-    assert DECISION_PROPOSAL_PATTERN.search(navigation_sentence) is not None
-    assert has_explicit_decision_evidence(navigation_sentence) is False
-    proposal = proposal_from_context(navigation_sentence, exclude_sentence="Agreed.")
-    assert proposal == navigation_sentence
+    navigation_sentences = (
+        "Now let's move to the database migration for the reporting cluster.",
+        "Great, now move to the monitoring dashboard updates.",
+        "Let's move on to the next agenda item.",
+        "Next question, what's the release status?",
+    )
+    for sentence in navigation_sentences:
+        proposal = proposal_from_context(sentence, exclude_sentence="Agreed.")
+        assert proposal == "", sentence
+
+    # A genuine proposal (a substantive proposed action/object, not a
+    # navigation transition) must still be eligible as decision context.
+    genuine_proposal = "We should deploy version 2 on Friday."
+    assert proposal_from_context(genuine_proposal, exclude_sentence="Agreed.") == genuine_proposal

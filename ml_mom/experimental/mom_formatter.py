@@ -109,6 +109,27 @@ TOPIC_ENTITY_STOPWORDS = {
     "something",
     "anything",
     "everything",
+    # Phase 3.5: negated-contraction forms of the modal/auxiliary verbs
+    # already listed above ("should"/"would"/"could"/"can"/"will"/"do"/
+    # "does"/"did"/"is"/"are"/"was"/"were"/"have"/"has"/"had") -- now kept
+    # as single tokens by the apostrophe-preserving fix above instead of
+    # splitting into e.g. "shouldn"/"t", so they need their own entries
+    # here to still be filtered out of a topic heading.
+    "shouldn't",
+    "wouldn't",
+    "couldn't",
+    "can't",
+    "won't",
+    "don't",
+    "doesn't",
+    "didn't",
+    "isn't",
+    "aren't",
+    "wasn't",
+    "weren't",
+    "haven't",
+    "hasn't",
+    "hadn't",
 }
 TOPIC_BOUNDARY_WORDS = {
     "for",
@@ -298,15 +319,17 @@ DECISION_DISCUSSION_MARKER_PATTERN = re.compile(
     r"works like this\b|works as follows\b|"
     r"could (?:this|that|it) be\b|"
     r"recommend(?:ation|ed)?\b|"
-    # Phase 3.4: "let's move to X"/"moving to X"/"move on to X" is
+    # Phase 3.4/3.5: "move to X"/"moving to X"/"move on to X" (with or
+    # without a preceding "let's" -- utils.clean_report_sentence strips
+    # "let's", so the gate must recognize the bare imperative form too) is
     # DISCUSSION-NAVIGATION -- an imperative topic transition ("let's move
-    # to the next item") -- not evidence that some THING was moved to a
-    # new state ("the deadline was moved to Friday", which
-    # DECISION_SIGNAL_PATTERN's own "moved to" match is meant to catch).
-    # Grammatically this is "let's + move to + noun phrase" (a navigation
-    # cue), the mirror image of "X was moved to Y" (a past-tense outcome
-    # statement) -- the imperative framing is what distinguishes them.
-    r"let'?s move (?:to|on)\b|mov(?:e|ing) on to\b"
+    # to the next item", "now move to the dashboard updates") -- not
+    # evidence that some THING was moved to a new state ("the deadline
+    # was MOVED to Friday", a different, past-tense token that this
+    # pattern does not match). Grammatically the present-tense/imperative
+    # "move to"/"moving to" is a navigation cue; only the past-tense
+    # "moved to" is a genuine outcome-change statement.
+    r"mov(?:e|ing) (?:to|on(?:\s+to)?)\b"
     r")\b"
 )
 # An explicit, affirmative statement that something was actually decided,
@@ -357,10 +380,31 @@ DECISION_CONFIRMATION_PATTERN = re.compile(
     r"(?i)^\s*(yes(?:,\s*agreed)?|agreed|approved|confirmed|done|okay|ok|sure|sounds good|"
     r"works for me|confirmed)\s*[.!]?$"
 )
+# Phase 3.5 grounding fix: bare "move" matched ANY sentence mentioning
+# movement at all -- "let's move to the monitoring dashboard" (a pure
+# discussion-navigation transition) matched exactly as readily as "we
+# should move the release date" (a genuine proposed change). Removed --
+# the remaining verbs (postpone/defer/release/ship/deploy/freeze/use/
+# proceed/continue/stop/cancel) already cover genuine proposed-action
+# language without this bare, direction-agnostic trigger. See
+# ``_PROPOSAL_NAVIGATION_EXCLUSION_PATTERN`` below for the additional,
+# narrower navigation-phrase exclusion applied in ``proposal_from_context``.
 DECISION_PROPOSAL_PATTERN = re.compile(
     r"(?i)\b(should|need to|needs to|let'?s|we should|we need to|i think|proposal|propose|"
-    r"better|option\s+[A-Z]|sprint\s+\d+|postpone|defer|move|release|ship|deploy|"
+    r"better|option\s+[A-Z]|sprint\s+\d+|postpone|defer|release|ship|deploy|"
     r"freeze|use|proceed|continue|stop|cancel)\b"
+)
+# A candidate matching this pattern is discussion-NAVIGATION (an imperative
+# topic/agenda transition -- "let's move to X", "moving on to X", "next
+# question") rather than a substantive proposed action, regardless of
+# whether it also happens to contain a DECISION_PROPOSAL_PATTERN word.
+# Deliberately narrower than DECISION_DISCUSSION_MARKER_PATTERN (which
+# also covers legitimate proposal framing like "we should deploy version
+# 2" -- excluding on that broader pattern here would make almost nothing
+# eligible as a proposal at all, defeating the mechanism's purpose).
+_PROPOSAL_NAVIGATION_EXCLUSION_PATTERN = re.compile(
+    r"(?i)\bmov(?:e|ing) (?:to|on(?:\s+to)?)\b|let'?s (?:turn|shift) to\b|"
+    r"turning to\b|shifting to\b|next (?:question|topic|item|point)\b|moving along\b"
 )
 DECISION_VERB_PATTERN = re.compile(
     r"(?i)\b(approved|confirmed|accepted|finali[sz]ed|resolved|agree|agreed|defer|deferred|"
@@ -1528,10 +1572,18 @@ def extract_quantities(sentence: str) -> list[str]:
 
 
 def is_valid_deadline_phrase(deadline: str) -> bool:
-    """Reject phrases that match deadline syntax but are not time references."""
+    """Reject phrases that match deadline syntax but are not time references.
+
+    Phase 3.5: bare "today"/"now" are technically time words but carry no
+    useful SCHEDULING evidence for a Discussion "timeline" mention -- they
+    trivially appear in almost any sentence spoken on the meeting day
+    itself and produced awkward, low-value text like "noted the related
+    timeline of Today." A real deadline/timeline reference names a future
+    point (a weekday, a date, a sprint) that a reader could act on.
+    """
 
     lowered = deadline.casefold().strip()
-    return lowered not in {"by email", "by mail"}
+    return lowered not in {"by email", "by mail", "today", "now"}
 
 
 def extract_named_entities(sentences: list[str], *, suffixes: tuple[str, ...]) -> list[str]:
@@ -1760,11 +1812,21 @@ def normalize_topic_heading(candidate: str) -> str:
 
     cleaned = utils.remove_fillers(utils.remove_speech_repetitions(candidate))
     cleaned = re.sub(r"(?i)\b(today'?s|tomorrow'?s)\b", "", cleaned)
-    cleaned = re.sub(r"[^A-Za-z0-9%&/ -]+", " ", cleaned)
+    # Phase 3.5 fix: this used to replace EVERY non-alphanumeric character
+    # (apostrophes included) with a space, so a contraction like
+    # "shouldn't" split into two separate word tokens ("shouldn", "t"),
+    # each later surviving into a malformed rendered heading ("Shouldn
+    # T"). An internal apostrophe followed by a letter is now kept as
+    # part of the same token, matching the tokenizer convention already
+    # used elsewhere in this project (see meeting_analytics.content.
+    # _tokenize and mom_formatter.topic_phrase's matching fix).
+    cleaned = re.sub(r"[^A-Za-z0-9%&/ '-]+", " ", cleaned)
+    cleaned = re.sub(r"'(?![A-Za-z])", " ", cleaned)
     words = [
         word
-        for word in re.findall(r"[A-Za-z0-9%&/-]+", cleaned)
+        for word in re.findall(r"[A-Za-z0-9%&/-]+(?:'[A-Za-z]+)?", cleaned)
         if word.casefold() not in TOPIC_ENTITY_STOPWORDS
+        and word.casefold().replace("'", "") not in TOPIC_ENTITY_STOPWORDS
     ]
     while words and words[0].casefold() in (TOPIC_LEADING_VERBS | TOPIC_BOUNDARY_WORDS):
         words.pop(0)
@@ -2026,7 +2088,12 @@ def discussion_from_blueprint(blueprint: TopicBlueprint) -> str:
     ):
         return f"{title}: The team evaluated {title.lower()} to improve responsiveness before release."
     if utils.is_pending_sentence(context):
-        return f"{title}: Outstanding work for {title.lower()} was reviewed to clarify ownership and follow-up."
+        # Phase 3.5: "clarify ownership and follow-up" asserted an
+        # accountability/obligation claim that a pending-sounding context
+        # alone does not evidence -- observing that outstanding work was
+        # discussed is safe; who owns it or what follow-up was agreed is
+        # not, unless a real owner/deadline/commitment sentence says so.
+        return f"{title}: Outstanding work for {title.lower()} was discussed."
     finding = topic_finding_phrase(blueprint)
     template = utils.choose_template(DISCUSSION_RENDER_TEMPLATES, title)
     return template.format(topic=title, topic_lower=title.lower(), finding=finding)
@@ -2213,7 +2280,17 @@ def is_decision_context_record(text: str) -> bool:
 
 
 def proposal_from_context(context_text: str, *, exclude_sentence: str) -> str:
-    """Extract the nearest proposal from an existing context window."""
+    """Extract the nearest proposal from an existing context window.
+
+    Phase 3.5 grounding fix: a candidate matching
+    ``_PROPOSAL_NAVIGATION_EXCLUSION_PATTERN`` (a discussion/agenda
+    transition -- "let's move to X", "next question") is never eligible,
+    regardless of which other DECISION_PROPOSAL_PATTERN word it also
+    contains -- this closed a real fabrication (a real-audio-validation-
+    equivalent synthetic transcript produced "Great Now Move To The
+    Monitoring Dashboard Updates was deferred." from a pure topic-
+    transition sentence next to an unrelated bare confirmation reply).
+    """
 
     excluded = utils.normalize_whitespace(exclude_sentence).casefold().strip(".!?")
     candidates = [
@@ -2224,6 +2301,8 @@ def proposal_from_context(context_text: str, *, exclude_sentence: str) -> str:
     for candidate in reversed(candidates):
         comparable = utils.normalize_whitespace(candidate).casefold().strip(".!?")
         if not comparable or comparable == excluded:
+            continue
+        if _PROPOSAL_NAVIGATION_EXCLUSION_PATTERN.search(candidate):
             continue
         if (
             DECISION_PROPOSAL_PATTERN.search(candidate)
@@ -3073,9 +3152,18 @@ def _deduplicate_adjacent_word_variants(words: list[str]) -> list[str]:
 
 
 def topic_phrase(topic: str) -> str:
-    """Render a topic title as a readable inline summary phrase."""
+    """Render a topic title as a readable inline summary phrase.
 
-    words = re.findall(r"[A-Za-z0-9]+", topic)
+    Phase 3.5 fix: the word-splitting regex previously matched only
+    ``[A-Za-z0-9]+``, so a contraction ("shouldn't", "doesn't") that
+    survived into a topic title split into two separate tokens ("shouldn",
+    "t"), rendering as the malformed "Shouldn T" in summary prose. Now
+    keeps an internal apostrophe followed by letters as part of the same
+    token, matching the tokenizer convention already used elsewhere in
+    this project (see meeting_analytics.content._tokenize).
+    """
+
+    words = re.findall(r"[A-Za-z0-9]+(?:'[A-Za-z]+)?", topic)
     rendered = [
         word if word.isupper() and len(word) <= 4 else word.lower()
         for word in words

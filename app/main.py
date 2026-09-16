@@ -2221,10 +2221,17 @@ def experimental_mom_to_analysis_result(
 
 def analysis_cache_key(transcript_text: str, *, audio_quality_mode: bool = False) -> str:
     # Include the formatter version so an existing Streamlit session cannot
-    # reuse a cached report produced by the previous rule-based MoM generator.
+    # reuse a cached report produced by an earlier formatter revision.
+    # Phase 3.5: bumped from "experimental_formatter_v4" -- a long-running
+    # Streamlit session's in-memory st.session_state.analysis_cache
+    # survives a script hot-reload, so a summary/discussion grounding fix
+    # would otherwise never be exercised for a transcript that was already
+    # analyzed in that session before the fix landed. Bump this marker
+    # whenever a deterministic formatter change could alter output for
+    # already-cached input.
     refinement = OLLAMA_GEMMA_MODEL if USE_LOCAL_GEMMA else "disabled"
     audio_marker = "/audio_quality_v1" if audio_quality_mode else ""
-    cache_payload = f"experimental_formatter_v4/local_gemma={refinement}{audio_marker}\n{transcript_text.strip()}"
+    cache_payload = f"experimental_formatter_v5/local_gemma={refinement}{audio_marker}\n{transcript_text.strip()}"
     return hashlib.sha256(cache_payload.encode("utf-8")).hexdigest()
 
 

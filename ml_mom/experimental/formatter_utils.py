@@ -65,6 +65,15 @@ WEAK_TOPIC_PATTERNS = (
     # surfaced as a discussion topic or pulled into the Executive Summary.
     r"\b(productive|good|great|useful|helpful)\s+(discussion|meeting|conversation|session)\b",
     r"^\s*overall\b",
+    # Phase 3.5: discussion/agenda NAVIGATION ("let's move to X", "moving
+    # on to X", "next question/topic/item") is a structural transition
+    # cue, not a topical concept -- real-audio validation showed titles
+    # like "Next Question" and "Great Now Move To The Monitoring
+    # Dashboard Updates" surviving into Discussion headings, Decisions,
+    # and the Executive Summary purely because the underlying topic-title
+    # generator had no navigation-phrase awareness at all.
+    r"\blet'?s move (?:to|on)\b|\bmov(?:e|ing) on to\b|\blet'?s (?:turn|shift) to\b|"
+    r"\bturning to\b|\bshifting to\b|\bnext (?:question|topic|item|point)\b|\bmoving along\b",
 )
 WEAK_TOPIC_WORDS = {
     "we",
@@ -82,6 +91,18 @@ WEAK_TOPIC_WORDS = {
     "basically",
     "probably",
     "think",
+    # Phase 3.5: bare navigation/discourse-transition words -- singular/
+    # bare forms only, matching this set's existing convention (a plural
+    # like "questions" in a real topic title, e.g. "Customer Questions",
+    # is left untouched since it is far more likely to carry real
+    # meaning than the bare navigational form).
+    "next",
+    "question",
+    "topic",
+    "item",
+    "point",
+    "moving",
+    "continue",
 }
 AGREEMENT_PATTERNS = (
     r"^\s*(yes|okay|ok|sure|done|exactly|absolutely|correct|fine|perfect|great|nice)\s*[.!]?$",
