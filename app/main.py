@@ -6546,14 +6546,20 @@ def _key_themes_html(keywords) -> str:
 
 
 def _positive_language_html(positive_language) -> str:
-    """Build the "Positive Language" sub-section.
+    """Build the "Positive-language cues" sub-section (SELaD Phase 3.2
+    reframe of Phase 2's "Positive Language" section).
 
     Deliberately NOT named "Emotion" (Voxels already owns that word for
-    acoustic speech-emotion patterns -- see integrations/voxels_ser.py).
-    Every speaker's bar uses the SAME neutral color (no red/green, no
-    per-speaker ranking color) so a higher percentage never visually reads
-    as "better". Speakers with no eligible text show "Not enough text"
-    rather than a fabricated 0%.
+    acoustic speech-emotion patterns -- see integrations/voxels_ser.py) and
+    deliberately NOT presented as a per-person score: this shows explicit
+    LEXICAL MATCH EVIDENCE (a count, with the underlying proportion as
+    secondary context in parentheses), never a bar/progress-style visual
+    that could read as ranking speakers "more positive" to "less positive".
+    A speaker with genuinely zero matches shows "0 explicit cues", never a
+    fabricated "0% positive" framing; a speaker with no eligible text shows
+    "Not enough text" rather than a 0 that could be misread as a real
+    zero-evidence result. See the SELaD principle: measured signal -> the
+    speaker's own text -> a plain count, not an automated judgment.
     """
 
     if not positive_language.per_speaker:
@@ -6562,30 +6568,25 @@ def _positive_language_html(positive_language) -> str:
     rows = []
     for speaker in positive_language.per_speaker:
         if speaker.proportion is None:
-            rows.append(
-                '<div class="ms-analytics-row">'
-                f'<div class="ms-analytics-label"><span>{html.escape(speaker.speaker_name)}</span></div>'
-                '<span class="ms-analytics-track"></span>'
-                '<span class="ms-analytics-value">Not enough text</span></div>'
-            )
+            cue_text = "Not enough text"
         else:
-            rows.append(
-                '<div class="ms-analytics-row">'
-                f'<div class="ms-analytics-label"><span>{html.escape(speaker.speaker_name)}</span></div>'
-                '<span class="ms-analytics-track">'
-                f'<span class="ms-analytics-fill" style="width:{speaker.proportion * 100:.1f}%;'
-                'background:var(--wf-blue)"></span></span>'
-                f'<span class="ms-analytics-value">{speaker.proportion:.0%}</span></div>'
-            )
+            cue_word = "cue" if speaker.positive_token_count == 1 else "cues"
+            cue_text = f"{speaker.positive_token_count} explicit {cue_word} ({speaker.proportion:.0%})"
+        rows.append(
+            '<div class="ms-analytics-row">'
+            f'<div class="ms-analytics-label"><span>{html.escape(speaker.speaker_name)}</span></div>'
+            f'<span class="ms-analytics-value">{html.escape(cue_text)}</span></div>'
+        )
 
     return (
-        '<div class="ms-analytics-subhead">Positive Language</div>'
+        '<div class="ms-analytics-subhead">Positive-language cues</div>'
         '<div class="ms-analytics-card">'
-        '<div class="ms-analytics-kicker">Share of eligible transcript words matching the positive-language lexicon</div>'
+        '<div class="ms-analytics-kicker">Explicit positive-language word/phrase matches found in the transcript</div>'
         f'{"".join(rows)}'
         '<div class="ms-analytics-unavailable" style="font-style:normal">'
-        "Based on explicit lexical signals in the transcript; this does not measure a participant's "
-        'emotional or psychological state. The lexicon is English-only.</div>'
+        "Lexical matches only -- the absence of a match does not indicate negative sentiment or emotion. "
+        "This is a separate signal from the acoustic Emotion &amp; Communication insights below and is not "
+        'a measurement of any participant\'s emotional or psychological state. The lexicon is English-only.</div>'
         '</div>'
     )
 

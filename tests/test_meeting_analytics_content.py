@@ -43,9 +43,11 @@ def test_repeated_meaningful_terms_rank_above_noise() -> None:
         "Okay, sure, that sounds fine to me.",
     ]
     ranked = _rank_keywords(documents, top_n=5)
-    assert "database" in ranked
-    assert "migration" in ranked
-    assert ranked.index("database") < len(ranked)
+    # Phase 3.2: a repeated, meaningful bigram ("database migration",
+    # occurring 3 times) now outranks and subsumes its own component
+    # unigrams rather than appearing alongside them redundantly.
+    assert "database migration" in ranked
+    assert ranked[0] == "database migration"
     # A generic filler document contributes no meaningful ranked term.
     assert "sure" not in ranked
     assert "fine" not in ranked
