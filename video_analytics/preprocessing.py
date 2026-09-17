@@ -13,6 +13,7 @@ keeps its own conversion function entirely separate.
 from __future__ import annotations
 
 import logging
+import re
 import shutil
 import subprocess
 import tempfile
@@ -53,6 +54,54 @@ def _ffmpeg_binary() -> str:
     raise VideoProcessingError("FFmpeg is unavailable for video normalization.")
 
 
+def _probe_duration_seconds_via_ffmpeg(video_path: Path) -> float | None:
+    """Best-effort duration probe via ffmpeg, used ONLY as a fallback when
+    OpenCV cannot determine a usable duration from the container header.
+
+    Real-world bug this fixes: browser MediaRecorder produces "streamed"
+    WebM files without a finalized Cues/duration header. cv2.VideoCapture
+    reads such files' CAP_PROP_FPS/CAP_PROP_FRAME_COUNT as nonsensical
+    sentinel values (observed: fps=1000.0, frame_count as an int64-min
+    sentinel), which the existing >0 validity check correctly rejects --
+    but that left duration_seconds at 0.0 for every browser-recorded
+    video, incorrectly failing normalize_video_for_analysis's zero-
+    duration check even for perfectly valid, playable recordings.
+
+    ffmpeg actually decodes (or at least scans) the stream rather than
+    trusting the header alone, so it can report a real duration even when
+    the container's own metadata cannot. This does not fabricate an FPS
+    or frame count -- those remain None exactly as before; only the
+    duration estimate becomes more reliable. Never raises; returns None
+    on any failure so callers keep their existing zero-duration handling.
+    """
+
+    try:
+        ffmpeg_bin = _ffmpeg_binary()
+    except VideoProcessingError:
+        return None
+
+    try:
+        result = subprocess.run(
+            [ffmpeg_bin, "-i", str(video_path), "-f", "null", "-"],
+            capture_output=True,
+            timeout=60,
+            text=True,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+
+    # ffmpeg writes progress lines like "...time=00:00:01.46 bitrate=..."
+    # to stderr while decoding; the LAST one reflects how far decoding
+    # actually reached, which is a reliable real-duration proxy even when
+    # the container's own header does not declare one.
+    matches = re.findall(r"time=(\d+):(\d+):(\d+(?:\.\d+)?)", result.stderr or "")
+    if not matches:
+        return None
+    hours, minutes, seconds = matches[-1]
+    duration = int(hours) * 3600 + int(minutes) * 60 + float(seconds)
+    return duration if duration > 0 else None
+
+
 def inspect_video_metadata(video_path: Path) -> VideoMetadata:
     """Read basic container metadata via OpenCV, never fabricating a
     missing value.
@@ -73,7 +122,18 @@ def inspect_video_metadata(video_path: Path) -> VideoMetadata:
         raw_fps = capture.get(cv2.CAP_PROP_FPS)
         raw_frame_count = capture.get(cv2.CAP_PROP_FRAME_COUNT)
 
-        fps = float(raw_fps) if raw_fps and raw_fps > 0 else None
+        # Bug found and fixed during Phase 4.1 recorder integration:
+        # browser MediaRecorder produces "streamed" WebM without a
+        # finalized duration/frame-count header. OpenCV then reports
+        # nonsensical sentinel values for one or both fields (observed on
+        # a real browser-recorded WebM: fps=1000.0, frame_count as an
+        # int64-min sentinel cast to float) rather than raising or
+        # returning 0. The existing frame_count > 0 check already rejects
+        # the frame_count sentinel; the same implausibility reasoning is
+        # applied to fps here -- no consumer camera records above ~240fps,
+        # so a value beyond that is a sentinel, not a real frame rate.
+        _MAX_PLAUSIBLE_FPS = 240.0
+        fps = float(raw_fps) if raw_fps and 0 < raw_fps <= _MAX_PLAUSIBLE_FPS else None
         frame_count = int(raw_frame_count) if raw_frame_count and raw_frame_count > 0 else None
 
         if fps is not None and frame_count is not None:
@@ -81,10 +141,17 @@ def inspect_video_metadata(video_path: Path) -> VideoMetadata:
         else:
             # Conservative fallback: walk the container's own duration
             # via CAP_PROP_POS_MSEC after seeking to the end is unreliable
-            # across backends: safer to report 0.0 (never fabricate a
-            # plausible-looking number) and let the caller treat this as
-            # a quality warning.
+            # across backends: safer to report 0.0 initially (never
+            # fabricate a plausible-looking number) and let the caller
+            # treat this as a quality warning -- UNLESS ffmpeg can
+            # independently confirm a real duration by actually decoding
+            # the stream, which is what browser-recorded WebM needs.
             duration_seconds = 0.0
+
+        if duration_seconds <= 0:
+            probed_duration = _probe_duration_seconds_via_ffmpeg(video_path)
+            if probed_duration is not None:
+                duration_seconds = probed_duration
 
         if width <= 0 or height <= 0:
             raise VideoProcessingError(

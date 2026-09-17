@@ -206,3 +206,29 @@ def test_recorded_duration_is_small_not_max_seconds(browser_page) -> None:
     duration_text = page.inner_text("#durationMeta")
     assert "60:00" not in duration_text
     assert "Duration:" in duration_text
+
+
+def test_data_base64_payload_is_the_full_blob_not_truncated(browser_page) -> None:
+    # Real bug found in manual testing: mediaRecorder.mimeType for VP9 is
+    # "video/webm;codecs=vp9,opus" -- a MIME type that itself contains a
+    # comma. The old dataUrl.split(",")[1] extraction landed on the wrong
+    # fragment ("opus;base64", 11 characters) instead of the actual
+    # payload, corrupting every recorded video sent to Process Meeting.
+    # Verify the real, live-recorded Blob's byte length matches the
+    # decoded base64 payload's length exactly.
+    page = browser_page
+    mime_type = page.evaluate("recordedPayload.mime_type")
+    assert "," in mime_type, "this test only proves the fix if the real MIME type contains a comma"
+
+    blob_size = page.evaluate("recordedPayload.size_bytes")
+    b64_length = page.evaluate("recordedPayload.data_base64.length")
+    # Base64 encodes 3 bytes as 4 characters (plus up to 2 padding chars).
+    decoded_length_estimate = (b64_length * 3) // 4
+    assert abs(decoded_length_estimate - blob_size) < 4, (
+        f"data_base64 length ({b64_length} chars -> ~{decoded_length_estimate} bytes) "
+        f"does not correspond to the real Blob size ({blob_size} bytes) -- payload is truncated."
+    )
+    # A 11-character payload ("opus;base64", the exact old bug symptom)
+    # would fail the above assertion by orders of magnitude, but assert
+    # the concrete regression directly too.
+    assert b64_length > 1000

@@ -153,9 +153,13 @@ def test_empty_blob_is_rejected_with_error() -> None:
 def test_audio_track_presence_is_validated_before_recording_starts() -> None:
     script = _script()
     start_fn = re.search(r"async function startRecording\(\).*?\n    \}", script, re.DOTALL).group(0)
-    assert "mediaStream.getAudioTracks().length === 0" in start_fn
+    assert "const audioTracks = mediaStream.getAudioTracks();" in start_fn
+    assert "audioTracks.length === 0" in start_fn
     assert "mediaStream.getVideoTracks().length === 0" in start_fn
     assert "Microphone audio was not captured" in start_fn
+    # Defensive: the underlying track must genuinely be enabled, not just
+    # present, before recording starts (repair #3, Part 4).
+    assert "track.enabled = true" in start_fn
 
 
 def test_recorded_playback_is_never_forcibly_muted() -> None:
@@ -344,7 +348,11 @@ def test_button_visibility_contract_matches_state_machine() -> None:
     assert "const showPlayback = isRecorded || isSubmitted;" in render_fn
     # SUBMITTED: Record Again disabled, Process Meeting shows a busy label.
     assert "clearBtn.disabled = isSubmitted;" in render_fn
-    assert 'processBtn.textContent = isSubmitted ? "Processing…" : "Process Meeting →";' in render_fn
+    # "Sending..." rather than "Processing..." / "Sent" -- the client can
+    # never confirm the server actually received/started anything before
+    # this iframe is torn down (repair #3, Part 14: don't claim more
+    # certainty than the protocol can actually provide).
+    assert 'processBtn.textContent = isSubmitted ? "Sending…" : "Process Meeting →";' in render_fn
 
 
 def test_ready_banner_and_playback_precede_action_row_in_dom_order() -> None:

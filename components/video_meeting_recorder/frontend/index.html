@@ -393,7 +393,7 @@
 
       processBtn.style.display = showPlayback ? "inline-flex" : "none";
       processBtn.disabled = !isRecorded || !recordedPayload || !recordedPayload.data_base64 || !recordedPayload.size_bytes;
-      processBtn.textContent = isSubmitted ? "Processing…" : "Process Meeting →";
+      processBtn.textContent = isSubmitted ? "Sending…" : "Process Meeting →";
 
       if (isReady) {
         statusDot.classList.remove("live");
@@ -415,7 +415,12 @@
         timerLabel.textContent = "Recorded duration";
       } else if (isRecorded || isSubmitted) {
         statusDot.classList.remove("live");
-        statusText.textContent = isSubmitted ? "Sent for processing" : "Recording complete";
+        // "Sending..." rather than "Sent"/"Processing" -- the client posts
+        // the payload and then this iframe is torn down by the resulting
+        // Streamlit rerun; it never gets a confirmation message back, so
+        // wording must not claim the server has received or started
+        // anything it hasn't actually confirmed (Part 14).
+        statusText.textContent = isSubmitted ? "Sending recording to MeetScribe…" : "Recording complete";
         timerLabel.textContent = "Recorded duration";
         maxHint.textContent = "Within 60:00 limit";
         if (recordedPayload) {
@@ -473,7 +478,7 @@
       try {
         mediaStream = await navigator.mediaDevices.getUserMedia({
           video: { width: { ideal: 1280 }, height: { ideal: 720 }, frameRate: { ideal: 30 }, facingMode: "user" },
-          audio: true,
+          audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
         });
       } catch (error) {
         stopTracks();
@@ -485,13 +490,18 @@
 
       // MeetScribe needs meeting audio for transcription/MoM -- never start
       // a recording MediaRecorder will not actually capture audio for.
-      if (mediaStream.getAudioTracks().length === 0) {
+      const audioTracks = mediaStream.getAudioTracks();
+      if (audioTracks.length === 0) {
         stopTracks();
         recorderState = "ERROR";
         setError("Microphone audio was not captured. Please check your microphone and try again.");
         render();
         return;
       }
+      // Defensive only: nothing in this component disables audio tracks,
+      // but the underlying MediaStream (not just the muted local preview)
+      // must genuinely be enabled before we ever start recording it.
+      audioTracks.forEach((track) => { track.enabled = true; });
       if (mediaStream.getVideoTracks().length === 0) {
         stopTracks();
         recorderState = "ERROR";
@@ -634,7 +644,16 @@
       reader.onloadend = () => {
         if (!recordedPayload) return; // Record Again ran before this resolved
         const dataUrl = String(reader.result || "");
-        recordedPayload.data_base64 = dataUrl.split(",")[1] || "";
+        // A data: URL is "data:<mediatype>;base64,<payload>" -- splitting
+        // naively on "," breaks here because a MediaRecorder MIME type can
+        // itself contain a comma (e.g. "video/webm;codecs=vp9,opus"), which
+        // silently truncated the payload to a few bytes of the MIME string
+        // instead of the actual recording. ";base64," is a fixed, literal
+        // marker that readAsDataURL always inserts immediately before the
+        // real payload, so search for that exact substring instead.
+        const marker = ";base64,";
+        const markerIndex = dataUrl.indexOf(marker);
+        recordedPayload.data_base64 = markerIndex >= 0 ? dataUrl.slice(markerIndex + marker.length) : "";
         render();
       };
       reader.onerror = () => {
