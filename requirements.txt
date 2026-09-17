@@ -39,3 +39,9 @@ pandas>=2.0
 pyyaml>=6.0
 torch>=2.2
 torchaudio>=2.2
+
+# Video analytics (SELaD Phase 4): frame I/O, face/landmark detection,
+# and the small ONNX facial-expression classifier
+opencv-python-headless>=4.9.0
+mediapipe>=0.10.14
+onnxruntime>=1.17.0

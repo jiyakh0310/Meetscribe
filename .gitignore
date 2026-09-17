@@ -33,6 +33,10 @@ uploads/
 exports/generated/*.pdf
 exports/generated/*.docx
 
+# Phase 4 video analytics: lazily-downloaded model weights (~39MB total),
+# cached on first use rather than committed to git.
+video_analytics/.model_cache/
+
 # IDE files
 .vscode/
 .idea/

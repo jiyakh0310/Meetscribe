@@ -10,6 +10,7 @@ import json
 import logging
 import re
 import sys
+import tempfile
 import time
 import traceback
 from pathlib import Path
@@ -64,6 +65,8 @@ from summarization.base_summarizer import (
     MeetingSummary,
 )
 from transcription.audio_utils import AudioProcessingError, preprocess_uploaded_audio
+from video_analytics.pipeline import interpret_expression_distribution
+from video_analytics.preprocessing import SUPPORTED_VIDEO_EXTENSIONS
 from transcription.audio_transcript_normalization import (
     coalesce_contiguous_audio_segments,
 )
@@ -190,6 +193,7 @@ def initialize_session_state() -> None:
     st.session_state.setdefault("workflow_pending_action", "")
     st.session_state.setdefault("recording_meeting_state", None)
     st.session_state.setdefault("recording_meeting_version", 0)
+    st.session_state.setdefault("video_analytics_result", None)
     st.session_state.setdefault("recording_meeting_open", False)
 
 
@@ -4873,6 +4877,7 @@ def clear_current_report() -> None:
     st.session_state.meeting_info = {}
     st.session_state.meeting_info_initialized = False
     st.session_state.meeting_info_last_saved = {}
+    st.session_state.video_analytics_result = None
     reset_speaker_mapping_state()
     reset_report_state()
 
@@ -4902,6 +4907,34 @@ def analyze_audio_emotion(prepared_path: Path) -> None:
         log_stage(
             "Voxels SER",
             "Emotion analysis was unavailable; continuing with the existing audio pipeline.",
+            error=str(exc),
+        )
+
+
+def analyze_uploaded_video(video_path: Path) -> None:
+    """SELaD Phase 4: run the optional visual-analytics branch on an
+    uploaded video, fully decoupled from the factual MoM pipeline (same
+    isolation pattern as analyze_audio_emotion above). A visual-
+    analytics failure must never affect an otherwise-successful MoM."""
+
+    try:
+        from video_analytics import analyze_video
+
+        result = analyze_video(video_path)
+        st.session_state.video_analytics_result = result
+        log_stage(
+            "Video analytics",
+            "Visual-interaction analysis completed independently of the transcript pipeline.",
+            available=result.available,
+            sampled_frames=result.sampled_frame_count,
+            tracks=len(result.detected_tracks),
+        )
+    except Exception as exc:
+        st.session_state.video_analytics_result = None
+        logger.warning("Video analytics failed; continuing MeetScribe pipeline: %s", exc, exc_info=True)
+        log_stage(
+            "Video analytics",
+            "Visual-interaction analysis was unavailable; continuing with the existing pipeline.",
             error=str(exc),
         )
 
@@ -5371,6 +5404,7 @@ def render_editable_transcript_review(result: TranscriptionResult) -> None:
 
 def process_upload(uploaded_file: object) -> None:
     prepared_path: Path | None = None
+    raw_video_path: Path | None = None
     started_at = time.perf_counter()
     estimate_note = estimated_duration_message(uploaded_file)
     status_placeholder = st.empty()
@@ -5399,6 +5433,30 @@ def process_upload(uploaded_file: object) -> None:
             started_at=started_at,
             note="Receiving your recording and getting it ready.",
         )
+
+        # SELaD Phase 4: preprocess_uploaded_audio() below extracts only
+        # the audio track and deletes the original upload once it is
+        # done -- so a video's original frames must be preserved
+        # separately, BEFORE that call, or visual analytics would have
+        # nothing left to analyze. This is purely additive: audio-only
+        # uploads (no video extension) take this same path unchanged,
+        # with raw_video_path simply staying None.
+        upload_name = getattr(uploaded_file, "name", "") or ""
+        if Path(upload_name).suffix.lower() in SUPPORTED_VIDEO_EXTENSIONS:
+            try:
+                video_bytes = uploaded_file.getbuffer()
+                video_temp = tempfile.NamedTemporaryFile(
+                    delete=False, suffix=Path(upload_name).suffix.lower()
+                )
+                video_temp.write(bytes(video_bytes))
+                video_temp.close()
+                raw_video_path = Path(video_temp.name)
+                if hasattr(uploaded_file, "seek"):
+                    uploaded_file.seek(0)
+            except Exception as exc:
+                logger.warning("Could not preserve original video for visual analytics: %s", exc)
+                raw_video_path = None
+
         prepared_path = preprocess_uploaded_audio(
             uploaded_file,
             filename=getattr(uploaded_file, "name", None),
@@ -5447,6 +5505,13 @@ def process_upload(uploaded_file: object) -> None:
         # Analyze the same normalized WAV used by MeetScribe. This branch is
         # audio-only; transcript uploads never enter process_upload().
         analyze_audio_emotion(prepared_path)
+
+        # SELaD Phase 4: independent visual-analytics branch, only when a
+        # video was actually uploaded. Fully isolated (see
+        # analyze_uploaded_video) -- a failure here can never affect the
+        # transcript/MoM pipeline continuing below.
+        if raw_video_path is not None:
+            analyze_uploaded_video(raw_video_path)
 
         result = validate_transcription_result(result)
         raw_audio_transcript = result.transcript
@@ -5609,6 +5674,9 @@ def process_upload(uploaded_file: object) -> None:
         if prepared_path is not None:
             prepared_path.unlink(missing_ok=True)
             log_stage("Cleanup", "Deleted temporary WAV file.", path=str(prepared_path))
+        if raw_video_path is not None:
+            raw_video_path.unlink(missing_ok=True)
+            log_stage("Cleanup", "Deleted temporary video file.", path=str(raw_video_path))
 
 
 def process_transcript_upload(transcript_file: object) -> None:
@@ -6628,6 +6696,177 @@ def _topic_communication_html(communication) -> str:
     )
 
 
+# Cap the number of per-window rows rendered for Expression Synchrony and
+# Visual Interaction, so a long meeting's Visual Interaction Insights section
+# stays compact rather than listing one row per 20-second window (Part 15/25:
+# no card explosion). NOTE: this must be a `#` comment, not a bare string
+# literal -- a bare top-level string statement in this file is Streamlit
+# "magic" and gets auto-rendered as page content.
+_VIDEO_MAX_DISPLAYED_WINDOWS = 8
+
+
+def _format_mmss(seconds: float) -> str:
+    minutes, secs = divmod(int(seconds), 60)
+    return f"{minutes:02d}:{secs:02d}"
+
+
+def _synchrony_label(similarity: float | None) -> str:
+    if similarity is None:
+        return "Not available"
+    if similarity >= 0.8:
+        return "High relative similarity"
+    if similarity >= 0.5:
+        return "Moderate relative similarity"
+    return "Low relative similarity"
+
+
+def video_analytics_html(video_result) -> str:
+    """Build the "Visual Interaction Insights" section (SELaD Phase 4).
+
+    Rendered ONLY when a video was actually processed (see
+    render_minutes_stage) -- transcript-only and audio-only meetings
+    never show this section. Fully independent of meeting_analytics_html
+    above; reads only video_analytics.VideoAnalyticsResult, never the
+    factual MoM/Communication Signals data.
+    """
+
+    if video_result is None or not getattr(video_result, "available", False):
+        return ""
+
+    metadata = video_result.metadata
+    duration_text = _format_duration_seconds(metadata.duration_seconds) if metadata else "Not available"
+    coverage_windows = [w for w in video_result.windows if w.track_summaries]
+    tracks_observed = len(video_result.detected_tracks)
+
+    overview_cards = (
+        ("&#9673;", "Participants observed", str(tracks_observed) if tracks_observed else "None detected"),
+        ("&#9201;", "Video duration", duration_text),
+        ("&#9635;", "Frames sampled", str(video_result.sampled_frame_count)),
+        ("&#9636;", "Windows analyzed", str(len(video_result.windows))),
+    )
+    overview_html = "".join(
+        '<div class="ms-minutes-info-card">'
+        f'<span class="ms-minutes-info-icon">{icon}</span>'
+        f'<div class="ms-minutes-info-label">{html.escape(label)}</div>'
+        f'<div class="ms-minutes-info-value">{html.escape(value)}</div></div>'
+        for icon, label, value in overview_cards
+    )
+
+    if tracks_observed == 0:
+        return (
+            '<section class="ms-minutes-section ms-analytics-section">'
+            '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
+            'style="background:#efe9f5;color:#5c4a73">&#9673;</span><h3>Visual Interaction Insights</h3></div>'
+            f'<div class="ms-analytics-overview">{overview_html}</div>'
+            '<div class="ms-analytics-card"><div class="ms-analytics-unavailable">'
+            'No faces were detected in the sampled video frames, so no facial-expression or visual-interaction '
+            'evidence is available for this meeting.</div></div>'
+            '</section>'
+        )
+
+    # A. Facial Expression Patterns -- aggregate each track's evidence
+    # across ALL windows (observation-count-weighted mean) into ONE
+    # compact per-track row, rather than one row per window per track.
+    track_totals: dict[str, list[float]] = {}
+    track_counts: dict[str, int] = {}
+    for window in video_result.windows:
+        for summary in window.track_summaries:
+            if summary.observation_count == 0:
+                continue
+            weights = track_totals.setdefault(summary.track_id, [0.0] * len(summary.aggregated_probabilities))
+            for i, probability in enumerate(summary.aggregated_probabilities):
+                weights[i] += probability * summary.observation_count
+            track_counts[summary.track_id] = track_counts.get(summary.track_id, 0) + summary.observation_count
+
+    expression_rows = []
+    for track_id in sorted(track_totals):
+        count = track_counts[track_id]
+        overall_probabilities = tuple(value / count for value in track_totals[track_id])
+        interpretation = interpret_expression_distribution(overall_probabilities, count)
+        expression_rows.append(
+            '<div class="ms-analytics-row">'
+            f'<div class="ms-analytics-label"><span>{html.escape(track_id)}</span></div>'
+            f'<span class="ms-analytics-value">{html.escape(interpretation.display_pattern)}</span></div>'
+        )
+    expression_html = (
+        '<div class="ms-analytics-subhead">Facial Expression Patterns</div>'
+        '<div class="ms-analytics-card">'
+        '<div class="ms-analytics-kicker">Most frequently observed facial-expression pattern per participant, '
+        "aggregated across the whole meeting</div>"
+        f'{"".join(expression_rows)}'
+        '</div>'
+    )
+
+    # B. Expression Synchrony -- compact per-window timeline, capped.
+    synchrony_windows = video_result.windows[:_VIDEO_MAX_DISPLAYED_WINDOWS]
+    synchrony_rows = "".join(
+        '<div class="ms-analytics-row">'
+        f'<div class="ms-analytics-label"><span>{_format_mmss(w.start_time_seconds)}–{_format_mmss(w.end_time_seconds)}</span></div>'
+        f'<span class="ms-analytics-value">{html.escape(_synchrony_label(w.aggregate_synchrony))}</span></div>'
+        for w in synchrony_windows
+    )
+    more_windows_note = (
+        f'<div class="ms-analytics-comm-note">+{len(video_result.windows) - _VIDEO_MAX_DISPLAYED_WINDOWS} more windows not shown.</div>'
+        if len(video_result.windows) > _VIDEO_MAX_DISPLAYED_WINDOWS
+        else ""
+    )
+    synchrony_html = (
+        '<div class="ms-analytics-subhead">Expression Synchrony</div>'
+        '<div class="ms-analytics-card">'
+        f'{synchrony_rows or "<div class=\"ms-analytics-unavailable\">Not enough participants were visible at the same time to compare expression patterns.</div>"}'
+        f'{more_windows_note}'
+        '<div class="ms-analytics-unavailable" style="font-style:normal">'
+        "Higher synchrony reflects greater similarity among observed facial-expression patterns in a time window only "
+        "-- it does not indicate agreement, happiness, team health, or psychological compatibility.</div>"
+        '</div>'
+    )
+
+    # C. Visual Interaction -- same compact, capped presentation.
+    interaction_rows = "".join(
+        '<div class="ms-analytics-row">'
+        f'<div class="ms-analytics-label"><span>{_format_mmss(w.start_time_seconds)}–{_format_mmss(w.end_time_seconds)}</span></div>'
+        f'<span class="ms-analytics-value">'
+        f'{f"{w.interaction.mutual_orientation_score:.0%}" if w.interaction.available and w.interaction.mutual_orientation_score is not None else "Not available"}'
+        '</span></div>'
+        for w in synchrony_windows
+    )
+    interaction_html = (
+        '<div class="ms-analytics-subhead">Visual Interaction</div>'
+        '<div class="ms-analytics-card">'
+        '<div class="ms-analytics-kicker">Estimated eye-contact / visual-interaction cue -- an approximation of mutual visual orientation, not precise gaze tracking</div>'
+        f'{interaction_rows or "<div class=\"ms-analytics-unavailable\">Not enough participants had usable facial geometry to estimate visual interaction.</div>"}'
+        f'{more_windows_note}'
+        '</div>'
+    )
+
+    quality_html = ""
+    if video_result.quality_warnings:
+        quality_items = "".join(f"<li>{html.escape(w)}</li>" for w in video_result.quality_warnings)
+        quality_html = (
+            '<p class="ms-analytics-comm-note" style="margin-top:8px">'
+            '<strong>Visual quality notes:</strong></p>'
+            f'<ul class="ms-analytics-comm-note" style="margin-top:0">{quality_items}</ul>'
+        )
+
+    method_note = (
+        '<div class="ms-analytics-subhead">Method note</div>'
+        '<div class="ms-analytics-card">'
+        '<div class="ms-analytics-unavailable" style="font-style:normal">'
+        + " ".join(html.escape(limitation) for limitation in video_result.limitations)
+        + quality_html
+        + '</div></div>'
+    )
+
+    return (
+        '<section class="ms-minutes-section ms-analytics-section">'
+        '<div class="ms-minutes-section-head"><span class="ms-minutes-section-icon" '
+        'style="background:#efe9f5;color:#5c4a73">&#9673;</span><h3>Visual Interaction Insights</h3></div>'
+        f'<div class="ms-analytics-overview">{overview_html}</div>'
+        f'{expression_html}{synchrony_html}{interaction_html}{method_note}'
+        '</section>'
+    )
+
+
 def meeting_analytics_html(
     analytics: ConversationAnalytics,
     content: ContentAnalytics | None = None,
@@ -6890,6 +7129,13 @@ def render_minutes_stage(result: TranscriptionResult, analysis: MeetingAnalysisR
             unsafe_allow_html=True,
         )
         st.markdown(analytics_html, unsafe_allow_html=True)
+
+        # SELaD Phase 4: additive-only section, shown only when a video was
+        # actually processed for this meeting (see analyze_uploaded_video).
+        video_section_html = video_analytics_html(st.session_state.get("video_analytics_result"))
+        if video_section_html:
+            st.markdown(video_section_html, unsafe_allow_html=True)
+
         render_analysis_error()
 
     render_timeline_debug_view(result)
