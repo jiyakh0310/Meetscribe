@@ -13,6 +13,7 @@ import sys
 import tempfile
 import time
 import traceback
+import wave
 from pathlib import Path
 from typing import Any
 
@@ -4935,17 +4936,45 @@ def analyze_audio_emotion(prepared_path: Path) -> None:
         )
 
 
+def _video_trace(checkpoint: str, **fields: object) -> None:
+    """SELaD Phase 4.1 runtime trace (temporary diagnostic instrumentation
+    for the recorded-video handoff, requested explicitly for this repair
+    pass so a real-hardware retest reveals the first checkpoint that
+    doesn't fire). Metadata only -- NEVER logs base64/media bytes, API
+    keys, transcript text, or device identifiers. Safe to leave in place;
+    each line is a single, clearly-prefixed, human-scannable fact.
+
+    Uses logger.info(), NOT print(): confirmed via a real running server
+    that bare print() output does not reliably reach the terminal under
+    `streamlit run` (Streamlit captures/redirects stdout), while the
+    existing logger-based log_stage() calls elsewhere in this file do.
+    """
+
+    detail = " ".join(f"{key}={value}" for key, value in fields.items())
+    logger.info("[VIDEO-RECORDER] %s %s", checkpoint, detail)
+
+
 def analyze_uploaded_video(video_path: Path) -> None:
     """SELaD Phase 4: run the optional visual-analytics branch on an
     uploaded video, fully decoupled from the factual MoM pipeline (same
     isolation pattern as analyze_audio_emotion above). A visual-
     analytics failure must never affect an otherwise-successful MoM."""
 
+    _video_trace("video_analysis_started")
+    started_at = time.perf_counter()
     try:
         from video_analytics import analyze_video
 
         result = analyze_video(video_path)
         st.session_state.video_analytics_result = result
+        elapsed = time.perf_counter() - started_at
+        _video_trace(
+            "video_analysis_finished",
+            video_available=result.available,
+            sampled_frames=result.sampled_frame_count,
+            detected_tracks=len(result.detected_tracks),
+            elapsed_seconds=f"{elapsed:.2f}",
+        )
         log_stage(
             "Video analytics",
             "Visual-interaction analysis completed independently of the transcript pipeline.",
@@ -4955,6 +4984,13 @@ def analyze_uploaded_video(video_path: Path) -> None:
         )
     except Exception as exc:
         st.session_state.video_analytics_result = None
+        elapsed = time.perf_counter() - started_at
+        _video_trace(
+            "video_analysis_finished",
+            video_available=False,
+            error_class=type(exc).__name__,
+            elapsed_seconds=f"{elapsed:.2f}",
+        )
         logger.warning("Video analytics failed; continuing MeetScribe pipeline: %s", exc, exc_info=True)
         log_stage(
             "Video analytics",
@@ -5466,7 +5502,9 @@ def process_upload(uploaded_file: object) -> None:
         # uploads (no video extension) take this same path unchanged,
         # with raw_video_path simply staying None.
         upload_name = getattr(uploaded_file, "name", "") or ""
-        if Path(upload_name).suffix.lower() in SUPPORTED_VIDEO_EXTENSIONS:
+        is_video_upload = Path(upload_name).suffix.lower() in SUPPORTED_VIDEO_EXTENSIONS
+        if is_video_upload:
+            _video_trace("process_upload_entered", upload_size=getattr(uploaded_file, "size", None))
             try:
                 video_bytes = uploaded_file.getbuffer()
                 video_temp = tempfile.NamedTemporaryFile(
@@ -5477,10 +5515,17 @@ def process_upload(uploaded_file: object) -> None:
                 raw_video_path = Path(video_temp.name)
                 if hasattr(uploaded_file, "seek"):
                     uploaded_file.seek(0)
+                _video_trace(
+                    "raw_video_preserved",
+                    raw_video_size=raw_video_path.stat().st_size,
+                )
             except Exception as exc:
                 logger.warning("Could not preserve original video for visual analytics: %s", exc)
+                _video_trace("raw_video_preserve_failed", error_class=type(exc).__name__)
                 raw_video_path = None
 
+        if is_video_upload:
+            _video_trace("audio_preprocess_started")
         prepared_path = preprocess_uploaded_audio(
             uploaded_file,
             filename=getattr(uploaded_file, "name", None),
@@ -5491,6 +5536,18 @@ def process_upload(uploaded_file: object) -> None:
             path=str(prepared_path),
             size=prepared_path.stat().st_size if prepared_path.exists() else None,
         )
+        if is_video_upload:
+            wav_duration = None
+            try:
+                with wave.open(str(prepared_path), "rb") as wav_file:
+                    wav_duration = wav_file.getnframes() / max(1, wav_file.getframerate())
+            except Exception:
+                wav_duration = None
+            _video_trace(
+                "audio_preprocess_success",
+                wav_size=prepared_path.stat().st_size if prepared_path.exists() else None,
+                wav_duration=f"{wav_duration:.2f}" if wav_duration is not None else "unknown",
+            )
 
         progress.progress(35, text="Preparing Audio")
         render_stage_status(
@@ -5505,10 +5562,19 @@ def process_upload(uploaded_file: object) -> None:
             with_diarization=True,
             path=str(prepared_path),
         )
-        result = transcribe_audio_detailed(
-            prepared_path,
-            with_diarization=True,
-        )
+        if is_video_upload:
+            _video_trace("sarvam_started")
+        try:
+            result = transcribe_audio_detailed(
+                prepared_path,
+                with_diarization=True,
+            )
+        except Exception as exc:
+            if is_video_upload:
+                _video_trace("sarvam_failed", error_class=type(exc).__name__)
+            raise
+        if is_video_upload:
+            _video_trace("sarvam_success")
         log_stage(
             "Sarvam API call",
             "transcribe_audio_detailed() returned.",
@@ -5525,9 +5591,22 @@ def process_upload(uploaded_file: object) -> None:
         # session_state key, cleared once the stage it exists for
         # completes successfully.
         st.session_state.last_sarvam_result = result
+        if is_video_upload:
+            _video_trace("transcription_result_saved")
 
         # Analyze the same normalized WAV used by MeetScribe. This branch is
         # audio-only; transcript uploads never enter process_upload().
+        if is_video_upload:
+            # Real-hardware finding (Phase 4.1 repair #4): this call alone
+            # took ~17s for a 20s recording in a live trace, with zero
+            # prior status update -- close that same visibility gap here,
+            # not just around video analytics below.
+            render_stage_status(
+                status_placeholder,
+                active_index=1,
+                started_at=started_at,
+                note="Analyzing speech patterns.",
+            )
         analyze_audio_emotion(prepared_path)
 
         # SELaD Phase 4: independent visual-analytics branch, only when a
@@ -5535,7 +5614,28 @@ def process_upload(uploaded_file: object) -> None:
         # analyze_uploaded_video) -- a failure here can never affect the
         # transcript/MoM pipeline continuing below.
         if raw_video_path is not None:
+            # Real-hardware finding (Phase 4.1 repair #4): Voxels acoustic
+            # analysis and Phase 4 video analytics both run synchronously
+            # here and can together take tens of seconds for a real
+            # recording (longer still on a cold run needing to download
+            # Phase 4's model files) -- with no visible status update
+            # during that whole window, a real user reasonably perceives
+            # this as a hang. This reuses the SAME status_placeholder
+            # already updated earlier in this function (no new mechanism,
+            # no background worker) so the existing progress UI shows
+            # genuine, non-fake status for however long this actually
+            # takes.
+            render_stage_status(
+                status_placeholder,
+                active_index=1,
+                started_at=started_at,
+                note="Analyzing meeting video for visual insights.",
+            )
             analyze_uploaded_video(raw_video_path)
+            _video_trace(
+                "video_analytics_result_saved",
+                video_available=getattr(st.session_state.get("video_analytics_result"), "available", None),
+            )
 
         result = validate_transcription_result(result)
         raw_audio_transcript = result.transcript
@@ -5617,6 +5717,12 @@ def process_upload(uploaded_file: object) -> None:
         st.session_state.speaker_review_required = audio_speaker_review_required
         st.session_state.transcript_review_required = not audio_speaker_review_required
         st.session_state.edited_transcript_text = transcript_text
+        if is_video_upload:
+            _video_trace(
+                "workflow_stage",
+                speaker_review_required=audio_speaker_review_required,
+                transcript_review_required=st.session_state.transcript_review_required,
+            )
         log_stage(
             "Speaker mapping",
             "Resolved speakers for audio transcript.",
@@ -5871,18 +5977,28 @@ def _video_recording_payload_to_upload(recording: dict[str, Any]) -> io.BytesIO:
     so it flows through the identical process_upload() code path (Part 6/7:
     an isolated recorder component, not a second processing implementation)."""
 
+    _video_trace("converting_payload")
+    base64_text = str(recording.get("data_base64", ""))
     try:
-        data = base64.b64decode(str(recording.get("data_base64", "")), validate=False)
+        data = base64.b64decode(base64_text, validate=False)
     except (base64.binascii.Error, ValueError):
         # A malformed/corrupted payload must never crash the workflow --
         # degrade to an empty (rejected downstream) recording instead.
         data = b""
+    reported_size = recording.get("size_bytes")
+    _video_trace(
+        "decoded_bytes",
+        decoded_bytes=len(data),
+        reported_blob_size=reported_size,
+        sizes_match=(reported_size is not None and len(data) == int(reported_size)),
+    )
     video_file = io.BytesIO(data)
     name = str(recording.get("name") or "meeting-video.webm")
     video_file.name = name  # type: ignore[attr-defined]
     video_file.size = len(data)  # type: ignore[attr-defined]
     video_file.type = str(recording.get("mime_type") or "video/webm")  # type: ignore[attr-defined]
     video_file.seek(0)
+    _video_trace("upload_created", name=name, size=len(data))
     return video_file
 
 
@@ -5900,6 +6016,7 @@ def start_recorded_video_meeting_workflow(recording: dict[str, Any]) -> None:
     analyze_video() run unchanged (Part 16/18: no separate analytics
     implementation for recorded video)."""
 
+    _video_trace("start_recorded_video_meeting_workflow_entered")
     video_file = _video_recording_payload_to_upload(recording)
     st.session_state.workflow_open = True
     st.session_state.workflow_source = "audio"
@@ -5907,6 +6024,13 @@ def start_recorded_video_meeting_workflow(recording: dict[str, Any]) -> None:
     st.session_state.workflow_pending_action = "prepare"
     st.session_state.workflow_file = video_file
     clear_video_recording_state(rerun=False)
+    _video_trace(
+        "workflow_stage_set",
+        workflow_stage=st.session_state.workflow_stage,
+        workflow_pending_action=st.session_state.workflow_pending_action,
+        workflow_source=st.session_state.workflow_source,
+    )
+    _video_trace("rerun_requested")
     st.rerun()
 
 
@@ -6333,9 +6457,19 @@ def render_record_video_meeting_card() -> None:
         )
     if isinstance(payload, dict):
         event = str(payload.get("event") or "")
+        _video_trace("python_component_value_received", event=event or "(none)")
         if event == "process":
             recording = payload.get("recording") or {}
+            received_b64_len = len(str(recording.get("data_base64") or ""))
+            _video_trace(
+                "payload_received",
+                mime=recording.get("mime_type"),
+                duration=recording.get("duration_seconds"),
+                reported_size_bytes=recording.get("size_bytes"),
+                received_base64_chars=received_b64_len,
+            )
             if not recording.get("data_base64") or not recording.get("size_bytes"):
+                _video_trace("payload_rejected_empty")
                 st.error("The recording was empty. Please try recording again.")
             else:
                 start_recorded_video_meeting_workflow(recording)
@@ -7344,6 +7478,9 @@ def render_email_stage(analysis: MeetingAnalysisResult) -> None:
 def render_workflow_shell() -> None:
     inject_workflow_shell_styles()
     stage = workflow_stage()
+    _workflow_file_name = getattr(st.session_state.get("workflow_file"), "name", "") or ""
+    if Path(_workflow_file_name).suffix.lower() in SUPPORTED_VIDEO_EXTENSIONS:
+        _video_trace("workflow_shell_rendered", current_stage=stage)
     with st.container(key="workflow_shell"):
         render_workflow_header(stage)
         with st.container(key="workflow_stage_content"):

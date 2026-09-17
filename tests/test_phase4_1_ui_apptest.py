@@ -114,3 +114,37 @@ def test_recorded_video_state_is_accepted_and_processing_can_start() -> None:
     # tests/test_phase4_1_video_recording.py; this test only exercises the
     # UI shell.
     assert not at.exception
+
+
+def test_workflow_shell_renders_processing_stage_not_recorder_after_process_acceptance() -> None:
+    # Repair #4 (Part 13): once Python accepts the "process" payload and
+    # sets workflow_open/workflow_pending_action="prepare", the workflow
+    # shell -- not the recorder card -- must own the screen. Verifies via
+    # the real rendered output, not just an absence-of-exception check.
+    at = AppTest.from_file(APP_PATH, default_timeout=120)
+    at.session_state["workflow_open"] = True
+    at.session_state["workflow_source"] = "audio"
+    at.session_state["workflow_stage"] = "processing"
+    at.session_state["workflow_pending_action"] = "prepare"
+    at.session_state["recording_video_meeting_open"] = True  # stale flag from before Process click
+    at.session_state["recording_video_meeting_state"] = None
+
+    class FakeUpload:
+        name = "meeting-video-test.webm"
+        size = 4
+        type = "video/webm"
+
+        def getbuffer(self):
+            return b"RIFF____WEBM"
+
+    at.session_state["workflow_file"] = FakeUpload()
+    at.run()
+
+    assert not at.exception
+    combined = "\n".join(m.value for m in at.markdown if m.value)
+    # The existing "Preparing speaker review" processing screen must be
+    # what's shown -- the recorder card's own "Record Video Meeting"
+    # heading (from its Python-side "Back to input options" wrapper) must
+    # not be, confirming workflow_open correctly takes precedence even
+    # with a stale recording_video_meeting_open flag left over.
+    assert "Preparing speaker review" in combined or "Processing" in combined

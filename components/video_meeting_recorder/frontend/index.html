@@ -672,10 +672,16 @@
 
     let submitted = false;
     function processMeeting() {
+      console.log("[VIDEO-RECORDER] process_clicked");
       if (recorderState !== "RECORDED" || !recordedPayload || !recordedPayload.data_base64 || submitted) return;
       submitted = true;
       recorderState = "SUBMITTED";
       render();
+      console.log("[VIDEO-RECORDER] payload_ready");
+      console.log("[VIDEO-RECORDER] payload_size=" + recordedPayload.size_bytes);
+      console.log("[VIDEO-RECORDER] base64_chars=" + recordedPayload.data_base64.length);
+      console.log("[VIDEO-RECORDER] mime=" + recordedPayload.mime_type);
+      console.log("[VIDEO-RECORDER] duration=" + recordedPayload.duration_seconds);
       postMessageToParent("streamlit:setComponentValue", {
         value: {
           event: "process",
@@ -689,6 +695,7 @@
         },
         dataType: "json",
       });
+      console.log("[VIDEO-RECORDER] component_value_posted");
     }
 
     startBtn.addEventListener("click", startRecording);
