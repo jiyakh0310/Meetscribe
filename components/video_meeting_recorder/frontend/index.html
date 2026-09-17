@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MeetScribe Video Meeting Recorder</title>
+  <style>
+    :root{
+      color-scheme: light;
+      --ink:#1f2937;
+      --muted:#6b7280;
+      --line:#e2d8c6;
+      --paper:#fffdfa;
+      --paper-2:#fbf8f0;
+      --panel:#f7f3ea;
+      --accent:#30343a;
+      --accent-2:#7897b7;
+      --success:#7d9c7d;
+      --danger:#c9826e;
+      --shadow:0 14px 28px rgba(50,45,35,.07);
+      --radius:22px;
+      --radius-sm:18px;
+      --font-serif:"Fraunces",serif;
+      --font-ui:"Inter",system-ui,sans-serif;
+      --font-mono:"IBM Plex Mono",monospace;
+    }
+    html,body{margin:0;padding:0;background:transparent;font-family:var(--font-ui);color:var(--ink)}
+    *{box-sizing:border-box}
+    .card{
+      border:1px solid var(--line);
+      border-radius:calc(var(--radius) + 2px);
+      background:linear-gradient(180deg,#fffefb 0%,#fffaf3 100%);
+      box-shadow:var(--shadow);
+      padding:28px 32px 24px;
+      max-width:100%;
+      min-height:560px;
+    }
+    .hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:22px}
+    .title{margin:0;font-family:var(--font-serif);font-size:25px;line-height:1.12;font-weight:500;color:var(--ink);letter-spacing:-.015em}
+    .desc{margin:8px 0 0;font-size:14px;line-height:1.55;color:var(--muted);max-width:680px}
+    .note{margin-top:10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.03em;color:#6f665a}
+    .status{display:inline-flex;align-items:center;gap:9px;margin:2px 0 0;padding:8px 13px;border:1px solid #e7dfd2;border-radius:999px;background:#f1f3ee}
+    .status-dot{width:9px;height:9px;border-radius:50%;background:#7d9c7d;box-shadow:none;flex:0 0 auto}
+    .status-dot.live{background:var(--danger)}
+    .status-text{font-size:12px;font-weight:600;color:#39414d;white-space:nowrap}
+    .timer-row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
+    .timer{font-family:var(--font-mono);font-size:38px;letter-spacing:.05em;color:var(--ink);line-height:1}
+    .max{font-family:var(--font-mono);font-size:11px;color:var(--muted);text-align:right;white-space:nowrap}
+    .video-frame{position:relative;background:#1b1d21;border-radius:var(--radius-sm);overflow:hidden;min-height:280px;display:flex;align-items:center;justify-content:center}
+    .video-frame video{width:100%;max-height:420px;display:block;background:#1b1d21}
+    .video-frame.empty{background:#f8f5ef;border:1px dashed #d7cdbb}
+    .video-badge{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;background:rgba(20,20,22,.62);color:#fff;font:600 12px var(--font-ui)}
+    .video-badge .dot{width:8px;height:8px;border-radius:50%;background:#c9826e;animation:blink 1.2s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+    .empty-copy{text-align:center;color:#7c8171;padding:24px;max-width:360px}
+    .empty-copy .mic-icon{width:56px;height:56px;border-radius:50%;background:#efece2;display:grid;place-items:center;margin:0 auto 12px;color:#3b4654}
+    .empty-copy .mic-icon svg{width:23px;height:23px;display:block}
+    .empty-copy .title2{font:500 18px/1.2 var(--font-serif);color:#1f2937;margin-bottom:6px}
+    .empty-copy .sub2{font-size:13px;line-height:1.5;color:#6b7280}
+    .actions{display:flex;gap:10px;justify-content:flex-end;align-items:center;margin-top:20px;flex-wrap:wrap}
+    .actions button{
+      border-radius:999px;border:1px solid var(--line);height:40px;min-height:40px;padding:0 16px;
+      display:inline-flex;align-items:center;justify-content:center;text-align:center;line-height:1;white-space:nowrap;
+      font:600 13px var(--font-ui);cursor:pointer;transition:transform .16s ease,background-color .16s ease,box-shadow .16s ease;
+    }
+    .actions button:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(48,52,58,.08)}
+    .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .btn-secondary{background:#fff;color:var(--ink)}
+    .btn-danger{background:#fff;color:#a74f3b;border-color:#dcc7ba}
+    .btn-primary:disabled,.btn-secondary:disabled,.btn-danger:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+    .preview-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:12px;font-size:12px;color:#6a7380}
+    .small{font-family:var(--font-mono);font-size:11px}
+    .error{margin-top:10px;padding:10px 12px;border-radius:14px;background:#fff0ec;color:#973e27;font-size:12px;display:none}
+    .recording .status-dot{background:var(--danger)}
+    .recorded .status-dot{background:var(--success)}
+    @media (max-width: 680px){
+      .card{padding:22px 18px 20px}
+      .hdr{flex-direction:column}
+      .timer-row{flex-direction:column;align-items:flex-start}
+      .max{text-align:left}
+      .status{align-self:flex-start}
+      .actions{justify-content:stretch;flex-direction:column}
+      .actions button{width:100%;display:flex}
+      .video-frame video{max-height:260px}
+    }
+  </style>
+</head>
+<body>
+  <div id="root" class="card">
+    <div class="hdr">
+      <div>
+        <h2 class="title">Record Video Meeting</h2>
+        <p class="desc">Record a meeting with your camera and microphone, then process it like any other MeetScribe recording.</p>
+        <div class="note">Maximum recording duration: 15 minutes.</div>
+      </div>
+      <div class="status" aria-live="polite">
+        <span id="statusDot" class="status-dot"></span>
+        <span id="statusText" class="status-text">Ready to record</span>
+      </div>
+    </div>
+
+    <div class="timer-row">
+      <div>
+        <div class="timer" id="timer">00:00</div>
+        <div class="small" id="timerLabel">Live recording timer</div>
+      </div>
+      <div class="max" id="maxHint">Auto-stops at 15:00</div>
+    </div>
+
+    <div id="videoFrame" class="video-frame empty">
+      <div id="emptyCopy" class="empty-copy">
+        <div class="mic-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="15" height="14" rx="2.5"></rect><path d="m22 8-5 4 5 4Z"></path></svg>
+        </div>
+        <div class="title2">Ready when you are</div>
+        <div class="sub2">Allow camera and microphone access, then start recording. This preview is not analyzed &mdash; visual insights are generated after you stop.</div>
+      </div>
+      <video id="liveVideo" autoplay muted playsinline style="display:none"></video>
+      <video id="playbackVideo" controls playsinline style="display:none"></video>
+      <div id="recBadge" class="video-badge" style="display:none"><span class="dot"></span><span>Recording</span></div>
+    </div>
+
+    <div id="preview" class="preview-meta" style="display:none">
+      <span id="durationMeta">Duration: --:--</span>
+      <span id="sizeMeta">Size: --</span>
+      <span id="formatMeta">Format: --</span>
+    </div>
+
+    <div id="errorBox" class="error"></div>
+
+    <div class="actions">
+      <button id="startBtn" class="btn-primary" type="button">Start Recording</button>
+      <button id="stopBtn" class="btn-primary" type="button" disabled style="display:none">Stop Recording</button>
+      <button id="clearBtn" class="btn-danger" type="button">Record Again</button>
+      <button id="processBtn" class="btn-primary" type="button" style="display:none">Process Meeting &#8594;</button>
+    </div>
+  </div>
+
+  <script>
+    const MAX_SECONDS = 15 * 60;
+    const root = document.getElementById("root");
+    const timerEl = document.getElementById("timer");
+    const timerLabel = document.getElementById("timerLabel");
+    const maxHint = document.getElementById("maxHint");
+    const statusDot = document.getElementById("statusDot");
+    const statusText = document.getElementById("statusText");
+    const videoFrame = document.getElementById("videoFrame");
+    const emptyCopy = document.getElementById("emptyCopy");
+    const liveVideo = document.getElementById("liveVideo");
+    const playbackVideo = document.getElementById("playbackVideo");
+    const recBadge = document.getElementById("recBadge");
+    const preview = document.getElementById("preview");
+    const durationMeta = document.getElementById("durationMeta");
+    const sizeMeta = document.getElementById("sizeMeta");
+    const formatMeta = document.getElementById("formatMeta");
+    const errorBox = document.getElementById("errorBox");
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const processBtn = document.getElementById("processBtn");
+
+    let mediaRecorder = null;
+    let mediaStream = null;
+    let chunks = [];
+    let startedAt = 0;
+    let timerId = null;
+    let autoStopId = null;
+    let currentRecording = null;
+    let currentState = null;
+    let playbackObjectUrl = "";
+
+    function postMessageToParent(type, payload = {}) {
+      window.parent.postMessage(
+        { isStreamlitMessage: true, type, ...payload },
+        "*"
+      );
+    }
+
+    // Report a known-good initial height synchronously so the parent sizes
+    // the iframe before the async postHeight() round-trip completes.
+    postMessageToParent("streamlit:setFrameHeight", { height: 560 });
+
+    function postReady() {
+      postMessageToParent("streamlit:componentReady", { apiVersion: 1 });
+    }
+
+    function postHeight() {
+      requestAnimationFrame(() => {
+        postMessageToParent("streamlit:setFrameHeight", {
+          height: Math.max(1, document.body.scrollHeight),
+        });
+      });
+    }
+
+    function setError(message) {
+      if (!message) {
+        errorBox.style.display = "none";
+        errorBox.textContent = "";
+        return;
+      }
+      errorBox.textContent = message;
+      errorBox.style.display = "block";
+      postHeight();
+    }
+
+    function formatSeconds(totalSeconds) {
+      const seconds = Math.max(0, Math.floor(totalSeconds || 0));
+      const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const remaining = String(seconds % 60).padStart(2, "0");
+      return `${minutes}:${remaining}`;
+    }
+
+    function humanSize(bytes) {
+      if (!bytes && bytes !== 0) return "--";
+      const units = ["B", "KB", "MB", "GB"];
+      let value = bytes;
+      let index = 0;
+      while (value >= 1024 && index < units.length - 1) {
+        value /= 1024;
+        index += 1;
+      }
+      return `${value.toFixed(index === 0 ? 0 : 1)} ${units[index]}`;
+    }
+
+    function chooseMimeType() {
+      // Live camera+microphone recording; NOT analyzed here -- SELaD Phase 4
+      // visual analytics run only after the finished file is processed.
+      const candidates = [
+        "video/webm;codecs=vp9,opus",
+        "video/webm;codecs=vp8,opus",
+        "video/webm",
+        "video/mp4",
+      ];
+      return candidates.find((mime) => window.MediaRecorder && MediaRecorder.isTypeSupported(mime)) || "";
+    }
+
+    function stopTracks() {
+      if (mediaStream) {
+        mediaStream.getTracks().forEach((track) => track.stop());
+        mediaStream = null;
+      }
+    }
+
+    function describeGetUserMediaError(error) {
+      const name = error && error.name;
+      if (name === "NotAllowedError" || name === "PermissionDeniedError") {
+        return "Camera and microphone access was denied. MeetScribe needs both to record a video meeting -- camera for visual insights, microphone for the meeting transcript.";
+      }
+      if (name === "NotFoundError" || name === "DevicesNotFoundError") {
+        return "No camera or microphone was found on this device. Try Upload Video instead.";
+      }
+      if (name === "NotReadableError" || name === "TrackStartError") {
+        return "Your camera or microphone could not be started -- it may be in use by another application.";
+      }
+      return "We could not access your camera and microphone. Try Upload Video instead.";
+    }
+
+    function resetRecorderUi() {
+      clearInterval(timerId);
+      clearTimeout(autoStopId);
+      timerId = null;
+      autoStopId = null;
+      mediaRecorder = null;
+      chunks = [];
+      startedAt = 0;
+      root.classList.remove("recording");
+      root.classList.toggle("recorded", Boolean(currentState));
+      startBtn.disabled = false;
+      startBtn.style.display = currentState ? "none" : "inline-flex";
+      stopBtn.disabled = true;
+      stopBtn.style.display = "none";
+      clearBtn.style.display = currentState ? "inline-flex" : "none";
+      processBtn.style.display = currentState ? "inline-flex" : "none";
+      recBadge.style.display = "none";
+      statusDot.classList.remove("live");
+      statusText.textContent = currentState ? "Recording complete" : "Ready to record";
+      timerEl.textContent = currentState && currentState.duration_seconds != null
+        ? formatSeconds(currentState.duration_seconds)
+        : "00:00";
+      timerLabel.textContent = currentState ? "Recorded duration" : "Live recording timer";
+      maxHint.textContent = currentState ? "Within 15:00 limit" : "Auto-stops at 15:00";
+
+      if (currentState) {
+        liveVideo.style.display = "none";
+        emptyCopy.style.display = "none";
+        videoFrame.classList.remove("empty");
+        playbackVideo.style.display = "block";
+        const mimeType = currentState.mime_type || "video/webm";
+        if (currentState._blob && playbackObjectUrl !== currentState._objectUrl) {
+          if (playbackObjectUrl) URL.revokeObjectURL(playbackObjectUrl);
+          playbackObjectUrl = URL.createObjectURL(currentState._blob);
+          currentState._objectUrl = playbackObjectUrl;
+          playbackVideo.src = playbackObjectUrl;
+        }
+        preview.style.display = "flex";
+        durationMeta.textContent = `Duration: ${formatSeconds(currentState.duration_seconds || 0)}`;
+        sizeMeta.textContent = `Size: ${humanSize(currentState.size_bytes || 0)}`;
+        formatMeta.textContent = `Format: ${mimeType}`;
+      } else {
+        playbackVideo.style.display = "none";
+        playbackVideo.removeAttribute("src");
+        if (playbackObjectUrl) {
+          URL.revokeObjectURL(playbackObjectUrl);
+          playbackObjectUrl = "";
+        }
+        preview.style.display = "none";
+        durationMeta.textContent = "Duration: --:--";
+        sizeMeta.textContent = "Size: --";
+        formatMeta.textContent = "Format: --";
+        if (!mediaStream) {
+          liveVideo.style.display = "none";
+          emptyCopy.style.display = "block";
+          videoFrame.classList.add("empty");
+        }
+      }
+      setError("");
+      postHeight();
+    }
+
+    function applyState(state) {
+      currentState = state && typeof state === "object" ? state : null;
+      resetRecorderUi();
+    }
+
+    function currentDuration() {
+      return startedAt ? (Date.now() - startedAt) / 1000 : 0;
+    }
+
+    function updateTimer() {
+      timerEl.textContent = formatSeconds(currentDuration());
+      timerLabel.textContent = "Live recording timer";
+      if (currentDuration() >= MAX_SECONDS) {
+        stopRecording(true);
+      }
+    }
+
+    async function startRecording() {
+      if (currentState) {
+        // "Record Again": discard the previous unprocessed recording cleanly.
+        currentState = null;
+        applyState(null);
+        postMessageToParent("streamlit:setComponentValue", {
+          value: { event: "clear" },
+          dataType: "json",
+        });
+        return;
+      }
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        setError("Your browser does not support camera/microphone recording. Try Upload Video instead.");
+        return;
+      }
+      if (!window.MediaRecorder) {
+        setError("Your browser cannot create a recording in this session. Try Upload Video instead.");
+        return;
+      }
+      setError("");
+      try {
+        mediaStream = await navigator.mediaDevices.getUserMedia({
+          video: { width: { ideal: 1280 }, height: { ideal: 720 } },
+          audio: true,
+        });
+      } catch (error) {
+        stopTracks();
+        setError(describeGetUserMediaError(error));
+        return;
+      }
+
+      try {
+        const mimeType = chooseMimeType();
+        mediaRecorder = mimeType ? new MediaRecorder(mediaStream, { mimeType }) : new MediaRecorder(mediaStream);
+        chunks = [];
+        startedAt = Date.now();
+
+        emptyCopy.style.display = "none";
+        videoFrame.classList.remove("empty");
+        liveVideo.style.display = "block";
+        liveVideo.srcObject = mediaStream;
+        liveVideo.play().catch(() => {});
+        recBadge.style.display = "inline-flex";
+
+        startBtn.disabled = true;
+        startBtn.style.display = "none";
+        stopBtn.disabled = false;
+        stopBtn.style.display = "inline-flex";
+        clearBtn.style.display = "none";
+        processBtn.style.display = "none";
+        statusDot.classList.add("live");
+        statusText.textContent = "Recording";
+        root.classList.add("recording");
+        timerLabel.textContent = "Live recording timer";
+        maxHint.textContent = "Recording will stop automatically at 15:00";
+
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data && event.data.size > 0) {
+            chunks.push(event.data);
+          }
+        };
+        mediaRecorder.onerror = () => {
+          setError("The browser recorder encountered an error.");
+        };
+        mediaRecorder.onstop = finalizeRecording;
+        mediaRecorder.start(1000);
+        timerId = setInterval(updateTimer, 250);
+        autoStopId = setTimeout(() => stopRecording(true), MAX_SECONDS * 1000);
+        updateTimer();
+        postHeight();
+      } catch (error) {
+        stopTracks();
+        setError(error && error.message ? error.message : "We could not start recording.");
+        resetRecorderUi();
+      }
+    }
+
+    function stopRecording(isAutoStop = false) {
+      if (!mediaRecorder || mediaRecorder.state === "inactive") return;
+      clearInterval(timerId);
+      clearTimeout(autoStopId);
+      timerId = null;
+      autoStopId = null;
+      timerEl.textContent = formatSeconds(currentDuration());
+      timerLabel.textContent = "Recorded duration";
+      statusText.textContent = isAutoStop ? "Recording stopped at the maximum duration" : "Recording stopped";
+      statusText.textContent = "Processing recording...";
+      try {
+        mediaRecorder.stop();
+      } catch (error) {
+        finalizeRecording();
+      }
+      stopTracks();
+      liveVideo.style.display = "none";
+      recBadge.style.display = "none";
+      stopBtn.disabled = true;
+    }
+
+    function finalizeRecording() {
+      const elapsedSeconds = Math.max(1, Math.round(currentDuration()));
+      const blob = new Blob(chunks, { type: (mediaRecorder && mediaRecorder.mimeType) || "video/webm" });
+      if (!blob.size) {
+        setError("The recording was empty. Please try again.");
+        resetRecorderUi();
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const dataUrl = String(reader.result || "");
+        const base64 = dataUrl.split(",")[1] || "";
+        const mimeType = blob.type || "video/webm";
+        const extension = mimeType.includes("mp4") ? "mp4" : "webm";
+        currentState = {
+          name: `meeting-video-${new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-")}.${extension}`,
+          mime_type: mimeType,
+          duration_seconds: elapsedSeconds,
+          size_bytes: blob.size,
+          data_base64: base64,
+          _blob: blob,
+        };
+        applyState(currentState);
+        postMessageToParent("streamlit:setComponentValue", {
+          value: {
+            event: "recorded",
+            recording: {
+              name: currentState.name,
+              mime_type: currentState.mime_type,
+              duration_seconds: currentState.duration_seconds,
+              size_bytes: currentState.size_bytes,
+              data_base64: currentState.data_base64,
+            },
+          },
+          dataType: "json",
+        });
+      };
+      reader.readAsDataURL(blob);
+    }
+
+    function clearRecording() {
+      currentState = null;
+      stopTracks();
+      applyState(null);
+      postMessageToParent("streamlit:setComponentValue", {
+        value: { event: "clear" },
+        dataType: "json",
+      });
+    }
+
+    function continueRecording() {
+      if (!currentState) return;
+      postMessageToParent("streamlit:setComponentValue", {
+        value: { event: "process" },
+        dataType: "json",
+      });
+    }
+
+    startBtn.addEventListener("click", startRecording);
+    stopBtn.addEventListener("click", () => stopRecording(false));
+    clearBtn.addEventListener("click", clearRecording);
+    processBtn.addEventListener("click", continueRecording);
+
+    window.addEventListener("beforeunload", stopTracks);
+
+    window.addEventListener("message", (event) => {
+      const data = event.data || {};
+      if (!data.isStreamlitMessage) return;
+      if (data.type === "streamlit:render") {
+        const args = data.args || {};
+        // Only reset from parent-provided state when we don't already hold
+        // an in-memory blob/object-url for the just-finished recording --
+        // the parent's state never carries the blob (only base64 metadata
+        // is sent), so re-applying it verbatim would drop the live preview.
+        if (!currentState || !currentState._blob) {
+          applyState(args.state || null);
+        }
+        postReady();
+        postHeight();
+      }
+    });
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => {
+        postReady();
+        postHeight();
+      });
+    } else {
+      postReady();
+      postHeight();
+    }
+  </script>
+</body>
+</html>

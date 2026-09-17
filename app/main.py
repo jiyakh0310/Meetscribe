@@ -30,6 +30,15 @@ MEETING_RECORDER_COMPONENT = components.declare_component(
     "meeting_recorder",
     path=str(PROJECT_ROOT / "components" / "meeting_recorder" / "frontend"),
 )
+# SELaD Phase 4.1: an isolated component (not a modification of the audio
+# recorder above) so the existing, working audio recorder is never
+# destabilized. Captures camera + microphone; the resulting file is fed
+# into the SAME existing audio pipeline and the SAME existing Phase 4
+# analyze_video() -- no new analytics implementation lives here.
+VIDEO_MEETING_RECORDER_COMPONENT = components.declare_component(
+    "video_meeting_recorder",
+    path=str(PROJECT_ROOT / "components" / "video_meeting_recorder" / "frontend"),
+)
 
 
 def brand_logo_html(class_name: str, *, alt: str = "MeetScribe") -> str:
@@ -194,6 +203,9 @@ def initialize_session_state() -> None:
     st.session_state.setdefault("recording_meeting_state", None)
     st.session_state.setdefault("recording_meeting_version", 0)
     st.session_state.setdefault("video_analytics_result", None)
+    st.session_state.setdefault("recording_video_meeting_open", False)
+    st.session_state.setdefault("recording_video_meeting_state", None)
+    st.session_state.setdefault("recording_video_meeting_version", 0)
     st.session_state.setdefault("recording_meeting_open", False)
 
 
@@ -2574,6 +2586,9 @@ def render_hero() -> None:
     if st.session_state.get("recording_meeting_open"):
         render_record_meeting_card()
         return
+    if st.session_state.get("recording_video_meeting_open"):
+        render_record_video_meeting_card()
+        return
     st.markdown(
         """
         <style>
@@ -2588,14 +2603,14 @@ def render_hero() -> None:
           .ms-home-input-icon svg{width:21px;height:21px;display:block}
           .ms-home-input-title{font:500 18px/1.2 Fraunces,serif;color:#1f2937;margin-bottom:5px}
           .ms-home-input-sub{min-height:34px;color:#6b7280;font:400 12px/1.45 Inter,sans-serif;margin-bottom:12px}
-          .st-key-hero_actions .st-key-open_audio_workflow button,.st-key-hero_actions .st-key-open_transcript_workflow button,.st-key-hero_actions .st-key-open_recording_meeting button{
+          .st-key-hero_actions .st-key-open_audio_workflow button,.st-key-hero_actions .st-key-open_transcript_workflow button,.st-key-hero_actions .st-key-open_recording_meeting button,.st-key-hero_actions .st-key-open_recording_video_meeting button{
             width:100%!important;height:46px!important;min-height:46px!important;border-radius:999px!important;padding:0 22px!important;
             display:flex!important;align-items:center!important;justify-content:center!important;line-height:1!important;
             font:600 13px/1 Inter,sans-serif!important;box-shadow:none!important;background:#30343a!important;border:1px solid #30343a!important;color:#fff!important;
             transition:transform 160ms ease,box-shadow 160ms ease,background-color 160ms ease!important
           }
           .st-key-hero_actions .stButton button,.st-key-hero_actions .stButton button p,.st-key-hero_actions .stButton button span,
-          .st-key-hero_actions .st-key-open_audio_workflow button *,.st-key-hero_actions .st-key-open_transcript_workflow button *,.st-key-hero_actions .st-key-open_recording_meeting button *{
+          .st-key-hero_actions .st-key-open_audio_workflow button *,.st-key-hero_actions .st-key-open_transcript_workflow button *,.st-key-hero_actions .st-key-open_recording_meeting button *,.st-key-hero_actions .st-key-open_recording_video_meeting button *{
             color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important;visibility:visible!important;
           }
           .st-key-hero_actions .stButton button p{margin:0!important;font:600 13px/1 Inter,sans-serif!important;display:block!important;text-align:center!important}
@@ -2612,7 +2627,7 @@ def render_hero() -> None:
           .ms-trust-bar{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
             gap:.8rem!important;text-align:center!important;margin:1.5rem auto 0!important;padding:1.15rem 0 0!important}
           .ms-trust-tags{justify-content:center!important;gap:1rem 1.8rem!important}
-          @media(max-width:700px){.st-key-open_audio_workflow button,.st-key-open_transcript_workflow button,.st-key-open_recording_meeting button{width:100%!important}
+          @media(max-width:700px){.st-key-open_audio_workflow button,.st-key-open_transcript_workflow button,.st-key-open_recording_meeting button,.st-key-open_recording_video_meeting button{width:100%!important}
             .ms-hero:not(.ms-hero-after-actions){padding:1.7rem 0 .8rem!important}.ms-hero-after-actions{padding:.75rem 0 1.4rem!important}
             .ms-waveform-art{height:110px}}
         </style>
@@ -2628,7 +2643,7 @@ def render_hero() -> None:
     )
     st.markdown('<div class="ms-hero-action-anchor" id="workspace"></div>', unsafe_allow_html=True)
     with st.container(key="hero_actions"):
-        audio_col, transcript_col, recording_col = st.columns(3, gap="small")
+        audio_col, transcript_col, recording_col, video_recording_col = st.columns(4, gap="small")
         with audio_col:
             st.markdown('<div class="ms-home-input-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l10-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="16" cy="16" r="3"></circle></svg></div><div class="ms-home-input-title">Upload Audio</div><div class="ms-home-input-sub">MP3, WAV, M4A, AAC, MP4</div>', unsafe_allow_html=True)
             if st.button("Upload Audio", type="primary", use_container_width=True, key="open_audio_workflow"):
@@ -2641,9 +2656,18 @@ def render_hero() -> None:
             st.markdown('<div class="ms-home-input-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"></path></svg></div><div class="ms-home-input-title">Record Meeting</div><div class="ms-home-input-sub">Up to 60 minutes, right in your browser</div>', unsafe_allow_html=True)
             if st.button("Record Meeting", use_container_width=True, key="open_recording_meeting"):
                 st.session_state.recording_meeting_open = True
+                st.session_state.recording_video_meeting_open = False
+                st.rerun()
+        with video_recording_col:
+            st.markdown('<div class="ms-home-input-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="15" height="14" rx="2.5"></rect><path d="m22 8-5 4 5 4Z"></path></svg></div><div class="ms-home-input-title">Record Video Meeting</div><div class="ms-home-input-sub">Camera + microphone, right in your browser</div>', unsafe_allow_html=True)
+            if st.button("Record Video Meeting", use_container_width=True, key="open_recording_video_meeting"):
+                st.session_state.recording_video_meeting_open = True
+                st.session_state.recording_meeting_open = False
                 st.rerun()
     if st.session_state.get("recording_meeting_open"):
         render_record_meeting_card()
+    if st.session_state.get("recording_video_meeting_open"):
+        render_record_video_meeting_card()
     st.markdown(
         """
         <div class="ms-hero ms-hero-after-actions">
@@ -5803,6 +5827,8 @@ def open_workflow(source: str) -> None:
     st.session_state.workflow_source = source
     st.session_state.workflow_stage = "upload"
     st.session_state.workflow_file = None
+    st.session_state.recording_meeting_open = False
+    st.session_state.recording_video_meeting_open = False
     st.rerun()
 
 
@@ -5836,6 +5862,51 @@ def start_recorded_meeting_workflow(recording: dict[str, Any]) -> None:
     st.session_state.workflow_pending_action = "prepare"
     st.session_state.workflow_file = audio_file
     clear_recording_state(rerun=False)
+    st.rerun()
+
+
+def _video_recording_payload_to_upload(recording: dict[str, Any]) -> io.BytesIO:
+    """Convert the browser video-recording payload into an upload-like file
+    object -- same shape _recording_payload_to_upload produces for audio,
+    so it flows through the identical process_upload() code path (Part 6/7:
+    an isolated recorder component, not a second processing implementation)."""
+
+    try:
+        data = base64.b64decode(str(recording.get("data_base64", "")), validate=False)
+    except (base64.binascii.Error, ValueError):
+        # A malformed/corrupted payload must never crash the workflow --
+        # degrade to an empty (rejected downstream) recording instead.
+        data = b""
+    video_file = io.BytesIO(data)
+    name = str(recording.get("name") or "meeting-video.webm")
+    video_file.name = name  # type: ignore[attr-defined]
+    video_file.size = len(data)  # type: ignore[attr-defined]
+    video_file.type = str(recording.get("mime_type") or "video/webm")  # type: ignore[attr-defined]
+    video_file.seek(0)
+    return video_file
+
+
+def clear_video_recording_state(*, rerun: bool = True) -> None:
+    st.session_state.recording_video_meeting_state = None
+    st.session_state.recording_video_meeting_version += 1
+    if rerun:
+        st.rerun()
+
+
+def start_recorded_video_meeting_workflow(recording: dict[str, Any]) -> None:
+    """Send a browser video recording into process_upload() -- the SAME
+    path an uploaded video file takes (SUPPORTED_VIDEO_EXTENSIONS includes
+    .webm), so both the existing audio pipeline and the existing Phase 4
+    analyze_video() run unchanged (Part 16/18: no separate analytics
+    implementation for recorded video)."""
+
+    video_file = _video_recording_payload_to_upload(recording)
+    st.session_state.workflow_open = True
+    st.session_state.workflow_source = "audio"
+    st.session_state.workflow_stage = "processing"
+    st.session_state.workflow_pending_action = "prepare"
+    st.session_state.workflow_file = video_file
+    clear_video_recording_state(rerun=False)
     st.rerun()
 
 
@@ -5888,6 +5959,8 @@ def inject_workflow_shell_styles() -> None:
           .st-key-workflow_stage_content{padding:22px 40px 20px!important}
           .st-key-workflow_stage_content:has([class*="st-key-meeting_recorder_"]){min-height:560px!important}
           .st-key-recording_stage_frame{min-height:560px!important;display:flex!important;align-items:flex-start!important}
+          .st-key-workflow_stage_content:has([class*="st-key-video_meeting_recorder_"]){min-height:600px!important}
+          .st-key-recording_video_stage_frame{min-height:600px!important;display:flex!important;align-items:flex-start!important}
           .st-key-workflow_stage_content>div[data-testid="stVerticalBlock"]{gap:.62rem!important}
           .st-key-workflow_stage_content [data-testid="stForm"]{border:0!important;border-radius:0!important;
             background:transparent!important;box-shadow:none!important;padding:0!important}
@@ -6213,6 +6286,58 @@ def render_record_meeting_card() -> None:
             clear_recording_state()
         if event == "process" and st.session_state.get("recording_meeting_state"):
             start_recorded_meeting_workflow(st.session_state.recording_meeting_state)
+
+
+def render_record_video_meeting_card() -> None:
+    """SELaD Phase 4.1: camera+microphone meeting recorder.
+
+    Records only -- no live facial-expression/emotion overlay is ever
+    shown here (Part 1/12). The finished recording is handed to
+    start_recorded_video_meeting_workflow(), which reuses the existing
+    process_upload() path unchanged; this function owns no analytics
+    logic of its own.
+    """
+
+    st.markdown(
+        """
+        <style>
+          .ms-record-shell{max-width:920px;margin:1rem auto 0}
+          .ms-record-shell .ms-record-hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin:0 0 14px}
+          .ms-record-shell .ms-record-title{font:440 20px Fraunces,serif;color:var(--ms-text,#1f2937);margin:0}
+          .ms-record-shell .ms-record-desc{margin:.25rem 0 0;color:#5f6674;font:400 13px/1.55 Inter,sans-serif;max-width:620px}
+          .st-key-close_recording_video_meeting button{border:1px solid #cfc3b0!important;border-radius:999px!important;background:#fff!important;color:#30343a!important;font:600 12px/1 Inter,sans-serif!important;padding:0 16px!important;min-height:36px!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important}
+          .st-key-close_recording_video_meeting button p{margin:0!important;line-height:1!important;color:#30343a!important}
+          .st-key-close_recording_video_meeting button:hover{background:#f8f5ee!important;border-color:#9e927f!important}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    if st.button("Back to input options", key="close_recording_video_meeting"):
+        clear_video_recording_state(rerun=False)
+        st.session_state.recording_video_meeting_open = False
+        st.rerun()
+    with st.container(key="recording_video_stage_frame"):
+        payload = VIDEO_MEETING_RECORDER_COMPONENT(
+            state=st.session_state.get("recording_video_meeting_state"),
+            max_minutes=15,
+            key=f"video_meeting_recorder_{st.session_state.recording_video_meeting_version}",
+        )
+    if isinstance(payload, dict):
+        event = str(payload.get("event") or "")
+        if event == "recorded":
+            recording = payload.get("recording") or {}
+            if not recording.get("data_base64") or not recording.get("size_bytes"):
+                st.session_state.recording_video_meeting_state = None
+                st.error("The recording was empty. Please try recording again.")
+            else:
+                st.session_state.recording_video_meeting_state = recording
+            st.rerun()
+        if event == "clear":
+            clear_video_recording_state()
+        if event == "process" and st.session_state.get("recording_video_meeting_state"):
+            start_recorded_video_meeting_workflow(st.session_state.recording_video_meeting_state)
+
+
 def render_workflow_header(stage: str) -> None:
     order = ["upload", "speakers", "transcript", "processing", "minutes"]
     active = {"uploaded": 0, "export": 4, "email": 4}.get(stage, order.index(stage) if stage in order else 0)
@@ -6285,6 +6410,8 @@ def render_upload_stage() -> None:
             st.session_state.workflow_open = False
             st.session_state.recording_meeting_open = False
             st.session_state.recording_meeting_state = None
+            st.session_state.recording_video_meeting_open = False
+            st.session_state.recording_video_meeting_state = None
             st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -7261,7 +7388,7 @@ def main() -> None:
     # bypassed so none of the previous widgets remain visible.
     render_top_navigation()
     render_hero()
-    if st.session_state.get("recording_meeting_open"):
+    if st.session_state.get("recording_meeting_open") or st.session_state.get("recording_video_meeting_open"):
         return
     render_product_landing_sections()
     render_landing_interactivity()
