@@ -245,3 +245,114 @@ def test_recorder_uses_meeting_quality_bitrate_not_unbounded() -> None:
 def test_large_recording_warning_threshold_exists() -> None:
     script = _script()
     assert "LARGE_RECORDING_WARN_BYTES" in script
+
+
+# ---------------------------------------------------------------------------
+# Fix #2 (invisible Stop button): robust iframe height reporting.
+#
+# Root cause: the iframe's reported height lagged behind the larger
+# RECORDING-state layout (video-frame growing from ~340px max to ~620px
+# max). Streamlit's component iframe has no scrollbar of its own, so
+# anything past the last-reported height was silently clipped -- not
+# merely scrolled out of view. These checks confirm a ResizeObserver
+# independently re-reports height on any layout change, not only from
+# the manual postHeight() calls scattered through render()/setError().
+# ---------------------------------------------------------------------------
+
+
+def test_resize_observer_reports_height_independently_of_render_calls() -> None:
+    script = _script()
+    assert "new ResizeObserver(() => postHeight())" in script
+    assert "resizeObserver.observe(document.body)" in script
+
+
+def test_window_resize_also_triggers_height_report() -> None:
+    script = _script()
+    assert 'window.addEventListener("resize", () => postHeight());' in script
+
+
+def test_video_frame_max_height_leaves_room_for_controls() -> None:
+    # Reduced from the earlier min(70vh,640px) to min(60vh,620px) (Part 5)
+    # specifically to leave more guaranteed headroom for the action row
+    # below the camera, on top of the ResizeObserver fix.
+    source = _source()
+    assert "max-height:min(60vh,620px)" in source
+    assert "max-height:min(70vh,640px)" not in source
+
+
+def test_stop_button_gets_prominent_styling_while_recording() -> None:
+    source = _source()
+    assert ".recording #stopBtn{" in source
+
+
+# ---------------------------------------------------------------------------
+# Fix #2 (selfie mirror): live preview mirrored, playback/encoding untouched.
+# ---------------------------------------------------------------------------
+
+
+def test_live_video_can_receive_mirrored_class_playback_never_does() -> None:
+    script = _script()
+    assert 'liveVideo.classList.toggle("mirrored"' in script
+    assert "playbackVideo.classList" not in script  # playback is never mirrored
+
+
+def test_mirror_is_a_pure_css_transform_scoped_to_live_video_only() -> None:
+    source = _source()
+    assert "#liveVideo.mirrored{transform:scaleX(-1)" in source
+    # The mirror rule must be scoped to #liveVideo specifically, never to
+    # the whole .video-frame container (which would also flip badges/timer/
+    # buttons) and never to #playbackVideo.
+    assert ".video-frame.mirrored" not in source
+    assert "#playbackVideo.mirrored" not in source
+
+
+def test_facing_mode_user_requested_for_default_selfie_camera() -> None:
+    script = _script()
+    start_fn = re.search(r"async function startRecording\(\).*?\n    \}", script, re.DOTALL).group(0)
+    assert 'facingMode: "user"' in start_fn
+
+
+def test_environment_facing_camera_is_not_mirrored() -> None:
+    script = _script()
+    start_fn = re.search(r"async function startRecording\(\).*?\n    \}", script, re.DOTALL).group(0)
+    assert 'trackSettings.facingMode !== "environment"' in start_fn
+
+
+def test_record_again_clears_stale_mirror_state() -> None:
+    script = _script()
+    go_ready_fn = re.search(r"function goReady\(\).*?\n    \}", script, re.DOTALL).group(0)
+    assert 'liveVideo.classList.remove("mirrored")' in go_ready_fn
+
+
+# ---------------------------------------------------------------------------
+# Part 13: explicit button-visibility contract per state, read directly out
+# of render()'s assignment expressions (each keyed only off recorderState).
+# ---------------------------------------------------------------------------
+
+
+def test_button_visibility_contract_matches_state_machine() -> None:
+    script = _script()
+    render_fn = re.search(r"function render\(\).*?\n    \}", script, re.DOTALL).group(0)
+
+    # READY: only Start is tied to isReady.
+    assert 'startBtn.style.display = isReady ? "inline-flex" : "none";' in render_fn
+    # RECORDING: only Stop is tied to isRecording.
+    assert 'stopBtn.style.display = isRecording ? "inline-flex" : "none";' in render_fn
+    # RECORDED/SUBMITTED (showPlayback): Record Again + Process Meeting.
+    assert 'clearBtn.style.display = showPlayback ? "inline-flex" : "none";' in render_fn
+    assert 'processBtn.style.display = showPlayback ? "inline-flex" : "none";' in render_fn
+    assert "const showPlayback = isRecorded || isSubmitted;" in render_fn
+    # SUBMITTED: Record Again disabled, Process Meeting shows a busy label.
+    assert "clearBtn.disabled = isSubmitted;" in render_fn
+    assert 'processBtn.textContent = isSubmitted ? "Processing…" : "Process Meeting →";' in render_fn
+
+
+def test_ready_banner_and_playback_precede_action_row_in_dom_order() -> None:
+    # DOM order matters for the requested completion hierarchy ("Recording
+    # ready" -> playback -> action buttons): readyBanner must appear before
+    # videoFrame, which must appear before the actions row.
+    source = _source()
+    ready_banner_index = source.index('id="readyBanner"')
+    video_frame_index = source.index('id="videoFrame"')
+    actions_index = source.index('<div class="actions">')
+    assert ready_banner_index < video_frame_index < actions_index

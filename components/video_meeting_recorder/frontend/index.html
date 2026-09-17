@@ -47,14 +47,24 @@
     .timer{font-family:var(--font-mono);font-size:32px;letter-spacing:.04em;color:var(--ink);line-height:1}
     .max{font-family:var(--font-mono);font-size:11px;color:var(--muted);text-align:right;white-space:nowrap}
     /* Large, immersive camera preview: fills nearly the full card width and
-       a generous, responsive height, rather than a small centered frame. */
+       a generous, responsive height -- but capped conservatively (rather
+       than the earlier min(70vh,640px)) so there is always visible room
+       left for the action controls below it without requiring scroll,
+       and so a too-tall iframe never gets clipped by Streamlit before a
+       height update lands. */
     .video-frame{
       position:relative;background:#1b1d21;border-radius:var(--radius-sm);overflow:hidden;
-      width:100%;aspect-ratio:16/9;max-height:min(70vh,640px);min-height:260px;
+      width:100%;aspect-ratio:16/9;max-height:min(60vh,620px);min-height:260px;
       display:flex;align-items:center;justify-content:center;
     }
     .video-frame video{width:100%;height:100%;display:block;background:#1b1d21;object-fit:cover}
     .video-frame.empty{background:#f8f5ef;border:1px dashed #d7cdbb;aspect-ratio:auto;min-height:260px;max-height:340px}
+    /* Selfie-style mirror for the LIVE preview only (Part 6) -- purely a
+       CSS/display transform, applied to nothing else. It never touches the
+       underlying MediaStream/MediaRecorder bytes, so the recorded file and
+       what Phase 4 analyzes both keep the camera's true, unmirrored
+       orientation (Part 7). */
+    #liveVideo.mirrored{transform:scaleX(-1);transform-origin:center}
     .video-badge{position:absolute;top:14px;left:14px;display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;background:rgba(20,20,22,.66);color:#fff;font:600 12px var(--font-ui);backdrop-filter:blur(2px)}
     .video-badge .dot{width:8px;height:8px;border-radius:50%;background:#e2685a;animation:blink 1.2s ease-in-out infinite}
     .video-timer-badge{position:absolute;top:14px;right:14px;padding:7px 13px;border-radius:999px;background:rgba(20,20,22,.66);color:#fff;font:600 13px var(--font-mono);letter-spacing:.03em}
@@ -78,6 +88,12 @@
     .btn-secondary{background:#fff;color:var(--ink)}
     .btn-danger{background:#fff;color:#a74f3b;border-color:#dcc7ba}
     .btn-primary:disabled,.btn-secondary:disabled,.btn-danger:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+    /* While recording, only Stop Recording is shown -- make it read as a
+       clear, unmissable primary/destructive action rather than a small
+       right-aligned button (Part 4). */
+    .recording .actions{justify-content:center}
+    .recording #stopBtn{background:#c9573f;border-color:#c9573f;color:#fff;height:48px;min-height:48px;padding:0 28px;font-size:14px}
+    .recording #stopBtn:hover{background:#b34a34;border-color:#b34a34}
     .ready-banner{margin-top:10px;font:500 15px var(--font-serif);color:#1f2937}
     .preview-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:10px;font-size:12px;color:#6a7380}
     .small{font-family:var(--font-mono);font-size:11px}
@@ -91,7 +107,7 @@
       .status{align-self:flex-start}
       .actions{justify-content:stretch;flex-direction:column}
       .actions button{width:100%;display:flex}
-      .video-frame{max-height:52vh}
+      .video-frame{max-height:46vh}
     }
   </style>
 </head>
@@ -117,6 +133,8 @@
       <div class="max" id="maxHint">Auto-stops at 60:00</div>
     </div>
 
+    <div id="readyBanner" class="ready-banner" style="display:none">Recording ready</div>
+
     <div id="videoFrame" class="video-frame empty">
       <div id="emptyCopy" class="empty-copy">
         <div class="mic-icon" aria-hidden="true">
@@ -135,7 +153,6 @@
       <div id="liveTimerBadge" class="video-timer-badge" style="display:none">00:00</div>
     </div>
 
-    <div id="readyBanner" class="ready-banner" style="display:none">Recording ready</div>
     <div id="preview" class="preview-meta" style="display:none">
       <span id="durationMeta">Duration: --:--</span>
       <span id="sizeMeta">Size: --</span>
@@ -227,10 +244,31 @@
     function postHeight() {
       requestAnimationFrame(() => {
         postMessageToParent("streamlit:setFrameHeight", {
-          height: Math.max(1, document.body.scrollHeight),
+          height: Math.max(1, document.documentElement.scrollHeight),
         });
       });
     }
+
+    // Belt-and-braces height reporting (Part 3 of the repair): rather than
+    // relying only on every render()/setError()/etc. call to remember to
+    // call postHeight() at exactly the right moment, a ResizeObserver on
+    // the root card independently reports Streamlit's iframe height
+    // whenever the actual rendered box size changes for ANY reason --
+    // state transitions, error/warning banners, font loading, viewport
+    // resizes affecting the vh-based video max-height, etc. This is what
+    // caused the Stop Recording button (and the RECORDED completion
+    // controls) to be invisible: the iframe's reported height lagged
+    // behind the larger RECORDING-state layout, and Streamlit's component
+    // iframe has no scrollbar of its own, so anything past the
+    // last-reported height was silently clipped rather than scrollable.
+    // ResizeObserver firing only reports size to the parent -- it never
+    // mutates anything the observer itself is watching, so there is no
+    // feedback loop.
+    if (window.ResizeObserver) {
+      const resizeObserver = new ResizeObserver(() => postHeight());
+      resizeObserver.observe(document.body);
+    }
+    window.addEventListener("resize", () => postHeight());
 
     function setError(message) {
       if (!message) {
@@ -396,6 +434,7 @@
       recordingStartedAt = 0;
       actualRecordedDurationSeconds = 0;
       revokeRecordedPayload();
+      liveVideo.classList.remove("mirrored");
       setError("");
       setWarning("");
       render();
@@ -433,7 +472,7 @@
 
       try {
         mediaStream = await navigator.mediaDevices.getUserMedia({
-          video: { width: { ideal: 1280 }, height: { ideal: 720 }, frameRate: { ideal: 30 } },
+          video: { width: { ideal: 1280 }, height: { ideal: 720 }, frameRate: { ideal: 30 }, facingMode: "user" },
           audio: true,
         });
       } catch (error) {
@@ -460,6 +499,18 @@
         render();
         return;
       }
+
+      // Mirror the LIVE preview only for a user-facing (selfie/front)
+      // camera -- the conventional self-view convention (Part 6/8). This
+      // is a CSS transform on the <video> element alone: it has no effect
+      // on the MediaStreamTrack's actual frames, so the recorded Blob and
+      // whatever Phase 4 later analyzes both keep the camera's true,
+      // unmirrored orientation (Part 7). A rear/environment-facing camera
+      // (reported explicitly via track settings) is left unmirrored.
+      const [videoTrack] = mediaStream.getVideoTracks();
+      const trackSettings = videoTrack && videoTrack.getSettings ? videoTrack.getSettings() : {};
+      const isUserFacingCamera = trackSettings.facingMode !== "environment";
+      liveVideo.classList.toggle("mirrored", isUserFacingCamera);
 
       try {
         const mimeType = chooseMimeType();
