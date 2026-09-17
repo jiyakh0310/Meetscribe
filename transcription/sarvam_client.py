@@ -30,8 +30,28 @@ class TranscriptionError(Exception):
     """Raised when Sarvam speech-to-text processing fails."""
 
 
-def _mask_key(value: str) -> str:
-    return f"{value[:6]}..." if value else "missing"
+class TranscriptionQuotaError(TranscriptionError):
+    """Raised when Sarvam has no remaining transcription credits."""
+
+
+def _is_quota_error(exc: ApiError) -> bool:
+    if getattr(exc, "status_code", None) == 402:
+        return True
+    body = _api_error_details(exc)["body"]
+    if isinstance(body, str):
+        try:
+            body = json.loads(body)
+        except json.JSONDecodeError:
+            return False
+    if not isinstance(body, dict):
+        return False
+    error = body.get("error", body)
+    if not isinstance(error, dict):
+        return False
+    return (
+        error.get("code") == "insufficient_quota_error"
+        or str(error.get("message", "")).strip().casefold() == "no credits available."
+    )
 
 
 def _json_safe(value: Any) -> str:
@@ -237,10 +257,7 @@ class SarvamTranscriptionClient:
 
     def __init__(self, settings: Settings | None = None) -> None:
         self._settings = settings or get_settings()
-        logger.info(
-            "Initializing SarvamAI client with SARVAM_API_KEY=%s",
-            _mask_key(self._settings.sarvam_api_key),
-        )
+        logger.info("Initializing SarvamAI client.")
         self._client = SarvamAI(
             api_subscription_key=self._settings.sarvam_api_key,
         )
@@ -287,6 +304,8 @@ class SarvamTranscriptionClient:
                 )
         except ApiError as exc:
             _log_api_error("Sarvam real-time API error", audio_path.name, exc)
+            if _is_quota_error(exc):
+                raise TranscriptionQuotaError("Sarvam transcription credits exhausted.") from exc
             raise TranscriptionError(
                 _format_api_error("Real-time transcription failed.", exc)
             ) from exc
@@ -418,6 +437,8 @@ class SarvamTranscriptionClient:
             ) from exc
         except ApiError as exc:
             _log_api_error("Sarvam batch API error", audio_path.name, exc)
+            if _is_quota_error(exc):
+                raise TranscriptionQuotaError("Sarvam transcription credits exhausted.") from exc
             raise TranscriptionError(
                 _format_api_error("Batch transcription failed.", exc)
             ) from exc

@@ -32,13 +32,9 @@ class SettingsError(ValueError):
     """Raised when required configuration is missing or invalid."""
 
 
-def _masked(value: str) -> str:
-    return f"{value[:6]}..."
-
-
 def _debug_loaded(name: str, source: str, value: str | None) -> None:
     if value:
-        print(f"Loaded {name} from {source}: {_masked(value)}")
+        print(f"Loaded {name} from {source}.")
     else:
         print(f"{name} not loaded from {source}.")
 

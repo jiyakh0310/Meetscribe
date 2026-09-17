@@ -89,6 +89,7 @@ from transcription.transcript_file_utils import (
 )
 from transcription.sarvam_client import (
     TranscriptionError,
+    TranscriptionQuotaError,
     TranscriptionResult,
     TranscriptionSegment,
     transcribe_audio_detailed,
@@ -5573,6 +5574,10 @@ def process_upload(uploaded_file: object) -> None:
         st.error(
             "We could not prepare this recording. Please check the file and try again."
         )
+    except TranscriptionQuotaError as exc:
+        progress.empty()
+        log_stage("Error", "Transcription service credits exhausted.", failure_stage="sarvam_transcription", error=str(exc))
+        st.error("Audio transcription is temporarily unavailable because the configured transcription service has no remaining credits. Please restore the service credits and try again.")
     except TranscriptionError as exc:
         progress.empty()
         log_stage("Error", "Transcription service error.", failure_stage="sarvam_transcription", error=str(exc))

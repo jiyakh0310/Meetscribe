@@ -104,6 +104,22 @@ def test_transcription_error_from_sarvam_uses_transcription_specific_message() -
     assert st.session_state.get("last_sarvam_result") is None
 
 
+def test_quota_error_shows_credit_specific_message() -> None:
+    st.session_state = _fresh_session_state()
+    import app.main as m
+    from transcription.sarvam_client import TranscriptionQuotaError
+
+    uploaded = FakeUploadedFile(_make_real_wav())
+    with patch.object(m, "transcribe_audio_detailed", side_effect=TranscriptionQuotaError("credits exhausted")), patch.object(m.st, "error") as show_error:
+        m.process_upload(uploaded)
+
+    assert show_error.call_count == 1
+    message = show_error.call_args.args[0]
+    assert "no remaining credits" in message
+    assert "credits exhausted" not in message
+    assert st.session_state.get("last_sarvam_result") is None
+
+
 def test_later_stage_failure_after_successful_transcription_preserves_marker() -> None:
     # Simulates transcription succeeding but a later speaker-processing
     # stage raising an unexpected exception (Part 8: a successful
