@@ -6301,10 +6301,11 @@ def render_record_video_meeting_card() -> None:
     st.markdown(
         """
         <style>
-          .ms-record-shell{max-width:920px;margin:1rem auto 0}
-          .ms-record-shell .ms-record-hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin:0 0 14px}
-          .ms-record-shell .ms-record-title{font:440 20px Fraunces,serif;color:var(--ms-text,#1f2937);margin:0}
-          .ms-record-shell .ms-record-desc{margin:.25rem 0 0;color:#5f6674;font:400 13px/1.55 Inter,sans-serif;max-width:620px}
+          /* Large/immersive camera preview (Part 6): give the recorder card
+             most of the available content width rather than the narrower
+             ~920px used elsewhere, so the camera preview reads as the
+             primary content, not a small centered frame. */
+          .st-key-recording_video_stage_frame{min-height:600px!important;max-width:1080px!important;margin:0 auto!important;display:flex!important;align-items:flex-start!important}
           .st-key-close_recording_video_meeting button{border:1px solid #cfc3b0!important;border-radius:999px!important;background:#fff!important;color:#30343a!important;font:600 12px/1 Inter,sans-serif!important;padding:0 16px!important;min-height:36px!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important}
           .st-key-close_recording_video_meeting button p{margin:0!important;line-height:1!important;color:#30343a!important}
           .st-key-close_recording_video_meeting button:hover{background:#f8f5ee!important;border-color:#9e927f!important}
@@ -6317,25 +6318,27 @@ def render_record_video_meeting_card() -> None:
         st.session_state.recording_video_meeting_open = False
         st.rerun()
     with st.container(key="recording_video_stage_frame"):
+        # No `state=` is threaded back into the component: recording,
+        # finalization, and the completed-recording screen are entirely
+        # client-side (see the component's own state-machine comment).
+        # Re-syncing server state into the iframe on every rerun was the
+        # root cause of the recorder repair -- an unrelated Streamlit
+        # rerun could silently reset an in-progress or just-finished
+        # local recording. The component now sends exactly one message
+        # up, "process", only when the user clicks Process Meeting, and
+        # it carries the full finalized payload directly.
         payload = VIDEO_MEETING_RECORDER_COMPONENT(
-            state=st.session_state.get("recording_video_meeting_state"),
-            max_minutes=15,
+            max_minutes=60,
             key=f"video_meeting_recorder_{st.session_state.recording_video_meeting_version}",
         )
     if isinstance(payload, dict):
         event = str(payload.get("event") or "")
-        if event == "recorded":
+        if event == "process":
             recording = payload.get("recording") or {}
             if not recording.get("data_base64") or not recording.get("size_bytes"):
-                st.session_state.recording_video_meeting_state = None
                 st.error("The recording was empty. Please try recording again.")
             else:
-                st.session_state.recording_video_meeting_state = recording
-            st.rerun()
-        if event == "clear":
-            clear_video_recording_state()
-        if event == "process" and st.session_state.get("recording_video_meeting_state"):
-            start_recorded_video_meeting_workflow(st.session_state.recording_video_meeting_state)
+                start_recorded_video_meeting_workflow(recording)
 
 
 def render_workflow_header(stage: str) -> None:

@@ -165,24 +165,43 @@ def test_empty_recording_payload_produces_zero_length_upload() -> None:
     assert upload.getbuffer().nbytes == 0
 
 
-def test_render_video_recorder_card_rejects_empty_recorded_event() -> None:
-    # Mirrors render_record_video_meeting_card's guard: an "event":
-    # "recorded" payload with no data/size must not be accepted as a
-    # usable pending recording.
+def test_render_video_recorder_card_rejects_empty_process_event() -> None:
+    # Mirrors render_record_video_meeting_card's guard under the repaired,
+    # one-shot protocol: an "event": "process" payload with no data/size
+    # must be rejected with an error and must NOT enter process_upload()
+    # (no start_recorded_video_meeting_workflow call, no rerun).
     import app.main as m
 
     st.session_state = _fresh_session_state()
 
     class FakeComponent:
         def __call__(self, *args, **kwargs):
-            return {"event": "recorded", "recording": {"name": "x.webm", "mime_type": "video/webm", "duration_seconds": 0, "size_bytes": 0, "data_base64": ""}}
+            return {"event": "process", "recording": {"name": "x.webm", "mime_type": "video/webm", "duration_seconds": 0, "size_bytes": 0, "data_base64": ""}}
 
-    with patch.object(m, "VIDEO_MEETING_RECORDER_COMPONENT", FakeComponent()), patch.object(m.st, "error") as show_error, patch.object(m.st, "button", return_value=False), patch.object(m.st, "rerun", side_effect=RuntimeError("stop")):
-        with pytest.raises(RuntimeError):
-            m.render_record_video_meeting_card()
+    with patch.object(m, "VIDEO_MEETING_RECORDER_COMPONENT", FakeComponent()), patch.object(m, "start_recorded_video_meeting_workflow") as mock_start, patch.object(m.st, "error") as show_error, patch.object(m.st, "button", return_value=False):
+        m.render_record_video_meeting_card()
 
-    assert st.session_state.get("recording_video_meeting_state") is None
+    mock_start.assert_not_called()
     assert show_error.call_count == 1
+
+
+def test_render_video_recorder_card_process_event_starts_workflow_once() -> None:
+    # A valid "process" payload is handed directly to
+    # start_recorded_video_meeting_workflow -- no intermediate
+    # recording_video_meeting_state round trip (Part 16 repair).
+    import app.main as m
+
+    st.session_state = _fresh_session_state()
+    recording = {"name": "meeting.webm", "mime_type": "video/webm", "duration_seconds": 12, "size_bytes": 4, "data_base64": base64.b64encode(b"data").decode()}
+
+    class FakeComponent:
+        def __call__(self, *args, **kwargs):
+            return {"event": "process", "recording": recording}
+
+    with patch.object(m, "VIDEO_MEETING_RECORDER_COMPONENT", FakeComponent()), patch.object(m, "start_recorded_video_meeting_workflow") as mock_start, patch.object(m.st, "button", return_value=False):
+        m.render_record_video_meeting_card()
+
+    mock_start.assert_called_once_with(recording)
 
 
 def test_malformed_base64_recording_does_not_crash_conversion() -> None:
