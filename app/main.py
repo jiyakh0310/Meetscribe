@@ -20,11 +20,7 @@ from typing import Any
 import streamlit as st
 import streamlit.components.v1 as components
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-project_root_text = str(PROJECT_ROOT)
-if project_root_text in sys.path:
-    sys.path.remove(project_root_text)
-sys.path.insert(0, project_root_text)
+
 
 BRAND_LOGO_PATH = Path(__file__).resolve().parent / "assets" / "meetscribe-logo.png"
 MEETING_RECORDER_COMPONENT = components.declare_component(
